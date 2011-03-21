@@ -1,9 +1,5 @@
 <?php
-function IncludeClasses() {
-	$dir = opendir(PATH_CLASS);
-	while($file = readdir($dir))
-		if(strpos($file, '.class.php') !== false && ($file != '.' || $file != '..'))
-			include_once(PATH_CLASS.$file);
-	closedir($dir);
+function __autoload($className) {
+	include_once(PATH_CLASS.$className.'.class.php');
 }
 ?>

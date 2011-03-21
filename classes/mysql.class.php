@@ -1,5 +1,5 @@
 <?php
-class mysql_con {
+class mysql {
 	private $Connect;
 	
 	public function __construct($Host, $Username, $Password, $Database) {
