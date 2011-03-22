@@ -1,5 +1,4 @@
 <?php
-include_once('constants.inc.php');
 class messageParser {
 	protected $message = '';
 	
