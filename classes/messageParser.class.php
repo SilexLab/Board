@@ -15,13 +15,13 @@ class messageParser {
 					'/http:\/\/(.*)/',
 					'/www.(.*)/');
 	protected $BBCodeReplace = array('<strong>$1</strong>',
-					'<u>$1</u>',
-					'<i>$1</i>',
+					'<span style="text-decoration: underline;">$1</span>',
+					'<span style="font-style: italic;">$1</span>',
 					'<span style="text-decoration: line-through;">$1</span>',
-					'<img src="$1" />','<a href="$1">$2</a>',
+					'<img src="$1">','<a href="$1">$2</a>',
 					'<h1>$1</h1>','<h2>$1</h2>',
 					'<h3>$1</h3>','<h4>$1</h4>',
-					'<div style="height: 2px; background: black;"></div>',
+					'<div style="height: 2px; background: black; margin: 5px 0 5px 0;"></div>',
 					'<a href="http://$1">$1</a>',
 					'<a href="http://$1">$1</a>');
 
@@ -30,10 +30,10 @@ class messageParser {
 					'/:\(/',
 					'/:D/',
 					'/\(h\)/');
-	protected $smileyReplace = array('<img src="images/smiley/smile.png" alt="Smile" />',
-					'<img src="images/smiley/sad.png" alt="Sad" />',
-					'<img src="images/smiley/bigsmile.png" alt="BigSmile" />',
-					'<img src="images/smiley/heart.png" alt="Heart" />');
+	protected $smileyReplace = array('<img style="margin-bottom: -3px;" src="images/smiley/smile.png" alt="Smile">',
+					'<img style="margin-bottom: -3px;" src="images/smiley/sad.png" alt="Sad">',
+					'<img style="margin-bottom: -3px;" src="images/smiley/bigsmile.png" alt="BigSmile">',
+					'<img style="margin-bottom: -3px;" src="images/smiley/heart.png" alt="Heart">');
 	
 	public function parse($message, $enableBBCodes = true, $enableSmilies = true, $enableHtml = false) {
 		$this->message = $message;
