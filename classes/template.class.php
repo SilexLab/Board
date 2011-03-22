@@ -16,7 +16,7 @@ class template {
 		} unset($tpl);
 	}
 	
-	private function Parse($Debug = false) {
+	private function Parse($Debug = false) { // TODO: Write this Smarter (It works, but it's ugly)
 		// Parsing Includes
 		preg_match_all($this->patTPL, $this->Content, $match);
 		for($i = 0; $i < sizeof($match[0]); $i++) {
