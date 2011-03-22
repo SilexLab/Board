@@ -38,6 +38,10 @@ class template {
 	// Adding Template
 	public function AddTPL($template, $return = false) {
 		$tpl = file_get_contents(PATH_TPL.$template.'.tpl');
+		
+		//New line at end of file
+		$tpl .= "\n";
+		
 		if($return)
 			return $tpl;
 		$this->Content .= $tpl;
