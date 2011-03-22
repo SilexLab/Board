@@ -3,10 +3,10 @@ include_once('constants.inc.php');
 include_once('config.inc.php');
 include_once('functions.inc.php');
 
-$mysql = new mysql($CFG_Host, $CFG_User, $CFG_Password, $CFG_Database);
-$test = $mysql->DoQuery('SELECT * FROM itschi_posts');
-echo $test[1]->post_id;
+$parser = new messageParser;
+$message = $parser->parse('[b]Hi nox[/b] (h)');
 
 $tpl = new template('head', 'body', 'footer');
+$tpl->Assign('message', $message);
 $tpl->Display();
 ?>

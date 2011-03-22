@@ -1,4 +1,3 @@
 <body>
-	Nox ist cool!
-	Zockel nicht!!!
+	{$message}
 </body>
