@@ -30,10 +30,10 @@ class messageParser {
 					'/:\(/',
 					'/:D/',
 					'/\(h\)/');
-	protected $smileyReplace = array('<img src="images/smiley/smile.png" alt="Smile" />',
-					'<img src="images/smiley/sad.png" alt="Sad" />',
-					'<img src="images/smiley/bigsmile.png" alt="BigSmile" />',
-					'<img src="images/smiley/heart.png" alt="Heart" />');
+	protected $smileyReplace = array('<img src="'.PATH_SMILEY.'smile.png" alt="Smile" />',
+					'<img src="'.PATH_SMILEY.'sad.png" alt="Sad" />',
+					'<img src="'.PATH_SMILEY.'bigsmile.png" alt="BigSmile" />',
+					'<img src="'.PATH_SMILEY.'heart.png" alt="Heart" />');
 	
 	public function parse($message, $enableBBCodes = true, $enableSmilies = true, $enableHtml = false) {
 		$this->message = $message;
