@@ -1,4 +1,5 @@
-﻿Silex Bulletin Board
+﻿<img src="images/LogoWBack.png">
+Silex Bulletin Board
 ====================
 
 Diese Forensoftware wird von Cadillaxx, NoxNebula und Nut geschrieben.
