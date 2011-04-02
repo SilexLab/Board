@@ -50,5 +50,6 @@ class Login extends mysql {
 
 }
 
-Connect();
+$connect = new mysql;
+$connect->Connect();
 ?>
