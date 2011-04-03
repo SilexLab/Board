@@ -19,7 +19,7 @@ $this->Items['com.sbb.register.invalid_username']	= 'Ungültiger Benutzername<br
 $this->Items['com.sbb.register.incorrect_password']	= 'Die Passwörter stimmen nicht überein<br>\n';
 $this->Items['com.sbb.register.incorrect_email']	= 'Die E-Mail Adressen stimmen nicht überein<br>\n';
 $this->Items['com.sbb.register.username.exist']		= 'Dieser Benutzername existiert bereits!<br>\n';
-$this->Items['com.sbb.register.email.exist']		= 'Dieser E-Mail Adresse existiert bereits!<br>\n';
+$this->Items['com.sbb.register.email.exist']		= 'Diese E-Mail Adresse existiert bereits!<br>\n';
 $this->Items['com.sbb.register.success']			= 'Du hast dich erfolgreich registriert!';
 
 $this->Items['com.sbb.form.submit']					= 'Absenden';
