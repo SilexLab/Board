@@ -1,4 +1,10 @@
 <?php
+/**
+ * @author		SilexBoard Team
+ *					Nut
+ * @copyright	2011 SilexBoard
+ */
+
 include('mysql.class.php');
 class Login extends mysql {
 	

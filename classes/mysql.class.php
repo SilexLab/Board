@@ -1,4 +1,10 @@
 <?php
+/**
+ * @author		SilexBoard Team
+ *					Nut, Nox Nebula
+ * @copyright	2011 SilexBoard
+ */
+
 class mysql {
 	private $Connect;
 	

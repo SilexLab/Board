@@ -1,4 +1,10 @@
 <?php
+/**
+ * @author		SilexBoard Team
+ *					Cadillaxx
+ * @copyright	2011 SilexBoard
+ */
+
 class messageParser {
 	protected $message = '';
 	
