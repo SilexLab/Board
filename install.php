@@ -1,20 +1,18 @@
-<?php 
+<?php
+	
 	include_once('constants.inc.php');
-	include_once('config.inc.php');
+	/*include_once('config.inc.php');*/
 	include_once('functions.inc.php');
-	
 	session_start();
-	if(isset($_GET['restart']) && $_GET['restart']){
- 		$_SESSION['installer'] = null;
-	}
 	
+	//setzt session
 	if(!isset($_SESSION['installer'])){
 		$_SESSION['installer'] = new Installer();
 	}
 	
+	//setzt entsprechend Step hoch oder runter
 	if($_SESSION['installer']->validateCurrentStep()){
 		if((isset($_POST['next']) && $_POST['next']) || (isset($_POST['finish']) && $_POST['finish'])){
-			$_SESSION['installer']->params[$_SESSION['installer']->step-1] = $_POST;
 			$_SESSION['installer']->step++;
 		}
 		if(isset($_POST['back']) && $_POST['back']){
@@ -22,13 +20,13 @@
 		}
 	}
 ?>
-  
-	<h1><?php echo $_SESSION['installer']->getHeadline(); ?></h1>
+  	
+	<h1><?php echo $_SESSION['installer']->getHeadline(); //Headline für entsprechenden Step?></h1>
     <form action="install.php" method="POST">
 	<?php
-		echo $_SESSION['installer']->getContent();
+		echo $_SESSION['installer']->getContent(); //Content für entsprechenden Step
 		echo '<br />';
-		if(!$_SESSION['installer']->isInstalled){
+		if(!$_SESSION['installer']->isInstalled){ //Wenn nicht installiert ist werden buttons angezeigt
 
 			if($_SESSION['installer']->showBackButton()){
 	?>

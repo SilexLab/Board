@@ -6,8 +6,8 @@
  */
 
 class Installer{
-	public $step         = 1;
-	public $allsteps     = 5;
+	public $step         = 1; //bei welchem step angefangen wird
+	public $allsteps     = 5; //wieviele steps es gibt
 	public $steps        = null;
 	public $params       = null;
 	private $systemcheck = true;
@@ -23,6 +23,7 @@ class Installer{
 		$this->allsteps = sizeof($this->steps);
 	}
 
+	//hier kommen die einezelne Steps, $step['headline'] für die Überschrift und $step['content'] für den Inhalt ^^
 	private function addWelcome(){
 		$step['headline'] = 'Willkommen';
 		$step['content']  = 'Diese Forensoftware wird von Cadillaxx, NoxNebula und Nut geschrieben. <br />
@@ -59,13 +60,17 @@ Wir haben zwar alle keinen Plan von PHP aber langeweile, aus der das <Hier Namen
 		$step['content']  = 'installiert';
 		$this->steps[] = $step;
 	}
-
+	
+	//Die headline wird ausgegben
 	public function getHeadline(){
 		return $this->steps[$this->step-1]['headline'];
 	}
-
+	
+	//content wird ausgegeben
 	public function getContent(){
 		$res =  $this->steps[$this->step-1]['content'];
+		
+		//wen er durch alle steps ist wird die Installation ausgeführt
 		if($this->step == $this->allsteps){
 			$this->runInstallation();
 		}
@@ -77,34 +82,40 @@ Wir haben zwar alle keinen Plan von PHP aber langeweile, aus der das <Hier Namen
 		return $res;
 	}
 
+	//Installation wird ausgeführt, sprich Einstellungen werden in DB gespeichert usw.
 	private function runInstallation(){
 		$this->writeDBSettings();
-		include('../config.inc.php');
+		/*include('../config.inc.php');*/
 		$connection = mysql_connect($dbhost,$dbuser,$dbpassword);
 		mysql_select_db($db,$connection);
-		$this->isInstalled = true;
+		$this->isInstalled = true; 
 	}
 
+	//zeigt den Zurückbutton außer beim ersten Step
 	public function showBackButton(){
 		return $this->step > 1 and $this->step != $this->allsteps;
 	}
 
+	//zeigt den Nextbutton außer beim letzten Step
 	public function showNextButton(){
 		return $this->step < $this->allsteps-1;
 	}
 
+	//zeigt Finishbutton wen alle Steps durch sind
 	public function showFinishButton(){
 		return $this->step == $this->allsteps-1;
 	}
   
+  	//wen systemcheck stimmt gehts weiter sonst bleibt er beim systemcheck bis alles stimmt
 	public function validateCurrentStep(){
 		return $this->step != 3 or $this->systemcheck;
 	}
-
+	
+	//Schreibt die DB-Settings in die config
 	private function writeDBSettings(){
-		$handle = fopen ( "../config.inc.php", "w" );
+/*		$handle = fopen ( "../config.inc.php", "w" );
 		fwrite($handle,'hier kommt setings von form');
-		fclose($handle);
+		fclose($handle);*/
 	}
 
 }
