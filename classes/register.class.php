@@ -15,6 +15,13 @@ class register {
 			self::$error .= '{lang=com.sbb.register.incorrect_password}';
 		if($post['email'] != $post['emailrepeat'])
 			self::$error .= '{lang=com.sbb.register.incorrect_email}';
+		$sql = new mysqlQuery;
+		$sql->Select("users", "UserName", "Username = '".$post['username']."'");
+		if($sql->NumRows() == 1)
+			self::$error .= '{lang=com.sbb.register.username.exist}';
+		$sql->Select("users", "Email", "Email = '".$post['email']."'");
+		if($sql->NumRows() == 1)
+			self::$error .= '{lang=com.sbb.register.email.exist}';
 		
 		if(!empty(self::$error))
 			return false;
