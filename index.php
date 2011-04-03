@@ -15,10 +15,10 @@ $tpl = new template('head', 'body', 'footer');
 
 $message = $parser->parse('[b]Hi Nox[/b] (h)');
 $tpl->Assign('message', $message);
-//$tpl->Assign('Site', 'Seitentitel');
-$tpl->Assign(array('VariablenSindQL' => 'Variablen sind QL',
-'Test2Var' => 'Eine Variable im Test2 Template'));
+$tpl->Assign(array('Site' => 'Seitentitel',
+'Slogan' => 'Slogan der Seite'));
 
 $language->Assign($tpl);
 $tpl->Display(false, false);
+					// ^- Bugt rum wenn true :O
 ?>

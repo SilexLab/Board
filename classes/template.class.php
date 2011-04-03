@@ -12,7 +12,7 @@ class template {
 	
 	public $Debug = false;		// TODO: Wenn $Debug == true, bugt alles rum :O
 	public $IsTemplateObject = false;
-	public $patVar = '/\{\$(?!:)(.*?)\}/ism';		// {$Varname}		- Palette für Variablen (Diese Variablen stehen in der Datenbank)
+	public $patVar = '/\{\$(?!:)(.*?)\}/ism';		// {$Varname}		- Palette für Variablen (Diese Variablen stehen in der Datenbank) <- TODO
 	public $patLang = '/\{lang\=(.*?)\}/ism';		// {lang=string}	- Palette für Languagestrings (Diese Variablen stehen im Langfile)
 	public $patTPL = '/\{\$:(.*?)\}/ism';			// {$:Includefile}	- Palette für Templates (Templates includen)
 	public $patComment = '/\{\/\*(.*?)\*\/\}/ism';	// {/* ... */}		- Palette für Kommentare (Kommentare, die nicht ausgegeben werden)
