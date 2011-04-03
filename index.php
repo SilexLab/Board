@@ -5,9 +5,7 @@
  * @copyright	2011 SilexBoard
  */
 
-include_once('constants.inc.php');
-include_once('config.inc.php');
-include_once('functions.inc.php');
+include_once('init.php');
 
 $parser = new messageParser();
 $language = new language();

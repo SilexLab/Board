@@ -18,6 +18,8 @@ $this->Items['com.sbb.register.password.repeat']	= 'Repeat password';
 $this->Items['com.sbb.register.invalid_username']	= 'Invalid username<br>\n';
 $this->Items['com.sbb.register.incorrect_password']	= 'The passwords don\'t match<br>\n';
 $this->Items['com.sbb.register.incorrect_email']	= 'The e-mail adresses don\'t match<br>\n';
+$this->Items['com.sbb.register.username.exist']		= 'This username exists already!<br>\n';
+$this->Items['com.sbb.register.email.exist']		= 'This e-mail adress exists already!<br>\n';
 $this->Items['com.sbb.register.success']			= 'You are successfully registered!';
 
 $this->Items['com.sbb.form.submit']					= 'Submit';
