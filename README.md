@@ -9,14 +9,11 @@ Wir haben zwar alle keinen Plan von PHP aber langeweile, aus der das Silex Board
 
 Teammitglieder
 --------------
-Nox Nebula
-~~~~~~~~~~
+### Nox Nebula
 Die Idee, ein eigenes Board zu schreiben, stammt von ihm, er ist als PHP-Programmierer, Designer und Stuffmanager am Projekt beteiligt.
 
-Cadillaxx
-~~~~~~~~~
+### Cadillaxx
 Cadillaxx beteiligt sicht am Projekt als PHP-Programmierer.
 
-Nut
-~~~
+### Nut
 Nut ist als PHP-Programmierer und Designer tätig.
