@@ -22,11 +22,11 @@ class mysql {
 	}
 	
 	public function DoQuery($Query) {
-		$Result = mysql_query($Query, $this->Connect);
+		$Result = mysql_query($Query, $this->Connect) or die(mysql_error());
 		//mysql_num_rows($result);
 		if($Result) {
 			$Fetch;
-			while($Row = mysql_fetch_object($Result))
+			while($Row = @mysql_fetch_object($Result))
 				$Fetch[] = $Row;
 			return $Fetch;
 		}
