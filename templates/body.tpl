@@ -1,4 +1,3 @@
 <body>
-	{$message}
     {$:test}
 </body>

@@ -14,7 +14,7 @@ $tpl = new template('head', 'register', 'footer');
 if(isset($_POST['submit'])) {
 	if(register::Check($_POST)) {
 		user::Create($_POST['username'], $_POST['password'], $_POST['email']);
-		$tpl->Assign('message', 'Du hast dich erfolgreich registriert!');
+		$tpl->Assign('message', '{lang=com.sbb.register.success}');
 	}
 	else
 		$tpl->Assign('message', register::getError());

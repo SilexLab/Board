@@ -1,7 +1,7 @@
 <?php
 /**
  * @author		SilexBoard Team
- *					Nox Nebula
+ *					Nox Nebula, Cadillaxx
  * @copyright	2011 SilexBoard
  */
 
@@ -9,10 +9,16 @@
 
 $this->Items['com.sbb.header.welcome']				= 'Welcome';
 $this->Items['com.sbb.header.welcome_text']			= 'Welcome on {$Site} - {$Slogan}';
+
 $this->Items['com.sbb.register.username']			= 'Username';
 $this->Items['com.sbb.register.email']				= 'E-mail address';
 $this->Items['com.sbb.register.email.repeat']		= 'Repeat E-mail address';
 $this->Items['com.sbb.register.password']			= 'Password';
 $this->Items['com.sbb.register.password.repeat']	= 'Repeat password';
+$this->Items['com.sbb.register.invalid_username']	= 'Invalid username<br>\n';
+$this->Items['com.sbb.register.incorrect_password']	= 'The passwords don\'t match<br>\n';
+$this->Items['com.sbb.register.incorrect_email']	= 'The e-mail adresses don\'t match<br>\n';
+$this->Items['com.sbb.register.success']			= 'You are successfully registered!';
+
 $this->Items['com.sbb.form.submit']					= 'Submit';
 ?>

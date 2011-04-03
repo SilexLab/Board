@@ -1,7 +1,7 @@
 <?php
 /**
  * @author		SilexBoard Team
- *					Cadillaxx
+ *					Cadillaxx, Nox Nebula
  * @copyright	2011 SilexBoard
  */
 
@@ -10,11 +10,11 @@ class register {
 	
 	public static function Check($post) {
 		if(!preg_match('/^[A-Za-z0-9_]/', $post['username']))
-			self::$error .= "Ungültiger Benutzername<br>\n";
+			self::$error .= '{lang=com.sbb.register.invalid_username}';
 		if($post['password'] != $post['passwordrepeat'])
-			self::$error .= "Die Passwörter stimmen nicht überein<br>\n";
+			self::$error .= '{lang=com.sbb.register.incorrect_password}';
 		if($post['email'] != $post['emailrepeat'])
-			self::$error .= "Die E-Mail Adressen stimmen nicht überein<br>\n";
+			self::$error .= '{lang=com.sbb.register.incorrect_email}';
 		
 		if(!empty(self::$error))
 			return false;
