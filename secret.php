@@ -1,8 +1,5 @@
 <?php
-include_once('constants.inc.php');
-include_once('config.inc.php');
-include_once('functions.inc.php');
-session_start();
+include_once('init.php');
 $tpl = new template('head', 'body', 'footer');
 $login = new Login;
 

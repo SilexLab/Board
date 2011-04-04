@@ -85,7 +85,7 @@ class mysqlQuery {
 		else if(!empty($where)) {
 			$query = 'DELETE FROM '.$table.' WHERE '.$where.';';
 		}
-		else{
+		else {
 			die('Something went wrong :O');
 		}
 
