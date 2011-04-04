@@ -1,7 +1,7 @@
 <?php
 /**
  * @author		SilexBoard Team
- *					Nut
+ *					Nut, Cadillaxx, Nox Nebula
  * @copyright	2011 SilexBoard
  */
 
@@ -38,7 +38,7 @@ class Login {
 	
 	
 	//speichert die Session zur richtigen ID, $userid kommt von check_user
-	public function doLogin ($userid) {
+	public function DoLogin ($userid) {
 		$sql = new mysqlQuery;
 		$inserts = array("Time" => time(),
 				"UserID" => $userid,
