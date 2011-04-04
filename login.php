@@ -7,7 +7,7 @@ $login = new Login;
 if (isset($_POST['login'])) { //wen abgesendet wurde dann
     $userid = $login->check_user($_POST['username'], $_POST['userpass']); //user_check
     if ($userid) {
-        $login->doLogin($userid); //wen alles stimmt wird engeloggt
+        $login->DoLogin($userid); //wen alles stimmt wird engeloggt
     } else {
         echo '<p>Ihre Anmeldedaten waren nicht korrekt!</p>';
     }
