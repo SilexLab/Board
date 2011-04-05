@@ -15,7 +15,7 @@ if(isset($_POST['submit'])) {
 	$sql = new mysqlQuery;
 	$updates = array("Homepage" => $_POST['homepage'],
 					"Signatur" => $_POST['signature']);
-	$sql->Update("users", $updates, "ID = 1"); // ToDo: funktion um die UserID rauszufinden
+	$sql->Update("users", $updates, "ID = 1"); // TODO: funktion um die UserID rauszufinden
 }
 
 $language->Assign($tpl);
