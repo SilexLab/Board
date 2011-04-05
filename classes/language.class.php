@@ -1,7 +1,7 @@
 <?php
 /**
  * @author		SilexBoard Team
- *					Nox Nebula
+ *					Nox Nebula, Cadillaxx
  * @copyright	2011 SilexBoard
  */
 
@@ -11,6 +11,10 @@ class language {
 	function __construct() {
 		// TODO: Auslesen der Sprache aus der MySQL-Datenbank und includen der selbigen
 		include_once(PATH_LANGUAGE.$this->Default.'.php');
+	}
+	
+	public function Get($Key) {
+		return $this->Items[$Key];
 	}
 	
 	/* Assign to the Template Object */

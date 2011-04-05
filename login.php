@@ -1,11 +1,12 @@
 <?php
 include_once('init.php');
 
-$tpl = new template('head', 'body', 'footer');
+$language = new language();
+$tpl = new template('head', 'login', 'footer');
 $login = new Login;
 
-if (isset($_POST['login'])) { //wen abgesendet wurde dann
-    $userid = $login->check_user($_POST['username'], $_POST['userpass']); //user_check
+if (isset($_POST['submit'])) { //wen abgesendet wurde dann
+    $userid = $login->check_user($_POST['username'], $_POST['password']); //user_check
     if ($userid) {
         $login->DoLogin($userid); //wen alles stimmt wird engeloggt
     } else {
@@ -14,16 +15,22 @@ if (isset($_POST['login'])) { //wen abgesendet wurde dann
 }
 
 if (!$login->logged_in()) { //wen nicht eingeloggt ist wird loginfeld angezigt
-    echo '
-<form method="post" action="login.php">
-<label>Benutzername:</label> <input name="username" type="text"><br />
-<label>Passwort:</label> <input name="userpass" type="password" id="userpass"><br />
-<input name="login" type="submit" id="login" value="Einloggen">
-</form>
-';
+    $tpl->Assign('content', '<form method="post">
+		<table>
+			<tr>
+				<td><label for="username">'.$language->Get('com.sbb.login.username').'</label></td>
+				<td><input type="text" name="username" id="username" size="30" required /></td>
+			</tr>
+			<tr>
+				<td><label for="password">'.$language->Get('com.sbb.login.password').'</label></td>
+				<td><input type="password" name="password" id="password" size="30" required /></td>
+			</tr>
+		</table>
+		<input type="submit" name="submit" value="'.$language->Get('com.sbb.form.submit').'" />
+	</form>');
 } else { //ansonsten ist eingeloggt
-    echo '<p><a href="secret.php">Testseite</a></p>';
-    echo '<p><a href="logout.php">Ausloggen</a></p>';
+    $tpl->Assign('content', "<p><a href=\"secret.php\">Testseite</a></p>
+	<p><a href=\"logout.php\">Ausloggen</a></p>");
 }
 $tpl->Display();
 ?>

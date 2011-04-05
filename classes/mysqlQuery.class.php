@@ -48,14 +48,16 @@ class mysqlQuery {
 		return mysql_affected_rows($this->resutl);
 	}
 
-	public function Update($table, $updates) {
+	public function Update($table, $updates, $where) {
 		$update = 'UPDATE '.$table.' SET ';
 
 		foreach($updates as $key => $value) {
 			$update .= $key.' = \''.$value.'\', ';
-		}
+		}		
     
 		$update = trim($update, ', ');
+		
+		$update .= ' WHERE '.$where;
 		
 		$update .= ';';
 

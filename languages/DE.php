@@ -22,5 +22,13 @@ $this->Items['com.sbb.register.username.exist']		= 'Dieser Benutzername existier
 $this->Items['com.sbb.register.email.exist']		= 'Diese E-Mail Adresse existiert bereits!<br>\n';
 $this->Items['com.sbb.register.success']			= 'Du hast dich erfolgreich registriert!';
 
+$this->Items['com.sbb.login.username']				= 'Benutzername';
+$this->Items['com.sbb.login.password']				= 'Passwort';
+
 $this->Items['com.sbb.form.submit']					= 'Absenden';
+
+$this->Items['com.sbb.user.logout']					= 'Ausloggen';
+
+$this->Items['com.sbb.profile.homepage']			= 'Homepage';
+$this->Items['com.sbb.profile.signature']			= 'Signatur';
 ?>
