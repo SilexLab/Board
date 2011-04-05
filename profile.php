@@ -1,10 +1,13 @@
 <?php
 include_once('init.php');
 
-$login = new Login;
+$login = new login;
 $language = new language;
 $tpl = new template('head', 'profile', 'footer');
 
+$tpl->Assign(array('Site' => 'Seitentitel',
+'Slogan' => 'Slogan der Seite',
+'message' => ''));
 if($login->logged_in()) {
     $tpl->Assign(array());
 }

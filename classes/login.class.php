@@ -24,8 +24,10 @@ class Login {
 		//Prüft ob Name und Password stimmen
 		$sql = new mysqlQuery;
 		$sql->Select('users', 'Salt', 'UserName = \''.$name.'\'', '', 1);
-		$salt = $sql->FetchObject()->Salt;
-		$sql->Select('users', 'ID', 'UserName = \''.$name.'\' AND Password = \''.sha1($salt.md5($salt.sha1($pass.md5($salt)))).'\'');
+		if ($row = $sql->numRows() == 1) {
+                    $salt = $sql->FetchObject()->Salt;
+                    $sql->Select('users', 'ID', 'UserName = \''.$name.'\' AND Password = \''.sha1($salt.md5($salt.sha1($pass.md5($salt)))).'\'');
+                }
 		
 		//Gibt UserId aus
 		if ($row = $sql->numRows() == 1) {

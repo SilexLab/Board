@@ -4,6 +4,9 @@
  *					Cadillaxx
  * @copyright	2011 SilexBoard
  */
+// Error reporting
+ini_set("display_errors", 1);
+error_reporting(E_ALL | E_STRICT);
 
 // Include required files
 require_once('config.inc.php');
