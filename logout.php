@@ -1,6 +1,6 @@
 <?php
 include_once('init.php');
-$login = new Login;
+$login = new login;
 
 $login->DoLogout();
 

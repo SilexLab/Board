@@ -3,7 +3,7 @@ include_once('init.php');
 
 $language = new language();
 $tpl = new template('head', 'login', 'footer');
-$login = new Login;
+$login = new login;
 
 if (isset($_POST['submit'])) { //wen abgesendet wurde dann
     $userid = $login->check_user($_POST['username'], $_POST['password']); //user_check
@@ -32,5 +32,7 @@ if (!$login->logged_in()) { //wen nicht eingeloggt ist wird loginfeld angezigt
     $tpl->Assign('content', "<p><a href=\"secret.php\">Testseite</a></p>
 	<p><a href=\"logout.php\">Ausloggen</a></p>");
 }
+$tpl->Assign(array('Site' => 'Seitentitel',
+'Slogan' => 'Slogan der Seite'));
 $tpl->Display();
 ?>
