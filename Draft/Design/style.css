@@ -16,7 +16,7 @@ body {
 	border-color: #b3e2ff;
 }
 
-#header {
+header {
 	height: 218px;
 	background-image: url('images/bg_header.png');
 }
@@ -26,9 +26,9 @@ body {
 	width: 900px;
 }
 
-#nav {
+nav {
 	height: 35px;
-	background-image: url('images/bg_nav.png');
+	background-image: url('images/bg_nav.png');	
 	margin-bottom: 20px;
 	border-style: solid;
 	border-width: 1px 0px 1px 0px;
