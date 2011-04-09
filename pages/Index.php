@@ -11,5 +11,9 @@ if(!defined('SILEX_VERSION'))
 
 $parser = new messageParser();
 $message = $parser->parse('[b]Hi Nox[/b] (h)');
+$message .= '<br>
+			{$Blablub}<br>
+			{lang=string}<br>
+			{$:SonTemplate}';
 self::$TPL->Assign('message', $message);
 ?>

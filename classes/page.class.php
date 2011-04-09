@@ -16,8 +16,8 @@ class page {
 		else
 			self::$Page = null;
 		
-		self::$TPL = &$TemplateObject;
-		//$TemplateObject->Assign('message', 'TEST?'); // Referenz Debug ... GEHT NICHT FUASFUHDSIOJ!"!UJHE$
+		self::$TPL = $TemplateObject;
+		self::Open();
 	}
 	
 	public static function Open() {
