@@ -11,12 +11,14 @@ $parser = new messageParser();
 $language = new language();
 $tpl = new template('head', 'body', 'footer');
 
-$message = $parser->parse('[b]Hi Nox[/b] (h)');
-$tpl->Assign('message', $message);
 $tpl->Assign(array('Site' => 'Seitentitel',
 'Slogan' => 'Slogan der Seite'));
 
 $language->Assign($tpl);
 $tpl->Display(false, false);
 					// ^- Bugt rum wenn true :O
+$a = 5;
+$b = &$a;
+$b++;
+echo $a;
 ?>
