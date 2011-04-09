@@ -31,7 +31,7 @@ class page {
 			else if(file_exists(PATH_PAGE.self::$Page.'.php'))
 				include(PATH_PAGE.self::$Page.'.php');
 			else // Wenn nichts gefunden wurde
-				include(PATH_PAGE.'Error');
+				include(PATH_PAGE.'Error.php');
 		}
 	}
 }

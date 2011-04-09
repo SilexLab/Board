@@ -11,6 +11,7 @@ $parser = new messageParser();
 $language = new language();
 $tpl = new template('head', 'body', 'footer');
 page::Initial($tpl);
+page::Open();
 
 $tpl->Assign(array('Site' => 'Seitentitel',
 'Slogan' => 'Slogan der Seite'));
