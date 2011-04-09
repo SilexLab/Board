@@ -11,9 +11,13 @@ class page {
 	private static $Page;
 	
 	public static function Initial(&$TemplateObject) {
-		self::$Page = $_GET['page'];
+		if(isset($_GET['page']))
+			self::$Page = $_GET['page'];
+		else
+			self::$Page = null;
+		
 		self::$TPL = &$TemplateObject;
-		$TemplateObject->Assign('message', 'TEST?'); // Referenz Debug ... GEHT NICHT FUASFUHDSIOJ!"!UJHE$
+		//$TemplateObject->Assign('message', 'TEST?'); // Referenz Debug ... GEHT NICHT FUASFUHDSIOJ!"!UJHE$
 	}
 	
 	public static function Open() {

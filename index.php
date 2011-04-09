@@ -10,6 +10,7 @@ include_once('init.php');
 $parser = new messageParser();
 $language = new language();
 $tpl = new template('head', 'body', 'footer');
+page::Initial($tpl);
 
 $tpl->Assign(array('Site' => 'Seitentitel',
 'Slogan' => 'Slogan der Seite'));
@@ -17,8 +18,4 @@ $tpl->Assign(array('Site' => 'Seitentitel',
 $language->Assign($tpl);
 $tpl->Display(false, false);
 					// ^- Bugt rum wenn true :O
-$a = 5;
-$b = &$a;
-$b++;
-echo $a;
 ?>

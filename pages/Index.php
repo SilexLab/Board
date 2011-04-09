@@ -9,6 +9,6 @@
 if(!defined('SILEX_VERSION'))
 	header('location: ../');
 
-//$message = $parser->parse('[b]Hi Nox[/b] (h)');
-//self::$TPL->Assign('message', $message);
+$message = $parser->parse('[b]Hi Nox[/b] (h)');
+self::$TPL->Assign('message', $message);
 ?>
