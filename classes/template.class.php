@@ -9,6 +9,7 @@ class template {
 	private $Vars = array();
 	private $Lang = array();
 	private $Content;
+	private $ParseErrors = array();
 	
 	public $Debug = false;
 	public $IsTemplateObject = false;
@@ -28,6 +29,8 @@ class template {
 	
 	private function Parse() { // TODO: Write this Smarter (It works, but it's ugly)
 		$Debug = $this->Debug;
+		$Errors = &$this->ParseErrors;
+		
 		// Parsing Includes
 		preg_match_all($this->patTPL, $this->Content, $match);
 			for($i = 0; $i < sizeof($match[0]); $i++) {
@@ -35,29 +38,39 @@ class template {
 			} unset($match);
 		
 		// Parsing Languages
+		$Errors[1] = 0;
 		preg_match_all($this->patLang, $this->Content, $match);
 			for($i = 0; $i < sizeof($match[0]); $i++) {
 				if(isset($this->Lang[$match[1][$i]]))
 					$this->Content = preg_replace($this->patLang, $this->Lang[$match[1][$i]], $this->Content, 1);
-				else if(!$Debug)
-					$this->Content = preg_replace($this->patLang, '', $this->Content, 1);
+				else {
+					if(!$Debug)
+						$this->Content = preg_replace($this->patLang, '', $this->Content, 1);
+					$Errors[1]++;
+				}
 			} unset($match);
 		
 		// Parsing Vars
+		$Errors[2] = 0;
 		preg_match_all($this->patVar, $this->Content, $match);
 			for($i = 0; $i < sizeof($match[0]); $i++) {
 				if(isset($this->Vars[$match[1][$i]]))
 					$this->Content = preg_replace($this->patVar, $this->Vars[$match[1][$i]], $this->Content, 1);
-				else if(!$Debug)
-					$this->Content = preg_replace($this->patVar, '', $this->Content, 1);
+				else {
+					if(!$Debug)
+						$this->Content = preg_replace($this->patVar, '', $this->Content, 1);
+					$Errors[2]++;
+				}
 			} unset($match);
 		
 		// Remove Comments
 		$this->Content = preg_replace($this->patComment, '', $this->Content);
 		
 		// Falls mehr Variablen gefunden wurden, erneut Parsen  // Bugt bei Debug -> Endlosschleife
-		if(preg_match($this->patTPL, $this->Content) || preg_match($this->patLang, $this->Content) ||
-			preg_match($this->patVar, $this->Content) || preg_match($this->patComment, $this->Content))
+		if(preg_match_all($this->patTPL, $this->Content, $match) > $Errors[0] ||
+			preg_match_all($this->patLang, $this->Content, $match) > $Errors[1] ||
+			preg_match_all($this->patVar, $this->Content, $match) > $Errors[2] ||
+			preg_match($this->patComment, $this->Content))
 			$this->Parse($Debug);
 	}
 	
@@ -66,11 +79,13 @@ class template {
 		if($Debuged == '')
 			$Debuged = $template;
 		
+		$this->ParseErrors[0] = 0;
 		if(!file_exists(PATH_TPL.$template.'.tpl')) {
 			if(!$this->Debug)
 				$tpl = '';
 			else
 				$tpl = $Debuged;
+			$this->ParseErrors[0]++;
 		} else
 			$tpl = file_get_contents(PATH_TPL.$template.'.tpl')."\n";
 		
