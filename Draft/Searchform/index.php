@@ -4,7 +4,7 @@ function search_query() {
 	if(isset($_GET['search']))
 		$Search = $_GET['search'];
 	
-	echo $Search;
+	echo htmlentities(stripslashes($Search));
 	
 }
 ?><style type="text/css">
