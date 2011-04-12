@@ -6,49 +6,50 @@
  */
 
 class mysqlQuery {
-	protected $sql = '';
-	protected $errno = 0;
-	protected $error = '';
-	protected $result;
+	protected static $sql = '';
+	protected static $errno = 0;
+	protected static $error = '';
+	protected static $result;
 
-	public function sql($sql) {
-		$this->sql = $sql;
-		$this->ExecuteQuery();
-	}
-	protected function executeQuery() {
-		$this->result = mysql_query($this->sql);
-		if(!$this->result) {
-			$this->errno = mysql_errno();
-			$this->error = mysql_error();
-			die($this->getError());
+	protected static function ExecuteQuery() {
+		self::$result = mysql_query(self::$sql);
+		if(!self::$result) {
+			self::$errno = mysql_errno();
+			self::$error = mysql_error();
+			die(self::GetError());
 		}
 	}
 	
-	public function GetError() {
+	public static function SQL($sql) {
+		self::$sql = $sql;
+		self::ExecuteQuery();
+	}
+	
+	public static function GetError() {
 		$str  =  "<h2 style=\"display:block;\">Fatal MySQL Error:</h2>\n"
-				."	<b>Errorcode</b>: ".$this->errno."<br />\n"
-				."	<b>Error</b>: ".$this->error."<br />"
-				."	<b>Query</b>:<div style=\"padding:0 0 0 20px;\"><pre>".$this->sql."</pre></div><br />\n"
+				."	<b>Errorcode</b>: ".self::$errno."<br />\n"
+				."	<b>Error</b>: ".self::$error."<br />"
+				."	<b>Query</b>:<div style=\"padding:0 0 0 20px;\"><pre>".self::$sql."</pre></div><br />\n"
 				."	<b>File</b>: ".__FILE__."<br />\n"
 				."	<b>Site</b>: ".(isset($_SERVER['REQUEST_URI']) && !empty($_SERVER['REQUEST_URI']) ? htmlentities($_SERVER['REQUEST_URI']) : "-")."<br />\n"
 				."	<b>Referrer</b>: ".(isset($_SERVER['HTTP_REFERER']) && !empty($_SERVER['HTTP_REFERER']) ? htmlentities($_SERVER['HTTP_REFERER']) : "-")."<br />\n"
 				."</div>\n";
 		return $str;
 	}
-	public function FetchObject() {
-		return mysql_fetch_object($this->result);
+	public static function FetchObject() {
+		return mysql_fetch_object(self::$result);
 	}
-	public function FetchArray() {
-		return mysql_fetch_assoc($this->result);
+	public static function FetchArray() {
+		return mysql_fetch_assoc(self::$result);
 	}
-	public function NumRows() {
-		return mysql_num_rows($this->result);
+	public static function NumRows() {
+		return mysql_num_rows(self::$result);
 	}
-	public function AffectedRows() {
-		return mysql_affected_rows($this->resutl);
+	public static function AffectedRows() {
+		return mysql_affected_rows(self::$result);
 	}
 
-	public function Update($table, $updates, $where) {
+	public static function Update($table, $updates, $where) {
 		$update = 'UPDATE '.$table.' SET ';
 
 		foreach($updates as $key => $value) {
@@ -61,10 +62,10 @@ class mysqlQuery {
 		
 		$update .= ';';
 
-		$this->sql = $update;
-		$this->ExecuteQuery();
+		self::$sql = $update;
+		self::ExecuteQuery();
 	}
-	public function Select($table, $rows = '*', $where = '', $order = '', $limit = '') {
+	public static function Select($table, $rows = '*', $where = '', $order = '', $limit = '') {
 		$query = 'SELECT '.$rows.' FROM '.$table;
 		if(!empty($where)) {
 			$query .= ' WHERE '.$where;
@@ -77,10 +78,10 @@ class mysqlQuery {
 		}
 		$query .= ';';
 
-		$this->sql = $query;
-		$this->ExecuteQuery();
+		self::$sql = $query;
+		self::ExecuteQuery();
 	}
-	public function Delete($table, $where = '') {
+	public static function Delete($table, $where = '') {
 		if(empty($where)) {
 			$query = 'DELETE '.$table;
 		}
@@ -91,10 +92,10 @@ class mysqlQuery {
 			die('Something went wrong :O');
 		}
 
-		$this->sql = $query;
-		$this->ExecuteQuery();
+		self::$sql = $query;
+		self::ExecuteQuery();
 	}
-	public function Insert($table, $inserts) {
+	public static function Insert($table, $inserts) {
 		$begin  = false;
 		$insert = 'INSERT INTO '.$table.' (';
 
@@ -120,12 +121,12 @@ class mysqlQuery {
 		
 		$insert .= ';';
 
-		$this->sql = $insert;
-		$this->ExecuteQuery();
+		self::$sql = $insert;
+		self::ExecuteQuery();
 	}
 	
-	public function free() {
-		mysql_free_result($this->result);
+	public static function Free() {
+		mysql_free_result(self::$result);
 	}
 }
 ?>
