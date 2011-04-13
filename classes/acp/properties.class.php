@@ -10,27 +10,25 @@
 			}
 		}
 		
-		public function set_titel($titel) {			
-			$sql = new mysqlQuery;
-			$inserts = array("ConfigName" => 'Site',
-							"ConfigValue" => $titel);
-			$sql->Insert('config', $inserts);
-		}
-		
-		public function change_titel($titel) {
-			if($this->check == true) {
-				$sql = new mysqlQuery;
-				$update = array("ConfigValue" => $titel);
-				$sql->Update('config', $update, 'ConfigName=Site');
+		public function set_titel($titel) {	
+			switch($this->check) {
+				case false:
+					$sql 		= 	new mysqlQuery;
+					$inserts	= 	array("ConfigName" => 'Site',
+									"ConfigValue" => $titel);
+					$sql->Insert('config', $inserts);
+				break;
+				
+				case true:
+					$sql 		= 	new mysqlQuery;
+					$update 	= 	array("ConfigValue" => $titel);
+					$sql->Update('config', $update, 'ConfigName=Site');
+				break;
+				
+				default:
+					exit;
+				break;	
 			}
-		}
-		
-		/*
-			Im Backend: wenn checking() == false, dann soll set_titel ausgeführt werden
- 						wenn checking() == true, dann soll change_titel ausgeführt werden
-		 */
-		public function checking() {
-			return $this->check;
 		}
 	}
 ?>
