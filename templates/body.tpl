@@ -1,3 +1,3 @@
 <body>
-    {$:test}
+    {$Content}
 </body>
