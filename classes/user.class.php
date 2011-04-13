@@ -11,7 +11,7 @@ class user {
 		$password = sha1($salt.md5($salt.sha1($password.md5($salt))));
 		$key = substr(md5(base64_encode($password.$salt)), 0, 15);
 		
-		$sql = new mysqlQuery;
+		$sql = new mysql;
 		$inserts = array("UserName" => $username,
 				"Password" => $password,
 				"Salt" => $salt,

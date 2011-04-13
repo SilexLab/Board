@@ -22,7 +22,7 @@ class Login {
 		$name = str_replace('_', '\_', $name);
 		
 		//Prüft ob Name und Password stimmen
-		$sql = new mysqlQuery;
+		$sql = new mysql;
 		$sql->Select('users', 'Salt', 'UserName = \''.$name.'\'', '', 1);
 		if ($row = $sql->numRows() == 1) {
                     $salt = $sql->FetchObject()->Salt;
@@ -41,7 +41,7 @@ class Login {
 	
 	//speichert die Session zur richtigen ID, $userid kommt von check_user
 	public function DoLogin ($userid) {
-		$sql = new mysqlQuery;
+		$sql = new mysql;
 		$inserts = array("Time" => time(),
 				"UserID" => $userid,
 				"Salt" => session_id(),
@@ -51,14 +51,14 @@ class Login {
 	
 	//wenn logged_in dann wird eingeloggte bereich gezeigt
 	public function logged_in () {
-		$sql = new mysqlQuery;
+		$sql = new mysql;
 		$sql->Select('sessions', 'UserID', 'Salt = \''.session_id().'\'');
 		return ($sql->NumRows() == 1);
 	}
 	
 	//beim ausloggen wird die session auf NULL gesetzt
 	public function DoLogout () {
-		$sql = new mysqlQuery;
+		$sql = new mysql;
 		$sql->Delete('sessions', 'Salt = \''.session_id().'\'');
 	}
 

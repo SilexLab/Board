@@ -12,7 +12,7 @@ $language = new language();
 $tpl = new template('head', 'user', 'footer');
 
 if(isset($_GET['userID'])) {
-    $sql = new mysqlQuery;
+    $sql = new mysql;
     $sql->Select('users', '*', 'ID = \''.$_GET['userID'].'\'', 1);
     if($sql->NumRows() == 1) {
         $row = $sql->FetchArray();
@@ -33,7 +33,7 @@ if(isset($_GET['userID'])) {
     }
 }
 else {
-    $sql = new mysqlQuery;
+    $sql = new mysql;
     $sql->Select('users', '*');
     while($row = $sql->FetchArray()) {
         echo "<a href=\"user.php?userID=".$row['ID']."\">".$row['UserName']."</a><br>\n";

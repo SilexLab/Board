@@ -12,7 +12,7 @@ if($login->logged_in()) {
     $tpl->Assign(array());
 }
 if(isset($_POST['submit'])) {
-	$sql = new mysqlQuery;
+	$sql = new mysql;
 	$updates = array("Homepage" => $_POST['homepage'],
 					"Signatur" => $_POST['signature']);
 	$sql->Update("users", $updates, "ID = 1"); // TODO: funktion um die UserID rauszufinden
