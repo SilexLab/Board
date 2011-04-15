@@ -11,19 +11,26 @@ if(!defined('SILEX_VERSION'))
 
 // Die Variable {$Content} aus body.tpl mit einer Templatevariable ersetzen
 self::$TPL->Assign('Content', '{$:page_index}');
+self::$TPL->Assign('Site', self::$TPL->GetVar('Site').' - Index');
 
 mysql::Select('categories');
 $Cat = array();
 while($res = mysql::FetchObject())
 	$Cat[] = $res;
+
+$ret = '';
+if(empty($Cat))
+	$ret = '{lang=com.sbb.forum_overview.empty}';
+
 foreach($Cat as $Category) {
-	echo $Category->CategoryName.'<br>';
-	echo $Category->Description.'<br>';
+	$ret .= $Category->CategoryName.'<br>'."\n".
+		$Category->Description.'<br>';
 	
 	mysql::Select('forums', '*', 'Category = '.$Category->ID);
 	while($Forum = mysql::FetchObject()) {
-		echo '- - '.$Forum->ForumName;
+		$ret .= '- - '.$Forum->ForumName;
 	}
-	echo '<br><br>';
-}
+	$ret .= "\n".'<br><br>'."\n";
+} $ret = trim($ret, "\n".'<br><br>'."\n");
+self::$TPL->Assign('ForumOverview', $ret);
 ?>

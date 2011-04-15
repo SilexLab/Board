@@ -9,10 +9,11 @@ include_once('init.php');
 
 $language = new language();
 $tpl = new template('head', 'body', 'footer');
-page::Initial($tpl);
 
 $tpl->Assign(array('Site' => 'Seitentitel',
 'Slogan' => 'Slogan der Seite'));
+page::Initial($tpl);
+
 
 $language->Assign($tpl);
 $tpl->Display(false, true);

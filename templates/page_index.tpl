@@ -1,1 +1,3 @@
-HUHAHAHA
+<hr>
+{$ForumOverview}
+<hr>

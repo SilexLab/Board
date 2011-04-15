@@ -31,4 +31,6 @@ $this->Items['com.sbb.user.logout']					= 'Logout';
 
 $this->Items['com.sbb.profile.homepage']			= 'Homepage';
 $this->Items['com.sbb.profile.signature']			= 'Signature';
+
+$this->Items['com.sbb.forum_overview.empty']		= 'Currently there are no Categories/Forums';
 ?>

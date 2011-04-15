@@ -120,6 +120,10 @@ class template {
 			$this->Vars[$var] = $value;
 	}
 	
+	public function GetVar($var) {
+		return isset($this->Vars[$var]) ? $this->Vars[$var] : false;
+	}
+	
 	// Set Languagestring(s) to parse
 	public function AssignLanguage($var, $value = null) {
 		if(is_array($var))
