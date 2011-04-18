@@ -43,7 +43,9 @@ class view {
 			$Categorylist .= $pCat->Display(true);
 			unset($pCat);
 		}
-		return $Categorylist;
+		return '<ul class="Boardlist">
+					'.$Categorylist.'
+				</ul>';
 	}
 }
 ?>
