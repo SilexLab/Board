@@ -105,6 +105,14 @@ class mysql{
 		mysql_free_result(self::$Result);
 	}
 	
+	public static function GetObjects() {
+		$Objects = array();
+		while($row = mysql::FetchObject())
+			$Objects[] = $row;
+		
+		return $Objects;
+	}
+	
 	private static function ExecuteQuery() {
 		self::$Result = mysql_query(self::$SQLQuery);
 		if(!self::$Result)
