@@ -14,4 +14,5 @@ define('PATH_CLASS',	'classes/');
 define('PATH_SMILEY',	'images/smiley/');
 define('PATH_LANGUAGE',	'languages/');
 define('PATH_PAGE',		'pages/');
+define('DB_PREFIX',		'');
 ?>

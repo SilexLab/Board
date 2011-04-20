@@ -11,5 +11,5 @@ if(!defined('SILEX_VERSION'))
 
 $parser = new messageParser();
 $message = $parser->parse('hier sollte eine fehlermeldung stehen');
-self::$TPL->Assign('message', $message);
+self::$TPL->Assign('Content', $message);
 ?>
