@@ -9,6 +9,7 @@
 
 $this->Items['com.sbb.header.welcome']				= 'Willkommen';
 $this->Items['com.sbb.header.welcome_text']			= 'Herzlich willkommen auf {$Site} - {$Slogan}';
+$this->Items['com.sbb.header.logo_title']			= 'Startseite';
 
 $this->Items['com.sbb.register.username']			= 'Benutzername';
 $this->Items['com.sbb.register.email']				= 'E-mail Adresse';
