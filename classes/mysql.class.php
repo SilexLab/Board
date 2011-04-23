@@ -90,7 +90,7 @@ class mysql{
 	}
 	
 	public static function FetchArray() {
-		return mysql_fetch_object(self::$Result);
+		return mysql_fetch_assoc(self::$Result);
 	}
 	
 	public static function NumRows() {
