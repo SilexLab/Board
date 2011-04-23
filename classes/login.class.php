@@ -22,17 +22,16 @@ class Login {
 		$name = str_replace('_', '\_', $name);
 		
 		//Prüft ob Name und Password stimmen
-		$sql = new mysql;
-		$sql->Select('users', 'Salt', 'UserName = \''.$name.'\'', '', 1);
-		if ($row = $sql->numRows() == 1) {
-                    $salt = $sql->FetchObject()->Salt;
-                    $sql->Select('users', 'ID', 'UserName = \''.$name.'\' AND Password = \''.sha1($salt.md5($salt.sha1($pass.md5($salt)))).'\'');
+		mysql::Select('users', 'Salt', 'UserName = \''.$name.'\'', '', 1);
+		if ($row = mysql::numRows() == 1) {
+                    $salt = mysql::FetchObject()->Salt;
+                    mysql::Select('users', 'ID', 'UserName = \''.$name.'\' AND Password = \''.sha1($salt.md5($salt.sha1($pass.md5($salt)))).'\'');
                 }
 		
 		//Gibt UserId aus
-		if ($row = $sql->numRows() == 1) {
-			$user = $row = $sql->FetchArray();
-			return ($user['ID']);
+		if ($row = mysql::numRows() == 1) {
+			$user = $row = mysql::FetchArray();
+			return ($user->ID);
 		} else {
 			return (false);
 		}
@@ -41,25 +40,22 @@ class Login {
 	
 	//speichert die Session zur richtigen ID, $userid kommt von check_user
 	public function DoLogin ($userid) {
-		$sql = new mysql;
 		$inserts = array("Time" => time(),
 				"UserID" => $userid,
 				"Salt" => session_id(),
 				"IP" => $_SERVER['REMOTE_ADDR']);
-		$sql->Insert("sessions", $inserts);
+		mysql::Insert("sessions", $inserts);
 	}
 	
 	//wenn logged_in dann wird eingeloggte bereich gezeigt
 	public function logged_in () {
-		$sql = new mysql;
-		$sql->Select('sessions', 'UserID', 'Salt = \''.session_id().'\'');
-		return ($sql->NumRows() == 1);
+		mysql::Select('sessions', 'UserID', 'Salt = \''.session_id().'\'');
+		return (mysql::NumRows() == 1);
 	}
 	
 	//beim ausloggen wird die session auf NULL gesetzt
 	public function DoLogout () {
-		$sql = new mysql;
-		$sql->Delete('sessions', 'Salt = \''.session_id().'\'');
+		mysql::Delete('sessions', 'Salt = \''.session_id().'\'');
 	}
 
 }
