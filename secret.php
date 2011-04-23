@@ -1,8 +1,6 @@
 <?php
 include_once('init.php');
 
-$login = new login;
-
 echo '<p>Sie sind '.(!$login->logged_in() ? 'nicht' : '').' eingeloggt.</p>';
 
 if (!$login->logged_in()) {
