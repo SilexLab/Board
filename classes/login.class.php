@@ -30,7 +30,7 @@ class Login {
 		
 		//Gibt UserId aus
 		if ($row = mysql::numRows() == 1) {
-			$user = $row = mysql::FetchArray();
+			$user = $row = mysql::FetchObject();
 			return ($user->ID);
 		} else {
 			return (false);
