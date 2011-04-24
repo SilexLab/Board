@@ -29,6 +29,9 @@ class template {
 	private function Parse() { // TODO: Write this Smarter (It works, but it's ugly)
 		$Debug = $this->Debug;
 		
+		// Remove Comments
+		$this->Content = preg_replace($this->patComment, '', $this->Content);
+		
 		// Parsing Includes
 		preg_match_all($this->patTPL, $this->Content, $match);
 			for($i = 0; $i < sizeof($match[0]); $i++) {
@@ -60,9 +63,6 @@ class template {
 						$this->Content = preg_replace($this->patVar, '<span class="ParseError">Can\'t find variable \'<strong>'.$match[1][$i].'</strong>\'</span>', $this->Content, 1);
 				}
 			} unset($match);
-		
-		// Remove Comments
-		$this->Content = preg_replace($this->patComment, '', $this->Content);
 		
 		// Falls mehr Variablen gefunden wurden, erneut Parsen
 		if(preg_match_all($this->patTPL, $this->Content, $match) ||
