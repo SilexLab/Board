@@ -9,7 +9,6 @@ class template {
 	private $Vars = array();
 	private $Lang = array();
 	private $Content;
-	private $ParseErrors = array();
 	
 	public $Debug = false;
 	public $IsTemplateObject = false;
@@ -29,16 +28,14 @@ class template {
 	
 	private function Parse() { // TODO: Write this Smarter (It works, but it's ugly)
 		$Debug = $this->Debug;
-		$Errors = &$this->ParseErrors;
 		
 		// Parsing Includes
 		preg_match_all($this->patTPL, $this->Content, $match);
 			for($i = 0; $i < sizeof($match[0]); $i++) {
-				$this->Content = preg_replace($this->patTPL, $this->AddTPL($match[1][$i], true, $match[0][$i]), $this->Content, 1);
+				$this->Content = preg_replace($this->patTPL, $this->AddTPL($match[1][$i], true), $this->Content, 1);
 			} unset($match);
 		
 		// Parsing Languages
-		$Errors[1] = 0;
 		preg_match_all($this->patLang, $this->Content, $match);
 			for($i = 0; $i < sizeof($match[0]); $i++) {
 				if(isset($this->Lang[$match[1][$i]]))
@@ -46,12 +43,12 @@ class template {
 				else {
 					if(!$Debug)
 						$this->Content = preg_replace($this->patLang, '', $this->Content, 1);
-					$Errors[1]++;
+					else
+						$this->Content = preg_replace($this->patLang, '<span class="ParseError">Can\'t find language string \'<strong></span>'.$match[1][$i].'</strong>\'', $this->Content, 1);
 				}
 			} unset($match);
 		
 		// Parsing Vars
-		$Errors[2] = 0;
 		preg_match_all($this->patVar, $this->Content, $match);
 			for($i = 0; $i < sizeof($match[0]); $i++) {
 				if(isset($this->Vars[$match[1][$i]]))
@@ -59,33 +56,29 @@ class template {
 				else {
 					if(!$Debug)
 						$this->Content = preg_replace($this->patVar, '', $this->Content, 1);
-					$Errors[2]++;
+					else
+						$this->Content = preg_replace($this->patVar, '<span class="ParseError">Can\'t find variable \'<strong>'.$match[1][$i].'</strong>\'</span>', $this->Content, 1);
 				}
 			} unset($match);
 		
 		// Remove Comments
 		$this->Content = preg_replace($this->patComment, '', $this->Content);
 		
-		// Falls mehr Variablen gefunden wurden, erneut Parsen  // Bugt bei Debug -> Endlosschleife
-		if(preg_match_all($this->patTPL, $this->Content, $match) > $Errors[0] ||
-			preg_match_all($this->patLang, $this->Content, $match) > $Errors[1] ||
-			preg_match_all($this->patVar, $this->Content, $match) > $Errors[2] ||
+		// Falls mehr Variablen gefunden wurden, erneut Parsen
+		if(preg_match_all($this->patTPL, $this->Content, $match) ||
+			preg_match_all($this->patLang, $this->Content, $match) ||
+			preg_match_all($this->patVar, $this->Content, $match) ||
 			preg_match($this->patComment, $this->Content))
 			$this->Parse($Debug);
 	}
 	
 	// Adding Template
-	public function AddTPL($template, $return = false, $Debuged = '') {
-		if($Debuged == '')
-			$Debuged = $template;
-		
-		$this->ParseErrors[0] = 0;
+	public function AddTPL($template, $return = false) {
 		if(!file_exists(PATH_TPL.$template.'.tpl')) {
 			if(!$this->Debug)
 				$tpl = '';
 			else
-				$tpl = $Debuged;
-			$this->ParseErrors[0]++;
+				$tpl = '<span class="ParseError">Can\'t find template \'<strong>'.$template.'\'</strong></span>';
 		} else
 			$tpl = file_get_contents(PATH_TPL.$template.'.tpl')."\n";
 		
