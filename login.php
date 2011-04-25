@@ -1,9 +1,9 @@
 <?php
 include_once('init.php');
 
+$content = '';
 $language = new language();
-
-if(session::read('userid'))
+if(session::read('userid')) //falls eingeloggt, auf Startseite weiterleiten.
 	header("Location: index.php");
 	
 if (isset($_POST['submit_login'])) { //wen abgesendet wurde dann
@@ -13,13 +13,13 @@ if (isset($_POST['submit_login'])) { //wen abgesendet wurde dann
 		session::set('userid',$userid);
 		session::set('username',$_POST['username']);
 	} else {
-		$tpl->Assign('Content', '<p>'.$language->Get('com.sbb.login.wrongdata').'</p>');
+		$content = '<p>'.$language->Get('com.sbb.login.wrongdata').'</p>';
 	}
 }
 
 if (!login::logged_in()) { //wen nicht eingeloggt ist wird loginfeld angezigt
 	
-	$tpl->Assign('Content', '<form method="post">
+	$content .= ('<form method="post">
 		<table>
 			<tr>
 				<td><label for="username">'.$language->Get('com.sbb.login.username').'</label></td>
@@ -34,13 +34,13 @@ if (!login::logged_in()) { //wen nicht eingeloggt ist wird loginfeld angezigt
 	</form>');
 	
 } else { //ansonsten ist eingeloggt
-    $tpl->Assign('Content', '<p>'.$language->Get('com.sbb.login.redirect').'</p>
+    $content .= ('<p>'.$language->Get('com.sbb.login.redirect').'</p>
 		<p>'.$language->Get('com.sbb.login.ifnotredirect').'<a href="secret.php">Link</a></p>');
 	echo' <script type="text/javascript">
 			window.setTimeout("window.location.href=\'secret.php\'",2000);
 		</script>';
 }
-
+$tpl->Assign('Content', $content);
 $tpl->Assign(array('Site' => 'Seitentitel',
 'Slogan' => 'Slogan der Seite'));
 $tpl->Display();
