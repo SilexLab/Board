@@ -1,14 +1,16 @@
 <?php
 /**
  * @author		SilexBoard Team
- *					Nox Nebula, Cadillaxx
+ *					Nox Nebula, Cadillaxx, Angus
  * @copyright	2011 SilexBoard
  */
 
 include_once('init.php');
 
 $language = new language();
-$tpl = new template('head', 'register', 'footer');
+$tpl = new template('head','register','footer');
+$tpl->Assign('Username', login::logged_in() ? 'Eingeloggt als '.login::GetUsername(session::read('userid')) : 'Nicht eingeloggt');
+$tpl->Assign('LoginLogout',login::logged_in() ? '<a href="#">Inbox</a> <a href="logout.php">Logout</a>' : '<a href="login.php">Login</a> or <a href="register.php">Regsiter</a>');
 
 $tpl->Assign(array('Site' => 'Seitentitel',
 'Slogan' => 'Slogan der Seite',
@@ -23,5 +25,5 @@ if(isset($_POST['submit'])) {
 }
 
 $language->Assign($tpl);
-$tpl->Display(false, false);
+$tpl->Display();
 ?>
