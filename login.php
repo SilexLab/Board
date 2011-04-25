@@ -8,6 +8,8 @@ if (isset($_POST['submit_login'])) { //wen abgesendet wurde dann
 	$userid = login::check_user($_POST['username'], $_POST['password']); //user_check
 	if ($userid) {
 		login::DoLogin($userid); //wen alles stimmt wird engeloggt
+		$_SESSION['userid'] = $userid;
+		$_SESSION['username'] = $_POST['username'];
 	} else {
 		echo 'Ihre Anmeldedaten waren nicht korrekt!';
 	}

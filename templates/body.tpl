@@ -1,7 +1,7 @@
 <body>
 	<section class="UserBar">
 		<div class="Size">
-			blablabla
+			{$Username}. {$LoginLogout}
 		</div>
 	</section>
 	<header>

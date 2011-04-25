@@ -1,5 +1,7 @@
 <?php
 include_once('init.php');
+$login = new Login();
+$tpl->Assign('Username',$login->GetUsername(session::read('userid')));
 
 echo '<p>Sie sind '.(!login::logged_in() ? 'nicht' : '').' eingeloggt.</p>';
 

@@ -57,6 +57,15 @@ class login {
 	public static function DoLogout () {
 		mysql::Delete('sessions', 'Salt = \''.session_id().'\'');
 	}
+	
+	public static function GetUsername ($userid) {
+		if(Login::logged_in()==1) {
+			$username = mysql::FetchObject(mysql::Select('users','*','`ID`='.$userid))->UserName;
+			return($username);
+		}
+		else
+			return false;
+	}
 
 }
 ?>

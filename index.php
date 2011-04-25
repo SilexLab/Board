@@ -8,7 +8,7 @@
 include_once('init.php');
 
 $language = new language();
-$tpl = new template('head', 'body', 'footer');
+
 
 $tpl->Assign(array('Site' => 'Seitentitel',
 'Slogan' => 'Slogan der Seite'));

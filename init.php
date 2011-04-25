@@ -22,6 +22,11 @@ mysql::Connect($CFG_Host, $CFG_User, $CFG_Password, $CFG_Database);
 // default timezone (for date functions)
 date_default_timezone_set('Europe/Berlin');
 
+// variables
+$tpl = new template('head', 'body', 'footer');
+$tpl->Assign('Username', login::logged_in() ? 'Eingeloggt als '.login::GetUsername(session::read('userid')) : 'Nicht eingeloggt');
+$tpl->Assign('LoginLogout',login::logged_in() ? '<a href="#">Inbox</a> <a href="logout.php">Logout</a>' : '<a href="login.php">Login</a>');
+
 // after 10 minutes you will automatically logged out
 
 if(login::logged_in()) {
