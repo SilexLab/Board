@@ -1,7 +1,7 @@
 <?php
 /**
  * @author		SilexBoard Team
- *					Nox Nebula, Cadillaxx
+ *					Nox Nebula, Cadillaxx, Angus
  * @copyright	2011 SilexBoard
  */
 
@@ -25,6 +25,9 @@ $this->Items['com.sbb.register.success']			= 'Du hast dich erfolgreich registrie
 
 $this->Items['com.sbb.login.username']				= 'Benutzername';
 $this->Items['com.sbb.login.password']				= 'Passwort';
+$this->Items['com.sbb.login.wrongdata']				= 'Ihre Anmeldedaten waren nicht korrekt!';
+$this->Items['com.sbb.login.redirect']				= 'Sie werden automatisch weitergeleitet...';
+$this->Items['com.sbb.login.ifnotredirect']			= 'Falls die automatische Weiterleitung nicht funktioniert folgen sie diesen ';
 
 $this->Items['com.sbb.form.submit']					= 'Absenden';
 

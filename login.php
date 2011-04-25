@@ -10,10 +10,10 @@ if (isset($_POST['submit_login'])) { //wen abgesendet wurde dann
 	$userid = login::check_user($_POST['username'], $_POST['password']); //user_check
 	if ($userid) {
 		login::DoLogin($userid); //wen alles stimmt wird engeloggt
-		$_SESSION['userid'] = $userid;
-		$_SESSION['username'] = $_POST['username'];
+		session::set('userid',$userid);
+		session::set('username',$_POST['username']);
 	} else {
-		$tpl->Assign('Content', '<p>Ihre Anmeldedaten waren nicht korrekt!</p>');
+		$tpl->Assign('Content', '<p>'.$language->Get('com.sbb.login.wrongdata').'</p>');
 	}
 }
 
@@ -34,8 +34,8 @@ if (!login::logged_in()) { //wen nicht eingeloggt ist wird loginfeld angezigt
 	</form>');
 	
 } else { //ansonsten ist eingeloggt
-    $tpl->Assign('Content', '<p>Sie werden automatisch weitergeleitet...</p>
-		<p>Falls die automatische Weiterleitung nicht funktioniert folgen sie diesen <a href="secret.php">Link</a></p>');
+    $tpl->Assign('Content', '<p>'.$language->Get('com.sbb.login.redirect').'</p>
+		<p>'.$language->Get('com.sbb.login.ifnotredirect').'<a href="secret.php">Link</a></p>');
 	echo' <script type="text/javascript">
 			window.setTimeout("window.location.href=\'secret.php\'",2000);
 		</script>';

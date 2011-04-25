@@ -1,7 +1,7 @@
 <?php
 /**
  * @author		SilexBoard Team
- *					Nox Nebula, Cadillaxx
+ *					Nox Nebula, Cadillaxx, Angus
  * @copyright	2011 SilexBoard
  */
 
@@ -25,6 +25,9 @@ $this->Items['com.sbb.register.success']			= 'You are successfully registered!';
 
 $this->Items['com.sbb.login.username']				= 'Username';
 $this->Items['com.sbb.login.password']				= 'Password';
+$this->Items['com.sbb.login.wrongdata']				= 'Your entered data was not correct!';
+$this->Items['com.sbb.login.redirect']				= 'You get automatically redirected...';
+$this->Items['com.sbb.login.ifnotredirect']			= 'If the automatic redirecting does not work, click the following ';
 
 $this->Items['com.sbb.form.submit']					= 'Submit';
 
