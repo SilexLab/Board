@@ -5,15 +5,15 @@ $language = new language();
 $tpl = new template('head', 'login', 'footer');
 
 if (isset($_POST['submit_login'])) { //wen abgesendet wurde dann
-	$userid = $login->check_user($_POST['username'], $_POST['password']); //user_check
+	$userid = login::check_user($_POST['username'], $_POST['password']); //user_check
 	if ($userid) {
-		$login->DoLogin($userid); //wen alles stimmt wird engeloggt
+		login::DoLogin($userid); //wen alles stimmt wird engeloggt
 	} else {
 		echo 'Ihre Anmeldedaten waren nicht korrekt!';
 	}
 }
 
-if (!$login->logged_in()) { //wen nicht eingeloggt ist wird loginfeld angezigt
+if (!login::logged_in()) { //wen nicht eingeloggt ist wird loginfeld angezigt
 	
 	$tpl->Assign('content', '<form method="post">
 		<table>

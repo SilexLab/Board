@@ -5,10 +5,10 @@
  * @copyright	2011 SilexBoard
  */
 
-class Login {
+class login {
 	
 	//check_user zum Usercheck ob er da is usw.
-	public function check_user ($name, $pass) {
+	public static function check_user ($name, $pass) {
 				
 		// magic quotes anpassen, Ist diese Einstellung auf on, werden alle ' (einzelne Anführungszeichen), " (doppelte Anführungszeichen), \ (Backslash) und NUL's automatisch mit einem Backslash geschützt. 
 		if (get_magic_quotes_gpc()) {
@@ -39,7 +39,7 @@ class Login {
 	
 	
 	//speichert die Session zur richtigen ID, $userid kommt von check_user
-	public function DoLogin ($userid) {
+	public static function DoLogin ($userid) {
 		$inserts = array("Time" => time(),
 				"UserID" => $userid,
 				"Salt" => session_id(),
@@ -48,13 +48,13 @@ class Login {
 	}
 	
 	//wenn logged_in dann wird eingeloggte bereich gezeigt
-	public function logged_in () {
+	public static function logged_in () {
 		mysql::Select('sessions', 'UserID', 'Salt = \''.session_id().'\'');
 		return (mysql::NumRows() == 1);
 	}
 	
 	//beim ausloggen wird die session auf NULL gesetzt
-	public function DoLogout () {
+	public static function DoLogout () {
 		mysql::Delete('sessions', 'Salt = \''.session_id().'\'');
 	}
 

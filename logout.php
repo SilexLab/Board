@@ -1,7 +1,7 @@
 <?php
 include_once('init.php');
 
-$login->DoLogout();
+login::DoLogout();
 
 echo '<p>Sie sind jetzt ausgeloggt.</p>';
 

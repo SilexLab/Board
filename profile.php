@@ -7,7 +7,7 @@ $tpl = new template('head', 'profile', 'footer');
 $tpl->Assign(array('Site' => 'Seitentitel',
 'Slogan' => 'Slogan der Seite',
 'message' => ''));
-if($login->logged_in()) {
+if(login::logged_in()) {
     $tpl->Assign(array());
 }
 if(isset($_POST['submit'])) {
