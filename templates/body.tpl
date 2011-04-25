@@ -16,10 +16,11 @@
 				<li><div>Ich bin QL</div></li>
 				<li><div>Cadi auch</div></li>
 				<li><div>und Nut</div></li>
+                <li><div>Angus auch</div></li>
 			</ul>
 			<div class="SearchForm">
 				<form method="GET" accept-charset="utf-8" action="">
-					<input title="Suche" type="search" value="" placeholder="Suche..." name="Search" id="Search" pattern=".+" required><input type="submit" id="SearchSubmit" value="">
+					<input title="Suche" type="search" value="" placeholder="Suche..." name="Search" id="Search" pattern=".+" required /><input type="submit" id="SearchSubmit" value="" />
 				</form>
 			</div>
 		</div>
