@@ -5,13 +5,16 @@ if(session::read('userid')) {
 	login::DoLogout();
 	session::remove('userid');
 	session::remove('username');
-	echo '<p>Sie sind jetzt ausgeloggt.</p>';
-	
-	echo '<p><a href="login.php">Einloggen</a></p>';
+	$tpl->Assign('Content', '<p>Sie sind jetzt ausgeloggt.</p>
+			<p><a href="./">Hauptmen&uuml;</a></p>');
 }
 else
 {
-	echo('Sie waren niemals eingeloggt :o');
+	$tpl->Assign('Content', '<p>Sie waren niemals eingeloggt :o</p>
+							<p><a href="login.php">Login</a></p>');
 }
-echo('<br /><a href="./">Hauptmen&uuml;</a>');
+
+$tpl->Assign(array('Site' => 'Seitentitel',
+'Slogan' => 'Slogan der Seite'));
+$tpl->Display();
 ?>

@@ -2,8 +2,10 @@
 include_once('init.php');
 
 $language = new language();
-$tpl = new template('head', 'login', 'footer');
 
+if(session::read('userid'))
+	header("Location: index.php");
+	
 if (isset($_POST['submit_login'])) { //wen abgesendet wurde dann
 	$userid = login::check_user($_POST['username'], $_POST['password']); //user_check
 	if ($userid) {
@@ -11,13 +13,13 @@ if (isset($_POST['submit_login'])) { //wen abgesendet wurde dann
 		$_SESSION['userid'] = $userid;
 		$_SESSION['username'] = $_POST['username'];
 	} else {
-		echo 'Ihre Anmeldedaten waren nicht korrekt!';
+		$tpl->Assign('Content', '<p>Ihre Anmeldedaten waren nicht korrekt!</p>');
 	}
 }
 
 if (!login::logged_in()) { //wen nicht eingeloggt ist wird loginfeld angezigt
 	
-	$tpl->Assign('content', '<form method="post">
+	$tpl->Assign('Content', '<form method="post">
 		<table>
 			<tr>
 				<td><label for="username">'.$language->Get('com.sbb.login.username').'</label></td>
@@ -32,9 +34,13 @@ if (!login::logged_in()) { //wen nicht eingeloggt ist wird loginfeld angezigt
 	</form>');
 	
 } else { //ansonsten ist eingeloggt
-    $tpl->Assign('content', "<p><a href=\"secret.php\">Testseite</a></p>
-	<p><a href=\"logout.php\">Ausloggen</a></p>");
+    $tpl->Assign('Content', '<p>Sie werden automatisch weitergeleitet...</p>
+		<p>Falls die automatische Weiterleitung nicht funktioniert folgen sie diesen <a href="secret.php">Link</a></p>');
+	echo' <script type="text/javascript">
+			window.setTimeout("window.location.href=\'secret.php\'",2000);
+		</script>';
 }
+
 $tpl->Assign(array('Site' => 'Seitentitel',
 'Slogan' => 'Slogan der Seite'));
 $tpl->Display();
