@@ -4,6 +4,8 @@
  *					Nox Nebula, Cadillaxx
  * @copyright	2011 SilexBoard
  */
+if(!file_exists('config.inc.php')) // Leitet zur Installation falls nicht installiert
+	header('Location: install.php');
 
 include_once('init.php');
 
