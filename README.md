@@ -17,3 +17,6 @@ Cadillaxx beteiligt sicht am Projekt als PHP-Programmierer und mag Kekse.
 
 ### Nut
 Nut ist als PHP-Programmierer und Designer tätig.
+
+### Angus
+Angus ist neu zum Team dazugekommen, er ist als PHP-Programmierer tätig.
