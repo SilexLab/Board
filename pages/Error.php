@@ -10,6 +10,15 @@ if(!defined('SILEX_VERSION'))
 	header('location: ../');
 
 $parser = new messageParser();
-$message = $parser->parse('hier sollte eine fehlermeldung stehen');
+$error = $_GET['type'];
+if(isset($error))
+{
+	switch($error) {
+		case '404':	$message = $parser->parse('Error 404. Page Not found.'); break;
+		case '403':	$message = $parser->parse('Error 403. Access Denied'); break;
+	}
+}
+else
+	header('Location ./');
 self::$TPL->Assign('Content', $message);
 ?>
