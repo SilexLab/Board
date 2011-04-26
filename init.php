@@ -39,7 +39,7 @@ if(login::logged_in()) {
 	$timeFuture = time() + 10 * 6;
 	
 	if($timeFuture - $lastTime > 600) {
-		login::DoLogout();
+		header("Location: logout.php");
 	} else {
 		$update = array("Time" => time());
 		mysql::Update('sessions', $update, 'Salt=\''.session_id().'\'');
