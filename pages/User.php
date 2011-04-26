@@ -36,10 +36,17 @@ if(isset($_GET['userID'])) {
 }
 else {
     mysql::Select('users', '*');
+	$content .= '<table border="0">';
     while($row = mysql::FetchObject()) {
-        $content .= "<a href=\"?page=User&userID=".$row->ID."\">".$row->UserName."</a><br>\n";
+		$avatar = new avatar($row->Email, 50);
+		$content .= '    <tr>
+							<td style="padding: 5px;">'.$avatar.'</td>
+							<td style="padding: 5px;"><a href="?page=User&userID='.$row->ID.'">'.$row->UserName.'</a></td>
+							<td style="padding: 5px;">Registriert seit: '.date('d.m.Y H:i', $row->RegisterTime).'</td>
+						  </tr>';
     }
+	$content .= '</table>';
 }
-self::$TPL->Assign(array('Site' => 'Seitentitel',
+self::$TPL->Assign(array('Site' => 'UserList',
         'Content' => $content));
 ?>

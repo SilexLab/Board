@@ -12,7 +12,8 @@
 	<nav class="Menu">
 		<div class="Size">
 			<ul class="MenuList">
-				<li class="active"><div>Forum</div></li>
+				<li class="{$MenuListForumClass}"><a href="./"><div>Forum</div></a></li>
+				<li class="{$MenuListUserListClass}"><a href="?page=User"><div>Userlist</div></a></li>
 				<li><div>Ich bin QL</div></li>
 				<li><div>Cadi auch</div></li>
 				<li><div>und Nut</div></li>
