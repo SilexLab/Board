@@ -19,6 +19,6 @@ if(isset($error))
 	}
 }
 else
-	header('Location ./');
+	$message = $parser->parse('Error 404. Page Not found.');
 self::$TPL->Assign('Content', $message);
 ?>

@@ -23,7 +23,7 @@ class page {
 	public static function Open() {
 		// Pfade in Page-Angabe ausschließen
 		if(strpos(self::$Page, '/') !== false)
-			include(PATH_PAGE.'Error');
+			include(PATH_PAGE.'Error.php');
 		else {
 			// Ruft die entsprechende Datei auf, die für die Verwaltung der Seiten zuständig ist.
 			if(self::$Page == '' || self::$Page == null || !self::$Page)
