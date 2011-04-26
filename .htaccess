@@ -1,0 +1,3 @@
+ErrorDocument 404 /Board/index.php?page=Error&type=404
+ErrorDocument 403 /Board/index.php?page=Error&type=403
+Allow from all
