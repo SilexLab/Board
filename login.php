@@ -35,10 +35,10 @@ if (!login::logged_in()) { //wen nicht eingeloggt ist wird loginfeld angezigt
 	
 } else { //ansonsten ist eingeloggt
     $content .= ('<p>'.$language->Get('com.sbb.login.redirect').'</p>
-		<p>'.$language->Get('com.sbb.login.ifnotredirect').'<a href="secret.php">Link</a></p>');
-	echo' <script type="text/javascript">
+		<p>'.$language->Get('com.sbb.login.ifnotredirect').'<a href="secret.php">Link</a></p>
+	 	<script type="text/javascript">
 			window.setTimeout("window.location.href=\'secret.php\'",2000);
-		</script>';
+		</script>');
 }
 $tpl->Assign('Content', $content);
 $tpl->Assign(array('Site' => 'Seitentitel',
