@@ -18,4 +18,6 @@ echo $Parser->parse($Message);
 echo "<br>";
 $Message = "[http://google.com | das ist ein link | hallo noxi]";
 echo $Parser->parse($Message);
+echo "<br>";
+echo $Parser->parse('[http://google.com | Google | KLICK MICH :D] hier sollte eine fehlermeldung stehen :D', 1, 0, 0);
 ?>
