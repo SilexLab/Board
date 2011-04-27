@@ -1,7 +1,7 @@
 <?php
 /**
  * @author		SilexBoard Team
- *					Cadillaxx
+ *					Cadillaxx, Nox Nebula
  * @copyright	2011 SilexBoard
  */
 
@@ -13,6 +13,7 @@ $parser = new messageParser();
 $language = new language();
 $tpl = new template('head', 'page_user', 'footer');
 $content = '';
+crumb::Add('{lang=com.sbb.crumbs.user}', '?page=User');
 
 if(isset($_GET['userID'])) {
     mysql::Select('users', '*', 'ID = \''.$_GET['userID'].'\'', 1);
@@ -29,6 +30,7 @@ if(isset($_GET['userID'])) {
             $parser = new messageParser;
             $content .= $parser->parse($row->Signatur, 1, 1);
         }
+		crumb::Add($row->UserName, '?page=User&userID='.$_GET['userID']);
     }
     else {
         $content .= "Benutzer nicht gefunden!";

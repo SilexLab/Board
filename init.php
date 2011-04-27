@@ -27,6 +27,9 @@ $tpl = new template('head', 'body', 'footer');
 $tpl->Assign('Username', login::logged_in() ? 'Eingeloggt als '.login::GetUsername(session::read('userid')) : 'Nicht eingeloggt');
 $tpl->Assign('LoginLogout',login::logged_in() ? '<a href="#">Inbox</a> <a href="logout.php">Logout</a>' : '<a href="login.php">Login</a> <a href="register.php">Register</a>');
 
+// Breadcrumbstart
+crumb::Add('{lang=com.sbb.crumbs.home}', './');
+
 if(basename($_SERVER['PHP_SELF']) == 'index.php'){
 	$tpl->Assign('MenuListForumClass','');
 	$tpl->Assign('MenuListUserListClass','');

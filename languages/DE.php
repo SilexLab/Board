@@ -35,7 +35,10 @@ $this->Items['com.sbb.login.ifnotredirect']			= 'Falls die automatische Weiterle
 
 $this->Items['com.sbb.form.submit']					= 'Absenden';
 
-$this->Items['com.sbb.user.logout']					= 'Ausloggen';
+$this->Items['com.sbb.user.logout']					= 'Ausloggen';  // TODO: umbennen nach com.sbb.form.logout or so..
+
+$this->Items['com.sbb.crumbs.home']					= 'Home';
+$this->Items['com.sbb.crumbs.user']					= 'Benutzerliste';
 
 $this->Items['com.sbb.profile.homepage']			= 'Homepage';
 $this->Items['com.sbb.profile.signature']			= 'Signatur';

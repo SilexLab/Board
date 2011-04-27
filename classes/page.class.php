@@ -18,6 +18,7 @@ class page {
 		
 		self::$TPL = $TemplateObject;
 		self::Open();
+		self::$TPL->Assign('BreadCrumbs', crumb::Parse());
 	}
 	
 	public static function Open() {

@@ -37,6 +37,9 @@ $this->Items['com.sbb.form.submit']					= 'Submit';
 
 $this->Items['com.sbb.user.logout']					= 'Logout';
 
+$this->Items['com.sbb.crumbs.home']					= 'Home';
+$this->Items['com.sbb.crumbs.user']					= 'Memberlist';
+
 $this->Items['com.sbb.profile.homepage']			= 'Homepage';
 $this->Items['com.sbb.profile.signature']			= 'Signature';
 
