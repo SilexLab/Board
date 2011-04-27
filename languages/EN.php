@@ -11,6 +11,7 @@ $this->Items['com.sbb.header.welcome']				= 'Welcome';
 $this->Items['com.sbb.header.welcome_text']			= 'Welcome on {$Site} - {$Slogan}';
 $this->Items['com.sbb.header.logo_title']			= 'Frontpage';
 
+$this->Items['com.sbb.register.register']			= 'Sign up';
 $this->Items['com.sbb.register.username']			= 'Username';
 $this->Items['com.sbb.register.email']				= 'E-mail address';
 $this->Items['com.sbb.register.email.repeat']		= 'Repeat E-mail address';
@@ -23,6 +24,9 @@ $this->Items['com.sbb.register.username.exist']		= 'This username already exists
 $this->Items['com.sbb.register.email.exist']		= 'This e-mail adress already exists!<br>\n';
 $this->Items['com.sbb.register.success']			= 'You are successfully registered!';
 
+$this->Items['com.sbb.login.login']					= 'Log in';
+$this->Items['com.sbb.login.stay']					= 'Stay logged in';
+$this->Items['com.sbb.login.bar_handle']			= 'Log in/Sign up';
 $this->Items['com.sbb.login.username']				= 'Username';
 $this->Items['com.sbb.login.password']				= 'Password';
 $this->Items['com.sbb.login.wrongdata']				= 'Your entered data was not correct!';

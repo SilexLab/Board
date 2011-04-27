@@ -20,12 +20,69 @@ img {
 }
 
 section.UserBar {
-	background: #000000;
+	background: #111111;
 	border-bottom: 1px solid #b3e2ff;
-	height: 26px;
+	/*height: 26px;*/
 	color: #ffffff;
 	text-align: right;
+	padding-top: 10px;
 }
+
+#LoginBarHandle {
+	height: 0;
+	display: block;
+}
+
+#LoginBarHandle div {
+	background: #111111;
+	color: #ffffff;
+	display: inline-block;
+	padding: 0 5px 3px 5px;
+	cursor: pointer;
+	-moz-border-radius: 0 0 4px 4px;
+	-webkit-border-radius: 0 0 4px 4px;
+	border-radius: 0 0 4px 4px;
+}
+
+#LoginForm {
+	font-size: 16px;
+	text-align: left;
+}
+
+.Wrap {
+	width: 600px;
+	margin: 0 auto;
+	padding: 0 0 10px 0;
+}
+	.Wrap ul {
+		list-style: none;
+		padding: 0;
+		margin: 0 0 10px 0;;
+	}
+		.Wrap ul li {
+			width: 300px;
+			height: 24px;
+			text-align: left;
+			float: right;
+		}
+		.Wrap ul li:first-child {
+			text-align: right;
+			float: left;
+			width: 280px;
+		}
+		.Wrap .LoginFormMethode {
+			padding-left: 300px;
+		}
+			.Wrap .LoginFormMethode li, .Wrap .LoginFormMethode li:first-child {
+				float: none;
+				text-align: left;
+			}
+		.Wrap .LoginFormSubmit {
+			/*padding-left: 300px;*/
+		}
+			.Wrap .LoginFormSubmit ul {
+				margin: 0;
+			}
 
 header {
 	height: 260px;
@@ -45,6 +102,7 @@ nav.Menu {
 
 nav.Menu a, nav.Menu a:hover, nav.Menu a:active, nav.Menu a:visited, nav.Menu a:link {
 	text-decoration: none;
+	outline: none;
 }
 
 nav.Menu .MenuList {
@@ -117,7 +175,7 @@ nav.Menu .MenuList li:active div {
 }
 
 nav.Menu .MenuList li.active:active div {
-	background: #1d87ca url(images/TabActive.png) repeat-x left -47px;
+	background: #24abff url(images/TabActive.png) repeat-x left -47px;
 	border-top-color: #7eb1e1;
 	color: #ffffff;
 }
@@ -137,14 +195,23 @@ nav.Menu .MenuList li.active:active div {
 	-moz-border-radius: 5px;
 	-webkit-border-radius: 5px;
 	border-radius: 5px;
-	box-shadow: 0 3px 3px rgba(0,0,0,0.5) inset;
+	box-shadow: 0 3px 3px rgba(0,0,0,0.3) inset;
+}
+
+.SearchForm #Search:hover {
+	border-color: #001f37;
+	box-shadow: 0 3px 3px rgba(0,0,0,0.3) inset, 0 0 3px #d7ffff;
+}
+
+.SearchForm #Search:focus {
+	box-shadow: 0 3px 3px rgba(0,0,0,0.3) inset, 0 0 6px #d7ffff;
 }
 
 .SearchForm #SearchSubmit {
-	height: 22px;
+	height: 24px;
 	width: 24px;
 	background: transparent url(icons/Search.png) no-repeat center center;
-	margin: 6px 0 0 -26px;
+	margin: 5px 0 0 -26px;
 	border-width: 1px;
 	border-style: none;
 }
