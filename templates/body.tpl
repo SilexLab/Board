@@ -45,13 +45,8 @@
 	<nav class="Menu">
 		<div class="Size">
 			<ul class="MenuList">
-				<li class="{$MenuListForumClass}"><a href="./"><div>Forum</div></a></li>
-				<li class="{$MenuListUserListClass}"><a href="?page=User"><div>Userlist</div></a></li>
-				<li><div>Ich bin QL</div></li>
-				<li><div>Cadi auch</div></li>
-				<li><div>und Nut</div></li>
-                <li><div>Angus auch</div></li>
-			</ul>
+			{$Menu}
+            </ul>
 			<div class="SearchForm">
 				<form method="get" accept-charset="utf-8" action="">
 					<input title="Suche" type="search" value="" placeholder="Suche..." name="Search" id="Search" pattern=".+" required><input type="submit" id="SearchSubmit" value="">

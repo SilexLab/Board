@@ -30,13 +30,14 @@ $tpl->Assign('LoginLogout',login::logged_in() ? '<a href="#">Inbox</a> <a href="
 // Breadcrumbstart
 crumb::Add('{lang=com.sbb.crumbs.home}', './');
 
+// Menu Parse
+$tpl->Assign('Menu',menu::Parse());
+
 if(basename($_SERVER['PHP_SELF']) == 'index.php'){
-	$tpl->Assign('MenuListForumClass','');
-	$tpl->Assign('MenuListUserListClass','');
 	switch($_GET['page'])
 	{
-		case '': $tpl->Assign('MenuListForumClass','active'); break;
-		case 'User': $tpl->Assign('MenuListUserListClass','active'); break;
+		case '': $tpl->Assign('Menu',menu::Parse('Forum')); break;
+		case 'User': $tpl->Assign('Menu',menu::Parse('Userlist')); break;
 
 	}
 }
