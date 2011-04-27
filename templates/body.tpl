@@ -63,14 +63,6 @@
 		<div class="Size">
 			<div class="Container">
 				<nav class="BreadCrumbs">
-					{/*<span class="Crust">
-						<a href="./" class="Crumb">Home</a>
-						<span class="Arrow"><span></span></span>
-					</span>
-					<span class="Crust">
-						<a href="./" class="Crumb">Next Crumb</a>
-						<span class="Arrow"><span></span></span>
-					</span>*/}
 					{$BreadCrumbs}
 				</nav>
 				<div class="ContentContainer">
