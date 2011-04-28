@@ -13,46 +13,34 @@ if(!defined('SILEX_VERSION'))
 if(session::read('userid')) 
 	header("Location: index.php");
 
-$content = '
-					<form method="post">
-						<table>
-							<tr>
-								<td><label for="username">{lang=com.sbb.register.username}</label></td>
-								<td><input type="text" name="Username" id="Username" size="30" value="'.$_SESSION['RegisterName'].'" required /></td>
-							</tr>
-							<tr>
-								<td><label for="password">{lang=com.sbb.register.password}</label></td>
-								<td><input type="password" name="Password" id="Password" size="30" value="'.$_SESSION['RegisterPass'].'" required /></td>
-							</tr>
-							<tr>
-								<td><label for="passwordrepeat">{lang=com.sbb.register.password.repeat}</label></td>
-								<td><input type="password" name="Passwordrepeat" id="Passwordrepeat" size="30" required /></td>
-							</tr>
-							<tr>
-								<td><label for="email">{lang=com.sbb.register.email}</label></td>
-								<td><input type="email" name="Email" id="Email" size="30" required /></td>
-							</tr>
-							<tr>
-								<td><label for="emailrepeat">{lang=com.sbb.register.email.repeat}</label></td>
-								<td><input type="email" name="Emailrepeat" id="Emailrepeat" size="30" required /></td>
-							</tr>
-						</table>
-						<input type="submit" name="Register" value="{lang=com.sbb.form.submit}" />
-					</form>
-';
+//Wurde die Register direkt aufgerufen wird value leer sein
+if(!isset($_SESSION['RegisterName']) || !isset($_SESSION['RegisterPass'])) {
+	$sessionName = '';
+	$sessionPass = '';
+} else {
+	$sessionName = $_SESSION['RegisterName'];
+	$sessionPass = $_SESSION['RegisterPass'];
+}
 
+//Bearbeitung des Formulars
+$message = '';
 if(isset($_POST['Register'])) {
 	if(register::Check($_POST)) {
 		user::Create($_POST['Username'], $_POST['Password'], $_POST['Email']);
 		session_unset($_SESSION['RegisterName']);
 		session_unset($_SESSION['RegisterPass']);
-		$content .= '{lang=com.sbb.register.success}';
+		$message = '{lang=com.sbb.register.success}';
 	}
-	else
+	else {
 		session_unset($_SESSION['RegisterName']);
 		session_unset($_SESSION['RegisterPass']);
-		$content .= register::getError();		
+		$message = register::getError();
+	}
 }
 
-self::$TPL->Assign('Content', $content);
+//Füllt die Variablen im TPL
+self::$TPL->Assign('RegisterName', $sessionName);
+self::$TPL->Assign('RegisterPass', $sessionPass);
+self::$TPL->Assign('RegisterMessage', $message);
+self::$TPL->Assign('Content', '{$:register}');
 ?>
