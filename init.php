@@ -24,7 +24,7 @@ date_default_timezone_set('Europe/Berlin');
 
 // variables
 $tpl = new template('head', 'body', 'footer');
-$tpl->Assign('Username', login::logged_in() ? 'Eingeloggt als '.login::GetUsername(session::read('userid')) : 'Nicht eingeloggt');
+$tpl->Assign('Username', login::logged_in() ? 'Eingeloggt als '.login::GetUsername($_COOKIE['sbb_UserId']) : 'Nicht eingeloggt');
 $tpl->Assign('LoginLogout',login::logged_in() ? '<a href="#">Inbox</a> <a href="logout.php">Logout</a>' : '<a href="login.php">Login</a> <a href="register.php">Register</a>');
 
 // Breadcrumbstart
@@ -42,23 +42,6 @@ $tpl->Assign('Menu',menu::Parse());
 	}
 }*/
 
-
 // after 10 minutes you will automatically logged out
-
-if(login::logged_in()) {
-	mysql::Select('sessions', 'Time', 'Salt=\''.session_id().'\'');
-	
-	while($row = mysql::FetchArray()) {
-		$lastTime = $row['Time'];
-	}	
-	
-	$timeFuture = time() + 10 * 6;
-	
-	if($timeFuture - $lastTime > 600) {
-		header("Location: logout.php");
-	} else {
-		$update = array("Time" => time());
-		mysql::Update('sessions', $update, 'Salt=\''.session_id().'\'');
-	}
-}
+login::autoLogout(); 
 ?>

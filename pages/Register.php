@@ -10,7 +10,7 @@ if(!defined('SILEX_VERSION'))
 	header('location: ../');
 	
 //Falls eingeloggt, auf Startseite weiterleiten.	
-if(session::read('userid')) 
+if(isset($_COOKIE['sbb_loginHash']) || session::read('userid')) 
 	header("Location: index.php");
 
 //Wurde die Register direkt aufgerufen wird value leer sein

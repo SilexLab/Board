@@ -37,27 +37,72 @@ class login {
 		}
 	}
 	
-	
 	//speichert die Session zur richtigen ID, $userid kommt von check_user
-	public static function DoLogin ($userid) {
-		$inserts = array("Time" => time(),
-				"UserID" => $userid,
-				"Salt" => session_id(),
-				"IP" => $_SERVER['REMOTE_ADDR']);
+	public static function DoLogin ($userid, $allwaysLogged) {
+		if($allwaysLogged == true) {
+			setcookie('sbb_UserId', $userid, time()+60*60*24*365);
+			session::set('username', $_POST['Username']);
+			$str = session_id();
+			setcookie('sbb_loginHash', md5($str.sha1($str)), time()+60*60*24*365);
+			$inserts = array("Time" => time(),
+					"UserID" => $userid,
+					"Salt" => md5($str.sha1($str)),
+					"IP" => $_SERVER['REMOTE_ADDR']);
+		} else {
+			session::set('userid', $userid);
+			setcookie('sbb_UserId', $userid, time()+60*60*24*365);
+			session::set('username', $_POST['Username']);
+			$inserts = array("Time" => time(),
+					"UserID" => $userid,
+					"Salt" => session_id(),
+					"IP" => $_SERVER['REMOTE_ADDR']);
+		}
 		mysql::Insert("sessions", $inserts);
 	}
 	
 	//wenn logged_in dann wird eingeloggte bereich gezeigt
 	public static function logged_in () {
-		mysql::Select('sessions', 'UserID', 'Salt = \''.session_id().'\'');
-		return (mysql::NumRows() == 1);
+		if(isset($_COOKIE['sbb_loginHash'])) {
+			mysql::Select('sessions', 'UserID', 'Salt = \''.$_COOKIE['sbb_loginHash'].'\'');
+			return (mysql::NumRows() == 1);
+		} else {
+			mysql::Select('sessions', 'UserID', 'Salt = \''.session_id().'\'');
+			return (mysql::NumRows() == 1);
+		}
 	}
 	
 	//beim ausloggen wird die session auf NULL gesetzt
 	public static function DoLogout () {
 		mysql::Delete('sessions', 'Salt = \''.session_id().'\'');
+		mysql::Delete('sessions', 'Salt = \''.$_COOKIE['sbb_loginHash'].'\'');
+		session::remove('username');
+		setcookie('sbb_UserId', '', time()-60*60*24*365);
+		setcookie('sbb_loginHash', '', time()-60*60*24*365);
 	}
 	
+	//After 10 minutes you will automatically logged out
+	public static function autoLogout() {
+		if(login::logged_in()) {
+			if(!isset($_COOKIE['sbb_loginHash'])) {
+				mysql::Select('sessions', 'Time', 'Salt=\''.session_id().'\'');
+				
+				while($row = mysql::FetchArray()) {
+					$lastTime = $row['Time'];
+				}	
+				
+				$timeFuture = time() + 10 * 6;
+				
+				if($timeFuture - $lastTime > 600) {
+					header("Location: logout.php");
+				} else {
+					$update = array("Time" => time());
+					mysql::Update('sessions', $update, 'Salt=\''.session_id().'\'');
+				}
+			}
+		}	
+	}
+	
+	//Gibt Username aus
 	public static function GetUsername ($userid) {
 		if(Login::logged_in()==1) {
 			$username = mysql::FetchObject(mysql::Select('users','*','`ID`='.$userid))->UserName;
