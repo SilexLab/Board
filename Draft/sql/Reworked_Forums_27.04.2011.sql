@@ -16,13 +16,13 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 -- --------------------------------------------------------
 
 --
--- Tabelle Categories löschen
+-- Tabelle Categories lï¿½schen
 --
 
 DROP TABLE IF EXISTS `categories`;
 
 --
--- Tabellenstruktur für Tabelle `forums`
+-- Tabellenstruktur fï¿½r Tabelle `forums`
 --
 
 DROP TABLE IF EXISTS `forums`;
@@ -36,10 +36,10 @@ CREATE TABLE IF NOT EXISTS `forums` (
   `Permission` longtext NOT NULL,
   `Status` int(11) NOT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
 
 --
--- Daten für Tabelle `forums`
+-- Daten fï¿½r Tabelle `forums`
 --
 
 INSERT INTO `forums` (`ID`, `Type`, `Parent`, `Title`, `Description`, `Position`, `Permission`, `Status`) VALUES
