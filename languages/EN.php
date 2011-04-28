@@ -46,4 +46,7 @@ $this->Items['com.sbb.profile.signature']			= 'Signature';
 
 $this->Items['com.sbb.category.empty']				= 'Currently there are no Categories';
 $this->Items['com.sbb.forum.empty']					= 'Currently this category had no Forums.';
+
+$this->Items['com.sbb.captcha']		= 'Captcha';
+$this->Items['com.sbb.captcha.wrong']		= 'Captcha is wrong!';
 ?>

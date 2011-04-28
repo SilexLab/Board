@@ -45,4 +45,7 @@ $this->Items['com.sbb.profile.signature']			= 'Signatur';
 
 $this->Items['com.sbb.category.empty']				= 'Es existieren keine Kategorien.';
 $this->Items['com.sbb.forum.empty']					= 'Diese Kategorie hat keine Foren.';
+
+$this->Items['com.sbb.captcha']		= 'Captcha';
+$this->Items['com.sbb.captcha.wrong']		= 'Captcha ist falsch!';
 ?>
