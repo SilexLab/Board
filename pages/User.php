@@ -9,46 +9,38 @@
 if(!defined('SILEX_VERSION'))
 	header('location: ../');
 
-$parser = new messageParser();
-$language = new language();
-$tpl = new template('head', 'page_user', 'footer');
+$Parser = new messageParser();
+$Language = new language();
+
 $content = '';
 crumb::Add('{lang=com.sbb.crumbs.user}', '?page=User');
 
 if(isset($_GET['userID'])) {
     mysql::Select('users', '*', 'ID = \''.$_GET['userID'].'\'', 1);
     if(mysql::NumRows() == 1) {
-        $row = mysql::FetchObject();
-        $content .= "<h2>".$row->UserName."</h2>\n";
-        $avatar = new avatar($row->Email, 100);
-        $content .= $avatar."<br>\n";
-        $content .= "Registriert seit: ".date('d.m.Y H:i', $row->RegisterTime);
+        $Row = mysql::FetchObject();
+        $Content .= "<h2>".$Row->UserName."</h2>\n";
+        $Avatar = new avatar($Row->Email, 100);
+        $Content .= $Avatar."<br>\n";
+        $Content .= "Registriert seit: ".date('d.m.Y H:i', $Row->RegisterTime);
         if(!empty($row->Homepage)) {
-            $content .= "<br>\n<a href=\"".(strpos($row->Homepage, 'http://') === false ? 'http://' : '').$row->Homepage."\">".$row->Homepage."</a><br>\n";
+            $Content .= "<br>\n<a href=\"".(strpos($Row->Homepage, 'http://') === false ? 'http://' : '').$Row->Homepage."\">".$Row->Homepage."</a><br>\n";
         }
         if(!empty($row->Signatur)) {
-            $parser = new messageParser;
-            $content .= $parser->parse($row->Signatur, 1, 1);
+            $Content .= $parser->parse($Row->Signatur);
         }
-		crumb::Add($row->UserName, '?page=User&userID='.$_GET['userID']);
+        crumb::Add($Row->UserName, '?page=User&userID='.$_GET['userID']);
     }
     else {
-        $content .= "Benutzer nicht gefunden!";
+        $Content .= "Benutzer nicht gefunden!";
     }
 }
 else {
     mysql::Select('users', '*');
-	$content .= '<table border="0">';
-    while($row = mysql::FetchObject()) {
-		$avatar = new avatar($row->Email, 50);
-		$content .= '    <tr>
-							<td style="padding: 5px;">'.$avatar.'</td>
-							<td style="padding: 5px;"><a href="?page=User&userID='.$row->ID.'">'.$row->UserName.'</a></td>
-							<td style="padding: 5px;">Registriert seit: '.date('d.m.Y H:i', $row->RegisterTime).'</td>
-						  </tr>';
+    while($Row = mysql::FetchObject()) {
+        $Avatar = new avatar($Row->Email, 50);
+        $Content .= '<p>'.$Avatar.' <a href="?page=User&userID='.$Row->ID.'">'.$Row->UserName.'</a> Registriert seit: '.date('d.m.Y H:i', $Row->RegisterTime)."</p>\n";
     }
-	$content .= '</table>';
 }
-self::$TPL->Assign(array('Site' => 'UserList',
-        'Content' => $content));
+self::$TPL->Assign(array('Site' => 'UserList', 'Content' => $Content));
 ?>
