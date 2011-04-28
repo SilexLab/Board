@@ -60,7 +60,7 @@ section.UserBar {
 		margin: 0 0 10px 0;;
 	}
 		.Wrap ul li {
-			width: 300px;
+			width: 290px;
 			height: 24px;
 			text-align: left;
 			float: right;
@@ -68,10 +68,9 @@ section.UserBar {
 		.Wrap ul li:first-child {
 			text-align: right;
 			float: left;
-			width: 280px;
 		}
 		.Wrap .LoginFormMethode {
-			padding-left: 300px;
+			padding-left: 310px;
 		}
 			.Wrap .LoginFormMethode li, .Wrap .LoginFormMethode li:first-child {
 				float: none;

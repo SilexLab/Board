@@ -8,7 +8,7 @@
 class view {
 	
 	public static function DisplayBoard() {
-		mysql::Select(DB_PREFIX.'categories', '*', NULL, 'Position ASC');
+		mysql::Select(DB_PREFIX.'forums', '*', NULL, 'Position ASC');
 		$Categories = mysql::GetObjects();
 		
 		$Categorylist = '';
@@ -18,7 +18,7 @@ class view {
 		foreach($Categories as $Category) {
 			$pCat = new template('board_list');
 			
-			mysql::Select(DB_PREFIX.'forums', '*', 'Category = '.$Category->ID);
+			mysql::Select(DB_PREFIX.'forums', '*', 'Parent = '.$Category->ID);
 			$Forumlist = '';
 			$Forums = mysql::GetObjects();
 			if(empty($Forums))

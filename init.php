@@ -33,14 +33,16 @@ crumb::Add('{lang=com.sbb.crumbs.home}', './');
 // Menu Parse
 $tpl->Assign('Menu',menu::Parse());
 
-if(basename($_SERVER['PHP_SELF']) == 'index.php'){
+/*if(basename($_SERVER['PHP_SELF']) == 'index.php'){
 	switch($_GET['page'])
 	{
 		case '': $tpl->Assign('Menu',menu::Parse('Forum')); break;
 		case 'User': $tpl->Assign('Menu',menu::Parse('Userlist')); break;
 
 	}
-}
+}*/
+
+
 // after 10 minutes you will automatically logged out
 
 if(login::logged_in()) {
