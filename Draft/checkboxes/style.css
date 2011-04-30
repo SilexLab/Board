@@ -1,0 +1,29 @@
+@charset "utf-8";
+/* CSS Document */
+
+input[type=checkbox] {
+	display: none;
+}
+
+	input[type=checkbox] + label.check {
+		display: inline-block;
+		height: 24px;
+		width: 24px;
+		background: url(checkbox.png) left top no-repeat;
+	}
+		input[type=checkbox] + label.check:hover {
+			background: url(checkbox.png) left -24px no-repeat;
+		}
+		input[type=checkbox] + label.check:active {
+			background: url(checkbox.png) left -48px no-repeat;
+		}
+	
+	input[type=checkbox]:checked + label.check {
+		background: url(checkbox.png) left -72px no-repeat;
+	}
+		input[type=checkbox]:checked + label.check:hover {
+			background: url(checkbox.png) left -96px no-repeat;
+		}
+		input[type=checkbox]:checked + label.check:active {
+			background: url(checkbox.png) left -120px no-repeat;
+		}
