@@ -6,46 +6,72 @@
  */
 
 class view {
-	
 	public static function DisplayBoard() {
-		mysql::Select(DB_PREFIX.'forums', '*', NULL, 'Position ASC');
-		$Categories = mysql::GetObjects();
-		
-		$Categorylist = '';
-		if(empty($Categories))
-			$Return = '{lang=com.sbb.category.empty}';
-		
-		foreach($Categories as $Category) {
-			$pCat = new template('board_list');
-			
-			mysql::Select(DB_PREFIX.'forums', '*', 'Parent = '.$Category->ID);
-			$Forumlist = '';
-			$Forums = mysql::GetObjects();
-			if(empty($Forums))
-				$Forumlist = '{lang=com.sbb.forum.empty}';
-			
-			foreach($Forums as $Forum) {
-				$pForum = new template('board_forum_list');
-				$pForum->Assign(array(
-				'ForumTitle'		=> $Forum->ForumName,
-				'ForumDescription'	=> $Forum->Description,
-				'ForumID'			=> $Forum->ID));
-				$Forumlist .= $pForum->Display(true);
-				unset($pForum);
-			}
-				
-			
-			$pCat->Assign(array(
-			'CategoryTitle'			=> $Category->CategoryName,
-			'CategoryDescription'	=> $Category->Description,
-			'CategoryID'			=> $Category->ID,
-			'Forumlist'				=> $Forumlist));
-			$Categorylist .= $pCat->Display(true);
-			unset($pCat);
-		}
-		return '<ul class="Boardlist">
-					'.$Categorylist.'
-				</ul>';
+		return self::GetChilds(0); // Rekursiv aufrufende Funktion
 	}
+	
+	private static function GetChilds($Parent) {
+		mysql::Select(DB_PREFIX.'forums', '*', 'Parent = '.$Parent, 'Position ASC');
+		
+		$Parts = '';
+		
+		$Members = mysql::GetObjects();
+		if(empty($Members))
+			return $Parent == 0 ? '{lang=com.sbb.board.empty}' : ''; // Hat keine Kinder
+		
+		foreach($Members as $Member) {
+			switch ($Member->Type) {
+				case Types::$CATEGORY: {
+					$Parts .= '<li class="Category" id="Category'.$Member->ID.'">
+						<div class="CategoryHead">
+							<div class="CategoryTitle">'.$Member->Title.'</div>'.
+							(!empty($Member->Description) ?
+								'<div class="CategoryDescription">'.$Member->Description.'</div>' :
+								''
+							)
+						.'</div>
+						'.self::GetChilds($Member->ID).'
+					</li>';
+					break;
+				} case Types::$FORUM: {
+					$Parts .= '<li class="Forum" id="Forum'.$Member->ID.'">
+						<div class="ForumContainer">
+							<div class="ForumTitle">'.$Member->Title.'</div>'.
+							(!empty($Member->Description) ?
+								'<div class="ForumDescription">'.$Member->Description.'</div>' :
+								''
+							)
+						.'</div>
+						'.self::GetChilds($Member->ID).'
+					</li>';
+					break;
+				} case Types::$REFERENCE: {
+					$Parts .= '<li class="Reference" id="Reference'.$Member->ID.'">
+						<div class="ReferenceContainer">
+							<div class="ReferenceTitle">'.$Member->Title.'</div>'.
+							(!empty($Member->Description) ?
+								'<div class="ReferenceDescription">'.$Member->Description.'</div>' :
+								''
+							)
+						.'</div>
+						'.self::GetChilds($Member->ID).'
+					</li>';
+					break;
+				} default:
+					$Parts .= '<li><span class="ParseError">{lang=com.sbb.board.not_categorized}</span></li>';
+			}
+		}
+		
+		return '<ul '.($Parent == 0 ? 'class="Boardlist" ' : '').'>
+			'.$Parts.'
+		</ul>';
+	}
+}
+
+class Types {
+	public static
+	$CATEGORY	= 0,
+	$FORUM		= 1,
+	$REFERENCE	= 2;
 }
 ?>

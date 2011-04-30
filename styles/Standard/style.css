@@ -210,7 +210,7 @@ nav.Menu .MenuList li.active:active div {
 	height: 24px;
 	width: 24px;
 	background: transparent url(icons/Search.png) no-repeat center center;
-	margin: 5px 0 0 -26px;
+	margin: 5px 0 0 -24px;
 	border-width: 1px;
 	border-style: none;
 }

@@ -43,10 +43,9 @@ $this->Items['com.sbb.crumbs.user']					= 'Memberlist';
 $this->Items['com.sbb.profile.homepage']			= 'Homepage';
 $this->Items['com.sbb.profile.signature']			= 'Signature';
 
+$this->Items['com.sbb.board.empty']					= 'Currently the Board is empty.';
+$this->Items['com.sbb.board.not_categorized']		= 'Not Categorized';
 
-$this->Items['com.sbb.category.empty']				= 'Currently there are no Categories';
-$this->Items['com.sbb.forum.empty']					= 'Currently this category had no Forums.';
-
-$this->Items['com.sbb.captcha']		= 'Captcha';
-$this->Items['com.sbb.captcha.wrong']		= 'Captcha is wrong!';
+$this->Items['com.sbb.captcha']						= 'Captcha';
+$this->Items['com.sbb.captcha.wrong']				= 'Captcha is wrong!';
 ?>

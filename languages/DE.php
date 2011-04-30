@@ -43,9 +43,9 @@ $this->Items['com.sbb.crumbs.user']					= 'Benutzerliste';
 $this->Items['com.sbb.profile.homepage']			= 'Homepage';
 $this->Items['com.sbb.profile.signature']			= 'Signatur';
 
-$this->Items['com.sbb.category.empty']				= 'Es existieren keine Kategorien.';
-$this->Items['com.sbb.forum.empty']					= 'Diese Kategorie hat keine Foren.';
+$this->Items['com.sbb.board.empty']					= 'Zurzeit ist das Board leer.';
+$this->Items['com.sbb.board.not_categorized']		= 'Nicht Kategorisiert';
 
-$this->Items['com.sbb.captcha']		= 'Captcha';
-$this->Items['com.sbb.captcha.wrong']		= 'Captcha ist falsch!';
+$this->Items['com.sbb.captcha']						= 'Captcha';
+$this->Items['com.sbb.captcha.wrong']				= 'Captcha ist falsch!';
 ?>
