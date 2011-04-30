@@ -1,15 +1,15 @@
 <?php
 /**
  * @author		SilexBoard Team
- *					Nox Nebula
+ *					Angus, Nox Nebula
  * @copyright	2011 SilexBoard
  */
 
 class menu {
 	public static function Parse() {
 		$Page = $_GET['page'];
-		
-		if($Page == '' || $Page == 'home')
+													//    V- Kann dann durch Standardseite im ACP geändert werden
+		if($Page == '' || $Page == 'Board' || $Page == 'Forum')
 			$Page = './';
 		
 		mysql::Select('menu','*');

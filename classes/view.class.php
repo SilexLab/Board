@@ -6,8 +6,55 @@
  */
 
 class view {
-	public static function DisplayBoard() {
+	public static $BoardTitle, $BoardID;
+	
+	private static $Crumbs = array();
+	
+	public static function DisplayOverview() {
 		return self::GetChilds(0); // Rekursiv aufrufende Funktion
+	}
+	
+	public static function DisplayBoard($ID) {
+		$ID = intval($ID);
+		if($ID == 0)
+			return '{lang=com.sbb.board.error.no_board}';
+		
+		self::$BoardID = $ID;
+		mysql::Select(DB_PREFIX.'forums', 'Title, Parent', 'ID = '.$ID, NULL, 1);
+		$Board = mysql::FetchObject();
+		
+		self::$BoardTitle = $Board->Title;
+		self::GetCrumbs($Board->Parent);
+		
+		// Ab hier dann Foren/Kategorien und Themen im Forum auslesen (Rekursion?)
+		//
+		
+		return 'Hier kommen die Foren der Kategorie ID \''.$ID.'\' hin.';
+	}
+	
+	private static function GetCrumbs($Parent) {
+		if($Parent != 0)
+			self::AddCrumb($Parent);
+		
+		// Array rückwärts auslesen und Crumbs erzeugen
+		$Crumbs =& self::$Crumbs;
+		
+		for($i = sizeof($Crumbs) - 1; $i >= 0; $i--) {
+			mysql::Select(DB_PREFIX.'forums', 'Title', 'ID = '.$Crumbs[$i], NULL, 1);
+			$Crumb = mysql::FetchObject();
+			crumb::Add($Crumb->Title, '?page=Board&BoardID='.$Crumbs[$i]);
+		}
+		crumb::Add(self::$BoardTitle, '?page=Board&BoardID='.self::$BoardID);
+	}
+	private static function AddCrumb($BoardID) {
+		if($BoardID != 0) {
+			self::$Crumbs[] = $BoardID;
+			
+			mysql::Select(DB_PREFIX.'forums', 'Parent', 'ID = '.$BoardID, NULL, 1);
+			$Board = mysql::FetchObject();
+			self::AddCrumb($Board->Parent);
+		} else
+			return;
 	}
 	
 	private static function GetChilds($Parent) {
@@ -24,7 +71,9 @@ class view {
 				case Types::$CATEGORY: {
 					$Parts .= '<li class="Category" id="Category'.$Member->ID.'">
 						<div class="CategoryHead">
-							<div class="CategoryTitle">'.$Member->Title.'</div>'.
+							<a href="?page=Board&BoardID='.$Member->ID.'">
+								<div class="CategoryTitle">'.$Member->Title.'</div>
+							</a>'.
 							(!empty($Member->Description) ?
 								'<div class="CategoryDescription">'.$Member->Description.'</div>' :
 								''
@@ -36,7 +85,9 @@ class view {
 				} case Types::$FORUM: {
 					$Parts .= '<li class="Forum" id="Forum'.$Member->ID.'">
 						<div class="ForumContainer">
-							<div class="ForumTitle">'.$Member->Title.'</div>'.
+							<a href="?page=Board&BoardID='.$Member->ID.'">
+								<div class="ForumTitle">'.$Member->Title.'</div>
+							</a>'.
 							(!empty($Member->Description) ?
 								'<div class="ForumDescription">'.$Member->Description.'</div>' :
 								''

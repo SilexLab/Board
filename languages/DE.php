@@ -45,6 +45,7 @@ $this->Items['com.sbb.profile.signature']			= 'Signatur';
 
 $this->Items['com.sbb.board.empty']					= 'Zurzeit ist das Board leer.';
 $this->Items['com.sbb.board.not_categorized']		= 'Nicht Kategorisiert';
+$this->Items['com.sbb.board.error.no_board']		= 'Das Forum existiert nicht';
 
 $this->Items['com.sbb.captcha']						= 'Captcha';
 $this->Items['com.sbb.captcha.wrong']				= 'Captcha ist falsch!';
