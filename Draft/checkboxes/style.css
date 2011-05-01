@@ -4,7 +4,6 @@
 input[type=checkbox] {
 	display: none;
 }
-
 	input[type=checkbox] + label.check {
 		display: inline-block;
 		height: 24px;
@@ -27,3 +26,30 @@ input[type=checkbox] {
 		input[type=checkbox]:checked + label.check:active {
 			background: url(checkbox.png) left -120px no-repeat;
 		}
+
+input[type=radio] {
+	display: none;
+}
+	input[type=radio] + label.check {
+		display: inline-block;
+		height: 16px;
+		width: 16px;
+		background: url(radiobutton.png) left top no-repeat;
+	}
+		input[type=radio] + label.check:hover {
+			background-position: left -16px;
+		}
+		input[type=radio] + label.check:active {
+			background-position: left -32px;
+		}
+	
+	input[type=radio]:checked + label.check {
+		background-position: left -48px;
+	}
+		input[type=radio]:checked + label.check:hover {
+			background-position: left -64px;
+		}
+		input[type=radio]:checked + label.check:active {
+			background-position: left -80px;
+		}
+	
