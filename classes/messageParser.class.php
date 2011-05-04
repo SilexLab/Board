@@ -8,7 +8,17 @@
 class messageParser {
     public $Message = '';
     
-    /* Paletten für BBCodes */
+	// Paletten für BBCodes
+	private $BBcodeSearch = array('/\\*\*(.*)\*\*/U',
+        '/\[spoiler=(.*)\](.*)\[\/spoiler\]/');
+	
+	private $BBcodeReplace = array('/\\*\*(.*)\*\*/U',
+		'<div onclick="$(\'#$1\').slideToggle(\'slow\')" style="margin: 3px 3px 0 3px; padding:3px; border-radius: 3px 3px 0 0; background-color: #F00;"><strong>Spoiler</strong> $1</div>
+		 <div id="$1" style="margin: 0 3px 3px 3px; padding:3px; border-radius: 0 0 3px 3px; background-color: #CCC;display:none;">$2</div>
+		');
+		
+		
+    /* Paletten für Markdown */
     private $MarkDownSearch = array('/\\*\*(.*)\*\*/U',
         '/_(.*)_/U',
         '/\*(.*)\*/U',
@@ -38,7 +48,7 @@ class messageParser {
         '<img style="margin-bottom: -3px;" src="images/smiley/bigsmile.png" alt="BigSmile">',
         '<img style="margin-bottom: -3px;" src="images/smiley/heart.png" alt="Heart">');
 
-    public function parse($Message, $EnableBBCodes = true, $EnableSmilies = true, $EnableHtml = false) {
+    public function parse($Message, $EnableBBCodes = true, $EnableSmilies = true, $EnableHtml = false, $EnableBBcode = true) {
         $this->Message = $Message;
 
         if(!$EnableHtml) {
@@ -51,7 +61,10 @@ class messageParser {
 
         if($EnableSmilies)
             $this->Message = preg_replace($this->SmileySearch, $this->SmileyReplace, $this->Message);
-
+			
+        if($EnableBBcode)
+           $this->Message = preg_replace($this->BBcodeSearch, $this->BBcodeReplace, $this->Message);
+			
         return $this->Message;
     }
 }
