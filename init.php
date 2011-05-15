@@ -42,6 +42,8 @@ $tpl->Assign('Menu',menu::Parse());
 	}
 }*/
 
+$group = groups::getRights();
+
 // after 10 minutes you will automatically logged out
 login::autoLogout(); 
 ?>

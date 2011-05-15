@@ -7,8 +7,9 @@ if (!login::logged_in()) {
 }
 
 if (login::logged_in()) {
+	$var = '<br>'.$group['GroupName'];
     $tpl->Assign('Content', '<p>Gesch&uuml;tzter Bereich</p>
-							<p><a href="logout.php">Ausloggen</a></p>');
+							<p><a href="logout.php">Ausloggen</a></p>'.$var);
 }
 
 $tpl->Assign(array('Site' => 'Seitentitel',
