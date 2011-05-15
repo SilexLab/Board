@@ -76,6 +76,7 @@ class login {
 		mysql::Delete('sessions', 'Salt = \''.session_id().'\'');
 		mysql::Delete('sessions', 'Salt = \''.$_COOKIE['sbb_loginHash'].'\'');
 		session::remove('username');
+		session::remove('userid');
 		setcookie('sbb_UserId', '', time()-60*60*24*365);
 		setcookie('sbb_loginHash', '', time()-60*60*24*365);
 	}
@@ -101,7 +102,7 @@ class login {
 			}
 		}	
 	}
-	
+
 	//Gibt Username aus
 	public static function GetUsername ($userid) {
 		if(Login::logged_in()==1) {
