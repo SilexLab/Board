@@ -348,3 +348,20 @@ footer {
 	margin: 0;
 	padding: 0;
 }
+
+/* Posts */
+
+.messageSidebar {
+    float: left;
+    width: 180px;
+	text-align: center;
+	border-right: 1px solid;
+}
+.message {
+	border: 1px solid;
+	border-radius: 7px;
+	margin-bottom: 16px;
+}
+.messageContentInner  {
+	padding: 7px;	
+}
