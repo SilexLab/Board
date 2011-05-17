@@ -1,7 +1,7 @@
 <?php
 /**
  * @author		SilexBoard Team
- *					Cadillaxx
+ *					Cadillaxx, Angus
  * @copyright	2011 SilexBoard
  */
 
@@ -19,6 +19,22 @@ class user {
 				"ActivationKey" => $key,
 				"RegisterTime" => time());
 		$sql->Insert("users", $inserts);
+	}
+	
+	public static function GetUsername($ID) {
+		if(isset($ID)) {
+			mysql::Select('users','*','ID='.$ID);
+			$UserName = mysql::FetchObject()->UserName;	
+			return $UserName;
+		}
+	}
+	
+		public static function GetEmail($ID) {
+		if(isset($ID)) {
+			mysql::Select('users','*','ID='.$ID);
+			$Email = mysql::FetchObject()->Email;	
+			return $Email;
+		}
 	}
 }
 ?>
