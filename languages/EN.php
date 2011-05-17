@@ -1,7 +1,7 @@
 <?php
 /**
  * @author		SilexBoard Team
- *					Nox Nebula, Cadillaxx, Angus
+ *					Nox Nebula, Cadillaxx, Angus, Nut
  * @copyright	2011 SilexBoard
  */
 
@@ -35,7 +35,10 @@ $this->Items['com.sbb.login.ifnotredirect']			= 'If the automatic redirecting do
 
 $this->Items['com.sbb.form.submit']					= 'Submit';
 
-$this->Items['com.sbb.user.logout']					= 'Logout';
+$this->Items['com.sbb.logout.logout']				= 'Logout';
+$this->Items['com.sbb.logout.logged_out']			= 'You are logged out now.';
+$this->Items['com.sbb.logout.main_menu']			= 'Main Menu';
+$this->Items['com.sbb.logout.never_logged_in']		= 'You are never logged in.';
 
 $this->Items['com.sbb.crumbs.home']					= 'Home';
 $this->Items['com.sbb.crumbs.user']					= 'Memberlist';

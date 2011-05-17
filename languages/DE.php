@@ -1,7 +1,7 @@
 <?php
 /**
  * @author		SilexBoard Team
- *					Nox Nebula, Cadillaxx, Angus
+ *					Nox Nebula, Cadillaxx, Angus, Nut
  * @copyright	2011 SilexBoard
  */
 
@@ -35,7 +35,10 @@ $this->Items['com.sbb.login.ifnotredirect']			= 'Falls die automatische Weiterle
 
 $this->Items['com.sbb.form.submit']					= 'Absenden';
 
-$this->Items['com.sbb.user.logout']					= 'Ausloggen';  // TODO: umbennen nach com.sbb.form.logout or so..
+$this->Items['com.sbb.logout.logout']				= 'Ausloggen';
+$this->Items['com.sbb.logout.logged_out']			= 'Sie sind jetzt ausgeloggt.';
+$this->Items['com.sbb.logout.main_menu']			= 'Hauptmen&uuml;';
+$this->Items['com.sbb.logout.never_logged_in']		= 'Sie waren niemals eingeloggt.';
 
 $this->Items['com.sbb.crumbs.home']					= 'Home';
 $this->Items['com.sbb.crumbs.user']					= 'Benutzerliste';
