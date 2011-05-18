@@ -29,7 +29,7 @@ if(isset($_GET['userID'])) {
         if(!empty($row->Signatur)) {
             $Content .= $parser->parse($Row->Signatur);
         }
-        crumb::Add($Row->UserName, '?page=User&userID='.$_GET['userID']);
+        crumb::Add($Row->UserName, '?page=User&amp;userID='.$_GET['userID']);
     }
     else {
         $Content .= "Benutzer nicht gefunden!";
@@ -39,7 +39,7 @@ else {
     mysql::Select('users', '*');
     while($Row = mysql::FetchObject()) {
         $Avatar = new avatar($Row->Email, 50);
-        $Content .= '<p>'.$Avatar.' <a href="?page=User&userID='.$Row->ID.'">'.$Row->UserName.'</a> Registriert seit: '.date('d.m.Y H:i', $Row->RegisterTime)."</p>\n";
+        $Content .= '<p>'.$Avatar.' <a href="?page=User&amp;userID='.$Row->ID.'">'.$Row->UserName.'</a> Registriert seit: '.date('d.m.Y H:i', $Row->RegisterTime)."</p>\n";
     }
 }
 self::$TPL->Assign(array('Site' => 'UserList', 'Content' => $Content));

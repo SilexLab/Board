@@ -11,7 +11,7 @@ class Avatar {
     public function  __construct($Email, $Size) {
         $this->Email = $Email;
         $this->Size = $Size;
-        $this->URL = "http://www.gravatar.com/avatar/".md5(strtolower(trim($this->Email)))."?d=mm&s=".$this->Size;
+        $this->URL = "http://www.gravatar.com/avatar/".md5(strtolower(trim($this->Email)))."?d=mm&amp;s=".$this->Size;
     }
 
     public function GetURL() {

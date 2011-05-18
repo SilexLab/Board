@@ -35,7 +35,7 @@ class view {
 	private static function GetTopics($Parent){
 		mysql::Select(DB_PREFIX.'topics','*','ForumID='.$Parent);
 		while($row = mysql::FetchObject()) {
-			$Return .= '<a onmouseover="$(\'#'.$row->ID.'\').show()" onmouseout="$(\'#'.$row->ID.'\').hide()" href="?page=Topic&TopicID='.$row->ID.'">'.$row->TopicTitle.'</a> by '.$row->UserID.'
+			$Return .= '<a onmouseover="$(\'#'.$row->ID.'\').show()" onmouseout="$(\'#'.$row->ID.'\').hide()" href="?page=Topic&amp;TopicID='.$row->ID.'">'.$row->TopicTitle.'</a> by '.$row->UserID.'
 						<span style="display:none;" id='.$row->ID.'>'.$row->TopicRead.'</span><br>	';	
 		}
 		if($Return)
@@ -84,10 +84,10 @@ class view {
 		for($i = sizeof($Crumbs) - 1; $i >= 0; $i--) {
 			mysql::Select(DB_PREFIX.'forums', 'Title', 'ID = '.$Crumbs[$i], NULL, 1);
 			$Crumb = mysql::FetchObject();
-			crumb::Add($Crumb->Title, '?page=Board&BoardID='.$Crumbs[$i]);
+			crumb::Add($Crumb->Title, '?page=Board&amp;BoardID='.$Crumbs[$i]);
 		}
 		if(self::$BoardID)
-			crumb::Add(self::$BoardTitle, '?page=Board&BoardID='.self::$BoardID);
+			crumb::Add(self::$BoardTitle, '?page=Board&amp;BoardID='.self::$BoardID);
 	}
 	private static function AddCrumb($BoardID) {
 		if($BoardID != 0) {
@@ -114,7 +114,7 @@ class view {
 				case Types::$CATEGORY: {
 					$Parts .= '<li class="Category" id="Category'.$Member->ID.'">
 						<div class="CategoryHead">
-							<a href="?page=Board&BoardID='.$Member->ID.'">
+							<a href="?page=Board&amp;BoardID='.$Member->ID.'">
 								<div class="CategoryTitle">'.$Member->Title.'</div>
 							</a>'.
 							(!empty($Member->Description) ?
@@ -128,7 +128,7 @@ class view {
 				} case Types::$FORUM: {
 					$Parts .= '<li class="Forum" id="Forum'.$Member->ID.'">
 						<div class="ForumContainer">
-							<a href="?page=Board&BoardID='.$Member->ID.'">
+							<a href="?page=Board&amp;BoardID='.$Member->ID.'">
 								<div class="ForumTitle">'.$Member->Title.'</div>
 							</a>'.
 							(!empty($Member->Description) ?
