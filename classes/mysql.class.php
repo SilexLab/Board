@@ -72,6 +72,11 @@ class mysql{
 		self::ExecuteQuery();
 	}
 	
+	public static function Count($Table, $Rows = '*', $Where) {
+		self::$SQLQuery = 'SELECT COUNT('.$Rows.') AS total FROM '.$Table.' WHERE '.$Where.';';		
+		self::ExecuteQuery();
+	}
+	
 	public static function Delete($Table, $Where = '') {
 		$Query = 'DELETE ';
 		if(empty($Where))

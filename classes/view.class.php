@@ -48,8 +48,9 @@ class view {
 	<tbody>
 ';
 		foreach($Content as $row) {
-			$a = mysql_fetch_assoc(mysql_query("SELECT COUNT(*) AS total FROM `posts` WHERE TopicID=".$row->ID));	
-			$b = $a['total'];
+			mysql::Count('posts','*','TopicID='.$row->ID);
+			$TotalAnswersArray = mysql::FetchArray();
+			$TotalAnswers = $TotalAnswersArray['total'];
 			mysql::Select(DB_PREFIX.'posts','*','TopicID='.$row->ID,'Date ASC','0');
 			$TopicLastAnwer = mysql::FetchObject();
 			$tpl = new template('topiclist');
@@ -57,7 +58,7 @@ class view {
 			'TopicTitle' 		=> $row->TopicTitle,
 			'TopicCreator'		=> user::GetUsername($row->UserID),
 			'TopicCreatorID' 	=> $row->UserID,
-			'TopicAnswers' 		=> $b,
+			'TopicAnswers' 		=> $TotalAnswers,
 			'TopicViews' 		=> $row->Views,
 			'TopicID'			=> $row->ID,
 			'TopicLastAnswer'	=> ($TopicLastAnwer->UserID),
