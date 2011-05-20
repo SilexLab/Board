@@ -34,10 +34,41 @@ class view {
 	
 	private static function GetTopics($Parent){
 		mysql::Select(DB_PREFIX.'topics','*','ForumID='.$Parent);
-		while($row = mysql::FetchObject()) {
-			$Return .= '<a onmouseover="$(\'#'.$row->ID.'\').show()" onmouseout="$(\'#'.$row->ID.'\').hide()" href="?page=Topic&amp;TopicID='.$row->ID.'">'.$row->TopicTitle.'</a> by '.$row->UserID.'
-						<span style="display:none;" id='.$row->ID.'>'.$row->TopicRead.'</span><br>	';	
+		$Content = mysql::GetObjects();
+		$Return .= '
+<table style="border-width:0 1px 1px 0;" border="solid" width="100%">
+	<thead>
+		<tr>
+			<td style="text-align:center;">Thema</td>
+			<td style="text-align:center;">Antworten</td>
+			<td style="text-align:center;">Zugriffe</td>
+			<td style="text-align:center;">Letzte Antwort</td>
+		</tr>
+	</thead>
+	<tbody>
+';
+		foreach($Content as $row) {
+			$a = mysql_fetch_assoc(mysql_query("SELECT COUNT(*) AS total FROM `posts` WHERE TopicID=".$row->ID));	
+			$b = $a['total'];
+			mysql::Select(DB_PREFIX.'posts','*','TopicID='.$row->ID,'Date ASC','0');
+			$TopicLastAnwer = mysql::FetchObject();
+			$tpl = new template('topiclist');
+			$tpl->Assign(array(
+			'TopicTitle' 		=> $row->TopicTitle,
+			'TopicCreator'		=> user::GetUsername($row->UserID),
+			'TopicCreatorID' 	=> $row->UserID,
+			'TopicAnswers' 		=> $b,
+			'TopicViews' 		=> $row->Views,
+			'TopicID'			=> $row->ID,
+			'TopicLastAnswer'	=> ($TopicLastAnwer->UserID),
+			'TopicRead' 		=> $row->TopicRead
+			));
+			
+			$Return .= $tpl->Display(true);
 		}
+		$Return .= '
+	</tbody>
+</table>';
 		if($Return)
 			return $Return;
 		else
@@ -45,25 +76,38 @@ class view {
 	}
 	
 	public static function DisplayTopics($TopicID) {
-		mysql::Select(DB_PREFIX.'posts', '*', 'TopicID='.$TopicID);
+		mysql::Select('topics', '*', 'ID='.$TopicID);
+		$views = mysql::FetchObject();
+		$newviews = $views->Views+1;
+		mysql::Query("UPDATE `topics` SET `Views` = '".$newviews."' WHERE `topics`.`ID` =".$TopicID);
+		mysql::Select(DB_PREFIX.'posts', '*', 'TopicID='.$TopicID,'Date ASC');
 		$Objects = mysql::GetObjects();
 		$Return = '';
 		$i = 1;
 		foreach($Objects as $Object) {
 			$Post = new template('post');
 			$Post->Assign(array(
-			'UserID' => $Object->UserID,
-			'UserName' => user::GetUsername($Object->UserID),
-			'Avatar' => new avatar(user::GetEmail($Object->UserID),'150'),
-			'ID' => $Object->ID,
-			'Text' => $Object->Text,
-			'PostNum' => $i
+			'UserID' 	=> $Object->UserID,
+			'UserName'	=> user::GetUsername($Object->UserID),
+			'Avatar' 	=> new avatar(user::GetEmail($Object->UserID),'150'),
+			'ID' 		=> $Object->ID,
+			'Text'		=> $Object->Text,
+			'Title' 	=> $Object->PostTitle,
+			'PostNum' 	=> $i,
+			'TopicID' 	=> $TopicID
+			));
 			
+			if($Object->UserID == session::read('userid'))
+				$Post->Assign(array(
+				'Edit' => '<a href="?page=Topic&TopicID='.$TopicID.'">Edit this Post</a>'
+				
 				));
-			
 			$Return .= $Post->Display(true);
 			$i++;
 		}
+		
+		
+		
 		// Übergeordnetes Forum auslesen
 		mysql::Select(DB_PREFIX.'topics', 'ForumID, TopicTitle', 'ID='.$TopicID, NULL, 1);
 		$Topic = mysql::FetchObject();

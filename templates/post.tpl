@@ -1,4 +1,4 @@
-<div class="message">
+<div class="message" id="Post{$ID}">
 	<div class="messageInner messageLeft dividers container-3">
 		<div class="messageSidebar">
 			<div class="messageAuthor">
@@ -29,7 +29,7 @@
 			<div class="messageContentInner color-1">
 				<div class="messageHeader">
 					<p class="messageCount">
-						<a class="messageNumber" title="Permalink zum {$PostNum}. Beitrag" href="index.php?page=Topic&TopicID={$PostNum}">{$PostNum}</a>
+						<a class="messageNumber" title="Permalink zum {$PostNum}. Beitrag" href="index.php?page=Topic&TopicID={$TopicID}#Post{$ID}">{$PostNum}</a>
 					</p>
 					<div class="containerIcon">
 						<img alt="" src="icon/postM.png">
@@ -38,13 +38,13 @@
 						<p class="smallFont light"></p>
 					</div>
 				</div>
-				<h3 class="messageTitle"><span></span></h3>
+				<h2 class="messageTitle"><span style="color: #333333">{$Title}</span></h2>
 				<div class="messageBody">
 					<div id="postText{$ID}">
 						{$Text}
 					</div>
 				</div>
-				<div class="signature">
+				<div class="signature" style="margin-top: 15px;">
 				SIGNATUR!!!
 				</div>
 				<div class="messageFooterRight">

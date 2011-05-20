@@ -9,7 +9,7 @@ class menu {
 	public static function Parse() {
 		$Page = $_GET['page'];
 													//    V- Kann dann durch Standardseite im ACP geändert werden
-		if($Page == '' || $Page == 'Board' || $Page == 'Forum')
+		if($Page == '' || $Page == 'Board' || $Page == 'Forum' || $Page == 'Topic')
 			$Page = './';
 		
 		mysql::Select('menu','*');
