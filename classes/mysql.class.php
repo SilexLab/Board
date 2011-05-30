@@ -130,8 +130,7 @@ class mysql{
 				'	<strong>Site</strong>: '.(isset($_SERVER['REQUEST_URI']) && !empty($_SERVER['REQUEST_URI']) ?
 												htmlentities($_SERVER['REQUEST_URI']) : '-').'<br>'."\n".
 				'	<strong>Referrer</strong>: '.(isset($_SERVER['HTTP_REFERER']) && !empty($_SERVER['HTTP_REFERER']) ?
-												htmlentities($_SERVER['HTTP_REFERER']) : '-').'<br>'."\n".
-				'</div>');
+												htmlentities($_SERVER['HTTP_REFERER']) : '-'));
 	}
 	
 	private static function DoConnect() {
@@ -144,8 +143,7 @@ class mysql{
 				'	<strong>Site</strong>: '.(isset($_SERVER['REQUEST_URI']) && !empty($_SERVER['REQUEST_URI']) ?
 												htmlentities($_SERVER['REQUEST_URI']) : '-').'<br>'."\n".
 				'	<strong>Referrer</strong>: '.(isset($_SERVER['HTTP_REFERER']) && !empty($_SERVER['HTTP_REFERER']) ?
-													htmlentities($_SERVER['HTTP_REFERER']) : '-').'<br>'."\n".
-				'</div>');
+													htmlentities($_SERVER['HTTP_REFERER']) : '-'));
 		}
 		return true;
 	}
@@ -160,8 +158,7 @@ class mysql{
 				'	<strong>Site</strong>: '.(isset($_SERVER['REQUEST_URI']) && !empty($_SERVER['REQUEST_URI']) ?
 												htmlentities($_SERVER['REQUEST_URI']) : '-').'<br>'."\n".
 				'	<strong>Referrer</strong>: '.(isset($_SERVER['HTTP_REFERER']) && !empty($_SERVER['HTTP_REFERER']) ?
-													htmlentities($_SERVER['HTTP_REFERER']) : '-').'<br>'."\n".
-				'</div>');
+													htmlentities($_SERVER['HTTP_REFERER']) : '-'));
 		}
 		return true;
 	}

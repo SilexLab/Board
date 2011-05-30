@@ -48,7 +48,7 @@ class view {
 	<tbody>
 ';
 		foreach($Content as $row) {
-			mysql::Count('posts','*','TopicID='.$row->ID);
+			mysql::Count(DB_PREFIX.'posts','*','TopicID='.$row->ID);
 			$TotalAnswersArray = mysql::FetchArray();
 			$TotalAnswers = $TotalAnswersArray['total'];
 			mysql::Select(DB_PREFIX.'posts','*','TopicID='.$row->ID,'Date ASC','0');
@@ -77,10 +77,11 @@ class view {
 	}
 	
 	public static function DisplayTopics($TopicID) {
-		mysql::Select('topics', '*', 'ID='.$TopicID);
+		mysql::Select(DB_PREFIX.'topics', '*', 'ID='.$TopicID);
 		$views = mysql::FetchObject();
 		$newviews = $views->Views+1;
-		mysql::Query("UPDATE `topics` SET `Views` = '".$newviews."' WHERE `topics`.`ID` =".$TopicID);
+                $updates = array('Views' => $newviews);
+		mysql::Update(DB_PREFIX."topics", $updates, 'ID = '.$TopicID);
 		mysql::Select(DB_PREFIX.'posts', '*', 'TopicID='.$TopicID,'Date ASC');
 		$Objects = mysql::GetObjects();
 		$Return = '';

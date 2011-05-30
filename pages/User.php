@@ -16,7 +16,7 @@ $content = '';
 crumb::Add('{lang=com.sbb.crumbs.user}', '?page=User');
 
 if(isset($_GET['userID'])) {
-    mysql::Select('users', '*', 'ID = \''.$_GET['userID'].'\'', 1);
+    mysql::Select(DB_PREFIX.'users', '*', 'ID = \''.$_GET['userID'].'\'', 1);
     if(mysql::NumRows() == 1) {
         $Row = mysql::FetchObject();
         $Content .= "<h2>".$Row->UserName."</h2>\n";
@@ -36,10 +36,15 @@ if(isset($_GET['userID'])) {
     }
 }
 else {
-    mysql::Select('users', '*');
-    while($Row = mysql::FetchObject()) {
-        $Avatar = new avatar($Row->Email, 50);
-        $Content .= '<p>'.$Avatar.' <a href="?page=User&amp;userID='.$Row->ID.'">'.$Row->UserName.'</a> Registriert seit: '.date('d.m.Y H:i', $Row->RegisterTime)."</p>\n";
+    mysql::Select(DB_PREFIX.'users', '*');
+    if(mysql::NumRows() > 0) {
+        while($Row = mysql::FetchObject()) {
+            $Avatar = new avatar($Row->Email, 50);
+            $Content .= '<p>'.$Avatar.' <a href="?page=User&amp;userID='.$Row->ID.'">'.$Row->UserName.'</a> Registriert seit: '.date('d.m.Y H:i', $Row->RegisterTime)."</p>\n";
+        }
+    }
+    else {
+        $Content .= 'Keine Benutzer gefunden!';
     }
 }
 self::$TPL->Assign(array('Site' => 'UserList', 'Content' => $Content));

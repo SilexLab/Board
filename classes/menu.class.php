@@ -12,7 +12,7 @@ class menu {
 		if($Page == '' || $Page == 'Board' || $Page == 'Forum' || $Page == 'Topic')
 			$Page = './';
 		
-		mysql::Select('menu','*');
+		mysql::Select(DB_PREFIX.'menu','*');
 		while ($row = mysql::FetchObject()) {
 			if($Page == $row->Link || '?page='.$Page == $row->Link)
 				$Return .= '				<li class="active"><a href="'.$row->Link.'"><div>'.$row->MenuName.'</div></a></li>';

@@ -13,7 +13,7 @@ if(login::logged_in()) {
 if(isset($_POST['submit'])) {
 	$updates = array("Homepage" => $_POST['homepage'],
 					"Signatur" => $_POST['signature']);
-	mysql::Update("users", $updates, "ID = 1"); // TODO: funktion um die UserID rauszufinden
+	mysql::Update(DB_PREFIX."users", $updates, "ID = 1"); // TODO: funktion um die UserID rauszufinden
 }
 
 $language->Assign($tpl);

@@ -17,8 +17,9 @@ class page {
 			self::$Page = null;
 		
 		self::$TPL = $TemplateObject;
+                $Menu = new menu;
 		self::Open();
-		self::$TPL->Assign('BreadCrumbs', crumb::Parse());
+		self::$TPL->Assign(array('BreadCrumbs' => crumb::Parse(), 'Menu' => $Menu->Parse()));
 	}
 	
 	public static function Open() {
