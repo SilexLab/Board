@@ -1,9 +1,12 @@
 <?php
 /**
- * @author		SilexBoard Team
- *					Cadillaxx
- * @copyright	2011 SilexBoard
+ * @author 		Cadillaxx
+ * @copyright	© 2011 Silex Bulletin Board - Team
+ * @license		GNU GENERAL PUBLIC LICENSE v3
+ * @package		SilexBoard.DEV
+ * @version		Revision: 1
  */
+
 require_once('../init.php');
 class captcha {
     private $ImagePath;    private $StringLength;

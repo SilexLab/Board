@@ -1,8 +1,10 @@
 <?php
 /**
- * @author		SilexBoard Team
- *					Nox Nebula, Cadillaxx, Angus, Nut
- * @copyright	2011 SilexBoard
+ * @author 		Angus
+ * @copyright	© 2011 Silex Bulletin Board - Team
+ * @license		GNU GENERAL PUBLIC LICENSE v3
+ * @package		SilexBoard.DEV
+ * @version		Revision: 1
  */
 
 // Schutz vor Direktaufruf der Datei
