@@ -4,13 +4,16 @@
  * @copyright	© 2011 Silex Bulletin Board - Team
  * @license		GNU GENERAL PUBLIC LICENSE v3
  * @package		SilexBoard.DEV
- * @version		Revision: 1
+ * @version		Revision: 2
  */
 
 class template {
 	private $Vars = array();
 	private $Lang = array();
 	private $Content;
+	
+	//DEBUG
+	public $NumTPL = 0;
 	
 	public $Debug = false;
 	public $IsTemplateObject = false;
@@ -71,7 +74,10 @@ class template {
 			preg_match_all($this->patLang, $this->Content, $match) ||
 			preg_match_all($this->patVar, $this->Content, $match) ||
 			preg_match($this->patComment, $this->Content))
-			$this->Parse($Debug);
+		{
+			unset($match);
+			$this->Parse();
+		}
 	}
 	
 	// Adding Template
@@ -84,6 +90,7 @@ class template {
 		} else
 			$tpl = file_get_contents(PATH_TPL.$template.'.tpl')."\n";
 		
+		$this->NumTPL++;
 		if($return)
 			return $tpl;
 		$this->Content .= $tpl;

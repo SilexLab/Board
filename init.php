@@ -4,7 +4,7 @@
  * @copyright	© 2011 Silex Bulletin Board - Team
  * @license		GNU GENERAL PUBLIC LICENSE v3
  * @package		SilexBoard.DEV
- * @version		Revision: 1
+ * @version		Revision: 3
  */
 
 // Error reporting
@@ -26,7 +26,7 @@ mysql::Connect($CFG_Host, $CFG_User, $CFG_Password, $CFG_Database);
 date_default_timezone_set('Europe/Berlin');
 
 // variables
-$tpl = new template('head', 'body', 'footer');
+$tpl = new template('case');
 $tpl->Assign('Username', login::logged_in() ? 'Eingeloggt als '.login::GetUsername($_COOKIE['sbb_UserId']) : 'Nicht eingeloggt');
 $tpl->Assign('LoginLogout',login::logged_in() ? '<a href="#">Inbox</a> <a href="logout.php">Logout</a>' : '<a href="login.php">Login</a> <a href="register.php">Register</a>');
 
@@ -34,7 +34,7 @@ $tpl->Assign('LoginLogout',login::logged_in() ? '<a href="#">Inbox</a> <a href="
 crumb::Add('{lang=com.sbb.crumbs.home}', './');
 
 // Menu Parse
-$tpl->Assign('Menu',menu::Parse());
+$tpl->Assign('Menu', menu::Parse());
 
 /*if(basename($_SERVER['PHP_SELF']) == 'index.php'){
 	switch($_GET['page'])
@@ -49,4 +49,15 @@ $group = groups::getRights();
 
 // after 10 minutes you will automatically logged out
 login::autoLogout(); 
+
+
+$language = new language();
+
+$tpl->Assign(array('Site' => 'Seitentitel',
+'Slogan' => 'Slogan der Seite'));
+page::Initial($tpl);
+
+$language->Assign($tpl);
+$tpl->Display(false, true);
+echo '<br><br>TEMPLATES: '.$tpl->NumTPL;
 ?>
