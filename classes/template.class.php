@@ -4,16 +4,13 @@
  * @copyright	© 2011 Silex Bulletin Board - Team
  * @license		GNU GENERAL PUBLIC LICENSE v3
  * @package		SilexBoard.DEV
- * @version		Revision: 2
+ * @version		Revision: 5
  */
 
 class template {
 	private $Vars = array();
 	private $Lang = array();
 	private $Content;
-	
-	//DEBUG
-	public $NumTPL = 0;
 	
 	public $Debug = false;
 	public $IsTemplateObject = false;
@@ -31,56 +28,79 @@ class template {
 		$this->IsTemplateObject = true;
 	}
 	
-	private function Parse() { // TODO: Write this Smarter (It works, but it's ugly)
+	private function ParseIncludes($Content) {
+		preg_match_all($this->patTPL, $Content, $match);
+		for($i = 0; $i < sizeof($match[0]); $i++) {
+			$Content = preg_replace($this->patTPL, $this->AddTPL($match[1][$i], true), $Content, 1);
+			
+			if(preg_match_all($this->patTPL, $Content, $Buf))
+				$Content = $this->ParseIncludes($Content);
+			unset($Buf);
+		}
+		return $Content;
+	}
+	
+	private function ParseLanguages($Content) {
+		preg_match_all($this->patLang, $Content, $match);
+			for($i = 0; $i < sizeof($match[0]); $i++) {
+			$Content = preg_replace($this->patLang, $this->AddLanguage($match[1][$i]), $Content, 1);
+			
+			if(preg_match_all($this->patLang, $Content, $Buf))
+				$Content = $this->ParseLanguages($Content);
+			unset($Buf);
+		}
+		return $Content;
+	}
+	
+	private function ParseVariables($Content) {
+		preg_match_all($this->patVar, $Content, $match);
+		for($i = 0; $i < sizeof($match[0]); $i++) {
+			$Content = preg_replace($this->patVar, $this->AddVariable($match[1][$i]), $Content, 1);
+			
+			if(preg_match_all($this->patVar, $Content, $Buf))
+				$Content = $this->ParseVariables($Content);
+			unset($Buf);
+		}
+		return $Content;
+	}
+	
+	private function Parse() {
 		$Debug = $this->Debug;
 		
-		// Remove Comments
-		$this->Content = preg_replace($this->patComment, '', $this->Content);
+		$this->Content = preg_replace($this->patComment, '', $this->Content); // Remove Comments
+		$this->Content = $this->ParseIncludes($this->Content);
+		$this->Content = $this->ParseLanguages($this->Content);
+		$this->Content = $this->ParseVariables($this->Content);	
 		
-		// Parsing Includes
-		preg_match_all($this->patTPL, $this->Content, $match);
-			for($i = 0; $i < sizeof($match[0]); $i++) {
-				$this->Content = preg_replace($this->patTPL, $this->AddTPL($match[1][$i], true), $this->Content, 1);
-			} unset($match);
-		
-		// Parsing Languages
-		preg_match_all($this->patLang, $this->Content, $match);
-			for($i = 0; $i < sizeof($match[0]); $i++) {
-				if(isset($this->Lang[$match[1][$i]]))
-					$this->Content = preg_replace($this->patLang, $this->Lang[$match[1][$i]], $this->Content, 1);
-				else {
-					if(!$Debug)
-						$this->Content = preg_replace($this->patLang, '', $this->Content, 1);
-					else
-						$this->Content = preg_replace($this->patLang, '<span class="ParseError">Can\'t find language string \'<strong></span>'.$match[1][$i].'</strong>\'', $this->Content, 1);
-				}
-			} unset($match);
-		
-		// Parsing Vars
-		preg_match_all($this->patVar, $this->Content, $match);
-			for($i = 0; $i < sizeof($match[0]); $i++) {
-				if(isset($this->Vars[$match[1][$i]]))
-					$this->Content = preg_replace($this->patVar, $this->Vars[$match[1][$i]], $this->Content, 1);
-				else {
-					if(!$Debug)
-						$this->Content = preg_replace($this->patVar, '', $this->Content, 1);
-					else
-						$this->Content = preg_replace($this->patVar, '<span class="ParseError">Can\'t find variable \'<strong>'.$match[1][$i].'</strong>\'</span>', $this->Content, 1);
-				}
-			} unset($match);
-		
-		// Falls mehr Variablen gefunden wurden, erneut Parsen
-		if(preg_match_all($this->patTPL, $this->Content, $match) ||
-			preg_match_all($this->patLang, $this->Content, $match) ||
+		if(preg_match_all($this->patComment, $this->Content, $match) ||
+			preg_match_all($this->patTPL, $this->Content, $match) ||
 			preg_match_all($this->patVar, $this->Content, $match) ||
-			preg_match($this->patComment, $this->Content))
-		{
-			unset($match);
+			preg_match_all($this->patLang, $this->Content, $match))
 			$this->Parse();
+	}
+	
+	private function AddLanguage($String) {
+		if(isset($this->Lang[$String]))
+			return $this->Lang[$String];
+		else {
+			if(!$Debug)
+				return '';
+			else
+				return '<span class="ParseError">Can\'t find language string \'<strong>'.$String.'</strong>\'</span>';
 		}
 	}
 	
-	// Adding Template
+	private function AddVariable($String) {
+		if(isset($this->Vars[$String]))
+			return $this->Vars[$String];
+		else {
+			if(!$Debug)
+				return '';
+			else
+				return '<span class="ParseError">Can\'t find variable \'<strong>'.$String.'</strong>\'</span>';
+		}
+	}
+	
 	public function AddTPL($template, $return = false) {
 		if(!file_exists(PATH_TPL.$template.'.tpl')) {
 			if(!$this->Debug)
@@ -90,16 +110,10 @@ class template {
 		} else
 			$tpl = file_get_contents(PATH_TPL.$template.'.tpl')."\n";
 		
-		$this->NumTPL++;
 		if($return)
 			return $tpl;
-		$this->Content .= $tpl;
-	}
-	
-	public function GetString($String, $return = false) {
-		if($return)
-			return $String;
-		$this->Content .= $String;
+		else
+			$this->Content .= $tpl;
 	}
 	
 	// Display Templatestructure

@@ -27,6 +27,7 @@ date_default_timezone_set('Europe/Berlin');
 
 // variables
 $tpl = new template('case');
+
 $tpl->Assign('Username', login::logged_in() ? 'Eingeloggt als '.login::GetUsername($_COOKIE['sbb_UserId']) : 'Nicht eingeloggt');
 $tpl->Assign('LoginLogout',login::logged_in() ? '<a href="#">Inbox</a> <a href="logout.php">Logout</a>' : '<a href="login.php">Login</a> <a href="register.php">Register</a>');
 
@@ -59,5 +60,4 @@ page::Initial($tpl);
 
 $language->Assign($tpl);
 $tpl->Display(false, true);
-echo '<br><br>TEMPLATES: '.$tpl->NumTPL;
 ?>
