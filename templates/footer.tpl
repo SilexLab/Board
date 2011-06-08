@@ -1,5 +1,9 @@
 	<footer>
 		<div class="Size">
-			FOOTER !!
+            <form action="?page=ChangeLanguage" method="post">
+                <select name="language" onChange="this.form.submit();">
+                	{$Languages}
+                </select>
+            </form>
 		</div>
 	</footer>

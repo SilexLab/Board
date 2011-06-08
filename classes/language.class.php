@@ -11,10 +11,14 @@ class language {
 	private $Languages = array();
 	
 	public $Items = array();
-	public $Default = 'DE';
+	public $Default;
 	
 	function __construct() {
-		// TODO: Auslesen der Sprache aus der MySQL-Datenbank und includen der selbigen
+	if(!isset($Default))
+	{
+		$this->Default = $_COOKIE['sbb_DefLang'];
+	}
+	// TODO: Auslesen der Sprache aus der MySQL-Datenbank und includen der selbigen
 		include(PATH_LANGUAGE.$this->Default.'.php');
 	}
 	
