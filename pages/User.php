@@ -4,7 +4,7 @@
  * @copyright	© 2011 Silex Bulletin Board - Team
  * @license		GNU GENERAL PUBLIC LICENSE v3
  * @package		SilexBoard.DEV
- * @version		Revision: 2
+ * @version		Revision: 3
  */
 
 // Schutz vor Direktaufruf der Datei
@@ -22,7 +22,7 @@ $content = '';
 crumb::Add('{lang=com.sbb.crumbs.user}', '?page=User');
 
 if(isset($_GET['userID'])) {
-    mysql::Select(DB_PREFIX.'users', '*', 'ID = \''.$_GET['userID'].'\'', 1);
+    mysql::Select('users', '*', 'ID = \''.$_GET['userID'].'\'', 1);
     if(mysql::NumRows() == 1) {
         $Row = mysql::FetchObject();
         $Content .= "<h2>".$Row->UserName."</h2>\n";
@@ -42,7 +42,7 @@ if(isset($_GET['userID'])) {
     }
 }
 else {
-    mysql::Select(DB_PREFIX.'users', '*');
+    mysql::Select('users', '*');
     if(mysql::NumRows() > 0) {
         while($Row = mysql::FetchObject()) {
             $Avatar = new avatar($Row->Email, 50);

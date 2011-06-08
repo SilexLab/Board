@@ -4,7 +4,7 @@
  * @copyright	© 2011 Silex Bulletin Board - Team
  * @license		GNU GENERAL PUBLIC LICENSE v3
  * @package		SilexBoard.DEV
- * @version		Revision: 1
+ * @version		Revision: 2
  */
 
 class mysql{
@@ -31,7 +31,7 @@ class mysql{
 	}
 	
 	public static function Select($Table, $Rows = '*', $Where = '', $Order = '', $Limit = 0) {
-		$Query = 'SELECT '.$Rows.' FROM '.$Table;
+		$Query = 'SELECT '.$Rows.' FROM '.DB_PREFIX.$Table;
 		if(!empty($Where))
 			$Query .= ' WHERE '.$Where;
 		if(!empty($Order))

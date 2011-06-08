@@ -4,7 +4,7 @@
  * @copyright	© 2011 Silex Bulletin Board - Team
  * @license		GNU GENERAL PUBLIC LICENSE v3
  * @package		SilexBoard.DEV
- * @version		Revision: 1
+ * @version		Revision: 2
  */
 
 class login {
@@ -24,10 +24,10 @@ class login {
 		$name = str_replace('_', '\_', $name);
 		
 		//Prüft ob Name und Password stimmen
-		mysql::Select(DB_PREFIX.'users', 'Salt', 'UserName = \''.$name.'\'', '', 1);
+		mysql::Select('users', 'Salt', 'UserName = \''.$name.'\'', '', 1);
 		if ($row = mysql::numRows() == 1) {
                     $salt = mysql::FetchObject()->Salt;
-                    mysql::Select(DB_PREFIX.'users', 'ID', 'UserName = \''.$name.'\' AND Password = \''.sha1($salt.md5($salt.sha1($pass.md5($salt)))).'\'');
+                    mysql::Select('users', 'ID', 'UserName = \''.$name.'\' AND Password = \''.sha1($salt.md5($salt.sha1($pass.md5($salt)))).'\'');
                 }
 		
 		//Gibt UserId aus
@@ -59,24 +59,24 @@ class login {
 					"Salt" => session_id(),
 					"IP" => $_SERVER['REMOTE_ADDR']);
 		}
-		mysql::Insert(DB_PREFIX."sessions", $inserts);
+		mysql::Insert("sessions", $inserts);
 	}
 	
 	//wenn logged_in dann wird eingeloggte bereich gezeigt
 	public static function logged_in () {
 		if(isset($_COOKIE['sbb_loginHash'])) {
-			mysql::Select(DB_PREFIX.'sessions', 'UserID', 'Salt = \''.$_COOKIE['sbb_loginHash'].'\'');
+			mysql::Select('sessions', 'UserID', 'Salt = \''.$_COOKIE['sbb_loginHash'].'\'');
 			return (mysql::NumRows() == 1);
 		} else {
-			mysql::Select(DB_PREFIX.'sessions', 'UserID', 'Salt = \''.session_id().'\'');
+			mysql::Select('sessions', 'UserID', 'Salt = \''.session_id().'\'');
 			return (mysql::NumRows() == 1);
 		}
 	}
 	
 	//beim ausloggen wird die session auf NULL gesetzt
 	public static function DoLogout () {
-		mysql::Delete(DB_PREFIX.'sessions', 'Salt = \''.session_id().'\'');
-		mysql::Delete(DB_PREFIX.'sessions', 'Salt = \''.$_COOKIE['sbb_loginHash'].'\'');
+		mysql::Delete('sessions', 'Salt = \''.session_id().'\'');
+		mysql::Delete('sessions', 'Salt = \''.$_COOKIE['sbb_loginHash'].'\'');
 		session::remove('username');
 		session::remove('userid');
 		setcookie('sbb_UserId', '', time()-60*60*24*365);
@@ -87,7 +87,7 @@ class login {
 	public static function autoLogout() {
 		if(login::logged_in()) {
 			if(!isset($_COOKIE['sbb_loginHash'])) {
-				mysql::Select(DB_PREFIX.'sessions', 'Time', 'Salt=\''.session_id().'\'');
+				mysql::Select('sessions', 'Time', 'Salt=\''.session_id().'\'');
 				
 				while($row = mysql::FetchArray()) {
 					$lastTime = $row['Time'];
@@ -99,7 +99,7 @@ class login {
 					header("Location: logout.php");
 				} else {
 					$update = array("Time" => time());
-					mysql::Update(DB_PREFIX.'sessions', $update, 'Salt=\''.session_id().'\'');
+					mysql::Update('sessions', $update, 'Salt=\''.session_id().'\'');
 				}
 			}
 		}	
@@ -108,7 +108,7 @@ class login {
 	//Gibt Username aus
 	public static function GetUsername ($userid) {
 		if(Login::logged_in()==1) {
-			$username = mysql::FetchObject(mysql::Select(DB_PREFIX.'users','*','`ID`='.$userid))->UserName;
+			$username = mysql::FetchObject(mysql::Select('users','*','`ID`='.$userid))->UserName;
 			return($username);
 		}
 		else

@@ -4,7 +4,7 @@
  * @copyright	© 2011 Silex Bulletin Board - Team
  * @license		GNU GENERAL PUBLIC LICENSE v3
  * @package		SilexBoard.DEV
- * @version		Revision: 1
+ * @version		Revision: 2
  */
 
 class user {
@@ -20,12 +20,12 @@ class user {
 				"Email" => $email,
 				"ActivationKey" => $key,
 				"RegisterTime" => time());
-		$sql->Insert(DB_PREFIX."users", $inserts);
+		$sql->Insert("users", $inserts);
 	}
 	
 	public static function GetUsername($ID) {
 		if(isset($ID)) {
-			mysql::Select(DB_PREFIX.'users','*','ID='.$ID);
+			mysql::Select('users','*','ID='.$ID);
 			$UserName = mysql::FetchObject()->UserName;	
 			return $UserName;
 		}
@@ -33,7 +33,7 @@ class user {
 	
 		public static function GetEmail($ID) {
 		if(isset($ID)) {
-			mysql::Select(DB_PREFIX.'users','*','ID='.$ID);
+			mysql::Select('users','*','ID='.$ID);
 			$Email = mysql::FetchObject()->Email;	
 			return $Email;
 		}

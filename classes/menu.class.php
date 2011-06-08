@@ -4,7 +4,7 @@
  * @copyright	© 2011 Silex Bulletin Board - Team
  * @license		GNU GENERAL PUBLIC LICENSE v3
  * @package		SilexBoard.DEV
- * @version		Revision: 4
+ * @version		Revision: 5
  */
 
 class menu {
@@ -16,7 +16,7 @@ class menu {
 		if($Current == 'Home')
 			$Current = './';
 		
-		mysql::Select(DB_PREFIX.'menu', '*', NULL, 'Position');
+		mysql::Select('menu', '*', NULL, 'Position');
 		while ($row = mysql::FetchObject()) {
 			if($Current == str_replace('?page=', '', $row->Link))
 				$Return .= '				<li class="active"><a href="'.$row->Link.'"><div>'.$row->MenuName.'</div></a></li>';

@@ -4,7 +4,7 @@
  * @copyright	© 2011 Silex Bulletin Board - Team
  * @license		GNU GENERAL PUBLIC LICENSE v3
  * @package		SilexBoard.DEV
- * @version		Revision: 1
+ * @version		Revision: 2
  */
 
 class view {
@@ -22,7 +22,7 @@ class view {
 			return '{lang=com.sbb.board.error.no_board}';
 		
 		self::$BoardID = $ID;
-		mysql::Select(DB_PREFIX.'forums', 'Title, Parent', 'ID = '.$ID, NULL, 1);
+		mysql::Select('forums', 'Title, Parent', 'ID = '.$ID, NULL, 1);
 		$Board = mysql::FetchObject();
 		
 		self::$BoardTitle = $Board->Title;
@@ -35,7 +35,7 @@ class view {
 	}
 	
 	private static function GetTopics($Parent){
-		mysql::Select(DB_PREFIX.'topics','*','ForumID='.$Parent);
+		mysql::Select('topics','*','ForumID='.$Parent);
 		$Content = mysql::GetObjects();
 		$Return .= '
 <table style="border-width:0 1px 1px 0;" border="solid" width="100%">
@@ -50,10 +50,10 @@ class view {
 	<tbody>
 ';
 		foreach($Content as $row) {
-			mysql::Count(DB_PREFIX.'posts','*','TopicID='.$row->ID);
+			mysql::Count('posts','*','TopicID='.$row->ID);
 			$TotalAnswersArray = mysql::FetchArray();
 			$TotalAnswers = $TotalAnswersArray['total'];
-			mysql::Select(DB_PREFIX.'posts','*','TopicID='.$row->ID,'Date ASC','0');
+			mysql::Select('posts','*','TopicID='.$row->ID,'Date ASC','0');
 			$TopicLastAnwer = mysql::FetchObject();
 			$tpl = new template('topiclist');
 			$tpl->Assign(array(
@@ -79,12 +79,12 @@ class view {
 	}
 	
 	public static function DisplayTopics($TopicID) {
-		mysql::Select(DB_PREFIX.'topics', '*', 'ID='.$TopicID);
+		mysql::Select('topics', '*', 'ID='.$TopicID);
 		$views = mysql::FetchObject();
 		$newviews = $views->Views+1;
                 $updates = array('Views' => $newviews);
-		mysql::Update(DB_PREFIX."topics", $updates, 'ID = '.$TopicID);
-		mysql::Select(DB_PREFIX.'posts', '*', 'TopicID='.$TopicID,'Date ASC');
+		mysql::Update("topics", $updates, 'ID = '.$TopicID);
+		mysql::Select('posts', '*', 'TopicID='.$TopicID,'Date ASC');
 		$Objects = mysql::GetObjects();
 		$Return = '';
 		$i = 1;
@@ -113,7 +113,7 @@ class view {
 		
 		
 		// Übergeordnetes Forum auslesen
-		mysql::Select(DB_PREFIX.'topics', 'ForumID, TopicTitle', 'ID='.$TopicID, NULL, 1);
+		mysql::Select('topics', 'ForumID, TopicTitle', 'ID='.$TopicID, NULL, 1);
 		$Topic = mysql::FetchObject();
 		// Foren rückwärs bis zur höchsten Ebene auslesen und Crumbs erzeugen
 		self::GetCrumbs($Topic->ForumID);
@@ -130,7 +130,7 @@ class view {
 		$Crumbs =& self::$Crumbs;
 		
 		for($i = sizeof($Crumbs) - 1; $i >= 0; $i--) {
-			mysql::Select(DB_PREFIX.'forums', 'Title', 'ID = '.$Crumbs[$i], NULL, 1);
+			mysql::Select('forums', 'Title', 'ID = '.$Crumbs[$i], NULL, 1);
 			$Crumb = mysql::FetchObject();
 			crumb::Add($Crumb->Title, '?page=Board&amp;BoardID='.$Crumbs[$i]);
 		}
@@ -141,7 +141,7 @@ class view {
 		if($BoardID != 0) {
 			self::$Crumbs[] = $BoardID;
 			
-			mysql::Select(DB_PREFIX.'forums', 'Parent', 'ID = '.$BoardID, NULL, 1);
+			mysql::Select('forums', 'Parent', 'ID = '.$BoardID, NULL, 1);
 			$Board = mysql::FetchObject();
 			self::AddCrumb($Board->Parent);
 		} else
@@ -149,7 +149,7 @@ class view {
 	}
 	
 	private static function GetChilds($Parent) {
-		mysql::Select(DB_PREFIX.'forums', '*', 'Parent = '.$Parent, 'Position ASC');
+		mysql::Select('forums', '*', 'Parent = '.$Parent, 'Position ASC');
 		
 		$Parts = '';
 		
