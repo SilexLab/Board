@@ -4,13 +4,12 @@
  * @copyright	© 2011 Silex Bulletin Board - Team
  * @license		GNU GENERAL PUBLIC LICENSE v3
  * @package		SilexBoard.DEV
- * @version		Revision: 5
+ * @version		Revision: 6
  */
 
 class menu {
 	public static function Parse() {
-		global $gPage;
-		$Current = $gPage['Site'];
+		$Current = page::$Info['Site'];
 		$Page = $_GET['page'];
 		
 		if($Current == 'Home')

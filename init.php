@@ -4,7 +4,7 @@
  * @copyright	© 2011 Silex Bulletin Board - Team
  * @license		GNU GENERAL PUBLIC LICENSE v3
  * @package		SilexBoard.DEV
- * @version		Revision: 4
+ * @version		Revision: 5
  */
 
 // Error reporting
@@ -16,9 +16,8 @@ require_once('config.inc.php');
 require_once('constants.inc.php');
 require_once('functions.inc.php');
 
-// Global Variables
-$gPage = array();
-$gPage['Site'] = 'Home';
+// Info Variables
+page::$Info['Site'] = 'Home';
 
 // Sessions
 session_start();

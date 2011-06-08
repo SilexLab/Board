@@ -4,13 +4,14 @@
  * @copyright	© 2011 Silex Bulletin Board - Team
  * @license		GNU GENERAL PUBLIC LICENSE v3
  * @package		SilexBoard.DEV
- * @version		Revision: 1
+ * @version		Revision: 2
  */
 
 class page {
-	
 	private static $TPL;
 	private static $Page;
+	
+	public static $Info = array();
 	
 	public static function Initial(&$TemplateObject) {
 		if(isset($_GET['page']))
