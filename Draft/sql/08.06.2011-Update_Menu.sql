@@ -35,6 +35,6 @@ CREATE TABLE IF NOT EXISTS `menu` (
 --
 
 INSERT INTO `menu` (`ID`, `MenuName`, `Link`, `Position`, `Permissions`) VALUES
-(1, 'Home', './', 1, ''),
-(2, 'Forum', '?page=Forum', 2, ''),
-(3, 'Userlist', '?page=User', 3, '');
+(1, '{lang=com.sbb.menu.home}', './', 1, ''),
+(2, '{lang=com.sbb.menu.forum}', '?page=Forum', 2, ''),
+(3, '{lang=com.sbb.menu.userlist}', '?page=User', 3, '');

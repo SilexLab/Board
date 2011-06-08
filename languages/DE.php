@@ -11,6 +11,14 @@ $this->Items['com.sbb.header.welcome']				= 'Willkommen';
 $this->Items['com.sbb.header.welcome_text']			= 'Herzlich willkommen auf {$Site} - {$Slogan}';
 $this->Items['com.sbb.header.logo_title']			= 'Startseite';
 
+$this->Items['com.sbb.menu.home']					= 'Startseite';
+$this->Items['com.sbb.menu.forum']					= 'Forum';
+$this->Items['com.sbb.menu.userlist']				= 'Benutzerliste';
+
+$this->Items['com.sbb.crumbs.home']					= 'Startseite';
+$this->Items['com.sbb.crumbs.forum']				= 'Forum';
+$this->Items['com.sbb.crumbs.user']					= 'Benutzerliste';
+
 $this->Items['com.sbb.register.register']			= 'Registrieren';
 $this->Items['com.sbb.register.username']			= 'Benutzername';
 $this->Items['com.sbb.register.email']				= 'E-mail Adresse';
@@ -39,9 +47,6 @@ $this->Items['com.sbb.logout.logout']				= 'Ausloggen';
 $this->Items['com.sbb.logout.logged_out']			= 'Sie sind jetzt ausgeloggt.';
 $this->Items['com.sbb.logout.main_menu']			= 'Hauptmen&uuml;';
 $this->Items['com.sbb.logout.never_logged_in']		= 'Sie waren niemals eingeloggt.';
-
-$this->Items['com.sbb.crumbs.home']					= 'Home';
-$this->Items['com.sbb.crumbs.user']					= 'Benutzerliste';
 
 $this->Items['com.sbb.profile.homepage']			= 'Homepage';
 $this->Items['com.sbb.profile.signature']			= 'Signatur';
