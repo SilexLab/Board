@@ -13,7 +13,6 @@ if(!defined('SILEX_VERSION'))
 if($_POST['language'])
 {
 	$lang = new GetLang($_POST['language'].'.php');
-	setcookie('sbb_DefLang',$_POST['language']);
 	$message = 'Ihre Sprache wurde in '.$lang->GetName().' geändert.';
 }
 self::$TPL->Assign('Content', $message);

@@ -4,21 +4,24 @@
  * @copyright	© 2011 Silex Bulletin Board - Team
  * @license		GNU GENERAL PUBLIC LICENSE v3
  * @package		SilexBoard.DEV
- * @version		Revision: 2
+ * @version		Revision: 4
  */
 
 class language {
 	private $Languages = array();
 	
 	public $Items = array();
-	public $Default;
+	public $Default = 'DE';
 	
-	function __construct() {
-	if(!isset($Default))
-	{
-		$this->Default = $_COOKIE['sbb_DefLang'];
-	}
-	// TODO: Auslesen der Sprache aus der MySQL-Datenbank und includen der selbigen
+	public function __construct() {
+		if(isset($_SESSION['username'])) {
+			$language = mysql::FetchObject(mysql::Select('users', 'Language', 'UserName="'.session::read('username').'"'))->Language;
+		}
+		
+		if(isset($language)) {
+			$this->Default = $language;	
+		}
+		
 		include(PATH_LANGUAGE.$this->Default.'.php');
 	}
 	
@@ -47,9 +50,11 @@ class language {
 
 class GetLang {
 	public $Items = array();
-	function __construct($File) {
+	
+	public function __construct($File) {
 		include(PATH_LANGUAGE.$File);
 	}
+	
 	public function GetName() {
 		return $this->Items['com.sbb.language'];
 	}

@@ -33,11 +33,11 @@ date_default_timezone_set('Europe/Berlin');
 // template
 $tpl = new template('case');
 
-// Default Language
+/*// Default Language
 if(!isset($_COOKIE['sbb_DefLang']))
 {
 	setcookie('sbb_DefLang','DE');
-}
+}*/
 
 // Language Chooser
 $Langs = $language->GetLanguages();
