@@ -11,6 +11,10 @@
 if(!defined('SILEX_VERSION'))
 	header('location: ../');
 
+// Übergeordnete Seite
+global $gPage;
+$gPage['Site'] = 'Forum';
+
 // Die Variable {$Content} aus body.tpl mit einer Templatevariable ersetzen
 crumb::Add('Forum', '?page=Forum');
 self::$TPL->Assign('Site', self::$TPL->GetVar('Site').' - Index');

@@ -4,7 +4,7 @@
  * @copyright	© 2011 Silex Bulletin Board - Team
  * @license		GNU GENERAL PUBLIC LICENSE v3
  * @package		SilexBoard.DEV
- * @version		Revision: 3
+ * @version		Revision: 4
  */
 
 // Error reporting
@@ -15,6 +15,10 @@ error_reporting(E_ALL ^ E_NOTICE | E_STRICT);
 require_once('config.inc.php');
 require_once('constants.inc.php');
 require_once('functions.inc.php');
+
+// Global Variables
+$gPage = array();
+$gPage['Site'] = 'Home';
 
 // Sessions
 session_start();
