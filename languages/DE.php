@@ -1,11 +1,14 @@
 <?php
 /**
- * @author		SilexBoard Team
- *					Nox Nebula, Cadillaxx, Angus, Nut
- * @copyright	2011 SilexBoard
+ * @author 		Nox Nebula
+ * @copyright	© 2011 Silex Bulletin Board - Team
+ * @license		GNU GENERAL PUBLIC LICENSE v3
+ * @package		SilexBoard.DEV
+ * @version		Revision: 4
  */
 
 /* Langfile:	German */
+$this->Items['com.sbb.language']					= 'Deutsch (Informal)';
 
 $this->Items['com.sbb.header.welcome']				= 'Willkommen';
 $this->Items['com.sbb.header.welcome_text']			= 'Herzlich willkommen auf {$Site} - {$Slogan}';
