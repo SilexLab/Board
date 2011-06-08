@@ -4,7 +4,7 @@
  * @copyright	© 2011 Silex Bulletin Board - Team
  * @license		GNU GENERAL PUBLIC LICENSE v3
  * @package		SilexBoard.DEV
- * @version		Revision: 2
+ * @version		Revision: 3
  */
 
 class login {
@@ -46,20 +46,20 @@ class login {
 			session::set('username', $_POST['Username']);
 			$str = session_id();
 			setcookie('sbb_loginHash', md5($str.sha1($str)), time()+60*60*24*365);
-			$inserts = array("Time" => time(),
-					"UserID" => $userid,
-					"Salt" => md5($str.sha1($str)),
-					"IP" => $_SERVER['REMOTE_ADDR']);
+			$inserts = array('Time' => time(),
+					'UserID' => $userid,
+					'Salt' => md5($str.sha1($str)),
+					'IP' => $_SERVER['REMOTE_ADDR']);
 		} else {
 			session::set('userid', $userid);
 			setcookie('sbb_UserId', $userid, time()+60*60*24*365);
 			session::set('username', $_POST['Username']);
-			$inserts = array("Time" => time(),
-					"UserID" => $userid,
-					"Salt" => session_id(),
-					"IP" => $_SERVER['REMOTE_ADDR']);
+			$inserts = array('Time' => time(),
+					'UserID' => $userid,
+					'Salt' => session_id(),
+					'IP' => $_SERVER['REMOTE_ADDR']);
 		}
-		mysql::Insert("sessions", $inserts);
+		mysql::Insert('sessions', $inserts);
 	}
 	
 	//wenn logged_in dann wird eingeloggte bereich gezeigt
@@ -96,9 +96,9 @@ class login {
 				$timeFuture = time() + 10 * 6;
 				
 				if($timeFuture - $lastTime > 600) {
-					header("Location: logout.php");
+					header('Location: logout.php');
 				} else {
-					$update = array("Time" => time());
+					$update = array('Time' => time());
 					mysql::Update('sessions', $update, 'Salt=\''.session_id().'\'');
 				}
 			}

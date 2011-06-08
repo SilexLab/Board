@@ -4,7 +4,7 @@
  * @copyright	© 2011 Silex Bulletin Board - Team
  * @license		GNU GENERAL PUBLIC LICENSE v3
  * @package		SilexBoard.DEV
- * @version		Revision: 2
+ * @version		Revision: 3
  */
 
 class register {
@@ -18,10 +18,10 @@ class register {
 		if($post['Email'] != $post['Emailrepeat'])
 			self::$error .= '{lang=com.sbb.register.incorrect_email}';
                 
-		mysql::Select("users", "UserName", "Username = '".$post['Username']."'");
+		mysql::Select('users', 'UserName', 'Username = \''.$post['Username'].'\'');
 		if(mysql::NumRows() == 1)
 			self::$error .= '{lang=com.sbb.register.username.exist}';
-		mysql::Select("users", "Email", "Email = '".$post['Email']."'");
+		mysql::Select('users', 'Email', 'Email = \''.$post['Email'].'\'');
 		if(mysql::NumRows() == 1)
 			self::$error .= '{lang=com.sbb.register.email.exist}';
 		

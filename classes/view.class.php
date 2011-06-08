@@ -4,7 +4,7 @@
  * @copyright	© 2011 Silex Bulletin Board - Team
  * @license		GNU GENERAL PUBLIC LICENSE v3
  * @package		SilexBoard.DEV
- * @version		Revision: 2
+ * @version		Revision: 3
  */
 
 class view {
@@ -83,7 +83,7 @@ class view {
 		$views = mysql::FetchObject();
 		$newviews = $views->Views+1;
                 $updates = array('Views' => $newviews);
-		mysql::Update("topics", $updates, 'ID = '.$TopicID);
+		mysql::Update('topics', $updates, 'ID = '.$TopicID);
 		mysql::Select('posts', '*', 'TopicID='.$TopicID,'Date ASC');
 		$Objects = mysql::GetObjects();
 		$Return = '';

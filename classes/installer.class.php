@@ -4,7 +4,7 @@
  * @copyright	© 2011 Silex Bulletin Board - Team
  * @license		GNU GENERAL PUBLIC LICENSE v3
  * @package		SilexBoard.DEV
- * @version		Revision: 1
+ * @version		Revision: 2
  */
 
 class Installer{
@@ -78,7 +78,7 @@ Wir haben zwar alle keinen Plan von PHP aber langeweile, aus der das <Hier Namen
 		}
 		if(isset($this->params[$this->step-1]) && $this->params[$this->step-1]){
 			foreach($this->params[$this->step-1] as $name=>$value){
-			$res = str_replace("{".$name."}",$value,$res);
+			$res = str_replace('{'.$name.'}',$value,$res);
 			}
 		}
 		return $res;

@@ -4,7 +4,7 @@
  * @copyright	© 2011 Silex Bulletin Board - Team
  * @license		GNU GENERAL PUBLIC LICENSE v3
  * @package		SilexBoard.DEV
- * @version		Revision: 3
+ * @version		Revision: 4
  */
 
 // Schutz vor Direktaufruf der Datei
@@ -25,12 +25,12 @@ if(isset($_GET['userID'])) {
     mysql::Select('users', '*', 'ID = \''.$_GET['userID'].'\'', 1);
     if(mysql::NumRows() == 1) {
         $Row = mysql::FetchObject();
-        $Content .= "<h2>".$Row->UserName."</h2>\n";
+        $Content .= '<h2>'.$Row->UserName.'</h2>'."\n";
         $Avatar = new avatar($Row->Email, 100);
-        $Content .= $Avatar."<br>\n";
-        $Content .= "Registriert seit: ".date('d.m.Y H:i', $Row->RegisterTime);
+        $Content .= $Avatar.'<br>'."\n";
+        $Content .= 'Registriert seit: '.date('d.m.Y H:i', $Row->RegisterTime); // TODO: Languagestring
         if(!empty($row->Homepage)) {
-            $Content .= "<br>\n<a href=\"".(strpos($Row->Homepage, 'http://') === false ? 'http://' : '').$Row->Homepage."\">".$Row->Homepage."</a><br>\n";
+            $Content .= '<br>'."\n".'<a href="'.(strpos($Row->Homepage, 'http://') === false ? 'http://' : '').$Row->Homepage.'">'.$Row->Homepage.'</a><br>'."\n";
         }
         if(!empty($row->Signatur)) {
             $Content .= $parser->parse($Row->Signatur);
@@ -38,7 +38,7 @@ if(isset($_GET['userID'])) {
         crumb::Add($Row->UserName, '?page=User&amp;userID='.$_GET['userID']);
     }
     else {
-        $Content .= "Benutzer nicht gefunden!";
+        $Content .= 'Benutzer nicht gefunden!'; // TODO: Languagestring
     }
 }
 else {
@@ -50,7 +50,7 @@ else {
         }
     }
     else {
-        $Content .= 'Keine Benutzer gefunden!';
+        $Content .= 'Keine Benutzer gefunden!'; // TODO: Languagestring
     }
 }
 self::$TPL->Assign(array('Site' => 'UserList', 'Content' => $Content));
