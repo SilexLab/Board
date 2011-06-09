@@ -4,19 +4,21 @@
  * @copyright	© 2011 Silex Bulletin Board - Team
  * @license		GNU GENERAL PUBLIC LICENSE v3
  * @package		SilexBoard.DEV
- * @version		Revision: 2
+ * @version		Revision: 3
  */
 
 // Schutz vor Direktaufruf der Datei
 if(!defined('SILEX_VERSION'))
 	header('location: ../');
 	
-$language = $_POST['language'];
+$Language = $_POST['language'];
 
-if(isset($language)) {
-	GetLang::changeLang($language);
-	$lang = new GetLang($language.'.php');
-	$message .= 'Ihre Sprache wurde in '.$lang->GetName().' geändert.'; //TO-DO: In die Language-Files schreiben
+if(isset($Language)) {
+	language::ChangeLang($Language);
+	$Lang = new GetLang($Language.'.php');
+	$Message .= 'Ihre Sprache wurde in '.$Lang->GetName().' geändert.'; // TODO: In die Language-Files schreiben
+																		// TODO: Sprachstring benutzen!
+																		// TODO: Die Richtigen Funktionen benutzen! Das zeug wird eigentlich in die languageklasse geladen.
 }
 
 self::$TPL->Assign('Content', $message);

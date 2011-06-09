@@ -27,9 +27,9 @@ if(!isset($_SESSION['RegisterName']) || !isset($_SESSION['RegisterPass'])) {
 //Bearbeitung des Formulars
 $message = '';
 if(isset($_POST['Register'])) {
-        if($_POST['Captcha'] != $_SESSION['Captcha']) {
+	if($_POST['Captcha'] != $_SESSION['Captcha']) {
 		$message = '{lang=com.sbb.captcha.wrong}';
-        }
+	}
 	else if(register::Check($_POST)) {
 		user::Create($_POST['Username'], $_POST['Password'], $_POST['Email']);
 		session_unset($_SESSION['RegisterName']);
