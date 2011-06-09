@@ -4,7 +4,7 @@
  * @copyright	© 2011 Silex Bulletin Board - Team
  * @license		GNU GENERAL PUBLIC LICENSE v3
  * @package		SilexBoard.DEV
- * @version		Revision: 5
+ * @version		Revision: 6
  */
 
 /* Langfile:	English */
@@ -62,6 +62,5 @@ $this->Items['com.sbb.topics.error.no_topics']		= 'There are no topics.';
 $this->Items['com.sbb.captcha']						= 'Captcha';
 $this->Items['com.sbb.captcha.wrong']				= 'Captcha is wrong!';
 
-$this->Items['com.sbb.language.changed.1']			= 'Your Language was changed to';
-$this->Items['com.sbb.language.changed.2']			= '.';
+$this->Items['com.sbb.language.changed']			= 'Your Language was changed to {$LangChangedTo}.';
 ?>
