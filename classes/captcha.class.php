@@ -50,9 +50,6 @@ class captcha {
             $StringArray[] = chr($i);
         }
         
-        foreach($Chars as $Char)
-            unset($StringArray[$Char]);
-        
         for($i = 0; $i < $this->StringLength; $i++) {
             $String .= $StringArray[shuffle($StringArray)];
         }
