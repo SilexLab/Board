@@ -4,7 +4,7 @@
  * @copyright	© 2011 Silex Bulletin Board - Team
  * @license		GNU GENERAL PUBLIC LICENSE v3
  * @package		SilexBoard.DEV
- * @version		Revision: 5
+ * @version		Revision: 6
  */
 
 // Error reporting
@@ -16,8 +16,6 @@ require_once('config.inc.php');
 require_once('constants.inc.php');
 require_once('functions.inc.php');
 
-$language = new language();
-
 // Info Variables
 page::$Info['Site'] = 'Home';
 
@@ -27,17 +25,13 @@ session_start();
 // Connect to MySQL-Database
 mysql::Connect($CFG_Host, $CFG_User, $CFG_Password, $CFG_Database);
 
+$language = new language();
+
 // default timezone (for date functions)
 date_default_timezone_set('Europe/Berlin');
 
 // template
 $tpl = new template('case');
-
-/*// Default Language
-if(!isset($_COOKIE['sbb_DefLang']))
-{
-	setcookie('sbb_DefLang','DE');
-}*/
 
 // Language Chooser
 $Langs = $language->GetLanguages();
@@ -45,9 +39,9 @@ $DefaultLang = $language->Default;
 foreach($Langs as $key => $val)
 {
 	if($DefaultLang == $key)
-		$SelectLangs .= '<option selected="selected"  value="'.$key.'">'.$val.'</option>';	
+		$SelectLangs .= '<option selected="selected" value="'.$key.'">'.$val.'</option>';	
 	else
-		$SelectLangs .= '<option  value="'.$key.'">'.$val.'</option>';					
+		$SelectLangs .= '<option value="'.$key.'">'.$val.'</option>';					
 }
 $tpl->Assign('Languages',$SelectLangs);
 
@@ -62,8 +56,6 @@ $group = groups::getRights();
 
 // after 10 minutes you will automatically logged out
 login::autoLogout(); 
-
-
 
 $tpl->Assign(array('Site' => 'Seitentitel',
 'Slogan' => 'Slogan der Seite'));
