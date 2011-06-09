@@ -7,9 +7,9 @@
  * @version		Revision: 1
  */
 
-require_once('../init.php');
+session_start();
 class captcha {
-    private $ImagePath;    private $StringLength;
+    private $StringLength;
     private $FontPath;
     
     public function __construct ($ImagePath, $StringLength, $FontPath) {
@@ -49,14 +49,7 @@ class captcha {
         for($i = 48; $i <= 57; $i++) { // 48-57 = Alle Zahlen
             $StringArray[] = chr($i);
         }
-        for($i = 65; $i <= 90; $i++) { // 65-90 = Alle Großbuchstaben
-            $StringArray[] = chr($i);
-        }
-        for($i = 97; $i <= 122; $i++) { // 97-122 = Alle Kleinbuchstaben
-            $StringArray[] = chr($i);
-        }
-        // Entfernt Buchstaben/Zahlen die fast gleich aussehen
-        $Chars = array(18, 24, 28, 29, 31, 32, 33, 47, 50, 54, 57, 58, 60, 0, 1); // = I, O, Q, S, V, W, X, l, o, s, v, w, x, 0, 1
+        
         foreach($Chars as $Char)
             unset($StringArray[$Char]);
         

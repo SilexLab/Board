@@ -57,7 +57,7 @@ class mysql{
 		$Keys = trim($Keys, ', ');
 		$Values = trim($Values, ', ');
 		
-		self::$SQLQuery = 'INSERT INTO '.$Table.' ('.$Keys.') VALUES ('.$Values.');';
+		self::$SQLQuery = 'INSERT INTO '.DB_PREFIX.$Table.' ('.$Keys.') VALUES ('.$Values.');';
 		self::ExecuteQuery();
 	}
 	
