@@ -4,7 +4,7 @@
  * @copyright	© 2011 Silex Bulletin Board - Team
  * @license		GNU GENERAL PUBLIC LICENSE v3
  * @package		SilexBoard.DEV
- * @version		Revision: 3
+ * @version		Revision: 4
  */
 
 // Schutz vor Direktaufruf der Datei
@@ -21,5 +21,5 @@ if(isset($Language)) {
 																		// TODO: Die Richtigen Funktionen benutzen! Das zeug wird eigentlich in die languageklasse geladen.
 }
 
-self::$TPL->Assign('Content', $message);
+self::$TPL->Assign('Content', $Message);
 ?>
