@@ -4,7 +4,7 @@
  * @copyright	© 2011 Silex Bulletin Board - Team
  * @license		GNU GENERAL PUBLIC LICENSE v3
  * @package		SilexBoard.DEV
- * @version		Revision: 3
+ * @version		Revision: 4
  */
 
 // Schutz vor Direktaufruf der Datei
@@ -16,10 +16,15 @@ $Language = $_POST['language'];
 if(isset($Language)) {
 	language::ChangeLang($Language);
 	$Lang = new GetLang($Language.'.php');
-	$Message .= 'Ihre Sprache wurde in '.$Lang->GetName().' geändert.'; // TODO: In die Language-Files schreiben
-																		// TODO: Sprachstring benutzen!
-																		// TODO: Die Richtigen Funktionen benutzen! Das zeug wird eigentlich in die languageklasse geladen.
+	$Var = $Lang->GetName();
+	$Message .= '{lang=com.sbb.language.changed.1} <b>'.$Var.'</b>{lang=com.sbb.language.changed.2}';
+	// TODO: Die Richtigen Funktionen benutzen! Das zeug wird eigentlich in die languageklasse geladen.
+	$Message .= '<br><br>{lang=com.sbb.login.redirect}
+				 <br>{lang=com.sbb.login.ifnotredirect}<a href="./">Link</a>';
+	$Message .= '<script type="text/javascript">
+					window.setTimeout("window.location.href=\'./\'",2000);
+				</script>';
 }
 
-self::$TPL->Assign('Content', $message);
+self::$TPL->Assign('Content', $Message);
 ?>
