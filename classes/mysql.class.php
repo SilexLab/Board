@@ -70,12 +70,12 @@ class mysql{
 			$Update .= $Key.' = \''.$Value.'\', ';
 		$Update = trim($Update, ', ');
 		
-		self::$SQLQuery = 'UPDATE '.$Table.' SET '.$Update.' WHERE '.$Where.';';
+		self::$SQLQuery = 'UPDATE '.DB_PREFIX.$Table.' SET '.$Update.' WHERE '.$Where.';';
 		self::ExecuteQuery();
 	}
 	
 	public static function Count($Table, $Rows = '*', $Where) {
-		self::$SQLQuery = 'SELECT COUNT('.$Rows.') AS total FROM '.$Table.' WHERE '.$Where.';';		
+		self::$SQLQuery = 'SELECT COUNT('.$Rows.') AS total FROM '.DB_PREFIX.$Table.' WHERE '.$Where.';';		
 		self::ExecuteQuery();
 	}
 	
@@ -84,7 +84,7 @@ class mysql{
 		if(empty($Where))
 			$Query .= $Table;
 		else if(!empty($Where))
-			$Query .= 'FROM '.$Table.' WHERE '.$Where.';';
+			$Query .= 'FROM '.DB_PREFIX.$Table.' WHERE '.$Where.';';
 		else
 			die('If you see this message, you caused a error wich never can be triggered<br>'."\n".'<strong>Congratulations</strong>');
 		
