@@ -4,7 +4,7 @@
  * @copyright	© 2011 Silex Bulletin Board - Team
  * @license		GNU GENERAL PUBLIC LICENSE v3
  * @package		SilexBoard.DEV
- * @version		Revision: 7
+ * @version		Revision: 8
  */
 
 class language {
@@ -16,11 +16,10 @@ class language {
 	
 	public function __construct() {
 		if(isset($_SESSION['userid'])) {
-			$language = mysql::FetchObject(mysql::Select('users', 'Language', 'ID="'.session::read('userid').'"'))->Language;
-			$this->Language = $language;	
-		} elseif(isset($_COOKIE['sbb_lang'])) {
-			$this->Language = $_COOKIE['sbb_lang'];	
-		}
+			mysql::Select('users', 'Language', 'ID="'.session::read('userid').'"');
+			$this->Language = mysql::FetchObject()->Language;
+		} else if(isset($_COOKIE['sbb_lang']))
+			$this->Language = $_COOKIE['sbb_lang'];
 		
 		if(!empty($this->Language) && is_file(PATH_LANGUAGE.$this->Language.'.php'))
 			include(PATH_LANGUAGE.$this->Language.'.php');
@@ -40,11 +39,14 @@ class language {
 	
 	/* This function slow down the Page, use it carefully! */
 	public function GetLanguages() {
-		foreach(scandir(PATH_LANGUAGE) as $File) {
-			if(is_file(PATH_LANGUAGE.$File)) {
-				$Name = str_replace('.php', '', $File);
-				$GL = new GetLang($File);
-				$this->Languages[$Name] = $GL->GetName();
+		if(empty($this->Languages))
+		{
+			foreach(scandir(PATH_LANGUAGE) as $File) {
+				if(is_file(PATH_LANGUAGE.$File)) {
+					$Name = str_replace('.php', '', $File);
+					$GL = new GetLang($File);
+					$this->Languages[$Name] = $GL->GetName();
+				}
 			}
 		}
 		return $this->Languages;

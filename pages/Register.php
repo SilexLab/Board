@@ -4,18 +4,18 @@
  * @copyright	© 2011 Silex Bulletin Board - Team
  * @license		GNU GENERAL PUBLIC LICENSE v3
  * @package		SilexBoard.DEV
- * @version		Revision: 1
+ * @version		Revision: 2
  */
 
 // Schutz vor Direktaufruf der Datei
 if(!defined('SILEX_VERSION'))
 	header('location: ../');
 	
-//Falls eingeloggt, auf Startseite weiterleiten.	
+// Falls eingeloggt, auf Startseite weiterleiten.	
 if(isset($_COOKIE['sbb_loginHash']) || session::read('userid')) 
 	header("Location: index.php");
 
-//Wurde die Register direkt aufgerufen wird value leer sein
+// Wurde die Register direkt aufgerufen wird value leer sein
 if(!isset($_SESSION['RegisterName']) || !isset($_SESSION['RegisterPass'])) {
 	$sessionName = '';
 	$sessionPass = '';
@@ -24,13 +24,14 @@ if(!isset($_SESSION['RegisterName']) || !isset($_SESSION['RegisterPass'])) {
 	$sessionPass = $_SESSION['RegisterPass'];
 }
 
-//Bearbeitung des Formulars
+// Bearbeitung des Formulars
 $message = '';
 if(isset($_POST['Register'])) {
-	if($_POST['Captcha'] != $_SESSION['Captcha']) {
+	// Captcha funktioniert nicht, also nicht checken.
+	/*if($_POST['Captcha'] != $_SESSION['Captcha']) {
 		$message = '{lang=com.sbb.captcha.wrong}';
 	}
-	else if(register::Check($_POST)) {
+	else*/ if(register::Check($_POST)) {
 		user::Create($_POST['Username'], $_POST['Password'], $_POST['Email']);
 		session_unset($_SESSION['RegisterName']);
 		session_unset($_SESSION['RegisterPass']);
@@ -43,7 +44,7 @@ if(isset($_POST['Register'])) {
 	}
 }
 
-//Füllt die Variablen im TPL
+// Füllt die Variablen im TPL
 self::$TPL->Assign('RegisterName', $sessionName);
 self::$TPL->Assign('RegisterPass', $sessionPass);
 self::$TPL->Assign('RegisterMessage', $message);

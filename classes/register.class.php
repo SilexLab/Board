@@ -4,9 +4,10 @@
  * @copyright	© 2011 Silex Bulletin Board - Team
  * @license		GNU GENERAL PUBLIC LICENSE v3
  * @package		SilexBoard.DEV
- * @version		Revision: 3
+ * @version		Revision: 4
  */
 
+/* Die Register Klasse verwaltet die Eingaben der Registration und gibt eventuell Fehler aus. */
 class register {
 	protected static $error = '';
 	

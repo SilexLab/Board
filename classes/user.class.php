@@ -4,39 +4,64 @@
  * @copyright	© 2011 Silex Bulletin Board - Team
  * @license		GNU GENERAL PUBLIC LICENSE v3
  * @package		SilexBoard.DEV
- * @version		Revision: 3
+ * @version		Revision: 5
  */
 
+/* Diese Klasse verwaltet und gibt informationen über die Benutzer des Boards */
 class user {
-	public static function create($username, $password, $email) {
-		$salt = sha1(md5(base64_encode(microtime())));
-		$password = sha1($salt.md5($salt.sha1($password.md5($salt))));
-		$key = substr(md5(base64_encode($password.$salt)), 0, 15);
+	public static function Create($Username, $Password, $Email) {
+		$Salt = sha1(md5(base64_encode(microtime())));
+		$Password = sha1($Salt.md5($Salt.sha1($Password.md5($Salt))));
+		$Key = substr(md5(base64_encode($Password.$Salt)), 0, 15);
 		
-		$sql = new mysql;
-		$inserts = array('UserName' => $username,
-				'Password' => $password,
-				'Salt' => $salt,
-				'Email' => $email,
-				'ActivationKey' => $key,
+		$Inserts = array('UserName' => $username,
+				'Password' => $Password,
+				'Salt' => $Salt,
+				'Email' => $Email,
+				'ActivationKey' => $Key,
 				'RegisterTime' => time());
-		$sql->Insert('users', $inserts);
+		mysql::Insert('users', $Inserts);
+	}
+	
+	public static function Delete($ID) {
+		if(!is_int($ID))
+			return false;
+		mysql::Delete('users', $ID);
+		return true;
+	}
+	
+	public static function Update($ID, $Property, $Value = NULL) {
+		if(!is_int($ID))
+			return false;
+		if(is_array($Property))
+			mysql::Update('users', $Property, 'ID='.$ID);
+		else if(!is_string($Property))
+			mysql::Update('users', array($Property => $Value), 'ID='.$ID);
+		else
+			return false;
+	}
+	
+	public static function GetUserID($Name) {
+		if(!is_string($Name))
+			return false;
+		mysql::Select('users', 'ID', 'UserName=\''.$Name.'\'', NULL, 1);
+		return mysql::GetObjects()->ID;
 	}
 	
 	public static function GetUsername($ID) {
-		if(isset($ID)) {
-			mysql::Select('users','*','ID='.$ID);
-			$UserName = mysql::FetchObject()->UserName;	
-			return $UserName;
-		}
+		if(!is_int($ID))
+			return false;
+		mysql::Select('users','*','ID='.$ID);
+		$UserName = mysql::FetchObject()->UserName;	
+		return $UserName;
 	}
 	
-		public static function GetEmail($ID) {
-		if(isset($ID)) {
-			mysql::Select('users','*','ID='.$ID);
-			$Email = mysql::FetchObject()->Email;	
-			return $Email;
-		}
+	public static function GetEmail($ID) {
+		if(!is_int($ID))
+			return false;
+		mysql::Select('users','*','ID='.$ID);
+		$Email = mysql::FetchObject()->Email;	
+		return $Email;
 	}
 }
 ?>
