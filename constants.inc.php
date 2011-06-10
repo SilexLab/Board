@@ -4,7 +4,7 @@
  * @copyright	© 2011 Silex Bulletin Board - Team
  * @license		GNU GENERAL PUBLIC LICENSE v3
  * @package		SilexBoard.DEV
- * @version		Revision: 3
+ * @version		Revision: 4
  */
 
 // System Constants
@@ -16,6 +16,7 @@ define('PATH_CLASS',	'classes/');
 define('PATH_SMILEY',	'images/smiley/');
 define('PATH_LANGUAGE',	'languages/');
 define('PATH_PAGE',		'pages/');
+define('PATH_STYLE',	'styles/');
 
 // Message Box
 define('MSG_BOX_TYPE_NORMAL',	0);

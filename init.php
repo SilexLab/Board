@@ -4,7 +4,7 @@
  * @copyright	© 2011 Silex Bulletin Board - Team
  * @license		GNU GENERAL PUBLIC LICENSE v3
  * @package		SilexBoard.DEV
- * @version		Revision: 10
+ * @version		Revision: 12
  */
 
 // Error reporting
@@ -57,25 +57,14 @@ $group = groups::getRights();
 // after 10 minutes you will automatically logged out
 login::autoLogout(); 
 
-/* MSG BOX TEST */
-// Erstellt 2 MsgBoxes von und mit unterschiedlichen Types und Texten
-$MsgBox = new messagebox(MSG_BOX_TYPE_NORMAL);
-$MsgBox->SetText('Hiho Schweinebacke');
-$MsgBox->Display();
-
-$MsgBox = new messagebox(MSG_BOX_TYPE_ERROR);
-$MsgBox->SetText('Das hier ist eine Fehlerbox, u know?');
-$MsgBox->Display();
-
-new messagebox(MSG_BOX_TYPE_SUCCESS, 'Das hier ist ne kurze MessageBox');
-/* --- */
-
 // Template Stuff
-$tpl->Assign(array('Site' => 'Seitentitel',
-'Slogan' => 'Slogan der Seite'));
+$tpl->Assign(array(
+	'Site'			=> 'Seitentitel',
+	'Slogan'		=> 'Slogan der Seite',
+	'MessageBox'	=> messagebox::GetBoxes(),
+	'CSSStyles'		=> css::IncludeCSS()
+));
 page::Initial($tpl);
-
-$tpl->Assign('MessageBox', messagebox::GetBoxes());
 $language->Assign($tpl);
 $tpl->Display(false, true);
 ?>
