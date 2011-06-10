@@ -16,11 +16,18 @@ require_once('config.inc.php');
 require_once('constants.inc.php');
 require_once('functions.inc.php');
 
+// Initial
+session_start();	// Start Session
+user::Initial();	// Initial Usermanagement
+
+
+
+
+
+
+
 // Info Variables
 page::$Info['Site'] = 'Home';
-
-// Sessions
-session_start();
 
 // Connect to MySQL-Database
 mysql::Connect($CFG_Host, $CFG_User, $CFG_Password, $CFG_Database);
@@ -56,6 +63,16 @@ $group = groups::getRights();
 
 // after 10 minutes you will automatically logged out
 login::autoLogout(); 
+
+
+
+
+
+
+
+
+
+
 
 // Template Stuff
 $tpl->Assign(array(
