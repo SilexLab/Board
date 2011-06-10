@@ -1,3 +1,0 @@
-ErrorDocument 404 /Silex/index.php?page=Error&type=404
-ErrorDocument 403 /Silex/index.php?page=Error&type=403
-Allow from all
