@@ -4,7 +4,7 @@
  * @copyright	© 2011 Silex Bulletin Board - Team
  * @license		GNU GENERAL PUBLIC LICENSE v3
  * @package		SilexBoard.DEV
- * @version		Revision: 8
+ * @version		Revision: 9
  */
 
 class language {
@@ -16,7 +16,7 @@ class language {
 	
 	public function __construct() {
 		if(isset($_SESSION['userid'])) {
-			mysql::Select('users', 'Language', 'ID="'.session::read('userid').'"');
+			mysql::Select('users', 'Language', 'ID="'.session::Read('userid').'"');
 			$this->Language = mysql::FetchObject()->Language;
 		} else if(isset($_COOKIE['sbb_lang']))
 			$this->Language = $_COOKIE['sbb_lang'];
@@ -55,7 +55,7 @@ class language {
 	public static function ChangeLang($File) {	
 		if(isset($_SESSION['userid'])) {
 			$update	= array('Language' => $File);	
-			mysql::Update('users', $update, 'ID="'.session::read('userid').'"');
+			mysql::Update('users', $update, 'ID="'.session::Read('userid').'"');
 		} else {
 			setcookie('sbb_lang', $File, time()+60*60*24*365);
 		}

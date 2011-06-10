@@ -4,7 +4,7 @@
  * @copyright	© 2011 Silex Bulletin Board - Team
  * @license		GNU GENERAL PUBLIC LICENSE v3
  * @package		SilexBoard.DEV
- * @version		Revision: 4
+ * @version		Revision: 5
  */
 
 class login {
@@ -42,7 +42,7 @@ class login {
 	//speichert die Session zur richtigen ID, $userid kommt von check_user
 	public static function DoLogin ($userid, $allwaysLogged) {
 		if($allwaysLogged == true) {
-			session::set('userid', $userid);
+			session::Set('userid', $userid);
 			setcookie('sbb_UserId', $userid, time()+60*60*24*365);
 			$str = session_id();
 			setcookie('sbb_loginHash', md5($str.sha1($str)), time()+60*60*24*365);
@@ -51,7 +51,7 @@ class login {
 					'Salt' => md5($str.sha1($str)),
 					'IP' => $_SERVER['REMOTE_ADDR']);
 		} else {
-			session::set('userid', $userid);
+			session::Set('userid', $userid);
 			setcookie('sbb_UserId', $userid, time()+60*60*24*365);
 			$inserts = array('Time' => time(),
 					'UserID' => $userid,
@@ -76,7 +76,7 @@ class login {
 	public static function DoLogout () {
 		mysql::Delete('sessions', 'Salt = \''.session_id().'\'');
 		mysql::Delete('sessions', 'Salt = \''.$_COOKIE['sbb_loginHash'].'\'');
-		session::remove('userid');
+		session::Remove('userid');
 		setcookie('sbb_UserId', '', time()-60*60*24*365);
 		setcookie('sbb_loginHash', '', time()-60*60*24*365);
 	}

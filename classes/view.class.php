@@ -101,7 +101,7 @@ class view {
 			'TopicID' 	=> $TopicID
 			));
 			
-			if($Object->UserID == session::read('userid'))
+			if($Object->UserID == session::Read('userid'))
 				$Post->Assign(array(
 				'Edit' => '<a href="?page=Topic&TopicID='.$TopicID.'">Edit this Post</a>'
 				

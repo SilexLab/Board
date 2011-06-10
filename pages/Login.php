@@ -4,7 +4,7 @@
  * @copyright	© 2011 Silex Bulletin Board - Team
  * @license		GNU GENERAL PUBLIC LICENSE v3
  * @package		SilexBoard.DEV
- * @version		Revision: 1
+ * @version		Revision: 2
  */
 
 // Schutz vor Direktaufruf der Datei
@@ -12,7 +12,7 @@ if(!defined('SILEX_VERSION'))
 	header('location: ../');
 
 //Falls eingeloggt, auf Startseite weiterleiten.	
-if(isset($_COOKIE['sbb_loginHash']) || session::read('userid')) 
+if(isset($_COOKIE['sbb_loginHash']) || session::Read('userid')) 
 	header("Location: index.php");
 	
 $content = '';
