@@ -17,15 +17,15 @@ if(isset($_COOKIE['sbb_loginHash']) || session::Read('userid'))
 
 // Wurde die Register direkt aufgerufen wird value leer sein
 if(!isset($_SESSION['RegisterName']) || !isset($_SESSION['RegisterPass'])) {
-	$sessionName = '';
-	$sessionPass = '';
+	$SessionName = '';
+	$SessionPass = '';
 } else {
-	$sessionName = $_SESSION['RegisterName'];
-	$sessionPass = $_SESSION['RegisterPass'];
+	$SessionName = $_SESSION['RegisterName'];
+	$SessionPass = $_SESSION['RegisterPass'];
 }
 
 // Bearbeitung des Formulars
-$message = '';
+$Message = '';
 if(isset($_POST['Register'])) {
 	// Captcha funktioniert nicht, also nicht checken.
 	/*if($_POST['Captcha'] != $_SESSION['Captcha']) {
@@ -35,18 +35,20 @@ if(isset($_POST['Register'])) {
 		user::Create($_POST['Username'], $_POST['Password'], $_POST['Email']);
 		session_unset($_SESSION['RegisterName']);
 		session_unset($_SESSION['RegisterPass']);
-		$message = '{lang=com.sbb.register.success}';
+		
+		user::Email('Subject', 'hier kommt ein text', user::GetUserID($_POST['Username']));
+		$Message = '{lang=com.sbb.register.success}';
 	}
 	else {
 		session_unset($_SESSION['RegisterName']);
 		session_unset($_SESSION['RegisterPass']);
-		$message = register::getError();
+		$Message = register::getError();
 	}
 }
 
 // Füllt die Variablen im TPL
-self::$TPL->Assign('RegisterName', $sessionName);
-self::$TPL->Assign('RegisterPass', $sessionPass);
-self::$TPL->Assign('RegisterMessage', $message);
+self::$TPL->Assign('RegisterName', $SessionName);
+self::$TPL->Assign('RegisterPass', $SessionPass);
+self::$TPL->Assign('RegisterMessage', $Message);
 self::$TPL->Assign('Content', '{$:register}');
 ?>
