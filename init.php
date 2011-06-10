@@ -4,7 +4,7 @@
  * @copyright	© 2011 Silex Bulletin Board - Team
  * @license		GNU GENERAL PUBLIC LICENSE v3
  * @package		SilexBoard.DEV
- * @version		Revision: 12
+ * @version		Revision: 13
  */
 
 // Error reporting
@@ -19,12 +19,6 @@ require_once('functions.inc.php');
 // Initial
 session_start();	// Start Session
 user::Initial();	// Initial Usermanagement
-
-
-
-
-
-
 
 // Info Variables
 page::$Info['Site'] = 'Home';
@@ -59,20 +53,10 @@ crumb::Add('{lang=com.sbb.crumbs.home}', './');
 $tpl->Assign('Menu', menu::Parse());
 
 // Get The Rights. Not useful at this moment
-$group = groups::getRights();
+$Group = groups::GetRights();
 
 // after 10 minutes you will automatically logged out
-login::autoLogout(); 
-
-
-
-
-
-
-
-
-
-
+login::AutoLogout(); 
 
 // Template Stuff
 $tpl->Assign(array(

@@ -4,45 +4,31 @@
  * @copyright	© 2011 Silex Bulletin Board - Team
  * @license		GNU GENERAL PUBLIC LICENSE v3
  * @package		SilexBoard.DEV
- * @version		Revision: 2
+ * @version		Revision: 4
  */
 
 // Schutz vor Direktaufruf der Datei
 if(!defined('SILEX_VERSION'))
 	header('location: ../');
 
-//Falls eingeloggt, auf Startseite weiterleiten.	
+// Falls eingeloggt, auf Startseite weiterleiten.	
 if(isset($_COOKIE['sbb_loginHash']) || session::Read('userid')) 
 	header("Location: index.php");
 	
-$content = '';
-$form = '{$:login}';
+$Content = '{$:login}';
 
 if(isset($_POST['Register'])) {
 	$_SESSION['RegisterName'] = $_POST['Username'];
 	$_SESSION['RegisterPass'] = $_POST['Password'];
 	header("Location: ?page=Register");	
-} else {
-	if(isset($_POST['SubmitLogin'])) {
-		//Formularauswerten
-		$userid = login::check_user($_POST['Username'], $_POST['Password']);
-		if ($userid) {
-			if(isset($_POST['StayLoggedIn'])) {
-				login::DoLogin($userid, true);  
-			} else {
-				login::DoLogin($userid, false); 
-			}
-			$form = '<p>{lang=com.sbb.login.redirect}</p>
-				<p>{lang=com.sbb.login.ifnotredirect}<a href="secret.php">Link</a></p>
-				<script type="text/javascript">
-					window.setTimeout("window.location.href=\'secret.php\'",2000);
-				</script>';
-		} else {
-			$content .= '<p>{lang=com.sbb.login.wrongdata}</p>';
-		}
-	}
-		
-	self::$TPL->Assign('LoginMessage', $content);
-	self::$TPL->Assign('Content', $form);
+} elseif(isset($_POST['SubmitLogin'])) { 	// Formularauswerten
+	if(isset($_POST['StayLoggedIn']))
+		$AllwaysLogged = true;
+	else
+		$AllwaysLogged = false;
+
+	$Login = new login($_POST['Username'], $_POST['Password'], $AllwaysLogged);
+	$Content = login::GetMsg();
 }
+self::$TPL->Assign('Content', $Content);
 ?>

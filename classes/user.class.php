@@ -24,7 +24,7 @@ class user {
 		$Password = self::EncryptPassword($Password, $Salt);
 		$Key = substr(md5(base64_encode($Password.$Salt)), 0, 15);
 		
-		$Inserts = array('UserName' => $username,
+		$Inserts = array('UserName' => $Username,
 				'Password' => $Password,
 				'Salt' => $Salt,
 				'Email' => $Email,
@@ -85,6 +85,11 @@ class user {
 	
 	private static function EncryptSalt() {
 		return sha1(md5(base64_encode(microtime())));
+	}
+	
+	public static function Email($Subject, $Message, $UserID, $Headers = '') {
+		$Email = self::GetEmail($UserID);
+		mail($Email, $Subject, $Message, $Headers);
 	}
 }
 ?>
