@@ -4,7 +4,7 @@
  * @copyright	© 2011 Silex Bulletin Board - Team
  * @license		GNU GENERAL PUBLIC LICENSE v3
  * @package		SilexBoard.DEV
- * @version		Revision: 9
+ * @version		Revision: 10
  */
 
 // Error reporting
@@ -62,9 +62,12 @@ login::autoLogout();
 $MsgBox = new messagebox(MSG_BOX_TYPE_NORMAL);
 $MsgBox->SetText('Hiho Schweinebacke');
 $MsgBox->Display();
+
 $MsgBox = new messagebox(MSG_BOX_TYPE_ERROR);
 $MsgBox->SetText('Das hier ist eine Fehlerbox, u know?');
 $MsgBox->Display();
+
+new messagebox(MSG_BOX_TYPE_SUCCESS, 'Das hier ist ne kurze MessageBox');
 /* --- */
 
 // Template Stuff

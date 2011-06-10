@@ -4,7 +4,7 @@
  * @copyright	© 2011 Silex Bulletin Board - Team
  * @license		GNU GENERAL PUBLIC LICENSE v3
  * @package		SilexBoard.DEV
- * @version		Revision: 3
+ * @version		Revision: 4
  */
 
 class messagebox {
@@ -13,7 +13,7 @@ class messagebox {
 	
 	private static $MessageBoxes = array();
 	
-	function __construct($Type = 0) {
+	function __construct($Type = 0, $Text = NULL, $Mode = NULL, $Order = NULL) {
 		switch($Type) {
 			case MSG_BOX_TYPE_NORMAL:
 				// Erzeuge blaue Box mit Info-Icon
@@ -30,6 +30,12 @@ class messagebox {
 			default:
 				// Erzeuge normale Box
 				$this->Type = 'MsgBoxNormal';
+		}
+		
+		// Shorten up the thinks here
+		if(isset($Text)) {
+			$this->Text = $Text;
+			return $this->Display($Mode, $Order);
 		}
 	}
 	
