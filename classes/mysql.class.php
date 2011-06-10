@@ -79,6 +79,10 @@ class mysql{
 		self::ExecuteQuery();
 	}
 	
+	public static function RowExists($Table, $Rows = '*', $Where) {
+		return (@mysql_result(mysql_query('SELECT COUNT('.$Rows.') FROM '.$Table.' WHERE '.$Where.';'), 0) == 1) ? true : false;
+	}
+	
 	public static function Delete($Table, $Where = '') {
 		$Query = 'DELETE ';
 		if(empty($Where))

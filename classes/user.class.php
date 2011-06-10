@@ -16,8 +16,7 @@ class user {
 	
 	public static function Initial() {
 		self::$UserID = session::Read('userid');
-		mysql::Select('sessions', 'UserID', 'UserID="'.self::$UserID.'"');
-		self::$IsLoggedIn = mysql::GetObjects()->UserID == self::$UserID ? true : false;
+		self::$IsLoggedIn = mysql::RowExists('sessions', NULL, 'ID=\''.self::$UserID.'\'');
 	}
 	
 	public static function Create($Username, $Password, $Email) {
