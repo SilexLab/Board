@@ -4,11 +4,14 @@
  * @copyright	© 2011 Silex Bulletin Board - Team
  * @license		GNU GENERAL PUBLIC LICENSE v3
  * @package		SilexBoard.DEV
- * @version		Revision: 5
+ * @version		Revision: 6
  */
 
 /* Diese Klasse verwaltet und gibt informationen über die Benutzer des Boards */
 class user {
+	private static $Group;					// Welcher Gruppe gehört der Benutzer an, in der group.class werden alle Berechtigungen der Gruppe verwaltet
+	private static $Permissions = array();	// Alle Extra Berechtigungen die der Benutzer hat
+	
 	public static function Create($Username, $Password, $Email) {
 		$Salt = sha1(md5(base64_encode(microtime())));
 		$Password = sha1($Salt.md5($Salt.sha1($Password.md5($Salt))));

@@ -1,3 +1,4 @@
+	{$MessageBox}
 	<section class="Content">
 		<div class="Size">
 			<div class="Container">
