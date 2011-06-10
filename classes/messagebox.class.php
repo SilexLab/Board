@@ -4,7 +4,7 @@
  * @copyright	© 2011 Silex Bulletin Board - Team
  * @license		GNU GENERAL PUBLIC LICENSE v3
  * @package		SilexBoard.DEV
- * @version		Revision: 4
+ * @version		Revision: 5
  */
 
 class messagebox {
@@ -32,7 +32,7 @@ class messagebox {
 				$this->Type = 'MsgBoxNormal';
 		}
 		
-		// Shorten up the thinks here
+		// Shorten up the things here
 		if(isset($Text)) {
 			$this->Text = $Text;
 			return $this->Display($Mode, $Order);
