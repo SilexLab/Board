@@ -1,0 +1,295 @@
+@charset "utf-8";
+
+section.UserBar {
+	background: #111111;
+	border-bottom: 1px solid #b3e2ff;
+	/*height: 26px;*/
+	color: #ffffff;
+	text-align: right;
+	padding-top: 10px;
+}
+
+#LoginBarHandle {
+	height: 0;
+	display: block;
+}
+	#LoginBarHandle div {
+		background: #111111;
+		color: #ffffff;
+		display: inline-block;
+		padding: 0 5px 3px 5px;
+		cursor: pointer;
+		-moz-border-radius: 0 0 4px 4px;
+		-webkit-border-radius: 0 0 4px 4px;
+		border-radius: 0 0 4px 4px;
+	}
+
+#LoginForm {
+	font-size: 16px;
+	text-align: left;
+}
+
+.Wrap {
+	width: 600px;
+	margin: 0 auto;
+	padding: 0 0 10px 0;
+}
+	.Wrap ul {
+		list-style: none;
+		padding: 0;
+		margin: 0 0 10px 0;
+		vertical-align: middle;
+	}
+		.Wrap ul li {
+			width: 290px;
+			height: 24px;
+			text-align: left;
+			float: right;
+			vertical-align: middle;
+			line-height: 24px;
+		}
+		.Wrap ul li:first-child {
+			text-align: right;
+			float: left;
+		}
+		.Wrap .LoginFormMethode {
+			padding-left: 310px;
+		}
+			.Wrap .LoginFormMethode li, .Wrap .LoginFormMethode li:first-child {
+				float: none;
+				text-align: left;
+			}
+		.Wrap .LoginFormSubmit {
+			/*padding-left: 300px;*/
+		}
+			.Wrap .LoginFormSubmit ul {
+				margin: 0;
+			}
+	.Wrap input[type=checkbox] {
+		display: none;
+	}
+		.Wrap input[type=checkbox] + label.Check {
+			display: inline-block;
+			height: 24px;
+			width: 24px;
+			background: url(images/checkbox.png) left top no-repeat;
+			margin: -6px -3px -2px 0;
+		}
+			.Wrap input[type=checkbox] + label.Check:hover {
+				background-position: left -24px;
+			}
+			.Wrap input[type=checkbox] + label.Check:active {
+				background-position: left -48px;
+			}
+		
+		.Wrap input[type=checkbox]:checked + label.Check {
+			background-position: left -72px;
+		}
+			.Wrap input[type=checkbox]:checked + label.Check:hover {
+				background-position: left -96px;
+			}
+			.Wrap input[type=checkbox]:checked + label.Check:active {
+				background-position: left -120px;
+			}
+	
+	.Wrap input[type=radio] {
+		display: none;
+	}
+		.Wrap input[type=radio] + label.Check {
+			display: inline-block;
+			height: 16px;
+			width: 16px;
+			background: url(images/radiobutton.png) left top no-repeat;
+			margin: 4px 5px -2px 0;
+		}
+			.Wrap input[type=radio] + label.Check:hover {
+				background-position: left -16px;
+			}
+			.Wrap input[type=radio] + label.Check:active {
+				background-position: left -32px;
+			}
+		
+		.Wrap input[type=radio]:checked + label.Check {
+			background-position: left -48px;
+		}
+			.Wrap input[type=radio]:checked + label.Check:hover {
+				background-position: left -64px;
+			}
+			.Wrap input[type=radio]:checked + label.Check:active {
+				background-position: left -80px;
+			}
+	.Wrap input[type=text], .Wrap input[type=password] {
+	    background: none repeat scroll 0 0 #1a2436;
+		border: 1px solid #FFFFFF;
+		border-radius: 5px;
+		-moz-border-radius: 5px;
+		-webkit-border-radius: 5px;
+		height: 24px;
+		line-height: 24px;
+		padding: 0 4px;
+		width: 200px;
+		color: #ffffff;
+		font-weight: bold;
+	}
+		/*.Wrap input[type=text]:hover, .Wrap input[type=password]:hover {
+			box-shadow: 0 0 6px #59caf7;
+		}
+		.Wrap input[type=text]:focus, .Wrap input[type=password]:focus {
+			box-shadow: 0 0 10px #59caf7;
+		}*/
+	.Wrap input[type=submit] {
+		color: #ffffff;
+		padding: 3px 10px;
+		font-weight: bold;
+		border: 1px solid #ffffff;
+		text-shadow: 0 1px 0 #0e2f50;
+		border-radius: 5px;
+		-moz-border-radius: 5px;
+		-webkit-border-radius: 5px;
+		background: #3a91e8; /* Old browsers */
+		background: -moz-linear-gradient(top, #3a91e8 0%, #0c447b 100%); /* FF3.6+ */
+		background: -webkit-linear-gradient(top, #3a91e8 0%,#0c447b 100%); /* Chrome10+,Safari5.1+ */
+		background: -o-linear-gradient(top, #3a91e8 0%,#0c447b 100%); /* Opera11.10+ */
+		background: -ms-linear-gradient(top, #3a91e8 0%,#0c447b 100%); /* IE10+ */
+		background: linear-gradient(top, #3a91e8 0%,#0c447b 100%); /* W3C */
+	}
+	.Wrap input[type=submit]:hover {
+		box-shadow: 0 -2px 4px rgba(255, 255, 255, 0.6) inset;
+	}
+	.Wrap input[type=submit]:active {
+		box-shadow: 0 0 5px #000000 inset;
+	}
+
+header {
+	background: #387bd1 url(images/HeaderBG.png) repeat-x left top;
+}
+
+.Logo {
+	padding: 5px 0;
+	vertical-align: middle;
+}
+	.Logo img {
+		height: 160px;
+	}
+
+nav.Menu {
+	background: #22a0ef url(images/MenuBar.png) repeat-x left top;
+	border-bottom: 1px solid #0b334c;
+	border-top: 1px solid #b3e2ff;
+	height: 36px;
+	margin-top: 38px;
+}
+	nav.Menu a, nav.Menu a:hover, nav.Menu a:active, nav.Menu a:visited, nav.Menu a:link {
+		text-decoration: none;
+		outline: none;
+	}
+	nav.Menu .MenuList {
+		list-style: none;
+		display: block;
+		padding: 0;
+		margin: 0;
+		height: 38px;
+		margin-top: -38px;
+		z-index: 10;
+		font-size: 15px;
+	}
+		nav.Menu .MenuList li {
+			height: 36px;
+			float: left;
+			display: block;
+			margin-right: 10px;
+		}
+		nav.Menu .Menulist li.active {
+			height: 37px;
+		}
+			nav.Menu .MenuList li div{
+				background: #1c88db;
+				color: #97c8ff;
+				font-weight: bold;
+				text-shadow: 0 1px 1px #000000;
+				display: block;
+				padding: 0 20px;
+				height: 36px;
+				line-height: 36px;
+				border-top: 1px solid #66a5dd;
+				-moz-border-radius: 5px 5px 0 0;
+				-webkit-border-radius: 5px 5px 0 0;
+				border-radius: 5px 5px 0 0;
+				cursor: pointer;
+			}
+			nav.Menu .MenuList li.active div {
+				background: #24abff;
+				color: #ffffff;
+				font-weight: bold;
+				text-shadow: 0 1px 1px #000000;
+				display: block;
+				padding: 0 20px;
+				height: 37px;
+				line-height: 37px;
+				border-top: 1px solid #b3e2ff;
+			}
+			nav.Menu .MenuList li:hover div {
+				background: #4ea4f9;
+				border-top-color: #82c0f9;
+				color: #a9daff;
+			}
+			nav.Menu .MenuList li.active:hover div {
+				background: #24abff url(images/TabActive.png) repeat-x left top;
+				/*border-top-color: #c9f8ff;*/
+				border-top-color: #d9ffff;
+				color: #ffffff;
+			}
+			nav.Menu .MenuList li:active div {
+				background: #347acb;
+				border-top-color: #4e8fc6;
+				color: #a9daff;
+			}
+			nav.Menu .MenuList li.active:active div {
+				background: #24abff url(images/TabActive.png) repeat-x left -47px;
+				border-top-color: #7eb1e1;
+				color: #ffffff;
+			}
+	.SubMenu {
+		float: left;
+		height: 36px;
+		max-width: 700px;
+		line-height: 36px;
+		padding: 0;
+		margin: 0;
+	}
+	#SearchForm {
+		float: right;
+		border: 1px solid #0b334d;
+		width: 200px;
+		height: 24px;
+		background: #EEE;
+		overflow: hidden;
+		margin: 5px 0;
+		-moz-border-radius: 5px;
+		-webkit-border-radius: 5px;
+		border-radius: 5px;
+		box-shadow: 0 3px 3px rgba(0,0,0,0.3) inset;
+	}
+		#SearchForm:hover {
+			border-color: #001f37;
+			box-shadow: 0 3px 3px rgba(0,0,0,0.3) inset, 0 0 3px #d7ffff;
+		}
+		#SearchForm #Search {
+			background: none;
+			border: 0 none;
+			display: block;
+			float: left;
+			height: 24px;
+			line-height: 24px;
+			padding: 0 6px;
+			width: 164px;
+		}
+		#SearchForm #SearchSubmit {
+			background: transparent url(icons/Search.png) no-repeat center center;
+			border: 0px none;
+			display: block;
+			float: right;
+			height: 24px;
+			width: 24px;
+		}
+
