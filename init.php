@@ -4,7 +4,7 @@
  * @copyright	© 2011 Silex Bulletin Board - Team
  * @license		GNU GENERAL PUBLIC LICENSE v3
  * @package		SilexBoard.DEV
- * @version		Revision: 14
+ * @version		Revision: 16
  */
 
 // Error reporting
@@ -17,24 +17,20 @@ require_once('constants.inc.php');
 require_once('functions.inc.php');
 
 // Initial
+date_default_timezone_set('Europe/Berlin');	// default timezone (for date functions)
 session_start();	// Start Session
+
+mysql::Connect($CFG_Host, $CFG_User, $CFG_Password, $CFG_Database);	// Connect to MySQL-Database
 user::Initial();	// Initial Usermanagement
+page::$Info['Site'] = 'Home';	// Info Variables
+crumb::Add('{lang=com.sbb.crumbs.home}', './');	// Breadcrumbstart
+login::AutoLogout();			// after 10 minutes you will automatically logged out
 
-// Info Variables
-page::$Info['Site'] = 'Home';
+$Group = groups::GetRights();	// Get The Rights. Not useful at this moment
+$language = new language();		// Load language management
+$tpl = new template('case');	// Load template management
 
-// Connect to MySQL-Database
-mysql::Connect($CFG_Host, $CFG_User, $CFG_Password, $CFG_Database);
-
-$language = new language();
-
-// default timezone (for date functions)
-date_default_timezone_set('Europe/Berlin');
-
-// template
-$tpl = new template('case');
-
-// Language Chooser
+/*// Language Chooser
 $Langs = $language->GetLanguages();
 $DefaultLang = $language->Language;
 foreach($Langs as $key => $val)
@@ -44,26 +40,16 @@ foreach($Langs as $key => $val)
 	else
 		$SelectLangs .= '<option value="'.$key.'">'.$val.'</option>';					
 }
-$tpl->Assign('Languages',$SelectLangs);
-
-// Breadcrumbstart
-crumb::Add('{lang=com.sbb.crumbs.home}', './');
-
-// Menu Parse
-$tpl->Assign('Menu', menu::Parse());
-
-// Get The Rights. Not useful at this moment
-$Group = groups::GetRights();
-
-// after 10 minutes you will automatically logged out
-login::AutoLogout(); 
+$tpl->Assign('Languages',$SelectLangs);*/
 
 // Template Stuff
 $tpl->Assign(array(
 	'Site'			=> 'Seitentitel',
 	'Slogan'		=> 'Slogan der Seite',
+	'Menu'			=> menu::Parse(),
 	'MessageBox'	=> messagebox::GetBoxes(),
-	'CSSStyles'		=> css::IncludeCSS()
+	'CSSStyles'		=> style::IncludeCSS(),
+	'Javascripts'	=> style::IncludeJS()
 ));
 page::Initial($tpl);
 $language->Assign($tpl);
