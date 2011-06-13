@@ -4,7 +4,7 @@
  * @copyright	© 2011 Silex Bulletin Board - Team
  * @license		GNU GENERAL PUBLIC LICENSE v3
  * @package		SilexBoard.DEV
- * @version		Revision: 2
+ * @version		Revision: 3
  */
 
 class page {
@@ -20,9 +20,8 @@ class page {
 			self::$Page = null;
 		
 		self::$TPL = $TemplateObject;
-                $Menu = new menu;
 		self::Open();
-		self::$TPL->Assign(array('BreadCrumbs' => crumb::Parse(), 'Menu' => $Menu->Parse()));
+		self::$TPL->Assign(array('BreadCrumbs' => crumb::Parse(), 'Menu' => menu::Parse()));
 	}
 	
 	public static function Open() {
