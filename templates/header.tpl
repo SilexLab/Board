@@ -1,5 +1,5 @@
 {$:userbar}
-	<header class="Size">
+	<header class="MinSize">
 		<div class="LogoBlock">
 			<div class="Logo Size">
 				<a href="./" title="{lang=com.sbb.header.logo_title}">
