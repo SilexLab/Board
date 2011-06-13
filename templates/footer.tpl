@@ -5,6 +5,6 @@
                 	{$Languages}
                 </select>
             </form>
-			- Load: {$SiteLoad}
+			- Load: ~{$SiteLoad}
 		</div>
 	</footer>

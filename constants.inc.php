@@ -4,7 +4,7 @@
  * @copyright	© 2011 Silex Bulletin Board - Team
  * @license		GNU GENERAL PUBLIC LICENSE v3
  * @package		SilexBoard.DEV
- * @version		Revision: 4
+ * @version		Revision: 5
  */
 
 // System Constants
@@ -17,6 +17,7 @@ define('PATH_SMILEY',	'images/smiley/');
 define('PATH_LANGUAGE',	'languages/');
 define('PATH_PAGE',		'pages/');
 define('PATH_STYLE',	'styles/');
+define('PATH_JS',		'javascript/');
 
 // Message Box
 define('MSG_BOX_TYPE_NORMAL',	0);
