@@ -4,7 +4,7 @@
  * @copyright	© 2011 Silex Bulletin Board - Team
  * @license		GNU GENERAL PUBLIC LICENSE v3
  * @package		SilexBoard.DEV
- * @version		Revision: 13
+ * @version		Revision: 14
  */
 
 // Error reporting
@@ -67,5 +67,6 @@ $tpl->Assign(array(
 ));
 page::Initial($tpl);
 $language->Assign($tpl);
+$tpl->Assign('SiteLoad', round(((microtime(true) - $GeneratingTime) * 1000), 2).'ms'); // Isn't optimal here
 $tpl->Display(false, true);
 ?>
