@@ -2,7 +2,7 @@
 
 section.UserBar {
 	background: #111111;
-	border-bottom: 1px solid #b3e2ff;
+	border-bottom: 1px solid #6588ad;
 	/*height: 26px;*/
 	color: #ffffff;
 	text-align: right;
@@ -161,7 +161,7 @@ section.UserBar {
 	}
 
 header {
-	background: #387bd1 url(images/HeaderBG.png) repeat-x left top;
+	background: url(images/header.png) repeat-x center bottom #3c4a58;
 }
 
 .Logo {
@@ -173,11 +173,12 @@ header {
 	}
 
 nav.Menu {
-	background: #22a0ef url(images/MenuBar.png) repeat-x left top;
+	background: url(images/MenuBar.png) repeat-x left top #3c6c8b;
 	border-bottom: 1px solid #0b334c;
-	border-top: 1px solid #b3e2ff;
+	border-top: 1px solid #558fa4;
 	height: 36px;
 	margin-top: 38px;
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
 }
 	nav.Menu a, nav.Menu a:hover, nav.Menu a:active, nav.Menu a:visited, nav.Menu a:link {
 		text-decoration: none;
@@ -203,7 +204,7 @@ nav.Menu {
 			height: 37px;
 		}
 			nav.Menu .MenuList li div{
-				background: #1c88db;
+				background: rgba(60, 108, 139, 0.5);
 				color: #97c8ff;
 				font-weight: bold;
 				text-shadow: 0 1px 1px #000000;
@@ -211,14 +212,24 @@ nav.Menu {
 				padding: 0 20px;
 				height: 36px;
 				line-height: 36px;
-				border-top: 1px solid #66a5dd;
+				border-top: 1px solid rgba(85, 143, 164, 0.5);
 				-moz-border-radius: 5px 5px 0 0;
 				-webkit-border-radius: 5px 5px 0 0;
 				border-radius: 5px 5px 0 0;
 				cursor: pointer;
 			}
+			nav.Menu .MenuList li:hover div {
+				background: rgba(85, 133, 164, 0.5);;
+				border-top-color: rgba(112, 159, 191, 0.5);
+				color: #a9daff;
+			}
+			nav.Menu .MenuList li:active div {
+				background: rgba(31, 83, 112, 0.5);
+				border-top-color: rgba(85, 143, 164, 0.5);
+				color: #a9daff;
+			}
 			nav.Menu .MenuList li.active div {
-				background: #24abff;
+				background: url(images/TabActive.png) repeat-x left top transparent;
 				color: #ffffff;
 				font-weight: bold;
 				text-shadow: 0 1px 1px #000000;
@@ -226,26 +237,15 @@ nav.Menu {
 				padding: 0 20px;
 				height: 37px;
 				line-height: 37px;
-				border-top: 1px solid #b3e2ff;
-			}
-			nav.Menu .MenuList li:hover div {
-				background: #4ea4f9;
-				border-top-color: #82c0f9;
-				color: #a9daff;
+				border-top: 1px solid #558fa4;
 			}
 			nav.Menu .MenuList li.active:hover div {
-				background: #24abff url(images/TabActive.png) repeat-x left top;
-				/*border-top-color: #c9f8ff;*/
+				background-position: left -40px;
 				border-top-color: #d9ffff;
 				color: #ffffff;
 			}
-			nav.Menu .MenuList li:active div {
-				background: #347acb;
-				border-top-color: #4e8fc6;
-				color: #a9daff;
-			}
 			nav.Menu .MenuList li.active:active div {
-				background: #24abff url(images/TabActive.png) repeat-x left -47px;
+				background-position: left -80px;
 				border-top-color: #7eb1e1;
 				color: #ffffff;
 			}
@@ -259,7 +259,7 @@ nav.Menu {
 	}
 	#SearchForm {
 		float: right;
-		border: 1px solid #0b334d;
+		border: 1px solid #000120;
 		width: 200px;
 		height: 24px;
 		background: #EEE;

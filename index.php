@@ -12,4 +12,5 @@ if(!file_exists('config.inc.php')) // Leitet zur Installation falls nicht instal
 	header('Location: install.php');
 
 include_once('init.php');
+echo 'Real Load: '.round(((microtime(true) - $GeneratingTime) * 1000), 2).'ms';
 ?>

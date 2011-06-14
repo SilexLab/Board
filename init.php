@@ -41,7 +41,7 @@ foreach($Langs as $key => $val)
 		$SelectLangs .= '<option value="'.$key.'">'.$val.'</option>';					
 }
 $tpl->Assign('Languages',$SelectLangs);*/
-
+new messagebox(MSG_BOX_TYPE_NORMAL, 'Test');
 // Template Stuff
 $tpl->Assign(array(
 	'Site'			=> 'Seitentitel',

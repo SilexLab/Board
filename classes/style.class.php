@@ -30,7 +30,7 @@ class style {
 				$Javascripts .= '<script src="'.PATH_STYLE.$Style.PATH_JS.$File.'" type="text/javascript"></script>'."\n";
 			}
 		}
-		return $Javascripts;
+		return trim($Javascripts, "\n");
 	}
 	
 	public static function IncludeCSS() {
@@ -51,7 +51,7 @@ class style {
 				$Styles .= '<link href="'.PATH_STYLE.$Style.$File.'" rel="stylesheet" type="text/css">'."\n";
 			}
 		}
-		return $Styles;
+		return trim($Styles, "\n");
 	}
 }
 ?>
