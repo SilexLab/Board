@@ -39,15 +39,17 @@ class user {
 	public static function sendActivationMail($email, $key) {
 		$url = $_SERVER['SERVER_NAME'].'index.php?page=Activation&key='.$key;		
 		$tpl = new template('emailActivation');
+		$tpl->Assign('ActivationURL', $url);
 		
-		$subject = "Activation";
+		// Only Englich? WTF!
+		$subject = "Silex Bulletin Board - Activation";
 		$message = $tpl->Display();
 		
 		// Allow Mail To Use HTML
 		$header  = 'MIME-Version: 1.0' . "\r\n";
 		$header .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 		
-		// Additional Header
+		// Additional Header | TODO: You Config-File For This To Choose A Own Name And Email
 		$header .= 'From: Silex Bulletin Board <support@silex.com>' . "\r\n";
 		
 		mail($email, $subject, $message, $header);
@@ -55,7 +57,7 @@ class user {
 	
 	public static function sendPWForgetMail($email, $key) {
 		$pw = self::genPW(6);		
-		$url = $_SERVER['SERVER_NAME'].'index.php?page=PWForget&key='.$key;		
+		$url = $_SERVER['SERVER_NAME'].'index.php?page=PWForget&key='.$key;
 		$tpl = new template('emailPWForget');	
 		
 		$subject = "PWForget";
