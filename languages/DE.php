@@ -63,4 +63,6 @@ $this->Items['com.sbb.captcha']						= 'Captcha';
 $this->Items['com.sbb.captcha.wrong']				= 'Captcha ist falsch!';
 
 $this->Items['com.sbb.language.changed']			= 'Deine Sprache wurde nach {$LangChangedTo} geändert';
+
+$this->Items['com.sbb.email.activation.title']		= 'Dein Account wird freigeschaltet sobald du folgende Adresse besucht hast: ';
 ?>
