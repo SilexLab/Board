@@ -4,7 +4,7 @@
  * @copyright	© 2011 Silex Bulletin Board - Team
  * @license		GNU GENERAL PUBLIC LICENSE v3
  * @package		SilexBoard.DEV
- * @version		Revision: 6
+ * @version		Revision: 7
  */
 
 /* Langfile:	German */
@@ -63,4 +63,6 @@ $this->Items['com.sbb.captcha']						= 'Captcha';
 $this->Items['com.sbb.captcha.wrong']				= 'Captcha ist falsch!';
 
 $this->Items['com.sbb.language.changed']			= 'Deine Sprache wurde nach {$LangChangedTo} geändert';
+
+$this->Items['com.sbb.email.activation.title']		= 'Du must diesen Link klicken um deine Registrierung abzuschließen: ';
 ?>

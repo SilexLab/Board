@@ -22,7 +22,7 @@
 							</tr>
 							<tr>
 								<td><label for="Captcha">{lang=com.sbb.captcha}</label></td>
-								<td><input type="text" name="Captcha" id="Captcha" size="30" required /></td
+								<td><input type="text" name="Captcha" id="Captcha" size="30" required /></td>
 							</tr>
                                                         <tr>
                                                                 <td><img src="classes/captcha.class.php"></td>
