@@ -64,5 +64,5 @@ $this->Items['com.sbb.captcha.wrong']				= 'Captcha is wrong!';
 
 $this->Items['com.sbb.language.changed']			= 'Your Language was changed to {$LangChangedTo}.';
 
-$this->Items['com.sbb.email.activation.title']		= 'Your Account will activated when you visit following Site: ';
+$this->Items['com.sbb.email.activation.title']		= 'Your registration will be completed if you follow this link: ';
 ?>
