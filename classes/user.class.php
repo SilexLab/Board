@@ -4,7 +4,7 @@
  * @copyright	© 2011 Silex Bulletin Board - Team
  * @license		GNU GENERAL PUBLIC LICENSE v3
  * @package		SilexBoard.DEV
- * @version		Revision: 8
+ * @version		Revision: 9
  */
 
 /* Diese Klasse verwaltet und gibt informationen über die Benutzer des Boards */
@@ -37,7 +37,11 @@ class user {
 	}
 	
 	public static function sendActivationMail($email, $key) {
-		$url = $_SERVER['SERVER_NAME'].'index.php?page=Activation&key='.$key;		
+		$FolderBase = $_SERVER['SCRIPT_NAME'];
+		$FolderBase = explode(basename($_SERVER['PHP_SELF']),$_SERVER['PHP_SELF']);
+		$FolderBase = $FolderBase[0];
+
+		$url =  'http://'.$_SERVER['SERVER_NAME'].$FolderBase.'index.php?page=Activation&key='.$key;		
 		$tpl = new template('emailActivation');
 		$tpl->Assign('ActivationURL', $url);
 		
@@ -56,8 +60,12 @@ class user {
 	}
 	
 	public static function sendPWForgetMail($email, $key) {
+		$FolderBase = $_SERVER['SCRIPT_NAME'];
+		$FolderBase = explode(basename($_SERVER['PHP_SELF']),$_SERVER['PHP_SELF']);
+		$FolderBase = $FolderBase[0];
+
 		$pw = self::genPW(6);		
-		$url = $_SERVER['SERVER_NAME'].'index.php?page=PWForget&key='.$key;
+		$url = 'http://'.$_SERVER['SERVER_NAME'].$FolderBase.'index.php?page=PWForget&key='.$key;
 		$tpl = new template('emailPWForget');	
 		
 		$subject = "PWForget";
