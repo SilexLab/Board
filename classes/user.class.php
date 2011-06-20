@@ -29,8 +29,59 @@ class user {
 				'Salt' => $Salt,
 				'Email' => $Email,
 				'ActivationKey' => $Key,
-				'RegisterTime' => time());
+				'RegisterTime' => time(),
+				'Activated' => 0);
 		mysql::Insert('users', $Inserts);
+		
+		self::sendActivationMail($email, $key);
+	}
+	
+	public static function sendActivationMail($email, $key) {
+		$url = $_SERVER['SERVER_NAME'].'index.php?page=Activation&key='.$key;		
+		$tpl = new template('emailActivation');
+		
+		$subject = "Activation";
+		$message = $tpl->Display();
+		
+		// Allow Mail To Use HTML
+		$header  = 'MIME-Version: 1.0' . "\r\n";
+		$header .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+		
+		// Additional Header
+		$header .= 'From: Silex Bulletin Board <support@silex.com>' . "\r\n";
+		
+		mail($email, $subject, $message, $header);
+	}
+	
+	public static function sendPWForgetMail($email, $key) {
+		$pw = self::genPW(6);		
+		$url = $_SERVER['SERVER_NAME'].'index.php?page=PWForget&key='.$key;		
+		$tpl = new template('emailPWForget');	
+		
+		$subject = "PWForget";
+		$message = $tpl->Display();
+		
+		// Allow Mail To Use HTML
+		$header  = 'MIME-Version: 1.0' . "\r\n";
+		$header .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+		
+		// Additional Header
+		$header .= 'From: Silex Bulletin Board <support@silex.com>' . "\r\n";
+		
+		mail($email, $subject, $message, $header);
+	}
+	
+	public static function genPW($length) {
+		$pool = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+		$pool .= "abcdefghijklmnopqrstuvwxyz";
+		$pool .= "1234567890";
+		
+		$password="";
+		for ($i = 0; $i < $length; $i++) {
+			$password .= $pool{rand(0, strlen($pool)-1)};
+		}
+		
+		return $password;		
 	}
 	
 	public static function Delete($ID) {
