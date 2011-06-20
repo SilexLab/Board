@@ -10,7 +10,7 @@ Wir haben zwar alle keinen Plan von PHP aber langeweile, aus der das Silex Board
 Kontakt
 -------
 Wir können zur Zeit in unserem IRC-Channel kontaktiert werden:
-''[irc://irc.quakenet.org/#SilexBoard](irc://irc.quakenet.org/#SilexBoard)''
+__[irc://irc.quakenet.org/#SilexBoard](irc://irc.quakenet.org/#SilexBoard)__
 
 
 Teammitglieder
