@@ -4,7 +4,7 @@
  * @copyright	© 2011 Silex Bulletin Board - Team
  * @license		GNU GENERAL PUBLIC LICENSE v3
  * @package		SilexBoard.DEV
- * @version		Revision: 5
+ * @version		Revision: 6
  */
 
 // Schutz vor Direktaufruf der Datei
@@ -12,10 +12,8 @@ if(!defined('SILEX_VERSION'))
 	header('location: ../');
 
 // Falls eingeloggt, auf Startseite weiterleiten.	
-if(isset($_COOKIE['sbb_loginHash']) || session::Read('userid')) 
+if(isset($_COOKIE['sbb_LoginHash']) || session::Read('UserID')) 
 	header("Location: index.php");
-	
-$Content = '{$:login}';
 
 switch($_POST['Register']) {
 	case 1:
@@ -24,11 +22,10 @@ switch($_POST['Register']) {
 		header("Location: ?page=Register");
 		break;
 	case 0:
-		isset($_POST['StayLoggedIn']) ? $AllwaysLogged = true : $AllwaysLogged = false;
-		$Login = new login($_POST['Username'], $_POST['Password'], $AllwaysLogged);
-		$Content = login::GetMsg();
+		$Login = new login();
+		$MSG = $Login->GetMSG();
 		break;
 }
 
-self::$TPL->Assign('Content', $Content);
+self::$TPL->Assign('Content', '{$:login}'.$MSG);
 ?>

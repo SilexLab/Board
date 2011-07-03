@@ -1,126 +1,111 @@
-<?php
+<?php 
 /**
  * @author 		Nut
  * @copyright	© 2011 Silex Bulletin Board - Team
  * @license		GNU GENERAL PUBLIC LICENSE v3
  * @package		SilexBoard.DEV
- * @version		Revision: 7
+ * @version		Revision: 9
  */
-
+ 
 class login {
+	private $Username;
+	private $Password;
+	private $StayLoggedIn;
+	private $UserID;
+	private $MSG = '';
 	
-	private static $UserId;
-	private static $AllwaysLogged;
-	protected static $Msg = '';
-	
-	// CheckUser zum Usercheck ob er da is usw.
-	public function __construct($Name, $Pass, $AllwaysLogged) {
-				
-		// magic quotes anpassen
-		if (get_magic_quotes_gpc()) {
-			$Name = stripslashes($Name);
-			$Pass = stripslashes($Pass);
-		}
-		// escapen von \x00, \n, \r, \, ', " und \x1a
-		$Name = mysql_real_escape_string($Name);
-		
-		// escapen von % und _
-		$Name = str_replace('%', '\%', $Name);
-		$Name = str_replace('_', '\_', $Name);
-		
-		// Prüft ob Name und Password stimmen
-		mysql::Select('users', 'Salt', 'UserName = \''.$Name.'\'', '', 1);
-		if($Row = mysql::NumRows() == 1) {
-			$Salt = mysql::FetchObject()->Salt;
-			mysql::Select('users', 'ID', 'UserName = \''.$Name.'\' AND Password = \''.sha1($Salt.md5($Salt.sha1($Pass.md5($Salt)))).'\'');
-		}
-		
-		// Gibt UserId aus
-		if($Row = mysql::NumRows() == 1) {
-			$User = $Row = mysql::FetchObject();
-			self::$UserId = $User->ID;
-			self::$AllwaysLogged = $AllwaysLogged;
-			self::DoLogin();
-			self::$Msg = '<p>{lang=com.sbb.login.redirect}</p>
-			<p>{lang=com.sbb.login.ifnotredirect}<a href="./">Link</a></p>
-			<script type="text/javascript">
-				window.setTimeout("window.location.href=\'./\'",2000);
-			</script>';			// TO-DO: JavaScript auslagern
-		} else {
-			self::$Msg = '{lang=com.sbb.login.wrongdata}';
-			self::$UserId = false;
-		}
+	public function __construct() {
+		$this->Username = mysql_real_escape_string($_POST['Username']);
+		$this->Password = mysql_real_escape_string($_POST['Password']);
+		isset($_POST['StayLoggedIn']) ? $this->StayLoggedIn = true : $this->StayLoggedIn = false;
+		$this->Check();
 	}
 	
-	// Session setzten und Daten in die DB schreiben
-	public static function DoLogin() {
-		if(self::$AllwaysLogged == true) {
-			session::Set('userid', self::$UserId);
-			$Str = session_id();
-			setcookie('sbb_loginHash', md5($Str.sha1($Str)), time()+60*60*24*365);
-			$Inserts = array('Time' => time(),
-					'UserID' => $UserID,
-					'Salt' => md5($Str.sha1($Str)),
-					'IP' => $_SERVER['REMOTE_ADDR']);
-		} else {
-			session::Set('userid', self::$UserId);
-			$Inserts = array('Time' => time(),
-					'UserID' => $UserID,
-					'Salt' => session_id(),
-					'IP' => $_SERVER['REMOTE_ADDR']);
+	public function Check() {		
+		mysql::Select('users', 'Salt', 'UserName = \''.$this->Username.'\'', '', 1);
+		$Salt = mysql::FetchObject()->Salt;
+		if($Row = mysql::NumRows() == 1) {
+			mysql::Select('users', 'ID', 'UserName = \''.$this->Username.'\' AND Password = \''.user::EncryptPassword($this->Password, $Salt).'\'');
+			$this->UserID = mysql::FetchObject()->ID;
+			$this->DoLogin();
+		}
+		elseif(isset($_POST['SubmitLogin'])) 
+			$this->MSG = '{lang=com.sbb.login.wrongdata}';
+	}
+	
+	public function DoLogin() {
+		$Hash = $this->GenLoginHash();
+		switch($this->StayLoggedIn) {
+			case true:
+			 	session::Set('UserID', $this->UserID);
+				setcookie('sbb_LoginHash', $Hash, time()+60*60*24*365);
+				$Inserts = array(
+					'Time' 			=> time(),
+					'UserID' 		=> $this->UserID,
+					'LoginHash'		=> $Hash,
+					'IP'			=> $_SERVER['REMOTE_ADDR']);
+				break;	
+			case false: 
+				session::Set('UserID', $this->UserID);
+				session::Set('LoginHash', $Hash);
+				$Inserts = array(
+					'Time' 			=> time(),
+					'UserID' 		=> $this->UserID,
+					'LoginHash'		=> $Hash,
+					'IP'			=> $_SERVER['REMOTE_ADDR']);
+				break;
 		}
 		mysql::Insert('sessions', $Inserts);
+		header('Location: ?page=Forwarding');
 	}
 	
-	public static function GetMsg() {
-		return self::$Msg;
-	}
-	
-	// Wenn LoggedIn dann wird eingeloggte Bereich gezeigt
 	public static function LoggedIn() {
-		if(isset($_COOKIE['sbb_loginHash'])) {
-			mysql::Select('sessions', 'UserID', 'Salt = \''.$_COOKIE['sbb_loginHash'].'\'');
+		if(isset($_COOKIE['sbb_LoginHash'])) {
+			mysql::Select('sessions', 'UserID', 'LoginHash = \''.$_COOKIE['sbb_LoginHash'].'\'');
+			isset($_SESSION['UserID']) ? '' : session::Set('UserID', self::GetUserID());
 			return (mysql::NumRows() == 1);
 		} else {
-			mysql::Select('sessions', 'UserID', 'Salt = \''.session_id().'\'');
+			mysql::Select('sessions', 'UserID', 'LoginHash = \''.session::Read('LoginHash').'\'');
 			return (mysql::NumRows() == 1);
 		}
 	}
 	
-	// Beim ausloggen wird alles gelöscht
 	public static function DoLogout() {
-		mysql::Delete('sessions', 'Salt = \''.session_id().'\'');
-		mysql::Delete('sessions', 'Salt = \''.$_COOKIE['sbb_loginHash'].'\'');
-		session::Remove('userid');
-		setcookie('sbb_loginHash', '', time()-60*60*24*365);
+		mysql::Delete('sessions', 'LoginHash = \''.$_COOKIE['sbb_LoginHash'].'\'');
+		mysql::Delete('sessions', 'LoginHash = \''.session::Read('LoginHash').'\'');
+		session::Remove('UserID');
+		session::Remove('LoginHash');
+		setcookie('sbb_LoginHash', '', time()-60*60*24*365);
 	}
 	
-	// After 10 minutes you will automatically logged out
 	public static function AutoLogout() {
-		if(login::LoggedIn() && !isset($_COOKIE['sbb_loginHash'])) {
-			mysql::Select('sessions', 'Time', 'Salt=\''.session_id().'\'');		
-			$TimeFuture = time() + 10 * 6;
-			while($Row = mysql::FetchArray()) {
-				$LastTime = $Row['Time'];
-			}
-			if($TimeFuture - $LastTime > 600) {
+		if(self::LoggedIn() && !isset($_COOKIE['sbb_LoginHash'])) {
+			mysql::Select('sessions', 'Time', 'LoginHash = \''.session::Read('LoginHash').'\'');					
+			if((time() + 10 * 6) - mysql::FetchObject()->Time > 600) 
 				header('Location: ?page=Logout');
-			} else {
+			else {
 				$Update = array('Time' => time());
-				mysql::Update('sessions', $Update, 'Salt=\''.session_id().'\'');
+				mysql::Update('sessions', $Update, 'LoginHash = \''.session::Read('LoginHash').'\'');
 			}
 		}	
 	}
-
-	// Gibt Username aus
-	public static function GetUsername ($UserID) {
-		if(Login::LoggedIn() == 1) {
-			$Username = mysql::FetchObject(mysql::Select('users','*','`ID`='.$UserID))->UserName;
-			return($Username);
-		}
-		else
-			return false;
+	
+	public function GetMSG() {
+		return $this->MSG;	
 	}
 	
+	// Hash Stuff
+	private function GenLoginHash() {
+		$Hash = array_merge(range('a', 'z'), range(1, 9));
+		shuffle($Hash);
+		foreach($Hash as $Gen){
+			$Output .= $Gen;	
+		}
+		return substr($Output, 0, 20).$this->UserID;	
+	}
+	
+	private static function GetUserID() {
+		return substr($_COOKIE['sbb_LoginHash'], 20, 21);
+	}
 }
 ?>

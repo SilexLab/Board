@@ -4,10 +4,10 @@
  * @copyright	© 2011 Silex Bulletin Board - Team
  * @license		GNU GENERAL PUBLIC LICENSE v3
  * @package		SilexBoard.DEV
- * @version		Revision: 3
+ * @version		Revision: 4
  */
 
-if(isset($_COOKIE['sbb_loginHash']) || session::Read('userid')) {
+if(isset($_COOKIE['sbb_LoginHash']) || session::Read('UserID')) {
 	login::DoLogout();
 	$Content = '{lang=com.sbb.logout.logged_out} <br>
 				<a href="./">{lang=com.sbb.logout.main_menu}</a>';
