@@ -1,4 +1,4 @@
-﻿<img src="https://github.com/NoxNebula/Board/raw/master/images/Logo.png">
+﻿<img src="https://github.com/SilexBoard/Board/raw/master/images/Logo.png">
 Silex Bulletin Board
 ====================
 
