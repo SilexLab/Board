@@ -19,7 +19,7 @@ Teammitglieder
 Die Idee, ein eigenes Board zu schreiben, stammt von ihm, er ist als PHP-Programmierer, Designer und Stuffmanager am Projekt beteiligt.
 
 ### Cadillaxx
-Cadillaxx beteiligt sicht am Projekt als PHP-Programmierer und mag Kekse.
+Cadillaxx beteiligt sich am Projekt als PHP-Programmierer und mag Kekse.
 
 ### Nut
 Nut ist als PHP-Programmierer und Designer tätig.
