@@ -12,7 +12,7 @@ class permission {
 	 * Abgefragtes Zugriffsrecht wird über den $Permissions Parameter
 	 * übergeben. Zurückgegeben wird true, wenn der Zugriff erlaubt ist
 	 * und false, falls der Zugriff nicht erlaubt ist.
-	 * Als Obtionaler Parameter kann die ID von zum Beispiel einem Forum
+	 * Als Optionaler Parameter kann die ID von zum Beispiel einem Forum
 	 * übergeben werden.
 	 *
 	 * Beispiel: permission::Check('see.forum', 3); oder um auf alle Foren
