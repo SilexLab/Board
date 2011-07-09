@@ -4,6 +4,8 @@
 	<info>
 		<name>Name of the Module here</name>
 		<version>Versionnumber here</version>
+		<MinSystemVersion>DEV</MinSystemVersion>	<!-- Minumum Silex Board System Version wich is required (Required) -->
+		<MaxSystemVersion>1.0</MaxSystemVersion>	<!-- Maximum guaranteed Silex Board System Version (Optional) -->
 		<author>Name of the Author here</author>
 		<date>Date of Modification/Release/Creation</date>
 		<homepage>Homepage of the module</homepage>

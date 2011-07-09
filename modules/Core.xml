@@ -4,6 +4,7 @@
 	<info>
 		<name>Core</name>
 		<version>DEV</version>
+		<MinSystemVersion>DEV</MinSystemVersion>
 		<author>Silex Bulletin Board</author>
 		<date>none</date>
 		<homepage>http://www.silexboard.org/</homepage>
