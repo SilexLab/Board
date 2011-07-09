@@ -1,1 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+<module>
+	<info>
+		<name>Core</name>
+		<version>DEV</version>
+		<author>Silex Bulletin Board</author>
+		<date>none</date>
+		<homepage>http://www.silexboard.org/</homepage>
+		<license>GNU GENERAL PUBLIC LICENSE, Version 3</license>
+		<type>System</type>
+	</info>
+	<files>
+		<file>/*</file>
+	</files>
+</module>
