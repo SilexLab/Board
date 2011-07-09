@@ -12,9 +12,9 @@ ini_set('display_errors', 1);
 error_reporting(E_ALL ^ E_NOTICE | E_STRICT);
 
 // Include required files
-require_once('config.inc.php');
-require_once('constants.inc.php');
-require_once('functions.inc.php');
+require_once('Includes/config.inc.php');
+require_once('Includes/constants.inc.php');
+require_once('Includes/functions.inc.php');
 
 // Initial
 date_default_timezone_set('Europe/Berlin');	// default timezone (for date functions)
