@@ -16,7 +16,7 @@ define('DIR_SMILEY',	'images/smiley/');
 define('DIR_LANGUAGE',	'languages/');
 define('DIR_PAGE',		'pages/');
 define('DIR_STYLE',		'styles/');
-define('DIR_JS',		'javascript/');
+define('DIR_JS',		'javascripts/');
 
 // Message Box
 define('MSG_BOX_TYPE_INFO',		0);
