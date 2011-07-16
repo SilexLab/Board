@@ -192,15 +192,12 @@ abstract class Twig_Template implements Twig_TemplateInterface
      */
     public function render(array $context)
     {
+        $level = ob_get_level();
         ob_start();
         try {
             $this->display($context);
         } catch (Exception $e) {
-            // the count variable avoids an infinite loop on
-            // some Windows configurations where ob_get_level()
-            // never reaches 0
-            $count = 100;
-            while (ob_get_level() && --$count) {
+            while (ob_get_level() > $level) {
                 ob_end_clean();
             }
 
@@ -224,11 +221,17 @@ abstract class Twig_Template implements Twig_TemplateInterface
      * @param array   $context The context
      * @param string  $item    The variable to return from the context
      *
-     * @throws Twig_Error_Runtime if the variable does not exist
+     * @return The content of the context variable
+     *
+     * @throws Twig_Error_Runtime if the variable does not exist and Twig is running in strict mode
      */
     protected function getContext($context, $item)
     {
         if (!array_key_exists($item, $context)) {
+            if (!$this->env->isStrictVariables()) {
+                return null;
+            }
+
             throw new Twig_Error_Runtime(sprintf('Variable "%s" does not exist', $item));
         }
 
