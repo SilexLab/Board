@@ -4,7 +4,7 @@
  * @copyright	© 2011 Silex Bulletin Board - Team
  * @license		GNU GENERAL PUBLIC LICENSE - Version 3
  * @package		SilexBoard
- * @version		Revision: 11
+ * @version		DEV
  */
 
 class Template {
@@ -33,20 +33,33 @@ class Template {
 		if(is_array($Vars)) {
 			foreach($Vars as $Var => $Value) {
 				// When a variable with '.'-Delimiters is given, create an array
-				if(strpos($Var, '.') !== false) {
-					$Arrays = explode('.', $Var);
-					$TempValue = array();
-					while(sizeof($Arrays) - 1)
-						$TempValue = array(array_pop($Arrays) => empty($TempValue) ? $Value : $TempValue);
-					$Var = $Arrays[0];
-					$Value = $TempValue;
-				}
+				if(strpos($Var, '.') !== false)
+					self::StringToArray($Var, $Value);
+				
 				// When this variable (array) is already given, merge the value
 				if(isset(self::$Variables[$Var]) && is_array(self::$Variables[$Var]) && is_array($Value)) {
 					array_merge_recursive(self::$Variables[$Var], $Value);
 					continue;
 				}
 				self::$Variables[$Var] = $Value;
+			}
+		}
+	}
+	
+	public static function AssignLanguage($Vars) {
+		if(is_array($Vars)) {
+			foreach($Vars as $Var => $Value) {
+				// When a variable with '.'-Delimiters is given, create an array
+				if(strpos($Var, '.') !== false)
+					self::StringToArray($Var, $Value);
+				
+				// When this variable (array) is already given, merge the value
+				if(isset(self::$Variables[$Var]) && is_array(self::$Variables[$Var]) && is_array($Value)) {
+					array_merge_recursive(self::$Variables[$Var], $Value);
+					continue;
+				}
+				
+				self::$Variables['lang#'.$Var] = $Value;
 			}
 		}
 	}
@@ -64,6 +77,15 @@ class Template {
 		if(!$Display)
 			return $Template->render(self::$Variables);
 		$Template->display(self::$Variables);
+	}
+	
+	private static function StringToArray(&$Var, &$Value) {
+		$Arrays = explode('.', $Var);
+		$TempValue = array();
+		while(sizeof($Arrays) - 1)
+			$TempValue = array(array_pop($Arrays) => empty($TempValue) ? $Value : $TempValue);
+		$Var = $Arrays[0];
+		$Value = $TempValue;
 	}
 }
 ?>

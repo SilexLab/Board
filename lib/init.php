@@ -4,12 +4,13 @@
  * @copyright	© 2011 Silex Bulletin Board - Team
  * @license		GNU GENERAL PUBLIC LICENSE - Version 3
  * @package		SilexBoard
- * @version		Revision: 19
+ * @version		DEV
  */
 
-// Error reporting
+// PHP Initial
 ini_set('display_errors', 1);
 ini_set('unserialize_callback_func', 'spl_autoload_call');
+date_default_timezone_set('Europe/Berlin');
 error_reporting(E_ALL ^ E_NOTICE | E_STRICT);
 
 // Include required files
@@ -17,9 +18,18 @@ require_once('includes/config.inc.php');
 require_once('includes/constants.inc.php');
 require_once('Autoloader.class.php');
 
+// Initial Classes
 Autoloader::Register();
+Template::Initial();
+
+// Post Initial -> Catching Infos
+Template::Assign(array('Test' => 'Hi'));
+
+// Compile
+Template::Display('case.tpl');
 
 
+// Old Initial:
 /*
 // Initial
 date_default_timezone_set('Europe/Berlin');	// default timezone (for date functions)
