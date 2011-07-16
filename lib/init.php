@@ -23,7 +23,7 @@ Autoloader::Register();
 Template::Initial();
 
 // Post Initial -> Catching Infos
-Template::Assign(array('Load' => '<br>~Load: '.round(((microtime(true) - $GeneratingTime) * 1000), 2).'ms'));
+Template::Assign(array('Site' => 'Seitenname', 'Load' => '~Load: '.round(((microtime(true) - $GeneratingTime) * 1000), 2).'ms'));
 
 // Compile
 Template::Display('case.tpl');

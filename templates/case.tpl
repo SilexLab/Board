@@ -6,6 +6,5 @@
 {% include "header.tpl" %}
 {% include "body.tpl" %}
 {% include "footer.tpl" %}
-{{ Load }}
 </body>
 </html>

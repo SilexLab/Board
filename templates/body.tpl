@@ -1,12 +1,15 @@
-	{$MessageBox}
+	{{ MessageBox }}
 	<section class="Content">
 		<div class="Size">
 			<div class="Container">
 				<nav class="BreadCrumbs">
-					{$BreadCrumbs}
+					{{ BreadCrumbs }}
 				</nav>
 				<div class="ContentContainer">
-					{$Content}
+					{% if Page == Home %}
+					{% elseif Page == Board %}
+					{% elseif Page == User %}
+					{% endif %}
 				</div>
 			</div>
 		</div>

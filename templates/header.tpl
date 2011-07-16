@@ -1,4 +1,4 @@
-{$:userbar}
+{% include "userbar.tpl" %}
 	<header class="MinSize">
 		<div class="LogoBlock">
 			<div class="Logo Size">
@@ -10,10 +10,10 @@
 		<nav class="Menu">
 			<div class="Size">
 				<ul class="MenuList">
-					{$Menu}
+					{{ Menu }}
 				</ul>
 				<ul class="SubMenu">
-					{$SubMenu}
+					{{ SubMenu }}
 				</ul>
 				<div id="SearchForm">
 					<form method="get" accept-charset="utf-8" action="">
