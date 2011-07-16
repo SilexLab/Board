@@ -1,0 +1,49 @@
+/**
+ * author 		Angus
+ * copyright	© 2011 Silex Bulletin Board - Team
+ * license		GNU GENERAL PUBLIC LICENSE - Version 3
+ * package		SilexBoard
+ * version		Revision: 1
+ */
+ 
+@charset "utf-8";
+
+.messagebox {
+	border-radius: 5px;
+	border: 1px solid;
+}
+
+.success, .warning, .error, .info {
+	background-position: 10px center;
+	background-repeat: no-repeat;
+	margin-bottom: 20px;
+	padding: 7px 10px 7px 45px;
+}
+
+.success {
+	color: #090;
+	background-color: #EFE;
+	background-image: url('icons/Success.png');
+	border-color: #090;
+}
+
+.warning {
+	color: #660;
+	background-color: #FFD;
+	background-image: url('icons/Warning.png');
+	border-color: #660;
+}
+
+.error {
+	color: #C00;
+	background-color: #FEE;
+	background-image: url('icons/Error.png');
+	border-color: #C00;
+}
+
+.info {
+	color: #06F;
+	background-color: #DEF;
+	background-image: url('icons/Info.png');
+	border-color: #06F;
+}

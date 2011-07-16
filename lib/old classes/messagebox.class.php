@@ -15,21 +15,25 @@ class messagebox {
 	
 	function __construct($Type = 0, $Text = NULL, $Mode = NULL, $Order = NULL) {
 		switch($Type) {
-			case MSG_BOX_TYPE_NORMAL:
-				// Erzeuge blaue Box mit Info-Icon
-				$this->Type = 'MsgBoxNormal';
+			case MSG_BOX_TYPE_INFO:
+				// Generates a blue box with an info icon
+				$this->Type = 'messagebox info';
 				break;
 			case MSG_BOX_TYPE_ERROR:
-				// Erzeuge rote Box mit Error-Icon
-				$this->Type = 'MsgBoxError';
+				// Generates red box with error icon
+				$this->Type = 'messagebox error';
 				break;
 			case MSG_BOX_TYPE_SUCCESS:
-				// Erzeuge grüne Box mit Haken-Icon (Kein Hakenkreuz)
-				$this->Type = 'MsgBoxSuccess';
+				// Generates green box with check icon
+				$this->Type = 'messagebox success';
+				break;
+			case MSG_BOX_TYPE_WARNING:
+				// Generates a orange kinda box with a warning icon inside.
+				$this->Type = 'messagebox warning';
 				break;
 			default:
-				// Erzeuge normale Box
-				$this->Type = 'MsgBoxNormal';
+				// Generates a normal info box
+				$this->Type = 'messagebox info';
 		}
 		
 		// Shorten up the things here
