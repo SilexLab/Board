@@ -3,8 +3,8 @@
  * @author 		Nox Nebula
  * @copyright	© 2011 Silex Bulletin Board - Team
  * @license		GNU GENERAL PUBLIC LICENSE - Version 3
- * @package		SilexBoard.DEV
- * @version		Revision: 10
+ * @package		SilexBoard
+ * @version		Revision: 11
  */
 
 class Template {
