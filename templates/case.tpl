@@ -1,10 +1,11 @@
 <!DOCTYPE HTML>
 <html>
-{$:head}
+{% include "head.tpl" %}
 
 <body>
-{$:header}
-{$:body}
-{$:footer}
+{% include "header.tpl" %}
+{% include "body.tpl" %}
+{% include "footer.tpl" %}
+{{ Load }}
 </body>
 </html>

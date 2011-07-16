@@ -24,7 +24,7 @@ class Template {
 				'charset'		=> 'utf-8',				// Set the charset to utf-8
 				'cache'			=> DIR_LIB.'cache/',	// Set the cache directory
 				'auto_reload'	=> true,				// Automaticaly recompile templates (for developing)
-				'autoescape'	=> true					// Enabe auto-escaping
+				'autoescape'	=> false				// Enabe auto-escaping
 			));
 		}
 	}
