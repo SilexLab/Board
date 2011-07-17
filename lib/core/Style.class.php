@@ -20,8 +20,8 @@ class style {
 		
 		$Javascripts = array();
 		$Multi = false;
-		foreach(scandir(DIR_STYLE.$Style.DIR_JS) as $File) {
-			if(is_file(DIR_STYLE.$Style.DIR_JS.$File) && (strpos($File, '.js') !== false)) {
+		foreach(scandir(DIR_STYLE.$Style.'/'.DIR_JS) as $File) {
+			if(is_file(DIR_STYLE.$Style.'/'.DIR_JS.$File) && (strpos($File, '.js') !== false)) {
 				$Javascripts[] = $File;
 			}
 		}
@@ -36,8 +36,8 @@ class style {
 		
 		$Styles = array();
 		$Multi = false;
-		foreach(scandir(DIR_STYLE.$Style) as $File) {
-			if(is_file(DIR_STYLE.$Style.$File) && (strpos($File, '.css') !== false)) {
+		foreach(scandir(DIR_STYLE.$Style.'/') as $File) {
+			if(is_file(DIR_STYLE.$Style.'/'.$File) && (strpos($File, '.css') !== false)) {
 				$Styles[] = $File;
 			}
 		}
