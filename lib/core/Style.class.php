@@ -2,9 +2,9 @@
 /**
  * @author 		Nox Nebula
  * @copyright	© 2011 Silex Bulletin Board - Team
- * @license		GNU GENERAL PUBLIC LICENSE v3
- * @package		SilexBoard.DEV
- * @version		Revision: 4
+ * @license		GNU GENERAL PUBLIC LICENSE - Version 3
+ * @package		SilexBoard
+ * @version		DEV
  */
 
 class style {
@@ -14,7 +14,7 @@ class style {
 	
 	public static function IncludeJS() {
 		if(empty(self::$Style))
-			self::$Style = self::$Default.'/';
+			self::$Style = self::$Default;
 		
 		$Style = self::$Style;
 		
@@ -30,7 +30,7 @@ class style {
 	
 	public static function IncludeCSS() {
 		if(empty(self::$Style))
-			self::$Style = self::$Default.'/';
+			self::$Style = self::$Default;
 		
 		$Style = self::$Style;
 		
