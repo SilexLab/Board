@@ -14,6 +14,7 @@ class SBB {
 	public static function Load() {
 		Style::Load();
 		self::$Language = new Language();
+		Menu::Parse();
 	}
 	
 	public static function Language() {

@@ -17,7 +17,13 @@
 		<nav class="Menu">
 			<div class="Size">
 				<ul class="MenuList">
-					{{ Menu }}
+				{% for MenuPoint in Menu %}
+					{% if MenuPoint.Active %}
+                    <li class="active"><a href="{{ MenuPoint.Link }}"><div>{{ MenuPoint.Name }}</div></a></li>
+                    {% else %}
+                    <li><a href="{{ MenuPoint.Link }}"><div>{{ MenuPoint.Name }}</div></a></li>
+                    {% endif %}
+				{% endfor %}
 				</ul>
 				<ul class="SubMenu">
 					{{ SubMenu }}
