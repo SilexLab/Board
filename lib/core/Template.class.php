@@ -61,7 +61,6 @@ class Template {
 				
 				self::$Variables['lang#'.$Var] = $Value;
 			}
-			print_r(self::$Variables);
 		}
 	}
 	
