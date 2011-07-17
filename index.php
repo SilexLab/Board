@@ -15,5 +15,5 @@ if(!file_exists('lib/includes/config.inc.php')) // Leitet zur Installation falls
 define('DIR_ROOT', dirname(__FILE__).'/');
 
 include_once('lib/init.php');
-echo "\n".'<br>Real Load: '.round(((microtime(true) - $GeneratingTime) * 1000), 2).'ms';
+echo "\n".'<br><span style="color: white;">Real Load: '.round(((microtime(true) - $GeneratingTime) * 1000), 2).'ms</span>';
 ?>

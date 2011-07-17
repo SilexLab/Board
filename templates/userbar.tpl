@@ -1,5 +1,6 @@
 	<section class="UserBar">
 		<div class="Size">
+		{% if not User.LoggedIn %}
 			<div id="LoginForm">
 				<form method="post" accept-charset="utf-8" action="?page=Login">
 					<div class="Wrap">
@@ -34,5 +35,10 @@
 			<div id="LoginBarHandle">
 				<div id="LoginBarToogle">{{ lang#com.sbb.login.bar_handle }}</div>
 			</div>
+		{% else %}
+			<div class="UserTabs">
+				USERBAR: <strong>Logged In</strong>!
+			</div>
+		{% endif %}
 		</div>
 	</section>
