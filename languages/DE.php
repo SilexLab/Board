@@ -2,18 +2,19 @@
 /**
  * @author 		Nox Nebula
  * @copyright	© 2011 Silex Bulletin Board - Team
- * @license		GNU GENERAL PUBLIC LICENSE v3
- * @package		SilexBoard.DEV
- * @version		Revision: 7
+ * @license		GNU GENERAL PUBLIC LICENSE - Version 3
+ * @package		SilexBoard
+ * @version		DEV
  */
 
 /* Langfile:	German */
 $this->Items['com.sbb.language.info']				= 'Deutsch (Informal)';
-$this->Items['com.sbb.language.changed']			= 'Deine Sprache wurde nach {$LangChangedTo} geändert';
+$this->Items['com.sbb.language.changed']			= 'Deine Sprache wurde nach {{ LangChangedTo }} geändert';
 
 $this->Items['com.sbb.header.welcome']				= 'Willkommen';
-$this->Items['com.sbb.header.welcome_text']			= 'Herzlich willkommen auf {$Site} - {$Slogan}';
+$this->Items['com.sbb.header.welcome_text']			= 'Herzlich willkommen auf {{ Site }} - {{ Slogan }}';
 $this->Items['com.sbb.header.logo_title']			= 'Startseite';
+$this->Items['com.sbb.header.slogan']				= 'Die moderne Bulletin-Board-Software';
 
 $this->Items['com.sbb.menu.home']					= 'Startseite';
 $this->Items['com.sbb.menu.forum']					= 'Forum';

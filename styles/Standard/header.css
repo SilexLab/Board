@@ -172,6 +172,17 @@ header {
 		height: 160px;
 	}
 
+.Slogan {
+	position: relative;
+	top: -64px;
+	left: 132px;
+	color: #ffffff;
+	font-weight: bold;
+	font-size: 20px;
+	height: 0;
+	text-shadow: 0 0 10px black;
+}
+
 nav.Menu {
 	background: url(images/MenuBar.png) repeat-x left top #3c6c8b;
 	border-bottom: 1px solid #0b334c;
