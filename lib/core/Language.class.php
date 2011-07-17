@@ -28,7 +28,7 @@ class Language {
 	}
 	
 	public function Get($Key) {
-		return $this->Items[$Key];
+		return isset($this->Items[$Key]) ? $this->Items[$Key] : $Key;
 	}
 	
 	/* Assign to the Template Object */
