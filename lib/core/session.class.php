@@ -4,10 +4,10 @@
  * @copyright	© 2011 Silex Bulletin Board - Team
  * @license		GNU GENERAL PUBLIC LICENSE v3
  * @package		SilexBoard.DEV
- * @version		Revision: 1
+ * @version		DEV
  */
 
-class session {
+class Session {
 	
 	public static function Read($sessionname) { // liest den inhalt einer Session aus, falls leer, gibt false zuruck
 		return(isset($_SESSION[$sessionname]) ? $_SESSION[$sessionname] : false);

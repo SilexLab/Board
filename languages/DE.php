@@ -27,14 +27,14 @@ $this->Items['com.sbb.crumbs.user']					= 'Benutzerliste';
 $this->Items['com.sbb.register.register']			= 'Registrieren';
 $this->Items['com.sbb.register.username']			= 'Benutzername';
 $this->Items['com.sbb.register.email']				= 'E-mail Adresse';
-$this->Items['com.sbb.register.email.repeat']		= 'E-mail Adresse wiederholen';
+$this->Items['com.sbb.register.email_repeat']		= 'E-mail Adresse wiederholen';
 $this->Items['com.sbb.register.password']			= 'Passwort';
-$this->Items['com.sbb.register.password.repeat']	= 'Passwort wiederholen';
+$this->Items['com.sbb.register.password_repeat']	= 'Passwort wiederholen';
 $this->Items['com.sbb.register.invalid_username']	= 'Ungültiger Benutzername<br>\n';
 $this->Items['com.sbb.register.incorrect_password']	= 'Die Passwörter stimmen nicht überein<br>\n';
 $this->Items['com.sbb.register.incorrect_email']	= 'Die E-Mail Adressen stimmen nicht überein<br>\n';
-$this->Items['com.sbb.register.username.exist']		= 'Dieser Benutzername existiert bereits!<br>\n';
-$this->Items['com.sbb.register.email.exist']		= 'Diese E-Mail Adresse existiert bereits!<br>\n';
+$this->Items['com.sbb.register.username_exist']		= 'Dieser Benutzername existiert bereits!<br>\n';
+$this->Items['com.sbb.register.email_exist']		= 'Diese E-Mail Adresse existiert bereits!<br>\n';
 $this->Items['com.sbb.register.success']			= 'Du hast dich erfolgreich registriert!';
 
 $this->Items['com.sbb.login.login']					= 'Einloggen';
@@ -62,7 +62,7 @@ $this->Items['com.sbb.board.error.no_board']		= 'Das Forum existiert nicht';
 $this->Items['com.sbb.topics.error.no_topics']		= 'Es gibt keine Themen.';
 
 $this->Items['com.sbb.captcha']						= 'Captcha';
-$this->Items['com.sbb.captcha.wrong']				= 'Captcha ist falsch!';
+$this->Items['com.sbb.captcha_wrong']				= 'Captcha ist falsch!';
 
 $this->Items['com.sbb.email.activation.title']		= 'Du must diesen Link klicken um deine Registrierung abzuschließen: ';
 ?>

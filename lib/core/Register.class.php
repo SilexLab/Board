@@ -4,27 +4,29 @@
  * @copyright	© 2011 Silex Bulletin Board - Team
  * @license		GNU GENERAL PUBLIC LICENSE v3
  * @package		SilexBoard.DEV
- * @version		Revision: 4
+ * @version		DEV
  */
 
 /* Die Register Klasse verwaltet die Eingaben der Registration und gibt eventuell Fehler aus. */
-class register {
+class Register {
 	protected static $error = '';
 	
 	public static function Check($post) {
+		$Lang = SBB::Language();
+		
 		if(!preg_match('/^[A-Za-z0-9_]/', $post['Username']))
-			self::$error .= '{lang=com.sbb.register.invalid_username}';
+			self::$error .= $Lang->Get('com.sbb.register.invalid_username');
 		if($post['Password'] != $post['Passwordrepeat'])
-			self::$error .= '{lang=com.sbb.register.incorrect_password}';
+			self::$error .= $Lang->Get('com.sbb.register.incorrect_password');
 		if($post['Email'] != $post['Emailrepeat'])
-			self::$error .= '{lang=com.sbb.register.incorrect_email}';
+			self::$error .= $Lang->Get('com.sbb.register.incorrect_email');
                 
 		mysql::Select('users', 'UserName', 'Username = \''.$post['Username'].'\'');
 		if(mysql::NumRows() == 1)
-			self::$error .= '{lang=com.sbb.register.username.exist}';
+			self::$error .= $Lang->Get('com.sbb.register.username_exist');
 		mysql::Select('users', 'Email', 'Email = \''.$post['Email'].'\'');
 		if(mysql::NumRows() == 1)
-			self::$error .= '{lang=com.sbb.register.email.exist}';
+			self::$error .= $Lang->Get('com.sbb.register.email_exist');
 		
 		if(!empty(self::$error))
 			return false;

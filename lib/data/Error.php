@@ -11,16 +11,15 @@
 if(!defined('SILEX_VERSION'))
 	header('location: ../');
 
-$parser = new messageParser();
 $error = $_GET['type'];
 if(isset($error))
 {
 	switch($error) {
-		case '404':	$message = $parser->parse('Error 404. Page Not found.'); break;
-		case '403':	$message = $parser->parse('Error 403. Access Denied'); break;
+		case '404':	$message = ('Error 404. Page Not found.'); break;
+		case '403':	$message = ('Error 403. Access Denied'); break;
 	}
 }
 else
-	$message = $parser->parse('Error 404. Page Not found.');
-self::$TPL->Assign('Content', $message);
+$message = ('Error 404. Page Not found.');
+Template::Assign(array('Page' => 'Error', 'Content' => $message));
 ?>
