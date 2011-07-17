@@ -8,7 +8,8 @@
  */
 
 /* Langfile:	English */
-$this->Items['com.sbb.language']					= 'English';
+$this->Items['com.sbb.language.info']				= 'English';
+$this->Items['com.sbb.language.changed']			= 'Your Language was changed to {$LangChangedTo}.';
 
 $this->Items['com.sbb.header.welcome']				= 'Welcome';
 $this->Items['com.sbb.header.welcome_text']			= 'Welcome on {$Site} - {$Slogan}';
@@ -61,8 +62,6 @@ $this->Items['com.sbb.topics.error.no_topics']		= 'There are no topics.';
 
 $this->Items['com.sbb.captcha']						= 'Captcha';
 $this->Items['com.sbb.captcha.wrong']				= 'Captcha is wrong!';
-
-$this->Items['com.sbb.language.changed']			= 'Your Language was changed to {$LangChangedTo}.';
 
 $this->Items['com.sbb.email.activation.title']		= 'Your registration will be completed if you follow this link: ';
 ?>

@@ -8,7 +8,8 @@
  */
 
 /* Langfile:	German */
-$this->Items['com.sbb.language']					= 'Deutsch (Informal)';
+$this->Items['com.sbb.language.info']				= 'Deutsch (Informal)';
+$this->Items['com.sbb.language.changed']			= 'Deine Sprache wurde nach {$LangChangedTo} geändert';
 
 $this->Items['com.sbb.header.welcome']				= 'Willkommen';
 $this->Items['com.sbb.header.welcome_text']			= 'Herzlich willkommen auf {$Site} - {$Slogan}';
@@ -61,8 +62,6 @@ $this->Items['com.sbb.topics.error.no_topics']		= 'Es gibt keine Themen.';
 
 $this->Items['com.sbb.captcha']						= 'Captcha';
 $this->Items['com.sbb.captcha.wrong']				= 'Captcha ist falsch!';
-
-$this->Items['com.sbb.language.changed']			= 'Deine Sprache wurde nach {$LangChangedTo} geändert';
 
 $this->Items['com.sbb.email.activation.title']		= 'Du must diesen Link klicken um deine Registrierung abzuschließen: ';
 ?>

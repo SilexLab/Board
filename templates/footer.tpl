@@ -5,7 +5,7 @@
                 	{{ Languages }}
                 </select>
             </form>
-			Aktuelle Sprache: {{ lang#com.sbb.language }}<br>
+			Aktuelle Sprache: {{ lang#com.sbb.language.info }}<br>
 			- {{ Load }}
 		</div>
 	</footer>
