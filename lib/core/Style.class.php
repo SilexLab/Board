@@ -7,15 +7,23 @@
  * @version		DEV
  */
 
-class style {
-	// TODO: Benutzten Style aus der DB auslesen und Je nachdem den Ordner wechseln.
-	static $Default = 'Standard';
+class Style {
+	private static $Default = 'Standard';
 	private static $Style;
 	
-	public static function IncludeJS() {
+	public static function Load() {
+		// TODO: Read used style from Database and use it
 		if(empty(self::$Style))
 			self::$Style = self::$Default;
 		
+		Template::Assign(array(
+			'CurrentStyle' => self::$Style,
+			'CSSStyles' => style::IncludeCSS(),
+			'Javascripts' => style::IncludeJS()
+		));
+	}
+	
+	private static function IncludeJS() {
 		$Style = self::$Style;
 		
 		$Javascripts = array();
@@ -28,10 +36,7 @@ class style {
 		return $Javascripts;
 	}
 	
-	public static function IncludeCSS() {
-		if(empty(self::$Style))
-			self::$Style = self::$Default;
-		
+	private static function IncludeCSS() {
 		$Style = self::$Style;
 		
 		$Styles = array();

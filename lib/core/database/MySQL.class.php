@@ -4,7 +4,7 @@
  * @copyright	© 2011 Silex Bulletin Board - Team
  * @license		GNU GENERAL PUBLIC LICENSE - Version 3
  * @package		SilexBoard
- * @version		Revision: 3
+ * @version		DEV
  */
 
 class MySQL {
@@ -31,7 +31,7 @@ class MySQL {
 	}
 	
 	public static function Select($Table, $Rows = '*', $Where = '', $Order = '', $Limit = 0) {
-		$Query = 'SELECT '.$Rows.' FROM '.DB_PREFIX.$Table;
+		$Query = 'SELECT '.$Rows.' FROM '.CFG_DB_PREFIX.$Table;
 		if(!empty($Where))
 			$Query .= ' WHERE '.$Where;
 		if(!empty($Order))
@@ -57,7 +57,7 @@ class MySQL {
 		$Keys = trim($Keys, ', ');
 		$Values = trim($Values, ', ');
 		
-		self::$SQLQuery = 'INSERT INTO '.DB_PREFIX.$Table.' ('.$Keys.') VALUES ('.$Values.');';
+		self::$SQLQuery = 'INSERT INTO '.CFG_DB_PREFIX.$Table.' ('.$Keys.') VALUES ('.$Values.');';
 		self::ExecuteQuery();
 	}
 	
@@ -70,12 +70,12 @@ class MySQL {
 			$Update .= $Key.' = \''.$Value.'\', ';
 		$Update = trim($Update, ', ');
 		
-		self::$SQLQuery = 'UPDATE '.DB_PREFIX.$Table.' SET '.$Update.' WHERE '.$Where.';';
+		self::$SQLQuery = 'UPDATE '.CFG_DB_PREFIX.$Table.' SET '.$Update.' WHERE '.$Where.';';
 		self::ExecuteQuery();
 	}
 	
 	public static function Count($Table, $Rows = '*', $Where) {
-		self::$SQLQuery = 'SELECT COUNT('.$Rows.') AS total FROM '.DB_PREFIX.$Table.' WHERE '.$Where.';';		
+		self::$SQLQuery = 'SELECT COUNT('.$Rows.') AS total FROM '.CFG_DB_PREFIX.$Table.' WHERE '.$Where.';';		
 		self::ExecuteQuery();
 	}
 	
@@ -88,7 +88,7 @@ class MySQL {
 		if(empty($Where))
 			$Query .= $Table;
 		else if(!empty($Where))
-			$Query .= 'FROM '.DB_PREFIX.$Table.' WHERE '.$Where.';';
+			$Query .= 'FROM '.CFG_DB_PREFIX.$Table.' WHERE '.$Where.';';
 		else
 			die('If you see this message, you caused a error wich never can be triggered<br>'."\n".'<strong>Congratulations</strong>');
 		

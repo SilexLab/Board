@@ -1,6 +1,6 @@
 <?php
 /**
- * @author 		Cadillaxx
+ * @author 		Nox Nebula
  * @copyright	© 2011 Silex Bulletin Board - Team
  * @license		GNU GENERAL PUBLIC LICENSE - Version 3
  * @package		SilexBoard
@@ -12,6 +12,7 @@ ini_set('display_errors', 1);
 ini_set('unserialize_callback_func', 'spl_autoload_call');
 date_default_timezone_set('Europe/Berlin');
 error_reporting(E_ALL ^ E_NOTICE | E_STRICT);
+session_start();
 
 // Include required files
 require_once('includes/config.inc.php');
@@ -20,10 +21,18 @@ require_once('Autoloader.class.php');
 
 // Initial Classes
 Autoloader::Register();
+MySQL::Connect(CFG_DB_HOST, CFG_DB_USER, CFG_DB_PASSWORD, CFG_DB_DATABASE); // TODO: UPDATE TO SQL-CLASS
 Template::Initial();
+SBB::Load(); // Initial Silex Board Core
 
 // Post Initial -> Catching Infos
-Template::Assign(array('Site' => 'Seitenname', 'DIR_STYLE' => DIR_STYLE, 'DIR_JS' => DIR_JS, 'CurrentStyle' => style::$Default, 'CSSStyles' => style::IncludeCSS(), 'Javascripts' => style::IncludeJS(), 'Load' => '~Load: '.round(((microtime(true) - $GeneratingTime) * 1000), 2).'ms'));
+SBB::Language()->Assign();
+Template::Assign(array(
+	'Site' => 'Seitenname',
+	'DIR_STYLE' => DIR_STYLE,
+	'DIR_JS' => DIR_JS,
+	'Load' => '~Load: '.round(((microtime(true) - $GeneratingTime) * 1000), 2).'ms')
+);
 
 // Compile
 Template::Display('case.tpl');

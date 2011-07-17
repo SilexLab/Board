@@ -4,7 +4,7 @@
  * @copyright	© 2011 Silex Bulletin Board - Team
  * @license		GNU GENERAL PUBLIC LICENSE - Version 3
  * @package		SilexBoard
- * @version		Revision: 3
+ * @version		DEV
  */
 
 class Autoloader {
@@ -29,6 +29,7 @@ class Autoloader {
 			self::$Directories = array(
 				'acp/',
 				'core/',
+				'core/database/',
 				'data/',
 				'data/message/',
 				'data/message/pm/',

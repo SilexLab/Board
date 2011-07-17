@@ -2,12 +2,12 @@
 /**
  * @author 		Nox Nebula
  * @copyright	© 2011 Silex Bulletin Board - Team
- * @license		GNU GENERAL PUBLIC LICENSE v3
- * @package		SilexBoard.DEV
- * @version		Revision: 9
+ * @license		GNU GENERAL PUBLIC LICENSE - Version 3
+ * @package		SilexBoard
+ * @version		DEV
  */
 
-class language {
+class Language {
 	private $Languages = array();
 	
 	public $Items = array();
@@ -15,16 +15,16 @@ class language {
 	public $Language;
 	
 	public function __construct() {
-		if(isset($_SESSION['userid'])) {
-			mysql::Select('users', 'Language', 'ID="'.session::Read('userid').'"');
+		/*if(isset($_SESSION['userid'])) {
+			MySQL::Select('users', 'Language', 'ID="'.Session::Read('userid').'"');
 			$this->Language = mysql::FetchObject()->Language;
 		} else if(isset($_COOKIE['sbb_lang']))
-			$this->Language = $_COOKIE['sbb_lang'];
+			$this->Language = $_COOKIE['sbb_lang'];*/
 		
-		if(!empty($this->Language) && is_file(PATH_LANGUAGE.$this->Language.'.php'))
-			include(PATH_LANGUAGE.$this->Language.'.php');
-		else if(is_file(PATH_LANGUAGE.$this->Default.'.php'))
-			include(PATH_LANGUAGE.$this->Default.'.php');
+		if(!empty($this->Language) && is_file(DIR_LANGUAGE.$this->Language.'.php'))
+			include(DIR_LANGUAGE.$this->Language.'.php');
+		else if(is_file(DIR_LANGUAGE.$this->Default.'.php'))
+			include(DIR_LANGUAGE.$this->Default.'.php');
 	}
 	
 	public function Get($Key) {
@@ -32,11 +32,11 @@ class language {
 	}
 	
 	/* Assign to the Template Object */
-	public function Assign($TemplateObject) {
-		if($TemplateObject->IsTemplateObject)
-			$TemplateObject->AssignLanguage($this->Items);
+	public function Assign() {
+		Template::AssignLanguage($this->Items);
 	}
 	
+	// Outdated
 	/* This function slow down the Page, use it carefully! */
 	public function GetLanguages() {
 		if(empty($this->Languages))

@@ -38,7 +38,7 @@ class Template {
 				
 				// When this variable (array) is already given, merge the value
 				if(isset(self::$Variables[$Var]) && is_array(self::$Variables[$Var]) && is_array($Value)) {
-					array_merge_recursive(self::$Variables[$Var], $Value);
+					self::$Variables = array_merge_recursive(self::$Variables[$Var], $Value);
 					continue;
 				}
 				self::$Variables[$Var] = $Value;
@@ -55,12 +55,13 @@ class Template {
 				
 				// When this variable (array) is already given, merge the value
 				if(isset(self::$Variables['lang#'.$Var]) && is_array(self::$Variables['lang#'.$Var]) && is_array($Value)) {
-					array_merge_recursive(self::$Variables['lang#'.$Var], $Value);
+					self::$Variables = array_merge_recursive(self::$Variables, array('lang#'.$Var => $Value));
 					continue;
 				}
 				
 				self::$Variables['lang#'.$Var] = $Value;
 			}
+			print_r(self::$Variables);
 		}
 	}
 	
