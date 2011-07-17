@@ -1,0 +1,14 @@
+/**
+ * author 		Nox Nebula
+ * copyright	© 2011 Silex Bulletin Board - Team
+ * license		GNU GENERAL PUBLIC LICENSE - Version 3
+ * package		SilexBoard
+ * version		DEV
+ */
+
+footer {
+	color: #ffffff;
+	background: #1B1B1B;
+	border-top: 4px solid #6CB2E4;
+	padding: 15px 0;;
+}
