@@ -6,6 +6,7 @@ Diese Forensoftware wird von Cadillaxx, NoxNebula, Nut und Angus geschrieben.
 
 Wir haben zwar alle keinen Plan von PHP aber Langeweile, aus der das Silex Board entsteht. Da wir das Projekt sozusagen als zur Verbesserung unserer PHP-Kenntnisse nutzen, lassen wir es bei der Entwicklung des Boards ruhig angehen und haben nichts gegen Hilfe einzuwenden.
 
+Eine immer aktuelle Version des Boards ist __[hier](http://aurora.dyndns-ip.com/Board/)__ zu finden. Es wird alle 10 Minuten geupdatet, das letzte mal __[kann man hier sehen](http://aurora.dyndns-ip.com/Board/lastupdate.log)__ .
 
 Kontakt
 -------
