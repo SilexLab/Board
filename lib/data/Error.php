@@ -21,5 +21,5 @@ if(isset($error))
 }
 else
 $message = ('Error 404. Page Not found.');
-Template::Assign(array('Page' => 'Error', 'Content' => $message));
+Template::Assign(array('Page' => 'error', 'Content' => $message));
 ?>
