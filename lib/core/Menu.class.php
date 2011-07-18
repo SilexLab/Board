@@ -8,7 +8,7 @@
  */
 
 class Menu {
-	public static function Parse() {
+	public static function Render() {
 		//$Current = page::$Info['Site'];
 		$Page = $_GET['page'];
 		
