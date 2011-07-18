@@ -4,11 +4,11 @@
  * @copyright	© 2011 Silex Bulletin Board - Team
  * @license		GNU GENERAL PUBLIC LICENSE v3
  * @package		SilexBoard.DEV
- * @version		Revision: 9
+ * @version		DEV
  */
 
 /* Diese Klasse verwaltet und gibt informationen über die Benutzer des Boards */
-class user {
+class User {
 	private static $Permissions = array(); // Alle Extra Berechtigungen die der Benutzer hat
 	private static $UserID;
 	private static $GroupID;
@@ -54,7 +54,7 @@ class user {
 		$header .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 		
 		// Additional Header | TODO: You Config-File For This To Choose A Own Name And Email
-		$header .= 'From: Silex Bulletin Board <support@silex.com>' . "\r\n";
+		$header .= 'From: Silex Bulletin Board <support@silexboard.org>' . "\r\n";
 		
 		mail($email, $subject, $message, $header);
 	}
@@ -76,7 +76,7 @@ class user {
 		$header .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 		
 		// Additional Header
-		$header .= 'From: Silex Bulletin Board <support@silex.com>' . "\r\n";
+		$header .= 'From: Silex Bulletin Board <support@silexboard.org>' . "\r\n";
 		
 		mail($email, $subject, $message, $header);
 	}

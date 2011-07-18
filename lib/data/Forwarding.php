@@ -11,5 +11,6 @@
 if(!defined('SILEX_VERSION'))
 	header('location: ../');
 	
-self::$TPL->Assign('Content', '{$:forwarding}');	
-?>
+Template::Assign(array('Page' => 'Forwarding'));
+
+?> 
