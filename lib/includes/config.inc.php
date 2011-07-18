@@ -4,8 +4,8 @@ define('CFG_DB_PREFIX',		'');
 define('CFG_DB_TYPE',		'MySQL');
 define('CFG_DB_HOST',		'localhost');
 define('CFG_DB_USER',		'root');
-define('CFG_DB_PASSWORD',	'');
-define('CFG_DB_DATABASE',	'silexboard');
+define('CFG_DB_PASSWORD',	'scarymovie4');
+define('CFG_DB_DATABASE',	'silex');
 
 // Config aus Datenbank auslesen und Konstanten definieren (Config klasse)
 
