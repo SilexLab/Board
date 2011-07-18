@@ -7,10 +7,10 @@
  * @version		Revision: 3
  */
 
-// Schutz vor Direktaufruf der Datei
-if(!defined('SILEX_VERSION'))
-	header('location: ../');
-
-// Übergeordnete Seite
-page::$Info['Site'] = 'Home';
+class IndexPage extends Page {
+	protected static function Load() {	
+		// Übergeordnete Seite
+		page::$Info['Site'] = 'Home';
+	}
+}
 ?>

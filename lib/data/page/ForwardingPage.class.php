@@ -7,10 +7,9 @@
  * @version		Revision: 1
  */
  
-// Schutz vor Direktaufruf der Datei
-if(!defined('SILEX_VERSION'))
-	header('location: ../');
-	
-Template::Assign(array('Page' => 'Forwarding'));
-
+class ForwardingPage extends Page {
+	protected static function Load() {	
+		Template::Assign(array('Page' => 'Forwarding'));
+	}
+}
 ?> 
