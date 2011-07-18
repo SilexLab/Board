@@ -2,40 +2,45 @@
 /**
  * @author 		Nox Nebula
  * @copyright	© 2011 Silex Bulletin Board - Team
- * @license		GNU GENERAL PUBLIC LICENSE v3
- * @package		SilexBoard.DEV
- * @version		Revision: 3
+ * @license		GNU GENERAL PUBLIC LICENSE - Version 3
+ * @package		SilexBoard
+ * @version		DEV
  */
 
 class Page {
-	private static $TPL;
 	private static $Page;
-	
 	public static $Info = array();
 	
-	public static function Initial(/*&$TemplateObject*/) {
+	public static function Initial() {
 		if(isset($_GET['page']))
 			self::$Page = $_GET['page'];
 		else
 			self::$Page = null;
 		
-		//self::$TPL = $TemplateObject;
-		self::Open();
+		self::Check();
 		//self::$TPL->Assign(array('BreadCrumbs' => crumb::Parse(), 'Menu' => menu::Parse()));
 	}
 	
-	public static function Open() {
-		// Pfade in Page-Angabe ausschließen
+	public static function Check() {
+		// Exclude Paths
 		if(strpos(self::$Page, '/') !== false)
-			include(DIR_PAGE.'Error.php');
+			self::Open('Error');
 		else {
-			// Ruft die entsprechende Datei auf, die für die Verwaltung der Seiten zuständig ist.
-			if(self::$Page == '' || self::$Page == null || !self::$Page)
-				include(DIR_PAGE.'Index.php');
-			else if(file_exists(DIR_PAGE.self::$Page.'.php'))
-				include(DIR_PAGE.self::$Page.'.php');
-			else // Wenn nichts gefunden wurde
-				include(DIR_PAGE.'Error.php');
+			if(!self::$Page)
+				self::Open('Home');
+			else if(file_exists(DIR_PAGE.self::$Page.'Page.class.php'))
+				self::Open(self::$Page);
+			else
+				self::Open('Error');
+		}
+	}
+	
+	private static function Open($Page) {
+		if(file_exists($File = DIR_PAGE.$Page.'Page.class.php')) {
+			include($File);
+			//$Page .= 'Page';
+			//$Page::Load(); // PHP 5.3
+			eval($Page.'Page::Load();');
 		}
 	}
 }

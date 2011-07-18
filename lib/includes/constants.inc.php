@@ -14,7 +14,7 @@ define('SILEX_VERSION',	'DEV');
 define('DIR_TPL',		'templates/');
 define('DIR_SMILEY',	'images/smiley/');
 define('DIR_LANGUAGE',	'languages/');
-define('DIR_PAGE',		'lib/data/');
+define('DIR_PAGE',		'lib/data/page/');
 define('DIR_STYLE',		'styles/');
 define('DIR_JS',		'javascripts/');
 
