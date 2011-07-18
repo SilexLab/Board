@@ -16,6 +16,7 @@ class SBB {
 		self::$Language = new Language();
 		Menu::Render();
 		Page::Initial();
+		Config::Parse();
 	}
 	
 	public static function Language() {
