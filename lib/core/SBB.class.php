@@ -12,13 +12,19 @@ class SBB {
 	private static $Language;
 	
 	public static function Load() {
+		Config::Get();
 		Style::Load();
 		self::$Language = new Language();
 		Menu::Render();
 		Page::Initial();
-		Config::Parse();
 	}
 	
+	// Core Functions
+	public static function CreateConstant($Name, $Value) {
+		define(strtoupper($Name), $Value);
+	}
+	
+	// Variable/Object access
 	public static function Language() {
 		return self::$Language;
 	}
