@@ -20,13 +20,13 @@
 								<td><label for="Emailrepeat">{{ lang#com.sbb.register.email_repeat }}</label></td>
 								<td><input type="email" name="Emailrepeat" id="Emailrepeat" size="30" required /></td>
 							</tr>
-							<tr>
+							<!--<tr>
 								<td><label for="Captcha">{{ lang#com.sbb.captcha }}</label></td>
 								<td><input type="text" name="Captcha" id="Captcha" size="30" required /></td>
 							</tr>
                                                         <tr>
                                                                 <td><img src="lib/old classes/captcha.class.php"></td>
-                                                        </tr>
+                                                        </tr>-->
 						</table>
 						<input type="submit" name="Register" value="{{ lang#com.sbb.form.submit }}" />
 					</form>
