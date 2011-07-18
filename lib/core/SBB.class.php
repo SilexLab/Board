@@ -8,15 +8,17 @@
  */
 
 class SBB {
-	// Objects
+	// Objects / Variables
 	private static $Language;
+	private static $PageInfo;
 	
 	public static function Load() {
 		Config::Get();
 		Style::Load();
 		self::$Language = new Language();
-		Menu::Render();
+		self::$PageInfo = new PageInfo();
 		Page::Initial();
+		Menu::Render();
 	}
 	
 	// Core Functions
@@ -24,9 +26,12 @@ class SBB {
 		define(strtoupper($Name), $Value);
 	}
 	
-	// Variable/Object access
+	// Object / Variable access
 	public static function Language() {
 		return self::$Language;
+	}
+	public static function PageInfo() {
+		return self::$PageInfo;
 	}
 }
 ?>

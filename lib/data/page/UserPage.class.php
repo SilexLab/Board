@@ -9,9 +9,11 @@
 
 class UserPage extends Page {
 	protected static function Load() {	
-		// Übergeordnete Seite
-		page::$Info['Site'] = 'User';
+		// Site Info
+		SBB::PageInfo()->Set('Site', 'User');
+		SBB::PageInfo()->Set('ID', 'User');
 		
+		/*
 		$Parser = new messageParser();
 		
 		if(isset($_GET['userID'])) {
@@ -31,6 +33,7 @@ class UserPage extends Page {
 			}
 			Template::Assign(array('Page' => 'userList', 'Users' => $Users));
 		}
+		*/
 	}
 }
 ?>

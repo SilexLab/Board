@@ -7,9 +7,11 @@
  * @version		DEV
  */
 
-class TestPage extends Page {
-	protected static function Load() {
-		echo '<span style="color: #fff;">Funzt :O!</span>';
+class HomePage extends Page {
+	protected static function Load() {	
+		// Site Info
+		SBB::PageInfo()->Set('Site', 'Home');
+		SBB::PageInfo()->Set('ID', 'Home');
 	}
 }
 ?>

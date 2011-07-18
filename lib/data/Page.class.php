@@ -9,7 +9,6 @@
 
 class Page {
 	private static $Page;
-	public static $Info = array();
 	
 	public static function Initial() {
 		if(isset($_GET['page']))
