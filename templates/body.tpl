@@ -6,7 +6,7 @@
 					{{ BreadCrumbs }}
 				</nav>
 				<div class="ContentContainer">
-					{% include "pages/" ~ Page ~ ".tpl" %}
+					{% include "pages/" ~ Page|default("Home") ~ ".tpl" %}
 				</div>
 			</div>
 		</div>
