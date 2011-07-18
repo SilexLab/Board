@@ -21,7 +21,8 @@ class Login {
 		$this->Check();
 	}
 	
-	public function Check() {		
+	public function Check() {
+		$Lang = SBB::Language();
 		mysql::Select('users', 'Salt', 'UserName = \''.$this->Username.'\'', '', 1);
 		$Salt = mysql::FetchObject()->Salt;
 		if($Row = mysql::NumRows() == 1) {
@@ -30,7 +31,7 @@ class Login {
 			$this->DoLogin();
 		}
 		elseif(isset($_POST['SubmitLogin'])) 
-			$this->MSG = '{lang=com.sbb.login.wrongdata}';
+			$this->MSG = $Lang->Get('com.sbb.login.wrongdata');
 	}
 	
 	public function DoLogin() {

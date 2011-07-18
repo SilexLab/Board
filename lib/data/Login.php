@@ -4,7 +4,7 @@
  * @copyright	© 2011 Silex Bulletin Board - Team
  * @license		GNU GENERAL PUBLIC LICENSE v3
  * @package		SilexBoard.DEV
- * @version		Revision: 6
+ * @version		Revision: 7
  */
 
 // Schutz vor Direktaufruf der Datei
@@ -27,5 +27,5 @@ switch($_POST['Register']) {
 		break;
 }
 
-self::$TPL->Assign('Content', '{$:login}'.$MSG);
+Template::Assign(array('Page' => 'Login', 'LoginMessage' => $MSG));
 ?>

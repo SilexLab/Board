@@ -30,7 +30,7 @@ class User {
 				'Email' => $Email,
 				'ActivationKey' => $Key,
 				'RegisterTime' => time(),
-				'Activated' => 0);
+				/*'Activated' => 0 Funktioniert nicht*/);
 		mysql::Insert('users', $Inserts);
 		
 		self::sendActivationMail($email, $key);
@@ -41,13 +41,12 @@ class User {
 		$FolderBase = explode(basename($_SERVER['PHP_SELF']),$_SERVER['PHP_SELF']);
 		$FolderBase = $FolderBase[0];
 
-		$url =  'http://'.$_SERVER['SERVER_NAME'].$FolderBase.'index.php?page=Activation&key='.$key;		
-		$tpl = new template('emailActivation');
-		$tpl->Assign('ActivationURL', $url);
+		$url =  'http://'.$_SERVER['SERVER_NAME'].$FolderBase.'index.php?page=Activation&key='.$key;
+		Template::Assign('ActivationURL', $url);
 		
 		// Only Englich? WTF!
 		$subject = "Silex Bulletin Board - Activation";
-		$message = $tpl->Display();
+		Template::Display('emailActivation.tpl');
 		
 		// Allow Mail To Use HTML
 		$header  = 'MIME-Version: 1.0' . "\r\n";
