@@ -4,7 +4,7 @@
  * @copyright	© 2011 Silex Bulletin Board - Team
  * @license		GNU GENERAL PUBLIC LICENSE v3
  * @package		SilexBoard.DEV
- * @version		Revision: 7
+ * @version		Revision: 8
  */
 
 class LoginPage extends Page {
