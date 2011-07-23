@@ -8,9 +8,7 @@
  */
  
 class Login {
-	private $Username;
-	private $Password;
-	private $StayLoggedIn;
+	private $Username, $Password, $StayLoggedIn;
 	private $UserID;
 	private $MSG = '';
 	
@@ -23,12 +21,11 @@ class Login {
 	
 	public function Check() {
 		$Lang = SBB::Language();
-		mysql::Select('users', 'Salt', 'UserName = \''.$this->Username.'\'', '', 1);
-		$Salt = mysql::FetchObject()->Salt;
-		if($Row = mysql::NumRows() == 1) {
-			mysql::Select('users', 'ID', 'UserName = \''.$this->Username.'\' AND Password = \''.user::EncryptPassword($this->Password, $Salt).'\'');
+		$Salt = mysql::FetchObject(mysql::Select('users', 'Salt', 'UserName = \''.$this->Username.'\'', '', 1))->Salt;
+		if(mysql::NumRows() == 1) {
+			mysql::Select('users', 'ID', 'UserName = \''.$this->Username.'\' AND Password = \''.User::EncryptPassword($this->Password, $Salt).'\'');
 			$this->UserID = mysql::FetchObject()->ID;
-			$this->DoLogin();
+			$this->UserID == 0 ? $this->MSG = $Lang->Get('com.sbb.login.wrongdata') : $this->DoLogin(); 
 		}
 		elseif(isset($_POST['SubmitLogin'])) 
 			$this->MSG = $Lang->Get('com.sbb.login.wrongdata');
@@ -57,12 +54,12 @@ class Login {
 				break;
 		}
 		mysql::Insert('sessions', $Inserts);
-		header('Location: ?page=Forwarding');
+		header('Location: ?page=Home');
 	}
 	
 	public static function LoggedIn() {
 		if(isset($_COOKIE['sbb_LoginHash'])) {
-			mysql::Select('sessions', 'UserID', 'LoginHash = \''.$_COOKIE['sbb_LoginHash'].'\'');
+			mysql::Select('sessions', 'UserID', 'LoginHash = \''.mysql_real_escape_string($_COOKIE['sbb_LoginHash']).'\'');
 			isset($_SESSION['UserID']) ? '' : session::Set('UserID', self::GetUserID());
 			return (mysql::NumRows() == 1);
 		} else {
@@ -106,7 +103,7 @@ class Login {
 	}
 	
 	private static function GetUserID() {
-		return substr($_COOKIE['sbb_LoginHash'], 20, 21);
+		return substr($_COOKIE['sbb_LoginHash'], 20);
 	}
 }
 ?>

@@ -11,7 +11,7 @@ class LoginPage extends Page {
 	protected static function Load() {
 		// Falls eingeloggt, auf Startseite weiterleiten.	
 		if(isset($_COOKIE['sbb_LoginHash']) || session::Read('UserID')) 
-			header("Location: index.php");
+			header("Location: ?page=Home");
 		
 		switch($_POST['Register']) {
 			case 1:
@@ -24,9 +24,7 @@ class LoginPage extends Page {
 				$MSG = $Login->GetMSG();
 				break;
 		}
-		
 		Template::Assign(array('Page' => 'Login', 'LoginMessage' => $MSG));
 	}
 }
-
 ?>
