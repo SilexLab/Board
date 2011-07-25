@@ -1,21 +1,19 @@
 <?php
 /**
- * @author 		Nox Nebula
+ * @author 		Angus
  * @copyright	© 2011 Silex Bulletin Board - Team
  * @license		GNU GENERAL PUBLIC LICENSE v3
  * @package		SilexBoard.DEV
- * @version		Revision: 3
+ * @version		DEV
  */
 
-// Schutz vor Direktaufruf der Datei
-if(!defined('SILEX_VERSION'))
-	header('location: ../');
+class ForumPage extends Page {
+	protected static function Load() {
+		SBB::PageInfo()->Set('ID', 'Forum');		
 
-// Übergeordnete Seite
-page::$Info['Site'] = 'Forum';
+		//crumb::Add('Forum', '?page=Forum');
+		Template::Assign(array('Forums' => ForumList::ListForums()));
+	}
+}
 
-// Die Variable {$Content} aus body.tpl mit einer Templatevariable ersetzen
-crumb::Add('Forum', '?page=Forum');
-self::$TPL->Assign('Site', self::$TPL->GetVar('Site').' - Index');
-self::$TPL->Assign('Content', view::DisplayOverview());
 ?>
