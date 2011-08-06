@@ -184,8 +184,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="2"
-     inkscape:cx="288.08644"
-     inkscape:cy="1250.9634"
+     inkscape:cx="178.31717"
+     inkscape:cy="1270.9634"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="true"
@@ -2453,7 +2453,7 @@
          y="143.36209"
          x="201.5"
          id="tspan7444"
-         sodipodi:role="line">- Diese Klasse benutzt</tspan></text>
+         sodipodi:role="line">- Diese Klasse implementiert</tspan></text>
     <text
        sodipodi:linespacing="125%"
        id="text7446"
@@ -2466,5 +2466,16 @@
          x="243.5"
          id="tspan7448"
          sodipodi:role="line">- dieses Interface</tspan></text>
+    <text
+       sodipodi:linespacing="125%"
+       id="text7450"
+       y="169.04007"
+       x="183.95554"
+       style="font-size:16px;font-style:normal;font-weight:bold;text-align:end;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:end;fill:#d30000;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:Franklin Gothic Medium"
+       xml:space="preserve"><tspan
+         y="169.04007"
+         x="183.95554"
+         id="tspan7452"
+         sodipodi:role="line">&quot;Klassenstrukturvorlage&quot;</tspan></text>
   </g>
 </svg>
