@@ -14,8 +14,8 @@
    id="svg2"
    version="1.1"
    inkscape:version="0.48.1 "
-   sodipodi:docname="class-diagram.svg"
-   inkscape:export-filename="C:\nmp\html\SilexBoard\Board\Draft\class-diagram.png"
+   sodipodi:docname="class-tree.svg"
+   inkscape:export-filename="C:\nmp\html\SilexBoard\Board\Draft\class-tree.png"
    inkscape:export-xdpi="90"
    inkscape:export-ydpi="90">
   <title
@@ -156,18 +156,18 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.5"
-     inkscape:cx="291.48812"
-     inkscape:cy="2091.8387"
+     inkscape:zoom="1"
+     inkscape:cx="1591.4137"
+     inkscape:cy="1851.8387"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="true"
      gridtolerance="5"
      objecttolerance="5"
      guidetolerance="5"
-     inkscape:window-width="1366"
-     inkscape:window-height="706"
-     inkscape:window-x="-8"
+     inkscape:window-width="1440"
+     inkscape:window-height="878"
+     inkscape:window-x="1358"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
      fit-margin-top="0"
@@ -211,7 +211,7 @@
            x="6.875"
            y="600"
            style="font-size:14px" /></flowRegion><flowPara
-         id="flowPara3791"></flowPara></flowRoot>    <g
+         id="flowPara3791" /></flowRoot>    <g
        id="g3811"
        transform="translate(-346,324)">
       <rect
@@ -740,7 +740,7 @@
            height="42.426407"
            x="1746.5537"
            y="-234.59416" /></flowRegion><flowPara
-         id="flowPara7138"></flowPara></flowRoot>    <path
+         id="flowPara7138" /></flowRoot>    <path
        style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-start:url(#DiamondM);marker-mid:none;marker-end:url(#EmptyTriangleOutL)"
        d="m 1561.8997,-84.916411 -78.3275,0 0,265.068481 -44.3001,0"
        id="path7140"
@@ -1296,7 +1296,7 @@
        sodipodi:cy="-141.52122"
        sodipodi:rx="4.1542525"
        sodipodi:ry="4.1542525"
-       d="m 288.85314,-141.52122 a 4.1542525,4.1542525 0 1 1 -8.30851,0 4.1542525,4.1542525 0 1 1 8.30851,0 z"
+       d="m 288.85314,-141.52122 c 0,2.29433 -1.85993,4.15425 -4.15426,4.15425 -2.29433,0 -4.15425,-1.85992 -4.15425,-4.15425 0,-2.29434 1.85992,-4.15426 4.15425,-4.15426 2.29433,0 4.15426,1.85992 4.15426,4.15426 z"
        transform="translate(-432.26532,1187.4903)" />
     <path
        style="fill:none;stroke:#808080;stroke-width:2;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:2, 4;stroke-dashoffset:1.4;marker-start:url(#DotM)"
