@@ -105,11 +105,11 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.70710678"
-     inkscape:cx="1875.2131"
-     inkscape:cy="973.00286"
+     inkscape:zoom="1"
+     inkscape:cx="2252.0351"
+     inkscape:cy="1177.6906"
      inkscape:document-units="px"
-     inkscape:current-layer="g6714"
+     inkscape:current-layer="layer1"
      showgrid="true"
      gridtolerance="5"
      objecttolerance="5"
@@ -423,7 +423,7 @@
          y="-14.637909"
          x="225.5"
          id="tspan6640"
-         sodipodi:role="line">- hat Zugriff auf</tspan></text>
+         sodipodi:role="line">- hat &quot;Schreibzugriff&quot; auf</tspan></text>
     <text
        sodipodi:linespacing="125%"
        id="text6642"
@@ -683,7 +683,7 @@
        sodipodi:nodetypes="cccc" />
     <g
        id="g7142"
-       transform="translate(2000,-1048)">
+       transform="translate(1980,-1048)">
       <rect
          style="fill:#deeaf7;fill-opacity:1;stroke:#000000;stroke-width:3.92982268;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
          id="rect7144"
@@ -755,7 +755,7 @@
          style="fill:none;stroke:#ffffff;stroke-width:0.99387288px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
     </g>
     <g
-       transform="translate(1800,-708)"
+       transform="translate(1780,-708)"
        id="g7190">
       <rect
          ry="1.242842"
@@ -825,7 +825,7 @@
     </g>
     <g
        id="g7244"
-       transform="translate(2200,-708)">
+       transform="translate(2180,-708)">
       <rect
          style="fill:#deeaf7;fill-opacity:1;stroke:#000000;stroke-width:3.92982268;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
          id="rect7246"
@@ -894,7 +894,7 @@
     </g>
     <path
        style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-start:url(#DotM);marker-end:url(#EmptyDiamondLstart)"
-       d="m 2050,96.073824 0,-82.805094"
+       d="m 2030,96.073824 0,-82.805094"
        id="path7276"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="cc" />
@@ -902,7 +902,213 @@
        sodipodi:nodetypes="cc"
        inkscape:connector-curvature="0"
        id="path7278"
-       d="m 2250,96.07382 0,-82.80509"
+       d="m 2230,96.07382 0,-82.80509"
        style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-start:url(#DotM);marker-end:url(#EmptyDiamondLstart)" />
+    <g
+       transform="translate(2400,-1048)"
+       id="g7297">
+      <rect
+         ry="1.242842"
+         y="804.32709"
+         x="1.9649113"
+         height="246.07018"
+         width="296.07016"
+         id="rect7299"
+         style="fill:#deeaf7;fill-opacity:1;stroke:#000000;stroke-width:3.92982268;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+      <text
+         sodipodi:linespacing="125%"
+         id="text7301"
+         y="822.1814"
+         x="149.63084"
+         style="font-size:18px;font-style:normal;font-weight:bold;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:Franklin Gothic Medium"
+         xml:space="preserve"><tspan
+           y="822.1814"
+           x="149.63084"
+           id="tspan7303"
+           sodipodi:role="line">Config.class</tspan></text>
+      <flowRoot
+         transform="translate(-16.563485,312.36215)"
+         style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:'Franklin Gothic Medium,'"
+         id="flowRoot7305"
+         xml:space="preserve"><flowRegion
+           id="flowRegion7307"><rect
+             style="font-weight:normal;-inkscape-font-specification:'Franklin Gothic Medium,'"
+             y="517.06036"
+             x="22.627417"
+             height="101.11627"
+             width="287.79245"
+             id="rect7309" /></flowRegion><flowPara
+           id="flowPara7311"
+           style="font-size:14px;font-weight:normal;text-align:justify;text-anchor:start;-inkscape-font-specification:'Franklin Gothic Medium,'">Diese Klasse liest Informationen aus der Datenbank aus und erstellt daraus nach vordefinierten Mustern Konstanten.</flowPara></flowRoot>      <flowRoot
+         transform="translate(-0.2631923,336.36215)"
+         style="font-size:14px;font-style:normal;font-weight:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:'Franklin Gothic Medium,'"
+         id="flowRoot7313"
+         xml:space="preserve"><flowRegion
+           id="flowRegion7315"><rect
+             ry="0"
+             style="font-size:14px;font-weight:normal;text-align:start;text-anchor:start;-inkscape-font-specification:'Franklin Gothic Medium,'"
+             y="609"
+             x="7"
+             height="101"
+             width="286"
+             id="rect7317" /></flowRegion><flowPara
+           id="flowPara7327">Eigenschaften</flowPara></flowRoot>      <path
+         inkscape:connector-curvature="0"
+         id="path7329"
+         d="m 2.5,938.86215 295.75,0"
+         style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      <path
+         inkscape:connector-curvature="0"
+         id="path7331"
+         d="m 2.5,826.86182 295.5,0"
+         style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      <path
+         style="fill:none;stroke:#ffffff;stroke-width:0.99429595px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         d="m 3.9272766,827.86215 292.1385034,0"
+         id="path7333"
+         inkscape:connector-curvature="0" />
+      <path
+         style="fill:none;stroke:#ffffff;stroke-width:0.99387288px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         d="m 3.9272786,939.85824 292.1369114,0"
+         id="path7335"
+         inkscape:connector-curvature="0" />
+    </g>
+    <g
+       id="g7351"
+       transform="translate(1140,-348)">
+      <rect
+         style="fill:#deeaf7;fill-opacity:1;stroke:#000000;stroke-width:3.92982268;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+         id="rect7353"
+         width="296.07016"
+         height="246.07018"
+         x="1.9649113"
+         y="804.32709"
+         ry="1.242842" />
+      <text
+         xml:space="preserve"
+         style="font-size:18px;font-style:normal;font-weight:bold;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:Franklin Gothic Medium"
+         x="149.63084"
+         y="822.1814"
+         id="text7355"
+         sodipodi:linespacing="125%"><tspan
+           sodipodi:role="line"
+           id="tspan7357"
+           x="149.63084"
+           y="822.1814">Menu.class</tspan></text>
+      <flowRoot
+         xml:space="preserve"
+         id="flowRoot7359"
+         style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:'Franklin Gothic Medium,'"
+         transform="translate(-16.563485,312.36215)"><flowRegion
+           id="flowRegion7361"><rect
+             id="rect7363"
+             width="287.79245"
+             height="101.11627"
+             x="22.627417"
+             y="517.06036"
+             style="font-weight:normal;-inkscape-font-specification:'Franklin Gothic Medium,'" /></flowRegion><flowPara
+           style="font-size:14px;font-weight:normal;text-align:justify;text-anchor:start;-inkscape-font-specification:'Franklin Gothic Medium,'"
+           id="flowPara7365">Diese Klasse verwaltet die Darstellung des Hauptmenüs, anhand der PageInfos.</flowPara></flowRoot>      <flowRoot
+         xml:space="preserve"
+         id="flowRoot7367"
+         style="font-size:14px;font-style:normal;font-weight:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:'Franklin Gothic Medium,'"
+         transform="translate(-0.2631923,336.36215)"><flowRegion
+           id="flowRegion7369"><rect
+             id="rect7371"
+             width="286"
+             height="101"
+             x="7"
+             y="609"
+             style="font-size:14px;font-weight:normal;text-align:start;text-anchor:start;-inkscape-font-specification:'Franklin Gothic Medium,'"
+             ry="0" /></flowRegion><flowPara
+           id="flowPara7373">Eigenschaften</flowPara></flowRoot>      <path
+         style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         d="m 2.5,938.86215 295.75,0"
+         id="path7375"
+         inkscape:connector-curvature="0" />
+      <path
+         style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         d="m 2.5,826.86182 295.5,0"
+         id="path7377"
+         inkscape:connector-curvature="0" />
+      <path
+         inkscape:connector-curvature="0"
+         id="path7379"
+         d="m 3.9272766,827.86215 292.1385034,0"
+         style="fill:none;stroke:#ffffff;stroke-width:0.99429595px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      <path
+         inkscape:connector-curvature="0"
+         id="path7381"
+         d="m 3.9272786,939.85824 292.1369114,0"
+         style="fill:none;stroke:#ffffff;stroke-width:0.99387288px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+    </g>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-start:url(#DotM);marker-mid:none;marker-end:url(#TriangleOutL)"
+       d="m 210.00002,96.239655 0,-35.725505"
+       id="path7383"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc" />
+    <text
+       xml:space="preserve"
+       style="font-size:18px;font-style:normal;font-weight:bold;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:Franklin Gothic Medium"
+       x="225.5"
+       y="63.362091"
+       id="text7577"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan7579"
+         x="225.5"
+         y="63.362091">- nimmt Informationen aus</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:16px;font-style:normal;font-weight:bold;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:Franklin Gothic Medium"
+       x="225.5"
+       y="101.36209"
+       id="text7581"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan7583"
+         x="225.5"
+         y="101.36209"
+         style="font-size:18px">- dieser Klasse</tspan></text>
+    <path
+       sodipodi:nodetypes="cc"
+       inkscape:connector-curvature="0"
+       id="path7585"
+       d="m 1289.061,342.31639 0,101.81003"
+       style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-start:url(#DotM);marker-mid:none;marker-end:url(#TriangleOutL)" />
+    <text
+       xml:space="preserve"
+       style="font-size:16px;font-style:normal;font-weight:bold;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#d30000;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:Franklin Gothic Medium"
+       x="22.627417"
+       y="4.4298916"
+       id="text7587"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan7589"
+         x="22.627417"
+         y="4.4298916">&quot;Packt in diese Klasse&quot;</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:16px;font-style:normal;font-weight:bold;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#d30000;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:Franklin Gothic Medium"
+       x="7.5961666"
+       y="-72.422913"
+       id="text7591"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan7593"
+         x="7.5961666"
+         y="-72.422913">&quot;Gehört zu dieser Klasse&quot;</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:16px;font-style:normal;font-weight:bold;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#d30000;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:Franklin Gothic Medium"
+       x="-2.6850834"
+       y="85.040085"
+       id="text7595"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan7597"
+         x="-2.6850834"
+         y="85.040085">&quot;Nimmt aus dieser Klasse&quot;</tspan></text>
   </g>
 </svg>
