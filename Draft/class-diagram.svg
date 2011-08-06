@@ -144,9 +144,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.70710678"
-     inkscape:cx="2004.4759"
-     inkscape:cy="939.92902"
+     inkscape:zoom="1.4142136"
+     inkscape:cx="1583.3805"
+     inkscape:cy="1018.7045"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="true"
@@ -1806,5 +1806,39 @@
        id="path10227"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="cccccc" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:2,2;marker-start:url(#DiamondM);marker-mid:none;marker-end:url(#EmptyTriangleOutL);stroke-dashoffset:0"
+       d="m 1670,2.5085965 0,91.8535535"
+       id="path10229"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc" />
+    <path
+       sodipodi:nodetypes="cc"
+       inkscape:connector-curvature="0"
+       id="path10231"
+       d="m 1750,2.5085965 0,91.8535535"
+       style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:2,2;marker-start:url(#DiamondM);marker-mid:none;marker-end:url(#EmptyTriangleOutL);stroke-dashoffset:0" />
+    <text
+       xml:space="preserve"
+       style="font-size:10px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:'Franklin Gothic Medium,'"
+       x="1610.1908"
+       y="76.394226"
+       id="text10233"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan10235"
+         x="1610.1908"
+         y="76.394226">RegisterPage</tspan></text>
+    <text
+       sodipodi:linespacing="125%"
+       id="text10237"
+       y="76.394226"
+       x="1702.8218"
+       style="font-size:10px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:'Franklin Gothic Medium,'"
+       xml:space="preserve"><tspan
+         y="76.394226"
+         x="1702.8218"
+         id="tspan10239"
+         sodipodi:role="line">LoginPage</tspan></text>
   </g>
 </svg>
