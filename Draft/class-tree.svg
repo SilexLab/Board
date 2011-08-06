@@ -9,19 +9,46 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="2934.9121"
-   height="2310"
-   id="svg2"
-   version="1.1"
-   inkscape:version="0.48.1 "
-   sodipodi:docname="class-tree.svg"
-   inkscape:export-filename="C:\nmp\html\SilexBoard\Board\Draft\class-tree.png"
+   inkscape:export-ydpi="90"
    inkscape:export-xdpi="90"
-   inkscape:export-ydpi="90">
+   inkscape:export-filename="class-tree.png"
+   sodipodi:docname="class-tree.svg"
+   inkscape:version="0.48.1 "
+   version="1.1"
+   id="svg2"
+   height="2310"
+   width="2934.9121">
   <title
      id="title5837">Klassen Diagramm</title>
   <defs
      id="defs4">
+    <marker
+       inkscape:stockid="CurveIn"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="CurveIn"
+       style="overflow:visible">
+      <path
+         id="path5098"
+         d="m 5.025493,-5.0456926 c -2.76,0 -5.00000002,2.24 -5.00000002,5.00000002 0,2.75999998 2.24000002,4.99999998 5.00000002,4.99999998"
+         style="fill:none;stroke:#000000;stroke-width:0.6pt;stroke-linecap:round;marker-start:none;marker-end:none"
+         transform="scale(1.5,1.5)"
+         inkscape:connector-curvature="0" />
+    </marker>
+    <marker
+       inkscape:stockid="DotL"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="DotL"
+       style="overflow:visible">
+      <path
+         id="path4975"
+         d="M -2.5,-1.0 C -2.5,1.7600000 -4.7400000,4.0 -7.5,4.0 C -10.260000,4.0 -12.5,1.7600000 -12.5,-1.0 C -12.5,-3.7600000 -10.260000,-6.0 -7.5,-6.0 C -4.7400000,-6.0 -2.5,-3.7600000 -2.5,-1.0 z "
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1.0pt;marker-start:none;marker-end:none"
+         transform="scale(0.8) translate(7.4, 1)" />
+    </marker>
     <marker
        inkscape:stockid="DiamondM"
        orient="auto"
@@ -156,18 +183,18 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1"
-     inkscape:cx="1591.4137"
-     inkscape:cy="1851.8387"
+     inkscape:zoom="2"
+     inkscape:cx="288.08644"
+     inkscape:cy="1250.9634"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="true"
      gridtolerance="5"
      objecttolerance="5"
      guidetolerance="5"
-     inkscape:window-width="1440"
-     inkscape:window-height="878"
-     inkscape:window-x="1358"
+     inkscape:window-width="1366"
+     inkscape:window-height="706"
+     inkscape:window-x="-8"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
      fit-margin-top="0"
@@ -2411,5 +2438,33 @@
          id="tspan10527"
          x="2322.8457"
          y="-484.18088">First Post</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-start:url(#DotM);marker-mid:none;marker-end:url(#CurveIn)"
+       d="m 191.37035,137.93705 26.6016,46.0753"
+       id="path4314"
+       inkscape:connector-curvature="0" />
+    <text
+       sodipodi:linespacing="125%"
+       id="text7442"
+       y="143.36209"
+       x="201.5"
+       style="font-size:18px;font-style:normal;font-weight:bold;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:Franklin Gothic Medium"
+       xml:space="preserve"><tspan
+         y="143.36209"
+         x="201.5"
+         id="tspan7444"
+         sodipodi:role="line">- Diese Klasse benutzt</tspan></text>
+    <text
+       sodipodi:linespacing="125%"
+       id="text7446"
+       y="197.36209"
+       x="243.5"
+       style="font-size:16px;font-style:normal;font-weight:bold;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:Franklin Gothic Medium"
+       xml:space="preserve"><tspan
+         style="font-size:18px"
+         y="197.36209"
+         x="243.5"
+         id="tspan7448"
+         sodipodi:role="line">- dieses Interface</tspan></text>
   </g>
 </svg>
