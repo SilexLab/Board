@@ -20,6 +20,45 @@
   <defs
      id="defs4">
     <marker
+       inkscape:stockid="DiamondM"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="DiamondM"
+       style="overflow:visible">
+      <path
+         id="path4345"
+         d="M 0,-7.0710768 L -7.0710894,0 L 0,7.0710589 L 7.0710462,0 L 0,-7.0710768 z "
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1.0pt;marker-start:none"
+         transform="scale(0.4)" />
+    </marker>
+    <marker
+       inkscape:stockid="DiamondL"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="DiamondL"
+       style="overflow:visible">
+      <path
+         id="path4342"
+         d="M 0,-7.0710768 L -7.0710894,0 L 0,7.0710589 L 7.0710462,0 L 0,-7.0710768 z "
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1.0pt;marker-start:none"
+         transform="scale(0.8)" />
+    </marker>
+    <marker
+       inkscape:stockid="SquareM"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="SquareM"
+       style="overflow:visible">
+      <path
+         id="path4336"
+         d="M -5.0,-5.0 L -5.0,5.0 L 5.0,5.0 L 5.0,-5.0 L -5.0,-5.0 z "
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1.0pt;marker-start:none"
+         transform="scale(0.4)" />
+    </marker>
+    <marker
        inkscape:stockid="DotM"
        orient="auto"
        refY="0.0"
@@ -105,9 +144,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1"
-     inkscape:cx="2252.0351"
-     inkscape:cy="1177.6906"
+     inkscape:zoom="0.70710678"
+     inkscape:cx="2004.4759"
+     inkscape:cy="939.92902"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="true"
@@ -227,9 +266,10 @@
     </g>
     <g
        id="g3829"
-       transform="translate(720,-1048)">
+       transform="translate(720,-1048)"
+       style="stroke-linejoin:round">
       <rect
-         style="fill:#deeaf7;fill-opacity:1;stroke:#000000;stroke-width:3.92982268;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+         style="fill:#deeaf7;fill-opacity:1;stroke:#000000;stroke-width:3.92982268000000000;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-linejoin:round"
          id="rect3831"
          width="296.07016"
          height="246.07018"
@@ -238,7 +278,7 @@
          ry="1.242842" />
       <text
          xml:space="preserve"
-         style="font-size:18px;font-style:normal;font-weight:bold;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:Franklin Gothic Medium"
+         style="font-size:18px;font-style:normal;font-weight:bold;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:Franklin Gothic Medium;stroke-linejoin:round"
          x="149.63084"
          y="822.1814"
          id="text3833"
@@ -250,7 +290,7 @@
       <flowRoot
          xml:space="preserve"
          id="flowRoot3837"
-         style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:'Franklin Gothic Medium,'"
+         style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:'Franklin Gothic Medium,';stroke-linejoin:round"
          transform="translate(-16.563485,312.36215)"><flowRegion
            id="flowRegion3839"><rect
              id="rect3841"
@@ -258,12 +298,12 @@
              height="101.11627"
              x="22.627417"
              y="517.06036"
-             style="font-weight:normal;-inkscape-font-specification:'Franklin Gothic Medium,'" /></flowRegion><flowPara
-           style="font-size:14px;font-weight:normal;text-align:justify;text-anchor:start;-inkscape-font-specification:'Franklin Gothic Medium,'"
+             style="font-weight:normal;-inkscape-font-specification:'Franklin Gothic Medium,';stroke-linejoin:round" /></flowRegion><flowPara
+           style="font-size:14px;font-weight:normal;text-align:justify;text-anchor:start;-inkscape-font-specification:'Franklin Gothic Medium,';stroke-linejoin:round"
            id="flowPara3845">Diese Klasse verwaltet die Templateengine Twig und stellt eine Art Bridge zwischen SBB und Twig her.</flowPara></flowRoot>      <flowRoot
          xml:space="preserve"
          id="flowRoot3847"
-         style="font-size:14px;font-style:normal;font-weight:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:'Franklin Gothic Medium,'"
+         style="font-size:14px;font-style:normal;font-weight:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:'Franklin Gothic Medium,';stroke-linejoin:round"
          transform="translate(-0.2631923,336.36215)"><flowRegion
            id="flowRegion3849"><rect
              id="rect3851"
@@ -271,15 +311,15 @@
              height="101"
              x="7"
              y="609"
-             style="font-size:14px;font-weight:normal;text-align:start;text-anchor:start;-inkscape-font-specification:'Franklin Gothic Medium,'"
+             style="font-size:14px;font-weight:normal;text-align:start;text-anchor:start;-inkscape-font-specification:'Franklin Gothic Medium,';stroke-linejoin:round"
              ry="0" /></flowRegion><flowPara
            id="flowPara3853">Eigenschaften</flowPara></flowRoot>      <path
-         style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1"
          d="m 2.5,938.86215 295.75,0"
          id="path3855"
          inkscape:connector-curvature="0" />
       <path
-         style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1"
          d="m 2.5,826.86182 295.5,0"
          id="path3857"
          inkscape:connector-curvature="0" />
@@ -287,20 +327,22 @@
          inkscape:connector-curvature="0"
          id="path3859"
          d="m 3.9272766,827.86215 292.1385034,0"
-         style="fill:none;stroke:#ffffff;stroke-width:0.99429595px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+         style="fill:none;stroke:#ffffff;stroke-width:0.99429595000000004px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1" />
       <path
          inkscape:connector-curvature="0"
          id="path3861"
          d="m 3.9272786,939.85824 292.1369114,0"
-         style="fill:none;stroke:#ffffff;stroke-width:0.99387288px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+         style="fill:none;stroke:#ffffff;stroke-width:0.99387287999999996px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1" />
     </g>
     <g
        transform="translate(720,-712)"
-       id="g3865">
+       id="g3865"
+       style="stroke-linejoin:round">
       <g
-         id="g5839">
+         id="g5839"
+         style="stroke-linejoin:round">
         <rect
-           style="fill:#f2efb7;fill-opacity:1;stroke:#000000;stroke-width:3.92982268000000000;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+           style="fill:#f2efb7;fill-opacity:1;stroke:#000000;stroke-width:3.92982268000000000;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-linejoin:round"
            id="rect3867"
            width="296.07016"
            height="246.07018"
@@ -309,7 +351,7 @@
            ry="1.242842" />
         <text
            xml:space="preserve"
-           style="font-size:18px;font-style:normal;font-weight:bold;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:Franklin Gothic Medium"
+           style="font-size:18px;font-style:normal;font-weight:bold;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:Franklin Gothic Medium;stroke-linejoin:round"
            x="149.63084"
            y="822.1814"
            id="text3869"
@@ -321,7 +363,7 @@
         <flowRoot
            xml:space="preserve"
            id="flowRoot3873"
-           style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:'Franklin Gothic Medium,'"
+           style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:'Franklin Gothic Medium,';stroke-linejoin:round"
            transform="translate(-16.563485,312.36215)"><flowRegion
              id="flowRegion3875"><rect
                id="rect3877"
@@ -329,12 +371,12 @@
                height="101.11627"
                x="22.627417"
                y="517.06036"
-               style="font-weight:normal;-inkscape-font-specification:'Franklin Gothic Medium,'" /></flowRegion><flowPara
-             style="font-size:14px;font-weight:normal;text-align:justify;text-anchor:start;-inkscape-font-specification:'Franklin Gothic Medium,'"
+               style="font-weight:normal;-inkscape-font-specification:'Franklin Gothic Medium,';stroke-linejoin:round" /></flowRegion><flowPara
+             style="font-size:14px;font-weight:normal;text-align:justify;text-anchor:start;-inkscape-font-specification:'Franklin Gothic Medium,';stroke-linejoin:round"
              id="flowPara3879">Die Twig lib. Um deren Funktionsweise wir uns nicht kümmern müssen, dies regelt die Template.class.</flowPara></flowRoot>        <flowRoot
            xml:space="preserve"
            id="flowRoot3881"
-           style="font-size:14px;font-style:normal;font-weight:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:'Franklin Gothic Medium,'"
+           style="font-size:14px;font-style:normal;font-weight:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:'Franklin Gothic Medium,';stroke-linejoin:round"
            transform="translate(-0.2631923,336.36215)"><flowRegion
              id="flowRegion3883"><rect
                id="rect3885"
@@ -342,15 +384,15 @@
                height="101"
                x="7"
                y="609"
-               style="font-size:14px;font-weight:normal;text-align:start;text-anchor:start;-inkscape-font-specification:'Franklin Gothic Medium,'"
+               style="font-size:14px;font-weight:normal;text-align:start;text-anchor:start;-inkscape-font-specification:'Franklin Gothic Medium,';stroke-linejoin:round"
                ry="0" /></flowRegion><flowPara
              id="flowPara3887">Kind der Templateklasse</flowPara></flowRoot>        <path
-           style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1"
            d="m 2.5,938.86215 295.75,0"
            id="path3889"
            inkscape:connector-curvature="0" />
         <path
-           style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1"
            d="m 2.5,826.86182 295.5,0"
            id="path3891"
            inkscape:connector-curvature="0" />
@@ -358,22 +400,22 @@
            inkscape:connector-curvature="0"
            id="path3893"
            d="m 3.9272766,827.86215 292.1385034,0"
-           style="fill:none;stroke:#ffffff;stroke-width:0.99429595px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+           style="fill:none;stroke:#ffffff;stroke-width:0.99429595000000004px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1" />
         <path
            inkscape:connector-curvature="0"
            id="path3895"
            d="m 3.9272786,939.85824 292.1369114,0"
-           style="fill:none;stroke:#ffffff;stroke-width:0.99387288px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+           style="fill:none;stroke:#ffffff;stroke-width:0.99387287999999996px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1" />
       </g>
     </g>
     <path
-       style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-start:url(#DotM);marker-mid:none;marker-end:url(#EmptyTriangleOutL)"
+       style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-start:url(#DiamondM);marker-mid:none;marker-end:url(#EmptyTriangleOutL)"
        d="m 849.99999,2.5085965 0,89.9785535"
        id="path3897"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="cc" />
     <path
-       style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-start:url(#DotM);marker-end:url(#EmptyDiamondLstart)"
+       style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-start:url(#DotM);marker-end:url(#EmptyDiamondLstart)"
        d="m 890.00001,92.073824 0,-78.805094"
        id="path5077"
        inkscape:connector-curvature="0"
@@ -383,16 +425,16 @@
        inkscape:connector-curvature="0"
        id="path5856"
        d="m 210.00002,-19.13785 0,45.625"
-       style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-start:url(#DotM);marker-mid:none;marker-end:url(#EmptyTriangleOutL)" />
+       style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-start:url(#DiamondM);marker-mid:none;marker-end:url(#EmptyTriangleOutL)" />
     <path
        sodipodi:nodetypes="cc"
        inkscape:connector-curvature="0"
        id="path5858"
        d="m 210.00001,-95.34039 0,28.60912"
-       style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-end:url(#EmptyDiamondLstart);marker-start:url(#DotM)" />
+       style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-end:url(#EmptyDiamondLstart);marker-start:url(#DotM)" />
     <text
        xml:space="preserve"
-       style="font-size:18px;font-style:normal;font-weight:bold;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:Franklin Gothic Medium"
+       style="font-size:18px;font-style:normal;font-weight:bold;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:Franklin Gothic Medium;stroke-linejoin:round"
        x="225.5"
        y="-90.637909"
        id="text5860"
@@ -403,7 +445,7 @@
          y="-90.637909">- ist ein Kind (und abhängig) von</tspan></text>
     <text
        xml:space="preserve"
-       style="font-size:16px;font-style:normal;font-weight:bold;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:Franklin Gothic Medium"
+       style="font-size:16px;font-style:normal;font-weight:bold;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:Franklin Gothic Medium;stroke-linejoin:round"
        x="225.5"
        y="-50.637913"
        id="text6634"
@@ -412,13 +454,13 @@
          id="tspan6636"
          x="225.5"
          y="-50.637913"
-         style="font-size:18px">- dieser Klasse</tspan></text>
+         style="font-size:18px;stroke-linejoin:round">- dieser Klasse</tspan></text>
     <text
        sodipodi:linespacing="125%"
        id="text6638"
        y="-14.637909"
        x="225.5"
-       style="font-size:18px;font-style:normal;font-weight:bold;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:Franklin Gothic Medium"
+       style="font-size:18px;font-style:normal;font-weight:bold;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:Franklin Gothic Medium;stroke-linejoin:round"
        xml:space="preserve"><tspan
          y="-14.637909"
          x="225.5"
@@ -429,16 +471,17 @@
        id="text6642"
        y="23.362087"
        x="225.5"
-       style="font-size:16px;font-style:normal;font-weight:bold;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:Franklin Gothic Medium"
+       style="font-size:16px;font-style:normal;font-weight:bold;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:Franklin Gothic Medium;stroke-linejoin:round"
        xml:space="preserve"><tspan
-         style="font-size:18px"
+         style="font-size:18px;stroke-linejoin:round"
          y="23.362087"
          x="225.5"
          id="tspan6644"
          sodipodi:role="line">- diese Klasse</tspan></text>
     <g
        transform="translate(1140,-1048)"
-       id="g6646">
+       id="g6646"
+       style="stroke-linejoin:round">
       <rect
          ry="1.242842"
          y="804.32709"
@@ -446,13 +489,13 @@
          height="246.07018"
          width="296.07016"
          id="rect6648"
-         style="fill:#deeaf7;fill-opacity:1;stroke:#000000;stroke-width:3.92982268;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+         style="fill:#deeaf7;fill-opacity:1;stroke:#000000;stroke-width:3.92982268000000000;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-linejoin:round" />
       <text
          sodipodi:linespacing="125%"
          id="text6650"
          y="822.1814"
          x="149.63084"
-         style="font-size:18px;font-style:normal;font-weight:bold;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:Franklin Gothic Medium"
+         style="font-size:18px;font-style:normal;font-weight:bold;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:Franklin Gothic Medium;stroke-linejoin:round"
          xml:space="preserve"><tspan
            y="822.1814"
            x="149.63084"
@@ -460,25 +503,25 @@
            sodipodi:role="line">Page.class</tspan></text>
       <flowRoot
          transform="translate(-16.563485,312.36215)"
-         style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:'Franklin Gothic Medium,'"
+         style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:'Franklin Gothic Medium,';stroke-linejoin:round"
          id="flowRoot6654"
          xml:space="preserve"><flowRegion
            id="flowRegion6656"><rect
-             style="font-weight:normal;-inkscape-font-specification:'Franklin Gothic Medium,'"
+             style="font-weight:normal;-inkscape-font-specification:'Franklin Gothic Medium,';stroke-linejoin:round"
              y="517.06036"
              x="22.627417"
              height="101.11627"
              width="287.79245"
              id="rect6658" /></flowRegion><flowPara
            id="flowPara6660"
-           style="font-size:14px;font-weight:normal;text-align:justify;text-anchor:start;-inkscape-font-specification:'Franklin Gothic Medium,'">Diese Klasse verwaltet die Seiten die SBB anzuzeigen hat.</flowPara></flowRoot>      <flowRoot
+           style="font-size:14px;font-weight:normal;text-align:justify;text-anchor:start;-inkscape-font-specification:'Franklin Gothic Medium,';stroke-linejoin:round">Diese Klasse verwaltet die Seiten die SBB anzuzeigen hat.</flowPara></flowRoot>      <flowRoot
          transform="translate(-0.2631923,336.36215)"
-         style="font-size:14px;font-style:normal;font-weight:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:'Franklin Gothic Medium,'"
+         style="font-size:14px;font-style:normal;font-weight:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:'Franklin Gothic Medium,';stroke-linejoin:round"
          id="flowRoot6662"
          xml:space="preserve"><flowRegion
            id="flowRegion6664"><rect
              ry="0"
-             style="font-size:14px;font-weight:normal;text-align:start;text-anchor:start;-inkscape-font-specification:'Franklin Gothic Medium,'"
+             style="font-size:14px;font-weight:normal;text-align:start;text-anchor:start;-inkscape-font-specification:'Franklin Gothic Medium,';stroke-linejoin:round"
              y="609"
              x="7"
              height="101"
@@ -488,28 +531,29 @@
          inkscape:connector-curvature="0"
          id="path6670"
          d="m 2.5,938.86215 295.75,0"
-         style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+         style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1" />
       <path
          inkscape:connector-curvature="0"
          id="path6672"
          d="m 2.5,826.86182 295.5,0"
-         style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+         style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1" />
       <path
-         style="fill:none;stroke:#ffffff;stroke-width:0.99429595px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         style="fill:none;stroke:#ffffff;stroke-width:0.99429595000000004px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1"
          d="m 3.9272766,827.86215 292.1385034,0"
          id="path6674"
          inkscape:connector-curvature="0" />
       <path
-         style="fill:none;stroke:#ffffff;stroke-width:0.99387288px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         style="fill:none;stroke:#ffffff;stroke-width:0.99387287999999996px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1"
          d="m 3.9272786,939.85824 292.1369114,0"
          id="path6676"
          inkscape:connector-curvature="0" />
     </g>
     <g
        id="g6678"
-       transform="translate(1140,-708)">
+       transform="translate(1140,-708)"
+       style="stroke-linejoin:round">
       <rect
-         style="fill:#deeaf7;fill-opacity:1;stroke:#000000;stroke-width:3.92982268;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+         style="fill:#deeaf7;fill-opacity:1;stroke:#000000;stroke-width:3.92982268000000000;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-linejoin:round"
          id="rect6680"
          width="296.07016"
          height="246.07018"
@@ -518,7 +562,7 @@
          ry="1.242842" />
       <text
          xml:space="preserve"
-         style="font-size:18px;font-style:normal;font-weight:bold;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:Franklin Gothic Medium"
+         style="font-size:18px;font-style:normal;font-weight:bold;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:Franklin Gothic Medium;stroke-linejoin:round"
          x="149.63084"
          y="822.1814"
          id="text6682"
@@ -530,7 +574,7 @@
       <flowRoot
          xml:space="preserve"
          id="flowRoot6686"
-         style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:'Franklin Gothic Medium,'"
+         style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:'Franklin Gothic Medium,';stroke-linejoin:round"
          transform="translate(-16.563485,312.36215)"><flowRegion
            id="flowRegion6688"><rect
              id="rect6690"
@@ -538,12 +582,12 @@
              height="101.11627"
              x="22.627417"
              y="517.06036"
-             style="font-weight:normal;-inkscape-font-specification:'Franklin Gothic Medium,'" /></flowRegion><flowPara
-           style="font-size:14px;font-weight:normal;text-align:justify;text-anchor:start;-inkscape-font-specification:'Franklin Gothic Medium,'"
+             style="font-weight:normal;-inkscape-font-specification:'Franklin Gothic Medium,';stroke-linejoin:round" /></flowRegion><flowPara
+           style="font-size:14px;font-weight:normal;text-align:justify;text-anchor:start;-inkscape-font-specification:'Franklin Gothic Medium,';stroke-linejoin:round"
            id="flowPara6692">Diese Klasse speichert Informationen über die aktuelle Seite, somit können Titel der Seite, übergeordnete Seite, etc. ausgelesen und verwendet werden.</flowPara></flowRoot>      <flowRoot
          xml:space="preserve"
          id="flowRoot6694"
-         style="font-size:14px;font-style:normal;font-weight:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:'Franklin Gothic Medium,'"
+         style="font-size:14px;font-style:normal;font-weight:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:'Franklin Gothic Medium,';stroke-linejoin:round"
          transform="translate(-0.2631923,336.36215)"><flowRegion
            id="flowRegion6696"><rect
              id="rect6698"
@@ -551,15 +595,15 @@
              height="101"
              x="7"
              y="609"
-             style="font-size:14px;font-weight:normal;text-align:start;text-anchor:start;-inkscape-font-specification:'Franklin Gothic Medium,'"
+             style="font-size:14px;font-weight:normal;text-align:start;text-anchor:start;-inkscape-font-specification:'Franklin Gothic Medium,';stroke-linejoin:round"
              ry="0" /></flowRegion><flowPara
            id="flowPara6700">Kind der Pageklasse, kann nur von dieser und deren Kinder geändert werden.</flowPara></flowRoot>      <path
-         style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1"
          d="m 2.5,938.86215 295.75,0"
          id="path6702"
          inkscape:connector-curvature="0" />
       <path
-         style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1"
          d="m 2.5,826.86182 295.5,0"
          id="path6704"
          inkscape:connector-curvature="0" />
@@ -567,30 +611,32 @@
          inkscape:connector-curvature="0"
          id="path6706"
          d="m 3.9272766,827.86215 292.1385034,0"
-         style="fill:none;stroke:#ffffff;stroke-width:0.99429595px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+         style="fill:none;stroke:#ffffff;stroke-width:0.99429595000000004px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1" />
       <path
          inkscape:connector-curvature="0"
          id="path6708"
          d="m 3.9272786,939.85824 292.1369114,0"
-         style="fill:none;stroke:#ffffff;stroke-width:0.99387288px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+         style="fill:none;stroke:#ffffff;stroke-width:0.99387287999999996px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1" />
     </g>
     <path
        sodipodi:nodetypes="cc"
        inkscape:connector-curvature="0"
        id="path6710"
        d="m 1270,2.5085965 0,91.8535535"
-       style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-start:url(#DotM);marker-mid:none;marker-end:url(#EmptyTriangleOutL)" />
+       style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-start:url(#DiamondM);marker-mid:none;marker-end:url(#EmptyTriangleOutL)" />
     <path
        sodipodi:nodetypes="cc"
        inkscape:connector-curvature="0"
        id="path6712"
        d="m 1310,96.073824 0,-82.805094"
-       style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-start:url(#DotM);marker-end:url(#EmptyDiamondLstart)" />
+       style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-start:url(#DotM);marker-end:url(#EmptyDiamondLstart)" />
     <g
        id="g6714"
-       transform="translate(1560,-1048)">
+       transform="translate(1560,-1048)"
+       style="stroke-linejoin:round">
       <g
-         id="g7280">
+         id="g7280"
+         style="stroke-linejoin:round">
         <rect
            ry="1.242842"
            y="804.32709"
@@ -598,13 +644,13 @@
            height="246.07018"
            width="296.07016"
            id="rect6716"
-           style="fill:#f2efb7;fill-opacity:1;stroke:#000000;stroke-width:3.92982268000000000;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+           style="fill:#f2efb7;fill-opacity:1;stroke:#000000;stroke-width:3.92982268000000000;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-linejoin:round" />
         <text
            sodipodi:linespacing="125%"
            id="text6718"
            y="822.1814"
            x="149.63084"
-           style="font-size:18px;font-style:normal;font-weight:bold;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:Franklin Gothic Medium"
+           style="font-size:18px;font-style:normal;font-weight:bold;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:Franklin Gothic Medium;stroke-linejoin:round"
            xml:space="preserve"><tspan
              y="822.1814"
              x="149.63084"
@@ -612,25 +658,25 @@
              sodipodi:role="line">&lt;Seite&gt;Page.class</tspan></text>
         <flowRoot
            transform="translate(-16.563485,312.36215)"
-           style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:'Franklin Gothic Medium,'"
+           style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:'Franklin Gothic Medium,';stroke-linejoin:round"
            id="flowRoot6722"
            xml:space="preserve"><flowRegion
              id="flowRegion6724"><rect
-               style="font-weight:normal;-inkscape-font-specification:'Franklin Gothic Medium,'"
+               style="font-weight:normal;-inkscape-font-specification:'Franklin Gothic Medium,';stroke-linejoin:round"
                y="517.06036"
                x="22.627417"
                height="101.11627"
                width="287.79245"
                id="rect6726" /></flowRegion><flowPara
              id="flowPara6728"
-             style="font-size:14px;font-weight:normal;text-align:justify;text-anchor:start;-inkscape-font-specification:'Franklin Gothic Medium,'">Diese Klassen enthalten Informationen, wie genau die aufgerufene Seite zu behandeln ist, wie und was genau angezeigt wird. Sie lesen z.B. bestimmte Informationen aus der Datenbank.</flowPara></flowRoot>        <flowRoot
+             style="font-size:14px;font-weight:normal;text-align:justify;text-anchor:start;-inkscape-font-specification:'Franklin Gothic Medium,';stroke-linejoin:round">Diese Klassen enthalten Informationen, wie genau die aufgerufene Seite zu behandeln ist, wie und was genau angezeigt wird. Sie lesen z.B. bestimmte Informationen aus der Datenbank.</flowPara></flowRoot>        <flowRoot
            transform="translate(-0.2631923,336.36215)"
-           style="font-size:14px;font-style:normal;font-weight:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:'Franklin Gothic Medium,'"
+           style="font-size:14px;font-style:normal;font-weight:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:'Franklin Gothic Medium,';stroke-linejoin:round"
            id="flowRoot6730"
            xml:space="preserve"><flowRegion
              id="flowRegion6732"><rect
                ry="0"
-               style="font-size:14px;font-weight:normal;text-align:start;text-anchor:start;-inkscape-font-specification:'Franklin Gothic Medium,'"
+               style="font-size:14px;font-weight:normal;text-align:start;text-anchor:start;-inkscape-font-specification:'Franklin Gothic Medium,';stroke-linejoin:round"
                y="609"
                x="7"
                height="101"
@@ -640,26 +686,26 @@
            inkscape:connector-curvature="0"
            id="path6738"
            d="m 2.5,938.86215 295.75,0"
-           style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+           style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1" />
         <path
            inkscape:connector-curvature="0"
            id="path6740"
            d="m 2.5,826.86182 295.5,0"
-           style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+           style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1" />
         <path
-           style="fill:none;stroke:#ffffff;stroke-width:0.99429595px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           style="fill:none;stroke:#ffffff;stroke-width:0.99429595000000004px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1"
            d="m 3.9272766,827.86215 292.1385034,0"
            id="path6742"
            inkscape:connector-curvature="0" />
         <path
-           style="fill:none;stroke:#ffffff;stroke-width:0.99387288px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           style="fill:none;stroke:#ffffff;stroke-width:0.99387287999999996px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1"
            d="m 3.9272786,939.85824 292.1369114,0"
            id="path6744"
            inkscape:connector-curvature="0" />
       </g>
     </g>
     <path
-       style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-start:url(#DotM);marker-end:url(#EmptyDiamondLstart)"
+       style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-start:url(#DotM);marker-end:url(#EmptyDiamondLstart)"
        d="M 1561.75,-486 1449,-486"
        id="path6746"
        inkscape:connector-curvature="0"
@@ -676,16 +722,17 @@
            x="1746.5537"
            y="-234.59416" /></flowRegion><flowPara
          id="flowPara7138"></flowPara></flowRoot>    <path
-       style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-start:url(#DotM);marker-mid:none;marker-end:url(#EmptyTriangleOutL)"
-       d="m 1561.8997,-84.916411 -62.7712,0 0,249.068481 -59.8564,0"
+       style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-start:url(#DiamondM);marker-mid:none;marker-end:url(#EmptyTriangleOutL)"
+       d="m 1561.8997,-84.916411 -78.3275,0 0,265.068481 -44.3001,0"
        id="path7140"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="cccc" />
     <g
        id="g7142"
-       transform="translate(1980,-1048)">
+       transform="translate(2400,-1048)"
+       style="stroke-linejoin:round">
       <rect
-         style="fill:#deeaf7;fill-opacity:1;stroke:#000000;stroke-width:3.92982268;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+         style="fill:#deeaf7;fill-opacity:1;stroke:#000000;stroke-width:3.92982268000000000;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-linejoin:round"
          id="rect7144"
          width="296.07016"
          height="246.07018"
@@ -694,7 +741,7 @@
          ry="1.242842" />
       <text
          xml:space="preserve"
-         style="font-size:18px;font-style:normal;font-weight:bold;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:Franklin Gothic Medium"
+         style="font-size:18px;font-style:normal;font-weight:bold;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:Franklin Gothic Medium;stroke-linejoin:round"
          x="149.63084"
          y="822.1814"
          id="text7146"
@@ -706,7 +753,7 @@
       <flowRoot
          xml:space="preserve"
          id="flowRoot7150"
-         style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:'Franklin Gothic Medium,'"
+         style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:'Franklin Gothic Medium,';stroke-linejoin:round"
          transform="translate(-16.563485,312.36215)"><flowRegion
            id="flowRegion7152"><rect
              id="rect7154"
@@ -714,12 +761,12 @@
              height="101.11627"
              x="22.627417"
              y="517.06036"
-             style="font-weight:normal;-inkscape-font-specification:'Franklin Gothic Medium,'" /></flowRegion><flowPara
-           style="font-size:14px;font-weight:normal;text-align:justify;text-anchor:start;-inkscape-font-specification:'Franklin Gothic Medium,'"
+             style="font-weight:normal;-inkscape-font-specification:'Franklin Gothic Medium,';stroke-linejoin:round" /></flowRegion><flowPara
+           style="font-size:14px;font-weight:normal;text-align:justify;text-anchor:start;-inkscape-font-specification:'Franklin Gothic Medium,';stroke-linejoin:round"
            id="flowPara7156">Diese Klasse verwaltet die Datenbankverbindungen und deren Benutzung.</flowPara></flowRoot>      <flowRoot
          xml:space="preserve"
          id="flowRoot7158"
-         style="font-size:14px;font-style:normal;font-weight:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:'Franklin Gothic Medium,'"
+         style="font-size:14px;font-style:normal;font-weight:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:'Franklin Gothic Medium,';stroke-linejoin:round"
          transform="translate(-0.2631923,336.36215)"><flowRegion
            id="flowRegion7160"><rect
              id="rect7162"
@@ -727,19 +774,19 @@
              height="101"
              x="7"
              y="609"
-             style="font-size:14px;font-weight:normal;text-align:start;text-anchor:start;-inkscape-font-specification:'Franklin Gothic Medium,'"
+             style="font-size:14px;font-weight:normal;text-align:start;text-anchor:start;-inkscape-font-specification:'Franklin Gothic Medium,';stroke-linejoin:round"
              ry="0" /></flowRegion><flowPara
            id="flowPara7164">void Initial(); - Entscheidet, welche Datenbankschnittstelle benutzt werden soll.</flowPara><flowPara
            id="flowPara7174">Abstrakte Funktionen:</flowPara><flowPara
            id="flowPara7180">Connect(); Disconnect(); Query(); Execute();</flowPara><flowPara
            id="flowPara7186">und diverse &quot;shorthand&quot;-Funktionen, wie</flowPara><flowPara
            id="flowPara7188">Select(); Insert(); und Update();</flowPara></flowRoot>      <path
-         style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1"
          d="m 2.5,938.86215 295.75,0"
          id="path7166"
          inkscape:connector-curvature="0" />
       <path
-         style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1"
          d="m 2.5,826.86182 295.5,0"
          id="path7168"
          inkscape:connector-curvature="0" />
@@ -747,16 +794,17 @@
          inkscape:connector-curvature="0"
          id="path7170"
          d="m 3.9272766,827.86215 292.1385034,0"
-         style="fill:none;stroke:#ffffff;stroke-width:0.99429595px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+         style="fill:none;stroke:#ffffff;stroke-width:0.99429595000000004px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1" />
       <path
          inkscape:connector-curvature="0"
          id="path7172"
          d="m 3.9272786,939.85824 292.1369114,0"
-         style="fill:none;stroke:#ffffff;stroke-width:0.99387288px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+         style="fill:none;stroke:#ffffff;stroke-width:0.99387287999999996px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1" />
     </g>
     <g
-       transform="translate(1780,-708)"
-       id="g7190">
+       transform="translate(2200,-708)"
+       id="g7190"
+       style="stroke-linejoin:round">
       <rect
          ry="1.242842"
          y="804.32709"
@@ -764,13 +812,13 @@
          height="246.07018"
          width="296.07016"
          id="rect7192"
-         style="fill:#deeaf7;fill-opacity:1;stroke:#000000;stroke-width:3.92982268;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+         style="fill:#deeaf7;fill-opacity:1;stroke:#000000;stroke-width:3.92982268000000000;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-linejoin:round" />
       <text
          sodipodi:linespacing="125%"
          id="text7194"
          y="822.1814"
          x="149.63084"
-         style="font-size:18px;font-style:normal;font-weight:bold;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:Franklin Gothic Medium"
+         style="font-size:18px;font-style:normal;font-weight:bold;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:Franklin Gothic Medium;stroke-linejoin:round"
          xml:space="preserve"><tspan
            y="822.1814"
            x="149.63084"
@@ -778,25 +826,25 @@
            sodipodi:role="line">MySQL.class</tspan></text>
       <flowRoot
          transform="translate(-16.563485,312.36215)"
-         style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:'Franklin Gothic Medium,'"
+         style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:'Franklin Gothic Medium,';stroke-linejoin:round"
          id="flowRoot7198"
          xml:space="preserve"><flowRegion
            id="flowRegion7200"><rect
-             style="font-weight:normal;-inkscape-font-specification:'Franklin Gothic Medium,'"
+             style="font-weight:normal;-inkscape-font-specification:'Franklin Gothic Medium,';stroke-linejoin:round"
              y="517.06036"
              x="22.627417"
              height="101.11627"
              width="287.79245"
              id="rect7202" /></flowRegion><flowPara
            id="flowPara7204"
-           style="font-size:14px;font-weight:normal;text-align:justify;text-anchor:start;-inkscape-font-specification:'Franklin Gothic Medium,'">Diese Klasse verwaltet die Datenbankverbindungen der MySQL-Datenbank und deren Benutzung.</flowPara></flowRoot>      <flowRoot
+           style="font-size:14px;font-weight:normal;text-align:justify;text-anchor:start;-inkscape-font-specification:'Franklin Gothic Medium,';stroke-linejoin:round">Diese Klasse verwaltet die Datenbankverbindungen der MySQL-Datenbank und deren Benutzung.</flowPara></flowRoot>      <flowRoot
          transform="translate(-0.2631923,336.36215)"
-         style="font-size:14px;font-style:normal;font-weight:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:'Franklin Gothic Medium,'"
+         style="font-size:14px;font-style:normal;font-weight:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:'Franklin Gothic Medium,';stroke-linejoin:round"
          id="flowRoot7206"
          xml:space="preserve"><flowRegion
            id="flowRegion7208"><rect
              ry="0"
-             style="font-size:14px;font-weight:normal;text-align:start;text-anchor:start;-inkscape-font-specification:'Franklin Gothic Medium,'"
+             style="font-size:14px;font-weight:normal;text-align:start;text-anchor:start;-inkscape-font-specification:'Franklin Gothic Medium,';stroke-linejoin:round"
              y="609"
              x="7"
              height="101"
@@ -806,28 +854,29 @@
          inkscape:connector-curvature="0"
          id="path7222"
          d="m 2.5,938.86215 295.75,0"
-         style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+         style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1" />
       <path
          inkscape:connector-curvature="0"
          id="path7224"
          d="m 2.5,826.86182 295.5,0"
-         style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+         style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1" />
       <path
-         style="fill:none;stroke:#ffffff;stroke-width:0.99429595px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         style="fill:none;stroke:#ffffff;stroke-width:0.99429595000000004px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1"
          d="m 3.9272766,827.86215 292.1385034,0"
          id="path7226"
          inkscape:connector-curvature="0" />
       <path
-         style="fill:none;stroke:#ffffff;stroke-width:0.99387288px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         style="fill:none;stroke:#ffffff;stroke-width:0.99387287999999996px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1"
          d="m 3.9272786,939.85824 292.1369114,0"
          id="path7228"
          inkscape:connector-curvature="0" />
     </g>
     <g
        id="g7244"
-       transform="translate(2180,-708)">
+       transform="translate(2600,-708)"
+       style="stroke-linejoin:round">
       <rect
-         style="fill:#deeaf7;fill-opacity:1;stroke:#000000;stroke-width:3.92982268;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+         style="fill:#deeaf7;fill-opacity:1;stroke:#000000;stroke-width:3.92982268000000000;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-linejoin:round"
          id="rect7246"
          width="296.07016"
          height="246.07018"
@@ -836,7 +885,7 @@
          ry="1.242842" />
       <text
          xml:space="preserve"
-         style="font-size:18px;font-style:normal;font-weight:bold;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:Franklin Gothic Medium"
+         style="font-size:18px;font-style:normal;font-weight:bold;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:Franklin Gothic Medium;stroke-linejoin:round"
          x="149.63084"
          y="822.1814"
          id="text7248"
@@ -848,7 +897,7 @@
       <flowRoot
          xml:space="preserve"
          id="flowRoot7252"
-         style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:'Franklin Gothic Medium,'"
+         style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:'Franklin Gothic Medium,';stroke-linejoin:round"
          transform="translate(-16.563485,312.36215)"><flowRegion
            id="flowRegion7254"><rect
              id="rect7256"
@@ -856,12 +905,12 @@
              height="101.11627"
              x="22.627417"
              y="517.06036"
-             style="font-weight:normal;-inkscape-font-specification:'Franklin Gothic Medium,'" /></flowRegion><flowPara
-           style="font-size:14px;font-weight:normal;text-align:justify;text-anchor:start;-inkscape-font-specification:'Franklin Gothic Medium,'"
+             style="font-weight:normal;-inkscape-font-specification:'Franklin Gothic Medium,';stroke-linejoin:round" /></flowRegion><flowPara
+           style="font-size:14px;font-weight:normal;text-align:justify;text-anchor:start;-inkscape-font-specification:'Franklin Gothic Medium,';stroke-linejoin:round"
            id="flowPara7258">Diese Klasse verwaltet die Datenbankverbindungen der MySQL-Datenbank mit improved-Erweiterung und deren Benutzung.</flowPara></flowRoot>      <flowRoot
          xml:space="preserve"
          id="flowRoot7260"
-         style="font-size:14px;font-style:normal;font-weight:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:'Franklin Gothic Medium,'"
+         style="font-size:14px;font-style:normal;font-weight:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:'Franklin Gothic Medium,';stroke-linejoin:round"
          transform="translate(-0.2631923,336.36215)"><flowRegion
            id="flowRegion7262"><rect
              id="rect7264"
@@ -869,15 +918,15 @@
              height="101"
              x="7"
              y="609"
-             style="font-size:14px;font-weight:normal;text-align:start;text-anchor:start;-inkscape-font-specification:'Franklin Gothic Medium,'"
+             style="font-size:14px;font-weight:normal;text-align:start;text-anchor:start;-inkscape-font-specification:'Franklin Gothic Medium,';stroke-linejoin:round"
              ry="0" /></flowRegion><flowPara
            id="flowPara7266">Benutzt alle abstrakten Klassen der Datenbankklasse.</flowPara></flowRoot>      <path
-         style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1"
          d="m 2.5,938.86215 295.75,0"
          id="path7268"
          inkscape:connector-curvature="0" />
       <path
-         style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1"
          d="m 2.5,826.86182 295.5,0"
          id="path7270"
          inkscape:connector-curvature="0" />
@@ -885,16 +934,16 @@
          inkscape:connector-curvature="0"
          id="path7272"
          d="m 3.9272766,827.86215 292.1385034,0"
-         style="fill:none;stroke:#ffffff;stroke-width:0.99429595px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+         style="fill:none;stroke:#ffffff;stroke-width:0.99429595000000004px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1" />
       <path
          inkscape:connector-curvature="0"
          id="path7274"
          d="m 3.9272786,939.85824 292.1369114,0"
-         style="fill:none;stroke:#ffffff;stroke-width:0.99387288px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+         style="fill:none;stroke:#ffffff;stroke-width:0.99387287999999996px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1" />
     </g>
     <path
-       style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-start:url(#DotM);marker-end:url(#EmptyDiamondLstart)"
-       d="m 2030,96.073824 0,-82.805094"
+       style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-start:url(#DotM);marker-end:url(#EmptyDiamondLstart)"
+       d="m 2470,96.073824 0,-82.805094"
        id="path7276"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="cc" />
@@ -902,11 +951,12 @@
        sodipodi:nodetypes="cc"
        inkscape:connector-curvature="0"
        id="path7278"
-       d="m 2230,96.07382 0,-82.80509"
-       style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-start:url(#DotM);marker-end:url(#EmptyDiamondLstart)" />
+       d="m 2630,96.07382 0,-82.80509"
+       style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-start:url(#DotM);marker-end:url(#EmptyDiamondLstart)" />
     <g
-       transform="translate(2400,-1048)"
-       id="g7297">
+       transform="translate(1980,-1048)"
+       id="g7297"
+       style="stroke-linejoin:round">
       <rect
          ry="1.242842"
          y="804.32709"
@@ -914,13 +964,13 @@
          height="246.07018"
          width="296.07016"
          id="rect7299"
-         style="fill:#deeaf7;fill-opacity:1;stroke:#000000;stroke-width:3.92982268;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+         style="fill:#deeaf7;fill-opacity:1;stroke:#000000;stroke-width:3.92982268000000000;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-linejoin:round" />
       <text
          sodipodi:linespacing="125%"
          id="text7301"
          y="822.1814"
          x="149.63084"
-         style="font-size:18px;font-style:normal;font-weight:bold;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:Franklin Gothic Medium"
+         style="font-size:18px;font-style:normal;font-weight:bold;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:Franklin Gothic Medium;stroke-linejoin:round"
          xml:space="preserve"><tspan
            y="822.1814"
            x="149.63084"
@@ -928,25 +978,25 @@
            sodipodi:role="line">Config.class</tspan></text>
       <flowRoot
          transform="translate(-16.563485,312.36215)"
-         style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:'Franklin Gothic Medium,'"
+         style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:'Franklin Gothic Medium,';stroke-linejoin:round"
          id="flowRoot7305"
          xml:space="preserve"><flowRegion
            id="flowRegion7307"><rect
-             style="font-weight:normal;-inkscape-font-specification:'Franklin Gothic Medium,'"
+             style="font-weight:normal;-inkscape-font-specification:'Franklin Gothic Medium,';stroke-linejoin:round"
              y="517.06036"
              x="22.627417"
              height="101.11627"
              width="287.79245"
              id="rect7309" /></flowRegion><flowPara
            id="flowPara7311"
-           style="font-size:14px;font-weight:normal;text-align:justify;text-anchor:start;-inkscape-font-specification:'Franklin Gothic Medium,'">Diese Klasse liest Informationen aus der Datenbank aus und erstellt daraus nach vordefinierten Mustern Konstanten.</flowPara></flowRoot>      <flowRoot
+           style="font-size:14px;font-weight:normal;text-align:justify;text-anchor:start;-inkscape-font-specification:'Franklin Gothic Medium,';stroke-linejoin:round">Diese Klasse liest Informationen aus der Datenbank aus und erstellt daraus nach vordefinierten Mustern Konstanten oder speichert diese Informationen direkt in Klassen.</flowPara></flowRoot>      <flowRoot
          transform="translate(-0.2631923,336.36215)"
-         style="font-size:14px;font-style:normal;font-weight:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:'Franklin Gothic Medium,'"
+         style="font-size:14px;font-style:normal;font-weight:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:'Franklin Gothic Medium,';stroke-linejoin:round"
          id="flowRoot7313"
          xml:space="preserve"><flowRegion
            id="flowRegion7315"><rect
              ry="0"
-             style="font-size:14px;font-weight:normal;text-align:start;text-anchor:start;-inkscape-font-specification:'Franklin Gothic Medium,'"
+             style="font-size:14px;font-weight:normal;text-align:start;text-anchor:start;-inkscape-font-specification:'Franklin Gothic Medium,';stroke-linejoin:round"
              y="609"
              x="7"
              height="101"
@@ -956,28 +1006,29 @@
          inkscape:connector-curvature="0"
          id="path7329"
          d="m 2.5,938.86215 295.75,0"
-         style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+         style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1" />
       <path
          inkscape:connector-curvature="0"
          id="path7331"
          d="m 2.5,826.86182 295.5,0"
-         style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+         style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1" />
       <path
-         style="fill:none;stroke:#ffffff;stroke-width:0.99429595px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         style="fill:none;stroke:#ffffff;stroke-width:0.99429595000000004px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1"
          d="m 3.9272766,827.86215 292.1385034,0"
          id="path7333"
          inkscape:connector-curvature="0" />
       <path
-         style="fill:none;stroke:#ffffff;stroke-width:0.99387288px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         style="fill:none;stroke:#ffffff;stroke-width:0.99387287999999996px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1"
          d="m 3.9272786,939.85824 292.1369114,0"
          id="path7335"
          inkscape:connector-curvature="0" />
     </g>
     <g
        id="g7351"
-       transform="translate(1140,-348)">
+       transform="translate(1140,-348)"
+       style="stroke-linejoin:round">
       <rect
-         style="fill:#deeaf7;fill-opacity:1;stroke:#000000;stroke-width:3.92982268;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+         style="fill:#deeaf7;fill-opacity:1;stroke:#000000;stroke-width:3.92982268000000000;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-linejoin:round"
          id="rect7353"
          width="296.07016"
          height="246.07018"
@@ -986,7 +1037,7 @@
          ry="1.242842" />
       <text
          xml:space="preserve"
-         style="font-size:18px;font-style:normal;font-weight:bold;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:Franklin Gothic Medium"
+         style="font-size:18px;font-style:normal;font-weight:bold;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:Franklin Gothic Medium;stroke-linejoin:round"
          x="149.63084"
          y="822.1814"
          id="text7355"
@@ -998,7 +1049,7 @@
       <flowRoot
          xml:space="preserve"
          id="flowRoot7359"
-         style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:'Franklin Gothic Medium,'"
+         style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:'Franklin Gothic Medium,';stroke-linejoin:round"
          transform="translate(-16.563485,312.36215)"><flowRegion
            id="flowRegion7361"><rect
              id="rect7363"
@@ -1006,12 +1057,12 @@
              height="101.11627"
              x="22.627417"
              y="517.06036"
-             style="font-weight:normal;-inkscape-font-specification:'Franklin Gothic Medium,'" /></flowRegion><flowPara
-           style="font-size:14px;font-weight:normal;text-align:justify;text-anchor:start;-inkscape-font-specification:'Franklin Gothic Medium,'"
+             style="font-weight:normal;-inkscape-font-specification:'Franklin Gothic Medium,';stroke-linejoin:round" /></flowRegion><flowPara
+           style="font-size:14px;font-weight:normal;text-align:justify;text-anchor:start;-inkscape-font-specification:'Franklin Gothic Medium,';stroke-linejoin:round"
            id="flowPara7365">Diese Klasse verwaltet die Darstellung des Hauptmenüs, anhand der PageInfos.</flowPara></flowRoot>      <flowRoot
          xml:space="preserve"
          id="flowRoot7367"
-         style="font-size:14px;font-style:normal;font-weight:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:'Franklin Gothic Medium,'"
+         style="font-size:14px;font-style:normal;font-weight:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:'Franklin Gothic Medium,';stroke-linejoin:round"
          transform="translate(-0.2631923,336.36215)"><flowRegion
            id="flowRegion7369"><rect
              id="rect7371"
@@ -1019,15 +1070,15 @@
              height="101"
              x="7"
              y="609"
-             style="font-size:14px;font-weight:normal;text-align:start;text-anchor:start;-inkscape-font-specification:'Franklin Gothic Medium,'"
+             style="font-size:14px;font-weight:normal;text-align:start;text-anchor:start;-inkscape-font-specification:'Franklin Gothic Medium,';stroke-linejoin:round"
              ry="0" /></flowRegion><flowPara
            id="flowPara7373">Eigenschaften</flowPara></flowRoot>      <path
-         style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1"
          d="m 2.5,938.86215 295.75,0"
          id="path7375"
          inkscape:connector-curvature="0" />
       <path
-         style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1"
          d="m 2.5,826.86182 295.5,0"
          id="path7377"
          inkscape:connector-curvature="0" />
@@ -1035,22 +1086,22 @@
          inkscape:connector-curvature="0"
          id="path7379"
          d="m 3.9272766,827.86215 292.1385034,0"
-         style="fill:none;stroke:#ffffff;stroke-width:0.99429595px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+         style="fill:none;stroke:#ffffff;stroke-width:0.99429595000000004px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1" />
       <path
          inkscape:connector-curvature="0"
          id="path7381"
          d="m 3.9272786,939.85824 292.1369114,0"
-         style="fill:none;stroke:#ffffff;stroke-width:0.99387288px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+         style="fill:none;stroke:#ffffff;stroke-width:0.99387287999999996px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1" />
     </g>
     <path
-       style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-start:url(#DotM);marker-mid:none;marker-end:url(#TriangleOutL)"
+       style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-start:url(#DotM);marker-mid:none;marker-end:url(#TriangleOutL)"
        d="m 210.00002,96.239655 0,-35.725505"
        id="path7383"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="cc" />
     <text
        xml:space="preserve"
-       style="font-size:18px;font-style:normal;font-weight:bold;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:Franklin Gothic Medium"
+       style="font-size:18px;font-style:normal;font-weight:bold;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:Franklin Gothic Medium;stroke-linejoin:round"
        x="225.5"
        y="63.362091"
        id="text7577"
@@ -1058,10 +1109,10 @@
          sodipodi:role="line"
          id="tspan7579"
          x="225.5"
-         y="63.362091">- nimmt Informationen aus</tspan></text>
+         y="63.362091">- liest Informationen aus</tspan></text>
     <text
        xml:space="preserve"
-       style="font-size:16px;font-style:normal;font-weight:bold;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:Franklin Gothic Medium"
+       style="font-size:16px;font-style:normal;font-weight:bold;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:Franklin Gothic Medium;stroke-linejoin:round"
        x="225.5"
        y="101.36209"
        id="text7581"
@@ -1070,45 +1121,690 @@
          id="tspan7583"
          x="225.5"
          y="101.36209"
-         style="font-size:18px">- dieser Klasse</tspan></text>
+         style="font-size:18px;stroke-linejoin:round">- dieser Klasse</tspan></text>
     <path
        sodipodi:nodetypes="cc"
        inkscape:connector-curvature="0"
        id="path7585"
        d="m 1289.061,342.31639 0,101.81003"
-       style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-start:url(#DotM);marker-mid:none;marker-end:url(#TriangleOutL)" />
+       style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-start:url(#DotM);marker-mid:none;marker-end:url(#TriangleOutL)" />
     <text
        xml:space="preserve"
-       style="font-size:16px;font-style:normal;font-weight:bold;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#d30000;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:Franklin Gothic Medium"
-       x="22.627417"
+       style="font-size:16px;font-style:normal;font-weight:bold;text-align:end;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:end;fill:#d30000;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:Franklin Gothic Medium;stroke-linejoin:round"
+       x="183.95554"
        y="4.4298916"
        id="text7587"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan7589"
-         x="22.627417"
+         x="183.95554"
          y="4.4298916">&quot;Packt in diese Klasse&quot;</tspan></text>
     <text
        xml:space="preserve"
-       style="font-size:16px;font-style:normal;font-weight:bold;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#d30000;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:Franklin Gothic Medium"
-       x="7.5961666"
+       style="font-size:16px;font-style:normal;font-weight:bold;text-align:end;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:end;fill:#d30000;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:Franklin Gothic Medium;stroke-linejoin:round"
+       x="183.95554"
        y="-72.422913"
        id="text7591"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan7593"
-         x="7.5961666"
+         x="183.95554"
          y="-72.422913">&quot;Gehört zu dieser Klasse&quot;</tspan></text>
     <text
        xml:space="preserve"
-       style="font-size:16px;font-style:normal;font-weight:bold;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#d30000;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:Franklin Gothic Medium"
-       x="-2.6850834"
+       style="font-size:16px;font-style:normal;font-weight:bold;text-align:end;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:end;fill:#d30000;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:Franklin Gothic Medium;stroke-linejoin:round"
+       x="183.95554"
        y="85.040085"
        id="text7595"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan7597"
-         x="-2.6850834"
-         y="85.040085">&quot;Nimmt aus dieser Klasse&quot;</tspan></text>
+         x="183.95554"
+         y="85.040085">&quot;Nimmt/Holt aus dieser Klasse&quot;</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-start:url(#DotM);marker-mid:none;marker-end:url(#TriangleOutL)"
+       d="m 1142.0136,185.18031 -62.4049,0 0,-342.66851 -49.7478,0"
+       id="path7599"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cccc" />
+    <path
+       sodipodi:nodetypes="ccccc"
+       inkscape:connector-curvature="0"
+       id="path7985"
+       d="m 2018.5083,2.4682655 0,51.8439135 -906.7032,0 0,-136.847057 -91.4798,0"
+       style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-start:url(#DiamondM);marker-mid:none;marker-end:url(#EmptyTriangleOutL)" />
+    <path
+       sodipodi:nodetypes="cccc"
+       inkscape:connector-curvature="0"
+       id="path8179"
+       d="m 1141.0955,545.28555 -86.0068,0 0,-585.1213 -34.3656,0"
+       style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-start:url(#DiamondM);marker-mid:none;marker-end:url(#EmptyTriangleOutL)" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-start:url(#DiamondM);marker-mid:none;marker-end:url(#EmptyTriangleOutL)"
+       d="m 1686.4644,-243.76243 0,-49.3679 -789.81678,0 0,46.38335"
+       id="path8181"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cccc" />
+    <g
+       style="stroke-linejoin:round"
+       transform="translate(1560,-348)"
+       id="g8183">
+      <rect
+         ry="1.242842"
+         y="804.32709"
+         x="1.9649113"
+         height="246.07018"
+         width="296.07016"
+         id="rect8185"
+         style="fill:#deeaf7;fill-opacity:1;stroke:#000000;stroke-width:3.92982268;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+      <text
+         sodipodi:linespacing="125%"
+         id="text8187"
+         y="822.1814"
+         x="149.63084"
+         style="font-size:18px;font-style:normal;font-weight:bold;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:Franklin Gothic Medium"
+         xml:space="preserve"><tspan
+           y="822.1814"
+           x="149.63084"
+           id="tspan8189"
+           sodipodi:role="line">Language.class</tspan></text>
+      <flowRoot
+         transform="translate(-16.563485,312.36215)"
+         style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:'Franklin Gothic Medium,'"
+         id="flowRoot8191"
+         xml:space="preserve"><flowRegion
+           id="flowRegion8193"><rect
+             style="font-weight:normal;-inkscape-font-specification:'Franklin Gothic Medium,'"
+             y="517.06036"
+             x="22.627417"
+             height="101.11627"
+             width="287.79245"
+             id="rect8195" /></flowRegion><flowPara
+           id="flowPara8197"
+           style="font-size:14px;font-weight:normal;text-align:justify;text-anchor:start;-inkscape-font-specification:'Franklin Gothic Medium,'">Diese Klasse verwaltet die Strings die der Endbenutzer zu sehen bekommt.</flowPara></flowRoot>      <flowRoot
+         transform="translate(-0.2631923,336.36215)"
+         style="font-size:14px;font-style:normal;font-weight:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:'Franklin Gothic Medium,'"
+         id="flowRoot8199"
+         xml:space="preserve"><flowRegion
+           id="flowRegion8201"><rect
+             ry="0"
+             style="font-size:14px;font-weight:normal;text-align:start;text-anchor:start;-inkscape-font-specification:'Franklin Gothic Medium,'"
+             y="609"
+             x="7"
+             height="101"
+             width="286"
+             id="rect8203" /></flowRegion><flowPara
+           id="flowPara8205">Eigenschaften</flowPara></flowRoot>      <path
+         inkscape:connector-curvature="0"
+         id="path8207"
+         d="m 2.5,938.86215 295.75,0"
+         style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1" />
+      <path
+         inkscape:connector-curvature="0"
+         id="path8209"
+         d="m 2.5,826.86182 295.5,0"
+         style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1" />
+      <path
+         style="fill:none;stroke:#ffffff;stroke-width:0.99429595px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1"
+         d="m 3.9272766,827.86215 292.1385034,0"
+         id="path8211"
+         inkscape:connector-curvature="0" />
+      <path
+         style="fill:none;stroke:#ffffff;stroke-width:0.99387288px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1"
+         d="m 3.9272786,939.85824 292.1369114,0"
+         id="path8213"
+         inkscape:connector-curvature="0" />
+    </g>
+    <rect
+       style="fill:none;stroke:#808080;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       id="rect8215"
+       width="46"
+       height="46"
+       x="434.12601"
+       y="136.433"
+       transform="matrix(0.70710678,0.70710678,-0.70710678,0.70710678,0,0)"
+       ry="1.242842" />
+    <path
+       style="fill:none;stroke:#808080;stroke-width:2;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       d="m 210.50074,404.44615 0,63 0,29.375"
+       id="path8217"
+       inkscape:connector-curvature="0" />
+    <path
+       sodipodi:type="arc"
+       style="fill:#000000;fill-opacity:1;stroke:none"
+       id="path8221"
+       sodipodi:cx="284.69888"
+       sodipodi:cy="-141.52122"
+       sodipodi:rx="4.1542525"
+       sodipodi:ry="4.1542525"
+       d="m 288.85314,-141.52122 a 4.1542525,4.1542525 0 1 1 -8.30851,0 4.1542525,4.1542525 0 1 1 8.30851,0 z"
+       transform="translate(-86.265319,577.49035)" />
+    <path
+       style="fill:none;stroke:#808080;stroke-width:2;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:2, 4;stroke-dashoffset:1.39999999999999990;marker-start:url(#DotM)"
+       d="m 178.37574,435.82115 -32.75,0"
+       id="path8223"
+       inkscape:connector-curvature="0" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path8801"
+       d="m 241.58074,435.82115 32.75,0"
+       style="fill:none;stroke:#808080;stroke-width:2;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:2, 4;stroke-dashoffset:1.39999999999999990;marker-start:url(#DotM);fill-opacity:1" />
+    <g
+       id="g9195"
+       transform="translate(1560,-708)"
+       style="stroke-linejoin:round">
+      <rect
+         style="fill:#deeaf7;fill-opacity:1;stroke:#000000;stroke-width:3.92982268;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+         id="rect9197"
+         width="296.07016"
+         height="246.07018"
+         x="1.9649113"
+         y="804.32709"
+         ry="1.242842" />
+      <text
+         xml:space="preserve"
+         style="font-size:18px;font-style:normal;font-weight:bold;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:Franklin Gothic Medium"
+         x="149.63084"
+         y="822.1814"
+         id="text9199"
+         sodipodi:linespacing="125%"><tspan
+           sodipodi:role="line"
+           x="149.63084"
+           y="822.1814"
+           id="tspan9227">User.class</tspan></text>
+      <flowRoot
+         xml:space="preserve"
+         id="flowRoot9203"
+         style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:'Franklin Gothic Medium,'"
+         transform="translate(-16.563485,312.36215)"><flowRegion
+           id="flowRegion9205"><rect
+             id="rect9207"
+             width="287.79245"
+             height="101.11627"
+             x="22.627417"
+             y="517.06036"
+             style="font-weight:normal;-inkscape-font-specification:'Franklin Gothic Medium,'" /></flowRegion><flowPara
+           style="font-size:14px;font-weight:normal;text-align:justify;text-anchor:start;-inkscape-font-specification:'Franklin Gothic Medium,'"
+           id="flowPara9209">Diese Klasse verwaltet die Rechte und Eigenschaften des Benutzers.</flowPara></flowRoot>      <flowRoot
+         xml:space="preserve"
+         id="flowRoot9211"
+         style="font-size:14px;font-style:normal;font-weight:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:'Franklin Gothic Medium,'"
+         transform="translate(-0.2631923,336.36215)"><flowRegion
+           id="flowRegion9213"><rect
+             id="rect9215"
+             width="286"
+             height="101"
+             x="7"
+             y="609"
+             style="font-size:14px;font-weight:normal;text-align:start;text-anchor:start;-inkscape-font-specification:'Franklin Gothic Medium,'"
+             ry="0" /></flowRegion><flowPara
+           id="flowPara9217">public GetPermission(String); - User-Permission überschreibt Group-Permission.</flowPara><flowPara
+           id="flowPara10065">public GetLanguage();</flowPara><flowPara
+           id="flowPara10067">public GetStyle();</flowPara><flowPara
+           id="flowPara10221">public Login(); Logout(); Register();</flowPara></flowRoot>      <path
+         style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1"
+         d="m 2.5,938.86215 295.75,0"
+         id="path9219"
+         inkscape:connector-curvature="0" />
+      <path
+         style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1"
+         d="m 2.5,826.86182 295.5,0"
+         id="path9221"
+         inkscape:connector-curvature="0" />
+      <path
+         inkscape:connector-curvature="0"
+         id="path9223"
+         d="m 3.9272766,827.86215 292.1385034,0"
+         style="fill:none;stroke:#ffffff;stroke-width:0.99429595px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1" />
+      <path
+         inkscape:connector-curvature="0"
+         id="path9225"
+         d="m 3.9272786,939.85824 292.1369114,0"
+         style="fill:none;stroke:#ffffff;stroke-width:0.99387288px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1" />
+    </g>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-start:url(#DotM);marker-mid:none;marker-end:url(#TriangleOutL)"
+       d="m 2070.7675,2.576708 0,114.711262 -200.8183,0"
+       id="path9231"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccc" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-start:url(#DotM);marker-mid:none;marker-end:url(#TriangleOutL)"
+       d="m 1709.061,342.31639 0,101.81003"
+       id="path9233"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-start:url(#DiamondM);marker-mid:none;marker-end:url(#EmptyTriangleOutL)"
+       d="m 1561.828,548.05146 -65.5955,0 0,-147.92552 -460.7361,0 0,-339.785012 -73.70574,0 0,-57.3168745"
+       id="path9235"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccccccc" />
+    <g
+       id="g10029"
+       transform="translate(1980,-348)"
+       style="stroke-linejoin:round">
+      <rect
+         style="fill:#deeaf7;fill-opacity:1;stroke:#000000;stroke-width:3.92982268;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+         id="rect10031"
+         width="296.07016"
+         height="246.07018"
+         x="1.9649113"
+         y="804.32709"
+         ry="1.242842" />
+      <text
+         xml:space="preserve"
+         style="font-size:18px;font-style:normal;font-weight:bold;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:Franklin Gothic Medium"
+         x="149.63084"
+         y="822.1814"
+         id="text10033"
+         sodipodi:linespacing="125%"><tspan
+           sodipodi:role="line"
+           id="tspan10035"
+           x="149.63084"
+           y="822.1814">Group.class</tspan></text>
+      <flowRoot
+         xml:space="preserve"
+         id="flowRoot10037"
+         style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:'Franklin Gothic Medium,'"
+         transform="translate(-16.563485,312.36215)"><flowRegion
+           id="flowRegion10039"><rect
+             id="rect10041"
+             width="287.79245"
+             height="101.11627"
+             x="22.627417"
+             y="517.06036"
+             style="font-weight:normal;-inkscape-font-specification:'Franklin Gothic Medium,'" /></flowRegion><flowPara
+           style="font-size:14px;font-weight:normal;text-align:justify;text-anchor:start;-inkscape-font-specification:'Franklin Gothic Medium,'"
+           id="flowPara10043">Diese Klasse verwaltet die Rechte und Eigenschaften der Gruppe des Benutzers.</flowPara></flowRoot>      <flowRoot
+         xml:space="preserve"
+         id="flowRoot10045"
+         style="font-size:14px;font-style:normal;font-weight:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:'Franklin Gothic Medium,'"
+         transform="translate(-0.2631923,336.36215)"><flowRegion
+           id="flowRegion10047"><rect
+             id="rect10049"
+             width="286"
+             height="101"
+             x="7"
+             y="609"
+             style="font-size:14px;font-weight:normal;text-align:start;text-anchor:start;-inkscape-font-specification:'Franklin Gothic Medium,'"
+             ry="0" /></flowRegion><flowPara
+           id="flowPara10051">protected GetPermission(string);</flowPara></flowRoot>      <path
+         style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1"
+         d="m 2.5,938.86215 295.75,0"
+         id="path10053"
+         inkscape:connector-curvature="0" />
+      <path
+         style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1"
+         d="m 2.5,826.86182 295.5,0"
+         id="path10055"
+         inkscape:connector-curvature="0" />
+      <path
+         inkscape:connector-curvature="0"
+         id="path10057"
+         d="m 3.9272766,827.86215 292.1385034,0"
+         style="fill:none;stroke:#ffffff;stroke-width:0.99429595px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1" />
+      <path
+         inkscape:connector-curvature="0"
+         id="path10059"
+         d="m 3.9272786,939.85824 292.1369114,0"
+         style="fill:none;stroke:#ffffff;stroke-width:0.99387288px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1" />
+    </g>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-start:url(#DotM);marker-end:url(#EmptyDiamondLstart)"
+       d="m 2133,456.0513 0,-274.23586 -263.6464,0"
+       id="path10061"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccc" />
+    <path
+       sodipodi:nodetypes="ccc"
+       inkscape:connector-curvature="0"
+       id="path10063"
+       d="m 2052.6758,455.81639 0,-211.05366 -182.6651,0"
+       style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-start:url(#DotM);marker-mid:none;marker-end:url(#TriangleOutL)" />
+    <g
+       style="stroke-linejoin:round"
+       transform="translate(720,-1388)"
+       id="g10069">
+      <rect
+         ry="1.242842"
+         y="804.32709"
+         x="1.9649113"
+         height="246.07018"
+         width="296.07016"
+         id="rect10071"
+         style="fill:#deeaf7;fill-opacity:1;stroke:#000000;stroke-width:3.92982268;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+      <text
+         sodipodi:linespacing="125%"
+         id="text10073"
+         y="822.1814"
+         x="149.63084"
+         style="font-size:18px;font-style:normal;font-weight:bold;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:Franklin Gothic Medium"
+         xml:space="preserve"><tspan
+           y="822.1814"
+           x="149.63084"
+           id="tspan10075"
+           sodipodi:role="line">Style.class</tspan></text>
+      <flowRoot
+         transform="translate(-16.563485,312.36215)"
+         style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:'Franklin Gothic Medium,'"
+         id="flowRoot10077"
+         xml:space="preserve"><flowRegion
+           id="flowRegion10079"><rect
+             style="font-weight:normal;-inkscape-font-specification:'Franklin Gothic Medium,'"
+             y="517.06036"
+             x="22.627417"
+             height="101.11627"
+             width="287.79245"
+             id="rect10081" /></flowRegion><flowPara
+           style="font-size:14px;font-weight:normal;text-align:justify;text-anchor:start;-inkscape-font-specification:'Franklin Gothic Medium,'"
+           id="flowPara10169">Diese Klasse verwaltet das Design des Boards je nach dem, was der User ausgewählt hat.</flowPara><flowPara
+           style="font-size:14px;font-weight:normal;text-align:justify;text-anchor:start;-inkscape-font-specification:'Franklin Gothic Medium,'"
+           id="flowPara10173">Sie verwaltet die CSS-, Template- und Javascriptdateien.</flowPara></flowRoot>      <flowRoot
+         transform="translate(-0.2631923,336.36215)"
+         style="font-size:14px;font-style:normal;font-weight:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:'Franklin Gothic Medium,'"
+         id="flowRoot10085"
+         xml:space="preserve"><flowRegion
+           id="flowRegion10087"><rect
+             ry="0"
+             style="font-size:14px;font-weight:normal;text-align:start;text-anchor:start;-inkscape-font-specification:'Franklin Gothic Medium,'"
+             y="609"
+             x="7"
+             height="101"
+             width="286"
+             id="rect10089" /></flowRegion><flowPara
+           id="flowPara10091">Eigenschaften</flowPara></flowRoot>      <path
+         inkscape:connector-curvature="0"
+         id="path10093"
+         d="m 2.5,938.86215 295.75,0"
+         style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1" />
+      <path
+         inkscape:connector-curvature="0"
+         id="path10095"
+         d="m 2.5,826.86182 295.5,0"
+         style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1" />
+      <path
+         style="fill:none;stroke:#ffffff;stroke-width:0.99429595px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1"
+         d="m 3.9272766,827.86215 292.1385034,0"
+         id="path10097"
+         inkscape:connector-curvature="0" />
+      <path
+         style="fill:none;stroke:#ffffff;stroke-width:0.99387288px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1"
+         d="m 3.9272786,939.85824 292.1369114,0"
+         id="path10099"
+         inkscape:connector-curvature="0" />
+    </g>
+    <path
+       sodipodi:nodetypes="cccc"
+       inkscape:connector-curvature="0"
+       id="path10101"
+       d="m 1561.8582,254.67779 -43.8433,0 0,-663.71938 -488.154,0"
+       style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-start:url(#DotM);marker-mid:none;marker-end:url(#TriangleOutL)" />
+    <path
+       sodipodi:nodetypes="cc"
+       inkscape:connector-curvature="0"
+       id="path10103"
+       d="m 849.99999,-337.4914 0,89.97855"
+       style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-start:url(#DiamondM);marker-mid:none;marker-end:url(#EmptyTriangleOutL)" />
+    <g
+       id="g10105"
+       transform="translate(1560,-8)"
+       style="stroke-linejoin:round">
+      <rect
+         style="fill:#deeaf7;fill-opacity:1;stroke:#000000;stroke-width:3.92982268;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+         id="rect10107"
+         width="296.07016"
+         height="246.07018"
+         x="1.9649113"
+         y="804.32709"
+         ry="1.242842" />
+      <text
+         xml:space="preserve"
+         style="font-size:18px;font-style:normal;font-weight:bold;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:Franklin Gothic Medium"
+         x="149.63084"
+         y="822.1814"
+         id="text10109"
+         sodipodi:linespacing="125%"><tspan
+           sodipodi:role="line"
+           id="tspan10111"
+           x="149.63084"
+           y="822.1814">Login.class</tspan></text>
+      <flowRoot
+         xml:space="preserve"
+         id="flowRoot10113"
+         style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:'Franklin Gothic Medium,'"
+         transform="translate(-16.563485,312.36215)"><flowRegion
+           id="flowRegion10115"><rect
+             id="rect10117"
+             width="287.79245"
+             height="101.11627"
+             x="22.627417"
+             y="517.06036"
+             style="font-weight:normal;-inkscape-font-specification:'Franklin Gothic Medium,'" /></flowRegion><flowPara
+           style="font-size:14px;font-weight:normal;text-align:justify;text-anchor:start;-inkscape-font-specification:'Franklin Gothic Medium,'"
+           id="flowPara10119">Diese Klasse verwaltet das Ein- und Ausloggen eines Users.</flowPara></flowRoot>      <flowRoot
+         xml:space="preserve"
+         id="flowRoot10121"
+         style="font-size:14px;font-style:normal;font-weight:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:'Franklin Gothic Medium,'"
+         transform="translate(-0.2631923,336.36215)"><flowRegion
+           id="flowRegion10123"><rect
+             id="rect10125"
+             width="286"
+             height="101"
+             x="7"
+             y="609"
+             style="font-size:14px;font-weight:normal;text-align:start;text-anchor:start;-inkscape-font-specification:'Franklin Gothic Medium,'"
+             ry="0" /></flowRegion><flowPara
+           id="flowPara10127">protected DoLogin();</flowPara><flowPara
+           id="flowPara10211">protected DoLogout();</flowPara></flowRoot>      <path
+         style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1"
+         d="m 2.5,938.86215 295.75,0"
+         id="path10129"
+         inkscape:connector-curvature="0" />
+      <path
+         style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1"
+         d="m 2.5,826.86182 295.5,0"
+         id="path10131"
+         inkscape:connector-curvature="0" />
+      <path
+         inkscape:connector-curvature="0"
+         id="path10133"
+         d="m 3.9272766,827.86215 292.1385034,0"
+         style="fill:none;stroke:#ffffff;stroke-width:0.99429595px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1" />
+      <path
+         inkscape:connector-curvature="0"
+         id="path10135"
+         d="m 3.9272786,939.85824 292.1369114,0"
+         style="fill:none;stroke:#ffffff;stroke-width:0.99387288px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1" />
+    </g>
+    <g
+       style="stroke-linejoin:round"
+       transform="translate(1980,-8)"
+       id="g10137">
+      <rect
+         ry="1.242842"
+         y="804.32709"
+         x="1.9649113"
+         height="246.07018"
+         width="296.07016"
+         id="rect10139"
+         style="fill:#deeaf7;fill-opacity:1;stroke:#000000;stroke-width:3.92982268;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+      <text
+         sodipodi:linespacing="125%"
+         id="text10141"
+         y="822.1814"
+         x="149.63084"
+         style="font-size:18px;font-style:normal;font-weight:bold;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:Franklin Gothic Medium"
+         xml:space="preserve"><tspan
+           y="822.1814"
+           x="149.63084"
+           id="tspan10143"
+           sodipodi:role="line">Register.class</tspan></text>
+      <flowRoot
+         transform="translate(-16.563485,312.36215)"
+         style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:'Franklin Gothic Medium,'"
+         id="flowRoot10145"
+         xml:space="preserve"><flowRegion
+           id="flowRegion10147"><rect
+             style="font-weight:normal;-inkscape-font-specification:'Franklin Gothic Medium,'"
+             y="517.06036"
+             x="22.627417"
+             height="101.11627"
+             width="287.79245"
+             id="rect10149" /></flowRegion><flowPara
+           id="flowPara10151"
+           style="font-size:14px;font-weight:normal;text-align:justify;text-anchor:start;-inkscape-font-specification:'Franklin Gothic Medium,'">Diese Klasse verwaltet die Registrierung eines Benutzers.</flowPara></flowRoot>      <flowRoot
+         transform="translate(-0.2631923,336.36215)"
+         style="font-size:14px;font-style:normal;font-weight:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:'Franklin Gothic Medium,'"
+         id="flowRoot10153"
+         xml:space="preserve"><flowRegion
+           id="flowRegion10155"><rect
+             ry="0"
+             style="font-size:14px;font-weight:normal;text-align:start;text-anchor:start;-inkscape-font-specification:'Franklin Gothic Medium,'"
+             y="609"
+             x="7"
+             height="101"
+             width="286"
+             id="rect10157" /></flowRegion><flowPara
+           id="flowPara10159">protected DoRegister();</flowPara></flowRoot>      <path
+         inkscape:connector-curvature="0"
+         id="path10161"
+         d="m 2.5,938.86215 295.75,0"
+         style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1" />
+      <path
+         inkscape:connector-curvature="0"
+         id="path10163"
+         d="m 2.5,826.86182 295.5,0"
+         style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1" />
+      <path
+         style="fill:none;stroke:#ffffff;stroke-width:0.99429595px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1"
+         d="m 3.9272766,827.86215 292.1385034,0"
+         id="path10165"
+         inkscape:connector-curvature="0" />
+      <path
+         style="fill:none;stroke:#ffffff;stroke-width:0.99387288px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1"
+         d="m 3.9272786,939.85824 292.1369114,0"
+         id="path10167"
+         inkscape:connector-curvature="0" />
+    </g>
+    <g
+       style="stroke-linejoin:round"
+       transform="translate(1780,332)"
+       id="g10175">
+      <rect
+         ry="1.242842"
+         y="804.32709"
+         x="1.9649113"
+         height="246.07018"
+         width="296.07016"
+         id="rect10177"
+         style="fill:#deeaf7;fill-opacity:1;stroke:#000000;stroke-width:3.92982268;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+      <text
+         sodipodi:linespacing="125%"
+         id="text10179"
+         y="822.1814"
+         x="149.63084"
+         style="font-size:18px;font-style:normal;font-weight:bold;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:Franklin Gothic Medium"
+         xml:space="preserve"><tspan
+           y="822.1814"
+           x="149.63084"
+           id="tspan10181"
+           sodipodi:role="line">Session.class</tspan></text>
+      <flowRoot
+         transform="translate(-16.563485,312.36215)"
+         style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:'Franklin Gothic Medium,'"
+         id="flowRoot10183"
+         xml:space="preserve"><flowRegion
+           id="flowRegion10185"><rect
+             style="font-weight:normal;-inkscape-font-specification:'Franklin Gothic Medium,'"
+             y="517.06036"
+             x="22.627417"
+             height="101.11627"
+             width="287.79245"
+             id="rect10187" /></flowRegion><flowPara
+           id="flowPara10189"
+           style="font-size:14px;font-weight:normal;text-align:justify;text-anchor:start;-inkscape-font-specification:'Franklin Gothic Medium,'">Diese Klasse verwaltet die Sessions.</flowPara></flowRoot>      <flowRoot
+         transform="translate(-0.2631923,336.36215)"
+         style="font-size:14px;font-style:normal;font-weight:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:'Franklin Gothic Medium,'"
+         id="flowRoot10191"
+         xml:space="preserve"><flowRegion
+           id="flowRegion10193"><rect
+             ry="0"
+             style="font-size:14px;font-weight:normal;text-align:start;text-anchor:start;-inkscape-font-specification:'Franklin Gothic Medium,'"
+             y="609"
+             x="7"
+             height="101"
+             width="286"
+             id="rect10195" /></flowRegion><flowPara
+           id="flowPara10197">protected Create(???);</flowPara><flowPara
+           id="flowPara10219">protected Destroy(???);</flowPara></flowRoot>      <path
+         inkscape:connector-curvature="0"
+         id="path10199"
+         d="m 2.5,938.86215 295.75,0"
+         style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1" />
+      <path
+         inkscape:connector-curvature="0"
+         id="path10201"
+         d="m 2.5,826.86182 295.5,0"
+         style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1" />
+      <path
+         style="fill:none;stroke:#ffffff;stroke-width:0.99429595px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1"
+         d="m 3.9272766,827.86215 292.1385034,0"
+         id="path10203"
+         inkscape:connector-curvature="0" />
+      <path
+         style="fill:none;stroke:#ffffff;stroke-width:0.99387288px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1"
+         d="m 3.9272786,939.85824 292.1369114,0"
+         id="path10205"
+         inkscape:connector-curvature="0" />
+    </g>
+    <path
+       sodipodi:nodetypes="ccccc"
+       inkscape:connector-curvature="0"
+       id="path10207"
+       d="m 1675.5,795.8013 0,-61.86314 212.5,0 0,-409.12272 -18.6464,0"
+       style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-start:url(#DotM);marker-end:url(#EmptyDiamondLstart)" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-start:url(#DotM);marker-end:url(#EmptyDiamondLstart)"
+       d="m 2175.5,795.8013 0,-61.86314 -227.1569,0 0,-461.12272 -78.9895,0"
+       id="path10209"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccccc" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-start:url(#DotM);marker-end:url(#EmptyDiamondLstart)"
+       d="m 1922,1136.2594 0,-837.44396 -52.6464,0"
+       id="path10213"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccc" />
+    <path
+       sodipodi:nodetypes="cc"
+       inkscape:connector-curvature="0"
+       id="path10215"
+       d="m 2430,2.5085965 0,91.0392135"
+       style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-start:url(#DiamondM);marker-mid:none;marker-end:url(#EmptyTriangleOutL)" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-start:url(#DiamondM);marker-mid:none;marker-end:url(#EmptyTriangleOutL)"
+       d="m 2670,2.5085965 0,90.6856605"
+       id="path10217"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:none;stroke:#24384e;stroke-width:2;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-start:url(#DiamondM);marker-mid:none;marker-end:url(#EmptyTriangleOutL)"
+       d="m 1840.0607,342.56926 0,28.07272 94.1055,0 0,395.23727 190.8945,0 0,27.65968"
+       id="path10223"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cccccc" />
+    <path
+       sodipodi:nodetypes="cccc"
+       inkscape:connector-curvature="0"
+       id="path10225"
+       d="m 1820.0607,342.56926 0,52.66787 84.635,0 c -1.4781,245.8412 0,492.03702 0,737.83737"
+       style="fill:none;stroke:#24384e;stroke-width:2;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-start:url(#DiamondM);marker-mid:none;marker-end:url(#EmptyTriangleOutL)" />
+    <path
+       style="fill:none;stroke:#24384e;stroke-width:2;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-start:url(#DiamondM);marker-mid:none;marker-end:url(#EmptyTriangleOutL)"
+       d="m 1800.0607,342.56926 0,79.39016 73.3852,0 0,343.55463 -86.3852,0 0,28.02488"
+       id="path10227"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cccccc" />
   </g>
 </svg>
