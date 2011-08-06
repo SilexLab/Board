@@ -106,8 +106,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="1"
-     inkscape:cx="1228.2863"
-     inkscape:cy="1177.1279"
+     inkscape:cx="1360.5916"
+     inkscape:cy="981.68368"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="true"
@@ -400,7 +400,7 @@
          sodipodi:role="line"
          id="tspan5862"
          x="225.5"
-         y="-90.637909">- ist ein Kind von</tspan></text>
+         y="-90.637909">- ist ein Kind (und abhängig) von</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:16px;font-style:normal;font-weight:bold;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:Franklin Gothic Medium"
@@ -423,7 +423,7 @@
          y="-14.637909"
          x="225.5"
          id="tspan6640"
-         sodipodi:role="line">- ist abhängig von (/benutzt)</tspan></text>
+         sodipodi:role="line">- hat zugriff auf</tspan></text>
     <text
        sodipodi:linespacing="125%"
        id="text6642"
@@ -435,7 +435,7 @@
          y="23.362087"
          x="225.5"
          id="tspan6644"
-         sodipodi:role="line">- dieser(/diese) Klasse</tspan></text>
+         sodipodi:role="line">- diese Klasse</tspan></text>
     <g
        transform="translate(1140,-1048)"
        id="g6646">
@@ -505,5 +505,178 @@
          id="path6676"
          inkscape:connector-curvature="0" />
     </g>
+    <g
+       id="g6678"
+       transform="translate(1140,-708)">
+      <rect
+         style="fill:#deeaf7;fill-opacity:1;stroke:#000000;stroke-width:3.92982268;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+         id="rect6680"
+         width="296.07016"
+         height="246.07018"
+         x="1.9649113"
+         y="804.32709"
+         ry="1.242842" />
+      <text
+         xml:space="preserve"
+         style="font-size:18px;font-style:normal;font-weight:bold;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:Franklin Gothic Medium"
+         x="149.63084"
+         y="822.1814"
+         id="text6682"
+         sodipodi:linespacing="125%"><tspan
+           sodipodi:role="line"
+           id="tspan6684"
+           x="149.63084"
+           y="822.1814">PageInfo.class</tspan></text>
+      <flowRoot
+         xml:space="preserve"
+         id="flowRoot6686"
+         style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:'Franklin Gothic Medium,'"
+         transform="translate(-16.563485,312.36215)"><flowRegion
+           id="flowRegion6688"><rect
+             id="rect6690"
+             width="287.79245"
+             height="101.11627"
+             x="22.627417"
+             y="517.06036"
+             style="font-weight:normal;-inkscape-font-specification:'Franklin Gothic Medium,'" /></flowRegion><flowPara
+           style="font-size:14px;font-weight:normal;text-align:justify;text-anchor:start;-inkscape-font-specification:'Franklin Gothic Medium,'"
+           id="flowPara6692">Diese Klasse speichert Informationen über die aktuelle Seite, somit können Titel der Seite, übergeordnete Seite, etc. ausgelesen und verwendet werden.</flowPara></flowRoot>      <flowRoot
+         xml:space="preserve"
+         id="flowRoot6694"
+         style="font-size:14px;font-style:normal;font-weight:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:'Franklin Gothic Medium,'"
+         transform="translate(-0.2631923,336.36215)"><flowRegion
+           id="flowRegion6696"><rect
+             id="rect6698"
+             width="286"
+             height="101"
+             x="7"
+             y="609"
+             style="font-size:14px;font-weight:normal;text-align:start;text-anchor:start;-inkscape-font-specification:'Franklin Gothic Medium,'"
+             ry="0" /></flowRegion><flowPara
+           id="flowPara6700">Kind der Pageklasse, kann nur von dieser und deren Kinder geändert werden.</flowPara></flowRoot>      <path
+         style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         d="m 2.5,938.86215 295.75,0"
+         id="path6702"
+         inkscape:connector-curvature="0" />
+      <path
+         style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         d="m 2.5,826.86182 295.5,0"
+         id="path6704"
+         inkscape:connector-curvature="0" />
+      <path
+         inkscape:connector-curvature="0"
+         id="path6706"
+         d="m 3.9272766,827.86215 292.1385034,0"
+         style="fill:none;stroke:#ffffff;stroke-width:0.99429595px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      <path
+         inkscape:connector-curvature="0"
+         id="path6708"
+         d="m 3.9272786,939.85824 292.1369114,0"
+         style="fill:none;stroke:#ffffff;stroke-width:0.99387288px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+    </g>
+    <path
+       sodipodi:nodetypes="cc"
+       inkscape:connector-curvature="0"
+       id="path6710"
+       d="m 1270,2.5085965 0,91.8535535"
+       style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-start:url(#DotM);marker-mid:none;marker-end:url(#EmptyTriangleOutL)" />
+    <path
+       sodipodi:nodetypes="cc"
+       inkscape:connector-curvature="0"
+       id="path6712"
+       d="m 1310,96.073824 0,-82.805094"
+       style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-start:url(#DotM);marker-end:url(#EmptyDiamondLstart)" />
+    <g
+       id="g6714"
+       transform="translate(1560,-1048)">
+      <rect
+         style="fill:#deeaf7;fill-opacity:1;stroke:#000000;stroke-width:3.92982268;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+         id="rect6716"
+         width="296.07016"
+         height="246.07018"
+         x="1.9649113"
+         y="804.32709"
+         ry="1.242842" />
+      <text
+         xml:space="preserve"
+         style="font-size:18px;font-style:normal;font-weight:bold;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:Franklin Gothic Medium"
+         x="149.63084"
+         y="822.1814"
+         id="text6718"
+         sodipodi:linespacing="125%"><tspan
+           sodipodi:role="line"
+           id="tspan6720"
+           x="149.63084"
+           y="822.1814">&lt;Seite&gt;Page.class</tspan></text>
+      <flowRoot
+         xml:space="preserve"
+         id="flowRoot6722"
+         style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:'Franklin Gothic Medium,'"
+         transform="translate(-16.563485,312.36215)"><flowRegion
+           id="flowRegion6724"><rect
+             id="rect6726"
+             width="287.79245"
+             height="101.11627"
+             x="22.627417"
+             y="517.06036"
+             style="font-weight:normal;-inkscape-font-specification:'Franklin Gothic Medium,'" /></flowRegion><flowPara
+           style="font-size:14px;font-weight:normal;text-align:justify;text-anchor:start;-inkscape-font-specification:'Franklin Gothic Medium,'"
+           id="flowPara6728">Diese Klassen enthalten Informationen, wie genau die aufgerufene Seite zu behandeln ist, wie und was genau angezeigt wird. Sie lesen z.B. bestimmte Informationen aus der Datenbank.</flowPara></flowRoot>      <flowRoot
+         xml:space="preserve"
+         id="flowRoot6730"
+         style="font-size:14px;font-style:normal;font-weight:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:'Franklin Gothic Medium,'"
+         transform="translate(-0.2631923,336.36215)"><flowRegion
+           id="flowRegion6732"><rect
+             id="rect6734"
+             width="286"
+             height="101"
+             x="7"
+             y="609"
+             style="font-size:14px;font-weight:normal;text-align:start;text-anchor:start;-inkscape-font-specification:'Franklin Gothic Medium,'"
+             ry="0" /></flowRegion><flowPara
+           id="flowPara6736">Diese Klassen werden von der Pageklasse aufgerufen.</flowPara></flowRoot>      <path
+         style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         d="m 2.5,938.86215 295.75,0"
+         id="path6738"
+         inkscape:connector-curvature="0" />
+      <path
+         style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         d="m 2.5,826.86182 295.5,0"
+         id="path6740"
+         inkscape:connector-curvature="0" />
+      <path
+         inkscape:connector-curvature="0"
+         id="path6742"
+         d="m 3.9272766,827.86215 292.1385034,0"
+         style="fill:none;stroke:#ffffff;stroke-width:0.99429595px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      <path
+         inkscape:connector-curvature="0"
+         id="path6744"
+         d="m 3.9272786,939.85824 292.1369114,0"
+         style="fill:none;stroke:#ffffff;stroke-width:0.99387288px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+    </g>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-start:url(#DotM);marker-end:url(#EmptyDiamondLstart)"
+       d="M 1561.75,-486 1449,-486"
+       id="path6746"
+       inkscape:connector-curvature="0"
+       transform="translate(0,332.36215)"
+       sodipodi:nodetypes="cc" />
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot7132"
+       style="fill:black;stroke:none;stroke-opacity:1;stroke-width:1px;stroke-linejoin:miter;stroke-linecap:butt;fill-opacity:1;font-family:Franklin Gothic Medium;font-style:normal;font-weight:bold;font-size:16px;line-height:125%;letter-spacing:0px;word-spacing:0px;-inkscape-font-specification:Franklin Gothic Medium"><flowRegion
+         id="flowRegion7134"><rect
+           id="rect7136"
+           width="9.8994951"
+           height="42.426407"
+           x="1746.5537"
+           y="-234.59416" /></flowRegion><flowPara
+         id="flowPara7138"></flowPara></flowRoot>    <path
+       style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-start:url(#DotM);marker-mid:none;marker-end:url(#EmptyTriangleOutL)"
+       d="m 1561.8997,-84.916411 -62.7712,0 0,249.068481 -59.8564,0"
+       id="path7140"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cccc" />
   </g>
 </svg>
