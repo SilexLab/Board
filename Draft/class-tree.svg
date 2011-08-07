@@ -16,7 +16,7 @@
    inkscape:version="0.48.1 "
    version="1.1"
    id="svg2"
-   height="2310"
+   height="2654"
    width="2934.9121">
   <title
      id="title5837">Klassen Diagramm</title>
@@ -25,21 +25,22 @@
     <marker
        inkscape:stockid="TriangleInL"
        orient="auto"
-       refY="0.0"
-       refX="0.0"
+       refY="0"
+       refX="0"
        id="TriangleInL"
        style="overflow:visible">
       <path
          id="path4682"
-         d="M 5.77,0.0 L -2.88,5.0 L -2.88,-5.0 L 5.77,0.0 z "
-         style="fill-rule:evenodd;stroke:#000000;stroke-width:1.0pt;marker-start:none"
-         transform="scale(-0.8)" />
+         d="m 5.77,0 -8.65,5 0,-10 8.65,5 z"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt;marker-start:none"
+         transform="scale(-0.8,-0.8)"
+         inkscape:connector-curvature="0" />
     </marker>
     <marker
        inkscape:stockid="CurveIn"
        orient="auto"
-       refY="0.0"
-       refX="0.0"
+       refY="0"
+       refX="0"
        id="CurveIn"
        style="overflow:visible">
       <path
@@ -52,15 +53,16 @@
     <marker
        inkscape:stockid="DotL"
        orient="auto"
-       refY="0.0"
-       refX="0.0"
+       refY="0"
+       refX="0"
        id="DotL"
        style="overflow:visible">
       <path
          id="path4975"
-         d="M -2.5,-1.0 C -2.5,1.7600000 -4.7400000,4.0 -7.5,4.0 C -10.260000,4.0 -12.5,1.7600000 -12.5,-1.0 C -12.5,-3.7600000 -10.260000,-6.0 -7.5,-6.0 C -4.7400000,-6.0 -2.5,-3.7600000 -2.5,-1.0 z "
-         style="fill-rule:evenodd;stroke:#000000;stroke-width:1.0pt;marker-start:none;marker-end:none"
-         transform="scale(0.8) translate(7.4, 1)" />
+         d="m -2.5,-1 c 0,2.76 -2.24,5 -5,5 -2.76,0 -5,-2.24 -5,-5 0,-2.76 2.24,-5 5,-5 2.76,0 5,2.24 5,5 z"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt;marker-start:none;marker-end:none"
+         transform="matrix(0.8,0,0,0.8,5.92,0.8)"
+         inkscape:connector-curvature="0" />
     </marker>
     <marker
        inkscape:stockid="DiamondM"
@@ -196,9 +198,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.70710678"
-     inkscape:cx="750.15376"
-     inkscape:cy="1370.5161"
+     inkscape:zoom="1"
+     inkscape:cx="713.17028"
+     inkscape:cy="2044.1602"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="true"
@@ -210,10 +212,10 @@
      inkscape:window-x="-8"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
-     fit-margin-top="0"
-     fit-margin-left="0"
-     fit-margin-right="0"
-     fit-margin-bottom="0">
+     fit-margin-top="2"
+     fit-margin-left="2"
+     fit-margin-right="2"
+     fit-margin-bottom="2">
     <inkscape:grid
        type="xygrid"
        id="grid3809"
@@ -238,7 +240,7 @@
      inkscape:label="Ebene 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(34.91214,925.625)">
+     transform="translate(32.91214,1267.625)">
     <flowRoot
        xml:space="preserve"
        id="flowRoot3785"
@@ -1336,7 +1338,7 @@
        sodipodi:cy="-141.52122"
        sodipodi:rx="4.1542525"
        sodipodi:ry="4.1542525"
-       d="m 288.85314,-141.52122 c 0,2.29433 -1.85993,4.15425 -4.15426,4.15425 -2.29433,0 -4.15425,-1.85992 -4.15425,-4.15425 0,-2.29434 1.85992,-4.15426 4.15425,-4.15426 2.29433,0 4.15426,1.85992 4.15426,4.15426 z"
+       d="m 288.85314,-141.52122 a 4.1542525,4.1542525 0 1 1 -8.30851,0 4.1542525,4.1542525 0 1 1 8.30851,0 z"
        transform="translate(-432.26532,1187.4903)" />
     <path
        style="fill:none;stroke:#808080;stroke-width:2;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:2, 4;stroke-dashoffset:1.4;marker-start:url(#DotM)"
@@ -1600,12 +1602,6 @@
        id="path10101"
        d="m 1561.8582,254.67779 -43.8433,0 0,-663.71938 -488.154,0"
        style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-start:url(#DotM);marker-mid:none;marker-end:url(#TriangleOutL)" />
-    <path
-       sodipodi:nodetypes="cc"
-       inkscape:connector-curvature="0"
-       id="path10103"
-       d="m 849.99999,-337.4914 0,89.97855"
-       style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-start:url(#DiamondM);marker-mid:none;marker-end:url(#EmptyTriangleOutL)" />
     <g
        id="g10105"
        transform="translate(1560,-8)"
@@ -2055,10 +2051,10 @@
          style="fill:none;stroke:#ffffff;stroke-width:0.99387288px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1" />
     </g>
     <path
-       sodipodi:nodetypes="cccc"
+       sodipodi:nodetypes="ccc"
        inkscape:connector-curvature="0"
        id="path10321"
-       d="m 598.2089,-383.81969 62.4049,0 0,226.33149 49.7478,0"
+       d="m 569.41135,-337.81969 0,180.33149 140.95025,0"
        style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-start:url(#DotM);marker-mid:none;marker-end:url(#TriangleOutL)" />
     <g
        style="stroke-linejoin:round"
@@ -2617,18 +2613,18 @@
     <path
        sodipodi:nodetypes="cc"
        style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-start:url(#DotM);marker-mid:none;marker-end:url(#CurveIn)"
-       d="m 581.9347,-337.35211 -99.5902,88.5671"
+       d="m 521.9347,-337.35211 -99.5902,88.5671"
        id="path5873"
        inkscape:connector-curvature="0" />
     <text
        sodipodi:linespacing="125%"
        id="text5875"
        y="-235.15083"
-       x="328.40887"
+       x="268.40887"
        style="font-size:16px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:Sans"
        xml:space="preserve"><tspan
          y="-235.15083"
-         x="328.40887"
+         x="268.40887"
          sodipodi:role="line"
          id="tspan5877">MessageBoxInterface</tspan></text>
     <path
@@ -2763,6 +2759,207 @@
        id="path5933"
        d="m 2652.688,342.47994 -75.3099,46.68316"
        style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-start:url(#DotM);marker-mid:none;marker-end:url(#CurveIn)"
+       sodipodi:nodetypes="cc" />
+    <g
+       id="g5935"
+       transform="translate(1140,-2068)"
+       style="stroke-linejoin:round">
+      <rect
+         style="fill:#deeaf7;fill-opacity:1;stroke:#000000;stroke-width:3.92982268;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+         id="rect5937"
+         width="296.07016"
+         height="246.07018"
+         x="1.9649113"
+         y="804.32709"
+         ry="1.242842" />
+      <text
+         xml:space="preserve"
+         style="font-size:18px;font-style:normal;font-weight:bold;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:Franklin Gothic Medium"
+         x="149.63084"
+         y="822.1814"
+         id="text5939"
+         sodipodi:linespacing="125%"><tspan
+           sodipodi:role="line"
+           id="tspan5941"
+           x="149.63084"
+           y="822.1814">Autoloader.class</tspan></text>
+      <flowRoot
+         xml:space="preserve"
+         id="flowRoot5943"
+         style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:'Franklin Gothic Medium,'"
+         transform="translate(-16.563485,312.36215)"><flowRegion
+           id="flowRegion5945"><rect
+             id="rect5947"
+             width="287.79245"
+             height="101.11627"
+             x="22.627417"
+             y="517.06036"
+             style="font-weight:normal;-inkscape-font-specification:'Franklin Gothic Medium,'" /></flowRegion><flowPara
+           id="flowPara5951"
+           style="font-size:14px;font-weight:normal;text-align:justify;text-anchor:start;-inkscape-font-specification:'Franklin Gothic Medium,'">Diese Klasse lädt automatisch alle anderen Klassen, die durch einen Klassenaufruf aufgerufen werden.</flowPara></flowRoot>      <flowRoot
+         xml:space="preserve"
+         id="flowRoot5953"
+         style="font-size:14px;font-style:normal;font-weight:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:'Franklin Gothic Medium,'"
+         transform="translate(-0.2631923,336.36215)"><flowRegion
+           id="flowRegion5955"><rect
+             id="rect5957"
+             width="286"
+             height="101"
+             x="7"
+             y="609"
+             style="font-size:14px;font-weight:normal;text-align:start;text-anchor:start;-inkscape-font-specification:'Franklin Gothic Medium,'"
+             ry="0" /></flowRegion><flowPara
+           id="flowPara5959">Eigenschaften</flowPara></flowRoot>      <path
+         style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1"
+         d="m 2.5,938.86215 295.75,0"
+         id="path5961"
+         inkscape:connector-curvature="0" />
+      <path
+         style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1"
+         d="m 2.5,826.86182 295.5,0"
+         id="path5963"
+         inkscape:connector-curvature="0" />
+      <path
+         inkscape:connector-curvature="0"
+         id="path5965"
+         d="m 3.9272766,827.86215 292.1385034,0"
+         style="fill:none;stroke:#ffffff;stroke-width:0.99429595px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1" />
+      <path
+         inkscape:connector-curvature="0"
+         id="path5967"
+         d="m 3.9272786,939.85824 292.1369114,0"
+         style="fill:none;stroke:#ffffff;stroke-width:0.99387288px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1" />
+    </g>
+    <g
+       style="stroke-linejoin:round"
+       transform="translate(720,-2068)"
+       id="g5969">
+      <rect
+         ry="1.242842"
+         y="804.32709"
+         x="1.9649113"
+         height="246.07018"
+         width="296.07016"
+         id="rect5971"
+         style="fill:#deeaf7;fill-opacity:1;stroke:#000000;stroke-width:3.92982268;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+      <text
+         sodipodi:linespacing="125%"
+         id="text5973"
+         y="822.1814"
+         x="149.63084"
+         style="font-size:18px;font-style:normal;font-weight:bold;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:Franklin Gothic Medium"
+         xml:space="preserve"><tspan
+           y="822.1814"
+           x="149.63084"
+           id="tspan5975"
+           sodipodi:role="line">SBB.class</tspan></text>
+      <flowRoot
+         transform="translate(-16.563485,312.36215)"
+         style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:'Franklin Gothic Medium,'"
+         id="flowRoot5977"
+         xml:space="preserve"><flowRegion
+           id="flowRegion5979"><rect
+             style="font-weight:normal;-inkscape-font-specification:'Franklin Gothic Medium,'"
+             y="517.06036"
+             x="22.627417"
+             height="101.11627"
+             width="287.79245"
+             id="rect5981" /></flowRegion><flowPara
+           style="font-size:14px;font-weight:normal;text-align:justify;text-anchor:start;-inkscape-font-specification:'Franklin Gothic Medium,'"
+           id="flowPara5983">Diese Klasse ist die &quot;Haupt-Klasse&quot; des Boards.</flowPara></flowRoot>      <flowRoot
+         transform="translate(-0.2631923,336.36215)"
+         style="font-size:14px;font-style:normal;font-weight:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:'Franklin Gothic Medium,'"
+         id="flowRoot5985"
+         xml:space="preserve"><flowRegion
+           id="flowRegion5987"><rect
+             ry="0"
+             style="font-size:14px;font-weight:normal;text-align:start;text-anchor:start;-inkscape-font-specification:'Franklin Gothic Medium,'"
+             y="609"
+             x="7"
+             height="101"
+             width="286"
+             id="rect5989" /></flowRegion><flowPara
+           id="flowPara5995">Statische Klasse die beim aufruf von Initial(); alle Klassen &quot;startet&quot;.</flowPara></flowRoot>      <path
+         inkscape:connector-curvature="0"
+         id="path5997"
+         d="m 2.5,938.86215 295.75,0"
+         style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1" />
+      <path
+         inkscape:connector-curvature="0"
+         id="path5999"
+         d="m 2.5,826.86182 295.5,0"
+         style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1" />
+      <path
+         style="fill:none;stroke:#ffffff;stroke-width:0.99429595px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1"
+         d="m 3.9272766,827.86215 292.1385034,0"
+         id="path6001"
+         inkscape:connector-curvature="0" />
+      <path
+         style="fill:none;stroke:#ffffff;stroke-width:0.99387288px;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1"
+         d="m 3.9272786,939.85824 292.1369114,0"
+         id="path6003"
+         inkscape:connector-curvature="0" />
+    </g>
+    <path
+       sodipodi:nodetypes="cc"
+       inkscape:connector-curvature="0"
+       id="path6012"
+       d="m 1141.75,-1173.6378 -112.75,0"
+       style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-start:url(#DotM);marker-end:url(#EmptyDiamondLstart)" />
+    <path
+       sodipodi:nodetypes="cc"
+       inkscape:connector-curvature="0"
+       id="path6016"
+       d="m 1017.8024,-1113.6148 121.7992,0"
+       style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-start:url(#DiamondM);marker-mid:none;marker-end:url(#EmptyTriangleOutL)" />
+    <path
+       sodipodi:nodetypes="cc"
+       style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-start:url(#DotM);marker-mid:none;marker-end:url(#CurveIn)"
+       d="m 1438.1204,-1175.8129 102.9464,85.3191"
+       id="path6018"
+       inkscape:connector-curvature="0" />
+    <text
+       sodipodi:linespacing="125%"
+       id="text6020"
+       y="-1076.3918"
+       x="1547.5894"
+       style="font-size:16px;font-style:normal;font-weight:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:Sans"
+       xml:space="preserve"><tspan
+         y="-1076.3918"
+         x="1547.5894"
+         id="tspan6022"
+         sodipodi:role="line"><tspan
+   style="text-align:start;text-anchor:start"
+   id="tspan6024">AutoloaderI</tspan>nterface</tspan></text>
+    <path
+       sodipodi:nodetypes="cccccc"
+       inkscape:connector-curvature="0"
+       id="path6026"
+       d="m 750.00001,-243.92618 0,-37.75329 -89.09273,0 0,-366.87139 98.37164,0 0,-358.03514"
+       style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-start:url(#DotM);marker-end:url(#EmptyDiamondLstart)" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-start:url(#DiamondM);marker-mid:none;marker-end:url(#EmptyTriangleOutL)"
+       d="m 789.99999,-1017.4914 0,403.7827 -100,0 0,302.54214 92,0 0,64.36082"
+       id="path6028"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cccccc" />
+    <path
+       sodipodi:nodetypes="cccc"
+       inkscape:connector-curvature="0"
+       id="path6034"
+       d="m 1269.1395,-243.67618 0,-370.03252 -319.50004,0 0,-392.8773"
+       style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-start:url(#DotM);marker-end:url(#EmptyDiamondLstart)" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-start:url(#DiamondM);marker-mid:none;marker-end:url(#EmptyTriangleOutL)"
+       d="m 989.99999,-1017.4914 0,368.94054 321.50001,0 0,401.99512"
+       id="path6036"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cccc" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-start:url(#DotM);marker-mid:none;marker-end:url(#TriangleOutL)"
+       d="m 849.061,-337.68361 0,81.81003"
+       id="path6038"
+       inkscape:connector-curvature="0"
        sodipodi:nodetypes="cc" />
   </g>
 </svg>
