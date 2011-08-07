@@ -196,9 +196,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1"
-     inkscape:cx="457.33079"
-     inkscape:cy="1770.0945"
+     inkscape:zoom="0.70710678"
+     inkscape:cx="750.15376"
+     inkscape:cy="1370.5161"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="true"
@@ -482,58 +482,58 @@
        sodipodi:nodetypes="cc"
        inkscape:connector-curvature="0"
        id="path5856"
-       d="m 210.00002,-19.13785 0,45.625"
+       d="m 214.00002,1156.8622 0,45.625"
        style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-start:url(#DiamondM);marker-mid:none;marker-end:url(#EmptyTriangleOutL)" />
     <path
        sodipodi:nodetypes="cc"
        inkscape:connector-curvature="0"
        id="path5858"
-       d="m 210.00001,-95.34039 0,28.60912"
+       d="m 214.00001,1080.6596 0,28.6091"
        style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-start:url(#DotM);marker-end:url(#EmptyDiamondLstart)" />
     <text
        xml:space="preserve"
-       style="font-size:18px;font-style:normal;font-weight:bold;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:Franklin Gothic Medium"
-       x="225.5"
-       y="-90.637909"
+       style="font-size:18px;font-style:normal;font-weight:bold;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#404040;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:Franklin Gothic Medium"
+       x="229.5"
+       y="1085.3621"
        id="text5860"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan5862"
-         x="225.5"
-         y="-90.637909">- ist ein Kind (und abhängig) von</tspan></text>
+         x="229.5"
+         y="1085.3621">- ist ein Kind (und abhängig) von</tspan></text>
     <text
        xml:space="preserve"
-       style="font-size:16px;font-style:normal;font-weight:bold;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:Franklin Gothic Medium"
-       x="225.5"
-       y="-50.637913"
+       style="font-size:16px;font-style:normal;font-weight:bold;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#404040;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:Franklin Gothic Medium"
+       x="229.5"
+       y="1125.3621"
        id="text6634"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan6636"
-         x="225.5"
-         y="-50.637913"
-         style="font-size:18px">- dieser Klasse</tspan></text>
+         x="229.5"
+         y="1125.3621"
+         style="font-size:18px;fill:#404040;fill-opacity:1">- dieser Klasse</tspan></text>
     <text
        sodipodi:linespacing="125%"
        id="text6638"
-       y="-14.637909"
-       x="225.5"
-       style="font-size:18px;font-style:normal;font-weight:bold;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:Franklin Gothic Medium"
+       y="1161.3621"
+       x="229.5"
+       style="font-size:18px;font-style:normal;font-weight:bold;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#404040;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:Franklin Gothic Medium"
        xml:space="preserve"><tspan
-         y="-14.637909"
-         x="225.5"
+         y="1161.3621"
+         x="229.5"
          id="tspan6640"
          sodipodi:role="line">- hat &quot;Schreibzugriff&quot; auf</tspan></text>
     <text
        sodipodi:linespacing="125%"
        id="text6642"
-       y="23.362087"
-       x="225.5"
-       style="font-size:16px;font-style:normal;font-weight:bold;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:Franklin Gothic Medium"
+       y="1199.3621"
+       x="229.5"
+       style="font-size:16px;font-style:normal;font-weight:bold;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#404040;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:Franklin Gothic Medium"
        xml:space="preserve"><tspan
-         style="font-size:18px"
-         y="23.362087"
-         x="225.5"
+         style="font-size:18px;fill:#404040;fill-opacity:1"
+         y="1199.3621"
+         x="229.5"
          id="tspan6644"
          sodipodi:role="line">- diese Klasse</tspan></text>
     <g
@@ -585,7 +585,7 @@
              height="101"
              width="286"
              id="rect6666" /></flowRegion><flowPara
-           id="flowPara6668">Eigenschaften</flowPara></flowRoot>      <path
+           id="flowPara6668">Eventuel einige abstrakte Funktionen für die Unterklassen.</flowPara></flowRoot>      <path
          inkscape:connector-curvature="0"
          id="path6670"
          d="m 2.5,938.86215 295.75,0"
@@ -1154,33 +1154,33 @@
     </g>
     <path
        style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-start:url(#DotM);marker-mid:none;marker-end:url(#TriangleOutL)"
-       d="m 210.00002,96.239655 0,-35.725505"
+       d="m 214.00002,1272.2397 0,-35.7256"
        id="path7383"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="cc" />
     <text
        xml:space="preserve"
-       style="font-size:18px;font-style:normal;font-weight:bold;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:Franklin Gothic Medium"
-       x="225.5"
-       y="63.362091"
+       style="font-size:18px;font-style:normal;font-weight:bold;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#404040;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:Franklin Gothic Medium"
+       x="229.5"
+       y="1239.3621"
        id="text7577"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan7579"
-         x="225.5"
-         y="63.362091">- liest Informationen aus</tspan></text>
+         x="229.5"
+         y="1239.3621">- liest Informationen aus</tspan></text>
     <text
        xml:space="preserve"
-       style="font-size:16px;font-style:normal;font-weight:bold;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:Franklin Gothic Medium"
-       x="225.5"
-       y="101.36209"
+       style="font-size:16px;font-style:normal;font-weight:bold;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#404040;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:Franklin Gothic Medium"
+       x="229.5"
+       y="1277.3621"
        id="text7581"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan7583"
-         x="225.5"
-         y="101.36209"
-         style="font-size:18px">- dieser Klasse</tspan></text>
+         x="229.5"
+         y="1277.3621"
+         style="font-size:18px;fill:#404040;fill-opacity:1">- dieser Klasse</tspan></text>
     <path
        sodipodi:nodetypes="cc"
        inkscape:connector-curvature="0"
@@ -1190,36 +1190,36 @@
     <text
        xml:space="preserve"
        style="font-size:16px;font-style:normal;font-weight:bold;text-align:end;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:end;fill:#d30000;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:Franklin Gothic Medium"
-       x="183.95554"
-       y="4.4298916"
+       x="187.95554"
+       y="1180.4299"
        id="text7587"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan7589"
-         x="183.95554"
-         y="4.4298916">&quot;Packt in diese Klasse&quot;</tspan></text>
+         x="187.95554"
+         y="1180.4299">&quot;Packt in diese Klasse&quot;</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:16px;font-style:normal;font-weight:bold;text-align:end;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:end;fill:#d30000;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:Franklin Gothic Medium"
-       x="183.95554"
-       y="-72.422913"
+       x="187.95554"
+       y="1103.5771"
        id="text7591"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan7593"
-         x="183.95554"
-         y="-72.422913">&quot;Gehört zu dieser Klasse&quot;</tspan></text>
+         x="187.95554"
+         y="1103.5771">&quot;Gehört zu dieser Klasse&quot;</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:16px;font-style:normal;font-weight:bold;text-align:end;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:end;fill:#d30000;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:Franklin Gothic Medium"
-       x="183.95554"
-       y="85.040085"
+       x="187.95554"
+       y="1261.04"
        id="text7595"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan7597"
-         x="183.95554"
-         y="85.040085">&quot;Nimmt/Holt aus dieser Klasse&quot;</tspan></text>
+         x="187.95554"
+         y="1261.04">&quot;Nimmt/Holt aus dieser Klasse&quot;</tspan></text>
     <path
        style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-start:url(#DotM);marker-mid:none;marker-end:url(#TriangleOutL)"
        d="m 1142.0136,185.18031 -62.4049,0 0,-342.66851 -49.7478,0"
@@ -1240,7 +1240,7 @@
        style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-start:url(#DiamondM);marker-mid:none;marker-end:url(#EmptyTriangleOutL)" />
     <path
        style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-start:url(#DiamondM);marker-mid:none;marker-end:url(#EmptyTriangleOutL)"
-       d="m 1686.4644,-243.76243 0,-49.3679 -709.81678,0 0,46.38335"
+       d="m 1646.4644,-243.76243 0,-49.3679 -669.81678,0 0,46.38335"
        id="path8181"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="cccc" />
@@ -1849,7 +1849,7 @@
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="cc" />
     <path
-       style="fill:none;stroke:#24384e;stroke-width:2;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-start:url(#DiamondM);marker-mid:none;marker-end:url(#EmptyTriangleOutL)"
+       style="fill:none;stroke:#3b5c81;stroke-width:2;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-start:url(#DiamondM);marker-mid:none;marker-end:url(#EmptyTriangleOutL)"
        d="m 1840.0607,342.56926 0,28.07272 94.1055,0 0,395.23727 190.8945,0 0,27.65968"
        id="path10223"
        inkscape:connector-curvature="0"
@@ -1859,9 +1859,9 @@
        inkscape:connector-curvature="0"
        id="path10225"
        d="m 1820.0607,342.56926 0,52.66787 84.635,0 c -1.4781,245.8412 0,492.03702 0,737.83737"
-       style="fill:none;stroke:#24384e;stroke-width:2;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-start:url(#DiamondM);marker-mid:none;marker-end:url(#EmptyTriangleOutL)" />
+       style="fill:none;stroke:#3b5c81;stroke-width:2;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-start:url(#DiamondM);marker-mid:none;marker-end:url(#EmptyTriangleOutL)" />
     <path
-       style="fill:none;stroke:#24384e;stroke-width:2;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-start:url(#DiamondM);marker-mid:none;marker-end:url(#EmptyTriangleOutL)"
+       style="fill:none;stroke:#3b6081;stroke-width:2;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-start:url(#DiamondM);marker-mid:none;marker-end:url(#EmptyTriangleOutL)"
        d="m 1800.0607,342.56926 0,79.39016 73.3852,0 0,343.55463 -86.3852,0 0,28.02488"
        id="path10227"
        inkscape:connector-curvature="0"
@@ -2214,11 +2214,11 @@
     <text
        sodipodi:linespacing="125%"
        id="text10395"
-       y="-807.50323"
+       y="-827.50323"
        x="1826.7913"
        style="font-size:14px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:Sans"
        xml:space="preserve"><tspan
-         y="-807.50323"
+         y="-827.50323"
          x="1826.7913"
          id="tspan10397"
          sodipodi:role="line">ThreadPage</tspan></text>
@@ -2429,41 +2429,41 @@
          y="-484.18088">First Post</tspan></text>
     <path
        style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-start:url(#DotM);marker-mid:none;marker-end:url(#CurveIn)"
-       d="m 191.37035,137.93705 26.6016,46.0753"
+       d="m 195.37035,1313.937 26.6016,46.0753"
        id="path4314"
        inkscape:connector-curvature="0" />
     <text
        sodipodi:linespacing="125%"
        id="text7442"
-       y="143.36209"
-       x="201.5"
-       style="font-size:18px;font-style:normal;font-weight:bold;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:Franklin Gothic Medium"
+       y="1319.3621"
+       x="205.5"
+       style="font-size:18px;font-style:normal;font-weight:bold;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#404040;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:Franklin Gothic Medium"
        xml:space="preserve"><tspan
-         y="143.36209"
-         x="201.5"
+         y="1319.3621"
+         x="205.5"
          id="tspan7444"
          sodipodi:role="line">- Diese Klasse implementiert</tspan></text>
     <text
        sodipodi:linespacing="125%"
        id="text7446"
-       y="197.36209"
-       x="243.5"
-       style="font-size:16px;font-style:normal;font-weight:bold;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:Franklin Gothic Medium"
+       y="1373.3621"
+       x="247.5"
+       style="font-size:16px;font-style:normal;font-weight:bold;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#404040;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:Franklin Gothic Medium"
        xml:space="preserve"><tspan
-         style="font-size:18px"
-         y="197.36209"
-         x="243.5"
+         style="font-size:18px;fill:#404040;fill-opacity:1"
+         y="1373.3621"
+         x="247.5"
          id="tspan7448"
          sodipodi:role="line">- dieses Interface</tspan></text>
     <text
        sodipodi:linespacing="125%"
        id="text7450"
-       y="169.04007"
-       x="183.95554"
+       y="1345.04"
+       x="187.95554"
        style="font-size:16px;font-style:normal;font-weight:bold;text-align:end;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:end;fill:#d30000;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:Franklin Gothic Medium"
        xml:space="preserve"><tspan
-         y="169.04007"
-         x="183.95554"
+         y="1345.04"
+         x="187.95554"
          id="tspan7452"
          sodipodi:role="line">&quot;Klassenstrukturvorlage&quot;</tspan></text>
     <path
@@ -2495,5 +2495,274 @@
        id="path10325"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="ccc" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path5827"
+       d="m 1729.1204,-243.81295 -80.2403,-106.37571"
+       style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-start:url(#DotM);marker-mid:none;marker-end:url(#CurveIn)"
+       sodipodi:nodetypes="cc" />
+    <text
+       xml:space="preserve"
+       style="font-size:16px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:Sans"
+       x="1548.3"
+       y="-358.64319"
+       id="text5829"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan5831"
+         x="1548.3"
+         y="-358.64319">PageInterface</tspan></text>
+    <path
+       sodipodi:nodetypes="cc"
+       style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-start:url(#DotM);marker-mid:none;marker-end:url(#CurveIn)"
+       d="m 2277.8353,575.61973 99.5902,-88.56705"
+       id="path5833"
+       inkscape:connector-curvature="0" />
+    <text
+       sodipodi:linespacing="125%"
+       id="text5835"
+       y="481.59814"
+       x="2382.8455"
+       style="font-size:16px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:Sans"
+       xml:space="preserve"><tspan
+         y="481.59814"
+         x="2382.8455"
+         sodipodi:role="line"
+         id="tspan5839">GroupInterface</tspan></text>
+    <path
+       inkscape:connector-curvature="0"
+       id="path5843"
+       d="m 2277.8353,855.61973 99.5902,-88.56705"
+       style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-start:url(#DotM);marker-mid:none;marker-end:url(#CurveIn)"
+       sodipodi:nodetypes="cc" />
+    <text
+       xml:space="preserve"
+       style="font-size:16px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:Sans"
+       x="2382.8455"
+       y="761.59814"
+       id="text5845"
+       sodipodi:linespacing="125%"><tspan
+         id="tspan5847"
+         sodipodi:role="line"
+         x="2382.8455"
+         y="761.59814">RegisterInterface</tspan></text>
+    <path
+       sodipodi:nodetypes="cc"
+       style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-start:url(#DotM);marker-mid:none;marker-end:url(#CurveIn)"
+       d="m 2077.8353,1195.6197 99.5902,-88.567"
+       id="path5849"
+       inkscape:connector-curvature="0" />
+    <text
+       sodipodi:linespacing="125%"
+       id="text5851"
+       y="1101.5981"
+       x="2182.8455"
+       style="font-size:16px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:Sans"
+       xml:space="preserve"><tspan
+         y="1101.5981"
+         x="2182.8455"
+         sodipodi:role="line"
+         id="tspan5853">SessionInterface</tspan></text>
+    <path
+       inkscape:connector-curvature="0"
+       id="path5855"
+       d="m 1561.9347,669.355 -99.5902,88.56705"
+       style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-start:url(#DotM);marker-mid:none;marker-end:url(#CurveIn)"
+       sodipodi:nodetypes="cc" />
+    <text
+       xml:space="preserve"
+       style="font-size:16px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:Sans"
+       x="1326.1589"
+       y="771.55627"
+       id="text5857"
+       sodipodi:linespacing="125%"><tspan
+         id="tspan5859"
+         sodipodi:role="line"
+         x="1326.1589"
+         y="771.55627">LanguageInterface</tspan></text>
+    <path
+       sodipodi:nodetypes="cc"
+       style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-start:url(#DotM);marker-mid:none;marker-end:url(#CurveIn)"
+       d="m 1561.9347,849.355 -99.5902,88.5671"
+       id="path5861"
+       inkscape:connector-curvature="0" />
+    <text
+       sodipodi:linespacing="125%"
+       id="text5863"
+       y="951.55627"
+       x="1356.4089"
+       style="font-size:16px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:Sans"
+       xml:space="preserve"><tspan
+         y="951.55627"
+         x="1356.4089"
+         sodipodi:role="line"
+         id="tspan5865">LoginInterface</tspan></text>
+    <path
+       inkscape:connector-curvature="0"
+       id="path5867"
+       d="m 721.9347,-110.645 -99.5902,88.5671"
+       style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-start:url(#DotM);marker-mid:none;marker-end:url(#CurveIn)"
+       sodipodi:nodetypes="cc" />
+    <text
+       xml:space="preserve"
+       style="font-size:16px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:Sans"
+       x="490.40887"
+       y="-8.4437332"
+       id="text5869"
+       sodipodi:linespacing="125%"><tspan
+         id="tspan5871"
+         sodipodi:role="line"
+         x="490.40887"
+         y="-8.4437332">TemplateInterface</tspan></text>
+    <path
+       sodipodi:nodetypes="cc"
+       style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-start:url(#DotM);marker-mid:none;marker-end:url(#CurveIn)"
+       d="m 581.9347,-337.35211 -99.5902,88.5671"
+       id="path5873"
+       inkscape:connector-curvature="0" />
+    <text
+       sodipodi:linespacing="125%"
+       id="text5875"
+       y="-235.15083"
+       x="328.40887"
+       style="font-size:16px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:Sans"
+       xml:space="preserve"><tspan
+         y="-235.15083"
+         x="328.40887"
+         sodipodi:role="line"
+         id="tspan5877">MessageBoxInterface</tspan></text>
+    <path
+       sodipodi:nodetypes="cc"
+       style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-start:url(#DotM);marker-mid:none;marker-end:url(#CurveIn)"
+       d="M 1561.9347,309.355 1425.5749,412.06419"
+       id="path5879"
+       inkscape:connector-curvature="0" />
+    <text
+       sodipodi:linespacing="125%"
+       id="text5881"
+       y="424.78421"
+       x="1327.9752"
+       style="font-size:16px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:Sans"
+       xml:space="preserve"><tspan
+         y="424.78421"
+         x="1327.9752"
+         sodipodi:role="line"
+         id="tspan5883">UserInterface</tspan></text>
+    <path
+       inkscape:connector-curvature="0"
+       id="path5885"
+       d="M 1141.9347,269.355 1005.5749,372.06419"
+       style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-start:url(#DotM);marker-mid:none;marker-end:url(#CurveIn)"
+       sodipodi:nodetypes="cc" />
+    <text
+       xml:space="preserve"
+       style="font-size:16px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:Sans"
+       x="873.97522"
+       y="384.78421"
+       id="text5887"
+       sodipodi:linespacing="125%"><tspan
+         id="tspan5889"
+         sodipodi:role="line"
+         x="873.97522"
+         y="384.78421">PageInfoInterface</tspan></text>
+    <path
+       sodipodi:nodetypes="cc"
+       style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-start:url(#DotM);marker-mid:none;marker-end:url(#CurveIn)"
+       d="m 1982.1204,-497.81295 -258.017,-66.31684"
+       id="path5891"
+       inkscape:connector-curvature="0" />
+    <text
+       sodipodi:linespacing="125%"
+       id="text5893"
+       y="-563.39191"
+       x="1715.5894"
+       style="font-size:16px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:Sans"
+       xml:space="preserve"><tspan
+         y="-563.39191"
+         x="1715.5894"
+         id="tspan5895"
+         sodipodi:role="line"><tspan
+   style="text-align:end;text-anchor:end"
+   id="tspan5897">BoardI</tspan>nterface</tspan></text>
+    <path
+       inkscape:connector-curvature="0"
+       id="path5899"
+       d="m 1982.1204,-758.81295 -258.017,54.68316"
+       style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-start:url(#DotM);marker-mid:none;marker-end:url(#CurveIn)"
+       sodipodi:nodetypes="cc" />
+    <text
+       xml:space="preserve"
+       style="font-size:16px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:Sans"
+       x="1715.5894"
+       y="-696.39191"
+       id="text5901"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan5903"
+         x="1715.5894"
+         y="-696.39191"><tspan
+   id="tspan5905"
+   style="text-align:end;text-anchor:end">ThreadI</tspan>nterface</tspan></text>
+    <path
+       sodipodi:nodetypes="cc"
+       style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-start:url(#DotM);marker-mid:none;marker-end:url(#CurveIn)"
+       d="m 2658.0317,-677.52006 75.3099,46.68316"
+       id="path5907"
+       inkscape:connector-curvature="0" />
+    <text
+       sodipodi:linespacing="125%"
+       id="text5909"
+       y="-617.099"
+       x="2875.2698"
+       style="font-size:16px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:Sans"
+       xml:space="preserve"><tspan
+         y="-617.099"
+         x="2875.2698"
+         id="tspan5911"
+         sodipodi:role="line"><tspan
+   style="text-align:end;text-anchor:end"
+   id="tspan5913">ThreadPollI</tspan>nterface</tspan></text>
+    <path
+       inkscape:connector-curvature="0"
+       id="path5917"
+       d="m 2658.0317,-337.52006 75.3099,46.68316"
+       style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-start:url(#DotM);marker-mid:none;marker-end:url(#CurveIn)"
+       sodipodi:nodetypes="cc" />
+    <text
+       xml:space="preserve"
+       style="font-size:16px;font-style:normal;font-weight:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:Sans"
+       x="2740.551"
+       y="-277.099"
+       id="text5919"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan5921"
+         x="2740.551"
+         y="-277.099"><tspan
+   id="tspan5923"
+   style="text-align:start;text-anchor:start">ThreadVoteI</tspan>nterface</tspan></text>
+    <path
+       sodipodi:nodetypes="cc"
+       style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-start:url(#DotM);marker-mid:none;marker-end:url(#CurveIn)"
+       d="m 2452.0317,342.47994 75.3099,46.68316"
+       id="path5925"
+       inkscape:connector-curvature="0" />
+    <text
+       sodipodi:linespacing="125%"
+       id="text5927"
+       y="402.901"
+       x="2540.551"
+       style="font-size:16px;font-style:normal;font-weight:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:Sans"
+       xml:space="preserve"><tspan
+         y="402.901"
+         x="2540.551"
+         id="tspan5929"
+         sodipodi:role="line">SQL</tspan></text>
+    <path
+       inkscape:connector-curvature="0"
+       id="path5933"
+       d="m 2652.688,342.47994 -75.3099,46.68316"
+       style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-start:url(#DotM);marker-mid:none;marker-end:url(#CurveIn)"
+       sodipodi:nodetypes="cc" />
   </g>
 </svg>
