@@ -23,6 +23,19 @@
   <defs
      id="defs4">
     <marker
+       inkscape:stockid="TriangleInL"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="TriangleInL"
+       style="overflow:visible">
+      <path
+         id="path4682"
+         d="M 5.77,0.0 L -2.88,5.0 L -2.88,-5.0 L 5.77,0.0 z "
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1.0pt;marker-start:none"
+         transform="scale(-0.8)" />
+    </marker>
+    <marker
        inkscape:stockid="CurveIn"
        orient="auto"
        refY="0.0"
@@ -183,9 +196,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="2"
-     inkscape:cx="178.31717"
-     inkscape:cy="1270.9634"
+     inkscape:zoom="1"
+     inkscape:cx="457.33079"
+     inkscape:cy="1770.0945"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="true"
@@ -2047,18 +2060,6 @@
        id="path10321"
        d="m 598.2089,-383.81969 62.4049,0 0,226.33149 49.7478,0"
        style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-start:url(#DotM);marker-mid:none;marker-end:url(#TriangleOutL)" />
-    <path
-       sodipodi:nodetypes="ccc"
-       inkscape:connector-curvature="0"
-       id="path10323"
-       d="m 1758,-244.79472 0,-558.77123 220.7803,0"
-       style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:2, 2;stroke-dashoffset:0;marker-start:url(#DiamondM);marker-mid:none;marker-end:url(#EmptyTriangleOutL)" />
-    <path
-       style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:2, 2;stroke-dashoffset:0;marker-start:url(#DiamondM);marker-mid:none;marker-end:url(#EmptyTriangleOutL)"
-       d="m 1812,-244.79472 0,-205.57139 166.8772,0"
-       id="path10325"
-       inkscape:connector-curvature="0"
-       sodipodi:nodetypes="ccc" />
     <g
        style="stroke-linejoin:round"
        id="g10327"
@@ -2221,18 +2222,6 @@
          x="1826.7913"
          id="tspan10397"
          sodipodi:role="line">ThreadPage</tspan></text>
-    <path
-       sodipodi:nodetypes="ccccc"
-       inkscape:connector-curvature="0"
-       id="path10403"
-       d="m 1981.9644,-521.9401 -183.5577,0 -79.7205,212.80977 -782.03858,0 0,62.38335"
-       style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-start:url(#DiamondM);marker-mid:none;marker-end:url(#EmptyTriangleOutL)" />
-    <path
-       style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-start:url(#DiamondM);marker-mid:none;marker-end:url(#EmptyTriangleOutL)"
-       d="m 1981.4644,-752.19942 -153.4615,0 -165.5385,427.06909 -765.81678,0 0,78.38335"
-       id="path10405"
-       inkscape:connector-curvature="0"
-       sodipodi:nodetypes="ccccc" />
     <path
        sodipodi:nodetypes="ccccc"
        inkscape:connector-curvature="0"
@@ -2477,5 +2466,34 @@
          x="183.95554"
          id="tspan7452"
          sodipodi:role="line">&quot;Klassenstrukturvorlage&quot;</tspan></text>
+    <path
+       sodipodi:nodetypes="ccc"
+       inkscape:connector-curvature="0"
+       id="path3503"
+       d="m 1832,-254.79472 0,-155.57139 149.8772,0"
+       style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:2, 2;stroke-dashoffset:0;marker-start:url(#TriangleInL);marker-mid:none;marker-end:url(#DotM)" />
+    <text
+       sodipodi:linespacing="125%"
+       id="text3505"
+       y="-416.5032"
+       x="1820.7913"
+       style="font-size:14px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:Sans"
+       xml:space="preserve"><tspan
+         y="-416.5032"
+         x="1820.7913"
+         id="tspan3507"
+         sodipodi:role="line">IndexPage</tspan></text>
+    <path
+       sodipodi:nodetypes="ccc"
+       inkscape:connector-curvature="0"
+       id="path10323"
+       d="m 1758,-254.79472 0,-548.77123 223.9053,0"
+       style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:2, 2;stroke-dashoffset:0;marker-start:url(#TriangleInL);marker-mid:none;marker-end:url(#DotM)" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:2, 2;stroke-dashoffset:0;marker-start:url(#TriangleInL);marker-mid:none;marker-end:url(#DotM)"
+       d="m 1796,-254.79472 0.75,-195.57139 184.8772,0"
+       id="path10325"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccc" />
   </g>
 </svg>
