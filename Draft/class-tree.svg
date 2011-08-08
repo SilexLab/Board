@@ -212,17 +212,17 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="1"
-     inkscape:cx="957.07697"
-     inkscape:cy="2536.7344"
+     inkscape:cx="861.44084"
+     inkscape:cy="2056.7344"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="true"
      gridtolerance="5"
      objecttolerance="5"
      guidetolerance="5"
-     inkscape:window-width="1366"
-     inkscape:window-height="706"
-     inkscape:window-x="-8"
+     inkscape:window-width="1440"
+     inkscape:window-height="878"
+     inkscape:window-x="1358"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
      fit-margin-top="2"
@@ -1351,7 +1351,7 @@
        sodipodi:cy="-141.52122"
        sodipodi:rx="4.1542525"
        sodipodi:ry="4.1542525"
-       d="m 288.85314,-141.52122 a 4.1542525,4.1542525 0 1 1 -8.30851,0 4.1542525,4.1542525 0 1 1 8.30851,0 z"
+       d="m 288.85314,-141.52122 c 0,2.29433 -1.85993,4.15425 -4.15426,4.15425 -2.29433,0 -4.15425,-1.85992 -4.15425,-4.15425 0,-2.29434 1.85992,-4.15426 4.15425,-4.15426 2.29433,0 4.15426,1.85992 4.15426,4.15426 z"
        transform="translate(-432.26532,1187.4903)" />
     <path
        style="fill:none;stroke:#808080;stroke-width:2;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:2, 4;stroke-dashoffset:1.4;marker-start:url(#DotM)"
@@ -2986,5 +2986,22 @@
        id="path6042"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="cccccccc" />
+    <path
+       sodipodi:nodetypes="cc"
+       style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-start:url(#DotM);marker-mid:none;marker-end:url(#CurveIn)"
+       d="M 749.1204,-583.81295 668.8801,-690.18866"
+       id="path3602"
+       inkscape:connector-curvature="0" />
+    <text
+       sodipodi:linespacing="125%"
+       id="text3604"
+       y="-698.64319"
+       x="663.76874"
+       style="font-size:16px;font-style:normal;font-weight:normal;text-align:end;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:end;fill:#000000;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:Sans"
+       xml:space="preserve"><tspan
+         y="-698.64319"
+         x="663.76874"
+         id="tspan3606"
+         sodipodi:role="line">StyleInterface</tspan></text>
   </g>
 </svg>
