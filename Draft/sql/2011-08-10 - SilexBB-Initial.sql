@@ -61,6 +61,7 @@ CREATE TABLE IF NOT EXISTS `board` (
   `MarkingAsDone` tinyint(1) NOT NULL DEFAULT '0',
   `Closed` tinyint(1) NOT NULL DEFAULT '0',
   `Invisible` tinyint(1) NOT NULL DEFAULT '0',
+  `News` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
