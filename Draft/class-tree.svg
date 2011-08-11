@@ -212,17 +212,17 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="1"
-     inkscape:cx="861.44084"
-     inkscape:cy="2056.7344"
+     inkscape:cx="894.0747"
+     inkscape:cy="2481.4682"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="true"
      gridtolerance="5"
      objecttolerance="5"
      guidetolerance="5"
-     inkscape:window-width="1440"
-     inkscape:window-height="878"
-     inkscape:window-x="1358"
+     inkscape:window-width="1366"
+     inkscape:window-height="706"
+     inkscape:window-x="-8"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
      fit-margin-top="2"
@@ -2750,29 +2750,6 @@
          y="-277.099"><tspan
    id="tspan5923"
    style="text-align:start;text-anchor:start">ThreadVoteI</tspan>nterface</tspan></text>
-    <path
-       sodipodi:nodetypes="cc"
-       style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-start:url(#DotM);marker-mid:none;marker-end:url(#CurveIn)"
-       d="m 2452.0317,342.47994 75.3099,46.68316"
-       id="path5925"
-       inkscape:connector-curvature="0" />
-    <text
-       sodipodi:linespacing="125%"
-       id="text5927"
-       y="402.901"
-       x="2540.551"
-       style="font-size:16px;font-style:normal;font-weight:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:Sans"
-       xml:space="preserve"><tspan
-         y="402.901"
-         x="2540.551"
-         id="tspan5929"
-         sodipodi:role="line">SQL</tspan></text>
-    <path
-       inkscape:connector-curvature="0"
-       id="path5933"
-       d="m 2652.688,342.47994 -75.3099,46.68316"
-       style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-start:url(#DotM);marker-mid:none;marker-end:url(#CurveIn)"
-       sodipodi:nodetypes="cc" />
     <g
        id="g5935"
        transform="translate(1140,-2068)"
@@ -3003,5 +2980,22 @@
          x="663.76874"
          id="tspan3606"
          sodipodi:role="line">StyleInterface</tspan></text>
+    <path
+       inkscape:connector-curvature="0"
+       id="path3631"
+       d="m 721.9347,-1037.3521 -99.5902,88.5671"
+       style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-start:url(#DotM);marker-mid:none;marker-end:url(#CurveIn)"
+       sodipodi:nodetypes="cc" />
+    <text
+       xml:space="preserve"
+       style="font-size:16px;font-style:normal;font-weight:normal;text-align:end;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:end;fill:#000000;fill-opacity:1;stroke:none;font-family:Franklin Gothic Medium;-inkscape-font-specification:Sans"
+       x="615.03387"
+       y="-933.15082"
+       id="text3633"
+       sodipodi:linespacing="125%"><tspan
+         id="tspan3635"
+         sodipodi:role="line"
+         x="615.03387"
+         y="-933.15082">SBBInterface</tspan></text>
   </g>
 </svg>

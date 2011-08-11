@@ -4,10 +4,17 @@
  * @copyright	© 2011 Silex Bulletin Board - Team
  * @license		GNU GENERAL PUBLIC LICENSE - Version 3
  * @package		SilexBoard
- * @version		DEV
  */
 
-class SQL {
+interface SBBInterface {
+	/**
+	 * Loads the SilexBB Core
+	 */
+	public static function Load();
 	
+	/**
+	 * Access to the SQL-Database
+	 */
+	public static function SQL();
 }
 ?>

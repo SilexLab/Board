@@ -4,23 +4,20 @@
  * @copyright	© 2011 Silex Bulletin Board - Team
  * @license		GNU GENERAL PUBLIC LICENSE - Version 3
  * @package		SilexBoard
- * @version		DEV
  */
 
-class Autoloader {
+require_once('Autoloader.interface.php');
+
+class Autoloader extends SBB implements AutoloaderInterface {
 	private static $Directories;
 	
 	/**
 	 * Register the Silex Board Autoloader
 	 */
-	public static function Register() {
+	protected static function Register() {
 		// Do not register twice
 		if(!defined('CLASS_AUTOLOADER')) {
 			define('CLASS_AUTOLOADER', '');
-			
-			// Define "lib" directory constant
-			if(!defined('DIR_LIB'))
-				define('DIR_LIB', dirname(__FILE__).'/');
 			
 			// Register the "Autoload" function of this "self" class
 			spl_autoload_register(array(new self, 'Autoload'));
@@ -39,22 +36,22 @@ class Autoloader {
 		}
 	}
 	
-	/**
-	 * Register an Directory to search into for classes
-	 */
-	public static function AddDir($Dir) {
+	public static function AddDir($Directory) {
 		if(defined('CLASS_AUTOLOADER'))
-			self::$Directories[] = $Dir;
+			self::$Directories[] = $Directory;
 		else die('You can not register a directory for the Autoloader class when this class isn\'t initialed.');
 	}
 	
-	/**
-	 * Function wich will registered as an Autoloader
-	 */
 	public static function Autoload($Class) {
 		if(defined('CLASS_AUTOLOADER')) {
+			$Type = 'class';
+			if(strpos($Class, 'Interface') !== false) { // Interfaces
+				$Class = str_ireplace('Interface', '', $Class);
+				$Type = 'interface';
+			}
+			
 			foreach(self::$Directories as $Directory) {
-				if(file_exists($File = DIR_LIB.$Directory.$Class.'.class.php'))
+				if(file_exists($File = DIR_LIB.$Directory.$Class.'.'.$Type.'.php'))
 					include_once($File);
 			}
 		} else die('Do not use the Autoloader without registering the class.');

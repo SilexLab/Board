@@ -4,7 +4,6 @@
  * @copyright	© 2011 Silex Bulletin Board - Team
  * @license		GNU GENERAL PUBLIC LICENSE - Version 3
  * @package		SilexBoard
- * @version		DEV
  */
 
 // PHP Initial
@@ -14,11 +13,24 @@ date_default_timezone_set('Europe/Berlin');
 error_reporting(E_ALL ^ E_NOTICE | E_STRICT);
 session_start();
 
+// Define "lib" directory constant
+if(!defined('DIR_LIB'))
+	define('DIR_LIB', dirname(__FILE__).'/');
+
 // Include required files
 require_once('includes/config.inc.php');
 require_once('includes/constants.inc.php');
-require_once('Autoloader.class.php');
+require_once('core/SBB.class.php');
 
+SBB::Load();
+
+
+
+
+
+
+
+/*
 // Initial Classes
 Autoloader::Register();
 MySQL::Connect(CFG_DB_HOST, CFG_DB_USER, CFG_DB_PASSWORD, CFG_DB_DATABASE); // TODO: UPDATE TO SQL-CLASS
@@ -36,6 +48,7 @@ Template::Assign(array(
 
 // Compile
 Template::Display('case.tpl');
+*/
 
 // Old Initial:
 /*

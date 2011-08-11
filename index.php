@@ -4,11 +4,12 @@
  * @copyright	© 2011 Silex Bulletin Board - Team
  * @license		GNU GENERAL PUBLIC LICENSE - Version 3
  * @package		SilexBoard
- * @version		Revision: 5
  */
 
 $GeneratingTime = microtime(true);
-if(!file_exists('lib/includes/config.inc.php')) // Leitet zur Installation falls nicht installiert
+
+// Redirect to installation if not installed
+if(!file_exists('lib/includes/config.inc.php'))
 	header('Location: install.php');
 
 // Define the Silex Board root directory
