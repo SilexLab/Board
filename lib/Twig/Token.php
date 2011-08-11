@@ -33,6 +33,7 @@ class Twig_Token
     const STRING_TYPE      = 7;
     const OPERATOR_TYPE    = 8;
     const PUNCTUATION_TYPE = 9;
+	const LANGUAGE_TYPE    = 10;
 
     /**
      * Constructor.
@@ -159,6 +160,9 @@ class Twig_Token
             case self::PUNCTUATION_TYPE:
                 $name = 'PUNCTUATION_TYPE';
                 break;
+			case self::LANGUAGE_TYPE:
+				$name = 'LANGUAGE_TYPE';
+				break;
             default:
                 throw new Twig_Error_Syntax(sprintf('Token of type "%s" does not exist.', $type), $line);
         }
@@ -199,6 +203,8 @@ class Twig_Token
                 return 'operator';
             case self::PUNCTUATION_TYPE:
                 return 'punctuation';
+			case self::LANGUAGE_TYPE;
+				return 'language';
             default:
                 throw new Twig_Error_Syntax(sprintf('Token of type "%s" does not exist.', $type), $line);
         }

@@ -62,23 +62,20 @@ class Twig_Node_Module extends Twig_Node
 
     protected function compileGetParent(Twig_Compiler $compiler)
     {
+        $compiler
+            ->write("protected function doGetParent(array \$context)\n", "{\n")
+            ->indent()
+            ->write("return ")
+        ;
+
         if (null === $this->getNode('parent')) {
-            return;
+            $compiler->raw("false");
+        } else {
+            $compiler->subcompile($this->getNode('parent'));
         }
 
         $compiler
-            ->write("public function getParent(array \$context)\n", "{\n")
-            ->indent()
-            ->write("if (null === \$this->parent) {\n")
-            ->indent();
-        ;
-
-        $this->compileLoadTemplate($compiler, $this->getNode('parent'), '$this->parent');
-
-        $compiler
-            ->outdent()
-            ->write("}\n\n")
-            ->write("return \$this->parent;\n")
+            ->raw(";\n")
             ->outdent()
             ->write("}\n\n")
         ;
@@ -87,20 +84,10 @@ class Twig_Node_Module extends Twig_Node
     protected function compileDisplayBody(Twig_Compiler $compiler)
     {
         $compiler->write("\$context = array_merge(\$this->env->getGlobals(), \$context);\n\n");
+        $compiler->subcompile($this->getNode('body'));
 
         if (null !== $this->getNode('parent')) {
-            // remove all output nodes
-            foreach ($this->getNode('body') as $node) {
-                if (!$node instanceof Twig_NodeOutputInterface) {
-                    $compiler->subcompile($node);
-                }
-            }
-
-            $compiler
-                ->write("\$this->getParent(\$context)->display(\$context, array_merge(\$this->blocks, \$blocks));\n")
-            ;
-        } else {
-            $compiler->subcompile($this->getNode('body'));
+            $compiler->write("\$this->getParent(\$context)->display(\$context, array_merge(\$this->blocks, \$blocks));\n");
         }
     }
 
@@ -115,10 +102,6 @@ class Twig_Node_Module extends Twig_Node
             ->write("{\n")
             ->indent()
         ;
-
-        if (null !== $this->getNode('parent')) {
-            $compiler->write("protected \$parent;\n\n");
-        }
     }
 
     protected function compileConstructor(Twig_Compiler $compiler)

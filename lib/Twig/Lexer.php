@@ -35,7 +35,8 @@ class Twig_Lexer implements Twig_LexerInterface
     const STATE_BLOCK = 1;
     const STATE_VAR   = 2;
 
-    const REGEX_NAME   = '/[A-Za-z_][A-Za-z0-9_#]*/A';
+    const REGEX_NAME   = '/[a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*/A';
+	const REGEX_LANG   = '/lang\=[a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff.]*/A'; // SilexBB Language String
     const REGEX_NUMBER = '/[0-9]+(?:\.[0-9]+)?/A';
     const REGEX_STRING = '/"([^"\\\\]*(?:\\\\.[^"\\\\]*)*)"|\'([^\'\\\\]*(?:\\\\.[^\'\\\\]*)*)\'/As';
     const PUNCTUATION  = '()[]{}?:.,|';
@@ -145,15 +146,7 @@ class Twig_Lexer implements Twig_LexerInterface
 
         switch ($token) {
             case $this->options['tag_comment'][0]:
-                $commentEndRegex = '/.*?(?:'.preg_quote($this->options['whitespace_trim'], '/')
-                                   .preg_quote($this->options['tag_comment'][1], '/').'\s*|'
-                                   .preg_quote($this->options['tag_comment'][1], '/').')\n?/As';
-
-                if (!preg_match($commentEndRegex, $this->code, $match, null, $this->cursor)) {
-                    throw new Twig_Error_Syntax('Unclosed comment', $this->lineno, $this->filename);
-                }
-
-                $this->moveCursor($match[0]);
+                $this->lexComment();
                 break;
 
             case $this->options['tag_block'][0]:
@@ -219,8 +212,13 @@ class Twig_Lexer implements Twig_LexerInterface
             }
         }
 
-        // operators
-        if (preg_match($this->getOperatorRegex(), $this->code, $match, null, $this->cursor)) {
+        // SilexBB Language
+		if(preg_match(self::REGEX_LANG, $this->code, $match, null, $this->cursor)) {
+            $this->pushToken(Twig_Token::LANGUAGE_TYPE, $match[0]);
+            $this->moveCursor($match[0]);
+		}
+		// operators
+        elseif (preg_match($this->getOperatorRegex(), $this->code, $match, null, $this->cursor)) {
             $this->pushToken(Twig_Token::OPERATOR_TYPE, $match[0]);
             $this->moveCursor($match[0]);
         }
@@ -276,10 +274,23 @@ class Twig_Lexer implements Twig_LexerInterface
         $this->moveCursor($text.$match[0][0]);
     }
 
+    protected function lexComment()
+    {
+        $commentEndRegex = '/(?:'.preg_quote($this->options['whitespace_trim'], '/')
+                           .preg_quote($this->options['tag_comment'][1], '/').'\s*|'
+                           .preg_quote($this->options['tag_comment'][1], '/').')\n?/s';
+
+        if (!preg_match($commentEndRegex, $this->code, $match, PREG_OFFSET_CAPTURE, $this->cursor)) {
+            throw new Twig_Error_Syntax('Unclosed comment', $this->lineno, $this->filename);
+        }
+
+        $this->moveCursor(substr($this->code, $this->cursor, $match[0][1] - $this->cursor).$match[0][0]);
+    }
+
     protected function pushToken($type, $value = '')
     {
-        // do not push empty text tokens
-        if (Twig_Token::TEXT_TYPE === $type && '' === $value) {
+        // do not push empty text or SilexBB-language tokens
+        if ((Twig_Token::TEXT_TYPE === $type || Twig_Token::LANGUAGE_TYPE === $type) && '' === $value) {
             return;
         }
 

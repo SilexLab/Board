@@ -81,7 +81,9 @@ class Twig_Parser implements Twig_ParserInterface
             $body = $this->subparse(null);
 
             if (null !== $this->parent) {
-                $this->checkBodyNodes($body);
+                if (null === $body = $this->filterBodyNodes($body)) {
+                    $body = new Twig_Node();
+                }
             }
         } catch (Twig_Error_Syntax $e) {
             if (null === $e->getTemplateFile()) {
@@ -121,7 +123,7 @@ class Twig_Parser implements Twig_ParserInterface
                     $token = $this->getCurrentToken();
 
                     if ($token->getType() !== Twig_Token::NAME_TYPE) {
-                        throw new Twig_Error_Syntax('A block must start with a tag name', $token->getLine());
+                        throw new Twig_Error_Syntax('A block must start with a tag name', $token->getLine(), $this->stream->getFilename());
                     }
 
                     if (null !== $test && call_user_func($test, $token)) {
@@ -138,7 +140,7 @@ class Twig_Parser implements Twig_ParserInterface
 
                     $subparser = $this->handlers->getTokenParser($token->getValue());
                     if (null === $subparser) {
-                        throw new Twig_Error_Syntax(sprintf('Unknown tag name "%s"', $token->getValue()), $token->getLine());
+                        throw new Twig_Error_Syntax(sprintf('Unknown tag name "%s"', $token->getValue()), $token->getLine(), $this->stream->getFilename());
                     }
 
                     $this->stream->next();
@@ -150,7 +152,7 @@ class Twig_Parser implements Twig_ParserInterface
                     break;
 
                 default:
-                    throw new Twig_Error_Syntax('Lexer or parser ended up in unsupported state.');
+                    throw new Twig_Error_Syntax('Lexer or parser ended up in unsupported state.', -1, $this->stream->getFilename());
             }
         }
 
@@ -242,6 +244,11 @@ class Twig_Parser implements Twig_ParserInterface
         }
     }
 
+    public function isMainScope()
+    {
+        return 1 === count($this->importedFunctions);
+    }
+
     public function pushLocalScope()
     {
         array_unshift($this->importedFunctions, array());
@@ -292,17 +299,27 @@ class Twig_Parser implements Twig_ParserInterface
         return $this->stream->getCurrent();
     }
 
-    protected function checkBodyNodes($body)
+    protected function filterBodyNodes(Twig_NodeInterface $node)
     {
         // check that the body does not contain non-empty output nodes
-        foreach ($body as $node) {
-            if (
-                ($node instanceof Twig_Node_Text && !ctype_space($node->getAttribute('data')))
-                ||
-                (!$node instanceof Twig_Node_Text && !$node instanceof Twig_Node_BlockReference && $node instanceof Twig_NodeOutputInterface)
-            ) {
-                throw new Twig_Error_Syntax(sprintf('A template that extends another one cannot have a body (%s).', $node), $node->getLine());
+        if (
+            ($node instanceof Twig_Node_Text && !ctype_space($node->getAttribute('data')))
+            ||
+            (!$node instanceof Twig_Node_Text && !$node instanceof Twig_Node_BlockReference && $node instanceof Twig_NodeOutputInterface)
+        ) {
+            throw new Twig_Error_Syntax(sprintf('A template that extends another one cannot have a body (%s).', $node), $node->getLine(), $this->stream->getFilename());
+        }
+
+        if ($node instanceof Twig_NodeOutputInterface) {
+            return null;
+        }
+
+        foreach ($node as $k => $n) {
+            if (null !== $n && null === $n = $this->filterBodyNodes($n)) {
+                $node->removeNode($k);
             }
         }
+
+        return $node;
     }
 }
