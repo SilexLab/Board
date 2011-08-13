@@ -143,8 +143,8 @@ CREATE TABLE IF NOT EXISTS `config` (
   `Type` varchar(16) NOT NULL,
   `ConfigVariable` varchar(32) NOT NULL,
   `ConfigValue` varchar(32) NOT NULL,
-  `CategoryName` text NOT NULL,
-  `ConfigName` text NOT NULL,
+  `CategoryName` varchar(255) NOT NULL,
+  `ConfigName` varchar(255) NOT NULL,
   PRIMARY KEY (`Type`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
