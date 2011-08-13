@@ -2,14 +2,14 @@
 	<header class="MinSize">
 		<div class="LogoBlock">
 			<div class="Logo Size">
-				<a href="./" title="{{ lang#com.sbb.header.logo_title }}">
+				<a href="./" title="{{ lang=com.sbb.header.logo_title }}">
 					<img src="styles/Standard/images/Logo.png" alt="Logo">
 				</a>
 				<div class="Slogan">
 				{% if Slogan %}
 					{{ Slogan }}
 				{% else %}
-					{{ lang#com.sbb.header.slogan }}
+					{{ lang=com.sbb.header.slogan }}
 				{% endif %}
 				</div>
 			</div>
