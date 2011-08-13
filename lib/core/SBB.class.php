@@ -11,6 +11,8 @@ require_once('Autoloader.class.php');
 
 class SBB /*implements SBBInterface*/ { // Dunno why this Interface let the Autoloaderclass forgot that the SBB Class exist...
 	private static $Database;
+	private static $Language;
+	private static $PageInfo;
 	
 	public static function Load() {
 		if(defined('CLASS_SBB'))
@@ -21,10 +23,37 @@ class SBB /*implements SBBInterface*/ { // Dunno why this Interface let the Auto
 		self::$Database = Database::GetDatabase();
 		self::SQL()->Connect();
 		Config::CreateConstants();
+		Template::Initial();
+		self::$Language = new Language();
+		self::$PageInfo = new PageInfo();
+		Page::Initial();
+		Menu::Render();
+		
+		self::TemplateAssign();
+		// Compile
+		Template::Display('case.tpl');
 	}
 	
 	public static function SQL() {
 		return self::$Database;
+	}
+	
+	public static function Language() {
+		return self::$Language;
+	}
+	
+	public static function PageInfo() {
+		return self::$PageInfo;
+	}
+	
+	private static function TemplateAssign() {
+		self::Language()->Assign();
+		Template::Assign(array(
+			'Site' => 'Seitenname',
+			'DIR_STYLE' => DIR_STYLE,
+			'DIR_JS' => DIR_JS,
+			'Load' => '~Load: '.round(((microtime(true) - $GeneratingTime) * 1000), 2).'ms')
+		);
 	}
 }
 	

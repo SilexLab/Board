@@ -7,7 +7,9 @@
  * @version		DEV
  */
 
-class Language {
+require_once('Language.interface.php');
+
+class Language implements LanguageInterface {
 	private $Languages = array();
 	
 	public $Items = array();

@@ -18,8 +18,8 @@ class Style {
 		
 		Template::Assign(array(
 			'CurrentStyle' => self::$Style,
-			'CSSStyles' => style::IncludeCSS(),
-			'Javascripts' => style::IncludeJS()
+			'CSSStyles' => self::IncludeCSS(),
+			'Javascripts' => self::IncludeJS()
 		));
 	}
 	

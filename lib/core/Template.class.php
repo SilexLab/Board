@@ -7,7 +7,9 @@
  * @version		DEV
  */
 
-class Template {
+require_once('Template.interface.php');
+
+class Template extends SBB implements TemplateInterface {
 	private static $Environment;
 	private static $Variables;
 	

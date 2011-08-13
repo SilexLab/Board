@@ -7,7 +7,7 @@
  * @version		DEV
  */
 
-class PageInfo {
+class PageInfo extends Page {
 	private $Info;
 	
 	function __construct() {

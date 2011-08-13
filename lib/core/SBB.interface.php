@@ -16,5 +16,9 @@ interface SBBInterface {
 	 * Access to the SQL-Database
 	 */
 	public static function SQL();
+	
+	public static function Language();
+	
+	public static function PageInfo();
 }
 ?>
