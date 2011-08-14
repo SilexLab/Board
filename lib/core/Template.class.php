@@ -4,84 +4,88 @@
  * @copyright	© 2011 Silex Bulletin Board - Team
  * @license		GNU GENERAL PUBLIC LICENSE - Version 3
  * @package		SilexBoard
- * @version		DEV
  */
 
-require_once('Template.interface.php');
-
 class Template extends SBB implements TemplateInterface {
-	private static $Environment;
-	private static $Variables;
+	private $Environment, $Variables;
 	
-	public static function Initial() {
+	public function __construct($TPLPath    = '',
+								$Cache      = '',
+								$Debug      = true,
+								$Charset    = 'utf-8',
+								$AutoReload = true,
+								$Autoescape = false)
+	{
 		if(!defined('CLASS_TEMPLATE')) {
-			define('CLASS_TEMPLATE', '');
-			
 			// Initial Twig
+			define('CLASS_TEMPLATE', '');
 			require_once(DIR_LIB.'Twig/Autoloader.php');
 			Twig_Autoloader::register();
-			
-			self::$Environment = new Twig_Environment(new Twig_Loader_Filesystem(DIR_ROOT.DIR_TPL), array(
-				'debug'			=> true,				// Enable Debugging
-				'charset'		=> 'utf-8',				// Set the charset to utf-8
-				'cache'			=> DIR_LIB.'cache/',	// Set the cache directory
-				'auto_reload'	=> true,				// Automaticaly recompile templates (for developing)
-				'autoescape'	=> false				// Enabe auto-escaping
-			));
+		}
+		
+		$Cache = $Cache === '' ? DIR_LIB.'cache/' : $Cache;
+		$TPLPath = $TPLPath === '' ? DIR_ROOT.DIR_TPL : $TPLPath;
+		
+		$this->Environment = new Twig_Environment(new Twig_Loader_Filesystem($TPLPath), array(
+			'debug'			=> $Debug,		// Enable Debugging
+			'charset'		=> $Charset,	// Set the charset to utf-8
+			'cache'			=> $Cache,		// Set the cache directory
+			'auto_reload'	=> $AutoReload,	// Automaticaly recompile templates (for developing)
+			'autoescape'	=> $Autoescape	// Enabe auto-escaping
+		));
+	}
+	
+	public function Assign(array $Variables) {
+		foreach($Variables as $Var => $Value) {
+			$this->DoAssign($Var, $Value);
 		}
 	}
 	
-	public static function Assign($Vars) {
-		if(is_array($Vars)) {
-			foreach($Vars as $Var => $Value) {
-				// When a variable with '.'-Delimiters is given, create an array
-				if(strpos($Var, '.') !== false)
-					self::StringToArray($Var, $Value);
-				
-				// When this variable (array) is already given, merge the value
-				if(isset(self::$Variables[$Var]) && is_array(self::$Variables[$Var]) && is_array($Value)) {
-					self::$Variables = array_merge_recursive(self::$Variables[$Var], $Value);
-					continue;
-				}
-				self::$Variables[$Var] = $Value;
-			}
+	public function AssignLanguage(array $Variables) {
+		foreach($Variables as $Var => $Value) {
+			$Var = strpos($Var, 'lang=') === 0 ? $Var : 'lang='.$Var;
+			$this->DoAssign($Var, $Value);
 		}
 	}
 	
-	public static function AssignLanguage($Vars) {
-		if(is_array($Vars)) {
-			foreach($Vars as $Var => $Value) {
-				// When a variable with '.'-Delimiters is given, create an array
-				if(strpos($Var, '.') !== false)
-					self::StringToArray($Var, $Value);
-				
-				// When this variable (array) is already given, merge the value
-				if(isset(self::$Variables['lang#'.$Var]) && is_array(self::$Variables['lang#'.$Var]) && is_array($Value)) {
-					self::$Variables = array_merge_recursive(self::$Variables, array('lang#'.$Var => $Value));
-					continue;
-				}
-				
-				self::$Variables['lang#'.$Var] = $Value;
-			}
+	public function Render($Template) {
+		return $this->Parse($Template, false);
+	}
+	
+	public function Display($Template) {
+		$this->Parse($Template, true);
+	}
+	
+	
+	private function DoAssign($Var, $Value) {
+		// If this variable (array) is already given, merge the value
+		if(isset($this->Variables[$Var]) && is_array($this->Variables[$Var]) && is_array($Value)) {
+			$this->Variables = array_merge_recursive($this->Variables, array($Var => $Value));
+			continue;
 		}
+		$this->Variables[$Var] = $Value;
 	}
 	
-	public static function Render($Template) {
-		return self::LoadAndRender($Template, false);
-	}
-	
-	public static function Display($Template) {
-		self::LoadAndRender($Template, true);
-	}
-	
-	private static function LoadAndRender($Template, $Display = false) {
-		$Template = Template::$Environment->loadTemplate($Template);
+	private function Parse($Template, $Display = false) {
+		$this->GetVariables();
+		$Template = $this->Environment->loadTemplate($Template);
 		if(!$Display)
-			return $Template->render(self::$Variables);
-		$Template->display(self::$Variables);
+			return $Template->render($this->Variables);
+		$Template->display($this->Variables);
 	}
 	
-	private static function StringToArray(&$Var, &$Value) {
+	private function GetVariables() {
+		// Pre Parsing - Catch Variables
+		$this->Assign(array(
+			'CurrentStyle' => Style::GetCurrentStyle(),
+			'CSSStyles'    => Style::GetCSS(),
+			'Javascripts'  => Style::GetJS())
+		);
+		Config::CreateVariables();
+	}
+	
+	/* // Currently no need for that
+	private function StringToArray(&$Var, &$Value) {
 		$Arrays = explode('.', $Var);
 		$TempValue = array();
 		while(sizeof($Arrays) - 1)
@@ -89,5 +93,6 @@ class Template extends SBB implements TemplateInterface {
 		$Var = $Arrays[0];
 		$Value = $TempValue;
 	}
+	*/
 }
 ?>

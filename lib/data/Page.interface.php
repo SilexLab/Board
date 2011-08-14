@@ -6,5 +6,5 @@
  * @package		SilexBoard
  */
 
-
-?>
+interface PageInterface {
+}

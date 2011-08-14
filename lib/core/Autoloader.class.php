@@ -43,6 +43,10 @@ class Autoloader extends SBB implements AutoloaderInterface {
 	}
 	
 	public static function Autoload($Class) {
+		// Do not search for Twig-Classes
+		if(strpos($class, 'Twig') === 0)
+			return;
+		
 		if(defined('CLASS_AUTOLOADER')) {
 			$Type = 'class';
 			if(strpos($Class, 'Interface') !== false) { // Interfaces

@@ -16,17 +16,16 @@ class Config implements ConfigInterface {
 		}
 	}
 	
-	
-	
-	public static function Get() {
-		MySQL::Select('config');
-		$Objects = MySQL::GetObjects();
-		foreach($Objects as $Obj) {
-			// When a Config has a "CFG_"-prefix, Create a constant
-			if(strtoupper(substr($Obj->ConfigName, 0, 4)) == 'CFG_')
-				SBB::CreateConstant(substr($Obj->ConfigName, 4), $Obj->ConfigValue);
-			else
-				Template::Assign(array($Obj->ConfigName => $Obj->ConfigValue));
+	public static function CreateVariables() {
+		$Objects = SBB::SQL()->GetObjects()->Select('config', 'ConfigVariable, ConfigValue', 'Type = \'VAR\'');
+		
+		$Variables = array();
+		if(isset($Objects)) {
+			foreach($Objects as $Variable) {
+				$Variables[$Variable->ConfigVariable] = $Variable->ConfigValue;
+			}
 		}
+		
+		SBB::Template()->Assign($Variables);
 	}
 }

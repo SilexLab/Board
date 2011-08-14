@@ -1,16 +1,41 @@
 <?php
 /**
- * @author 		Cadillaxx
+ * @author 		Nox Nebula
  * @copyright	© 2011 Silex Bulletin Board - Team
  * @license		GNU GENERAL PUBLIC LICENSE - Version 3
  * @package		SilexBoard
  */
 
 interface TemplateInterface {
-	public static function Initial();
-	public static function Assign($Vars);
-	public static function AssignLanguage($Vars);
-	public static function Render($Template);
-	public static function Display($Template);
+	/**
+	 * Create a new Templateobject
+	 */
+	public function __construct($TPLPath    = '',
+								$Cache      = '',
+								$Debug      = true,
+								$Charset    = 'utf-8',
+								$AutoReload = true,
+								$Autoescape = false);
+	
+	/**
+	 * Assigns new Variables to the template
+	 */
+	public function Assign(array $Variables);
+	
+	/**
+	 * Assigns new Languagestrings to the template
+	 */
+	public function AssignLanguage(array $Variables);
+	
+	/**
+	 * Renders the template and return it
+	 * @return string
+	 */
+	public function Render($Template);
+	
+	/**
+	 * Renders the template and display it
+	 */
+	public function Display($Template);
 }
 ?>

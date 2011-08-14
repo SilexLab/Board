@@ -13,8 +13,8 @@ interface ConfigInterface {
 	public static function CreateConstants();
 	
 	/**
-	 * Get Template-Variables
+	 * Create Template-Variables
 	 */
-	//public static function GetVariables();
+	public static function CreateVariables();
 }
 ?>

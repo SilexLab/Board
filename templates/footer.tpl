@@ -6,6 +6,7 @@
 				</select>
 			</form>
 			Aktuelle Sprache: {{ lang=com.sbb.language.info }}<br>
+			Aktueller Style: {{ CurrentStyle }}<br>
 			- {{ Load }}
 		</div>
 	</footer>

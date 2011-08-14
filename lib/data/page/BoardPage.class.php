@@ -6,17 +6,14 @@
  * @package		SilexBoard
  */
 
-class ErrorPage extends Page implements PageInterface {
+class BoardPage extends Page implements PageInterface {
 	private $Infos = array(
-		'Page' => 'Error',
-		'Menu' => 'Home'
+		'Page' => 'Board',
+		'Menu' => 'Board',
 	);
 	
 	public function __construct() {
-		$this->Infos['Title'] = SBB::Language()->Get('com.sbb.page.error');
-		
-		$Type = isset($_GET['type']) ? $_GET['type'] : 404;
-		//SBB::Template()->Assign(array('Page' => 'Error', 'ErrorType' => $Type));
+		$this->Infos['Title'] = SBB::Language()->Get('com.sbb.page.board');
 	}
 	
 	public function GetInfo($Info = '') {

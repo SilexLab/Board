@@ -43,7 +43,7 @@ class MySQLDatabase extends Database {
 		$Query .= ';';
 		
 		$this->SQLQuery = $Query;
-		$this->ExecuteQuery();
+		return $this->ExecuteQuery();
 	}
 	
 	public function Insert($Table, $Inserts) {
@@ -60,7 +60,7 @@ class MySQLDatabase extends Database {
 		$Values = trim($Values, ', ');
 		
 		$this->SQLQuery = 'INSERT INTO '.CFG_DB_PREFIX.$Table.' ('.$Keys.') VALUES ('.$Values.');';
-		$this->ExecuteQuery();
+		return $this->ExecuteQuery();
 	}
 	
 	public function Update($Table, $Updates, $Where) {
@@ -73,12 +73,12 @@ class MySQLDatabase extends Database {
 		$Update = trim($Update, ', ');
 		
 		$this->SQLQuery = 'UPDATE '.CFG_DB_PREFIX.$Table.' SET '.$Update.' WHERE '.$Where.';';
-		$this->ExecuteQuery();
+		return $this->ExecuteQuery();
 	}
 	
 	public function Count($Table, $Rows = '*', $Where) {
 		$this->SQLQuery = 'SELECT COUNT('.$Rows.') AS total FROM '.CFG_DB_PREFIX.$Table.' WHERE '.$Where.';';		
-		$this->ExecuteQuery();
+		return $this->ExecuteQuery();
 	}
 	
 	public function RowExists($Table, $Rows = '*', $Where) {
@@ -95,7 +95,7 @@ class MySQLDatabase extends Database {
 			die('If you see this message, you caused a error wich never can be triggered<br>'."\n".'<strong>Congratulations</strong>');
 		
 		$this->SQLQuery = $Query;
-		$this->ExecuteQuery();
+		return $this->ExecuteQuery();
 	}
 	
 	public function FetchObject() {
@@ -147,7 +147,7 @@ class MySQLDatabase extends Database {
 												htmlentities($_SERVER['REQUEST_URI']) : '-').'<br>'."\n".
 				'	<strong>Referrer</strong>: '.(isset($_SERVER['HTTP_REFERER']) && !empty($_SERVER['HTTP_REFERER']) ?
 												htmlentities($_SERVER['HTTP_REFERER']) : '-'));
-		$this->Check();
+		return $this->Check();
 	}
 	
 	private function DoConnect() {

@@ -4,26 +4,13 @@
  * @copyright	© 2011 Silex Bulletin Board - Team
  * @license		GNU GENERAL PUBLIC LICENSE - Version 3
  * @package		SilexBoard
- * @version		DEV
  */
 
-class Style {
-	private static $Default = 'Standard';
-	private static $Style;
+class Style implements StyleInterface {
+	private static $Default, $Style;
 	
-	public static function Load() {
-		// TODO: Read used style from Database and use it
-		if(empty(self::$Style))
-			self::$Style = self::$Default;
-		
-		Template::Assign(array(
-			'CurrentStyle' => self::$Style,
-			'CSSStyles' => self::IncludeCSS(),
-			'Javascripts' => self::IncludeJS()
-		));
-	}
-	
-	private static function IncludeJS() {
+	public static function GetJS() {
+		self::Check();
 		$Style = self::$Style;
 		
 		$Javascripts = array();
@@ -36,7 +23,8 @@ class Style {
 		return $Javascripts;
 	}
 	
-	private static function IncludeCSS() {
+	public static function GetCSS() {
+		self::Check();
 		$Style = self::$Style;
 		
 		$Styles = array();
@@ -47,6 +35,20 @@ class Style {
 			}
 		}
 		return $Styles;
+	}
+	
+	public static function GetCurrentStyle() {
+		self::Check();
+		return self::$Style;
+	}
+	
+	public static function Check() {
+		if(empty(self::$Default))
+			self::$Default = CFG_STYLE_DEFAULT;
+		
+		// TODO: Read user style from Database and use it
+		if(empty(self::$Style))
+			self::$Style = self::$Default;
 	}
 }
 ?>
