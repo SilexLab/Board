@@ -26,6 +26,8 @@ class SBB /*implements SBBInterface*/ { // Dunno why this Interface let the Auto
 		self::$Template = new Template();
 		self::$Page = Page::GetPage();
 		
+		Language::LanguageList();
+		
 		
 		/* To Check */
 		
@@ -43,16 +45,8 @@ class SBB /*implements SBBInterface*/ { // Dunno why this Interface let the Auto
 		return self::$Database;
 	}
 	
-	public static function Language() {
-		return self::$Language;
-	}
-	
 	public static function Page() {
 		return self::$Page;
-	}
-	
-	public static function PageInfo() {
-		return self::$PageInfo;
 	}
 	
 	public static function Template() {

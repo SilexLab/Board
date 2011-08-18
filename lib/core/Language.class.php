@@ -4,75 +4,53 @@
  * @copyright	© 2011 Silex Bulletin Board - Team
  * @license		GNU GENERAL PUBLIC LICENSE - Version 3
  * @package		SilexBoard
- * @version		DEV
  */
 
-require_once('Language.interface.php');
-
-class Language implements LanguageInterface {
-	private $Languages = array();
+class Language {
+	/* Saves the Current Language */
+	private static $Language;
+	/* Saves all languageitems */
+	private static $Items = array();
+	/* Saves all available languages */
+	private static $Languages = array();
 	
-	public $Items = array();
-	public $Default = 'DE';
-	public $Language;
-	
-	public function __construct() {
-		/*if(isset($_SESSION['userid'])) {
-			MySQL::Select('users', 'Language', 'ID="'.Session::Read('userid').'"');
-			$this->Language = mysql::FetchObject()->Language;
-		} else if(isset($_COOKIE['sbb_lang']))
-			$this->Language = $_COOKIE['sbb_lang'];*/
-		
-		if(!empty($this->Language) && is_file(DIR_LANGUAGE.$this->Language.'.php'))
-			include(DIR_LANGUAGE.$this->Language.'.php');
-		else if(is_file(DIR_LANGUAGE.$this->Default.'.php'))
-			include(DIR_LANGUAGE.$this->Default.'.php');
+	public static function Get($Key) {
+		return isset(self::$Items[$Key]) ? self::$Items[$Key] : $Key;
 	}
 	
-	public function Get($Key) {
-		return isset($this->Items[$Key]) ? $this->Items[$Key] : $Key;
+	public static function Assign() {
+		SBB::Template()->AssignLanguage(self::$Items);
 	}
 	
-	/* Assign to the Template Object */
-	public function Assign() {
-		Template::AssignLanguage($this->Items);
-	}
-	
-	// Outdated
-	/* This function slow down the Page, use it carefully! */
-	public function GetLanguages() {
-		if(empty($this->Languages))
-		{
-			foreach(scandir(PATH_LANGUAGE) as $File) {
-				if(is_file(PATH_LANGUAGE.$File)) {
-					$Name = str_replace('.php', '', $File);
-					$GL = new GetLang($File);
-					$this->Languages[$Name] = $GL->GetName();
+	public static function LanguageList() {
+		foreach(scandir(DIR_LANGUAGE) as $Lang) {
+			if(is_dir(DIR_LANGUAGE.$Lang) && !($Lang == '.' || $Lang == '..')) {
+				if(file_exists(DIR_LANGUAGE.$Lang.'/info.xml')) {
+					$Name = XML::ReadElement(DIR_LANGUAGE.$Lang.'/info.xml', 'name');
+					$List[$Lang] = ''.$Name[0];
 				}
 			}
 		}
-		return $this->Languages;
+		return $List;
 	}
 	
-	public static function ChangeLang($File) {	
-		if(isset($_SESSION['userid'])) {
-			$update	= array('Language' => $File);	
-			mysql::Update('users', $update, 'ID="'.session::Read('userid').'"');
-		} else {
-			setcookie('sbb_lang', $File, time()+60*60*24*365);
-		}
-	}
-}
-
-class GetLang {
-	public $Items = array();
-	
-	public function __construct($File) {
-		include(PATH_LANGUAGE.$File);
-	}
-	
-	public function GetName() {
-		return $this->Items['com.sbb.language'];
+	/**
+	 * Search and returns the used language
+	 */
+	private static function GetLanguage() {
+		if(!empty(self::$Language))
+			return self::$Language;
+		
+		/* Find out, wich language should used */
+		if(isset($_SESSION['UserID']))
+			self::$Language = SBB::SQL()->GetObject()->Select('users', 'Language', 'ID="'.Session::Read('UserID').'"', NULL, 1)->Language;
+		else if(isset($_COOKIE['SBB_Lang']))
+			self::$Language = $_COOKIE['SBB_Lang'];
+		
+		if(empty(self::$Language))
+			self::$Language = SBB::SQL()->GetObject()->Select('language', 'Shortcut', 'Default="1"', NULL, 1)->Shortcut;
+		
+		return empty(self::$Language) ? false : self::$Language;
 	}
 }
 ?>

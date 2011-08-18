@@ -17,8 +17,8 @@ interface SBBInterface {
 	 */
 	public static function SQL();
 	
-	public static function Language();
+	public static function Page();
 	
-	public static function PageInfo();
+	public static function Template();
 }
 ?>

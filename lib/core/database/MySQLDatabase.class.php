@@ -135,6 +135,7 @@ class MySQLDatabase extends Database {
 	}
 	
 	private function ExecuteQuery() {
+		// TODO: Check if database data exists, if not: return;
 		$this->Result = mysql_query($this->SQLQuery);
 		if(!$this->Result)
 			die('<h2>Fatal MySQL Error:</h2>'."\n".

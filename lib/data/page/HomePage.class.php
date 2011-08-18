@@ -13,7 +13,7 @@ class HomePage extends Page implements PageInterface {
 	);
 	
 	public function __construct() {
-		$this->Infos['Title'] = SBB::Language()->Get('com.sbb.page.home');
+		//$this->Infos['Title'] = SBB::Language()->Get('com.sbb.page.home');
 	}
 	
 	public function GetInfo($Info = '') {
