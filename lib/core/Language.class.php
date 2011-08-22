@@ -6,7 +6,7 @@
  * @package		SilexBoard
  */
 
-class Language {
+class Language implements LanguageInterface {
 	/* Saves the Current Language */
 	private static $Language;
 	/* Saves all languageitems */
@@ -15,11 +15,15 @@ class Language {
 	private static $Languages = array();
 	
 	public static function Get($Key) {
-		return isset(self::$Items[$Key]) ? self::$Items[$Key] : $Key;
+		if(self::GetLanguage())
+			return isset(self::$Items[$Key]) ? self::$Items[$Key] : $Key;
+		return false;
 	}
 	
 	public static function Assign() {
-		SBB::Template()->AssignLanguage(self::$Items);
+		if(self::GetLanguage())
+			SBB::Template()->AssignLanguage(self::$Items);
+		return false;
 	}
 	
 	public static function LanguageList() {
@@ -28,14 +32,24 @@ class Language {
 				if(file_exists(DIR_LANGUAGE.$Lang.'/info.xml')) {
 					$Name = XML::ReadElement(DIR_LANGUAGE.$Lang.'/info.xml', 'name');
 					$List[$Lang] = ''.$Name[0];
+					
+// TODO: Uncomment if the MySQL function RowExists work
+//					if(!SBB::SQL()->RowExists('language', NULL, 'Shortcut="'.$Lang.'"')) {
+//						$Encoding = XML::ReadElement(DIR_LANGUAGE.$Lang.'/info.xml', 'encoding');
+//						SBB::SQL()->Insert('language', array('Shortcut' => $Lang, 'Encoding' => $Encoding[0]));
+//					}
 				}
 			}
 		}
 		return $List;
 	}
 	
+	public static function Change($Language) {
+		// Code to change the Language
+	}
+	
 	/**
-	 * Search and returns the used language
+	 * Search and include and returns (as string) the used language
 	 */
 	private static function GetLanguage() {
 		if(!empty(self::$Language))
@@ -48,7 +62,20 @@ class Language {
 			self::$Language = $_COOKIE['SBB_Lang'];
 		
 		if(empty(self::$Language))
-			self::$Language = SBB::SQL()->GetObject()->Select('language', 'Shortcut', 'Default="1"', NULL, 1)->Shortcut;
+			self::$Language = SBB::SQL()->GetObject()->Select('language', 'Shortcut', 'DefaultLanguage=1', NULL, 1)->Shortcut;
+		
+		/* Include the Languagefiles */
+		if(!empty(self::$Language)) {
+			$Dir = DIR_LANGUAGE.self::$Language.'/';
+			if(is_dir($Dir)) {
+				foreach(scandir($Dir) as $File) {
+					if(is_file($Dir.$File) && strpos($Dir.$File, '.php') !== false) {
+						require_once($Dir.$File);
+					}
+				}
+			} else
+				return false;
+		}
 		
 		return empty(self::$Language) ? false : self::$Language;
 	}

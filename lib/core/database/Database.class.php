@@ -29,8 +29,8 @@ abstract class Database extends SBB {
 	abstract public function Disconnect();
 	abstract public function Query($Query);
 	abstract public function Select($Table, $Rows = '*', $Where = '', $Order = '', $Limit = 0);
-	abstract public function Insert($Table, $Inserts);
-	abstract public function Update($Table, $Updates, $Where);
+	abstract public function Insert($Table, array $Inserts);
+	abstract public function Update($Table, array $Updates, $Where);
 	abstract public function Count($Table, $Rows = '*', $Where);
 	abstract public function RowExists($Table, $Rows = '*', $Where);
 	abstract public function NumRows();

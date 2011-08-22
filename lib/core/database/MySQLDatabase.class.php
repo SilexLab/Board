@@ -46,7 +46,7 @@ class MySQLDatabase extends Database {
 		return $this->ExecuteQuery();
 	}
 	
-	public function Insert($Table, $Inserts) {
+	public function Insert($Table, array $Inserts) {
 		if(!is_array($Inserts))
 			return false;
 		
@@ -63,7 +63,7 @@ class MySQLDatabase extends Database {
 		return $this->ExecuteQuery();
 	}
 	
-	public function Update($Table, $Updates, $Where) {
+	public function Update($Table, array $Updates, $Where) {
 		if(!is_array($Updates))
 			return false;
 		
@@ -82,7 +82,8 @@ class MySQLDatabase extends Database {
 	}
 	
 	public function RowExists($Table, $Rows = '*', $Where) {
-		return (@mysql_result(mysql_query('SELECT COUNT('.$Rows.') FROM '.$Table.' WHERE '.$Where.';'), 0) == 1) ? true : false;
+		// TODO: Write a working function
+		return mysql_query('SELECT COUNT('.$Rows.') FROM '.$Table.' WHERE '.$Where.';');
 	}
 	
 	public function Delete($Table, $Where = '') {

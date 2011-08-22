@@ -22,17 +22,14 @@ class SBB /*implements SBBInterface*/ { // Dunno why this Interface let the Auto
 		self::$Database = Database::GetDatabase();
 		self::SQL()->Connect();
 		Config::CreateConstants();
-		//self::$Language = new Language();
 		self::$Template = new Template();
 		self::$Page = Page::GetPage();
-		
 		Language::LanguageList();
+		Language::Assign();
 		
 		
 		/* To Check */
 		
-		//self::$PageInfo = new PageInfo();
-		//Page::Initial();
 		//Menu::Render();
 		
 		self::TemplateAssign();

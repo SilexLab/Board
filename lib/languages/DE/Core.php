@@ -8,61 +8,63 @@
  */
 
 /* Langfile:	German */
-$this->Items['com.sbb.language.info']				= 'Deutsch (Informal)';
-$this->Items['com.sbb.language.changed']			= 'Deine Sprache wurde nach {{ LangChangedTo }} geändert';
+self::$Items = array_merge(self::$Items, array(
+'com.sbb.language.info'		=> 'Deutsch (Informal)',
+'com.sbb.language.changed'	=> 'Deine Sprache wurde nach {{ LangChangedTo }} geändert',
 
-$this->Items['com.sbb.header.welcome']				= 'Willkommen';
-$this->Items['com.sbb.header.welcome_text']			= 'Herzlich willkommen auf {{ Site }} - {{ Slogan }}';
-$this->Items['com.sbb.header.logo_title']			= 'Startseite';
-$this->Items['com.sbb.header.slogan']				= 'Die moderne Bulletin-Board-Software';
+'com.sbb.header.welcome'		=> 'Willkommen',
+'com.sbb.header.welcome_text'	=> 'Herzlich willkommen auf {{ Site }} - {{ Slogan }}',
+'com.sbb.header.logo_title'		=> 'Startseite',
+'com.sbb.header.slogan'			=> 'Die moderne Bulletin-Board-Software',
 
-$this->Items['com.sbb.menu.home']					= 'Startseite';
-$this->Items['com.sbb.menu.forum']					= 'Forum';
-$this->Items['com.sbb.menu.userlist']				= 'Benutzerliste';
+'com.sbb.menu.home'		=> 'Startseite',
+'com.sbb.menu.forum'	=> 'Forum',
+'com.sbb.menu.userlist'	=> 'Benutzerliste',
 
-$this->Items['com.sbb.crumbs.home']					= 'Startseite';
-$this->Items['com.sbb.crumbs.forum']				= 'Forum';
-$this->Items['com.sbb.crumbs.user']					= 'Benutzerliste';
+'com.sbb.crumbs.home'	=> 'Startseite',
+'com.sbb.crumbs.forum'	=> 'Forum',
+'com.sbb.crumbs.user'	=> 'Benutzerliste',
 
-$this->Items['com.sbb.register.register']			= 'Registrieren';
-$this->Items['com.sbb.register.username']			= 'Benutzername';
-$this->Items['com.sbb.register.email']				= 'E-mail Adresse';
-$this->Items['com.sbb.register.email_repeat']		= 'E-mail Adresse wiederholen';
-$this->Items['com.sbb.register.password']			= 'Passwort';
-$this->Items['com.sbb.register.password_repeat']	= 'Passwort wiederholen';
-$this->Items['com.sbb.register.invalid_username']	= 'Ungültiger Benutzername<br>\n';
-$this->Items['com.sbb.register.incorrect_password']	= 'Die Passwörter stimmen nicht überein<br>\n';
-$this->Items['com.sbb.register.incorrect_email']	= 'Die E-Mail Adressen stimmen nicht überein<br>\n';
-$this->Items['com.sbb.register.username_exist']		= 'Dieser Benutzername existiert bereits!<br>\n';
-$this->Items['com.sbb.register.email_exist']		= 'Diese E-Mail Adresse existiert bereits!<br>\n';
-$this->Items['com.sbb.register.success']			= 'Du hast dich erfolgreich registriert!';
+'com.sbb.register.register'				=> 'Registrieren',
+'com.sbb.register.username'				=> 'Benutzername',
+'com.sbb.register.email'				=> 'E-mail Adresse',
+'com.sbb.register.email_repeat'			=> 'E-mail Adresse wiederholen',
+'com.sbb.register.password'				=> 'Passwort',
+'com.sbb.register.password_repeat'		=> 'Passwort wiederholen',
+'com.sbb.register.invalid_username'		=> 'Ungültiger Benutzername<br>\n',
+'com.sbb.register.incorrect_password'	=> 'Die Passwörter stimmen nicht überein<br>\n',
+'com.sbb.register.incorrect_email'		=> 'Die E-Mail Adressen stimmen nicht überein<br>\n',
+'com.sbb.register.username_exist'		=> 'Dieser Benutzername existiert bereits!<br>\n',
+'com.sbb.register.email_exist'			=> 'Diese E-Mail Adresse existiert bereits!<br>\n',
+'com.sbb.register.success'				=> 'Du hast dich erfolgreich registriert!',
 
-$this->Items['com.sbb.login.login']					= 'Einloggen';
-$this->Items['com.sbb.login.stay']					= 'Eingeloggt bleiben';
-$this->Items['com.sbb.login.bar_handle']			= 'Einloggen/Registrieren';
-$this->Items['com.sbb.login.username']				= 'Benutzername';
-$this->Items['com.sbb.login.password']				= 'Passwort';
-$this->Items['com.sbb.login.wrongdata']				= 'Ihre Anmeldedaten waren nicht korrekt!';
-$this->Items['com.sbb.login.redirect']				= 'Sie werden automatisch weitergeleitet...';
-$this->Items['com.sbb.login.ifnotredirect']			= 'Falls die automatische Weiterleitung nicht funktioniert folgen sie diesen ';
+'com.sbb.login.login'			=> 'Einloggen',
+'com.sbb.login.stay'			=> 'Eingeloggt bleiben',
+'com.sbb.login.bar_handle'		=> 'Einloggen/Registrieren',
+'com.sbb.login.username'		=> 'Benutzername',
+'com.sbb.login.password'		=> 'Passwort',
+'com.sbb.login.wrongdata'		=> 'Ihre Anmeldedaten waren nicht korrekt!',
+'com.sbb.login.redirect'		=> 'Sie werden automatisch weitergeleitet...',
+'com.sbb.login.ifnotredirect'	=> 'Falls die automatische Weiterleitung nicht funktioniert folgen sie diesen ',
 
-$this->Items['com.sbb.form.submit']					= 'Absenden';
+'com.sbb.form.submit'	=> 'Absenden',
 
-$this->Items['com.sbb.logout.logout']				= 'Ausloggen';
-$this->Items['com.sbb.logout.logged_out']			= 'Sie sind jetzt ausgeloggt.';
-$this->Items['com.sbb.logout.main_menu']			= 'Hauptmen&uuml;';
-$this->Items['com.sbb.logout.never_logged_in']		= 'Sie waren niemals eingeloggt.';
+'com.sbb.logout.logout'				=> 'Ausloggen',
+'com.sbb.logout.logged_out'			=> 'Sie sind jetzt ausgeloggt.',
+'com.sbb.logout.main_menu'			=> 'Hauptmen&uuml,',
+'com.sbb.logout.never_logged_in'	=> 'Sie waren niemals eingeloggt.',
 
-$this->Items['com.sbb.profile.homepage']			= 'Homepage';
-$this->Items['com.sbb.profile.signature']			= 'Signatur';
+'com.sbb.profile.homepage'	=> 'Homepage',
+'com.sbb.profile.signature'	=> 'Signatur',
 
-$this->Items['com.sbb.board.empty']					= 'Zurzeit ist das Board leer.';
-$this->Items['com.sbb.board.not_categorized']		= 'Nicht Kategorisiert';
-$this->Items['com.sbb.board.error.no_board']		= 'Das Forum existiert nicht';
-$this->Items['com.sbb.topics.error.no_topics']		= 'Es gibt keine Themen.';
+'com.sbb.board.empty'				=> 'Zurzeit ist das Board leer.',
+'com.sbb.board.not_categorized'		=> 'Nicht Kategorisiert',
+'com.sbb.board.error.no_board'		=> 'Das Forum existiert nicht',
+'com.sbb.topics.error.no_topics'	=> 'Es gibt keine Themen.',
 
-$this->Items['com.sbb.captcha']						= 'Captcha';
-$this->Items['com.sbb.captcha_wrong']				= 'Captcha ist falsch!';
+'com.sbb.captcha'		=> 'Captcha',
+'com.sbb.captcha_wrong'	=> 'Captcha ist falsch!',
 
-$this->Items['com.sbb.email.activation.title']		= 'Du must diesen Link klicken um deine Registrierung abzuschließen: ';
+'com.sbb.email.activation.title'	=> 'Du must diesen Link klicken um deine Registrierung abzuschließen: '
+));
 ?>
