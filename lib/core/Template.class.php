@@ -7,7 +7,7 @@
  */
 
 class Template extends SBB implements TemplateInterface {
-	private $Environment, $Variables;
+	private $Environment, $Variables = array();
 	
 	public function __construct($TPLPath    = '',
 								$Cache      = '',
@@ -33,6 +33,11 @@ class Template extends SBB implements TemplateInterface {
 			'auto_reload'	=> $AutoReload,	// Automaticaly recompile templates (for developing)
 			'autoescape'	=> $Autoescape	// Enabe auto-escaping
 		));
+		$this->GetVariables();
+	}
+	
+	public function Get($Key) {
+		return isset($this->Variables[$Key]) ? $this->Variables[$Key] : 'var.'.$Key;
 	}
 	
 	public function Assign(array $Variables) {
@@ -67,7 +72,6 @@ class Template extends SBB implements TemplateInterface {
 	}
 	
 	private function Parse($Template, $Display = false) {
-		$this->GetVariables();
 		$Template = $this->Environment->loadTemplate($Template);
 		if(!$Display)
 			return $Template->render($this->Variables);
@@ -75,13 +79,13 @@ class Template extends SBB implements TemplateInterface {
 	}
 	
 	private function GetVariables() {
-		// Pre Parsing - Catch Variables
+		// Catch Variables
 		$this->Assign(array(
 			'CurrentStyle' => Style::GetCurrentStyle(),
 			'CSSStyles'    => Style::GetCSS(),
 			'Javascripts'  => Style::GetJS())
 		);
-		Config::CreateVariables();
+		$this->Assign(Config::CreateVariables());
 	}
 	
 	/* // Currently no need for that

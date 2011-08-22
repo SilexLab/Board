@@ -15,14 +15,12 @@ class Language implements LanguageInterface {
 	private static $Languages = array();
 	
 	public static function Get($Key) {
-		if(self::GetLanguage())
-			return isset(self::$Items[$Key]) ? self::$Items[$Key] : $Key;
-		return false;
+		return isset(self::$Items[$Key]) ? self::$Items[$Key] : $Key;
 	}
 	
 	public static function Assign() {
 		if(self::GetLanguage())
-			SBB::Template()->AssignLanguage(self::$Items);
+			return self::$Items;
 		return false;
 	}
 	

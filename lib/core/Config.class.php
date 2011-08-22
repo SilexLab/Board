@@ -26,6 +26,6 @@ class Config implements ConfigInterface {
 			}
 		}
 		
-		SBB::Template()->Assign($Variables);
+		return $Variables;
 	}
 }

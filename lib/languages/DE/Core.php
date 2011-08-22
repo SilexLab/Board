@@ -4,16 +4,15 @@
  * @copyright	© 2011 Silex Bulletin Board - Team
  * @license		GNU GENERAL PUBLIC LICENSE - Version 3
  * @package		SilexBoard
- * @version		DEV
  */
 
 /* Langfile:	German */
 self::$Items = array_merge(self::$Items, array(
 'com.sbb.language.info'		=> 'Deutsch (Informal)',
-'com.sbb.language.changed'	=> 'Deine Sprache wurde nach {{ LangChangedTo }} geändert',
+'com.sbb.language.changed'	=> 'Deine Sprache wurde nach '.SBB::Template()->Get('LangChangedTo').' geändert',
 
 'com.sbb.header.welcome'		=> 'Willkommen',
-'com.sbb.header.welcome_text'	=> 'Herzlich willkommen auf {{ Site }} - {{ Slogan }}',
+'com.sbb.header.welcome_text'	=> 'Herzlich willkommen auf '.SBB::Template()->Get('PageTitle').' - '.SBB::Template()->Get('PageSlogan'),
 'com.sbb.header.logo_title'		=> 'Startseite',
 'com.sbb.header.slogan'			=> 'Die moderne Bulletin-Board-Software',
 
@@ -65,6 +64,10 @@ self::$Items = array_merge(self::$Items, array(
 'com.sbb.captcha'		=> 'Captcha',
 'com.sbb.captcha_wrong'	=> 'Captcha ist falsch!',
 
-'com.sbb.email.activation.title'	=> 'Du must diesen Link klicken um deine Registrierung abzuschließen: '
+'com.sbb.email.activation.title'	=> 'Du musst diesen Link klicken um deine Registrierung abzuschließen: ',
+
+// Databasestrings
+'com.sbb.config.style.default'	=> 'Standardstil',
+'com.sbb.config.page.title'		=> 'Seitentitel'
 ));
 ?>

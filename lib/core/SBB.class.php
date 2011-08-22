@@ -24,16 +24,10 @@ class SBB /*implements SBBInterface*/ { // Dunno why this Interface let the Auto
 		Config::CreateConstants();
 		self::$Template = new Template();
 		self::$Page = Page::GetPage();
-		Language::LanguageList();
-		Language::Assign();
-		
-		
-		/* To Check */
 		
 		//Menu::Render();
 		
 		self::TemplateAssign();
-		
 		// Compile
 		self::Template()->Display('case.tpl');
 	}
@@ -51,41 +45,14 @@ class SBB /*implements SBBInterface*/ { // Dunno why this Interface let the Auto
 	}
 	
 	private static function TemplateAssign() {
-		//self::Language()->Assign();
-		
 		global $GeneratingTime;
 		self::Template()->Assign(array(
 			'DIR_STYLE' => DIR_STYLE,
 			'DIR_JS' => DIR_JS,
 			'Load' => '~Load: '.round(((microtime(true) - $GeneratingTime) * 1000), 2).'ms')
 		);
+		
+		self::Template()->AssignLanguage(Language::Assign());
 	}
 }
-	
-	
-	/*
-	// Objects / Variables
-	private static $Language;
-	private static $PageInfo;
-	
-	public static function Load() {
-		Style::Load();
-		self::$Language = new Language();
-		self::$PageInfo = new PageInfo();
-		Page::Initial();
-		Menu::Render();
-	}
-	
-	// Core Functions
-	public static function CreateConstant($Name, $Value) {
-		define(strtoupper($Name), $Value);
-	}
-	
-	// Object / Variable access
-	public static function Language() {
-		return self::$Language;
-	}
-	public static function PageInfo() {
-		return self::$PageInfo;
-	}*/
 ?>

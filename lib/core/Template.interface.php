@@ -18,6 +18,11 @@ interface TemplateInterface {
 								$Autoescape = false);
 	
 	/**
+	 * Translate a given templatevariable into a normal string if it exists
+	 */
+	public function Get($Key);
+	
+	/**
 	 * Assigns new Variables to the template
 	 */
 	public function Assign(array $Variables);
