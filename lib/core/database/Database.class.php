@@ -32,7 +32,7 @@ abstract class Database extends SBB {
 	abstract public function Insert($Table, array $Inserts);
 	abstract public function Update($Table, array $Updates, $Where);
 	abstract public function Count($Table, $Rows = '*', $Where);
-	abstract public function RowExists($Table, $Rows = '*', $Where);
+	abstract public function RowExists($Table, $Where);
 	abstract public function NumRows();
 	abstract public function AffectedRows();
 	abstract public function Free();

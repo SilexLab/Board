@@ -33,7 +33,7 @@ class MySQLDatabase extends Database {
 	}
 	
 	public function Select($Table, $Rows = '*', $Where = '', $Order = '', $Limit = 0) {
-		$Query = 'SELECT '.$Rows.' FROM '.CFG_DB_PREFIX.$Table;
+		$Query = 'SELECT '.$Rows.' FROM `'.CFG_DB_PREFIX.$Table.'`';
 		if(!empty($Where))
 			$Query .= ' WHERE '.$Where;
 		if(!empty($Order))
@@ -59,7 +59,7 @@ class MySQLDatabase extends Database {
 		$Keys = trim($Keys, ', ');
 		$Values = trim($Values, ', ');
 		
-		$this->SQLQuery = 'INSERT INTO '.CFG_DB_PREFIX.$Table.' ('.$Keys.') VALUES ('.$Values.');';
+		$this->SQLQuery = 'INSERT INTO `'.CFG_DB_PREFIX.$Table.'` ('.$Keys.') VALUES ('.$Values.');';
 		return $this->ExecuteQuery();
 	}
 	
@@ -72,18 +72,19 @@ class MySQLDatabase extends Database {
 			$Update .= $Key.' = \''.$Value.'\', ';
 		$Update = trim($Update, ', ');
 		
-		$this->SQLQuery = 'UPDATE '.CFG_DB_PREFIX.$Table.' SET '.$Update.' WHERE '.$Where.';';
+		$this->SQLQuery = 'UPDATE `'.CFG_DB_PREFIX.$Table.'` SET '.$Update.' WHERE '.$Where.';';
 		return $this->ExecuteQuery();
 	}
 	
 	public function Count($Table, $Rows = '*', $Where) {
-		$this->SQLQuery = 'SELECT COUNT('.$Rows.') AS total FROM '.CFG_DB_PREFIX.$Table.' WHERE '.$Where.';';		
+		$this->SQLQuery = 'SELECT COUNT('.$Rows.') AS total FROM `'.CFG_DB_PREFIX.$Table.'` WHERE '.$Where.';';		
 		return $this->ExecuteQuery();
 	}
 	
-	public function RowExists($Table, $Rows = '*', $Where) {
-		// TODO: Write a working function
-		return mysql_query('SELECT COUNT('.$Rows.') FROM '.$Table.' WHERE '.$Where.';');
+	public function RowExists($Table, $Where) {
+		//$query = mysql_query('SELECT * FROM `'.$Table.'` WHERE `Wert` = \'Value\'');
+		$query = mysql_query('SELECT * FROM `'.$Table.'` WHERE '.$Where.';');
+		return mysql_num_rows($query) === 0 ? false : true;
 	}
 	
 	public function Delete($Table, $Where = '') {
@@ -91,7 +92,7 @@ class MySQLDatabase extends Database {
 		if(empty($Where))
 			$Query .= $Table;
 		else if(!empty($Where))
-			$Query .= 'FROM '.CFG_DB_PREFIX.$Table.' WHERE '.$Where.';';
+			$Query .= 'FROM `'.CFG_DB_PREFIX.$Table.'` WHERE '.$Where.';';
 		else
 			die('If you see this message, you caused a error wich never can be triggered<br>'."\n".'<strong>Congratulations</strong>');
 		

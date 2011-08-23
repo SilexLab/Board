@@ -31,11 +31,10 @@ class Language implements LanguageInterface {
 					$Name = XML::ReadElement(DIR_LANGUAGE.$Lang.'/info.xml', 'name');
 					$List[$Lang] = ''.$Name[0];
 					
-// TODO: Uncomment if the MySQL function RowExists work
-//					if(!SBB::SQL()->RowExists('language', NULL, 'Shortcut="'.$Lang.'"')) {
-//						$Encoding = XML::ReadElement(DIR_LANGUAGE.$Lang.'/info.xml', 'encoding');
-//						SBB::SQL()->Insert('language', array('Shortcut' => $Lang, 'Encoding' => $Encoding[0]));
-//					}
+					if(!SBB::SQL()->RowExists('language', 'Shortcut="'.$Lang.'"')) {
+						$Encoding = XML::ReadElement(DIR_LANGUAGE.$Lang.'/info.xml', 'encoding');
+						SBB::SQL()->Insert('language', array('Shortcut' => $Lang, 'Encoding' => $Encoding[0]));
+					}
 				}
 			}
 		}
