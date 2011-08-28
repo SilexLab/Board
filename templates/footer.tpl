@@ -7,6 +7,8 @@
 			</form>
 			Aktuelle Sprache: {{ lang=com.sbb.language.info }}<br>
 			Aktueller Style: {{ CurrentStyle }}<br>
-			- {{ Load }}
+			- {{ Load }}<br>
+			<br>
+			<a href="http://www.silexboard.org/">{{ lang=com.sbb.copyright }}</a>
 		</div>
 	</footer>
