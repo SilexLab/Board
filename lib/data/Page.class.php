@@ -10,7 +10,7 @@ abstract class Page extends SBB {
 	
 	protected static function GetPage($Page = '') {
 		if($Page == '')
-			$Page = isset($_Get['page']) ? $_Get['page'] : NULL;
+			$Page = isset($_GET['page']) ? $_GET['page'] : NULL;
 		return self::Open(self::Validate($Page).'Page');
 	}
 	
@@ -19,7 +19,7 @@ abstract class Page extends SBB {
 			return 'Error';
 		if(!$Page)
 			return 'Home';
-		if(file_exists(DIR_PAGE.self::$Page.'Page.class.php'))
+		if(file_exists(DIR_PAGE.$Page.'Page.class.php'))
 			return $Page;
 		return 'Error';
 	}

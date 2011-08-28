@@ -13,10 +13,10 @@ class ErrorPage extends Page implements PageInterface {
 	);
 	
 	public function __construct() {
-		$this->Infos['Title'] = SBB::Language()->Get('com.sbb.page.error');
+		$this->Infos['Title'] = Language::Get('com.sbb.page.error');
 		
 		$Type = isset($_GET['type']) ? $_GET['type'] : 404;
-		//SBB::Template()->Assign(array('Page' => 'Error', 'ErrorType' => $Type));
+		SBB::Template()->Assign(array('Page' => 'Error', 'ErrorType' => $Type));
 	}
 	
 	public function GetInfo($Info = '') {
