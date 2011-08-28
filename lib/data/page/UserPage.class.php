@@ -6,36 +6,33 @@
  * @package		SilexBoard
  */
 
-class RegisterPage extends Page implements PageInterface {
+class UserPage extends Page implements PageInterface {
 	private $Infos = array(
 		'Page' => 'User',
 		'Menu' => 'User',
 	);
 	
 	public function __construct() {
-		$this->Infos['Title'] = SBB::Language()->Get('com.sbb.page.user');
-		
-		/*
-		$Parser = new messageParser();
+		$this->Infos['Title'] = Language::Get('com.sbb.page.user');
 		
 		if(isset($_GET['userID'])) {
 			$UserInfos = array();
-			MySQL::Select('users', '*', 'ID = \''.$_GET['userID'].'\'', 1);
-			$Row = MySQL::FetchArray();
+			SBB::SQL()->Select('users', '*', 'ID = \''.$_GET['userID'].'\'', 1);
+			$Row = SBB::SQL()->FetchArray();
 			$UserInfos[] = $Row;
-			$Avatar = new avatar($Row['Email'], 100);
+			$Avatar = new Avatar($Row['Email'], 100);
 			
-			Template::Assign(array('Page' => 'userPage', 'UserInfos' => $UserInfos, 'Avatar' => $Avatar));
+			SBB::Template()->Assign(array('Page' => 'userPage', 'UserInfos' => $UserInfos, 'Avatar' => $Avatar));
 		}
 		else {
 			$Users = array();
-			MySQL::Select('users', '*');
-			while($Row = MySQL::FetchArray()) {
+			SBB::SQL()->Select('users', '*');
+			while($Row = SBB::SQL()->FetchObject) {
 				$Users[] = $Row;
 			}
-			Template::Assign(array('Page' => 'userList', 'Users' => $Users));
+			SBB::Template()->Assign(array('Page' => 'userList', 'Users' => $Users));
 		}
-		*/
+		
 	}
 	
 	public function GetInfo($Info = '') {
