@@ -15,6 +15,7 @@ class Language implements LanguageInterface {
 	private static $Languages = array();
 	
 	public static function Get($Key) {
+		self::GetLanguage();
 		return isset(self::$Items[$Key]) ? self::$Items[$Key] : $Key;
 	}
 	
