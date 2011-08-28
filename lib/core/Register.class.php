@@ -11,7 +11,7 @@
 class Register {
 	private static $Error = array();
 	
-	public static function Check($Post) {
+	public static function Check(array $Post) {
 		$SQL = SBB::SQL();
 		
 		if(!preg_match('/^[a-zA-Z0-9_\-\s]{4,32}$/', $Post['Username'])) {

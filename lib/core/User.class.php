@@ -16,7 +16,7 @@ class User {
 	
 	public static function Initial() {
 		self::$UserID = session::Read('userid');
-		self::$IsLoggedIn = mysql::RowExists('sessions', NULL, 'ID=\''.self::$UserID.'\'');
+		self::$IsLoggedIn = SBB::SQL()->RowExists('sessions', NULL, 'ID=\''.self::$UserID.'\'');
 	}
 	
 	public static function Create($Username, $Password, $Email) {
@@ -94,19 +94,27 @@ class User {
 	}
 	
 	public static function Delete($ID) {
-		if(!is_int($ID))
+		if($ID = 0) {
+			$ID = Session::Get('UserID');
+		}
+		if(!is_int($ID)) {
 			return false;
-		mysql::Delete('users', $ID);
+		}
+		SBB::SQL()->Delete('users', $ID);
 		return true;
 	}
 	
 	public static function Update($ID, $Property, $Value = NULL) {
-		if(!is_int($ID))
+		if($ID = 0) {
+			$ID = Session::Get('UserID');
+		}
+		if(!is_int($ID)) {
 			return false;
+		}
 		if(is_array($Property))
-			mysql::Update('users', $Property, 'ID='.$ID);
+			SBB::SQL()->Update('users', $Property, 'ID = '.$ID);
 		else if(!is_string($Property))
-			mysql::Update('users', array($Property => $Value), 'ID='.$ID);
+			SBB::SQL()->Update('users', array($Property => $Value), 'ID = '.$ID);
 		else
 			return false;
 	}
@@ -114,28 +122,63 @@ class User {
 	public static function GetUserID($Name) {
 		if(!is_string($Name))
 			return false;
-		mysql::Select('users', 'ID', 'UserName=\''.$Name.'\'', NULL, 1);
-		return mysql::GetObjects()->ID;
+		SBB::SQL()->Select('users', 'ID', 'Username=\''.$Name.'\'');
+		return SBB::SQL()->GetObjects()->ID;
 	}
 	
-	public static function GetUsername($ID) {
-		if(!is_int($ID))
+	public static function GetUsername($ID = 0) {
+		if($ID = 0) {
+			$ID = Session::Get('UserID');
+		}
+		if(!is_int($ID)) {
 			return false;
-		mysql::Select('users','*','ID='.$ID);
-		$UserName = mysql::FetchObject()->UserName;	
+		}
+		SBB::SQL()->Select('users', 'Username', 'ID = '.$ID);
+		$UserName = SBB::SQL()->FetchObject()->Username;	
 		return $UserName;
 	}
 	
 	public static function GetEmail($ID) {
-		if(!is_int($ID))
+		if($ID = 0) {
+			$ID = Session::Get('UserID');
+		}
+		if(!is_int($ID)) {
 			return false;
-		mysql::Select('users','*','ID='.$ID);
-		$Email = mysql::FetchObject()->Email;	
+		}
+		SBB::SQL()->Select('users','*','ID='.$ID);
+		$Email = SBB::SQL()->FetchObject()->Email;	
 		return $Email;
 	}
 	
 	public static function LoggedIn() {
 		return self::$IsLoggedIn;
+	}
+	
+	public static function Login($UserID, $StayLoggedIn = 0) {
+		$Token = sha1(mt_rand(0, mt_getrandmax()).microtime(true).mt_rand(0, mt_getrandmax()));
+		Session::Set('UserID', $UserID);
+		if(!$StayLoggedIn) {
+			Session::Set('Token', $Token);
+		}
+		else {
+			setcookie('sbb_Token', $Token, time()+60*60*24*365);
+		}
+		$Inserts = array('UserID' => $UserID,
+			'Username' => self::GetUsername($UserID),
+			'IPAddress' => $_SERVER['REMOTE_ADDR'],
+			'UserAgent' => $_SERVER['HTTP_USER_AGENT'],
+			'LastActivityTime' => time(),
+			'Token' => $Token);
+		
+		SBB::SQL()->Insert('session', $Inserts);
+	}
+	
+	public static function Logout() {
+		SBB::SQL()->Delete('session', 'Token = \''.$_COOKIE['sbb_Token'].'\'');
+		SBB::SQL()->Delete('session', 'Token = \''.Session::Read('Token').'\'');
+		Session::Remove('UserID');
+		Session::Remove('Token');
+		setcookie('sbb_Token', '', time()-60*60*24*365);
 	}
 	
 	// Password Stuff

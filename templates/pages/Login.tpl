@@ -1,30 +1,18 @@
-					<form method="post" accept-charset="utf-8" action="?page=Login">
-					<div class="Wrap">
-						<ul>
-							<li><label for="Username">{{ lang#com.sbb.login.username }}:</label></li>
-							<li><input type="text" name="Username" id="Username" placeholder="{{ lang#com.sbb.login.username }}" required></li>
-							<div style="clear:both;"></div>
-						</ul>
-						<ul>
-							<li><label for="Password">{{ lang#com.sbb.login.password }}:</label></li>
-							<li><input type="password" name="Password" id="Password" placeholder="{{ lang#com.sbb.login.password }}" required></li>
-							<div style="clear:both;"></div>
-						</ul>
-						
-						<div class="LoginFormMethode">
-							<ul>
-								<li><input type="radio" value="1" name="Register" id="RegisterMe"><label for="RegisterMe" class="Check"></label><label for="RegisterMe" class="Text">{{ lang#com.sbb.register.register }}</label></li>
-								<li><input type="radio" value="0" name="Register" id="LogMeIn" checked><label for="LogMeIn" class="Check"></label><label for="LogMeIn" class="Text">{{ lang#com.sbb.login.login }}</label></li>
-							</ul>
-						</div>
-						
-						<div class="LoginFormSubmit">
-							<ul>
-								<li><input type="submit" name="SubmitLogin" id="SubmitLogin" value="{{ lang#com.sbb.form.submit }}"></li>
-								<li><input type="checkbox" name="StayLoggedIn" id="StayLoggedIn"><label for="StayLoggedIn" class="Check"></label><label for="StayLoggedIn" class="Text">{{ lang#com.sbb.login.stay }}</label></li>
-								<div style="clear:both;"></div>
-							</ul>
-						</div>
-					</div>
-				</form>
-                {{ LoginMessage }}
+					<form method="post">
+						<table>
+							<tr>
+								<td><label for="Username">{{ lang=com.sbb.login.username }}</label></td>
+								<td><input type="text" name="Username" id="Username" size="30" autocomplete="off" required></td>
+							</tr>
+							<tr>
+								<td><label for="Password">{{ lang=com.sbb.login.password }}</label></td>
+								<td><input type="password" name="Password" id="Password" size="30" autocomplete="off" required></td>
+							</tr>
+							<tr>
+								<td></td>
+								<td><input type="checkbox" name="StayLoggedIn" id="StayLoggedIn" size="30" value="1"><label for="StayLoggedIn">{{ lang=com.sbb.login.stay }}</label></td>
+							</tr>
+						</table>
+						<input type="submit" name="Login" value="{{ lang=com.sbb.form.submit }}" />
+					</form>
+                    <p>{{ Message }}</p>

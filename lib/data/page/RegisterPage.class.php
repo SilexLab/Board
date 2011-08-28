@@ -17,8 +17,9 @@ class RegisterPage extends Page implements PageInterface {
 		
 		
 		// If logged in, redirect to start page	
-		if(isset($_COOKIE['sbb_loginHash']) || Session::Read('userid')) 
+		if(isset($_COOKIE['sbb_Token']) || Session::Read('UserID')) {
 			header("Location: index.php");
+		}
 		
 		$Message = '';
 		if(isset($_POST['Register'])) {
@@ -36,7 +37,7 @@ class RegisterPage extends Page implements PageInterface {
 		}
 		
 		// Füllt die Variablen im TPL
-		SBB::Template()->Assign(array('RegisterMessage' => $Message, 'Page' => 'Register'));
+		SBB::Template()->Assign(array('Message' => $Message, 'Page' => 'Register'));
 	}
 	
 	public function GetInfo($Info = '') {

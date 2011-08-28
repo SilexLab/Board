@@ -38,14 +38,13 @@ self::$Items = array_merge(self::$Items, array(
 'com.sbb.register.email_exist'			=> 'Diese E-Mail Adresse existiert bereits!',
 'com.sbb.register.success'				=> 'Du hast dich erfolgreich registriert!',
 
-'com.sbb.login.login'			=> 'Einloggen',
-'com.sbb.login.stay'			=> 'Eingeloggt bleiben',
-'com.sbb.login.bar_handle'		=> 'Einloggen/Registrieren',
-'com.sbb.login.username'		=> 'Benutzername',
-'com.sbb.login.password'		=> 'Passwort',
-'com.sbb.login.wrongdata'		=> 'Ihre Anmeldedaten waren nicht korrekt!',
-'com.sbb.login.redirect'		=> 'Sie werden automatisch weitergeleitet...',
-'com.sbb.login.ifnotredirect'	=> 'Falls die automatische Weiterleitung nicht funktioniert folgen sie diesen ',
+'com.sbb.login.bar_handle'			=> 'Einloggen/Registrieren',
+'com.sbb.login.username'			=> 'Benutzername',
+'com.sbb.login.password'			=> 'Passwort',
+'com.sbb.login.stay'				=> 'Eingeloggt bleiben',
+'com.sbb.login.wrong_password'		=> 'Das Passwort ist falsch!',
+'com.sbb.login.notexist_username'	=> 'Dieser Benutzer existiert nicht!',
+'com.sbb.login.success'				=> 'Du hast dich erfolgreich angemeldet!',
 
 'com.sbb.form.submit'	=> 'Absenden',
 
