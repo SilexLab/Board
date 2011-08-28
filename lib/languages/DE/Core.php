@@ -30,11 +30,12 @@ self::$Items = array_merge(self::$Items, array(
 'com.sbb.register.email_repeat'			=> 'E-mail Adresse wiederholen',
 'com.sbb.register.password'				=> 'Passwort',
 'com.sbb.register.password_repeat'		=> 'Passwort wiederholen',
-'com.sbb.register.invalid_username'		=> 'Ungültiger Benutzername<br>\n',
-'com.sbb.register.incorrect_password'	=> 'Die Passwörter stimmen nicht überein<br>\n',
-'com.sbb.register.incorrect_email'		=> 'Die E-Mail Adressen stimmen nicht überein<br>\n',
-'com.sbb.register.username_exist'		=> 'Dieser Benutzername existiert bereits!<br>\n',
-'com.sbb.register.email_exist'			=> 'Diese E-Mail Adresse existiert bereits!<br>\n',
+'com.sbb.register.invalid_username'		=> 'Ungültiger Benutzername',
+'com.sbb.register.invalid_email'		=> 'Ungültige E-Mail Adresse',
+'com.sbb.register.incorrect_password'	=> 'Die Passwörter stimmen nicht überein',
+'com.sbb.register.incorrect_email'		=> 'Die E-Mail Adressen stimmen nicht überein',
+'com.sbb.register.username_exist'		=> 'Dieser Benutzername existiert bereits!',
+'com.sbb.register.email_exist'			=> 'Diese E-Mail Adresse existiert bereits!',
 'com.sbb.register.success'				=> 'Du hast dich erfolgreich registriert!',
 
 'com.sbb.login.login'			=> 'Einloggen',
@@ -68,6 +69,8 @@ self::$Items = array_merge(self::$Items, array(
 
 // Databasestrings
 'com.sbb.config.style.default'	=> 'Standardstil',
-'com.sbb.config.page.title'		=> 'Seitentitel'
+'com.sbb.config.page.title'		=> 'Seitentitel',
+
+'com.sbb.error'	=>	'Fehler'
 ));
 ?>

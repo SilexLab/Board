@@ -13,47 +13,30 @@ class RegisterPage extends Page implements PageInterface {
 	);
 	
 	public function __construct() {
-		$this->Infos['Title'] = SBB::Language()->Get('com.sbb.page.register');
+		$this->Infos['Title'] = Language::Get('com.sbb.page.register');
 		
 		
-		/*// Falls eingeloggt, auf Startseite weiterleiten.	
+		// If logged in, redirect to start page	
 		if(isset($_COOKIE['sbb_loginHash']) || Session::Read('userid')) 
 			header("Location: index.php");
 		
-		// Wurde die Register direkt aufgerufen wird value leer sein
-		if(!isset($_SESSION['RegisterName']) || !isset($_SESSION['RegisterPass'])) {
-			$SessionName = '';
-			$SessionPass = '';
-		} else {
-			$SessionName = $_SESSION['RegisterName'];
-			$SessionPass = $_SESSION['RegisterPass'];
-		}
-		
-		// Bearbeitung des Formulars
 		$Message = '';
 		if(isset($_POST['Register'])) {
-			$Lang = SBB::Language();
-			// Captcha funktioniert nicht, also nicht checken.*/
+			// Captcha doesn't work
 			/*if($_POST['Captcha'] != $_SESSION['Captcha']) {
 				$message = '{lang=com.sbb.captcha.wrong}';
 			}
-			else*/ /*if(Register::Check($_POST)) {
+			else*/ if(Register::Check($_POST)) {
 				User::Create($_POST['Username'], $_POST['Password'], $_POST['Email']);
-				session_unset($_SESSION['RegisterName']);
-				session_unset($_SESSION['RegisterPass']);
-				
-				User::Email('Subject', 'hier kommt ein text', User::GetUserID($_POST['Username']));
-				$Message = $Lang->Get('com.sbb.register.success');
+				$Message = Language::Get('com.sbb.register.success');
 			}
 			else {
-				session_unset($_SESSION['RegisterName']);
-				session_unset($_SESSION['RegisterPass']);
-				$Message = Register::getError();
+				$Message = '<b>'.Language::Get('com.sbb.error').':</b><ul><li>'.implode('</li><li>', Register::GetError()).'</li></ul>';
 			}
 		}
 		
 		// Füllt die Variablen im TPL
-		Template::Assign(array('RegisterName' => $SessionName, 'RegisterPass' => $SessionPass, 'RegisterMessage' => $Message, 'Page' => 'Register'));*/
+		SBB::Template()->Assign(array('RegisterMessage' => $Message, 'Page' => 'Register'));
 	}
 	
 	public function GetInfo($Info = '') {

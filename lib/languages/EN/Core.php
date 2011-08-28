@@ -30,11 +30,12 @@ self::$Items = array_merge(self::$Items, array(
 'com.sbb.register.email_repeat'			=> 'Repeat E-mail address',
 'com.sbb.register.password'				=> 'Password',
 'com.sbb.register.password_repeat'		=> 'Repeat password',
-'com.sbb.register.invalid_username'		=> 'Invalid username<br>\n',
-'com.sbb.register.incorrect_password'	=> 'The passwords don\'t match<br>\n',
-'com.sbb.register.incorrect_email'		=> 'The e-mail adresses don\'t match<br>\n',
-'com.sbb.register.username_exist'		=> 'This username already exists!<br>\n',
-'com.sbb.register.email_exist'			=> 'This e-mail adress already exists!<br>\n',
+'com.sbb.register.invalid_username'		=> 'Invalid username',
+'com.sbb.register.invalid_email'		=> 'Invalid e-mail adress',
+'com.sbb.register.incorrect_password'	=> 'The passwords don\'t match',
+'com.sbb.register.incorrect_email'		=> 'The e-mail adresses don\'t match',
+'com.sbb.register.username_exist'		=> 'This username already exists!',
+'com.sbb.register.email_exist'			=> 'This e-mail adress already exists!',
 'com.sbb.register.success'				=> 'You are successfully registered!',
 
 'com.sbb.login.login'			=> 'Log in',
@@ -68,6 +69,8 @@ self::$Items = array_merge(self::$Items, array(
 
 // Databasestrings
 'com.sbb.config.style.default'	=> 'Default style',
-'com.sbb.config.page.title'		=> 'Page title'
+'com.sbb.config.page.title'		=> 'Page title',
+
+'com.sbb.error'	=>	'Error'
 ));
 ?>

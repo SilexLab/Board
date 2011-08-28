@@ -9,32 +9,39 @@
 
 /* Die Register Klasse verwaltet die Eingaben der Registration und gibt eventuell Fehler aus. */
 class Register {
-	protected static $error = '';
+	private static $Error = array();
 	
-	public static function Check($post) {
-		$Lang = SBB::Language();
+	public static function Check($Post) {
+		$SQL = SBB::SQL();
 		
-		if(!preg_match('/^[A-Za-z0-9_]/', $post['Username']))
-			self::$error .= $Lang->Get('com.sbb.register.invalid_username');
-		if($post['Password'] != $post['Passwordrepeat'])
-			self::$error .= $Lang->Get('com.sbb.register.incorrect_password');
-		if($post['Email'] != $post['Emailrepeat'])
-			self::$error .= $Lang->Get('com.sbb.register.incorrect_email');
+		if(!preg_match('/^[a-zA-Z0-9_\-\s]+$/', $Post['Username'])) {
+			self::$Error[] = Language::Get('com.sbb.register.invalid_username');
+		}
+		if($Post['Password'] != $Post['PasswordRepeat']) {
+			self::$Error[] = Language::Get('com.sbb.register.incorrect_password');
+		}
+		if($Post['Email'] != $Post['EmailRepeat']) {
+			self::$Error[] = Language::Get('com.sbb.register.incorrect_email');
+		}
+		if(!preg_match('/^[a-z0-9\-_]+\@[a-z0-9\-]+\.[a-z]{2,3}$/', $Post['Email'])) {
+			self::$Error[] = Language::Get('com.sbb.register.invalid_email');
+		}
                 
-		mysql::Select('users', 'UserName', 'Username = \''.$post['Username'].'\'');
-		if(mysql::NumRows() == 1)
-			self::$error .= $Lang->Get('com.sbb.register.username_exist');
-		mysql::Select('users', 'Email', 'Email = \''.$post['Email'].'\'');
-		if(mysql::NumRows() == 1)
-			self::$error .= $Lang->Get('com.sbb.register.email_exist');
+		$SQL->Select('users', 'UserName', 'Username = \''.mysql_real_escape_string($Post['Username']).'\'');
+		if($SQL->NumRows() == 1)
+			self::$Error[] = Language::Get('com.sbb.register.username_exist');
+		$SQL->Select('users', 'Email', 'Email = \''.mysql_real_escape_string($Post['Email']).'\'');
+		if($SQL->NumRows() == 1)
+			self::$Error[] = Language::Get('com.sbb.register.email_exist');
 		
-		if(!empty(self::$error))
+		if(count(self::$Error) != 0) {
 			return false;
+		}
 		return true;
 	}
 	
-	public static function getError() {
-		return self::$error;
+	public static function GetError() {
+		return self::$Error;
 	}
 }
 ?>

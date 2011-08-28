@@ -31,9 +31,9 @@ class User {
 				'ActivationKey' => $Key,
 				'RegisterTime' => time(),
 				/*'Activated' => 0 Funktioniert nicht*/);
-		mysql::Insert('users', $Inserts);
+		SBB::SQL()->Insert('users', $Inserts);
 		
-		self::sendActivationMail($email, $key);
+		//self::sendActivationMail($email, $key);
 	}
 	
 	public static function sendActivationMail($email, $key) {
