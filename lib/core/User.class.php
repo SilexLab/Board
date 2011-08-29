@@ -80,7 +80,7 @@ class User {
 	}
 	
 	public static function LoggedIn() {
-		return Session::Read('UserID');
+		return Session::Read('UserID') > 0;
 	}
 	
 	public static function Login($UserID, $StayLoggedIn = 0) {
