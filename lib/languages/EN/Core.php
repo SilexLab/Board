@@ -8,6 +8,9 @@
 
 /* Langfile:	English */
 self::$Items = array_merge(self::$Items, array(
+'com.sbb.error'		=> 'Error',
+'com.sbb.copyright'	=> 'Forum software: Silex Bulletin Board '.SILEX_VERSION.' &ndash; &copy; 2011 silexboard.org',
+
 'com.sbb.language.info'		=> 'English',
 'com.sbb.language.changed'	=> 'Your Language was changed to '.SBB::Template()->Get('LangChangedTo').'.',
 
@@ -68,8 +71,6 @@ self::$Items = array_merge(self::$Items, array(
 
 // Databasestrings
 'com.sbb.config.style.default'	=> 'Default style',
-'com.sbb.config.page.title'		=> 'Page title',
-
-'com.sbb.error'	=>	'Error'
+'com.sbb.config.page.title'		=> 'Page title'
 ));
 ?>

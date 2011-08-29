@@ -8,7 +8,7 @@
 
 /* Langfile:	German */
 self::$Items = array_merge(self::$Items, array(
-'com.sbb.error'		=>	'Fehler',
+'com.sbb.error'		=> 'Fehler',
 'com.sbb.copyright'	=> 'Forensoftware: Silex Bulletin Board '.SILEX_VERSION.' &ndash; &copy; 2011 silexboard.org',
 
 'com.sbb.language.info'		=> 'Deutsch (Informal)',
