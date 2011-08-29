@@ -74,14 +74,17 @@ class User {
 		if($ID == 0) {
 			$ID = Session::Read('UserID');
 		}
-		if($Data = '*') {
-			SBB::SQL()->Select('users', '*', 'ID = '.$ID);		
-			$Data = SBB::SQL()->FetchObject();	
-			return $Data;	
+		if($ID != 0) {
+			if($Data = '*') {
+				SBB::SQL()->Select('users', '*', 'ID = '.$ID);		
+				$Data = SBB::SQL()->FetchObject();	
+				return $Data;	
+			}
+			SBB::SQL()->Select('users', $Data, 'ID = '.$ID);
+			$Data = SBB::SQL()->FetchObject()->$Data;	
+			return $Data;
 		}
-		SBB::SQL()->Select('users', $Data, 'ID = '.$ID);
-		$Data = SBB::SQL()->FetchObject()->$Data;	
-		return $Data;
+		return false;
 	}
 	
 	public static function LoggedIn() {
