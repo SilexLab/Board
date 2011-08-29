@@ -1,1 +1,1 @@
-<h1>Nothing to see here yet. Move along</h1>
+Hallo <b>{{ User.Username }}</b>

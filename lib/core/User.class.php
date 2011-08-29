@@ -67,12 +67,17 @@ class User {
 		return Session::Read('UserID');
 	}
 	
-	public static function Get($Data, $ID = 0) {
+	public static function Get($Data = '*', $ID = 0) {
 		if(!is_int($ID)) {
 			return false;
 		}
 		if($ID == 0) {
 			$ID = Session::Read('UserID');
+		}
+		if($Data = '*') {
+			SBB::SQL()->Select('users', '*', 'ID = '.$ID);		
+			$Data = SBB::SQL()->FetchObject();	
+			return $Data;	
 		}
 		SBB::SQL()->Select('users', $Data, 'ID = '.$ID);
 		$Data = SBB::SQL()->FetchObject()->$Data;	

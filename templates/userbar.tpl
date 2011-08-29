@@ -1,6 +1,6 @@
 	<section class="UserBar">
 		<div class="Size">
-		{% if UserID == 0 %}
+		{% if User.ID == 0 %}
 			<div id="LoginForm">
 				<form method="post" accept-charset="utf-8" action="?page=Login">
 					<div class="Wrap">
