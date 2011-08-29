@@ -1,6 +1,6 @@
 <?php
 /**
- * @author 		Nut
+ * @author 		Cadillaxx
  * @copyright	© 2011 Silex Bulletin Board - Team
  * @license		GNU GENERAL PUBLIC LICENSE - Version 3
  * @package		SilexBoard
