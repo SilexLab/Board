@@ -2,7 +2,7 @@
 Silex Bulletin Board
 ====================
 
-Diese Forensoftware wird von Cadillaxx, NoxNebula, Nut und Angus geschrieben.
+Diese Forensoftware wird von Cadillaxx, NoxNebula, Nut und Angus entwickelt.
 
 Wir haben zwar alle keinen Plan von PHP aber Langeweile, aus der das Silex Board entsteht. Da wir das Projekt sozusagen als zur Verbesserung unserer PHP-Kenntnisse nutzen, lassen wir es bei der Entwicklung des Boards ruhig angehen und haben nichts gegen Hilfe einzuwenden.
 
