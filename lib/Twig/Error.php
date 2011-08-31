@@ -175,7 +175,7 @@ class Twig_Error extends Exception
             $tokens = token_get_all(file_get_contents($r->getFilename()));
             $templateline = -1;
             $template = null;
-            while ($token = array_shift($tokens)) {
+            foreach ($tokens as $token) {
                 if (isset($token[2]) && $token[2] >= $line) {
                     return array($templateline, $template);
                 }
