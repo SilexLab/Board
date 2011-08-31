@@ -41,6 +41,7 @@ self::$Items = array_merge(self::$Items, array(
 'com.sbb.register.email_exist'			=> 'This e-mail adress already exists!',
 'com.sbb.register.success'				=> 'You are successfully registered!',
 
+'com.sbb.login.login'				=> 'Log in',
 'com.sbb.login.stay'				=> 'Stay logged in',
 'com.sbb.login.bar_handle'			=> 'Log in/Sign up',
 'com.sbb.login.username'			=> 'Username',
