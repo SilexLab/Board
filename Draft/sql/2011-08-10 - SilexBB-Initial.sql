@@ -324,7 +324,7 @@ CREATE TABLE IF NOT EXISTS `post` (
 --
 
 CREATE TABLE IF NOT EXISTS `session` (
-  `ID` int(11) NOT NULL,
+  `ID` varchar(32) NOT NULL,
   `UserID` mediumint(9) NOT NULL,
   `Username` varchar(32) NOT NULL,
   `IPAddress` varchar(64) NOT NULL,
