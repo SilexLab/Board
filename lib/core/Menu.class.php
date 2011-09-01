@@ -1,30 +1,39 @@
 <?php
 /**
- * @author 		Angus
+ * @author 		Nox Nebula
  * @copyright	© 2011 Silex Bulletin Board - Team
  * @license		GNU GENERAL PUBLIC LICENSE - Version 3
  * @package		SilexBoard
- * @version		DEV
  */
 
 class Menu {
+	private static $ReservedLinks = array(
+		'menu.home' => './',
+		'menu.forum' => '?page=Board',
+		'menu.userlist' => '?page=UserList'
+	);
+	
 	public static function Render() {
-		$ID = SBB::PageInfo()->Get('ID');
-		if($ID == 'Home')
-			$ID = './';
+		$Active = SBB::Page()->GetInfo('Menu');
+		if(isset(self::$ReservedLinks['menu.'.strtolower($Active)]))
+			$Active = 'menu.'.strtolower($Active);
 		
-		MySQL::Select('menu', '*', NULL, 'Position');
 		$MenuList = array();
-		$Lang = SBB::Language();
-		while ($Row = MySQL::FetchObject()) {
-			if($ID == str_replace('?page=', '', $Row->Link)) { // Compare the Page ID with the Link in the Database
-				$Item = array('Link' => $Row->Link, 'Name' => $Lang->Get($Row->MenuName), 'Active' => true);
+		$Entries = SBB::SQL()->GetObjects()->Select('menu', '*', NULL, 'Position');
+		foreach($Entries as $Row) {
+			if(isset(self::$ReservedLinks[$Row->Target])) {
+				$MenuList[] = array('Link' => self::$ReservedLinks[$Row->Target],
+									'Name' => Language::Get($Row->MenuName),
+									'Active' => $Active == $Row->Target ? true : false);
 			} else {
-				$Item = array('Link' => $Row->Link, 'Name' => $Lang->Get($Row->MenuName), 'Active' => false);
+				$Target = str_replace('?page=', '', $Row-Target);
+				$Target = strpos($Target, '&') !== false ? strstr($Target, '&', true) : $Target;
+				$MenuList[] = array('Link' => $Row->Target,
+									'Name' => Language::Get($Row->MenuName),
+									'Active' => $Active == $Target ? true : false);
 			}
-			$MenuList[] = $Item;
 		}
-		Template::Assign(array('Menu' => $MenuList));
+		SBB::Template()->Assign(array('Menu' => $MenuList));
 	}
 }
 ?>

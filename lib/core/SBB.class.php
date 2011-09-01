@@ -24,8 +24,7 @@ class SBB /*implements SBBInterface*/ { // Dunno why this Interface let the Auto
 		Config::CreateConstants();
 		self::$Template = new Template();
 		self::$Page = Page::GetPage();
-		
-		//Menu::Render();
+		Menu::Render();
 		
 		self::TemplateAssign();
 		// Compile
