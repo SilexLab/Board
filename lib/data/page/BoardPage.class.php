@@ -13,11 +13,15 @@ class BoardPage extends Page implements PageInterface {
 	);
 	
 	public function __construct() {
-		$this->Infos['Title'] = SBB::Language()->Get('com.sbb.page.board');
+		$this->Infos['Title'] = Language::Get('com.sbb.page.board');
+		SBB::Template()->Assign(array('Page' => 'Board'));
 	}
 	
 	public function GetInfo($Info = '') {
 		return $Info == '' ? $this->Infos : (isset($this->Infos[$Info]) ? $this->Infos[$Info] : false);
+		
 	}
+	
 }
+
 ?>
