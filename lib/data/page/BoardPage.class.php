@@ -9,7 +9,7 @@
 class BoardPage extends Page implements PageInterface {
 	private $Infos = array(
 		'Page' => 'Board',
-		'Menu' => 'Board',
+		'Menu' => 'Forum',
 	);
 	
 	public function __construct() {
