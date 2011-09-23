@@ -29,12 +29,47 @@ class Style implements StyleInterface {
 		
 		$Styles = array();
 		$Multi = false;
-		foreach(scandir(DIR_STYLE.$Style.'/') as $File) {
+		$InfoFile = DIR_STYLE.$Style.'/info.xml';
+		if(!file_exists($InfoFile))
+			echo('Could not open the info file');
+		else {
+			if(! $xml = @simplexml_load_file($InfoFile)) {
+				echo('Parsing error');
+			} else {
+				$StyleInfo['name'] = $xml->info->name;
+				$StyleInfo['author'] = $xml->info->author;
+				$StyleInfo['website'] = $xml->info->website;
+				$StyleInfo['license'] = $xml->info->license;
+				$StyleInfo['version'] = $xml->info->version;
+				foreach($xml->files->file as $File) {
+					if(is_file(DIR_STYLE.$Style.'/'.$File) && (strpos($File, '.css') !== false)) {
+						$Styles[] = $File;
+					}
+				}
+				//print_r($xml);	
+			}
+		}
+			
+		/*foreach(scandir(DIR_STYLE.$Style.'/') as $File) {
 			if(is_file(DIR_STYLE.$Style.'/'.$File) && (strpos($File, '.css') !== false)) {
 				$Styles[] = $File;
 			}
-		}
+		}*/
 		return $Styles;
+	}
+	
+	public static function GetStyles() {
+		$StyleList = array();
+		foreach(scandir(DIR_STYLE) as $Dir) {
+			if(is_dir($Dir).'/' && $Dir != '.' && $Dir != '..') {
+				if(! $xml = @simplexml_load_file(DIR_STYLE.$Dir.'/info.xml')) {
+					echo('Parsing error');
+				} else {
+					$StyleList[] = $xml->info->name;	
+				}
+			}
+		}
+		return $StyleList;
 	}
 	
 	public static function GetCurrentStyle() {

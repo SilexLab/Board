@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<style>
+	<info>
+		<name>Standard SBB Style</name>
+		<author>SilexBoard Crew</author>
+		<website>http://silexboard.org</website>
+		<license>GNU GENERAL PUBLIC LICENSE - Version 3</license>
+		<version>DEV</version>
+	</info>
+	<files>
+		<file>footer.css</file>
+		<file>header.css</file>
+		<file>messagebox.css</file>
+		<file>style.css</file>
+	</files>
+</style>

@@ -47,6 +47,7 @@ class SBB /*implements SBBInterface*/ { // Dunno why this Interface let the Auto
 		global $GeneratingTime;
 		self::Template()->Assign(array(
 			'DIR_STYLE' => DIR_STYLE,
+			'StyleList' => Style::GetStyles(),
 			'DIR_JS' => DIR_JS,
 			'User' => User::Get(),
 			'Load' => '~Load: '.round(((microtime(true) - $GeneratingTime) * 1000), 2).'ms')
