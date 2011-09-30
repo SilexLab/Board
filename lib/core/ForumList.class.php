@@ -9,16 +9,28 @@
 
 class ForumList {
 	private $Items = array();
+	public static $CurrentBoardName;
 	
-	public static function ListForums() {
-		MySQL::Select('forums');
-		$Objects = MySQL::GetObjects();
+	public static function ListForums($BoardID = 0) {
+		if(isset($BoardID)) {
+			$Objects = SBB::SQL()->GetObjects()->Select('board', '*', 'ParentID='.$BoardID);
+			SBB::SQL()->Select('board', '*', 'ID='.$BoardID);
+			self::$CurrentBoardName = SBB::SQL()->FetchObject()->Title;
+		} else {
+			$Objects = SBB::SQL()->GetObjects()->Select('board');
+			self::$CurrentBoardName = 'Home';
+		}
 		foreach($Objects as $row) {
-			if($row->Parent != 0) {
-				$Item = array('ID' => $row->ID, 'Type' => $row->Type, 'isChild' => true, 'Title' => $row->Title, 'Description' => $row->Description, 'Position' => $row->Position, 'Permission' => $row->Permission, 'Status' => $row->Status);
-			} else {
-				$Item = array('ID' => $row->ID, 'Type' => $row->Type, 'isChild' => false, 'Title' => $row->Title, 'Description' => $row->Description, 'Position' => $row->Position, 'Permission' => $row->Permission, 'Status' => $row->Status);
-			}
+			$Item = array(	'ID' => $row->ID,
+							'ParentID' => $row->ParentID,
+							'Type' => $row->Type,
+							'Title' => $row->Title,
+							'Description' => $row->Description,
+							'Link' => $row->Link,
+							'Position' => $row->Position,
+							'Image' => $row->Image,
+							'Closed' => $row->Closed,
+							'Status' => $row->Status);
 			$Items[] = $Item;
 		}
 		return $Items;
