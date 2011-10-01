@@ -10,7 +10,7 @@ class Menu {
 	private static $ReservedLinks = array(
 		'menu.home' => './',
 		'menu.forum' => '?page=Board',
-		'menu.userlist' => '?page=User'
+		'menu.userlist' => '?page=UserList'
 	);
 	
 	public static function Render() {

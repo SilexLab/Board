@@ -25,7 +25,7 @@ class UserPage extends Page implements PageInterface {
 			SBB::Template()->Assign(array('Page' => 'userPage', 'UserInfos' => $UserInfos, 'Avatar' => $Avatar));
 		}
 		else {
-			SBB::Template()->Assign(array('Page' => 'userList', 'Users' => SBB::SQL()->GetObjects()->Select('users', '*')));
+			header('Location: ./');
 		}
 		
 	}
