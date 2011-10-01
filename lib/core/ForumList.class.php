@@ -20,20 +20,7 @@ class ForumList {
 			$Objects = SBB::SQL()->GetObjects()->Select('board');
 			self::$CurrentBoardName = 'Home';
 		}
-		foreach($Objects as $row) {
-			$Item = array(	'ID' => $row->ID,
-							'ParentID' => $row->ParentID,
-							'Type' => $row->Type,
-							'Title' => $row->Title,
-							'Description' => $row->Description,
-							'Link' => $row->Link,
-							'Position' => $row->Position,
-							'Image' => $row->Image,
-							'Closed' => $row->Closed,
-							'Status' => $row->Status);
-			$Items[] = $Item;
-		}
-		return $Items;
+		return $Objects;
 	}
 }
 ?>
