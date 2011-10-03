@@ -5,7 +5,7 @@
             <th class="TopicHead" colspan="4">Test</th>
         </tr>
         <tr class="Description">
-            <td class="Description">Thema</td>
+            <td class="DescriptionTopic">Thema</td>
             <td class="Description">Antworten</td>
             <td class="Description">Aufrufe</td>
             <td class="Description">Letzte Antwort</td>
