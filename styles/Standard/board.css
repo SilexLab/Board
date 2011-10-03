@@ -72,7 +72,7 @@ tr.Description, td.Description  {
 	background-image: url('images/bg_desc.png');
 	height: 20px;
 	font-size: 14px;
-	padding-left: 20px;
+	text-align: center;
 	border-left-width:1px;
 	border-right-width:0px;
 	border-bottom: 1px;
