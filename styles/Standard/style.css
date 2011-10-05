@@ -15,7 +15,7 @@ body {
 	margin: 0;
 	padding: 0;
 	font: 75%/1 Arial, Helvetica, sans-serif;
-	background: #1B1B1B;
+	background: #1B1B1B url(images/Background.png) center top repeat;
 }
 
 section, header, footer, nav {

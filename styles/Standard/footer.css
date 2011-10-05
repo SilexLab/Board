@@ -8,7 +8,27 @@
 
 footer {
 	color: #ffffff;
-	background: #1B1B1B;
+	text-shadow: 0 0 4px #000000;
+	background: #1B1B1B url(images/Footer.png) center top repeat;
 	border-top: 4px solid #6CB2E4;
 	padding: 15px 0;;
 }
+	footer a, footer a:link, footer a:visited {
+		color: #ffffff;
+		text-decoration: none;
+		display: inline-block;
+		margin: 0 0 1px 0;
+		padding: 3px;
+		border-radius: 4px;
+	}
+	footer a:hover {
+		color: #ffffff;
+		box-shadow: 0 1px 4px #000000;
+		background: #3c4a58;
+	}
+	footer a:active {
+		color: #ffffff;
+		margin: 1px 0 0 0;
+		box-shadow: 0 0px 3px #000000;
+		background: #232b33;
+	}
