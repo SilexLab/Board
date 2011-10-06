@@ -1,15 +1,35 @@
 <h1>{{ CurrentBoardName }}</h1>
-<table border="0" width="100%" class="Board">
-	{% for Board in Boards %}
-		{% if Board.Type == 0 %}
-			<tr class="BoardCategory"><th><a href="./index.php?page=Board&BoardID={{ Board.ID }}">{{ Board.Title }}</a></th></tr><div>
-		{% else %}
-			<tr class="BoardForum"><td>+ <a href="./index.php?page=TopicList&BoardID={{ Board.ID }}">{{ Board.Title }}</a></td></tr>
-		{% if Board.ID == 5 %}
-        	</div>	
-         {% endif %}	
-		{% endif %}
-		{% else %}
-			No Boards
-	{% endfor %}
-</table>
+<ul>
+<!-- <li>
+          Kategorie
+          <ul>
+               <li>unterforen</li>
+               <li>unterforen</li>
+               <li>unterforen</li>
+          </ul>
+     </li>
+     <li>
+          Kategorie
+          <ul>
+               <li>unterforen</li>
+          </ul>
+     </li>
+     <li>Forum</li>-->
+{% for Board in Boards %}
+<li>
+	{% if Board.ParentID == 0 %}
+		<a href="./index.php?page=Board&BoardID={{ Board.ID }}">{{ Board.Title }}</a>
+		<ul>
+			{% for Board2 in Boards %}
+			{% if Board2.ParentID == Board.ID %}
+				<li><a href="./index.php?page=Topiclist&BoardID={{ Board2.ID }}">{{ Board2.Title }}</a></li>
+			{% endif %}
+			{% endfor %}
+		</ul>
+        {% else %}
+	{% endif %}
+</li>
+{% else %}
+	No Boards
+{% endfor %}
+</ul>
