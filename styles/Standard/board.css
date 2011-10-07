@@ -7,40 +7,90 @@
  * version		DEV
  */
 
-tr.BoardCategory {
-	font-size: 17px;
-	height: 35px;
-	text-align: left;
-	border: 1px solid #000;
+.Board {
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
 }
 
-table.Board th {
+li.BoardCategory {
+	margin-bottom: 20px;
+	-moz-box-shadow: 0px 2px 5px #aaa;
+	-webkit-box-shadow: 0px 2px 5px #aaa;
+	box-shadow: 0px 2px 5px #aaa;
+}
+
+p.BoardHead {
 	background: -moz-linear-gradient(top, #4a96c6, #2a669e);
 	background: -webkit-linear-gradient(top, #4a96c6, #2a669e);
 	background: linear-gradient(top, #4a96c6, #2a669e);
-	padding-left: 10px;
-	-moz-border-radius: 5px;
-	-webkit-border-radius: 5px;
-	border-radius: 5px;
+	height: 40px;
+	-moz-border-radius: 5px 5px 0px 0px;
+	-webkit-border-radius: 5px 5px 0px 0px;
+	border-radius: 5px 5px 0px 0px;
 	border: 1px solid #000;
+	border-bottom: 0;
 }
 
-tr.BoardForum {
+ul.Forum, p.BoardHead {
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+	padding-top: 5px;
+	padding-left: 20px;
+	font-size: 16px;
+	color: #FFF;
+}
+
+a.BoardTitle {
+	color: #FFF;	
+}
+
+ul.BoardForum {
 	background: #f4f3f3;
+	list-style-type: none;
+	border-left-width: 1px;
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+	border-top-width: 0px;
+	border-style:solid;
+	border-spacing:0px;
+	border-color:#000;
+	-moz-border-radius: 0px 0px 5px 5px;
+	-webkit-border-radius: 5px 5px 5px 5px;
+	border-radius: 0px 0px 5px 5px;	
+	margin: 0;
+	padding: 0;
 }
 
-table.Board td {
-/*	border-bottom: 1px solid #8a8a8a;
-	border-left: 1px solid #8a8a8a;
-	border-right: 1px solid #8a8a8a;
-	-moz-border-radius: 5px;
-	-webkit-border-radius: 5px;
-	border-radius: 5px;*/
+li.BoardList {
+	font-size: 12px;
+	border-left-width:0px;
+	border-right-width:0px;
+	border-bottom-width: 0px;
+	border-top-width: 1px;
+	border-style:solid;
+	border-spacing:0px;
+	border-color:#000;
+	padding: 10px 20px 10px 20px;
+	min-height: 16px;
 }
 
-able.Board {
-	border: 1px solid #8a8a8a;
-	margin-top: 20px;
+div.ListLeft {
+	width: 60%;
+	float: left;
+}
+
+div.ListMiddle {
+	width: 20%;
+	float: left;
+	text-align: right;
+}
+
+div.ListRight {
+	width: 20%;
+	float: right;
+	text-align: right;
 }
 
 /* Topic List */

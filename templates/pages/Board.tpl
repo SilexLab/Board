@@ -1,34 +1,26 @@
 <h1>{{ CurrentBoardName }}</h1>
-<ul>
-<!-- <li>
-          Kategorie
-          <ul>
-               <li>unterforen</li>
-               <li>unterforen</li>
-               <li>unterforen</li>
-          </ul>
-     </li>
-     <li>
-          Kategorie
-          <ul>
-               <li>unterforen</li>
-          </ul>
-     </li>
-     <li>Forum</li>-->
+<ul class="Board">
 {% for Board in Boards %}
-<li>
 	{% if Board.ParentID == 0 %}
-		<a href="./index.php?page=Board&BoardID={{ Board.ID }}">{{ Board.Title }}</a>
-		<ul>
-			{% for Board2 in Boards %}
-			{% if Board2.ParentID == Board.ID %}
-				<li><a href="./index.php?page=Topiclist&BoardID={{ Board2.ID }}">{{ Board2.Title }}</a></li>
-			{% endif %}
-			{% endfor %}
-		</ul>
-        {% else %}
-	{% endif %}
-</li>
+        <li class="BoardCategory">
+            <p class="BoardHead">
+            	<a class="BoardTitle" href="./index.php?page=Board&BoardID={{ Board.ID }}">{{ Board.Title }}</a><br>
+                Beschreibung ...
+			</p>
+            <ul class="BoardForum">
+                {% for Board2 in Boards %}
+                {% if Board2.ParentID == Board.ID %}
+                    <li class="BoardList">
+                            <div class="ListLeft"><a class="bla" href="./index.php?page=Topiclist&BoardID={{ Board2.ID }}">{{ Board2.Title }}</a></div>
+                            <div class="ListMiddle">Thema: Bla</div>
+                            <div class="ListRight">23 Themen</div>
+                    </li>
+                {% endif %}
+                {% endfor %}
+            </ul>
+            {% else %}
+        </li>
+    {% endif %}
 {% else %}
 	No Boards
 {% endfor %}
