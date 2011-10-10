@@ -6,6 +6,11 @@
  * package		SilexBoard
  * version		DEV
  */
+ 
+p {
+	 padding: 1;
+	 margin: 0;
+ }
 
 .Board {
 	list-style-type: none;
@@ -20,16 +25,17 @@ li.BoardCategory {
 	box-shadow: 0px 2px 5px #aaa;
 }
 
-p.BoardHead {
+.BoardHead {
 	background: -moz-linear-gradient(top, #4a96c6, #2a669e);
 	background: -webkit-linear-gradient(top, #4a96c6, #2a669e);
 	background: linear-gradient(top, #4a96c6, #2a669e);
-	height: 40px;
 	-moz-border-radius: 5px 5px 0px 0px;
 	-webkit-border-radius: 5px 5px 0px 0px;
 	border-radius: 5px 5px 0px 0px;
 	border: 1px solid #000;
 	border-bottom: 0;
+	color: #FFF;
+	padding: 5px;
 }
 
 ul.Forum, p.BoardHead {
@@ -43,7 +49,8 @@ ul.Forum, p.BoardHead {
 }
 
 a.BoardTitle {
-	color: #FFF;	
+	color: #FFF;
+	font-weight: bolder;
 }
 
 ul.BoardForum {
@@ -73,21 +80,28 @@ li.BoardList {
 	border-spacing:0px;
 	border-color:#000;
 	padding: 10px 20px 10px 20px;
-	min-height: 16px;
+	min-height: 32px;
 }
 
-div.ListLeft {
+.ListLeft {
 	width: 60%;
 	float: left;
 }
 
-div.ListMiddle {
+.ListIcon {
+	float: left;
+	width: 32px;
+	text-align: center;
+	padding-right: 10px;
+}
+
+.ListMiddle {
 	width: 20%;
 	float: left;
 	text-align: right;
 }
 
-div.ListRight {
+.ListRight {
 	width: 20%;
 	float: right;
 	text-align: right;
@@ -95,7 +109,7 @@ div.ListRight {
 
 /* Topic List */
 
-div.TopicTable {
+.TopicTable {
 	-moz-border-radius: 5px;
 	-webkit-border-radius: 5px;
 	border-radius: 5px;

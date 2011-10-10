@@ -2,7 +2,9 @@
     <table class="Main" width="100%" >
     <thead>
         <tr>
-            <th class="TopicHead" colspan="4">Test</th>
+		{% for Board in Boards %}
+			<th class="TopicHead" colspan="4">{{ Board.Title }}</th>
+		{% endfor %}
         </tr>
         <tr class="Description">
             <td class="DescriptionTopic">Thema</td>

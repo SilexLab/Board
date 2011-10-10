@@ -19,7 +19,12 @@ class TopicListPage extends Page implements PageInterface {
 		if(!isset($_GET['BoardID']))
 			header('Location: ./');
 		else {
-			SBB::Template()->Assign(array('Page' => 'TopicList', 'Topics' => SBB::SQL()->GetObjects()->Select('thread', '*', 'BoardID=\''.$_GET['BoardID'].'\''), 'Users' => SBB::SQL()->GetObjects()->Select('users', '*')));
+			SBB::Template()->Assign(array(
+			'Page' => 'TopicList',
+			'Topics' => SBB::SQL()->GetObjects()->Select('thread', '*', 'BoardID=\''.$_GET['BoardID'].'\''),
+			'Users' => SBB::SQL()->GetObjects()->Select('users', '*'),
+			'Boards' => SBB::SQL()->GetObjects()->Select('board', '*', 'ID=\''.$_GET['BoardID'].'\'')
+			));
 		}
 			
 	}
