@@ -45,14 +45,14 @@ $(document).ready(function() {
 	{
 		var $Focus = 0;
 		$("#Search").focusin(function() {
-			$("#SearchForm").stop().animate({'border-color': '#FFF'}, 500);
-			$("#SearchForm").css({'box-shadow': '0 3px 3px rgba(0,0,0,0.3) inset, 0 0 6px #d7ffff'});
+			$("#SearchForm").stop().animate({'border-color': '#ffffff'}, 500)
+				.css({'box-shadow': '0 3px 3px rgba(0,0,0,0.3) inset, 0 0 6px #000000'});
 			$Focus = 1;
 		});
 		
 		$("#Search").focusout(function() {
-			$("#SearchForm").stop().animate({'border-color': '#000120'}, 500);
-			$("#SearchForm").css({'box-shadow': '0 3px 3px rgba(0,0,0,0.3) inset'});
+			$("#SearchForm").stop().animate({'border-color': '#0B334C'}, 500)
+				.css({'box-shadow': '0 3px 3px rgba(0,0,0,0.3) inset'});
 			$Focus = 0;
 		});
 		

@@ -295,14 +295,12 @@ nav.Menu {
 	}
 	#SearchForm {
 		float: right;
-		border: 1px solid #000120;
+		border: 1px solid #0B334C;
 		width: 200px;
 		height: 24px;
 		background: #EEE;
 		overflow: hidden;
 		margin: 5px 0;
-		-moz-border-radius: 5px;
-		-webkit-border-radius: 5px;
 		border-radius: 5px;
 		box-shadow: 0 3px 3px rgba(0,0,0,0.3) inset;
 	}
