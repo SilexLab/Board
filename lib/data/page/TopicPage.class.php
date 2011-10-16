@@ -19,7 +19,32 @@ class TopicPage extends Page implements PageInterface {
 		if(!isset($_GET['TopicID']))
 			header('Location: ./');
 		else {
-			SBB::Template()->Assign(array('Page' => 'Post', 'Posts' => SBB::SQL()->GetObjects()->Select('post', '*', 'ThreadID=\''.$_GET['TopicID'].'\'')));
+			$Post = array();
+			$Objs = SBB::SQL()->GetObjects()->Select('post', '*', 'ThreadID=\''.$_GET['TopicID'].'\'');
+			foreach($Objs as $Obj) {
+				$Post[] = array(
+					'ID' => $Obj->ID,
+					'ThreadID' => $Obj->ThreadID,
+					'UserID' => $Obj->UserID,
+					'Subject' => htmlentities($Obj->Subject),
+					'Message' => htmlentities($Obj->Message),
+					'Time' => $Obj->Time,
+					'LastEdit' => $Obj->LastEdit,
+					'EditorID' => $Obj->EditorID,
+					'PollID' => $Obj->PollID,
+					'IPAddress' => $Obj->IPAddress,
+					'Disabled' => $Obj->Disabled,
+					'Closed' => $Obj->Closed,
+					'Deleted' => $Obj->Deleted,
+					'DeleteReason' => htmlentities($Obj->DeleteReason),
+					'DeleteTime' => $Obj->DeleteTime,
+					'Smileys' => $Obj->Smileys,
+					'HTML' => $Obj->HTML,
+					'SilexCode' => $Obj->SilexCode,
+				);
+			}
+			
+			SBB::Template()->Assign(array('Page' => 'Post', 'Posts' => $Post));
 		}
 			
 	}
