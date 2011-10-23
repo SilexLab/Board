@@ -22,7 +22,7 @@ abstract class Database {
 		return false;
 	}
 	
-	// Connection - Deconnection
+	// Connection - Disconnection
 	abstract public function __construct();
 	abstract public function __destruct();
 	
