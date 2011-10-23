@@ -6,7 +6,8 @@
  * @package		SilexBoard
  */
 
-class MySQLDatabase extends Database {
+// DEBUG-CLASS UNTIL THE DATABASESTRUCTURE IS FINISHED!
+class MySQLDatabase {
 	// MySQL Connection Infos
 	private $Host, $Username, $Password, $Database;
 	
