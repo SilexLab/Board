@@ -135,12 +135,12 @@ class MySQLiWrapper extends Database {
 	public function FetchObjects() {
 	}
 	
-// Intern methodes
+// Intern methods
 	/**
 	 * Add a segement to a query
 	 * @param	string $QuerySegment
 	 */
-	private function AddSegment($QuerySegment) {
+	private function AddSegment($QuerySegment, $Value = NULL) {
 	}
 	/**
 	 * Add a complete query to the querylist
