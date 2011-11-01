@@ -36,9 +36,9 @@ abstract class Database {
 	abstract public function OrderBy($Column, $ASC = true);
 	abstract public function Limit($Limit);
 	
-	// Extended Functions
+	// Extended Queryfunctions
 	abstract public function Exists();
-	abstract public function Query();
+	abstract public function Query($Query);
 	
 	// Execute the Command-tree
 	abstract public function Exectute();
