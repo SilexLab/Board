@@ -53,7 +53,7 @@ class SQL {
 		foreach($L['INSERT'] as $Column => $Value) {
 			$Columns .= '`'.trim($Column, '`').'`, ';
 			
-			if($Prepared)
+			if($P)
 				$Values .= '?, ';
 			else
 				$Values .= (is_numeric($Value) ? $Value : '\''.$Value.'\'').', '; // $DB->real_escape_string($Value)
@@ -81,14 +81,14 @@ class SQL {
 		if(!isset($L['WHERE']))
 			return false;
 		
-		return 'DELETE FROM '.$Table.' WHERE '.$L['WHERE'].';';
+		return 'DELETE FROM '.self::$Table.' WHERE '.$L['WHERE'].';';
 	}
 	
 	private static function MakeExists($L) {
 		if(!isset($L['WHERE']))
 			return false;
 		
-		return 'SELECT * FROM `'.$Table.'` WHERE '.$L['WHERE'].';';
+		return 'SELECT * FROM '.self::$Table.' WHERE '.$L['WHERE'].';';
 	}
 	
 	private static function MakeColumns($C) {
@@ -98,7 +98,7 @@ class SQL {
 				$tmpC .= '`'.$Column.'`, ';
 			return rtrim($tmpC, ', ');
 		}
-		return '`'.trim($C, '`').'`';
+		return $C == '*' ? $C : '`'.trim($C, '`').'`';
 	}
 	
 	/*private static function MakeWhere(array $W) {

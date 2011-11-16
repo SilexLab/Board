@@ -32,7 +32,7 @@ class MySQLiWrapper extends Database {
 	
 // SQL Handle
 	private $QueryList = array(),
-			$ListIndex = 0;
+			$ListIndex = -1;
 	
 // Database Commands
 	/**
@@ -139,17 +139,27 @@ class MySQLiWrapper extends Database {
 	/**
 	 * Send the query(s) to the database
 	 */
-	public function Exectute() {
+	public function Execute() {
+		echo "\n\n";
 		if($this->ListIndex >= 1) {
 			// Multiquery
 			$Query = '';
 			foreach($this->QueryList as $aQuery) {
-				$Query .= SQL::Make($aQuery, false);
+				$Query .= ' '.SQL::Make($aQuery, false);
 			}
+			$Query = trim($Query);
+			echo $Query;
 		} else {
 			// Singlequery
 			$Query = SQL::Make($this->QueryList[0], true);
+			echo $Query;
 		}
+		echo "\n\n--------------------\n\n".'Index: '.$this->ListIndex.' - Execute: '."\n";
+		print_r($this->QueryList);
+		
+		// Clear
+		$this->ListIndex = -1;
+		$this->QueryList = NULL;
 	}
 	
 // Methods to get the result of a Select-tree

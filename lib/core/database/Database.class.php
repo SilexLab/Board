@@ -41,7 +41,7 @@ abstract class Database {
 	abstract public function Query($Query);
 	
 	// Execute the Command-tree
-	abstract public function Exectute();
+	abstract public function Execute();
 	
 	// Methods to get the result of a Select-tree
 	abstract public function GetResult();
