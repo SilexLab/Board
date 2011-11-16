@@ -32,7 +32,7 @@ abstract class Database {
 	abstract public function Insert(array $Inserts);
 	abstract public function Update(array $Updates);
 	abstract public function Delete();
-	abstract public function Where($Column, $Operator, $Value);
+	abstract public function Where($Where);
 	abstract public function OrderBy($Column, $ASC = true);
 	abstract public function Limit($Limit);
 	

@@ -31,6 +31,9 @@ class MySQLiWrapper extends Database {
 	}
 	
 // SQL Handle
+	private $QueryList = array(),
+			$ListIndex = 0;
+	
 // Database Commands
 	/**
 	 * Select a table from the MySQL-Database
@@ -38,6 +41,8 @@ class MySQLiWrapper extends Database {
 	 * ->Table($Table)
 	 */
 	public function Table($Table) {
+		$this->Add('TABLE', $Table);
+		return $this;
 	}
 	
 	/**
@@ -47,6 +52,8 @@ class MySQLiWrapper extends Database {
 	 * ->Table($Table)->Select($Columns)
 	 */
 	public function Select($Columns = '*') {
+		$this->Add('SELECT', $Columns);
+		return $this;
 	}
 	
 	/**
@@ -55,6 +62,8 @@ class MySQLiWrapper extends Database {
 	 * ->Table($Table)->Insert($Insert)
 	 */
 	public function Insert(array $Inserts) {
+		$this->Add('INSERT', $Inserts);
+		return $this;
 	}
 	
 	/**
@@ -63,6 +72,8 @@ class MySQLiWrapper extends Database {
 	 * ->Table($Table)->Update($Updates)
 	 */
 	public function Update(array $Updates) {
+		$this->Add('UPDATE', $Updates);
+		return $this;
 	}
 	
 	/**
@@ -70,14 +81,18 @@ class MySQLiWrapper extends Database {
 	 * ->Table($Table)->Delete()
 	 */
 	public function Delete() {
+		$this->Add('DELETE');
+		return $this;
 	}
 	
 	/**
 	 * Specify where the previous command shall do things
-	 * @param	string $Column, string $Operator, mixed $Value (no arrays)
-	 * [...]->Where($Column, $Operator, $Value)
+	 * @param	string $Where
+	 * [...]->Where($Where)
 	 */
-	public function Where($Column, $Operator, $Value) {
+	public function Where($Where) {
+		$this->Add('WHERE', $Where);
+		return $this;
 	}
 	
 	/**
@@ -86,6 +101,8 @@ class MySQLiWrapper extends Database {
 	 * [...]->Select($Columns)->[...]->OrderBy($Column, $ASC)
 	 */
 	public function OrderBy($Column, $ASC = true) {
+		$this->Add('ORDER', array($Column, $ASC));
+		return $this;
 	}
 	
 	/**
@@ -94,6 +111,8 @@ class MySQLiWrapper extends Database {
 	 * [...]->Select($Columns)->[...]->Limit($Limit)
 	 */
 	public function Limit($Limit) {
+		$this->Add('LIMIT', $Limit);
+		return $this;
 	}
 	
 // Extended Queryfunctions
@@ -102,6 +121,8 @@ class MySQLiWrapper extends Database {
 	 * Table($Table)->Exists()->Where([...])
 	 */
 	public function Exists() {
+		$this->Add('EXISTS');
+		return $this;
 	}
 	
 	/**
@@ -109,6 +130,8 @@ class MySQLiWrapper extends Database {
 	 * @param	string $Query
 	 */
 	public function Query($Query) {
+		$this->Add('QUERY', $Query);
+		return $this;
 	}
 	
 	
@@ -117,6 +140,16 @@ class MySQLiWrapper extends Database {
 	 * Send the query(s) to the database
 	 */
 	public function Exectute() {
+		if($this->ListIndex >= 1) {
+			// Multiquery
+			$Query = '';
+			foreach($this->QueryList as $aQuery) {
+				$Query .= SQL::Make($aQuery, false);
+			}
+		} else {
+			// Singlequery
+			$Query = SQL::Make($this->QueryList[0], true);
+		}
 	}
 	
 // Methods to get the result of a Select-tree
@@ -140,12 +173,21 @@ class MySQLiWrapper extends Database {
 	 * Add a segement to a query
 	 * @param	string $QuerySegment
 	 */
-	private function AddSegment($QuerySegment, $Value = NULL) {
-	}
-	/**
-	 * Add a complete query to the querylist
-	 */
-	private function AddQuery() {
+	private function Add($QuerySegment, $Value = NULL) {
+		// Create a new Query if passed
+		if(in_array($QuerySegment, array('TABLE', 'SELECT', 'INSERT', 'UPDATE', 'DELETE', 'EXISTS', 'QUERY'))) {
+			if($QuerySegment == 'TABLE' || $QuerySegment == 'QUERY')
+				$this->ListIndex++;
+			else if(isset($this->QueryList[$this->ListIndex]['TABLE']) && sizeof($this->QueryList[$this->ListIndex]) > 1) {
+				// Keep table
+				$Table = $this->QueryList[$this->ListIndex]['TABLE'];
+				$this->ListIndex++;
+				$this->QueryList[$this->ListIndex]['TABLE'] = $Table;
+				unset($Table);
+			}
+		}
+		// Write the query segment
+		$this->QueryList[$this->ListIndex][$QuerySegment] = $Value ? $Value : $QuerySegment;
 	}
 }
 ?>
