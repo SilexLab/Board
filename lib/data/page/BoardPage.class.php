@@ -2,8 +2,9 @@
 /**
  * @author 		Nox Nebula
  * @copyright	© 2011 Silex Bulletin Board - Team
- * @license		GNU GENERAL PUBLIC LICENSE - Version 3
- * @package		SilexBoard
+ * @license		GNU GENERAL PUBLIC LICENSE v3
+ * @package		SilexBoard.DEV
+ * @version		DEV
  */
 
 class BoardPage extends Page implements PageInterface {
@@ -14,7 +15,12 @@ class BoardPage extends Page implements PageInterface {
 	
 	public function __construct() {
 		$this->Infos['Title'] = Language::Get('com.sbb.page.board');
-		SBB::Template()->Assign(array('Page' => 'Board'));
+		$BoardID = $_GET['BoardID'];
+		SBB::Template()->Assign(array(
+		'Page' => 'Board', 
+		'Boards' => ForumList::ListForums($BoardID),
+		'CurrentBoardName' => ForumList::$CurrentBoardName
+		)); 
 	}
 	
 	public function GetInfo($Info = '') {
