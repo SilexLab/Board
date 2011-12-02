@@ -28,6 +28,7 @@ section.UserBar {
 			display: inline-block;
 			border-right: 1px solid #ffffff;
 			color: #ffffff;
+			text-shadow: 0 0 4px #000000;
 		}
 			.UserTabs ul li:last-child {
 				border: none;
