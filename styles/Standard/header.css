@@ -320,7 +320,7 @@ nav.Menu {
 			-webkit-appearance: textfield;
 		}
 		#SearchForm #SearchSubmit {
-			background: transparent url(icons/Search.png) no-repeat center center;
+			background: transparent url(icons/b_24_search.png) no-repeat center center;
 			border: 0px none;
 			display: block;
 			float: right;

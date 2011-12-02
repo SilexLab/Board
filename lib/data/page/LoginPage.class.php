@@ -27,11 +27,8 @@ class LoginPage extends Page implements PageInterface {
 				$UserID = SBB::SQL()->FetchObject()->ID;
 				User::Login($UserID, $_POST['StayLoggedIn']);
 				
-				$Message = Language::Get('com.sbb.login.success');
+				new MessageBox(Language::Get('com.sbb.login.success'), MessageBox::SUCCESS);
 				header('Location: index.php');
-			}
-			else {
-				$Message = '<b>'.Language::Get('com.sbb.error').':</b><ul><li>'.implode('</li><li>', Login::GetError()).'</li></ul>';
 			}
 		}
 		

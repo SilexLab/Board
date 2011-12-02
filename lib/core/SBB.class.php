@@ -6,10 +6,9 @@
  * @package		SilexBoard
  */
 
-require_once('SBB.interface.php');
 require_once('Autoloader.class.php');
 
-class SBB /*implements SBBInterface*/ { // Dunno why this Interface let the Autoloaderclass forgot that the SBB Class exist...
+class SBB {
 	// Objects
 	private static $Database, $Language, $PageInfo, $Template, $Page;
 	
@@ -26,6 +25,12 @@ class SBB /*implements SBBInterface*/ { // Dunno why this Interface let the Auto
 		self::$Page = Page::GetPage();
 		Menu::Render();
 		
+		/*new MessageBox('Test');
+		new MessageBox('Test2', MessageBox::ERROR);
+		new MessageBox('Test3', MessageBox::WARNING);
+		new MessageBox('Test4', MessageBox::SUCCESS);*/
+		
+		MessageBox::Assign();
 		self::TemplateAssign();
 		// Compile
 		self::Template()->Display('case.tpl');
