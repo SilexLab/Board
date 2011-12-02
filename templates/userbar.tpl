@@ -24,7 +24,7 @@
 						
 						<div class="LoginFormSubmit">
 							<ul>
-								<li><input type="submit" name="SubmitLogin" id="SubmitLogin" value="{{ lang=com.sbb.form.submit }}"></li>
+								<li><input type="submit" name="Login" id="Login" value="{{ lang=com.sbb.form.submit }}"></li>
 								<li><input type="checkbox" name="StayLoggedIn" id="StayLoggedIn"><label for="StayLoggedIn" class="Check"></label><label for="StayLoggedIn" class="Text">{{ lang=com.sbb.login.stay }}</label></li>
 								<div style="clear:both;"></div>
 							</ul>
