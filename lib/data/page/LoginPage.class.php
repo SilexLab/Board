@@ -17,7 +17,7 @@ class LoginPage extends Page implements PageInterface {
 		
 		// If logged in, redirect to start page
 		if(isset($_COOKIE['sbb_Token']) || session::Read('UserID')) {
-			header("Location: index.php");
+			header('Location: ./');
 		}
 		
 		$Message = '';
@@ -28,7 +28,7 @@ class LoginPage extends Page implements PageInterface {
 				User::Login($UserID, $_POST['StayLoggedIn']);
 				
 				new MessageBox(Language::Get('com.sbb.login.success'), MessageBox::SUCCESS);
-				header('Location: index.php');
+				header('Location: ./');
 			}
 		}
 		

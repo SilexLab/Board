@@ -3,8 +3,7 @@
  * @author 		Cadillaxx
  * @copyright	© 2011 Silex Bulletin Board - Team
  * @license		GNU GENERAL PUBLIC LICENSE v3
- * @package		SilexBoard.DEV
- * @version		DEV
+ * @package		SilexBoard
  */
 
 /* Diese Klasse verwaltet und gibt informationen über die Benutzer des Boards */
@@ -98,6 +97,7 @@ class User {
 		if($StayLoggedIn) {
 			setcookie('sbb_Token', $Token, time()+60*60*24*365);
 		}
+		echo 'ID: '.md5(mt_rand().microtime(true).mt_rand());
 		$Inserts = array('ID' => md5(mt_rand().microtime(true).mt_rand()),
 			'UserID' => $UserID,
 			'Username' => self::Get('Username', $UserID),
@@ -110,11 +110,16 @@ class User {
 	}
 	
 	public static function Logout() {
-		SBB::SQL()->Delete('session', 'Token = \''.$_COOKIE['sbb_Token'].'\'');
-		SBB::SQL()->Delete('session', 'Token = \''.Session::Read('Token').'\'');
-		Session::Remove('UserID');
-		Session::Remove('Token');
-		setcookie('sbb_Token', '', time()-60*60*24*365);
+		if(self::LoggedIn()) {
+			SBB::SQL()->Delete('session', 'Token = \''.$_COOKIE['sbb_Token'].'\'');
+			SBB::SQL()->Delete('session', 'Token = \''.Session::Read('Token').'\'');
+			Session::Remove('UserID');
+			Session::Remove('Token');
+			setcookie('sbb_Token', '', time()-60*60*24*365);
+			new MessageBox(Language::Get('com.sbb.logout.logged_out'), MessageBox::SUCCESS);
+		} else {
+			new MessageBox(Language::Get('com.sbb.logout.not_logged_in'), MessageBox::ERROR);
+		}
 	}
 	
 	// Password Stuff

@@ -3,8 +3,7 @@
  * @author 		Cadillaxx
  * @copyright	© 2011 Silex Bulletin Board - Team
  * @license		GNU GENERAL PUBLIC LICENSE v3
- * @package		SilexBoard.DEV
- * @version		DEV
+ * @package		SilexBoard
  */
  
 class Login {
