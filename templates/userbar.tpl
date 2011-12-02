@@ -33,11 +33,17 @@
 				</form>
 			</div>
 			<div id="LoginBarHandle">
-				<div id="LoginBarToogle">{{ lang=com.sbb.login.bar_handle }}</div>
+				<div id="LoginBarToogle">
+					<div id="LoginBarInner">{{ lang=com.sbb.login.bar_handle }}</div>
+				</div>
 			</div>
 		{% else %}
 			<div class="UserTabs">
-				USERBAR: <strong>Logged In</strong>!
+				<ul>
+					<li id="Username"><a href="javascript:false;">{{ User.Username }}</a></li>
+					<li id="Settings"><a href="javascript:false;">Settings</a></li>
+					<li id="Logout"><a href="?page=Logout">{{ lang=com.sbb.logout.logout }}</a></li>
+				</ul>
 			</div>
 		{% endif %}
 		</div>

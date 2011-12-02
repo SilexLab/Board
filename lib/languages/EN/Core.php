@@ -43,7 +43,7 @@ self::$Items = array_merge(self::$Items, array(
 
 'com.sbb.login.login'				=> 'Log in',
 'com.sbb.login.stay'				=> 'Stay logged in',
-'com.sbb.login.bar_handle'			=> 'Log in/Sign up',
+'com.sbb.login.bar_handle'			=> 'Log in / Sign up',
 'com.sbb.login.username'			=> 'Username',
 'com.sbb.login.password'			=> 'Password',
 'com.sbb.login.wrong_password'		=> 'The password is wrong!',

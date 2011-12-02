@@ -18,19 +18,58 @@ section.UserBar {
 .UserTabs {
 	padding-bottom: 10px;
 }
+	.UserTabs ul {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		white-space: nowrap;
+	}
+		.UserTabs ul li {
+			display: inline-block;
+			border-right: 1px solid #ffffff;
+			color: #ffffff;
+		}
+			.UserTabs ul li:last-child {
+				border: none;
+			}
+			.UserTabs li a, .UserTabs li a:link, .UserTabs li a:visited {
+				color: inherit;
+				line-height: 18px;
+				padding: 0 10px 2px 24px;
+				background: none 6px center no-repeat;
+			}
+				.UserTabs li a:hover {
+					color: #98ffff
+				}
+			.UserTabs li#Username a {
+				background-image: url(icons/w_16_single_user.png);
+			}
+			.UserTabs li#Settings a {
+				background-image: url(icons/w_16_settings.png);
+			}
+			.UserTabs li#Logout a {
+				background-image: url(icons/w_16_off.png);
+			}
 
 #LoginBarHandle {
 	height: 0;
 	display: block;
 }
-	#LoginBarHandle div {
+	#LoginBarHandle #LoginBarToogle {
 		background: #111111 url(images/Userbar.png) center top repeat;
 		color: #ffffff;
-		text-shadow: 0 0 6px #000000;
+		text-shadow: 0 0 4px #000000;
 		display: inline-block;
-		padding: 0 5px 3px 5px;
 		cursor: pointer;
-		border-radius: 0 0 4px 4px;
+		border-radius: 0 0 6px 6px;
+		box-shadow: 0 3px 20px #111111;
+	}
+		#LoginBarHandle #LoginBarToogle:active {
+			box-shadow: 0 1px 10px #111111;
+		}
+	#LoginBarInner {
+		background: url(icons/w_16_key.png) 8px center no-repeat;
+		padding: 8px 12px 12px 30px;
 	}
 
 #LoginForm {

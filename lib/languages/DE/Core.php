@@ -42,7 +42,7 @@ self::$Items = array_merge(self::$Items, array(
 'com.sbb.register.success'				=> 'Du hast dich erfolgreich registriert!',
 
 'com.sbb.login.login'				=> 'Einloggen',
-'com.sbb.login.bar_handle'			=> 'Einloggen/Registrieren',
+'com.sbb.login.bar_handle'			=> 'Einloggen / Registrieren',
 'com.sbb.login.username'			=> 'Benutzername',
 'com.sbb.login.password'			=> 'Passwort',
 'com.sbb.login.stay'				=> 'Eingeloggt bleiben',
@@ -52,10 +52,10 @@ self::$Items = array_merge(self::$Items, array(
 
 'com.sbb.form.submit'	=> 'Absenden',
 
-'com.sbb.logout.logout'				=> 'Ausloggen',
-'com.sbb.logout.logged_out'			=> 'Sie sind jetzt ausgeloggt.',
-'com.sbb.logout.main_menu'			=> 'Hauptmen&uuml,',
-'com.sbb.logout.never_logged_in'	=> 'Sie waren niemals eingeloggt.',
+'com.sbb.logout.logout'			=> 'Ausloggen',
+'com.sbb.logout.logged_out'		=> 'Du wurdest erfolgreich ausgeloggt.',
+'com.sbb.logout.main_menu'		=> 'Hauptmen&uuml,',
+'com.sbb.logout.not_logged_in'	=> 'Du kannst dich nicht ausloggen.',
 
 'com.sbb.profile.homepage'	=> 'Homepage',
 'com.sbb.profile.signature'	=> 'Signatur',
