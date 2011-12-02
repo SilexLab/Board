@@ -98,7 +98,7 @@ class User {
 		if($StayLoggedIn) {
 			setcookie('sbb_Token', $Token, time()+60*60*24*365);
 		}
-		$Inserts = array('ID' => md5(mt_rand(mt_getrandmax()).microtime(true).mt_rand(mt_getrandmax())),
+		$Inserts = array('ID' => md5(mt_rand().microtime(true).mt_rand()),
 			'UserID' => $UserID,
 			'Username' => self::Get('Username', $UserID),
 			'IPAddress' => $_SERVER['REMOTE_ADDR'],
