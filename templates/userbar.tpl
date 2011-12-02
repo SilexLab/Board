@@ -40,7 +40,7 @@
 		{% else %}
 			<div class="UserTabs">
 				<ul>
-					<li id="Username"><a href="index.php?page=User&userID={{ User.ID }}">{{ User.Username }}</a></li>
+					<li id="Username"><a href="?page=User&userID={{ User.ID }}">{{ User.Username }}</a></li>
 					<li id="Settings"><a href="javascript:false;">Settings</a></li>
 					<li id="Logout"><a href="?page=Logout">{{ lang=com.sbb.logout.logout }}</a></li>
 				</ul>
