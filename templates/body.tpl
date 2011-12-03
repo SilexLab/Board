@@ -1,13 +1,11 @@
 	<section class="Content">
-		{% if MessageBoxes|length > 0 %}
-			{% for MSGBox in MessageBoxes %}
-				<div class="MessageBox {{ MSGBox.Type }}">
-					<div class="Size">
-						<div>{{ MSGBox.Message }}</div>
-					</div>
-				</div>
-			{% endfor %}
-		{% endif %}
+        {% for MSGBox in MessageBoxes %}
+            <div class="MessageBox {{ MSGBox.Type }}">
+                <div class="Size">
+                    <div>{{ MSGBox.Message }}</div>
+                </div>
+            </div>
+        {% endfor %}
 		<div class="Size">
 			<div class="Container">
 				<nav class="BreadCrumbs">
