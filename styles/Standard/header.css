@@ -77,6 +77,8 @@ section.UserBar {
 #LoginForm {
 	font-size: 16px;
 	text-align: left;
+	opacity: 0;
+	display: none;
 }
 
 .Wrap {
@@ -358,7 +360,9 @@ nav.Menu {
 			line-height: 24px;
 			padding: 0 6px;
 			width: 164px;
+			appearance: normal;
 			-webkit-appearance: textfield;
+			box-sizing: content-box;
 		}
 		#SearchForm #SearchSubmit {
 			background: transparent url(icons/b_24_search.png) no-repeat center center;
