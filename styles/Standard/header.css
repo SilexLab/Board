@@ -252,7 +252,7 @@ header {
 }
 
 nav.Menu {
-	background: url(images/MenuBar.png) repeat-x left top #3c6c8b;
+	background: #3c6c8b url(images/MenuBar.png) repeat-x center top;
 	border-bottom: 1px solid #0b334c;
 	border-top: 1px solid #558fa4;
 	height: 36px;
