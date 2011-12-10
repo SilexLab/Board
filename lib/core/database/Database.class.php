@@ -17,7 +17,9 @@ abstract class Database {
 				return new MySQLiWrapper(CFG_DB_HOST, CFG_DB_USER, CFG_DB_PASSWORD, CFG_DB_DATABASE);
 			case 'MySQL':
 				// Debug-Class
-				return new MySQLDatabase();
+				//return new MySQLWrapper(CFG_DB_HOST, CFG_DB_USER, CFG_DB_PASSWORD, CFG_DB_DATABASE);
+			default:
+				throw new DatabaseException('Noob, change your Databasetype to \'MySQLi\'', 1337);
 		}
 		return false;
 	}
