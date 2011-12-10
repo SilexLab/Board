@@ -25,20 +25,20 @@ require_once('core/SBB.class.php');
 SBB::Load();
 
 if(isset($_COOKIE['sbb_LoginHash']) && Session::Read('UserID') == false) {
-	SBB::SQL()->Select('session', 'UserID', 'LoginHash = \''.mysql_escape_string($_COOKIE['sbb_LoginHash']).'\'');
-	if(SBB::SQL()->RowExists('session', 'LoginHash = \''.mysql_escape_string($_COOKIE['sbb_LoginHash']).'\'')) {
+	SBB::SQL()->Table('session')->Select('UserID')->Where('`LoginHash` = \''.SBB::SQL()->RealEscapeString($_COOKIE['sbb_LoginHash']).'\'')->Execute();
+	if(SBB::SQL()->Exists()->Where('`LoginHash` = \''.SBB::SQL()->RealEscapeString($_COOKIE['sbb_LoginHash']).'\'')->Execute()) {
 		$row = SBB::SQL()->FetchArray();
 		User::Login($row['UserID'], true);
 	}
 }
 
 if(Session::Read('UserID') != false) {
-	SBB::SQL()->Update('session', array('LastActivityTime' => time()), 'UserID = \''.Session::Read('UserID').'\'');
+	SBB::SQL()->Table('session')->Update(array('LastActivityTime' => time()))->Where('`UserID` = \''.Session::Read('UserID').'\'')->Execute();
 }
-SBB::SQL()->Delete('session', '\''.(time()-60*20).'\' > LastActivityTime AND LoginHash IS NULL');
+SBB::SQL()->Table('session')->Delete()->Where('\''.(time()-60*20).'\' > `LastActivityTime` AND `LoginHash` IS NULL')->Execute();
 
 if(Session::Read('UserID') != false) {
-	SBB::SQL()->Select('session', 'ID', 'UserID = \''.Session::Read('UserID').'\'');
+	SBB::SQL()->Table('session')->Select('ID')->Where('`UserID` = \''.Session::Read('UserID').'\'')->Execute();
 	$row = SBB::SQL()->FetchArray();
 	if(!$row['ID']) {
 		$_SESSION = array();

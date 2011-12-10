@@ -23,7 +23,7 @@ class LoginPage extends Page implements PageInterface {
 		$Message = '';
 		if(isset($_POST['Login'])) {
 			if(Login::Check($_POST)) {
-				SBB::SQL()->Select('users', 'ID', 'Username = \''.mysql_real_escape_string($_POST['Username']).'\'', '', 1);
+				SBB::SQL()->Table('users')->Select('ID')->Where('`Username` = \''.SBB::SQL()->RealEscapeString($_POST['Username']).'\'')->Limit(1)->Execute();
 				$UserID = SBB::SQL()->FetchObject()->ID;
 				User::Login($UserID, $_POST['StayLoggedIn']);
 				

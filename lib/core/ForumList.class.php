@@ -13,11 +13,11 @@ class ForumList {
 	
 	public static function ListForums($BoardID = 0) {
 		if(isset($BoardID)) {
-			$Objects = SBB::SQL()->GetObjects()->Select('board', '*', 'ParentID='.$BoardID);
-			SBB::SQL()->Select('board', '*', 'ID='.$BoardID);
+			$Objects = SBB::SQL()->Table('board')->Select('*')->Where('`ParentID` = '.$BoardID)->Execute()->FetchObjects();
+			SBB::SQL()->Select('*')->Where('`ID` = '.$BoardID)->Limit(1)->Execute();
 			self::$CurrentBoardName = SBB::SQL()->FetchObject()->Title;
 		} else {
-			$Objects = SBB::SQL()->GetObjects()->Select('board');
+			$Objects = SBB::SQL()->Table('board')->Select()->Execute()->FetchObjects();
 			self::$CurrentBoardName = 'Home';
 		}
 		return $Objects;

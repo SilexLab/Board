@@ -20,7 +20,7 @@ class TopicPage extends Page implements PageInterface {
 			header('Location: ./');
 		else {
 			$Post = array();
-			$Objs = SBB::SQL()->GetObjects()->Select('post', '*', 'ThreadID=\''.$_GET['TopicID'].'\'');
+			$Objs = SBB::SQL()->Table('post')->Select('*')->Where('`ThreadID` = \''.$_GET['TopicID'].'\'')->Execute()->FetchObjects();
 			foreach($Objs as $Obj) {
 				$Post[] = array(
 					'ID' => $Obj->ID,

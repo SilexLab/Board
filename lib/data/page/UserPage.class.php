@@ -17,7 +17,7 @@ class UserPage extends Page implements PageInterface {
 		
 		if(isset($_GET['userID'])) {
 			$UserInfos = array();
-			SBB::SQL()->Select('users', '*', 'ID = \''.$_GET['userID'].'\'', 1);
+			SBB::SQL()->Table('users')->Select('*')->Where('`ID` = \''.$_GET['userID'].'\'')->Limit(1)->Execute();
 			$Row = SBB::SQL()->FetchObject();
 			$UserInfos[] = $Row;
 			$Avatar = new Avatar($Row->Email, 100);

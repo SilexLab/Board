@@ -19,7 +19,7 @@ class User {
 				'Email' => $Email,
 				'ActivationKey' => $Key,
 				'RegisterTime' => time());
-		SBB::SQL()->Insert('users', $Inserts);
+		SBB::SQL()->Table('users')->Insert($Inserts)->Execute();
 	}
 	
 	public static function CheckUpdate(array $Post) {
@@ -45,10 +45,10 @@ class User {
 			$ID = self::GetUserID();
 		}
 		if(is_array($Property)) {
-			SBB::SQL()->Update('users', $Property, 'ID = '.$ID);
+			SBB::SQL()->Table('users')->Update($Property)->Where('`ID` = '.$ID)->Execute();
 		}
 		else if(!is_string($Property)) {
-			SBB::SQL()->Update('users', array($Property => $Value), 'ID = '.$ID);
+			SBB::SQL()->Table('users')->Update(array($Property => $Value))->Where('`ID` = '.$ID)->Execute();
 		}
 		else {
 			return false;
@@ -60,8 +60,8 @@ class User {
 			return false;
 		}
 		if(!empty($Name)) {
-			SBB::SQL()->Select('users', 'ID', 'Username=\''.$Name.'\'');
-			return SBB::SQL()->GetObjects()->ID;
+			SBB::SQL()->Table('users')->Select('ID')->Where('`Username` = \''.$Name.'\'')->Limit(1)->Execute();
+			return SBB::SQL()->FetchObject()->ID;
 		}
 		return Session::Read('UserID');
 	}
@@ -75,11 +75,11 @@ class User {
 		}
 		if($ID != 0) {
 			if($Data = '*') {
-				SBB::SQL()->Select('users', '*', 'ID = '.$ID);		
+				SBB::SQL()->Table('users')->Select('*')->Where('`ID` = '.$ID)->Limit(1)->Execute();
 				$Data = SBB::SQL()->FetchObject();	
 				return $Data;	
 			}
-			SBB::SQL()->Select('users', $Data, 'ID = '.$ID);
+			SBB::SQL()->Table('users')->Select($Data)->Where('`ID` = '.$ID)->Limit(1)->Execute();
 			$Data = SBB::SQL()->FetchObject()->$Data;	
 			return $Data;
 		}
@@ -101,13 +101,13 @@ class User {
 			'Token' => $Token,
 			'LoginHash' => 'NULL'
 		);
-		SBB::SQL()->Insert('session', $Inserts);
+		SBB::SQL()->Table('session')->Insert($Inserts)->Execute();
 		if($StayLoggedIn) {
 			$LoginHash = sha1(mt_rand().microtime().md5(mt_rand()));
 			setcookie('sbb_LoginHash', $LoginHash, time()+60*60*24*365*10);
-			SBB::SQL()->Update('session', array('LoginHash' => $LoginHash), 'UserID = \''.$UserID.'\'');
+			SBB::SQL()->Update(array('LoginHash' => $LoginHash))->Where('`UserID` = \''.$UserID.'\'')->Execute();
 		}
-		SBB::SQL()->Select('users', 'Username', 'ID = \''.$UserID.'\'', '', 1);
+		SBB::SQL()->Table('users')->Select('Username')->Where('`ID` = \''.$UserID.'\'')->Limit(1)->Execute();
 		$row = SBB::SQL()->FetchArray();
 		Session::Set('UserID', $UserID);
 		Session::Set('Username', $row['Username']);
@@ -118,7 +118,7 @@ class User {
 			if(isset($_COOKIE['sbb_LoginHash'])) {
 				setcookie('sbb_LoginHash', '', time()-60*60);
 			}
-			SBB::SQL()->Delete('session', 'UserID = \''.Session::Read('UserID').'\'');
+			SBB::SQL()->Table('session')->Delete()->Where('`UserID` = \''.Session::Read('UserID').'\'')->Execute();
 			$_SESSION = array();
 			session_destroy();
 		}

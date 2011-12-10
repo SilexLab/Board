@@ -15,7 +15,7 @@ class UserListPage extends Page implements PageInterface {
 	public function __construct() {
 		$this->Infos['Title'] = Language::Get('com.sbb.page.userlist');
 		
-		SBB::Template()->Assign(array('Page' => 'userList', 'Users' => SBB::SQL()->GetObjects()->Select('users', '*')));
+		SBB::Template()->Assign(array('Page' => 'userList', 'Users' => SBB::SQL()->Table('users')->Select('*')->Execute()->FetchObjects()));
 		
 	}
 	

@@ -14,7 +14,7 @@ abstract class Database {
 		$Database;
 		switch(CFG_DB_TYPE) {
 			case 'MySQLi':
-				return new MySQLiWrapper();
+				return new MySQLiWrapper(CFG_DB_HOST, CFG_DB_USER, CFG_DB_PASSWORD, CFG_DB_DATABASE);
 			case 'MySQL':
 				// Debug-Class
 				return new MySQLDatabase();

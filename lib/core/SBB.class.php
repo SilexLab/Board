@@ -19,7 +19,6 @@ class SBB {
 		
 		Autoloader::Register();
 		self::$Database = Database::GetDatabase();
-		self::SQL()->Connect();
 		Config::CreateConstants();
 		self::$Template = new Template();
 		self::$Page = Page::GetPage();

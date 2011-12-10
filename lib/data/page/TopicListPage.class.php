@@ -21,9 +21,9 @@ class TopicListPage extends Page implements PageInterface {
 		else {
 			SBB::Template()->Assign(array(
 			'Page' => 'TopicList',
-			'Topics' => SBB::SQL()->GetObjects()->Select('thread', '*', 'BoardID=\''.$_GET['BoardID'].'\''),
-			'Users' => SBB::SQL()->GetObjects()->Select('users', '*'),
-			'Boards' => SBB::SQL()->GetObjects()->Select('board', '*', 'ID=\''.$_GET['BoardID'].'\'')
+			'Topics' => SBB::SQL()->Table('thread')->Select('*')->Where('`BoardID` = \''.$_GET['BoardID'].'\'')->Execute()->FetchObjects(),
+			'Users' => SBB::SQL()->Table('users')->Select('*')->Execute()->FetchObjects(),
+			'Boards' => SBB::SQL()->Table('board')->Select('*')->Where('`ID` = \''.$_GET['BoardID'].'\'')->Execute()->FetchObjects()
 			));
 		}
 			

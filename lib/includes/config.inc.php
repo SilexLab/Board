@@ -1,7 +1,7 @@
 <?php
 // Database Config
 define('CFG_DB_PREFIX',		'');
-define('CFG_DB_TYPE',		'MySQL');
+define('CFG_DB_TYPE',		'MySQLi');
 define('CFG_DB_HOST',		'localhost');
 define('CFG_DB_USER',		'root');
 define('CFG_DB_PASSWORD',	'');

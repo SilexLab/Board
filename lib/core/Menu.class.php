@@ -19,7 +19,7 @@ class Menu {
 			$Active = 'menu.'.strtolower($Active);
 		
 		$MenuList = array();
-		$Entries = SBB::SQL()->GetObjects()->Select('menu', '*', NULL, 'Position');
+		$Entries = SBB::SQL()->Table('menu')->Select('*')->OrderBy('Position')->Execute()->FetchObjects();
 		foreach($Entries as $Row) {
 			if(isset(self::$ReservedLinks[$Row->Target])) {
 				$MenuList[] = array('Link' => self::$ReservedLinks[$Row->Target],

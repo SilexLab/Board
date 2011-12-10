@@ -8,7 +8,7 @@
 
 class Config implements ConfigInterface {
 	public static function CreateConstants() {
-		$Objects = SBB::SQL()->GetObjects()->Select('config', 'ConfigVariable, ConfigValue', 'Type = \'CONST\'');
+		$Objects = SBB::SQL()->Table('config')->Select(array('ConfigVariable', 'ConfigValue'))->Where('`Type` = \'CONST\'')->Execute()->FetchObjects();
 		if(isset($Objects)) {
 			foreach($Objects as $Config) {
 				define('CFG_'.strtoupper($Config->ConfigVariable), $Config->ConfigValue);
@@ -17,7 +17,7 @@ class Config implements ConfigInterface {
 	}
 	
 	public static function CreateVariables() {
-		$Objects = SBB::SQL()->GetObjects()->Select('config', 'ConfigVariable, ConfigValue', 'Type = \'VAR\'');
+		$Objects = SBB::SQL()->Table('config')->Select(array('ConfigVariable', 'ConfigValue'))->Where('`Type` = \'VAR\'')->Execute()->FetchObjects();
 		
 		$Variables = array();
 		if(isset($Objects)) {

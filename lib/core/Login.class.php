@@ -18,7 +18,7 @@ class Login {
 	}
 	
 	public static function Check(array $Post) {
-		SBB::SQL()->Select('users', 'Salt, Password', 'Username = \''.mysql_real_escape_string($Post['Username']).'\'', '', 1);
+		SBB::SQL()->Table('users')->Select(array('Salt', 'Password'))->Where('`Username` = \''.SBB::SQL()->RealEscapeString($Post['Username']).'\'')->Limit(1)->Execute();
 		$Row = SBB::SQL()->FetchObject();
 		
 		if(SBB::SQL()->NumRows() == 1) {
