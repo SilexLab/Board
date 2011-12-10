@@ -6,7 +6,6 @@
  * @package		SilexBoard
  */
 
-include('Database.class.php'); // Only for coding
 class MySQLiWrapper extends Database {
 // Database connection
 	private $Database,	// Contains the MySQLi-Object
@@ -33,6 +32,10 @@ class MySQLiWrapper extends Database {
 // SQL Handle
 	private $QueryList = array(),
 			$ListIndex = -1;
+	
+// SQL Results
+	private $Result,
+			$Exists;
 	
 // Database Commands
 	/**
@@ -140,42 +143,102 @@ class MySQLiWrapper extends Database {
 	 * Send the query(s) to the database
 	 */
 	public function Execute() {
-		echo "\n\n";
-		if($this->ListIndex >= 1) {
-			// Multiquery
-			$Query = '';
+		$Query = '';
+		if($this->ListIndex >= 1) { // Multiquery
+			$SelectCount = 0;
+			
 			foreach($this->QueryList as $aQuery) {
-				$Query .= ' '.SQL::Make($aQuery, false);
+				if(isset($aQuery['EXISTS']))
+					throw new DatabaseException('Exists requests are not allowed for multiquery, use a singlequery.', 0);
+				
+				$Query .= ' '.SQL::Make($aQuery, $this, false);
 			}
 			$Query = trim($Query);
-			echo $Query;
-		} else {
-			// Singlequery
-			$Query = SQL::Make($this->QueryList[0], true);
-			echo $Query;
+			
+			// Send
+			$this->Database->multi_query($Query);
+			$this->Result = 'MULTIQUERY';
+		} else { // Singlequery
+			$Query = SQL::Make($this->QueryList[0], $this, false); // Do not use prepared statements
+			
+			// Send
+			$this->Result = $this->Database->query($Query);
+			
+			if(isset($this->QueryList[0]['EXISTS'])) {
+				$this->ListIndex = -1;
+				$this->QueryList = NULL;
+				return $this->Result->num_rows === 0 ? false : true;
+			}
 		}
-		echo "\n\n--------------------\n\n".'Index: '.$this->ListIndex.' - Execute: '."\n";
-		print_r($this->QueryList);
 		
 		// Clear
 		$this->ListIndex = -1;
 		$this->QueryList = NULL;
+		
+		return $this;
+	}
+	
+// MySQL functions
+	public function RealEscapeString($String) {
+		return $this->Database->real_escape_string($String);
 	}
 	
 // Methods to get the result of a Select-tree
-	public function GetResult() {
-	}
-	
 	public function FetchArray() {
+		if($this->Result === 'MULTIQUERY') // Multiquery not possible
+			return false;
+		
+		// Singlequery
+		return $this->Result->fetch_assoc();
 	}
 	
 	public function FetchArrays() {
+		$Rows = array();
+		if($this->Result === 'MULTIQUERY') { // Multiquery
+			foreach($this->GetMultiQueryResults() as $Result) {
+				$CurrentResult = array();
+				while($Row = $Result->fetch_assoc()) {
+					$CurrentResult[] = $Row;
+				}
+				$Result->close();
+				$Rows[] = $CurrentResult;
+			}
+		} else { // Singlequery
+			while($Row = $this->Result->fetch_assoc())
+				$Rows[] = $Row;
+			$this->Result->close();
+		}
 	}
 	
 	public function FetchObject() {
+		if($this->Result === 'MULTIQUERY') // Multiquery not possible
+			return false;
+		
+		// Singlequery
+		return $this->Result->fetch_object();
 	}
 	
 	public function FetchObjects() {
+		$Rows = array();
+		if($this->Result === 'MULTIQUERY') { // Multiquery
+			foreach($this->GetMultiQueryResults() as $Result) {
+				$CurrentResult = array();
+				while($Row = $Result->fetch_object()) {
+					$CurrentResult[] = $Row;
+				}
+				$Result->close();
+				$Rows[] = $CurrentResult;
+			}
+		} else { // Singlequery
+			while($Row = $this->Result->fetch_object())
+				$Rows[] = $Row;
+			$this->Result->close();
+		}
+		return $Rows;
+	}
+	
+	public function NumRows() {
+		return $this->Result->num_rows;
 	}
 	
 // Intern methods
@@ -184,6 +247,10 @@ class MySQLiWrapper extends Database {
 	 * @param	string $QuerySegment
 	 */
 	private function Add($QuerySegment, $Value = NULL) {
+		// Clear old results
+		$this->Result = NULL;
+		$this->Exists = NULL;
+		
 		// Create a new Query if passed
 		if(in_array($QuerySegment, array('TABLE', 'SELECT', 'INSERT', 'UPDATE', 'DELETE', 'EXISTS', 'QUERY'))) {
 			if($QuerySegment == 'TABLE' || $QuerySegment == 'QUERY')
@@ -198,6 +265,19 @@ class MySQLiWrapper extends Database {
 		}
 		// Write the query segment
 		$this->QueryList[$this->ListIndex][$QuerySegment] = $Value ? $Value : $QuerySegment;
+	}
+	
+	/**
+	 * Saves all results into an array
+	 * @return	array
+	 */
+	private function GetMultiQueryResults() {
+		$Results = array();
+		do {
+			$Results[] = $this->Database->store_result();
+		} while($this->Database->next_result());
+		
+		return $Results;
 	}
 }
 ?>

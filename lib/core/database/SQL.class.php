@@ -7,11 +7,12 @@
  */
 
 class SQL {
-	private static $Table;
+	private static $Table, $DB;
 	
 	// Make a query string from a querylist
-	public static function Make(array $List, $Prepared = true) {
+	public static function Make(array $List, &$Database, $Prepared = false) {
 		self::$Table = '`'.trim($List['TABLE'], '`').'`';
+		self::$DB = $Database;
 		
 		if(isset($List['SELECT']))
 			return self::MakeSelect($List);
@@ -56,7 +57,9 @@ class SQL {
 			if($P)
 				$Values .= '?, ';
 			else
-				$Values .= (is_numeric($Value) ? $Value : '\''.$Value.'\'').', '; // $DB->real_escape_string($Value)
+				$Values .= (is_numeric($Value) ?
+							self::$DB->RealEscapeString($Value) :
+							'\''.self::$DB->RealEscapeString($Value).'\'').', ';
 		}
 		
 		return 'INSERT INTO '.self::$Table.' ('.trim($Columns, ', ').') VALUES ('.trim($Values, ', ').');';
@@ -71,7 +74,9 @@ class SQL {
 			if($P)
 				$Updates .= '`'.trim($Column, '`').'` = ?, ';
 			else
-				$Updates .= '`'.trim($Column, '`').'` = '.(is_numeric($Value) ? $Value : '\''.$Value.'\'').', ';
+				$Updates .= '`'.trim($Column, '`').'` = '.(is_numeric($Value) ?
+							self::$DB->RealEscapeString($Value) :
+							'\''.self::$DB->RealEscapeString($Value).'\'').', ';
 		}
 		
 		return 'UPDATE '.self::$Table.' SET '.trim($Updates, ', ').' WHERE '.$L['WHERE'].';';

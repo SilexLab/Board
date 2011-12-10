@@ -23,7 +23,7 @@ abstract class Database {
 	}
 	
 	// Connection - Disconnection
-	abstract public function __construct();
+	abstract public function __construct($Host, $User, $Password, $Database, $Port = NULL, $Socket = NULL);
 	abstract public function __destruct();
 	
 	// Database Commands
@@ -43,11 +43,14 @@ abstract class Database {
 	// Execute the Command-tree
 	abstract public function Execute();
 	
+	// MySQL functions
+	abstract public function RealEscapeString($String);
+	
 	// Methods to get the result of a Select-tree
-	abstract public function GetResult();
 	abstract public function FetchArray();
 	abstract public function FetchArrays();
 	abstract public function FetchObject();
 	abstract public function FetchObjects();
+	abstract public function NumRows();
 }
 ?>
