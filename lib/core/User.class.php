@@ -92,7 +92,9 @@ class User {
 	
 	public static function Login($UserID, $StayLoggedIn = false) {
 		$Token = sha1(md5(mt_rand()).microtime().mt_rand());
-		$Inserts = array('UserID' => $UserID,
+		$Inserts = array(
+			'ID' => session_id(),
+			'UserID' => $UserID,
 			'IPAddress' => $_SERVER['REMOTE_ADDR'],
 			'UserAgent' => $_SERVER['HTTP_USER_AGENT'],
 			'LastActivityTime' => time(),
@@ -118,7 +120,7 @@ class User {
 			}
 			SBB::SQL()->Delete('session', 'UserID = \''.Session::Read('UserID').'\'');
 			$_SESSION = array();
-			session_destroy(); 
+			session_destroy();
 		}
 		else {
 			new MessageBox(Language::Get('com.sbb.logout.not_logged_in'), MessageBox::ERROR);
