@@ -33,6 +33,7 @@ a, a:hover {
 
 section.Content {
 	padding: 30px 0;
+	background: url(images/ContentBackground.png) center top repeat-x #e9f2f7;
 }
 
 .Size {
