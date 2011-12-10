@@ -14,7 +14,7 @@ class Register {
 	public static function Check(array $Post) {
 		$SQL = SBB::SQL();
 		
-		if(!preg_match('/^[\w\.-]{4,32}$/', $Post['Username'])) {
+		if(!preg_match('/^[\w\.-\s]{4,32}$/', $Post['Username'])) {
 			self::$Error[] = Language::Get('com.sbb.register.invalid_username');
 		}
 		if($Post['Password'] != $Post['PasswordRepeat']) {
