@@ -14,7 +14,7 @@ class Register {
 	public static function Check(array $Post) {
 		$SQL = SBB::SQL();
 		
-		if(!preg_match('/^[a-zA-Z0-9_\-\s]{4,32}$/', $Post['Username'])) {
+		if(!preg_match('/^[\w\.-]{4,32}$/', $Post['Username'])) {
 			self::$Error[] = Language::Get('com.sbb.register.invalid_username');
 		}
 		if($Post['Password'] != $Post['PasswordRepeat']) {
@@ -23,16 +23,19 @@ class Register {
 		if($Post['Email'] != $Post['EmailRepeat']) {
 			self::$Error[] = Language::Get('com.sbb.register.incorrect_email');
 		}
-		if(!preg_match('/^[a-z0-9\-_]+\@[a-z0-9\-]+\.[a-z]{2,3}$/', $Post['Email'])) {
+		if(!preg_match('/^[\w\.-]+\@[\w\.-]+\.[\w]{2,3}$/', $Post['Email'])) {
 			self::$Error[] = Language::Get('com.sbb.register.invalid_email');
 		}
                 
 		$SQL->Select('users', 'UserName', 'Username = \''.mysql_real_escape_string($Post['Username']).'\'');
-		if($SQL->NumRows() == 1)
+		if($SQL->NumRows() == 1) {
 			self::$Error[] = Language::Get('com.sbb.register.username_exist');
+		}
+		
 		$SQL->Select('users', 'Email', 'Email = \''.mysql_real_escape_string($Post['Email']).'\'');
-		if($SQL->NumRows() == 1)
+		if($SQL->NumRows() == 1) {
 			self::$Error[] = Language::Get('com.sbb.register.email_exist');
+		}
 		
 		if(count(self::$Error) != 0) {
 			return false;

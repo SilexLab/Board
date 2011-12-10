@@ -24,7 +24,7 @@ class User {
 	
 	public static function CheckUpdate(array $Post) {
 		$Error = array();
-		if(!preg_match('/^https?\:\/\/[a-z0-9\-\.]+\.[a-z]{2,3}$/', $Post['Homepage'])) {
+		if(!preg_match('/^https?\:\/\/[\w\.-]+\.[\w]{2,3}$/', $Post['Homepage'])) {
 			$Error[] = Language::Get('com.sbb.profile.invalid_homepage');
 		}
 		if(strlen($Post['Signature'] > 500)) {
@@ -90,34 +90,37 @@ class User {
 		return Session::Read('UserID') > 0;
 	}
 	
-	public static function Login($UserID, $StayLoggedIn = 0) {
-		$Token = sha1(mt_rand(0, mt_getrandmax()).microtime(true).mt_rand(0, mt_getrandmax()));
-		Session::Set('UserID', $UserID);
-		Session::Set('Token', $Token);
-		if($StayLoggedIn) {
-			setcookie('sbb_Token', $Token, time()+60*60*24*365);
-		}
-		echo 'ID: '.md5(mt_rand().microtime(true).mt_rand());
-		$Inserts = array('ID' => md5(mt_rand().microtime(true).mt_rand()),
-			'UserID' => $UserID,
-			'Username' => self::Get('Username', $UserID),
+	public static function Login($UserID, $StayLoggedIn = false) {
+		$Token = sha1(md5(mt_rand()).microtime().mt_rand());
+		$Inserts = array('UserID' => $UserID,
 			'IPAddress' => $_SERVER['REMOTE_ADDR'],
 			'UserAgent' => $_SERVER['HTTP_USER_AGENT'],
 			'LastActivityTime' => time(),
-			'Token' => $Token);
-		
+			'Token' => $Token,
+			'LoginHash' => 'NULL'
+		);
 		SBB::SQL()->Insert('session', $Inserts);
+		if($StayLoggedIn) {
+			$LoginHash = sha1(mt_rand().microtime().md5(mt_rand()));
+			setcookie('sbb_LoginHash', $LoginHash, time()+60*60*24*365*10);
+			SBB::SQL()->Update('session', array('LoginHash' => $LoginHash), 'UserID = \''.$UserID.'\'');
+		}
+		SBB::SQL()->Select('users', 'Username', 'ID = \''.$UserID.'\'', '', 1);
+		$row = SBB::SQL()->FetchArray();
+		Session::Set('UserID', $UserID);
+		Session::Set('Username', $row['Username']);
 	}
 	
 	public static function Logout() {
 		if(self::LoggedIn()) {
-			SBB::SQL()->Delete('session', 'Token = \''.$_COOKIE['sbb_Token'].'\'');
-			SBB::SQL()->Delete('session', 'Token = \''.Session::Read('Token').'\'');
-			Session::Remove('UserID');
-			Session::Remove('Token');
-			setcookie('sbb_Token', '', time()-60*60*24*365);
-			new MessageBox(Language::Get('com.sbb.logout.logged_out'), MessageBox::SUCCESS);
-		} else {
+			if(isset($_COOKIE['sbb_LoginHash'])) {
+				setcookie('sbb_LoginHash', '', time()-60*60);
+			}
+			SBB::SQL()->Delete('session', 'UserID = \''.Session::Read('UserID').'\'');
+			$_SESSION = array();
+			session_destroy(); 
+		}
+		else {
 			new MessageBox(Language::Get('com.sbb.logout.not_logged_in'), MessageBox::ERROR);
 		}
 	}

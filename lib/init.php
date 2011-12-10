@@ -24,7 +24,27 @@ require_once('core/SBB.class.php');
 
 SBB::Load();
 
+if(isset($_COOKIE['sbb_LoginHash']) && Session::Read('UserID') == false) {
+	SBB::SQL()->Select('session', 'UserID', 'LoginHash = \''.mysql_escape_string($_COOKIE['sbb_LoginHash']).'\'');
+	if(SBB::SQL()->RowExists('session', 'LoginHash = \''.mysql_escape_string($_COOKIE['sbb_LoginHash']).'\'')) {
+		$row = SBB::SQL()->FetchArray();
+		User::Login($row['UserID'], true);
+	}
+}
 
+if(Session::Read('UserID') != false) {
+	SBB::SQL()->Update('session', array('LastActivityTime' => time()), 'UserID = \''.Session::Read('UserID').'\'');
+}
+SBB::SQL()->Delete('session', '\''.(time()-60*20).'\' > LastActivityTime AND LoginHash IS NULL');
+
+if(Session::Read('UserID') != false) {
+	SBB::SQL()->Select('session', 'ID', 'UserID = \''.Session::Read('UserID').'\'');
+	$row = SBB::SQL()->FetchArray();
+	if(!$row['ID']) {
+		$_SESSION = array();
+		session_destroy();
+	}
+}
 
 
 

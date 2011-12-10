@@ -16,7 +16,7 @@ class LoginPage extends Page implements PageInterface {
 		$this->Infos['Title'] = Language::Get('com.sbb.page.login');
 		
 		// If logged in, redirect to start page
-		if(isset($_COOKIE['sbb_Token']) || session::Read('UserID')) {
+		if(User::LoggedIn()) {
 			header('Location: ./');
 		}
 		

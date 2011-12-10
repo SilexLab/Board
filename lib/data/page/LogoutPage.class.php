@@ -15,8 +15,9 @@ class LogoutPage extends Page implements PageInterface {
 	public function __construct() {
 		$this->Infos['Title'] = Language::Get('com.sbb.page.logout');
 		
-		header('Location: ./');
 		User::Logout();
+		header('Location: ./');
+		exit;
 	}
 	
 	public function GetInfo($Info = '') {

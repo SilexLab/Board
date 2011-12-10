@@ -17,7 +17,7 @@ class RegisterPage extends Page implements PageInterface {
 		
 		
 		// If logged in, redirect to start page	
-		if(isset($_COOKIE['sbb_Token']) || Session::Read('UserID')) {
+		if(User::LoggedIn()) {
 			header("Location: index.php");
 		}
 		
