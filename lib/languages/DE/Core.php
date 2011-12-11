@@ -54,7 +54,7 @@ self::$Items = array_merge(self::$Items, array(
 
 'com.sbb.logout.logout'			=> 'Ausloggen',
 'com.sbb.logout.logged_out'		=> 'Du wurdest erfolgreich ausgeloggt.',
-'com.sbb.logout.main_menu'		=> 'Hauptmen&uuml,',
+'com.sbb.logout.main_menu'		=> 'Hauptmenü',
 'com.sbb.logout.not_logged_in'	=> 'Du kannst dich nicht ausloggen.',
 
 'com.sbb.profile.homepage'	=> 'Homepage',

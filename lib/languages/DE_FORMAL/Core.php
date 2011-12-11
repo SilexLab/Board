@@ -54,7 +54,7 @@ self::$Items = array_merge(self::$Items, array(
 
 'com.sbb.logout.logout'			=> 'Ausloggen',
 'com.sbb.logout.logged_out'		=> 'Sie wurden erfolgreich ausgeloggt.',
-'com.sbb.logout.main_menu'		=> 'Hauptmen&uuml;',
+'com.sbb.logout.main_menu'		=> 'Hauptmenü',
 'com.sbb.logout.not_logged_in'	=> 'Sie können sich nicht ausloggen.',
 
 'com.sbb.profile.homepage'	=> 'Homepage',
@@ -68,7 +68,7 @@ self::$Items = array_merge(self::$Items, array(
 'com.sbb.captcha'		=> 'Captcha',
 'com.sbb.captcha_wrong'	=> 'Captcha ist falsch!',
 
-'com.sbb.email.activation.title'	=> 'Sie m&uuml;ssen diesen Link klicken um Ihre Registrierung abzuschließen: ',
+'com.sbb.email.activation.title'	=> 'Sie müssen diesen Link klicken um Ihre Registrierung abzuschließen: ',
 
 // Databasestrings
 'com.sbb.config.style.default'	=> 'Standardstil',
