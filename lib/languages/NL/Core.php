@@ -9,7 +9,7 @@
 /* Langfile:	Dutch */
 self::$Items = array_merge(self::$Items, array(
 'com.sbb.error'		=> 'Fout',
-'com.sbb.copyright'	=> 'Forumsoftware: Silex Bulletin Board '.SILEX_VERSION.' &ndash; &copy; 2011 silexboard.org',
+'com.sbb.copyright'	=> 'Forumsoftware: Silex Bulletin Board '.SILEX_VERSION.' – © 2011 silexboard.org',
 
 'com.sbb.language.info'		=> 'Nederlands (Formal)',
 'com.sbb.language.changed'	=> 'Jouww taal werd naar '.SBB::Template()->Get('LangChangedTo').' veranderd',

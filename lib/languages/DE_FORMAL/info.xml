@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <language>
-	<name>Deutsch (Formal)</name>
-	<shortcut>DE_FORMAL</shortcut>
+	<name>Deutsch (Internet-Jargon)</name>
+	<shortcut>DE_JARGON</shortcut>
 	<encoding>UTF-8</encoding>
 	<version>DEV</version>
 	<author>Malachite</author>

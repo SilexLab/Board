@@ -6,10 +6,10 @@
  * @package		SilexBoard
  */
 
-/* Langfile:	German */
+/* Langfile:	German (Informal) */
 self::$Items = array_merge(self::$Items, array(
 'com.sbb.error'		=> 'Fehler',
-'com.sbb.copyright'	=> 'Forensoftware: Silex Bulletin Board '.SILEX_VERSION.' &ndash; &copy; 2011 silexboard.org',
+'com.sbb.copyright'	=> 'Forensoftware: Silex Bulletin Board '.SILEX_VERSION.' – © 2011 silexboard.org',
 
 'com.sbb.language.info'		=> 'Deutsch (Informal)',
 'com.sbb.language.changed'	=> 'Deine Sprache wurde nach '.SBB::Template()->Get('LangChangedTo').' geändert',
@@ -54,7 +54,7 @@ self::$Items = array_merge(self::$Items, array(
 
 'com.sbb.logout.logout'			=> 'Ausloggen',
 'com.sbb.logout.logged_out'		=> 'Du wurdest erfolgreich ausgeloggt.',
-'com.sbb.logout.main_menu'		=> 'Hauptmen&uuml,',
+'com.sbb.logout.main_menu'		=> 'Hauptmenü',
 'com.sbb.logout.not_logged_in'	=> 'Du kannst dich nicht ausloggen.',
 
 'com.sbb.profile.homepage'	=> 'Homepage',
