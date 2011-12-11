@@ -6,10 +6,10 @@
  * @package		SilexBoard
  */
 
-/* Langfile:	German (Formal) */
+/* Langfile:	German (internet jargon) */
 self::$Items = array_merge(self::$Items, array(
 'com.sbb.error'		=> 'Fehler',
-'com.sbb.copyright'	=> 'Forensoftware: Silex Bulletin Board '.SILEX_VERSION.' &ndash; &copy; 2011 silexboard.org',
+'com.sbb.copyright'	=> 'Forensoftware: Silex Bulletin Board '.SILEX_VERSION.' – © 2011 silexboard.org',
 
 'com.sbb.language.info'		=> 'Deutsch (Formal)',
 'com.sbb.language.changed'	=> 'Ihre Sprache wurde nach '.SBB::Template()->Get('LangChangedTo').' geändert',
