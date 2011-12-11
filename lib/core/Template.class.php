@@ -85,7 +85,7 @@ class Template extends SBB implements TemplateInterface {
 			'CSSStyles'    => Style::GetCSS(),
 			'Javascripts'  => Style::GetJS())
 		);
-		$this->Assign(Config::CreateVariables());
+		$this->Assign(Config::GetTemplateVariables());
 	}
 	
 	/* // Currently no need for that

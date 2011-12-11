@@ -79,7 +79,7 @@ class Style implements StyleInterface {
 	
 	public static function Check() {
 		if(empty(self::$Default))
-			self::$Default = CFG_STYLE_DEFAULT;
+			self::$Default = SBB::Config('config.style.default');
 		
 		// TODO: Read user style from Database and use it
 		if(empty(self::$Style))

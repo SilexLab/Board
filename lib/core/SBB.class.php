@@ -10,7 +10,7 @@ require_once('Autoloader.class.php');
 
 class SBB {
 	// Objects
-	private static $Database, $Language, $PageInfo, $Template, $Page;
+	private static $Database, $Language, $PageInfo, $Template, $Page, $Config;
 	
 	public static function Load() {
 		if(defined('CLASS_SBB'))
@@ -19,7 +19,7 @@ class SBB {
 		
 		Autoloader::Register();
 		self::$Database = Database::GetDatabase();
-		Config::CreateConstants();
+		self::$Config = new Config();
 		self::$Template = new Template();
 		self::$Page = Page::GetPage();
 		Menu::Render();
@@ -45,6 +45,10 @@ class SBB {
 	
 	public static function Template() {
 		return self::$Template;
+	}
+	
+	public static function Config($Node) {
+		return self::$Config->Get($Node);
 	}
 	
 	private static function TemplateAssign() {

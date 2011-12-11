@@ -8,13 +8,18 @@
 
 interface ConfigInterface {
 	/**
-	 * Create Constants from the Config-Table
+	 * Get the config from the config-table
 	 */
-	public static function CreateConstants();
+	public function __construct();
 	
 	/**
-	 * Create Template-Variables
+	 * Return the configvalue for a config-node
 	 */
-	public static function CreateVariables();
+	public function Get($Node);
+	
+	/**
+	 * Return the template vars
+	 */
+	public static function GetTemplateVariables();
 }
 ?>
