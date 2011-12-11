@@ -7,7 +7,7 @@ Not currently included (but hopefully soon) are testers and bug reporters that h
 Original Authors
 ----------------
 * Patrick Kleinschmidt (NoxNebula) \<nox.nebula@gmx.de\>
-* Daniel Erpelding (Cadillaxx)
+* Daniel Erpelding (Cadillaxx) \<thecadillaxx@gmail.com\>
 * Gillo Braun (Angus)
 * Yannick Stephan (Nut)
 
