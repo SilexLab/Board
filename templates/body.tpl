@@ -9,11 +9,16 @@
 		<div class="Size">
 			<div class="Container">
 				<nav class="BreadCrumbs">
-					{{ BreadCrumbs }}
+					{% for Crumb in Crumbs %}
+						<span class="Crust">
+							<a href="{{ Crumb.Link }}" class="Crumb">{{ Crumb.Title }}</a>
+							<span class="Arrow"></span>
+						</span>
+					{% endfor %}
 				</nav>
-				<div class="ContentContainer">
-					{% include "pages/" ~ Page|default("Home") ~ ".tpl" %}
-				</div>
+			</div>
+			<div class="Container">
+				{% include "pages/" ~ Page|default("Home") ~ ".tpl" %}
 			</div>
 		</div>
 	</section>
