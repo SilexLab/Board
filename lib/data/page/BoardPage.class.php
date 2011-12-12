@@ -20,7 +20,10 @@ class BoardPage extends Page implements PageInterface {
 		'Page' => 'Board', 
 		'Boards' => ForumList::ListForums($BoardID),
 		'CurrentBoardName' => ForumList::$CurrentBoardName
-		)); 
+		));
+		
+		Crumb::Add('com.sbb.crumbs.home', './');
+		Crumb::Add('com.sbb.crumbs.forum', '?page=Board');
 	}
 	
 	public function GetInfo($Info = '') {

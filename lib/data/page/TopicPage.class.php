@@ -46,7 +46,9 @@ class TopicPage extends Page implements PageInterface {
 			
 			SBB::Template()->Assign(array('Page' => 'Post', 'Posts' => $Post));
 		}
-			
+		
+		Crumb::Add('com.sbb.crumbs.home', './');
+		Crumb::Add('com.sbb.crumbs.forum', '?page=Board');
 	}
 	
 	public function GetInfo($Info = '') {

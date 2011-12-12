@@ -26,7 +26,9 @@ class TopicListPage extends Page implements PageInterface {
 			'Boards' => SBB::SQL()->Table('board')->Select('*')->Where('`ID` = \''.$_GET['BoardID'].'\'')->Execute()->FetchObjects()
 			));
 		}
-			
+		
+		Crumb::Add('com.sbb.crumbs.home', './');
+		Crumb::Add('com.sbb.crumbs.forum', '?page=Board');
 	}
 	
 	public function GetInfo($Info = '') {

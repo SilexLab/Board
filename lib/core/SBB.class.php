@@ -60,6 +60,7 @@ class SBB {
 			'User' => User::Get(),
 			'Load' => '~Load: '.round(((microtime(true) - $GeneratingTime) * 1000), 2).'ms')
 		);
+		self::Template()->Assign(Crumb::Get());
 		
 		self::Template()->AssignLanguage(Language::Assign());
 	}

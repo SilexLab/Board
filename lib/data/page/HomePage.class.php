@@ -13,6 +13,7 @@ class HomePage extends Page implements PageInterface {
 	);
 	
 	public function __construct() {
+		Crumb::Add('com.sbb.crumbs.home', './');
 		//$this->Infos['Title'] = SBB::Language()->Get('com.sbb.page.home');
 	}
 	

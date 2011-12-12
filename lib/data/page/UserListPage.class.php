@@ -17,6 +17,8 @@ class UserListPage extends Page implements PageInterface {
 		
 		SBB::Template()->Assign(array('Page' => 'userList', 'Users' => SBB::SQL()->Table('users')->Select('*')->Execute()->FetchObjects()));
 		
+		Crumb::Add('com.sbb.crumbs.home', './');
+		Crumb::Add('com.sbb.crumbs.user', '?page=UserList');	
 	}
 	
 	public function GetInfo($Info = '') {

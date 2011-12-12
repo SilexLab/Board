@@ -28,6 +28,7 @@ class UserPage extends Page implements PageInterface {
 			header('Location: ./');
 		}
 		
+		Crumb::Add('com.sbb.crumbs.home', './');
 	}
 	
 	public function GetInfo($Info = '') {
