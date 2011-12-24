@@ -8,7 +8,7 @@ Original Authors
 ----------------
 * Patrick Kleinschmidt (NoxNebula) \<nox.nebula@gmx.de\>
 * Daniel Erpelding (Cadillaxx) \<thecadillaxx@gmail.com\>
-* Gillo Braun (Angus)
+* Gillo Braun (Angus) \<braun.gillo@hotmail.com\>
 * Yannick Stephan (Nut) \<info@yannickweb.de\>
 
 Long-term Contributions
