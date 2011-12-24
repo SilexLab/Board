@@ -11,7 +11,6 @@ ini_set('display_errors', 1);
 ini_set('unserialize_callback_func', 'spl_autoload_call');
 date_default_timezone_set('Europe/Berlin');
 error_reporting(E_ALL ^ E_NOTICE | E_STRICT);
-session_start();
 
 // Define "lib" directory constant
 if(!defined('DIR_LIB'))
@@ -24,7 +23,10 @@ require_once('core/SBB.class.php');
 
 SBB::Load();
 
-if(isset($_COOKIE['sbb_LoginHash']) && Session::Read('UserID') == false) {
+// Deleted Sessions:
+	// SESCLEAR
+
+/*if(isset($_COOKIE['sbb_LoginHash']) && Session::Read('UserID') == false) {
 	SBB::SQL()->Table('session')->Select('UserID')->Where('`LoginHash` = \''.SBB::SQL()->RealEscapeString($_COOKIE['sbb_LoginHash']).'\'')->Execute();
 	if(SBB::SQL()->Exists()->Where('`LoginHash` = \''.SBB::SQL()->RealEscapeString($_COOKIE['sbb_LoginHash']).'\'')->Execute()) {
 		$row = SBB::SQL()->FetchArray();
@@ -44,7 +46,7 @@ if(Session::Read('UserID') != false) {
 		$_SESSION = array();
 		session_destroy();
 	}
-}
+}*/
 
 
 

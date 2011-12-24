@@ -12,6 +12,8 @@ class MySQLiWrapper extends Database {
 			$ConErrNo,	// Contains the Error Number if any Error caused
 			$ConError;	// Contains the Error as String -''-
 	
+	private static $cHost, $cUser, $cPassword, $cDatabase, $cPort, $cSocket;
+	
 	/**
 	 * Open a new MySQLi connection
 	 */
@@ -66,6 +68,16 @@ class MySQLiWrapper extends Database {
 	 */
 	public function Insert(array $Inserts) {
 		$this->Add('INSERT', $Inserts);
+		return $this;
+	}
+	
+	/**
+	 * Replace values in a row
+	 * @param	array $Replaces	(array('Column' => 'Value'))
+	 * ->Table($Table)->Replace($Updates)
+	 */
+	public function Replace(array $Replaces) {
+		$this->Add('REPLACE', $Replaces);
 		return $this;
 	}
 	
@@ -175,6 +187,8 @@ class MySQLiWrapper extends Database {
 		$this->ListIndex = -1;
 		$this->QueryList = NULL;
 		
+		if(!$this->Result)
+			return false;
 		return $this;
 	}
 	
@@ -183,8 +197,14 @@ class MySQLiWrapper extends Database {
 		return $this->Database->real_escape_string($String);
 	}
 	
+	public function IsConnected() {
+		return $this->Database ? true : false;
+	}
+	
 // Methods to get the result of a Select-tree
 	public function FetchArray() {
+		if(!$this->Result)
+			return false;
 		if($this->Result === 'MULTIQUERY') // Multiquery not possible
 			return false;
 		
@@ -193,6 +213,8 @@ class MySQLiWrapper extends Database {
 	}
 	
 	public function FetchArrays() {
+		if(!$this->Result)
+			return false;
 		$Rows = array();
 		if($this->Result === 'MULTIQUERY') { // Multiquery
 			foreach($this->GetMultiQueryResults() as $Result) {
@@ -211,6 +233,8 @@ class MySQLiWrapper extends Database {
 	}
 	
 	public function FetchObject() {
+		if(!$this->Result)
+			return false;
 		if($this->Result === 'MULTIQUERY') // Multiquery not possible
 			return false;
 		
@@ -219,6 +243,8 @@ class MySQLiWrapper extends Database {
 	}
 	
 	public function FetchObjects() {
+		if(!$this->Result)
+			return false;
 		$Rows = array();
 		if($this->Result === 'MULTIQUERY') { // Multiquery
 			foreach($this->GetMultiQueryResults() as $Result) {
@@ -238,6 +264,8 @@ class MySQLiWrapper extends Database {
 	}
 	
 	public function NumRows() {
+		if(!$this->Result)
+			return false;
 		return $this->Result->num_rows;
 	}
 	
@@ -247,12 +275,16 @@ class MySQLiWrapper extends Database {
 	 * @param	string $QuerySegment
 	 */
 	private function Add($QuerySegment, $Value = NULL) {
+		if(!$this->IsConnected()) {
+			echo 'NICHT VERBUNDEN!!!<br>';
+		}
+		
 		// Clear old results
 		$this->Result = NULL;
 		$this->Exists = NULL;
 		
 		// Create a new Query if passed
-		if(in_array($QuerySegment, array('TABLE', 'SELECT', 'INSERT', 'UPDATE', 'DELETE', 'EXISTS', 'QUERY'))) {
+		if(in_array($QuerySegment, array('TABLE', 'SELECT', 'INSERT', 'REPLACE', 'UPDATE', 'DELETE', 'EXISTS', 'QUERY'))) {
 			if($QuerySegment == 'TABLE' || $QuerySegment == 'QUERY')
 				$this->ListIndex++;
 			else if(isset($this->QueryList[$this->ListIndex]['TABLE']) && sizeof($this->QueryList[$this->ListIndex]) > 1) {

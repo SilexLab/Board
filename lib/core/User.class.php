@@ -63,7 +63,8 @@ class User {
 			SBB::SQL()->Table('users')->Select('ID')->Where('`Username` = \''.$Name.'\'')->Limit(1)->Execute();
 			return SBB::SQL()->FetchObject()->ID;
 		}
-		return Session::Read('UserID');
+		//$ID = Session::Read('UserID'); // SESCLEAR
+		return $ID !== false ? $ID : 0;
 	}
 	
 	public static function Get($Data = '*', $ID = 0) {
@@ -71,7 +72,7 @@ class User {
 			return false;
 		}
 		if($ID == 0) {
-			$ID = Session::Read('UserID');
+			//$ID = Session::Read('UserID'); // SESCLEAR
 		}
 		if($ID != 0) {
 			if($Data = '*') {
@@ -87,11 +88,11 @@ class User {
 	}
 	
 	public static function LoggedIn() {
-		return Session::Read('UserID') > 0;
+		//return Session::Read('UserID') > 0; // SESCLEAR
 	}
 	
 	public static function Login($UserID, $StayLoggedIn = false) {
-		$Token = sha1(md5(mt_rand()).microtime().mt_rand());
+		/*$Token = sha1(md5(mt_rand()).microtime().mt_rand());
 		$Inserts = array(
 			'ID' => session_id(),
 			'UserID' => $UserID,
@@ -110,11 +111,12 @@ class User {
 		SBB::SQL()->Table('users')->Select('Username')->Where('`ID` = \''.$UserID.'\'')->Limit(1)->Execute();
 		$row = SBB::SQL()->FetchArray();
 		Session::Set('UserID', $UserID);
-		Session::Set('Username', $row['Username']);
+		Session::Set('Username', $row['Username']);*/
+		// SESCLEAR
 	}
 	
 	public static function Logout() {
-		if(self::LoggedIn()) {
+		/*if(self::LoggedIn()) {
 			if(isset($_COOKIE['sbb_LoginHash'])) {
 				setcookie('sbb_LoginHash', '', time()-60*60);
 			}
@@ -124,7 +126,8 @@ class User {
 		}
 		else {
 			new MessageBox(Language::Get('com.sbb.logout.not_logged_in'), MessageBox::ERROR);
-		}
+		}*/
+		// SESCLEAR
 	}
 	
 	// Password Stuff

@@ -20,6 +20,7 @@ class SBB {
 		Autoloader::Register();
 		self::$Database = Database::GetDatabase();
 		self::$Config = new Config();
+		Session::Start();
 		self::$Template = new Template();
 		self::$Page = Page::GetPage();
 		Menu::Render();

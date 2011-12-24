@@ -16,6 +16,8 @@ body {
 	padding: 0;
 	font: 75%/1 Arial, Helvetica, sans-serif;
 	background: #1B1B1B url(images/Background.png) center top repeat;
+	color: #d0d0d0;
+	-webkit-font-smoothing: antialiased;
 }
 
 section, header, footer, nav {

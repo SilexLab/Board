@@ -28,6 +28,7 @@ class Autoloader extends SBB implements AutoloaderInterface {
 				'core/',
 				'core/database/',
 				'core/exception/',
+				'core/session/',
 				'data/',
 				'data/message/',
 				'data/message/pm/',

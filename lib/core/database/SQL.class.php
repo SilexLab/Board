@@ -19,6 +19,9 @@ class SQL {
 		
 		if(isset($List['INSERT']))
 			return self::MakeInsert($List, $Prepared);
+			
+		if(isset($List['REPLACE']))
+			return self::MakeReplace($List, $Prepared);
 		
 		if(isset($List['UPDATE']))
 			return self::MakeUpdate($List, $Prepared);
@@ -63,6 +66,23 @@ class SQL {
 		}
 		
 		return 'INSERT INTO '.self::$Table.' ('.trim($Columns, ', ').') VALUES ('.trim($Values, ', ').');';
+	}
+	
+	private static function MakeReplace($L, $P) {
+		$Columns = '';
+		$Values = '';
+		foreach($L['REPLACE'] as $Column => $Value) {
+			$Columns .= '`'.trim($Column, '`').'`, ';
+			
+			if($P)
+				$Values .= '?, ';
+			else
+				$Values .= (is_numeric($Value) ?
+							self::$DB->RealEscapeString($Value) :
+							'\''.self::$DB->RealEscapeString($Value).'\'').', ';
+		}
+		
+		return 'REPLACE INTO '.self::$Table.' ('.trim($Columns, ', ').') VALUES ('.trim($Values, ', ').');';
 	}
 	
 	private static function MakeUpdate($L, $P) {

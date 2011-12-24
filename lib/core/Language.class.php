@@ -53,12 +53,13 @@ class Language implements LanguageInterface {
 		if(!empty(self::$Language))
 			return self::$Language;
 		
+		// SESCLEAR
 		/* Find out, wich language should used */
-		if(isset($_SESSION['UserID']))
+		/*if(isset($_SESSION['UserID']))
 			self::$Language = SBB::SQL()->Table('users')->Select('Language')->Where('`ID` = "'.Session::Read('UserID').'"')->Limit(1)->Execute()->FetchObject()->Language;
 		else if(isset($_COOKIE['SBB_Lang']))
 			self::$Language = $_COOKIE['SBB_Lang'];
-		
+		*/
 		if(empty(self::$Language))
 			self::$Language = SBB::SQL()->Table('language')->Select('Shortcut')->Where('`DefaultLanguage` = 1')->Limit(1)->Execute()->FetchObject()->Shortcut;
 		
