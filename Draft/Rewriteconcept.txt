@@ -6,12 +6,12 @@
 		* MySQL(i)
 		* SQLite
 		* PGSQL (PostgreSQL)
+	* (Globale) Konfiguration
+		* Konfiguration aus der Datenbank lesen.
 	* Login / Registrierung / Abmeldung
 		* Wurde sich eingeloggt / registriert / abgemeldet?
 	* Sessions
 		* Wenn jetzt eingeloggt, alte Session löschen und neue mit UserID, etc erstellen.
-	* (Globale) Konfiguration
-		* Konfiguration aus der Datenbank lesen.
 	* "Globale" Formulare (Können (fast) auf jeder Seite abgeschickt werden)
 		* Wurde die Sprache geändert?
 		* Wurde der Style geändert?
