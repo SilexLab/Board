@@ -7,6 +7,8 @@
 
 // Include config
 require_once('config.inc.php');
+if(!defined('CFG'))
+	die('Something is wrong with your config!');
 
 // Include common constants and functions
 require_once('constants.inc.php');
@@ -25,4 +27,7 @@ if(defined('CFG_DEBUG') && CFG_DEBUG) {
 
 // TODO: Set this in the databaseconfig
 date_default_timezone_set('Europe/Berlin');
+
+// Set the custom session save handler
+Session::Start(new SessionDatabaseHandler());
 ?>
