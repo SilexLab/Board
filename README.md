@@ -1,29 +1,29 @@
-﻿<img src="https://github.com/SilexBoard/Board/raw/master/lib/images/Logo.png">
-Silex Bulletin Board
-====================
+SilexBB Readme
+==============
+SilexBB (Silex Bulletin Board) is an open source forum software released under the [GNU General Public Licence](http://www.gnu.org/licenses/gpl-3.0.html). It is free to download and use. The project was found by Patrick Kleinschmidt (Nox Nebula) to extend his PHP skills. He convinced Daniel (Cadillaxx), Yannick (Nut) and Gillo (Angus) to join the project as main developers.
 
-Diese Forensoftware wird von Cadillaxx, NoxNebula, Nut und Angus entwickelt.
+Requirements
+------------
+* A webserver like apache, nginx or lighttpd
+* PHP 5.3 or later (with zlib)
+* A database such as MySQL 5 , PostgreSQL, MSSQL or SQLite 2 __*__
 
-Wir haben zwar alle keinen Plan von PHP aber Langeweile, aus der das Silex Board entsteht. Da wir das Projekt sozusagen als zur Verbesserung unserer PHP-Kenntnisse nutzen, lassen wir es bei der Entwicklung des Boards ruhig angehen und haben nichts gegen Hilfe einzuwenden.
 
-Eine immer aktuelle Version des Boards findet sich __[hier](http://aurora.dyndns-ip.com/Board/)__. Der Aktualisierungsintervall liegt bei 10 Minuten, die letzte Aktualisierung kann __[hier betrachtet werden](http://aurora.dyndns-ip.com/Board/lastupdate.log)__.
-
-Kontakt
+Links
 -------
-Wir können zur Zeit in unserem IRC-Channel kontaktiert werden:
-__[irc://irc.quakenet.org/#SilexBoard](irc://irc.quakenet.org/#SilexBoard)__
+* [Homepage](http://www.silexboard.org/)
+* [Github repository](https://github.com/SilexBoard/Board)
+* [Issues](https://github.com/SilexBoard/Board/issues)
+* [Contributors](https://github.com/SilexBoard/Board/blob/master/CONTRIBUTORS.md)
+* [License](http://www.gnu.org/licenses/gpl-3.0.html)
 
+### Contact
+* [irc://irc.quakenet.org/#SilexBoard](irc://irc.quakenet.org/#SilexBoard)
 
-Teammitglieder
---------------
-### Nox Nebula
-Die Idee, ein eigenes Board zu schreiben, stammt von ihm, er ist als PHP-Programmierer, Designer und Stuffmanager am Projekt beteiligt.
+Notes
+-----
+__* Currently only MySQL__
 
-### Cadillaxx
-Cadillaxx beteiligt sich am Projekt als PHP-Programmierer und mag Kekse.
+-----
 
-### Nut
-Nut ist als PHP-Programmierer und Designer tätig.
-
-### Angus
-Angus ist zum Team dazugekommen, er ist als PHP-Programmierer tätig.
+© 2011 Silex Bulletin Board
