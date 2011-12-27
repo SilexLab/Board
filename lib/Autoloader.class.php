@@ -30,8 +30,11 @@ class Autoloader {
 	 */
 	public static function AddPath($Directory) {
 		if(defined('CLASS_AUTOLOADER'))
-			if(!in_array($Directory, self::$Directories))
+			if(!in_array($Directory, self::$Directories)) {
+				if(strpos($Directory, '/', strlen($Directory) - 1) === false)
+					$Directory .= '/';
 				self::$Directories[] = $Directory;
+			}
 	}
 	
 	/**
@@ -46,13 +49,8 @@ class Autoloader {
 			foreach(self::$Directories as $Directory) {
 				// if a Wildcard appears, handle it
 				if(strpos($Directory, '*') !== false) {
-					$Dirs = self::HandleWildcard($Directory);
-					foreach($Dirs as $Dir) {
-						if(file_exists($File = $Dir.$Class.'.class.php')) {
-							include_once($File);
-							break 2;
-						}
-					}
+					self::HandleWildcard($Directory);
+					self::Autoload($Class);
 				}
 				if(file_exists($File = DIR_LIB.$Directory.$Class.'.class.php')) {
 					include_once($File);
@@ -68,14 +66,12 @@ class Autoloader {
 	private static function HandleWildcard($Dir) {
 		// Wildcard on the last position
 		if(strpos($Dir, '*') === strlen($Dir) - 1) {
-			$Dir = DIR_LIB.substr($Dir, 0, -1);
-			$Files = scandirr($Dir);
-			$Dirs = array();
+			unset(self::$Directories[array_search($Dir, self::$Directories)]);
+			$Dir = substr($Dir, 0, -1);
+			$Files = scandirr(DIR_LIB.$Dir);
 			foreach($Files as $F) {
-				if(is_dir($Dir.$F))
-					$Dirs[] = $Dir.$F;
+				self::AddPath(dirname($Dir.$F));
 			}
-			return $Dirs;
 		}
 	}
 }
