@@ -1,6 +1,8 @@
 SilexBB Readme
 ==============
-SilexBB (Silex Bulletin Board) is an open source forum software released under the [GNU General Public Licence](http://www.gnu.org/licenses/gpl-3.0.html). It is free to download and use. The project was found by Patrick Kleinschmidt (Nox Nebula) to extend his PHP skills. He convinced Daniel (Cadillaxx), Yannick (Nut) and Gillo (Angus) to join the project as main developers.
+SilexBB (Silex Bulletin Board) is an open source forum software released under the [GNU General Public Licence](http://www.gnu.org/licenses/gpl-3.0.html). It is free to download and use.
+The software uses a modified version of a template language/engine called [Twig](https://github.com/SilexBoard/Template-Engine) to manage layouts, safe code and display the content.
+The project was found by Patrick Kleinschmidt (Nox Nebula) to extend his PHP skills. He convinced Daniel (Cadillaxx), Yannick (Nut) and Gillo (Angus) to join the project as main developers.
 
 Requirements
 ------------
