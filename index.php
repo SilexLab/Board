@@ -1,20 +1,18 @@
 <?php
 /**
- * @author 		Nox Nebula
- * @copyright	© 2011 Silex Bulletin Board - Team
- * @license		GNU GENERAL PUBLIC LICENSE - Version 3
- * @package		SilexBoard
+ * @author     SilexBB
+ * @copyright  2011 Silex Bulletin Board
+ * @license    GPL version 3 or higher <http://www.gnu.org/licenses/gpl-3.0.html>
  */
 
 $GeneratingTime = microtime(true);
 
-// Redirect to installation if not installed
-if(!file_exists('lib/includes/config.inc.php'))
-	header('Location: install.php');
+if(!file_exists('lib/config.inc.php'))
+	die('Your config file is missing!');
 
 // Define the Silex Board root directory
 define('DIR_ROOT', dirname(__FILE__).'/');
 
-include_once('lib/init.php');
+require_once('lib/init.php');
 echo "\n".'<br><span style="color: white;">Real Load: '.round(((microtime(true) - $GeneratingTime) * 1000), 2).'ms</span>';
 ?>

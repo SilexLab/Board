@@ -1,7 +1,7 @@
 ﻿Allgemeines Konzept für das holen von Informationen und die Ausgabe der Seite (Frontend).
 
 * Grundinformationen holen / Initialisieren
-	* XML-Wrapper
+	* Autoloader
 	* Datenbankverbindung
 		* MySQL(i)
 		* SQLite
@@ -43,6 +43,7 @@
 * Ausgabe
 	* Template Variablen setzen
 		* Sprachvariablen setzen (Aus Languageclass)
+			* Nur benötigte Variablen (Aktuelle Seite) ans Template senden.
 		* Weitere benötigte Variablen
 	* Templates Kompilieren
 	* Kompilierte Templates ausgeben
