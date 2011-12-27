@@ -5,8 +5,7 @@
  * @license    GPL version 3 or higher <http://www.gnu.org/licenses/gpl-3.0.html>
  */
 
-require_once('SessionHandler.interface.php');
-class SessionDatabaseHandler implements SessionHandler {
+class SessionDatabaseHandler extends SessionHandler {
 	public function __construct() {
 		// Session preparation
 		ini_set('session.gc_maxlifetime', SBB::Config('config.user.autologout'));
@@ -16,32 +15,32 @@ class SessionDatabaseHandler implements SessionHandler {
 		
 		// Own save handler
 		session_set_save_handler(
-			array(&$this, 'Open'),
-			array(&$this, 'Close'),
-			array(&$this, 'Read'),
-			array(&$this, 'Write'),
-			array(&$this, 'Destroy'),
-			array(&$this, 'GC')
+			array(&$this, 'open'),
+			array(&$this, 'close'),
+			array(&$this, 'read'),
+			array(&$this, 'write'),
+			array(&$this, 'destroy'),
+			array(&$this, 'gc')
 		);
 		register_shutdown_function('session_write_close');
 	}
 	
-	public function Open($Path, $Name) {
+	public function open($Path, $Name) {
 		return true;
 	}
 	
-	public function Close() {
+	public function close() {
 		$this->GC((int)SBB::Config('config.user.autologout'));
 		return true;
 	}
 	
-	public function Read($SessionID) {
+	public function read($SessionID) {
 		if(SBB::SQL()->Table('session')->Select('SessionValue')->Where('`ID` = \''.SBB::SQL()->RealEscapeString($SessionID).'\'')->Limit(1)->Execute() !== false)
 			return (string)SBB::SQL()->FetchObject()->SessionValue;
 		return '';
 	}
 	
-	public function Write($SessionID, $Data) {
+	public function write($SessionID, $Data) {
 		return (bool)SBB::SQL()->Table('session')->Replace(
 			array(
 				'ID' => SBB::SQL()->RealEscapeString($SessionID),
@@ -54,11 +53,11 @@ class SessionDatabaseHandler implements SessionHandler {
 			))->Execute();
 	}
 	
-	public function Destroy($SessionID) {
+	public function destroy($SessionID) {
 		return (bool)SBB::SQL()->Table('session')->Delete()->Where('`ID` = \''.SBB::SQL()->RealEscapeString($SessionID).'\'')->Execute();
 	}
 	
-	public function GC($MaxLife) {
+	public function gc($MaxLife) {
 		return (bool)SBB::SQL()->Table('session')->Delete()->Where('`LastActivityTime` < '.time() - $MaxLife)->Execute();
 	}
 }
