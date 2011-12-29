@@ -54,6 +54,9 @@ h2 {
 	padding: 0px 0px 5px;
 	font-size: 18px;
 }
+h3 {
+	margin: 20px 0 4px 0;
+}
 li {
 	padding: 5px 0px;
 }
@@ -150,7 +153,7 @@ a:active {
 
 #6 Überschrift Ebene 6 &lt;h6&gt;</pre>
     <p>Bei dieser Methode wird am Anfang der Zeile eine Raute geschrieben, gefolgt von der Zahl (1-6), welche die Überschriftebene wiederspiegelt.</p>
-	<span class="top"><a href="#top">Top</a></span>
+    <span class="top"><a href="#top">Top</a></span>
   </li>
   <li>
     <h2><a id="Blockzitate">Blockzitate</a></h2>
@@ -181,7 +184,7 @@ sed diam voluptua.
 &gt; Lorem ipsum dolor sit amet, consetetur sadipscing elitr,<br>&gt; sed diam nonumy eirmod tempor invidunt ut labore et dolore &gt; magna aliquyam erat,
 &gt; sed diam voluptua.</pre>
     <p>Hierbei wird über dem Zitatblock eine in eckigen Klammern geschachtelte Zeile geschrieben, in der die Informationen über den Namen der Person, von der das Zitat stammt und optional einen Link dazu stehen.</p>
-	<span class="top"><a href="#top">Top</a></span>
+    <span class="top"><a href="#top">Top</a></span>
   </li>
   <li>
     <h2><a id="Listen">Listen</a></h2>
@@ -234,7 +237,7 @@ A. Grün
 A. Blau</pre>
     <p>Um zu erzwingen, dass sortierte Listen mit der/dem gewählten Auflistungszahl/-buchstaben aufgelistet werden, muss an das Ende der/des Zahl/Buchstabes ein Backslash '\' angehängt werden.</p>
     <p>In Listen können - wie in Blockzitaten - alle &quot;Silex flavored Markdown&quot; Markup Elemente verwendet werden.</p>
-	<span class="top"><a href="#top">Top</a></span>
+    <span class="top"><a href="#top">Top</a></span>
   </li>
   <li>
     <h2><a id="Code">Code(blöcke)</a></h2>
@@ -259,12 +262,12 @@ A. Blau</pre>
     <pre>[[ echo 'Hello world!'; ]]</pre>
     <p>Dies erzeugt einen <code>&lt;code&gt;</code>-Tag, dieser kann wie folgt aussehen:</p>
     <p><code>echo 'Hello world!';</code></p>
-	<p>Syntaxhighlighting ist ebenfalls möglich, indem die entpsprechende Sprache vor dem Block angegeben wird:</p>
-	<pre>[PHP][[ echo 'Hello world!'; ]]</pre>
-	<p>Dies erzeugt einen <code>&lt;code&gt;</code>-Tag mit hervorgehobenem Code:</p>
-	<p><code><span style="color: #060;">echo</span> <span style="color: #900;">'Hello world!'</span>;</code></p>
+    <p>Syntaxhighlighting ist ebenfalls möglich, indem die entpsprechende Sprache vor dem Block angegeben wird:</p>
+    <pre>[PHP][[ echo 'Hello world!'; ]]</pre>
+    <p>Dies erzeugt einen <code>&lt;code&gt;</code>-Tag mit hervorgehobenem Code:</p>
+    <p><code><span style="color: #060;">echo</span> <span style="color: #900;">'Hello world!'</span>;</code></p>
     <p>Code in inline- und Codeblöcken der Silex Flavored Markdown enthält, wird nicht geparst.</p>
-	<span class="top"><a href="#top">Top</a></span>
+    <span class="top"><a href="#top">Top</a></span>
   </li>
   <li>
     <h2><a id="hr">Horizontale Linie</a></h2>
@@ -279,7 +282,7 @@ A. Blau</pre>
 
 --------------------</pre>
     <p>Die Anzahl der Leerzeichen und/oder Zeichen kann beliebig gewählt sein, die Zeichanzahl ('<code>*</code>' oder '<code>-</code>') muss nur größer oder gleich 3 sein.</p>
-	<span class="top"><a href="#top">Top</a></span>
+    <span class="top"><a href="#top">Top</a></span>
   </li>
   <li>
     <h2><a id="Hyperlinks">Hyperlinks</a></h2>
@@ -288,7 +291,7 @@ A. Blau</pre>
     <p>Die Linkbeschreibung und der Hyperlinktext sind beide optional, ist der Hyperlinktext nicht gesetzt, wird als Text das Ziel des Links genommen:</p>
     <pre>[](http://example.com/)
 [Text](http://example.com/)</pre>
-	<span class="top"><a href="#top">Top</a></span>
+    <span class="top"><a href="#top">Top</a></span>
   </li>
   <li>
     <h2><a id="Bilder">Bilder</a></h2>
@@ -299,10 +302,11 @@ A. Blau</pre>
     bietet die Möglichkeit die Höhe, Breite oder Beides des eingebetteten Bildes zu verändern (Damit wird lediglich die Anzeigegröße verändert):</p>
     <pre>![](http://example.com/image.png w200px)</pre>
     <p>Dieses Beispiel legt lediglich die Breite (w) des Bildes fest, die Höhe (h) wird automatisch im passenden Seitenverhältnis mit geändert.</p>
-	<span class="top"><a href="#top">Top</a></span>
+    <span class="top"><a href="#top">Top</a></span>
   </li>
   <li>
     <h2><a id="Textformatierungen">Textformatierungen</a></h2>
+    <h3>Standardformatierungen</h3>
     <p>Diese Markupsprache bietet verschiedene Möglichkeiten den Text hervorzuheben. Das '<code>*</code>'-Zeichen und das '<code>_</code>'-Zeichen kommen dabei zum Einsatz:</p>
     <pre>*Einfaches Sternchen*
 **Doppeltes Sternchen**
@@ -321,17 +325,29 @@ _*Einfaches Sternchen unterstrichen*_</pre>
     <p>Aus diesem Beispiel wird:</p>
     <p><span style="font-style: italic;">Kursiv <strong>Fett</strong> <strong>Fett und Kursiv</strong> und nur noch <span style="text-decoration: underline;">Kursiv mit Unterstreichung</span></span><br>
     <strong>Fett <span style="font-style: italic;">Fett und Kursiv</span> und <span style="font-style: italic;">Kursiv</span> nur <span style="text-decoration: underline;">Fett</span></strong></p>
+    <h3>Textfarbe</h3>
     <p>Die Textfarbe kann wie folgt geändert werden:</p>
-    <pre>Normaler Text und [#3A8000 Text in Bund und in Farbe] bis hier.</pre>
+    <pre>Normaler Text und [[color:#3A8000]Text in Bund und in Farbe] bis hier. [[c:red]Shortcut]</pre>
     <p>Wird zu:</p>
-    <p>Normaler Text und <span style="color: #3A8000;"> Text in Bund und in Farbe</span> bis hier.</p>
-    <p>Schachtelungen von Farben sind nicht möglich. Statt eines 3 oder 6 stelligen hexadezimalen Farbcodes sind auch noch Farbbezeichnungen wie #red oder #white möglich.</p>
-    <p>Die Textgröße wird per [size=##px Größe] geändert:</p>
-    <pre>Normaler und [size=20px großer Text].</pre>
+    <p>Normaler Text und <span style="color: #3A8000;"> Text in Bund und in Farbe</span> bis hier. <span style="color: red;">Shortcut</span></p>
+    <p>Schachtelungen von Farben sind nicht möglich. Statt eines 3 oder 6 stelligen hexadezimalen Farbcodes sind auch noch Farbbezeichnungen wie red oder white möglich.</p>
+    <h3>Textgröße</h3>
+    <p>Die Textgröße wird per [[size=##px]Größe] geändert:</p>
+    <pre>Normaler und [[size:20px]großer Text]. [[s:18px]Shortcut]</pre>
     <p>Wird zu:</p>
-    <p>Normaler und <span style="font-size: 20px;">großer Text</span>.</p>
+    <p>Normaler und <span style="font-size: 20px;">großer Text</span>. <span style="font-size: 18px;">Shortcut</span></p>
     <p>Textgrößen können ebenfalls nicht geschachtelt werden.</p>
-	<span class="top"><a href="#top">Top</a></span>
+    <h3>Schriftart</h3>
+    <p>Die Schriftart kann wie folgt festgelegt werden:</p>
+    <pre>Normale und [[font:Comic Sans]andere Schriftart]. [[f:Comic Sans]Shortcut]</pre>
+    <p>Wird zu:</p>
+    <p>Normale und <span style="font-family:'Comic Sans MS'">andere Schriftart</span>. <span style="font-family:'Comic Sans MS'">Shortcut</span></p>
+    <h3>Zusammenfassen</h3>
+    <p>Das aneinanderreihen, der Attribute ist ebenfalls möglich:</p>
+    <pre>[[color:blue,s:18px]Aneinandergereiht]</pre>
+    <p>wird zu geparst:</p>
+    <p><span style="color: blue; font-size: 18px">Aneinandergereiht</span></p>
+    <span class="top"><a href="#top">Top</a></span>
   </li>
   <li>
     <h2>Textformatierungen in Wörtern <span style="font-size: 14px">(trivial)</span></h2>
@@ -348,12 +364,12 @@ Lorem[*]ipsum[*]dolor[***]sit[***]amet.</pre>
     <p>Lorem<span style="text-decoration: underline;">ipsum</span>dolor<span style="text-decoration: underline;">sit</span>amet.<br>
     Lorem<span style="font-style: italic;">ipsum</span>dolor<span style="font-style: italic;"><strong>sit</strong></span>amet.</p>
     <p>Alle anderen Formatierungen funktionieren auch in Wörtern.</p>
-	<span class="top"><a href="#top">Top</a></span>
+    <span class="top"><a href="#top">Top</a></span>
   </li>
   <li>
     <h2><a id="Spoiler">Spoiler</a></h2>
     <p>Spoiler können irgendwie erzeugt werden.</p>
-	<span class="top"><a href="#top">Top</a></span>
+    <span class="top"><a href="#top">Top</a></span>
   </li>
   <li>
     <h2><a id="Escape">Backslash escape</a></h2>
@@ -361,7 +377,7 @@ Lorem[*]ipsum[*]dolor[***]sit[***]amet.</pre>
     <pre>Lorem *ipsum \*dolor\* sit* amet.</pre>
     <p>Dies befielt dem Parser, diese Textstellen zu ignorieren. Aus dem obigen Beispiel wird folgender Text:</p>
     <p>Lorem <span style="font-style: italic;">ipsum *dolor* sit</span> amet.</p>
-	<span class="top"><a href="#top">Top</a></span>
+    <span class="top"><a href="#top">Top</a></span>
   </li> 
   <li>
     <h2><a id="NewLine">Neue Zeile</a></h2>
@@ -370,7 +386,7 @@ consetetur sadipscing elitr.</pre>
     <p>wird zu:</p>
     <p>Lorem ipsum dolor sit amet,<br>
     consetetur sadipscing elitr.</p>
-	<span class="top"><a href="#top">Top</a></span>
+    <span class="top"><a href="#top">Top</a></span>
   </li>
 </ul>
 </body>
