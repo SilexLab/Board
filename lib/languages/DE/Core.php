@@ -1,15 +1,14 @@
 <?php
 /**
- * @author 		Nox Nebula
- * @copyright	© 2011 Silex Bulletin Board - Team
- * @license		GNU GENERAL PUBLIC LICENSE - Version 3
- * @package		SilexBoard
+ * @author     SilexBB
+ * @copyright  2011 - 2012 Silex Bulletin Board
+ * @license    GPL version 3 or higher <http://www.gnu.org/licenses/gpl-3.0.html>
  */
 
 /* Langfile:	German (Informal) */
 self::$Items = array_merge(self::$Items, array(
 'com.sbb.error'		=> 'Fehler',
-'com.sbb.copyright'	=> 'Forensoftware: Silex Bulletin Board '.SILEX_VERSION.' – © 2011 silexboard.org',
+'com.sbb.copyright'	=> 'Forensoftware: Silex Bulletin Board '.SILEX_VERSION.' – © 2011 - 2012 Silexboard.org',
 
 'com.sbb.language.info'		=> 'Deutsch (Informal)',
 'com.sbb.language.changed'	=> 'Deine Sprache wurde nach '.SBB::Template()->Get('LangChangedTo').' geändert',

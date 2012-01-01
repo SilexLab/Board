@@ -30,4 +30,4 @@ __* Currently only MySQL__
 
 -----
 
-_© 2011 Silex Bulletin Board_
+_© 2011 - 2012 Silex Bulletin Board_

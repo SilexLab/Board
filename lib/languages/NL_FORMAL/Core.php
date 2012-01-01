@@ -1,7 +1,7 @@
 <?php
 /**
  * @author 		Malachite
- * @copyright	© 2011 Silex Bulletin Board - Team
+ * @copyright	© 2011 - 2012 Silex Bulletin Board - Team
  * @license		GNU GENERAL PUBLIC LICENSE - Version 3
  * @package		SilexBoard
  */
@@ -9,7 +9,7 @@
 /* Langfile:	Dutch (Formal) */
 self::$Items = array_merge(self::$Items, array(
 'com.sbb.error'		=> 'Fout',
-'com.sbb.copyright'	=> 'Forumsoftware: Silex Bulletin Board '.SILEX_VERSION.' – © 2011 silexboard.org',
+'com.sbb.copyright'	=> 'Forumsoftware: Silex Bulletin Board '.SILEX_VERSION.' – © 2011 - 2012 Silexboard.org',
 
 'com.sbb.language.info'		=> 'Nederlands (Formal)',
 'com.sbb.language.changed'	=> 'Uw taal werd naar '.SBB::Template()->Get('LangChangedTo').' veranderd',
