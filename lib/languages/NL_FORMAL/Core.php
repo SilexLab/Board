@@ -1,9 +1,8 @@
 <?php
 /**
- * @author 		Malachite
- * @copyright	© 2011 - 2012 Silex Bulletin Board - Team
- * @license		GNU GENERAL PUBLIC LICENSE - Version 3
- * @package		SilexBoard
+ * @author     Malachite
+ * @copyright  2011 - 2012 Silex Bulletin Board
+ * @license    GPL version 3 or higher <http://www.gnu.org/licenses/gpl-3.0.html>
  */
 
 /* Langfile:	Dutch (Formal) */

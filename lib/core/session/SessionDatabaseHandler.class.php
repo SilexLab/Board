@@ -35,30 +35,30 @@ class SessionDatabaseHandler extends SessionHandler {
 	}
 	
 	public function read($SessionID) {
-		if(SBB::SQL()->Table('session')->Select('SessionValue')->Where('`ID` = \''.SBB::SQL()->RealEscapeString($SessionID).'\'')->Limit(1)->Execute() !== false)
-			return (string)SBB::SQL()->FetchObject()->SessionValue;
+		if(SBB::DB()->Table('session')->Select('SessionValue')->Where('`ID` = \''.EscapeString($SessionID).'\'')->Limit(1)->Execute() !== false)
+			return (string)SBB::DB()->FetchObject()->SessionValue;
 		return '';
 	}
 	
 	public function write($SessionID, $Data) {
-		return (bool)SBB::SQL()->Table('session')->Replace(
+		return (bool)SBB::DB()->Table('session')->Replace(
 			array(
-				'ID' => SBB::SQL()->RealEscapeString($SessionID),
-				'SessionValue' => SBB::SQL()->RealEscapeString($Data),
+				'ID' => EscapeString($SessionID),
+				'SessionValue' => EscapeString($Data),
 				'UserID' => User::GetUserID(),
 				'IPAddress' => $_SERVER['REMOTE_ADDR'],
-				'UserAgent' => SBB::SQL()->RealEscapeString($_SERVER['HTTP_USER_AGENT']),
+				'UserAgent' => EscapeString($_SERVER['HTTP_USER_AGENT']),
 				'LastActivityTime' => time(),
 				'Token' => sha1(md5(mt_rand()).microtime().mt_rand())
 			))->Execute();
 	}
 	
 	public function destroy($SessionID) {
-		return (bool)SBB::SQL()->Table('session')->Delete()->Where('`ID` = \''.SBB::SQL()->RealEscapeString($SessionID).'\'')->Execute();
+		return (bool)SBB::DB()->Table('session')->Delete()->Where('`ID` = \''.EscapeString($SessionID).'\'')->Execute();
 	}
 	
 	public function gc($MaxLife) {
-		return (bool)SBB::SQL()->Table('session')->Delete()->Where('`LastActivityTime` < '.time() - $MaxLife)->Execute();
+		return (bool)SBB::DB()->Table('session')->Delete()->Where('`LastActivityTime` < '.time() - $MaxLife)->Execute();
 	}
 }
 ?>

@@ -192,7 +192,7 @@ class MySQLiWrapper extends Database {
 	}
 	
 // MySQL functions
-	public function RealEscapeString($String) {
+	public function EscapeString($String) {
 		return $this->Database->real_escape_string($String);
 	}
 	

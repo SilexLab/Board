@@ -6,22 +6,38 @@
  */
 
 class SBB {
+	// Objects
 	private static $Database, $Config;
 	
-	public static function Config($Node) {
+	/**
+	 * Returns the config value
+	 * @param	string	$Node
+	 */
+	public static final function Config($Node) {
 		if(!self::$Config)
 			self::$Config = new Config();
 		return self::$Config->Get($Node);
 	}
 	
-	public static function SQL() {
+	/**
+	 * Returns the database object
+	 */
+	public static final function DB() {
 		if(!self::$Database)
 			self::$Database = Database::GetDatabase();
 		return self::$Database;
 	}
 	
-	public static function ExceptionHandle(Exception $e) {
-		//...
+	/**
+	 * Handles uncatched exceptions and calls the Show method in the given cases
+	 * @param	Exception	$e
+	 */
+	public static final function ExceptionHandler(Exception $e) {
+		if($e instanceof PrintableException) {
+			$e->Show();
+			exit;
+		}
+		echo $e;
 	}
 }
 ?>

@@ -13,7 +13,7 @@ class Config {
 		if(!empty(self::$Config))
 			return false;
 		
-		$O = SBB::SQL()->Table('config')->Select(array('ConfigNode', 'ConfigValue', 'TemplateVariable'))->Execute()->FetchObjects();
+		$O = SBB::DB()->Table('config')->Select(array('ConfigNode', 'ConfigValue', 'TemplateVariable'))->Execute()->FetchObjects();
 		if(isset($O)) {
 			foreach($O as $C) {
 				self::$Config[$C->ConfigNode] = $C->ConfigValue;

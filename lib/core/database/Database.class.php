@@ -7,9 +7,9 @@
 
 abstract class Database {
 	/**
-	 * @return Database
+	 * Returns a new wrapped database
 	 */
-	public static function GetDatabase() {
+	public static final function GetDatabase() {
 		$Database;
 		switch(strtolower(CFG_DB_TYPE)) {
 			case 'mysqli':
@@ -44,7 +44,7 @@ abstract class Database {
 	abstract public function Execute($GetResult = false);
 	
 	// MySQL functions
-	abstract public function RealEscapeString($String);
+	abstract public function EscapeString($String);
 	
 	// Methods to get the result of a Select-tree
 	abstract public function FetchArray();
