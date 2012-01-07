@@ -12,6 +12,7 @@ class SessionDatabaseHandler extends SessionHandler {
 		ini_set('session.gc_probability', SBB::Config('config.user.extra.autologout_probability'));
 		ini_set('session.gc_divisor', 100);
 		ini_set('session.save_handler', 'user');
+		ini_set('session.hash_function', 1);
 		
 		// Own save handler
 		session_set_save_handler(

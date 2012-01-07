@@ -1,0 +1,6 @@
+﻿http://nodejs.org/
+http://socket.io/
+http://rubyonrails.org/
+http://www.rabbitmq.com/
+http://jquery.com/
+http://lilqr.com/

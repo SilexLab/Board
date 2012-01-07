@@ -6,7 +6,7 @@
  */
 
 class Autoloader {
-	private static $Directories = array();
+	protected static $Directories = array();
 	
 	/**
 	 * Register the autoloader
@@ -63,7 +63,7 @@ class Autoloader {
 	/**
 	 * Additional method to handle wildcard directories
 	 */
-	private static function HandleWildcard($Dir) {
+	protected static function HandleWildcard($Dir) {
 		// Wildcard on the last position
 		if(strpos($Dir, '*') === strlen($Dir) - 1) {
 			unset(self::$Directories[array_search($Dir, self::$Directories)]);

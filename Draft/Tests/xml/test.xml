@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<a>
+	<b pack="blörb" blub="test">
+		<c param="blub">text</c>
+		<c param="blab">stuff</c>
+	</b>
+	<d>
+		<c>code</c>
+	</d>
+</a>

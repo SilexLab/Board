@@ -6,7 +6,7 @@
  */
 
 class Config {
-	private static $Config = array(),
+	protected static $Config = array(),
 		$tplVariables = array();
 	
 	public function __construct() {

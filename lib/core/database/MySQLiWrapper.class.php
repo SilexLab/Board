@@ -45,7 +45,7 @@ class MySQLiWrapper extends Database {
 	 * ->Table($Table)
 	 */
 	public function Table($Table) {
-		$this->Add('TABLE', $Table);
+		$this->Add('TABLE', CFG_DB_PREFIX.$Table);
 		return $this;
 	}
 	

@@ -10,13 +10,12 @@ class DatabaseException extends Exception implements PrintableException {
 		parent::__construct($message, $code);
 	}
 	
-	public function __toString() {
-		return parent::__toString();
-	}
-	
 	public function Show() {
+		// Sends the http header status code
+		@header('HTTP/1.1 503 Service Unavailable');
+		
 		echo 'Something is wrong with your Database, you should fix it ^.^<br>
-The error says: ['.$this->code.'] '.$this->message; // lol should be a real error "page"
+The error says: ['.$this->code.'] '.$this->message; // lol should be a real error message (page)
 	}
 }
 ?>

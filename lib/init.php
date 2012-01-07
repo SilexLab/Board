@@ -25,6 +25,7 @@ if(defined('CFG_DEBUG') && CFG_DEBUG) {
 	error_reporting(E_ALL ^ E_NOTICE | E_STRICT);
 }
 
+// Define custom handler
 set_exception_handler(array('SBB', 'ExceptionHandler'));
 
 // TODO: Set this in the databaseconfig
