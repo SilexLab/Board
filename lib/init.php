@@ -32,5 +32,8 @@ set_exception_handler(array('SBB', 'ExceptionHandler'));
 date_default_timezone_set('Europe/Berlin');
 
 // Set the custom session save handler
-Session::Start(new SessionDatabaseHandler());
+Session::Start(SessionDatabaseHandler::GetInstance());
+
+//Session::Set('Test', 'Test');
+$_SESSION['Test'] = 'Hi';
 ?>

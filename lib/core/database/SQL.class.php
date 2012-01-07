@@ -59,9 +59,9 @@ class SQL {
 			if($P)
 				$Values .= '?, ';
 			else
-				$Values .= (is_numeric($Value) ?
-							self::$DB->RealEscapeString($Value) :
-							'\''.self::$DB->RealEscapeString($Value).'\'').', ';
+				$Values .= (is_string($Value) ?
+							'\''.self::$DB->RealEscapeString($Value).'\'' :
+							self::$DB->RealEscapeString($Value)).', ';
 		}
 		
 		return 'INSERT INTO '.self::$Table.' ('.trim($Columns, ', ').') VALUES ('.trim($Values, ', ').');';
@@ -76,9 +76,9 @@ class SQL {
 			if($P)
 				$Values .= '?, ';
 			else
-				$Values .= (is_numeric($Value) ?
-							self::$DB->RealEscapeString($Value) :
-							'\''.self::$DB->RealEscapeString($Value).'\'').', ';
+				$Values .= (is_string($Value) ?
+							'\''.self::$DB->RealEscapeString($Value).'\'' :
+							self::$DB->RealEscapeString($Value)).', ';
 		}
 		
 		return 'REPLACE INTO '.self::$Table.' ('.trim($Columns, ', ').') VALUES ('.trim($Values, ', ').');';
@@ -93,9 +93,9 @@ class SQL {
 			if($P)
 				$Updates .= '`'.trim($Column, '`').'` = ?, ';
 			else
-				$Updates .= '`'.trim($Column, '`').'` = '.(is_numeric($Value) ?
-							self::$DB->RealEscapeString($Value) :
-							'\''.self::$DB->RealEscapeString($Value).'\'').', ';
+				$Updates .= '`'.trim($Column, '`').'` = '.(is_string($Value) ?
+							'\''.self::$DB->RealEscapeString($Value).'\'' :
+							self::$DB->RealEscapeString($Value)).', ';
 		}
 		
 		return 'UPDATE '.self::$Table.' SET '.trim($Updates, ', ').' WHERE '.$L['WHERE'].';';

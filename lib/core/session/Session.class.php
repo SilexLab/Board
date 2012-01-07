@@ -17,7 +17,6 @@ class Session {
 		define('CLASS_SESSION', 1);
 		
 		self::$Handler = $Handler;
-		
 		session_start();
 	}
 	
@@ -40,7 +39,7 @@ class Session {
 	 * It will return true if succeeded else false
 	 */
 	public static function Set($Key, $Value) {
-		return ($_SESSION[$Key] = $Value) === true;
+		return (bool)($_SESSION[$Key] = $Value);
 	}
 	
 	/**

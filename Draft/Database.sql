@@ -1,10 +1,10 @@
 -- phpMyAdmin SQL Dump
--- version 3.4.5
+-- version 3.4.8
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Erstellungszeit: 02. Dez 2011 um 20:28
--- Server Version: 5.5.16
+-- Erstellungszeit: 07. Jan 2012 um 18:00
+-- Server Version: 5.5.18
 -- PHP-Version: 5.3.8
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
@@ -154,21 +154,27 @@ CREATE TABLE IF NOT EXISTS `board_permissions_user` (
 
 DROP TABLE IF EXISTS `config`;
 CREATE TABLE IF NOT EXISTS `config` (
-  `Type` varchar(16) NOT NULL,
-  `ConfigVariable` varchar(32) NOT NULL,
-  `ConfigValue` varchar(32) NOT NULL,
-  `CategoryName` varchar(255) NOT NULL,
-  `ConfigName` varchar(255) NOT NULL,
-  PRIMARY KEY (`Type`)
+  `Package` varchar(32) NOT NULL DEFAULT 'sbb.core',
+  `ConfigNode` varchar(255) NOT NULL,
+  `CategoryNode` varchar(255) NOT NULL,
+  `ConfigValue` varchar(255) NOT NULL,
+  `ValueType` varchar(16) NOT NULL,
+  `TemplateVariable` varchar(32) DEFAULT NULL,
+  PRIMARY KEY (`ConfigNode`),
+  UNIQUE KEY `TemplateVariable` (`TemplateVariable`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Daten für Tabelle `config`
 --
 
-INSERT INTO `config` (`Type`, `ConfigVariable`, `ConfigValue`, `CategoryName`, `ConfigName`) VALUES
-('CONST', 'Style_Default', 'Standard', 'config.style', 'config.style.default'),
-('VAR', 'PageTitle', 'Silex Bulletin Board', 'config.page', 'config.page.title');
+INSERT INTO `config` (`Package`, `ConfigNode`, `CategoryNode`, `ConfigValue`, `ValueType`, `TemplateVariable`) VALUES
+('sbb.core', 'config.page.title', 'config.page', 'Silex Bulletin Board', 'string(255)', 'PageTitle'),
+('sbb.core', 'config.style.default', 'config.style', 'Standard', 'string(255)', NULL),
+('sbb.core', 'config.user.autologout', 'config.user', '3600', 'int(8)', NULL),
+('sbb.core', 'config.user.session.autologout_probability', 'config.user.session', '25', 'int(3)', NULL),
+('sbb.core', 'config.user.session.cookie_time', 'config.user.session', '86400', 'int(8)', NULL),
+('sbb.core', 'config.user.session.name', 'config.user.session', 'SBB', 'string(255)', NULL);
 
 -- --------------------------------------------------------
 
@@ -375,13 +381,13 @@ CREATE TABLE IF NOT EXISTS `post` (
 DROP TABLE IF EXISTS `session`;
 CREATE TABLE IF NOT EXISTS `session` (
   `ID` varchar(32) NOT NULL,
-  `UserID` mediumint(9) NOT NULL,
-  `Username` varchar(32) NOT NULL,
+  `SessionValue` mediumtext NOT NULL,
+  `UserID` int(11) NOT NULL,
+  `Username` varchar(255) NOT NULL,
   `IPAddress` varchar(64) NOT NULL,
   `UserAgent` tinytext NOT NULL,
   `LastActivityTime` int(11) NOT NULL,
   `Token` tinytext NOT NULL,
-  `LoginHash` tinytext NOT NULL,
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -410,15 +416,15 @@ CREATE TABLE IF NOT EXISTS `smiley` (
 
 DROP TABLE IF EXISTS `thread`;
 CREATE TABLE IF NOT EXISTS `thread` (
-  `ID` mediumint(9) NOT NULL AUTO_INCREMENT,
-  `BoardID` mediumint(9) NOT NULL,
-  `PostID` int(11) NOT NULL,
-  `UserID` mediumint(9) NOT NULL,
+  `ID` mediumint(9) unsigned NOT NULL AUTO_INCREMENT,
+  `BoardID` mediumint(9) unsigned NOT NULL,
+  `PostID` int(11) unsigned NOT NULL,
+  `UserID` mediumint(9) unsigned NOT NULL,
   `Prefix` varchar(32) NOT NULL,
-  `Topic` text NOT NULL,
+  `Topic` varchar(255) NOT NULL,
   `Message` text NOT NULL,
   `Time` int(11) NOT NULL,
-  `LastPostID` int(11) NOT NULL,
+  `LastPostID` int(11) unsigned NOT NULL,
   `LastPostTime` int(11) NOT NULL,
   `Replies` int(11) NOT NULL,
   `Views` int(11) NOT NULL,
@@ -446,8 +452,8 @@ INSERT INTO `thread` (`ID`, `BoardID`, `PostID`, `UserID`, `Prefix`, `Topic`, `M
 
 DROP TABLE IF EXISTS `thread_visit`;
 CREATE TABLE IF NOT EXISTS `thread_visit` (
-  `ThreadID` mediumint(9) NOT NULL,
-  `UserID` mediumint(9) NOT NULL,
+  `ThreadID` mediumint(9) unsigned NOT NULL,
+  `UserID` mediumint(9) unsigned NOT NULL,
   `Time` int(11) NOT NULL,
   PRIMARY KEY (`ThreadID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -460,11 +466,11 @@ CREATE TABLE IF NOT EXISTS `thread_visit` (
 
 DROP TABLE IF EXISTS `users`;
 CREATE TABLE IF NOT EXISTS `users` (
-  `ID` int(11) NOT NULL AUTO_INCREMENT,
-  `Username` varchar(32) NOT NULL,
+  `ID` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `Username` varchar(255) NOT NULL,
   `Password` varchar(64) NOT NULL,
   `Salt` varchar(64) NOT NULL,
-  `GroupID` mediumint(9) NOT NULL,
+  `GroupID` mediumint(9) unsigned NOT NULL,
   `Email` text NOT NULL,
   `ActivationKey` varchar(16) NOT NULL,
   `RegisterTime` int(11) NOT NULL,
@@ -492,8 +498,8 @@ INSERT INTO `users` (`ID`, `Username`, `Password`, `Salt`, `GroupID`, `Email`, `
 
 DROP TABLE IF EXISTS `user_permissions`;
 CREATE TABLE IF NOT EXISTS `user_permissions` (
-  `UserID` mediumint(9) NOT NULL,
-  `PermissionID` mediumint(9) NOT NULL,
+  `UserID` mediumint(9) unsigned NOT NULL,
+  `PermissionID` mediumint(9) unsigned NOT NULL,
   `OptionValue` text NOT NULL,
   PRIMARY KEY (`UserID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
