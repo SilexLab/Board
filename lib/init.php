@@ -35,5 +35,5 @@ date_default_timezone_set('Europe/Berlin');
 Session::Start(SessionDatabaseHandler::GetInstance());
 
 //Session::Set('Test', 'Test');
-$_SESSION['Test'] = 'Hi';
+//$_SESSION['Test'] = 'Hi';
 ?>

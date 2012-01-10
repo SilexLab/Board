@@ -60,8 +60,8 @@ class SQL {
 				$Values .= '?, ';
 			else
 				$Values .= (is_string($Value) ?
-							'\''.self::$DB->RealEscapeString($Value).'\'' :
-							self::$DB->RealEscapeString($Value)).', ';
+							'\''.self::$DB->EscapeString($Value).'\'' :
+							self::$DB->EscapeString($Value)).', ';
 		}
 		
 		return 'INSERT INTO '.self::$Table.' ('.trim($Columns, ', ').') VALUES ('.trim($Values, ', ').');';
@@ -77,8 +77,8 @@ class SQL {
 				$Values .= '?, ';
 			else
 				$Values .= (is_string($Value) ?
-							'\''.self::$DB->RealEscapeString($Value).'\'' :
-							self::$DB->RealEscapeString($Value)).', ';
+							'\''.self::$DB->EscapeString($Value).'\'' :
+							self::$DB->EscapeString($Value)).', ';
 		}
 		
 		return 'REPLACE INTO '.self::$Table.' ('.trim($Columns, ', ').') VALUES ('.trim($Values, ', ').');';
@@ -94,8 +94,8 @@ class SQL {
 				$Updates .= '`'.trim($Column, '`').'` = ?, ';
 			else
 				$Updates .= '`'.trim($Column, '`').'` = '.(is_string($Value) ?
-							'\''.self::$DB->RealEscapeString($Value).'\'' :
-							self::$DB->RealEscapeString($Value)).', ';
+							'\''.self::$DB->EscapeString($Value).'\'' :
+							self::$DB->EscapeString($Value)).', ';
 		}
 		
 		return 'UPDATE '.self::$Table.' SET '.trim($Updates, ', ').' WHERE '.$L['WHERE'].';';
