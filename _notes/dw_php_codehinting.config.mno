@@ -1,5 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<info>
-	<infoitem key="selected_structure" value="SBB" />
-	<infoitem key="sub_root" value="$(SITEROOT)/lib/" />
-</info>
