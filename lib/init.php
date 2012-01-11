@@ -34,6 +34,6 @@ date_default_timezone_set('Europe/Berlin');
 // Set the custom session save handler
 Session::Start(SessionDatabaseHandler::GetInstance());
 
-//Session::Set('Test', 'Test');
-//$_SESSION['Test'] = 'Hi';
+// Initial the SBB Core
+SBB::Initial();
 ?>

@@ -29,6 +29,7 @@ class Session {
 	
 	/**
 	 * Reads the content of a session, if the key is empty, false will return
+	 * Alias for $_SESSION[$Key];
 	 */
 	public static function Read($Key) {
 		return(isset($_SESSION[$Key]) ? $_SESSION[$Key] : false);
@@ -36,6 +37,7 @@ class Session {
 	
 	/**
 	 * Sets the content of a session key.
+	 * Alias for $_SESSION[$Key] = $Value;
 	 * It will return true if succeeded else false
 	 */
 	public static function Set($Key, $Value) {

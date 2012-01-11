@@ -7,11 +7,19 @@
 
 class SBB {
 	// Objects
-	private static $Database, $Config;
+	private static $Database = null, $Config = null, $Template = null;
+	
+	/**
+	 * Pseudoinitial
+	 */
+	public static final function Initial() {
+		// TODO: Initial something
+	}
 	
 	/**
 	 * Returns the config value
 	 * @param	string	$Node
+	 * @return	string
 	 */
 	public static final function Config($Node) {
 		if(!self::$Config)
@@ -21,11 +29,22 @@ class SBB {
 	
 	/**
 	 * Returns the database object
+	 * @return	Database
 	 */
 	public static final function DB() {
 		if(!self::$Database)
 			self::$Database = Database::GetDatabase();
 		return self::$Database;
+	}
+	
+	/**
+	 * Returns the Template wrapper object
+	 * @return	Template
+	 */
+	public static final function Template() {
+		if(!self::$Template)
+			self::$Template = new Template(DIR_ROOT.DIR_TPL); // TODO: "new Template(DIR_ROOT.DIR_TPL, Style::GetTPLPath());" or so
+		return self::$Template;
 	}
 	
 	/**
