@@ -48,7 +48,7 @@ class SBB {
 	}
 	
 	/**
-	 * Handles uncatched exceptions and calls the Show method in the given cases
+	 * Handles uncatched exceptions and calls the Show() method in the given cases
 	 * @param	Exception	$e
 	 */
 	public static final function ExceptionHandler(Exception $e) {
