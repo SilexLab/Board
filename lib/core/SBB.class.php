@@ -20,6 +20,9 @@ class SBB {
 			'Style' => DIR_STYLE,
 			'JS' => DIR_JS
 		)));
+		
+		// Display the template
+		self::Template()->Display('case.tpl');
 	}
 	
 	/**

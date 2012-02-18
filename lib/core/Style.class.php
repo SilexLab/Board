@@ -23,8 +23,8 @@ class Style {
 		
 		
 		// Assign to Template
-		$Style['Files'] = $this->Files;
-		SBB::Template()->Set(array('Style' => $StyleInfo));
+		$this->Style['Files'] = $this->Files;
+		SBB::Template()->Set(array('Style' => $this->Style));
 	}
 	
 	/**
