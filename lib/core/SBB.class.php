@@ -7,13 +7,13 @@
 
 class SBB {
 	// Objects
-	private static $Database = null, $Config = null, $Template = null;
+	private static $Database = null, $Config = null, $Template = null, $Style = null;
 	
 	/**
-	 * Pseudoinitial
+	 * Initial
 	 */
 	public static final function Initial() {
-		// TODO: Initial something
+		self::$Style = new Style();
 	}
 	
 	/**

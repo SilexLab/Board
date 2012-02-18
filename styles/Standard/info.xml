@@ -8,12 +8,4 @@
 		<license>GNU GENERAL PUBLIC LICENSE - Version 3</license>
 		<version>DEV</version>
 	</info>
-	<files>
-		<file>footer.css</file>
-		<file>header.css</file>
-		<file>messagebox.css</file>
-		<file>style.css</file>
-		<file>board.css</file>
-		<file>crumbs.css</file>
-	</files>
 </style>
