@@ -94,11 +94,10 @@ class Template {
 	 * @param	mixed	$Value
 	 */
 	protected function Assign($Key, $Value) {
-		if(isset($this->Variables[$Key]) && is_array($this->Variables[$Key]) && is_array($Value)) {
+		if(isset($this->Variables[$Key]) && is_array($this->Variables[$Key]) && is_array($Value))
 			$this->Variables = array_merge_recursive($this->Variables, array($Key => $Value));
-			continue;
-		}
-		$this->Variables[$Key] = $Value;
+		else
+			$this->Variables[$Key] = $Value;
 	}
 	
 	/**
