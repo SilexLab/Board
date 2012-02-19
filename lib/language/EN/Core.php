@@ -8,7 +8,7 @@
 /* Langfile:	English */
 self::$Items = array_merge(self::$Items, array(
 'com.sbb.error'		=> 'Error',
-'com.sbb.copyright'	=> 'Forum software: Silex Bulletin Board '.SILEX_VERSION.' — © 2011 - 2012 Silexboard.org',
+'com.sbb.copyright'	=> 'Forum software: Silex Bulletin Board '.SBB_VERSION.' — © 2011 - 2012 Silexboard.org',
 
 'com.sbb.language.info'		=> 'English',
 'com.sbb.language.changed'	=> 'Your Language was changed to '.SBB::Template()->Get('LangChangedTo').'.',

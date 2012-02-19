@@ -20,7 +20,8 @@ class SBB {
 		// TODO: Move this to a method somewhere else (maybe)
 		self::Template()->Set(array('Dir' => array(
 			'Style' => DIR_STYLE,
-			'JS' => DIR_JS
+			'JS' => DIR_JS,
+			'SILEX_VERSION' => SBB_VERSION
 		)));
 		self::Template()->Set(Language::GetItems(), true);
 		

@@ -6,7 +6,7 @@
  */
 
 // System Constants
-define('SBB_VERSION',  'DEV');
+define('SBB_VERSION',  '0.1.0 DEV');
 
 // Directory Constants
 define('DIR_TPL',      'templates/');
