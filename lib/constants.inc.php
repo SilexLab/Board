@@ -11,7 +11,7 @@ define('SBB_VERSION',  'DEV');
 // Directory Constants
 define('DIR_TPL',      'templates/');
 define('DIR_SMILEY',   'images/smiley/');
-define('DIR_LANGUAGE', 'lib/languages/');
+define('DIR_LANGUAGE', 'lib/language/');
 define('DIR_PAGE',     'lib/data/page/');
 define('DIR_STYLE',    'styles/');
 define('DIR_JS',       'javascripts/');

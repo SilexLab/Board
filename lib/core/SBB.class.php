@@ -14,12 +14,15 @@ class SBB {
 	 */
 	public static final function Initial() {
 		self::$Style = new Style();
+		Language::Initialize();
 		
+		// Template assignment
 		// TODO: Move this to a method somewhere else (maybe)
 		self::Template()->Set(array('Dir' => array(
 			'Style' => DIR_STYLE,
 			'JS' => DIR_JS
 		)));
+		self::Template()->Set(Language::GetItems(), true);
 		
 		// Display the template
 		self::Template()->Display('case.tpl');

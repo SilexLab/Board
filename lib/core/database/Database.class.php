@@ -35,6 +35,8 @@ abstract class Database {
 	abstract public function Where($Where);
 	abstract public function OrderBy($Column, $ASC = true);
 	abstract public function Limit($Limit);
+	// Extended Database Commands
+	abstract public function Replace(array $Replaces);
 	
 	// Extended Queryfunctions
 	abstract public function Exists();
@@ -53,7 +55,7 @@ abstract class Database {
 	abstract public function FetchObjects();
 	abstract public function NumRows();
 	
-	// Shortcuts
+	// Shortcuts (Experimental usage)
 	public function T($Table)         { return $this->Table($Table); }
 	public function S($Columns = '*') { return $this->Select($Columns); }
 	public function I(array $Inserts) { return $this->Insert($Inserts); }
@@ -62,6 +64,7 @@ abstract class Database {
 	public function W($Where)         { return $this->Where($Where); }
 	public function O($Column, $ASC = true) { return $this->OrderBy($Column, $ASC); }
 	public function L($Limit)         { return $this->Limit($Limit); }
+	public function R(array $Replaces) { return $this->Replace($Replaces); }
 	public function E()               { return $this->Exists(); }
 	public function Q($Query)         { return $this->Query($Query); }
 	public function Exec($GR = false) { return $this->Execute($GR); }

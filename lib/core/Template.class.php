@@ -55,11 +55,11 @@ class Template {
 	 * Assign an array of Keys and Values to the variable pool of the template
 	 * @param	array	$Variable
 	 */
-	public function Set(array $Variable) {
+	public function Set(array $Variable, $Language = false) {
 		foreach($Variable as $Key => $Value) {
 			if(is_numeric($Key))
 				continue;
-			$this->Assign($Key, $Value);
+			$this->Assign(($Language ? 'lang='.$Key : $Key), $Value);
 		}
 	}
 	
