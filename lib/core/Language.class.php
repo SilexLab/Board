@@ -31,8 +31,7 @@ class Language {
 	public static function Initialize($L = '') {
 		if(!empty(self::$Language))
 			return;
-		if(!$L)
-			self::$Language = $L;
+		self::$Language = $L;
 		
 		// TODO: Read the User Language
 		/*
