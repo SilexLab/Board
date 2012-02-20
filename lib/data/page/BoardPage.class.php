@@ -5,14 +5,14 @@
  * @license    GPL version 3 or higher <http://www.gnu.org/licenses/gpl-3.0.html>
  */
 
-class ErrorPage extends Page implements PageData {
-	protected static $Link = false;
-	protected static $Node = 'page.error';
+class BoardPage extends Page implements PageData {
+	protected static $Link = '?page=Board';
+	protected static $Node = 'page.forum';
 	protected $Info = array();
 
 	public function __construct() {
 		$this->Info['node'] = self::$Node;
-		$this->Info['title'] = Language::Get('com.sbb.page.error');
+		$this->Info['title'] = Language::Get('com.sbb.page.forum');
 	}
 
 	public function GetInfo($Info) {

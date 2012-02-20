@@ -6,12 +6,12 @@
  */
 
 class HomePage extends Page implements PageData {
-	protected static $Link;
+	protected static $Link = './';
+	protected static $Node = 'page.home';
 	protected $Info = array();
 
 	public function __construct() {
-		self::$Link = './';
-		$this->Info['node'] = 'page.home';
+		$this->Info['node'] = self::$Node;
 		$this->Info['title'] = Language::Get('com.sbb.page.home');
 	}
 
@@ -21,6 +21,10 @@ class HomePage extends Page implements PageData {
 
 	public static function Link() {
 		return self::$Link;
+	}
+
+	public static function Node() {
+		return self::$Node;
 	}
 }
 ?>

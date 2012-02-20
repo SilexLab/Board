@@ -28,9 +28,11 @@ class Language {
 	 * Get the current language
 	 * @return	void
 	 */
-	public static function Initialize() {
+	public static function Initialize($L = '') {
 		if(!empty(self::$Language))
 			return;
+		if(!$L)
+			self::$Language = $L;
 		
 		// TODO: Read the User Language
 		/*
@@ -38,7 +40,7 @@ class Language {
 			-> User::Language()?
 		*/
 
-		// Use the default language
+		// Use the default language when no language is set at this point
 		if(empty(self::$Language)) // TODO: Move the db-entry 'DefaultLanguage' to the Config table
 			self::$Language = SBB::DB()->Table('language')->Select('Shortcut')->Where('`DefaultLanguage` = 1')->Limit(1)->Execute()->FetchObject()->Shortcut;
 		

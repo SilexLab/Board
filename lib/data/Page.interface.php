@@ -9,7 +9,14 @@ interface PageData {
 	/**
 	 * Returns the callable link for this site
 	 * e.g. ?page=Home
+	 * @return string
 	 */
 	public static function Link();
+
+	/**
+	 * Returns the identifier node for this site
+	 * @return string
+	 */
+	public static function Node();
 }
 ?>

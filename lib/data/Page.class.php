@@ -48,11 +48,11 @@ abstract class Page {
 				$Class = $eFile[0];
 				$Link = $Class::Link();
 				if($Link)
-					self::$Links[strtolower(strstr($eFile[0], 'Page', true))] = $Link;
+					self::$Links[$Class::Node()] = $Link;
 			}
 		}
 		// Search for the right page
-		return isset(self::$Links[$eNode[1]]) ? self::$Links[$eNode[1]] : $Node;
+		return isset(self::$Links[$Node]) ? self::$Links[$Node] : $Node;
 	}
 
 	/**
