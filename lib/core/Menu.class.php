@@ -23,7 +23,7 @@ class Menu implements Singleton {
 	
 	// Assign the menu as vars to the template
 	protected function __construct() {
-		//$ActivePage = SBB::Page()->GetInfo('active');
+		$ActivePage = SBB::Page()->GetInfo('node');
 
 		$MenuList = array();
 		$Entries = SBB::DB()->Table('menu')->Select('*')->OrderBy('Position')->Execute()->FetchObjects();
@@ -32,7 +32,7 @@ class Menu implements Singleton {
 
 			$MenuList[] = array(
 				'Name' => Language::Get($Entry->MenuName),
-				//'Link' => SBB::Page()->GetLink($Entry->Target),
+				'Link' => Page::GetLink($Entry->Target),
 				'Active' => ($Entry->Target == $ActivePage) ? true : false
 			);
 		}

@@ -21,7 +21,8 @@ class Autoloader {
 		
 		// Register directories, for the autoloader search
 		self::$Directories = array(
-			'core/*'
+			'core/*',
+			'data/*'
 		);
 	}
 	

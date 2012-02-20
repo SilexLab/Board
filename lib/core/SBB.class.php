@@ -7,12 +7,14 @@
 
 class SBB {
 	// Objects
-	private static $Database = null, $Config = null, $Template = null, $Style = null, $Menu = null;
+	private static $Database = null, $Config = null, $Template = null, $Style = null, $Menu = null, $Page = null;
 	
 	/**
 	 * Initial
+	 * @return void
 	 */
 	public static final function Initial() {
+		// Initialize classes and objects
 		self::$Style = new Style();
 		Language::Initialize();
 		self::$Menu = Menu::GetInstance();
@@ -24,7 +26,7 @@ class SBB {
 			'JS' => DIR_JS,
 			'SILEX_VERSION' => SBB_VERSION
 		)));
-		self::Template()->Set(Language::GetItems(), true);
+		self::Template()->Set(Language::Get(), true);
 		
 		// Display the template
 		self::Template()->Display('case.tpl');
@@ -32,8 +34,8 @@ class SBB {
 	
 	/**
 	 * Returns the config value
-	 * @param	string	$Node
-	 * @return	string
+	 * @param  string $Node
+	 * @return string
 	 */
 	public static final function Config($Node) {
 		if(!self::$Config)
@@ -43,7 +45,7 @@ class SBB {
 	
 	/**
 	 * Returns the database object
-	 * @return	Database
+	 * @return Database
 	 */
 	public static final function DB() {
 		if(!self::$Database)
@@ -53,17 +55,27 @@ class SBB {
 	
 	/**
 	 * Returns the Template wrapper object
-	 * @return	Template
+	 * @return Template
 	 */
 	public static final function Template() {
 		if(!self::$Template)
 			self::$Template = new Template(DIR_ROOT.DIR_TPL); // TODO: "new Template(DIR_ROOT.DIR_TPL, Style::GetTPLPath());" or so
 		return self::$Template;
 	}
+
+	/**
+	 * Returns the current page object
+	 * @return Page
+	 */
+	public static final function Page() {
+		if(!self::$Page)
+			self::$Page = Page::GetPage();
+		return self::$Page;
+	}
 	
 	/**
 	 * Handles uncatched exceptions and calls the Show() method in the given cases
-	 * @param	Exception	$e
+	 * @param Exception	$e
 	 */
 	public static final function ExceptionHandler(Exception $e) {
 		if($e instanceof PrintableException) {

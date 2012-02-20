@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Erstellungszeit: 20. Feb 2012 um 15:57
+-- Erstellungszeit: 20. Feb 2012 um 20:28
 -- Server Version: 5.5.18
 -- PHP-Version: 5.3.8
 
@@ -253,9 +253,9 @@ CREATE TABLE IF NOT EXISTS `menu` (
 --
 
 INSERT INTO `menu` (`ID`, `MenuName`, `Target`, `Position`, `Permission`) VALUES
-(1, 'com.sbb.menu.home', 'page.home', 1, ''),
-(2, 'com.sbb.menu.forum', 'page.forum', 2, ''),
-(3, 'com.sbb.menu.userlist', 'page.userlist', 3, '');
+(1, 'com.sbb.page.home', 'page.home', 1, ''),
+(2, 'com.sbb.page.forum', 'page.forum', 2, ''),
+(3, 'com.sbb.page.userlist', 'page.userlist', 3, '');
 
 -- --------------------------------------------------------
 
