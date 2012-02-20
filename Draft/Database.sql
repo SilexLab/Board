@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Erstellungszeit: 07. Jan 2012 um 18:00
+-- Erstellungszeit: 20. Feb 2012 um 15:57
 -- Server Version: 5.5.18
 -- PHP-Version: 5.3.8
 
@@ -169,7 +169,8 @@ CREATE TABLE IF NOT EXISTS `config` (
 --
 
 INSERT INTO `config` (`Package`, `ConfigNode`, `CategoryNode`, `ConfigValue`, `ValueType`, `TemplateVariable`) VALUES
-('sbb.core', 'config.page.title', 'config.page', 'Silex Bulletin Board', 'string(255)', 'PageTitle'),
+('sbb.core', 'config.page.timezone', 'config.page', 'Europe/Berlin', 'string(255)', NULL),
+('sbb.core', 'config.page.title', 'config.page', 'Silex Bulletin Board', 'string(255)', NULL),
 ('sbb.core', 'config.style.default', 'config.style', 'Standard', 'string(255)', NULL),
 ('sbb.core', 'config.user.autologout', 'config.user', '3600', 'int(8)', NULL),
 ('sbb.core', 'config.user.session.autologout_probability', 'config.user.session', '25', 'int(3)', NULL),
@@ -243,7 +244,8 @@ CREATE TABLE IF NOT EXISTS `menu` (
   `Target` varchar(255) NOT NULL,
   `Position` tinyint(4) NOT NULL,
   `Permission` tinytext NOT NULL,
-  PRIMARY KEY (`ID`)
+  PRIMARY KEY (`ID`),
+  UNIQUE KEY `Target` (`Target`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
 --
@@ -251,9 +253,9 @@ CREATE TABLE IF NOT EXISTS `menu` (
 --
 
 INSERT INTO `menu` (`ID`, `MenuName`, `Target`, `Position`, `Permission`) VALUES
-(1, 'com.sbb.menu.home', 'menu.home', 1, ''),
-(2, 'com.sbb.menu.forum', 'menu.forum', 2, ''),
-(3, 'com.sbb.menu.userlist', 'menu.userlist', 3, '');
+(1, 'com.sbb.menu.home', 'page.home', 1, ''),
+(2, 'com.sbb.menu.forum', 'page.forum', 2, ''),
+(3, 'com.sbb.menu.userlist', 'page.userlist', 3, '');
 
 -- --------------------------------------------------------
 
@@ -390,6 +392,14 @@ CREATE TABLE IF NOT EXISTS `session` (
   `Token` tinytext NOT NULL,
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Daten für Tabelle `session`
+--
+
+INSERT INTO `session` (`ID`, `SessionValue`, `UserID`, `Username`, `IPAddress`, `UserAgent`, `LastActivityTime`, `Token`) VALUES
+('qrlp3vc2f4s02uicu6sqbmnn7aap87ok', 'Test|s:2:\\"Hi\\";', 0, '', '', '', 1326208529, ''),
+('u8k49vvkt6d208fdbphtkl27dr1bjp8j', 'Test|s:2:\\"Hi\\";', 0, '', '127.0.0.1', 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/535.11 (KHTML, like Gecko) Chrome/17.0.963.26 Safari/535.11', 1326208549, '');
 
 -- --------------------------------------------------------
 

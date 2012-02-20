@@ -18,7 +18,7 @@ class Language {
 	 * @return	string
 	 */
 	public static function Get($Node) {
-		return isset(self::$Items[$Key]) ? self::$Items[$Key] : $Key;
+		return isset(self::$Items[$Node]) ? self::$Items[$Node] : $Node;
 	}
 
 	public static function GetItems() {

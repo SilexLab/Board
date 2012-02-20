@@ -7,7 +7,7 @@
 
 class SBB {
 	// Objects
-	private static $Database = null, $Config = null, $Template = null, $Style = null;
+	private static $Database = null, $Config = null, $Template = null, $Style = null, $Menu = null;
 	
 	/**
 	 * Initial
@@ -15,6 +15,7 @@ class SBB {
 	public static final function Initial() {
 		self::$Style = new Style();
 		Language::Initialize();
+		self::$Menu = Menu::GetInstance();
 		
 		// Template assignment
 		// TODO: Move this to a method somewhere else (maybe)
