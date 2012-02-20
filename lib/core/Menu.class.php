@@ -1,15 +1,18 @@
 <?php
 /**
- * @author 		Nox Nebula
- * @copyright	© 2011 Silex Bulletin Board - Team
- * @license		GNU GENERAL PUBLIC LICENSE - Version 3
- * @package		SilexBoard
+ * @author     SilexBB
+ * @copyright  2011 - 2012 Silex Bulletin Board
+ * @license    GPL version 3 or higher <http://www.gnu.org/licenses/gpl-3.0.html>
  */
 
-class Menu  implements Singleton {
+class Menu implements Singleton {
 	// TODO: get the page nodes from the page class
 	private static $Instance = NULL;
 	
+	/**
+	 * Return the Instance of the Menu class
+	 * @return	Menu
+	 */
 	public static function GetInstance() {
 		if(!self::$Instance)
 			self::$Instance = new self;
