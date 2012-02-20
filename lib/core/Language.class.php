@@ -14,15 +14,14 @@ class Language {
 
 	/**
 	 * Returns the value of a given language node
+	 * if none node is given it returns all items
 	 * @param	string	$Node
 	 * @return	string
 	 */
-	public static function Get($Node) {
+	public static function Get($Node = '') {
+		if(!$Node)
+			return self::$Items;
 		return isset(self::$Items[$Node]) ? self::$Items[$Node] : $Node;
-	}
-
-	public static function GetItems() {
-		return self::$Items;
 	}
 
 	/**
@@ -82,6 +81,19 @@ class Language {
 			}
 		}
 		return self::$AvailableLanguages;
+	}
+
+	/**
+	 * With this, loaded files can load other files (from other languages)
+	 * @param string $Language
+	 * @param string $File
+	 */
+	private static function Load($Language, $File) {
+		if($Language == self::$Language)
+			return;
+		$Path = DIR_LANGUAGE.$Language.'/'.$File;
+		if(file_exists($Path))
+			require($Path);
 	}
 }
 ?>
