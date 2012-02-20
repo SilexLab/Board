@@ -11,7 +11,7 @@ self::$Items = array_merge(self::$Items, array(
 'com.sbb.language.changed' => 'Your Language was changed to '.'.',
 
 'com.sbb.error'     => 'Error',
-'com.sbb.copyright' => 'Forum software: Silex Bulletin Board '.SBB_VERSION.' — © 2011 - 2012 Silexboard.org',
+'com.sbb.copyright' => 'Forum software: Silex Bulletin Board '.SBB_VERSION.' — © 2011 - 2012 SilexBoard.org',
 
 'com.sbb.header.welcome'      => 'Welcome',
 'com.sbb.header.welcome_text' => 'Welcome on '.SBB::Page()->GetInfo('title').' - ',

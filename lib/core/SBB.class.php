@@ -15,16 +15,16 @@ class SBB {
 	 */
 	public static final function Initial() {
 		// Initialize classes and objects
-		self::$Style = new Style();
+		self::$Style = Style::GetInstance();
 		Language::Initialize();
 		self::$Menu = Menu::GetInstance();
 		
 		// Template assignment
+		self::Template()->Set(array('Style' => self::Style()->Info()));
 		// TODO: Move this to a method somewhere else (maybe)
 		self::Template()->Set(array('Dir' => array(
 			'Style' => DIR_STYLE,
-			'JS' => DIR_JS,
-			'SILEX_VERSION' => SBB_VERSION
+			'JS' => DIR_JS
 		)));
 		self::Template()->Set(Language::Get(), true);
 		
@@ -59,7 +59,7 @@ class SBB {
 	 */
 	public static final function Template() {
 		if(!self::$Template)
-			self::$Template = new Template(DIR_ROOT.DIR_TPL); // TODO: "new Template(DIR_ROOT.DIR_TPL, Style::GetTPLPath());" or so
+			self::$Template = new Template(DIR_ROOT.DIR_TPL, DIR_ROOT.self::Style()->Info('TPL'));
 		return self::$Template;
 	}
 
@@ -71,6 +71,16 @@ class SBB {
 		if(!self::$Page)
 			self::$Page = Page::GetPage();
 		return self::$Page;
+	}
+
+	/**
+	 * Returns the style object
+	 * @return Style
+	 */
+	public static final function Style() {
+		/*if(!self::$Style)
+			self::$Style = Style::GetInstance();*/
+		return self::$Style;
 	}
 	
 	/**

@@ -39,9 +39,9 @@ class Language {
 			-> User::Language()?
 		*/
 
-		// Use the default language when no language is set at this point
-		if(empty(self::$Language)) // TODO: Move the db-entry 'DefaultLanguage' to the Config table
-			self::$Language = SBB::DB()->Table('language')->Select('Shortcut')->Where('`DefaultLanguage` = 1')->Limit(1)->Execute()->FetchObject()->Shortcut;
+		// Use the default language when no language was set until this point
+		if(empty(self::$Language))
+			self::$Language = SBB::Config('config.page.language.default');
 		
 		// Include the languagefiles
 		if(!empty(self::$Language)) {

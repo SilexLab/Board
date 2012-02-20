@@ -5,13 +5,23 @@
  * @license    GPL version 3 or higher <http://www.gnu.org/licenses/gpl-3.0.html>
  */
 
-class Style {
+class Style implements Singleton {
+	private static $Instance = NULL;
+
 	// Styleinfo
-	private $Style = array();
+	private $Info = array();
 	private $Files = array();
 	
-	public function __construct() {
-		$this->Style['Name'] = SBB::Config('config.style.default'); // TODO: Read Userstyles
+	public static function GetInstance() {
+		if(!self::$Instance)
+			self::$Instance = new self;
+		return self::$Instance;
+	}
+	
+	private function __clone() {}
+	
+	protected function __construct() {
+		$this->Info['Name'] = SBB::Config('config.style.default'); // TODO: Read Userstyles
 		
 		// Set CSS and JS files
 		$this->Files = array(
@@ -21,18 +31,17 @@ class Style {
 		
 		// TODO: Load style info.xml and save in $this->Style
 		
-		
-		// Assign to Template
-		$this->Style['Files'] = $this->Files;
-		SBB::Template()->Set(array('Style' => $this->Style));
+		// Set more infos
+		$this->Info['Files'] = $this->Files;
+		$this->Info['TPL'] = DIR_STYLE.$this->Info['Name'].'/'.DIR_TPL;
 	}
 	
 	/**
 	 * Returns the style info
 	 * @param	string	$Value
 	 */
-	public function Style($Value = '') {
-		return !$Value ? $this->Style : (isset($this->Style[$Value]) ? $this->Style[$Value] : false);
+	public function Info($Value = '') {
+		return !$Value ? $this->Info : (isset($this->Info[$Value]) ? $this->Info[$Value] : false);
 	}
 	
 	/**
@@ -45,9 +54,9 @@ class Style {
 	
 	// TODO: Merge GetCSS() and GetJS()
 	protected function GetCSS() {
-		$Dir = scandir(DIR_ROOT.DIR_STYLE.$this->Style['Name']);
+		$Dir = scandir(DIR_ROOT.DIR_STYLE.$this->Info['Name']);
 		if(!$Dir)
-			throw new SystemException('The directory "'.DIR_ROOT.DIR_STYLE.$this->Style['Name'].'" doesn\'t exist');
+			throw new SystemException('The directory "'.DIR_ROOT.DIR_STYLE.$this->Info['Name'].'" doesn\'t exist');
 		else {
 			$Files = array();
 			foreach($Dir as $File) {
@@ -60,9 +69,9 @@ class Style {
 	}
 	
 	protected function GetJS() {
-		$Dir = scandir(DIR_ROOT.DIR_STYLE.$this->Style['Name'].'/'.DIR_JS);
+		$Dir = scandir(DIR_ROOT.DIR_STYLE.$this->Info['Name'].'/'.DIR_JS);
 		if(!$Dir)
-			throw new SystemException('The directory "'.DIR_ROOT.DIR_STYLE.$this->Style['Name'].'/'.DIR_JS.'" doesn\'t exist');
+			throw new SystemException('The directory "'.DIR_ROOT.DIR_STYLE.$this->Info['Name'].'/'.DIR_JS.'" doesn\'t exist');
 		else {
 			$Files = array();
 			foreach($Dir as $File) {

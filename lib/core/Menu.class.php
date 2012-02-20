@@ -6,7 +6,6 @@
  */
 
 class Menu implements Singleton {
-	// TODO: get the page nodes from the page class
 	private static $Instance = NULL;
 	
 	/**
