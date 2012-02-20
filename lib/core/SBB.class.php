@@ -21,8 +21,7 @@ class SBB {
 		
 		// Template assignment
 		self::Template()->Set(array('Style' => self::Style()->Info()));
-		// TODO: Move this to a method somewhere else (maybe)
-		self::Template()->Set(array('Dir' => array(
+		self::Template()->Set(array('Dir' => array( // TODO: Move this to a method somewhere else (maybe)
 			'Style' => DIR_STYLE,
 			'JS' => DIR_JS
 		)));
