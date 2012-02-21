@@ -14,7 +14,7 @@ class HomePage extends Page implements PageData {
 		$this->Info['node'] = self::$Node;
 		$this->Info['title'] = Language::Get('com.sbb.page.home');
 
-		// Redirect if ?page=Home
+		// Redirect on ?page=Home
 		if($_GET['page'] == 'Home')
 			header('location: ./');
 	}

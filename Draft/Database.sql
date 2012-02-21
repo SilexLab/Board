@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Erstellungszeit: 20. Feb 2012 um 20:28
+-- Erstellungszeit: 21. Feb 2012 um 14:14
 -- Server Version: 5.5.18
 -- PHP-Version: 5.3.8
 
@@ -169,6 +169,7 @@ CREATE TABLE IF NOT EXISTS `config` (
 --
 
 INSERT INTO `config` (`Package`, `ConfigNode`, `CategoryNode`, `ConfigValue`, `ValueType`, `TemplateVariable`) VALUES
+('sbb.core', 'config.page.language.default', 'config.page', 'DE', 'string(11)', NULL),
 ('sbb.core', 'config.page.timezone', 'config.page', 'Europe/Berlin', 'string(255)', NULL),
 ('sbb.core', 'config.page.title', 'config.page', 'Silex Bulletin Board', 'string(255)', NULL),
 ('sbb.core', 'config.style.default', 'config.style', 'Standard', 'string(255)', NULL),
@@ -217,9 +218,8 @@ CREATE TABLE IF NOT EXISTS `group_permissions` (
 DROP TABLE IF EXISTS `language`;
 CREATE TABLE IF NOT EXISTS `language` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
-  `Shortcut` varchar(4) NOT NULL,
+  `Shortcut` varchar(11) NOT NULL,
   `Encoding` varchar(16) NOT NULL DEFAULT 'UTF-8',
-  `DefaultLanguage` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
@@ -227,9 +227,9 @@ CREATE TABLE IF NOT EXISTS `language` (
 -- Daten für Tabelle `language`
 --
 
-INSERT INTO `language` (`ID`, `Shortcut`, `Encoding`, `DefaultLanguage`) VALUES
-(1, 'DE', 'UTF-8', 1),
-(2, 'EN', 'UTF-8', 0);
+INSERT INTO `language` (`ID`, `Shortcut`, `Encoding`) VALUES
+(1, 'DE', 'UTF-8'),
+(2, 'EN', 'UTF-8');
 
 -- --------------------------------------------------------
 
