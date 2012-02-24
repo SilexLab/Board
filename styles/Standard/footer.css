@@ -3,9 +3,9 @@
 footer {
 	color: #ffffff;
 	text-shadow: 0 0 4px #000000;
-	background: #1B1B1B url(images/Footer.png) center top repeat;
-	border-top: 4px solid #6CB2E4;
-	padding: 15px 0;;
+	background: #1B1B1B url(images/footer.png) center top repeat;
+	border-top: 2px solid #ffffff;
+	padding: 30px 0 0 0;
 }
 	footer a, footer a:link, footer a:visited {
 		color: #ffffff;
@@ -25,4 +25,17 @@ footer {
 		margin: 1px 0 0 0;
 		box-shadow: 0 0px 3px #000000;
 		background: #232b33;
+	}
+
+	footer .Legal {
+		padding: 15px 0;
+		margin-top: 10px;
+		text-align: center;
+		border-top: 1px solid #333333;
+		border-bottom: 1px solid #333333;
+		background: rgba(50, 50, 50, 0.25);
+	}
+
+	footer #Copyright {
+		color: #979797;
 	}

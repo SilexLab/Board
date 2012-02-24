@@ -37,7 +37,7 @@
 	.Arrow {
 		height: 36px;
 		width: 13px;
-		background: transparent url(images/CrumbArrow.png) no-repeat left 0px;
+		background: transparent url(images/crumb_arrow.png) no-repeat left 0px;
 		display: block;
 		position: relative;
 		float: right;

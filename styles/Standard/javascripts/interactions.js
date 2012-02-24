@@ -51,7 +51,7 @@ $(document).ready(function() {
 		});
 		
 		$("#Search").focusout(function() {
-			$("#SearchForm").stop().animate({'border-color': '#0B334C'}, 500)
+			$("#SearchForm").stop().animate({'border-color': '#97d8f0'}, 500)
 				.css({'box-shadow': '0 3px 3px rgba(0,0,0,0.3) inset'});
 			Focus = 0;
 		});

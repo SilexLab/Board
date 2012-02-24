@@ -8,7 +8,7 @@ body {
 	margin: 0;
 	padding: 0;
 	font: 75%/1 Arial, Helvetica, sans-serif;
-	background: #1B1B1B url(images/Background.png) center top repeat;
+	background: #1B1B1B url(images/background.png) center top repeat;
 	color: #d0d0d0;
 	-webkit-font-smoothing: antialiased;
 }
@@ -27,8 +27,8 @@ a, a:hover {
 }
 
 section.Content {
-	padding: 20px 0;
-	background: url(images/ContentBackground.png) center top repeat-x #e9f2f7;
+	padding: 30px 0 50px 0;
+	background: url(images/content_background.png) center top repeat-x #e9f2f7;
 }
 
 .Size {

@@ -8,6 +8,10 @@
 // System Constants
 define('SBB_VERSION',  '0.1.0 DEV');
 
+preg_match('/[a-zA-Z0-9]+\.php/', $_SERVER['PHP_SELF'], $match);
+define('ROOT_URI', (!empty($_SERVER['HTTPS']) && 'on' == $_SERVER['HTTPS'] ? 'https://' : 'http://').
+	$_SERVER['HTTP_HOST'].strstr($_SERVER['PHP_SELF'], $match[0], true)); unset($match);
+
 // Directory Constants
 define('DIR_TPL',      'templates/');
 define('DIR_SMILEY',   'images/smiley/');
