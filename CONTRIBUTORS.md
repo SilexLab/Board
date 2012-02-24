@@ -6,9 +6,15 @@ Not currently included (but hopefully soon) are testers and bug reporters that h
 
 Original Authors
 ----------------
+### Owners
+
 * Patrick Kleinschmidt (NoxNebula) \<nox.nebula@gmx.de\>
+
+### Collaborators
+
 * Daniel Erpelding (Cadillaxx) \<thecadillaxx@gmail.com\>
 * Gillo Braun (Angus) \<braun.gillo@hotmail.com\>
+* Yannick Stephan (Nut) \<info@yannickweb.de\>
 
 Long-term Contributions
 -----------------------
@@ -18,5 +24,4 @@ Short-term Contributions
 ------------------------
 These contributors have made specific changes for a particular bug fix or feature.
 
-* Yannick Stephan (Nut) \<info@yannickweb.de\>
 * Yared Hufkens (Malachite) \<yared@malachite.de.vu\>
