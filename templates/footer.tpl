@@ -1,21 +1,12 @@
 	<footer class="MinSize">
 		<div class="Size">
-			{# <form action="?page=ChangeLanguage" method="post">
-				<select name="language" onChange="this.form.submit();">
-					{{ Languages }}
-				</select>
-			</form>
-            <form action="?page=ChangeStyle" method="post">
-				<select name="style" onChange="this.form.submit();">
-					{% for Style in StyleList %}
-                    	<option value="{{ Style }}">{{ Style }}</option>
-                    {% endfor %}
-				</select>
-			</form> #}
-
+			<div class="Time">
+				{{ Time.Date }} - {{ Time.Time }} Uhr
+				<div class="TimeProgressbar"><div class="TimeProgress" style="width: {{ 250 * Time.Percent }}px;"></div></div>
+			</div>
 			Aktuelle Sprache: {{ lang=com.sbb.language.info }}<br>
-			Aktueller Style: {{ Style.Name }}<br>
-			<br>
+			Aktueller Style: {{ Style.Name }}
+			<div style="clear: both;"></div>
 		</div>
 		<div class="Legal">
 			<div class="Size">

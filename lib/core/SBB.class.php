@@ -25,6 +25,11 @@ class SBB {
 			'Style' => DIR_STYLE,
 			'JS' => DIR_JS
 		)));
+		self::Template()->Set(array('Time' => array(
+			'Date' => date('d.m.Y'), // TODO: Get date format from user / config
+			'Time' => date('H:i'),
+			'Percent' => GetYearProcess()
+		)));
 		self::Template()->Set(Language::Get(), true);
 		
 		// Display the template
