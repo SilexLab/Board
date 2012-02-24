@@ -16,7 +16,7 @@ class SBB {
 	public static final function Initial() {
 		// Initialize classes and objects
 		self::$Style = Style::GetInstance();
-		Language::Initialize();
+		Language::Initialize(isset($_GET['lang']) ? $_GET['lang'] : null);
 		self::$Menu = Menu::GetInstance();
 		
 		// Template assignment
