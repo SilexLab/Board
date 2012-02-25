@@ -21,11 +21,7 @@ class Breadcrumb {
 	 * Send the breadcrumbs to the template
 	 */
 	public static function Assign() {
-		$Crumbs = array();
-		foreach (self::$Crumbs as $Crumb) {
-			$Crumbs[] = array('Title' => Language::Get($Crumb['Title']), 'Link' => $Crumb['Link']);
-		}
-		SBB::Template()->Set(array('Crumbs' => $Crumbs));
+		SBB::Template()->Set(array('Crumbs' => self::$Crumbs));
 	}
 }
 ?>

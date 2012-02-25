@@ -14,7 +14,6 @@ self::$Items = array_merge(self::$Items, array(
 'com.sbb.copyright' => '<span class="Copyright">Forum software:</span> Silex Bulletin Board '.SBB_VERSION.' <span class="Copyright">–</span> © 2011 - 2012 SilexBoard.org',
 
 'com.sbb.header.welcome'      => 'Welcome',
-'com.sbb.header.welcome_text' => 'Welcome on '.SBB::Page()->GetInfo('title').' - ',
 'com.sbb.header.logo_title'   => 'Frontpage',
 'com.sbb.header.slogan'       => 'The modern Bulletin Board Software',
 'com.sbb.header.search.title' => 'Search',
