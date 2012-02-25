@@ -4,3 +4,5 @@
 /Draft/Design/border-radius_elements.html
 /.htaccess
 /lib/cache/*
+
+/lib/config.inc.php
