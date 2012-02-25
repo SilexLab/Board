@@ -13,6 +13,7 @@ class UserListPage extends Page implements PageData {
 	public function __construct() {
 		$this->Info['node'] = self::$Node;
 		$this->Info['title'] = Language::Get('com.sbb.page.userlist');
+		Breadcrumb::Add('com.sbb.page.userlist', self::$Link);
 	}
 
 	public function GetInfo($Info) {

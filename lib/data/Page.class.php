@@ -24,6 +24,7 @@ abstract class Page {
 
 			if($Page == '')
 				$Page = isset($_GET['page']) ? $_GET['page'] : null;
+			Breadcrumb::Add(Language::Get('com.sbb.page.home'), './');
 			return self::Open(self::Validate($Page));
 		}
 	}

@@ -32,6 +32,7 @@ class SBB {
 			'DPercent' => round(100 * Time::DayProcess(), 0)
 		)));
 		self::Template()->Set(Language::Get(), true);
+		Breadcrumb::Assign();
 		
 		// Display the template
 		self::Template()->Display('case.tpl');
