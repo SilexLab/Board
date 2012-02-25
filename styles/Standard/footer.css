@@ -32,13 +32,28 @@ footer {
 		float: right;
 		padding: 2px 0;
 	}
-		footer .TimeProgressbar {
+		footer .YearProgressbar, footer .DayProgressbar {
+			box-shadow: 0 0 4px #000000;
+		}
+		footer .YearProgressbar {
 			width: 250px;
 			height: 4px;
 			margin-top: 3px;
 			background: #ffffff;
 		}
-		footer .TimeProgress {
+		footer .YearProgress {
+			width: 0px;
+			height: 4px;
+			background: #558FA4;
+		}
+		footer .DayProgressbar {
+			width: 100px;
+			height: 4px;
+			margin-top: 5px;
+			background: #ffffff;
+			float: right;
+		}
+		footer .DayProgress {
 			width: 0px;
 			height: 4px;
 			background: #558FA4;
@@ -53,6 +68,6 @@ footer {
 		background: rgba(50, 50, 50, 0.25);
 	}
 
-	footer #Copyright {
+	footer .Copyright {
 		color: #979797;
 	}

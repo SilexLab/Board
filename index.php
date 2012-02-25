@@ -14,6 +14,6 @@ if(!file_exists('lib/config.inc.php'))
 define('DIR_ROOT', dirname(__file__).'/');
 
 require_once ('lib/init.php');
-echo "\n".'<br><span style="color: white;">Real Load: '.round(((microtime(true) -
+echo '<span style="color: white;">Real Load: '.round(((microtime(true) -
 	$GeneratingTime) * 1000), 2).'ms</span>';
 ?>

@@ -7,13 +7,13 @@
 						<ul>
 							<li><label for="Username">{{ lang=com.sbb.login.username }}:</label></li>
 							<li><input type="text" name="Username" id="Username" placeholder="{{ lang=com.sbb.login.username }}" required></li>
-							<div style="clear:both;"></div>
 						</ul>
+						<div style="clear:both;"></div>
 						<ul>
 							<li><label for="Password">{{ lang=com.sbb.login.password }}:</label></li>
 							<li><input type="password" name="Password" id="Password" placeholder="{{ lang=com.sbb.login.password }}" required></li>
-							<div style="clear:both;"></div>
 						</ul>
+						<div style="clear:both;"></div>
 						
 						<div class="LoginFormMethode">
 							<ul>
@@ -26,8 +26,8 @@
 							<ul>
 								<li><input type="submit" name="Login" id="Login" value="{{ lang=com.sbb.form.submit }}"></li>
 								<li><input type="checkbox" name="StayLoggedIn" id="StayLoggedIn"><label for="StayLoggedIn" class="Check"></label><label for="StayLoggedIn" class="Text">{{ lang=com.sbb.login.stay }}</label></li>
-								<div style="clear:both;"></div>
 							</ul>
+							<div style="clear:both;"></div>
 						</div>
 					</div>
 				</form>

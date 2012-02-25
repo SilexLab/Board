@@ -40,7 +40,6 @@ class Template {
 			'auto_reload' => $AutoReload, // Automaticaly recompile templates (for developing)
 			'autoescape'  => $AutoEscape // Enabe auto-escaping
 		));
-		
 	}
 	
 	/**

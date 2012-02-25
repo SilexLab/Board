@@ -3,7 +3,7 @@
 		<div class="LogoBlock">
 			<div class="Logo Size">
 				<a href="./" title="{{ lang=com.sbb.header.logo_title }}">
-					<img src="styles/Standard/images/Logo.png" alt="Logo">
+					<img src="{{ Dir.Style }}{{ Style.Name }}/images/logo.png" alt="Logo">
 				</a>
 				<div class="Slogan">
 				{% if Slogan %}
@@ -29,7 +29,7 @@
 					{{ SubMenu }}
 				</ul>
 				<div id="SearchForm">
-					<form method="get" accept-charset="utf-8" action="">
+					<form method="get" accept-charset="utf-8">
 						<input title="{{ lang=com.sbb.header.search.title }}" type="search" value="" placeholder="{{ lang=com.sbb.header.search.placeholder }}" name="Search" id="Search" pattern=".+" required><input type="submit" id="SearchSubmit" value="">
 					</form>
 				</div>

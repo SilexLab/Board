@@ -31,14 +31,15 @@ class Language {
 	public static function Initialize($L = '') {
 		if(!empty(self::$Language))
 			return;
-		if(is_dir(DIR_LANGUAGE.$L.'/'))
-			self::$Language = $L;
 		
 		// TODO: Read the User Language
 		/*
 			USER LANGUAGE
 			-> User::Language()?
 		*/
+		
+		if(is_dir(DIR_LANGUAGE.$L.'/'))
+			self::$Language = $L;
 
 		// Use the default language when no language was set until this point
 		if(empty(self::$Language))

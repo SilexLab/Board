@@ -21,10 +21,6 @@ class Config {
 					self::$tplVariables[$C->TemplateVariable] = $C->ConfigValue;
 			}
 		}
-		
-		// Assign template variables to Template
-		if(self::$tplVariables)
-			SBB::Template()->Set(self::$tplVariables);
 	}
 	
 	public function Get($Node) {

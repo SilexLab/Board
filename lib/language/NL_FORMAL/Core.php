@@ -11,7 +11,7 @@ self::$Items = array_merge(self::$Items, array(
 'com.sbb.language.changed' => 'Uw taal werd naar '.' veranderd',
 
 'com.sbb.error'     => 'Fout',
-'com.sbb.copyright' => '<span id="Copyright">Forumsoftware:</span> Silex Bulletin Board '.SBB_VERSION.' <span id="Copyright">–</span> © 2011 - 2012 SilexBoard.org',
+'com.sbb.copyright' => '<span class="Copyright">Forumsoftware:</span> Silex Bulletin Board '.SBB_VERSION.' <span class="Copyright">–</span> © 2011 - 2012 SilexBoard.org',
 
 'com.sbb.header.welcome'      => 'Welkom',
 'com.sbb.header.welcome_text' => 'Welkom op '.SBB::Page()->GetInfo('title').' - ',
@@ -24,6 +24,9 @@ self::$Items = array_merge(self::$Items, array(
 'com.sbb.page.home'     => 'Startpagina',
 'com.sbb.page.forum'    => 'Forum',
 'com.sbb.page.userlist' => 'Gebruikerslist',
+
+'com.sbb.time.progress'    => 'Progress of the year ('.round(Time::YearProcess() * 100, 2).'%)', // ?
+'com.sbb.time.dayprogress' => 'Progress of the day ('.round(Time::DayProcess() * 100, 2).'%)',   // ?
 
 'com.sbb.register.register'           => 'Registreren',
 'com.sbb.register.username'           => 'Gebruikersnaam',

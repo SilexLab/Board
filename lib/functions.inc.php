@@ -28,20 +28,6 @@ function scandirr($directory, $sorting_order = 0) {
 	return $rfiles;
 }
 
-/**
- * Returns the yearprocess in percent
- */
-function GetYearProcess() {
-	$Start = mktime(0, 0, 0, 1, 1, date('Y'));
-	$Current = time();
-	$ToDay = 60 * 60 * 24;
-	
-	$DayOfTheYear = ($Current - $Start) / $ToDay;
-	$DaysOfTheYear = (mktime(0, 0, 0, 1, 1, date('Y') + 1) - $Start) / $ToDay;
-	
-	return $DayOfTheYear / $DaysOfTheYear;
-}
-
 // Shortcut functions
 function EscapeString($String) { return SBB::DB()->EscapeString($String); }
 ?>

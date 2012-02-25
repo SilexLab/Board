@@ -28,7 +28,8 @@ class SBB {
 		self::Template()->Set(array('Time' => array(
 			'Date' => date('d.m.Y'), // TODO: Get date format from user / config
 			'Time' => date('H:i'),
-			'Percent' => GetYearProcess()
+			'YPercent' => round(250 * Time::YearProcess(), 0),
+			'DPercent' => round(100 * Time::DayProcess(), 0)
 		)));
 		self::Template()->Set(Language::Get(), true);
 		

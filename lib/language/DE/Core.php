@@ -11,7 +11,7 @@ self::$Items = array_merge(self::$Items, array(
 'com.sbb.language.changed' => 'Deine Sprache wurde nach '.' geändert',
 
 'com.sbb.error'     => 'Fehler',
-'com.sbb.copyright' => '<span id="Copyright">Forensoftware:</span> Silex Bulletin Board '.SBB_VERSION.' <span id="Copyright">–</span> © 2011 - 2012 SilexBoard.org',
+'com.sbb.copyright' => '<span class="Copyright">Forensoftware:</span> Silex Bulletin Board '.SBB_VERSION.' <span class="Copyright">–</span> © 2011 - 2012 SilexBoard.org',
 
 'com.sbb.header.welcome'      => 'Willkommen',
 'com.sbb.header.welcome_text' => 'Herzlich willkommen auf '.SBB::Page()->GetInfo('title').' - ', // TODO: request slogan
@@ -24,6 +24,9 @@ self::$Items = array_merge(self::$Items, array(
 'com.sbb.page.home'     => 'Startseite',
 'com.sbb.page.forum'    => 'Forum',
 'com.sbb.page.userlist' => 'Benutzerliste',
+
+'com.sbb.time.progress'    => 'Fortschritt des Jahres ('.round(Time::YearProcess() * 100, 2).'%)',
+'com.sbb.time.dayprogress' => 'Fortschritt des Tages ('.round(Time::DayProcess() * 100, 2).'%)',
 
 'com.sbb.register.register'           => 'Registrieren',
 'com.sbb.register.username'           => 'Benutzername',
