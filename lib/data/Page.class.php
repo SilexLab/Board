@@ -12,6 +12,7 @@ abstract class Page {
 	 * @var array $Pages
 	 */
 	protected static $Links = array();
+	private static $Instance;
 
 	/**
 	 * Validates $Page and returns a new instance of Page
@@ -57,6 +58,17 @@ abstract class Page {
 	}
 
 	/**
+	 * Assign to Template
+	 */
+	public static function Assign() {
+		$Info = self::$Instance->GetWholeInfo();
+		$Class = get_class(self::$Instance);
+		$Info['link'] = $Class::$Link;
+		unset($Info['node']);
+		SBB::Template()->Set(array('Page' => $Info));
+	}
+
+	/**
 	 * Check if the given page exists
 	 * Returns a validated page class string
 	 * @param  string $Page
@@ -78,13 +90,13 @@ abstract class Page {
 	 * @return Page
 	 */
 	private static function Open($Page) {
-		$Instance = new $Page;
+		self::$Instance = new $Page;
 		// Check the instances of the new object
-		if(!($Instance instanceof PageData))
+		if(!(self::$Instance instanceof PageData))
 			throw new SystemException('"'.$Page.'" is not an instance of "PageData"');
-		if(!($Instance instanceof Page))
+		if(!(self::$Instance instanceof Page))
 			throw new SystemException('"'.$Page.'" is not an instance of "Page"');
-		return $Instance;
+		return self::$Instance;
 	}
 
 	// Abstract method
@@ -100,5 +112,10 @@ abstract class Page {
 	 * Return false if the given Info don't exists
 	 */
 	abstract public function GetInfo($Info);
+
+	/**
+	 * Get the whole info
+	 */
+	abstract protected function GetWholeInfo();
 }
 ?>

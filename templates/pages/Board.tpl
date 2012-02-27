@@ -1,4 +1,3 @@
-<h1>{{ CurrentBoardName }}</h1>
 <ul class="Board">
 {% for Board in Boards %}
 	{% if Board.ParentID == 0 %}

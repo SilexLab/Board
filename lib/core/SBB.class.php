@@ -33,6 +33,7 @@ class SBB {
 		)));
 		self::Template()->Set(Language::Get(), true);
 		Breadcrumb::Assign();
+		Page::Assign();
 		
 		// Display the template
 		self::Template()->Display('case.tpl');

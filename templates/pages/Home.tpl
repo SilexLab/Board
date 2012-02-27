@@ -1,1 +1,3 @@
-Hallo <b>{{ User.Username }}</b>
+<div class="Container">
+	Home
+</div>

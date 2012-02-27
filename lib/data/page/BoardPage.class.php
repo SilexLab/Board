@@ -14,10 +14,15 @@ class BoardPage extends Page implements PageData {
 		$this->Info['node'] = self::$Node;
 		$this->Info['title'] = Language::Get('com.sbb.page.forum');
 		Breadcrumb::Add(Language::Get('com.sbb.page.forum'), self::$Link);
+		$this->Info['template'] = 'Board';
 	}
 
 	public function GetInfo($Info) {
 		return isset($this->Info[$Info]) ? $this->Info[$Info] : false;
+	}
+
+	protected function GetWholeInfo() {
+		return $this->Info;
 	}
 
 	public static function Link() {

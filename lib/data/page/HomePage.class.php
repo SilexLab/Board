@@ -11,16 +11,21 @@ class HomePage extends Page implements PageData {
 	protected $Info = array();
 
 	public function __construct() {
-		$this->Info['node'] = self::$Node;
-		$this->Info['title'] = Language::Get('com.sbb.page.home');
-
 		// Redirect on ?page=Home
 		if($_GET['page'] == 'Home')
 			header('location: ./');
+
+		$this->Info['node'] = self::$Node;
+		$this->Info['title'] = Language::Get('com.sbb.page.home');
+		$this->Info['template'] = 'Home';
 	}
 
 	public function GetInfo($Info) {
 		return isset($this->Info[$Info]) ? $this->Info[$Info] : false;
+	}
+
+	protected function GetWholeInfo() {
+		return $this->Info;
 	}
 
 	public static function Link() {
