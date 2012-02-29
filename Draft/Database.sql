@@ -1,9 +1,9 @@
 -- phpMyAdmin SQL Dump
--- version 3.4.3.2
+-- version 3.4.10.1
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Erstellungszeit: 29. Feb 2012 um 17:03
+-- Erstellungszeit: 29. Feb 2012 um 17:08
 -- Server Version: 5.5.20
 -- PHP-Version: 5.3.8
 
@@ -26,6 +26,7 @@ SET time_zone = "+00:00";
 -- Tabellenstruktur für Tabelle `acp_session`
 --
 
+DROP TABLE IF EXISTS `acp_session`;
 CREATE TABLE IF NOT EXISTS `acp_session` (
   `ID` int(11) NOT NULL,
   `UserID` mediumint(9) NOT NULL,
@@ -43,6 +44,7 @@ CREATE TABLE IF NOT EXISTS `acp_session` (
 -- Tabellenstruktur für Tabelle `board`
 --
 
+DROP TABLE IF EXISTS `board`;
 CREATE TABLE IF NOT EXISTS `board` (
   `ID` mediumint(9) NOT NULL AUTO_INCREMENT,
   `ParentID` mediumint(9) NOT NULL,
@@ -79,6 +81,7 @@ INSERT INTO `board` (`ID`, `ParentID`, `Type`, `Title`, `Description`, `Link`, `
 -- Tabellenstruktur für Tabelle `board_last_post`
 --
 
+DROP TABLE IF EXISTS `board_last_post`;
 CREATE TABLE IF NOT EXISTS `board_last_post` (
   `BoardID` mediumint(9) NOT NULL,
   `ThreadID` mediumint(9) NOT NULL,
@@ -91,6 +94,7 @@ CREATE TABLE IF NOT EXISTS `board_last_post` (
 -- Tabellenstruktur für Tabelle `board_permissions_group`
 --
 
+DROP TABLE IF EXISTS `board_permissions_group`;
 CREATE TABLE IF NOT EXISTS `board_permissions_group` (
   `BoardID` mediumint(9) NOT NULL,
   `GroupID` mediumint(9) NOT NULL,
@@ -119,6 +123,7 @@ CREATE TABLE IF NOT EXISTS `board_permissions_group` (
 -- Tabellenstruktur für Tabelle `board_permissions_user`
 --
 
+DROP TABLE IF EXISTS `board_permissions_user`;
 CREATE TABLE IF NOT EXISTS `board_permissions_user` (
   `BoardID` mediumint(9) NOT NULL,
   `UserID` mediumint(9) NOT NULL,
@@ -147,6 +152,7 @@ CREATE TABLE IF NOT EXISTS `board_permissions_user` (
 -- Tabellenstruktur für Tabelle `config`
 --
 
+DROP TABLE IF EXISTS `config`;
 CREATE TABLE IF NOT EXISTS `config` (
   `Package` varchar(32) NOT NULL DEFAULT 'sbb.core',
   `ConfigNode` varchar(255) NOT NULL,
@@ -179,6 +185,7 @@ INSERT INTO `config` (`Package`, `ConfigNode`, `CategoryNode`, `ConfigValue`, `V
 -- Tabellenstruktur für Tabelle `groups`
 --
 
+DROP TABLE IF EXISTS `groups`;
 CREATE TABLE IF NOT EXISTS `groups` (
   `ID` mediumint(9) NOT NULL AUTO_INCREMENT,
   `GroupName` text NOT NULL,
@@ -195,6 +202,7 @@ CREATE TABLE IF NOT EXISTS `groups` (
 -- Tabellenstruktur für Tabelle `group_permissions`
 --
 
+DROP TABLE IF EXISTS `group_permissions`;
 CREATE TABLE IF NOT EXISTS `group_permissions` (
   `GroupID` mediumint(9) NOT NULL,
   `PermissionID` mediumint(9) NOT NULL,
@@ -208,6 +216,7 @@ CREATE TABLE IF NOT EXISTS `group_permissions` (
 -- Tabellenstruktur für Tabelle `language`
 --
 
+DROP TABLE IF EXISTS `language`;
 CREATE TABLE IF NOT EXISTS `language` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `Shortcut` varchar(11) NOT NULL,
@@ -229,6 +238,7 @@ INSERT INTO `language` (`ID`, `Shortcut`, `Encoding`) VALUES
 -- Tabellenstruktur für Tabelle `menu`
 --
 
+DROP TABLE IF EXISTS `menu`;
 CREATE TABLE IF NOT EXISTS `menu` (
   `ID` tinyint(4) NOT NULL AUTO_INCREMENT,
   `MenuName` varchar(255) NOT NULL,
@@ -254,6 +264,7 @@ INSERT INTO `menu` (`ID`, `MenuName`, `Target`, `Position`, `Permission`) VALUES
 -- Tabellenstruktur für Tabelle `permissions`
 --
 
+DROP TABLE IF EXISTS `permissions`;
 CREATE TABLE IF NOT EXISTS `permissions` (
   `ID` mediumint(9) NOT NULL AUTO_INCREMENT,
   `PermissionName` text NOT NULL,
@@ -271,6 +282,7 @@ CREATE TABLE IF NOT EXISTS `permissions` (
 -- Tabellenstruktur für Tabelle `pm`
 --
 
+DROP TABLE IF EXISTS `pm`;
 CREATE TABLE IF NOT EXISTS `pm` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `ParentID` int(11) NOT NULL,
@@ -293,6 +305,7 @@ CREATE TABLE IF NOT EXISTS `pm` (
 -- Tabellenstruktur für Tabelle `poll`
 --
 
+DROP TABLE IF EXISTS `poll`;
 CREATE TABLE IF NOT EXISTS `poll` (
   `ID` mediumint(9) NOT NULL AUTO_INCREMENT,
   `Question` tinytext NOT NULL,
@@ -312,6 +325,7 @@ CREATE TABLE IF NOT EXISTS `poll` (
 -- Tabellenstruktur für Tabelle `poll_options`
 --
 
+DROP TABLE IF EXISTS `poll_options`;
 CREATE TABLE IF NOT EXISTS `poll_options` (
   `ID` mediumint(9) NOT NULL AUTO_INCREMENT,
   `PollID` mediumint(9) NOT NULL,
@@ -325,6 +339,7 @@ CREATE TABLE IF NOT EXISTS `poll_options` (
 -- Tabellenstruktur für Tabelle `poll_votes`
 --
 
+DROP TABLE IF EXISTS `poll_votes`;
 CREATE TABLE IF NOT EXISTS `poll_votes` (
   `OptionID` mediumint(9) NOT NULL,
   `UserID` mediumint(9) NOT NULL,
@@ -337,6 +352,7 @@ CREATE TABLE IF NOT EXISTS `poll_votes` (
 -- Tabellenstruktur für Tabelle `post`
 --
 
+DROP TABLE IF EXISTS `post`;
 CREATE TABLE IF NOT EXISTS `post` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `ThreadID` mediumint(9) NOT NULL,
@@ -365,6 +381,7 @@ CREATE TABLE IF NOT EXISTS `post` (
 -- Tabellenstruktur für Tabelle `session`
 --
 
+DROP TABLE IF EXISTS `session`;
 CREATE TABLE IF NOT EXISTS `session` (
   `ID` varchar(32) NOT NULL,
   `SessionValue` mediumtext NOT NULL,
@@ -391,6 +408,7 @@ INSERT INTO `session` (`ID`, `SessionValue`, `UserID`, `Username`, `IPAddress`, 
 -- Tabellenstruktur für Tabelle `smiley`
 --
 
+DROP TABLE IF EXISTS `smiley`;
 CREATE TABLE IF NOT EXISTS `smiley` (
   `ID` tinyint(4) NOT NULL AUTO_INCREMENT,
   `Category` varchar(32) NOT NULL DEFAULT 'Default',
@@ -407,6 +425,7 @@ CREATE TABLE IF NOT EXISTS `smiley` (
 -- Tabellenstruktur für Tabelle `thread`
 --
 
+DROP TABLE IF EXISTS `thread`;
 CREATE TABLE IF NOT EXISTS `thread` (
   `ID` mediumint(9) unsigned NOT NULL AUTO_INCREMENT,
   `BoardID` mediumint(9) unsigned NOT NULL,
@@ -442,6 +461,7 @@ INSERT INTO `thread` (`ID`, `BoardID`, `PostID`, `UserID`, `Prefix`, `Topic`, `M
 -- Tabellenstruktur für Tabelle `thread_visit`
 --
 
+DROP TABLE IF EXISTS `thread_visit`;
 CREATE TABLE IF NOT EXISTS `thread_visit` (
   `ThreadID` mediumint(9) unsigned NOT NULL,
   `UserID` mediumint(9) unsigned NOT NULL,
@@ -455,6 +475,7 @@ CREATE TABLE IF NOT EXISTS `thread_visit` (
 -- Tabellenstruktur für Tabelle `users`
 --
 
+DROP TABLE IF EXISTS `users`;
 CREATE TABLE IF NOT EXISTS `users` (
   `ID` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `Username` varchar(255) NOT NULL,
@@ -486,6 +507,7 @@ INSERT INTO `users` (`ID`, `Username`, `Password`, `Salt`, `GroupID`, `Email`, `
 -- Tabellenstruktur für Tabelle `user_permissions`
 --
 
+DROP TABLE IF EXISTS `user_permissions`;
 CREATE TABLE IF NOT EXISTS `user_permissions` (
   `UserID` mediumint(9) unsigned NOT NULL,
   `PermissionID` mediumint(9) unsigned NOT NULL,
