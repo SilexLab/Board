@@ -66,7 +66,7 @@ class SBB {
 	 */
 	public static final function Template() {
 		if(!self::$Template)
-			self::$Template = new Template(DIR_ROOT.DIR_TPL, DIR_ROOT.self::Style()->Info('TPL'));
+			self::$Template = new Template(DIR_ROOT.DIR_TPL, DIR_ROOT.self::Style()->Info('TPL'), SBB::Config('config.system.cache.dir'));
 		return self::$Template;
 	}
 

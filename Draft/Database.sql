@@ -1,10 +1,10 @@
 -- phpMyAdmin SQL Dump
--- version 3.4.10.1
+-- version 3.4.8
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Erstellungszeit: 29. Feb 2012 um 17:08
--- Server Version: 5.5.20
+-- Erstellungszeit: 29. Feb 2012 um 18:56
+-- Server Version: 5.5.18
 -- PHP-Version: 5.3.8
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
@@ -173,7 +173,7 @@ INSERT INTO `config` (`Package`, `ConfigNode`, `CategoryNode`, `ConfigValue`, `V
 ('sbb.core', 'config.page.timezone', 'config.page', 'Europe/Berlin', 'string(255)', NULL),
 ('sbb.core', 'config.page.title', 'config.page', 'Silex Bulletin Board', 'string(255)', NULL),
 ('sbb.core', 'config.style.default', 'config.style', 'Standard', 'string(255)', NULL),
-('sbb.core', 'config.template.cachedir', 'config.template', 'cache/', 'string(255)', NULL),
+('sbb.core', 'config.system.cache.dir', 'config.system', '', 'string(255)', NULL),
 ('sbb.core', 'config.user.autologout', 'config.user', '3600', 'int(8)', NULL),
 ('sbb.core', 'config.user.session.autologout_probability', 'config.user.session', '25', 'int(3)', NULL),
 ('sbb.core', 'config.user.session.cookie_time', 'config.user.session', '86400', 'int(8)', NULL),
