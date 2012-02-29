@@ -23,8 +23,14 @@ class Config {
 		}
 	}
 	
+	/**
+	 * Return the value of the given node
+	 * if the node is unknown return null
+	 * @param  string $Node
+	 * @return mixed
+	 */
 	public function Get($Node) {
-		return isset(self::$Config[$Node]) ? self::$Config[$Node] : $Node;
+		return isset(self::$Config[$Node]) ? self::$Config[$Node] : null;
 	}
 }
 ?>
