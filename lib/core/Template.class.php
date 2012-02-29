@@ -29,7 +29,8 @@ class Template {
 		
 		// Set necessary variables
 		$this->TPLPath = $StylePath != '' ? array($StylePath, $TPLPath) : $TPLPath;
-		if(!isset($this->CachePath)) $this->CachePath = SBB::Config('config.template.cachedir');
+		$this->CachePath = !isset($this->CachePath) ? SBB::Config('config.template.cachedir') : 'lib/cache';
+		//if(!isset($this->CachePath)) $this->CachePath = SBB::Config('config.template.cachedir');
 		$this->Debug = $Debug;
 		
 		// Initial the Twig Environment
