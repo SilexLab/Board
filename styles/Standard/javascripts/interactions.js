@@ -21,7 +21,7 @@ $(document).ready(function() {
 			Toogle ^= 1;
 		});
 		
-		var Focus = 0;
+		/*var Focus = 0;
 		$(".Wrap input[type=text], .Wrap input[type=password]").focusin(function(e) {
 			$(this).stop().animate({boxShadow: '0 0 10px #59caf7'}, 200);
 			Focus = 1;
@@ -38,7 +38,7 @@ $(document).ready(function() {
 			if(!Focus) {
 				$(this).stop().animate({boxShadow: 'none'}, 500);
 			}
-		});
+		});*/
 	}
 	
 	// Search Form
