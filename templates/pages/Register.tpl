@@ -1,3 +1,4 @@
+					<div class="Container">
 					<form method="post">
 						<table>
 							<tr>
@@ -31,3 +32,4 @@
 						<input type="submit" name="Register" value="{{ lang=com.sbb.form.submit }}" />
 					</form>
                     <p>{{ Message }}</p>
+                	</div>
