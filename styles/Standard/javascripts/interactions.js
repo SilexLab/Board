@@ -1,6 +1,5 @@
 $(document).ready(function() {
 	// Login Form
-	{
 		var Toogle = 0;
 		
 		$("#LoginForm").css("display", "block");
@@ -39,29 +38,26 @@ $(document).ready(function() {
 				$(this).stop().animate({boxShadow: 'none'}, 500);
 			}
 		});*/
-	}
 	
 	// Search Form
-	{
-		var Focus = 0;
+		var Focus = false;
 		$("#Search").focusin(function() {
-			$("#SearchForm").stop().animate({'border-color': '#ffffff'}, 500)
-				.css({'box-shadow': '0 3px 3px rgba(0,0,0,0.3) inset, 0 0 6px #000000'});
-			Focus = 1;
+			$("#SearchForm").stop().animate({'border-color': '#ffffff', 'background-color': 'rgba(0,0,0,0.2)'}, 500)
+				.css({'box-shadow': 'inset 0 2px 3px rgba(0,0,0,0.3), 0 0 6px #000000'});
+			Focus = true;
 		});
 		
 		$("#Search").focusout(function() {
-			$("#SearchForm").stop().animate({'border-color': '#97d8f0'}, 500)
-				.css({'box-shadow': '0 3px 3px rgba(0,0,0,0.3) inset'});
-			Focus = 0;
+			$("#SearchForm").stop().animate({'border-color': '#ffffff', 'background-color': 'rgba(0,0,0,0)'}, 500)
+				.css({'box-shadow': 'inset 0 2px 3px rgba(0,0,0,0.3)'});
+			Focus = false;
 		});
 		
 		$('#Search').hover(function() {
 			if(!Focus)
-				$("#SearchForm").css({'box-shadow': '0 3px 3px rgba(0,0,0,0.3) inset, 0 0 3px #d7ffff'});
+				$("#SearchForm").stop().animate({'border-color': '#97d8f0'});
 		}, function() {
 			if(!Focus)
-				$("#SearchForm").css({'box-shadow': '0 3px 3px rgba(0,0,0,0.3) inset'});
+				$("#SearchForm").stop().animate({'border-color': '#ffffff'});
 		});
-	}
 });

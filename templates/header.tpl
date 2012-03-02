@@ -30,7 +30,7 @@
 				</ul>
 				<div id="SearchForm">
 					<form method="get" accept-charset="utf-8">
-						<input title="{{ lang=com.sbb.header.search.title }}" type="search" value="" placeholder="{{ lang=com.sbb.header.search.placeholder }}" name="Search" id="Search" pattern=".+" required><input type="submit" id="SearchSubmit" value="">
+						<input title="{{ lang=com.sbb.header.search.title }}" type="search" value="" placeholder="{{ lang=com.sbb.header.search.placeholder }}" name="search" id="Search" pattern=".+" required><input type="submit" id="SearchSubmit" value="">
 					</form>
 				</div>
 			</div>
