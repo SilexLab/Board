@@ -14,7 +14,7 @@ Requirements
 Links
 -------
 * [Homepage](http://www.silexboard.org/)
-* [Demo](http://demo.silexboard.org/))
+* [Demo](http://demo.silexboard.org/)
 * [Github repository](https://github.com/SilexBoard/Board)
 * [Issues](https://github.com/SilexBoard/Board/issues)
 * [Contributors](https://github.com/SilexBoard/Board/blob/master/CONTRIBUTORS.md)
