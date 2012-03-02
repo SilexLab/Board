@@ -170,7 +170,12 @@ class MySQLiWrapper extends Database {
 			$this->Database->multi_query($Query);
 			$this->Result = 'MULTIQUERY';
 		} else { // Singlequery
-			$Query = SQL::Make($this->QueryList[0], $this, false); // Do not use prepared statements
+			$Query = '';
+			if(isset($this->QueryList[0]))
+				$Query = SQL::Make($this->QueryList[0], $this, false); // Do not use prepared statements
+			else
+				throw new DatabaseException('Error while parsing the query');
+				
 			
 			// Send
 			$this->Result = $this->Database->query($Query);

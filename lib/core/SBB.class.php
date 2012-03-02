@@ -7,7 +7,13 @@
 
 class SBB {
 	// Objects
-	private static $Database = null, $Config = null, $Template = null, $Style = null, $Menu = null, $Page = null;
+	private static $Database = null,
+		$Config = null,
+		$Template = null,
+		$Style = null,
+		$Menu = null,
+		$Page = null,
+		$User = null;
 	
 	/**
 	 * Initial
@@ -15,8 +21,11 @@ class SBB {
 	 */
 	public static final function Initial() {
 		// Initialize classes and objects
-		self::$Style = Style::GetInstance();
 		Language::Initialize(isset($_GET['lang']) ? $_GET['lang'] : null);
+		self::$Style = Style::GetInstance();
+		self::$Template = new Template(DIR_ROOT.DIR_TPL, DIR_ROOT.self::Style()->Info('TPL'), SBB::Config('config.system.cache.dir'));
+		self::$User = new User();
+		PostListener::Check();
 		self::$Menu = Menu::GetInstance();
 		
 		// Template assignment
@@ -37,6 +46,14 @@ class SBB {
 		
 		// Display the template
 		self::Template()->Display('case.tpl');
+	}
+
+	/**
+	 * Returns the user object
+	 * @return User
+	 */
+	public static final function User() {
+		return self::$User;
 	}
 	
 	/**
@@ -65,8 +82,6 @@ class SBB {
 	 * @return Template
 	 */
 	public static final function Template() {
-		if(!self::$Template)
-			self::$Template = new Template(DIR_ROOT.DIR_TPL, DIR_ROOT.self::Style()->Info('TPL'), SBB::Config('config.system.cache.dir'));
 		return self::$Template;
 	}
 

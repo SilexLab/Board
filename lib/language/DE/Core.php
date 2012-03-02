@@ -23,6 +23,8 @@ self::$Items = array_merge(self::$Items, array(
 'com.sbb.page.home'     => 'Startseite',
 'com.sbb.page.forum'    => 'Forum',
 'com.sbb.page.userlist' => 'Benutzerliste',
+'com.sbb.page.login'    => 'Anmeldung',
+'com.sbb.page.register' => 'Registrierung',
 
 'com.sbb.time.progress'    => 'Fortschritt des Jahres ('.round(Time::YearProcess() * 100, 2).'%)',
 'com.sbb.time.dayprogress' => 'Fortschritt des Tages ('.round(Time::DayProcess() * 100, 2).'%)',
@@ -41,16 +43,18 @@ self::$Items = array_merge(self::$Items, array(
 'com.sbb.register.email_exist'        => 'Diese E-Mail Adresse existiert bereits!',
 'com.sbb.register.success'            => 'Du hast dich erfolgreich registriert!',
 
-'com.sbb.login.login'             => 'Einloggen',
-'com.sbb.login.bar_handle'        => 'Einloggen / Registrieren',
-'com.sbb.login.username'          => 'Benutzername',
-'com.sbb.login.password'          => 'Passwort',
-'com.sbb.login.stay'              => 'Eingeloggt bleiben',
-'com.sbb.login.wrong_password'    => 'Das Passwort ist falsch!',
-'com.sbb.login.notexist_username' => 'Dieser Benutzer existiert nicht!',
-'com.sbb.login.success'           => 'Du hast dich erfolgreich angemeldet!',
+'com.sbb.login.login'          => 'Einloggen',
+'com.sbb.login.bar_handle'     => 'Einloggen / Registrieren',
+'com.sbb.login.username'       => 'Benutzername',
+'com.sbb.login.password'       => 'Passwort',
+'com.sbb.login.stay'           => 'Eingeloggt bleiben',
+'com.sbb.login.wrong_password' => 'Das Passwort ist falsch!',
+'com.sbb.login.no_user'        => 'Dieser Benutzer existiert nicht!',
+'com.sbb.login.success'        => 'Du hast dich erfolgreich angemeldet!',
 
 'com.sbb.form.submit' => 'Absenden',
+
+'com.sbb.user.guest' => 'Gast',
 
 'com.sbb.logout.logout'        => 'Ausloggen',
 'com.sbb.logout.logged_out'    => 'Du wurdest erfolgreich ausgeloggt.',

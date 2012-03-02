@@ -31,7 +31,7 @@ class Session {
 	 * Reads the content of a session, if the key is empty, false will return
 	 * Alias for $_SESSION[$Key];
 	 */
-	public static function Read($Key) {
+	public static function Get($Key) {
 		return(isset($_SESSION[$Key]) ? $_SESSION[$Key] : false);
 	}
 	
@@ -41,7 +41,7 @@ class Session {
 	 * It will return true if succeeded else false
 	 */
 	public static function Set($Key, $Value) {
-		return (bool)($_SESSION[$Key] = $Value);
+		return $_SESSION[$Key] = $Value;
 	}
 	
 	/**

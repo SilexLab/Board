@@ -23,6 +23,8 @@ self::$Items = array_merge(self::$Items, array(
 'com.sbb.page.home'     => 'Home',
 'com.sbb.page.forum'    => 'Forum',
 'com.sbb.page.userlist' => 'Memberlist',
+'com.sbb.page.login'    => 'Login',
+'com.sbb.page.register' => 'Sign up',
 
 'com.sbb.time.progress'    => 'Progress of the year ('.round(Time::YearProcess() * 100, 2).'%)',
 'com.sbb.time.dayprogress' => 'Progress of the day ('.round(Time::DayProcess() * 100, 2).'%)',
@@ -41,16 +43,18 @@ self::$Items = array_merge(self::$Items, array(
 'com.sbb.register.email_exist'        => 'This e-mail adress already exists!',
 'com.sbb.register.success'            => 'You are successfully registered!',
 
-'com.sbb.login.login'             => 'Log in',
-'com.sbb.login.stay'              => 'Stay logged in',
-'com.sbb.login.bar_handle'        => 'Log in / Sign up',
-'com.sbb.login.username'          => 'Username',
-'com.sbb.login.password'          => 'Password',
-'com.sbb.login.wrong_password'    => 'The password is wrong!',
-'com.sbb.login.notexist_username' => 'This user doesn\'t exist!',
-'com.sbb.login.success'           => 'You are successfully logged in!',
+'com.sbb.login.login'          => 'Log in',
+'com.sbb.login.stay'           => 'Stay logged in',
+'com.sbb.login.bar_handle'     => 'Log in / Sign up',
+'com.sbb.login.username'       => 'Username',
+'com.sbb.login.password'       => 'Password',
+'com.sbb.login.wrong_password' => 'The password is wrong!',
+'com.sbb.login.no_user'        => 'This user doesn\'t exist!',
+'com.sbb.login.success'        => 'You are successfully logged in!',
 
 'com.sbb.form.submit' => 'Submit',
+
+'com.sbb.user.guest' => 'Gast',
 
 'com.sbb.logout.logout'          => 'Logout',
 'com.sbb.logout.logged_out'      => 'You are logged out now.',

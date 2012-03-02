@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Erstellungszeit: 29. Feb 2012 um 18:56
+-- Erstellungszeit: 02. Mrz 2012 um 17:22
 -- Server Version: 5.5.18
 -- PHP-Version: 5.3.8
 
@@ -393,14 +393,6 @@ CREATE TABLE IF NOT EXISTS `session` (
   `Token` tinytext NOT NULL,
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Daten für Tabelle `session`
---
-
-INSERT INTO `session` (`ID`, `SessionValue`, `UserID`, `Username`, `IPAddress`, `UserAgent`, `LastActivityTime`, `Token`) VALUES
-('qrlp3vc2f4s02uicu6sqbmnn7aap87ok', 'Test|s:2:\\"Hi\\";', 0, '', '', '', 1326208529, ''),
-('u8k49vvkt6d208fdbphtkl27dr1bjp8j', 'Test|s:2:\\"Hi\\";', 0, '', '127.0.0.1', 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/535.11 (KHTML, like Gecko) Chrome/17.0.963.26 Safari/535.11', 1326208549, '');
 
 -- --------------------------------------------------------
 

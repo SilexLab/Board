@@ -62,7 +62,7 @@ class SessionDatabaseHandler extends SessionHandler implements Singleton {
 				'ID' => EscapeString($SessionID),
 				'SessionValue' => EscapeString($Data),
 				'UserID' => (int)(isset($_SESSION['UserID']) ? $_SESSION['UserID'] : 0),
-				'Username' => '', // TODO: read Username from User class?
+				'Username' => SBB::User()->Name(),
 				'IPAddress' => (string)$_SERVER['REMOTE_ADDR'],
 				'UserAgent' => EscapeString($_SERVER['HTTP_USER_AGENT']),
 				'LastActivityTime' => time(),

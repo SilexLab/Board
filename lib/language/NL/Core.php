@@ -23,6 +23,8 @@ self::$Items = array_merge(self::$Items, array(
 'com.sbb.page.home'     => 'Startpagina',
 'com.sbb.page.forum'    => 'Forum',
 'com.sbb.page.userlist' => 'Gebruikerslist',
+'com.sbb.page.login'    => 'Login',   // ?
+'com.sbb.page.register' => 'Sign up', // ?
 
 'com.sbb.time.progress'    => 'Progress of the year ('.round(Time::YearProcess() * 100, 2).'%)', // ?
 'com.sbb.time.dayprogress' => 'Progress of the day ('.round(Time::DayProcess() * 100, 2).'%)',   // ?
@@ -41,16 +43,18 @@ self::$Items = array_merge(self::$Items, array(
 'com.sbb.register.email_exist'        => 'Deze e-mailadres bestaat al!',
 'com.sbb.register.success'            => 'Jij hebt jouw met succes geregistreerd',
 
-'com.sbb.login.login'             => 'Inloggen',
-'com.sbb.login.bar_handle'        => 'Inloggen / Registreren',
-'com.sbb.login.username'          => 'Gebruikersnaam',
-'com.sbb.login.password'          => 'Wachtwoord',
-'com.sbb.login.stay'              => 'Ingeloggt blijven',
-'com.sbb.login.wrong_password'    => 'Het wachtwoord ist niet juist!',
-'com.sbb.login.notexist_username' => 'Deze gebruiker bestaat niet!',
-'com.sbb.login.success'           => 'Jij hebt jouw met succes aangemeld!',
+'com.sbb.login.login'          => 'Inloggen',
+'com.sbb.login.bar_handle'     => 'Inloggen / Registreren',
+'com.sbb.login.username'       => 'Gebruikersnaam',
+'com.sbb.login.password'       => 'Wachtwoord',
+'com.sbb.login.stay'           => 'Ingeloggt blijven',
+'com.sbb.login.wrong_password' => 'Het wachtwoord ist niet juist!',
+'com.sbb.login.no_user'        => 'Deze gebruiker bestaat niet!',
+'com.sbb.login.success'        => 'Jij hebt jouw met succes aangemeld!',
 
 'com.sbb.form.submit' => 'Afzenden',
+
+'com.sbb.user.guest' => 'Gast', // ?
 
 'com.sbb.logout.logout'        => 'Uitloggen',
 'com.sbb.logout.logged_out'    => 'Jij werd met success uitgeloggt.',

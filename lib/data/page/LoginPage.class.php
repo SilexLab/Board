@@ -5,18 +5,21 @@
  * @license    GPL version 3 or higher <http://www.gnu.org/licenses/gpl-3.0.html>
  */
 
-class BoardPage extends Page implements PageData {
-	protected static $Link = '?page=Board';
-	protected static $Node = 'page.forum';
+class LoginPage extends Page implements PageData {
+	protected static $Link = '?page=Login';
+	protected static $Node = 'page.login';
 	protected $Info = array();
 
 	public function __construct() {
 		$this->Info['node'] = self::$Node;
-		$this->Info['title'] = Language::Get('com.sbb.page.forum');
-		Breadcrumb::Add(Language::Get('com.sbb.page.forum'), self::$Link);
-		// TODO: Subboards etc.
-		$this->Info['template'] = 'Board';
-		SBB::Template()->Set(array('Boards' => SBB::DB()->Table('board')->Select()->Execute()->FetchObjects()));
+		$this->Info['title'] = Language::Get('com.sbb.page.login');
+		$this->Info['template'] = 'Login';
+
+		if(Session::Get('LoginError')) {
+			// TODO: Errormessage (Messagebox)
+			// echo 'LoginError: '.Session::Get('LoginError');
+			Session::Remove('LoginError');
+		}
 	}
 
 	public function GetInfo($Info) {

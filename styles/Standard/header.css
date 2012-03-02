@@ -181,12 +181,12 @@ section.UserBar {
 		.Wrap input[type=password] {
 			background-image: url(icons/w_16_key.png);
 		}
-	.Wrap input[type=text]:hover, .Wrap input[type=password]:hover {
+	/*.Wrap input[type=text]:hover, .Wrap input[type=password]:hover {
 		border-color: #558fa4;
 	}
 	.Wrap input[type=text]:focus, .Wrap input[type=password]:focus {
 		border-color: #1d3139;
-	}
+	}*/
 
 	.Wrap input[type=submit] {
 		background: transparent url(icons/w_16_off.png) no-repeat 4px center;
@@ -198,12 +198,12 @@ section.UserBar {
 		text-shadow: 0 0 4px #000000;
 		border-radius: 4px;
 	}
-	.Wrap input[type=submit]:hover {
+	/*.Wrap input[type=submit]:hover {
 		border-color: #558fa4;
 	}
 	.Wrap input[type=submit]:active {
 		border-color: #1d3139;
-	}
+	}*/
 
 header {
 	background: #3c4a58 url(images/header.png) repeat-x center bottom;
@@ -319,11 +319,12 @@ nav.Menu {
 		border: 2px solid #ffffff;
 		width: 200px;
 		height: 24px;
-		background: transparent;
+		background: rgba(0,0,0,0);
 		overflow: hidden;
 		margin: 4px 0;
 		border-radius: 5px;
 		box-shadow: inset 0 2px 3px rgba(0,0,0,0.3);
+		opacity: 0.5;
 	}
 		#SearchForm #Search {
 			color: #ffffff;

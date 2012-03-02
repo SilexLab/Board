@@ -3,7 +3,7 @@
 	{% if Board.ParentID == 0 %}
 		<li class="BoardCategory">
 			<div class="BoardHead">
-				<p><a class="BoardTitle" href="./index.php?page=Board&amp;BoardID={{ Board.ID }}">{{ Board.Title }}</a></p>
+				<p><a class="BoardTitle" href="?page=Board&amp;BoardID={{ Board.ID }}">{{ Board.Title }}</a></p>
 				<p>{{ Board.Description }}</p>
 			</div>
 			<ul class="BoardForum">
@@ -13,7 +13,7 @@
 						<div class="ListLeft">
 							<div class="ListIcon"><img src="styles/Standard/images/ListStyle.png" width="32" height="32"></div>
 							<div class="ListTextLeft">
-								<p><a class="bla" href="./index.php?page=Topiclist&amp;BoardID={{ Board2.ID }}">{{ Board2.Title }}</a></p>
+								<p><a class="bla" href="?page=Board&amp;BoardID={{ Board2.ID }}">{{ Board2.Title }}</a></p>
 								<p>Beschreibung</p>
 							</div>
 						</div>
