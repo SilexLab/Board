@@ -2,7 +2,7 @@
 		<div class="Size">
 		{% if User.ID == 0 %}
 			<div id="LoginForm">
-				<form method="post" accept-charset="utf-8" action="?page=Login">
+				<form method="post" accept-charset="utf-8">
 					<div class="Wrap">
 						<div class="LoginUserInfo">
 							<ul>
