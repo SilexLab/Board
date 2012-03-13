@@ -31,6 +31,20 @@ section.Content {
 	background: url(images/content_background.png) center top repeat-x #e9f2f7;
 }
 
+[type=search] {
+	-webkit-appearance: textfield;
+	appearance: normal;
+	box-sizing: content-box;
+}
+::-webkit-input-placeholder {
+	color: #97d8f0;
+	text-shadow: 0 0 6px rgba(0,0,0,0.5);
+}
+:-moz-placeholder {
+	color: #97d8f0;
+	text-shadow: 0 0 6px rgba(0,0,0,0.5);
+}
+
 .Size {
 	min-width: 900px;
 	width: 80%;

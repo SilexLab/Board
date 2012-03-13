@@ -56,19 +56,17 @@ $(document).ready(function() {
 
 // Search Form
 	var SearchFocus = false;
-	$("#Search").focusin(function() {
-		$("#SearchForm").stop().animate({'border-color': '#ffffff', 'background-color': 'rgba(0,0,0,0.2)'}, 500)
-			.css({'box-shadow': 'inset 0 2px 3px rgba(0,0,0,0.3), 0 0 6px #000000'});
+	$("#Search").focusin(function() { // Focus in
+		$("#SearchForm").stop().animate({'border-color': '#ffffff', 'background-color': 'rgba(0, 0, 0, 0.2)'}, 500);
 		SearchFocus = true;
-	}).focusout(function() {
-		$("#SearchForm").stop().animate({'border-color': '#ffffff', 'background-color': 'rgba(0,0,0,0)', 'opacity': '0.5'}, 500)
-			.css({'box-shadow': 'inset 0 2px 3px rgba(0,0,0,0.3)'});
+	}).focusout(function() { // Focus out
+		$("#SearchForm").stop().animate({'border-color': 'rgba(255, 255, 255, 0)', 'background-color': 'rgba(0, 0, 0, 0.1)'}, 500);
 		SearchFocus = false;
-	}); $("#SearchForm").hover(function() {
+	}); $("#SearchForm").hover(function() { // Hover
 		if(!SearchFocus)
-			$(this).stop().animate({'border-color': '#97d8f0', 'opacity': '1'}, 500);
-	}, function() {
+			$(this).stop().animate({'border-color': '#97d8f0'}, 500);
+	}, function() { // Default
 		if(!SearchFocus)
-			$(this).stop().animate({'border-color': '#ffffff', 'opacity': '0.5'}, 500);
+			$(this).stop().animate({'border-color': 'rgba(255, 255, 255, 0)', 'background-color': 'rgba(0, 0, 0, 0.1)'}, 500);
 	});
 });

@@ -1,7 +1,7 @@
 <ul class="Board">
 {% for Board in Boards %}
 	{% if Board.ParentID == 0 %}
-		<li class="BoardCategory">
+		<li class="Container">
 			<div class="BoardHead">
 				<p><a class="BoardTitle" href="?page=Board&amp;BoardID={{ Board.ID }}">{{ Board.Title }}</a></p>
 				<p>{{ Board.Description }}</p>

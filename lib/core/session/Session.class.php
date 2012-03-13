@@ -41,7 +41,7 @@ class Session {
 	 * It will return true if succeeded else false
 	 */
 	public static function Set($Key, $Value) {
-		return $_SESSION[$Key] = $Value;
+		return (bool)($_SESSION[$Key] = $Value);
 	}
 	
 	/**
