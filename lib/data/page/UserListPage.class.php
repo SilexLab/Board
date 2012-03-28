@@ -15,6 +15,7 @@ class UserListPage extends Page implements PageData {
 		$this->Info['title'] = Language::Get('com.sbb.page.userlist');
 		Breadcrumb::Add(Language::Get('com.sbb.page.userlist'), self::$Link);
 		$this->Info['template'] = 'UserList';
+		SBB::Template()->Set(array('Users' => SBB::DB()->Table('users')->Select()->Execute()->FetchObjects()));
 	}
 
 	public function GetInfo($Info) {
