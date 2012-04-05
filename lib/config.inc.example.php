@@ -10,11 +10,12 @@ define('CFG_DB_USER',     'root');
 define('CFG_DB_PASSWORD', '');
 define('CFG_DB_DATABASE', 'silexboard');
 
+define('CFG_CACHE_DIR',   DIR_ROOT.'lib/cache/');
+
 /* --- Currently not needed stuff --- */
 
 // Cache info
 define('CFG_CACHE_TYPE',  'File');
-define('CFG_CACHE_DIR',   DIR_ROOT.'');
 
 // URL info
 define('CFG_BASE_URL', 'http://localhost/SilexBoard/');

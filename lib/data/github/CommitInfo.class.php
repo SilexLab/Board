@@ -18,7 +18,7 @@ class CommitInfo {
 		if(is_dir($Dir) && file_exists($File)) {
 			$Board = new Github('SilexBoard', 'Board');
 
-			$SHA = trim(file_get_contents($File));
+			$SHA = trim(@file_get_contents($File));
 
 			if(file_exists($TMP)) {
 				$F = explode(':', trim(file_get_contents($TMP)));
