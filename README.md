@@ -19,7 +19,7 @@ Links
 * [Issues](https://github.com/SilexBoard/Board/issues)
 * [Contributors](https://github.com/SilexBoard/Board/blob/master/CONTRIBUTORS.md)
 * [Snapshots](https://github.com/SilexBoard/Board/tree/rewrite/Draft/Snapshots)
-* [Silex Flavored Markdown](http://www.silexboard.org/Silex_Flavored_Markdown.html)
+* [Silex Flavored Markdown](http://demo.silexboard.org/Draft/Silex_Flavored_Markdown.html)
 * [License](http://www.gnu.org/licenses/gpl-3.0.html)
 
 ### Contact

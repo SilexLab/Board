@@ -7,13 +7,14 @@
 
 class SBB {
 	// Objects
-	private static $Database = null,
-		$Config = null,
+	private static
+		$Database = null,
+		$Config   = null,
 		$Template = null,
-		$Style = null,
-		$Menu = null,
-		$Page = null,
-		$User = null;
+		$Style    = null,
+		$Menu     = null,
+		$Page     = null,
+		$User     = null;
 	
 	/**
 	 * Initial
@@ -40,6 +41,7 @@ class SBB {
 			'YPercent' => round(100 * Time::YearProcess(), 0),
 			'DPercent' => round(100 * Time::DayProcess(), 0)
 		)));
+		self::Template()->Set(array('Version' => SBB_VERSION.'-'.date('Ymd', CommitInfo::Get())));
 		self::Template()->Set(Language::Get(), true);
 		Breadcrumb::Assign();
 		Page::Assign();

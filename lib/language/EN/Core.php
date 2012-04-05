@@ -10,13 +10,13 @@ self::$Items = array_merge(self::$Items, array(
 'com.sbb.language.info'    => 'English',
 'com.sbb.language.changed' => 'Your Language was changed to '.'.',
 
-'com.sbb.error'     => 'Error',
-'com.sbb.copyright' => '<span class="Copyright">Forum software:</span> Silex Bulletin Board '.SBB_VERSION.' <span class="Copyright">–</span> © 2011 - 2012 SilexBoard.org',
+'com.sbb.error'         => 'Error',
+'com.sbb.forumsoftware' => 'Forum software',
 
-'com.sbb.header.welcome'      => 'Welcome',
-'com.sbb.header.logo_title'   => 'Frontpage',
-'com.sbb.header.slogan'       => 'The modern Bulletin Board Software',
-'com.sbb.header.search.title' => 'Search',
+'com.sbb.header.welcome'            => 'Welcome',
+'com.sbb.header.logo_title'         => 'Frontpage',
+'com.sbb.header.slogan'             => 'The modern Bulletin Board Software',
+'com.sbb.header.search.title'       => 'Search',
 'com.sbb.header.search.placeholder' => 'Search...',
 
 'com.sbb.page.error'    => 'Error',
