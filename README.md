@@ -7,7 +7,9 @@ The project was found by Patrick Kleinschmidt (Nox Nebula) to extend his PHP ski
 Requirements
 ------------
 * A webserver like apache, nginx or lighttpd
-* PHP 5.3 or later (with zlib)
+* PHP 5.3 or later
+* PHP fopen
+* PHP zlib
 * A database such as MySQL 5 , PostgreSQL, MSSQL or SQLite 2 __*__
 
 
