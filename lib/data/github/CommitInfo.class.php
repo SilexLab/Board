@@ -23,21 +23,21 @@ class CommitInfo {
 			if(file_exists($TMP)) {
 				$F = explode(':', trim(file_get_contents($TMP)));
 				if($SHA == $F[0]) // Nothing changed
-					return $F[1];
+					return (int)$F[1];
 
 				// Commits are different
 				$T = strtotime($Board->GetCommit($SHA)->committer->date);
 				$FH = fopen($TMP, 'w');
 				fwrite($FH, $SHA.':'.$T);
 				fclose($FH);
-				return $T;
+				return (int)$T;
 			}
 			// Create new file
 			$T = strtotime($Board->GetCommit($SHA)->committer->date);
 			$FH = fopen($TMP, 'w');
 			fwrite($FH, $SHA.':'.$T);
 			fclose($FH);
-			return $T;
+			return (int)$T;
 		}
 		return 0;
 	}
