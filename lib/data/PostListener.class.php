@@ -11,7 +11,7 @@ class PostListener {
 		// Any POSTs are send?
 		if(isset($_POST)) {
 			// Login
-			if(isset($_POST['Login']) && isset($_POST['Register'])) {
+			if(isset($_POST['Login']) || isset($_POST['Register'])) {
 				if($_POST['Register'] == 1) {
 					// Redirect to register page
 					header('location: ?page=Register');

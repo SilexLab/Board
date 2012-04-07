@@ -91,8 +91,8 @@ class User {
 		if(SBB::DB()->Table('users')->Exists()->Where('`Username` = \''.$Username.'\'')->Execute()) {
 			Notification::Show('Benutzer Existier', Notification::SUCCESS);
 		} else {
-			Session::Set('LoginError', Language::Get('com.sbb.login.no_user')); // BUG: Sessionvalue is NULL?
-			header('location: ?page=Login');
+			Session::Set('LoginError', Language::Get('com.sbb.login.no_user'));
+			#header('location: ?page=Login'); // BUG: Sessionvalue is NULL?
 		}
 	}
 

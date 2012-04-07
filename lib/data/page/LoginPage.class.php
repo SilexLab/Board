@@ -14,10 +14,9 @@ class LoginPage extends Page implements PageData {
 		$this->Info['node'] = self::$Node;
 		$this->Info['title'] = Language::Get('com.sbb.page.login');
 		$this->Info['template'] = 'Login';
-
+		
 		if(Session::Get('LoginError')) {
-			// TODO: Errormessage (Messagebox)
-			// echo 'LoginError: '.Session::Get('LoginError');
+			Notification::Show(Session::Get('LoginError'), Notification::ERROR);
 			Session::Remove('LoginError');
 		}
 	}

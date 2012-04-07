@@ -16,10 +16,10 @@ class NotificationPage extends Page implements PageData {
 		$this->Info['template'] = 'Home';
 
 		$Lorem = 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.';
-		Notification::Show($Lorem, 0);
-		Notification::Show($Lorem, 1);
-		Notification::Show($Lorem, 2);
-		Notification::Show($Lorem, 3);
+		Notification::Show($Lorem, Notification::INFO);
+		Notification::Show($Lorem, Notification::SUCCESS);
+		Notification::Show($Lorem, Notification::WARNING);
+		Notification::Show($Lorem, Notification::ERROR);
 	}
 
 	public function GetInfo($Info) {

@@ -32,7 +32,7 @@ class Session {
 	 * Alias for $_SESSION[$Key];
 	 */
 	public static function Get($Key) {
-		return(isset($_SESSION[$Key]) ? $_SESSION[$Key] : false);
+		return (isset($_SESSION[$Key]) ? $_SESSION[$Key] : false);
 	}
 	
 	/**
