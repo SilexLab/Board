@@ -89,7 +89,7 @@ class User {
 		$Username = EscapeString($Username);
 		$Password = EscapeString($Password);
 		if(SBB::DB()->Table('users')->Exists()->Where('`Username` = \''.$Username.'\'')->Execute()) {
-			Notification::Show('Benutzer Existier', Notification::SUCCESS);
+			Notification::Show('Benutzer Existiert', Notification::SUCCESS);
 		} else {
 			Session::Set('LoginError', Language::Get('com.sbb.login.no_user'));
 			#header('location: ?page=Login'); // BUG: Sessionvalue is NULL?
