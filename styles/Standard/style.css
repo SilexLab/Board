@@ -31,7 +31,7 @@ section.Content {
 	background: url(images/content_background.png) center top repeat-x #e7eff5;
 }
 
-[type=search] {
+input[type=search] {
 	-webkit-appearance: textfield;
 	appearance: normal;
 	box-sizing: content-box;

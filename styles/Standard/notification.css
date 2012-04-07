@@ -14,7 +14,9 @@
 	.notification_content {
 		background: no-repeat right center;
 		margin-right: 10px;
-		padding: 13px 34px 13px 10px;
+		padding: 13px 38px 13px 10px;
+		font-weight: bold;
+		text-align: justify;
 	}
 
 	.notification.info .notification_inner {
