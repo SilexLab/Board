@@ -89,15 +89,14 @@ class User {
 		$Username = EscapeString($Username);
 		$Password = EscapeString($Password);
 		if(SBB::DB()->Table('users')->Exists()->Where('`Username` = \''.$Username.'\'')->Execute()) {
-<<<<<<< .mine			$Row = SBB::DB()->Table('users')->Select('`ID`, `Password`, `Salt`')->Where('`Username` = \''.$Username.'\'')->Limit(1)->Execute()->FetchArray();
+			$Row = SBB::DB()->Table('users')->Select('`ID`, `Password`, `Salt`')->Where('`Username` = \''.$Username.'\'')->Limit(1)->Execute()->FetchArray();
 			if(Secure::EncryptPassword($Password, $Row['Salt']) == $Row['Password']) {
 				Notification::Show(Language::Get('com.sbb.login.success'), Notification::SUCCESS);
 				Session::Set('UserID', $Row['ID']);
 			} else {
 				Session::Set('LoginError', Language::Get('com.sbb.login.failed'));
 			}
-=======			Notification::Show('Benutzer Existiert', Notification::SUCCESS);
->>>>>>> .theirs		} else {
+		} else {
 			Session::Set('LoginError', Language::Get('com.sbb.login.failed'));
 			#header('location: ?page=Login'); // BUG: Sessionvalue is NULL?
 		}
