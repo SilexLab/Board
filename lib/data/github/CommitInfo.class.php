@@ -12,14 +12,16 @@ class CommitInfo {
 	 * @return int
 	 */
 	public static function Get($Info = 'date') {
-		$Dir  = DIR_ROOT.'.git/';
-		$File = $Dir.'ORIG_HEAD';
+		$Dir  = DIR_ROOT.'.git/logs/';
+		$File = $Dir.'HEAD';
 		$TMP  = CFG_CACHE_DIR.'commitinfo';
 
 		if(is_dir($Dir) && file_exists($File)) {
 			$Board = new Github('SilexBoard', 'Board');
 
-			$SHA = trim(@file_get_contents($File));
+			$F = file($File);
+			$L = explode(' ', $F[sizeof($F)-1]);
+			$SHA = $L[1];
 			if($Info == 'SHA')
 				return $SHA;
 
