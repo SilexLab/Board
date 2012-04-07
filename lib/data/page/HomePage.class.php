@@ -18,6 +18,8 @@ class HomePage extends Page implements PageData {
 		$this->Info['node'] = self::$Node;
 		$this->Info['title'] = Language::Get('com.sbb.page.home');
 		$this->Info['template'] = 'Home';
+		
+		SBB::Template()->Set(array('Username' => SBB::User()->GetName()));
 	}
 
 	public function GetInfo($Info) {

@@ -89,9 +89,15 @@ class User {
 		$Username = EscapeString($Username);
 		$Password = EscapeString($Password);
 		if(SBB::DB()->Table('users')->Exists()->Where('`Username` = \''.$Username.'\'')->Execute()) {
-			Notification::Show('Benutzer Existier', Notification::SUCCESS);
+			$Row = SBB::DB()->Table('users')->Select('`ID`, `Password`, `Salt`')->Where('`Username` = \''.$Username.'\'')->Limit(1)->Execute()->FetchArray();
+			if(Secure::EncryptPassword($Password, $Row['Salt']) == $Row['Password']) {
+				Notification::Show(Language::Get('com.sbb.login.success'), Notification::SUCCESS);
+				Session::Set('UserID', $Row['ID']);
+			} else {
+				Session::Set('LoginError', Language::Get('com.sbb.login.failed'));
+			}
 		} else {
-			Session::Set('LoginError', Language::Get('com.sbb.login.no_user'));
+			Session::Set('LoginError', Language::Get('com.sbb.login.failed'));
 			#header('location: ?page=Login'); // BUG: Sessionvalue is NULL?
 		}
 	}
@@ -105,8 +111,14 @@ class User {
 	}
 
 	/* All user info */
-	public static function GetName($ID) {
-		// Get the user name
+	public static function GetName($ID = null) {
+		if(is_null($ID)) {
+			if(SBB::User()->LoggedIn())
+				$ID = Session::Get('UserID');
+			else
+				return 'Gast';
+		}
+		return SBB::DB()->Table('users')->Select('`Username`')->Where('`ID` = \''.$ID.'\'')->Limit(1)->Execute()->FetchObject()->Username;
 	}
 
 	public static function GetID($Name) {

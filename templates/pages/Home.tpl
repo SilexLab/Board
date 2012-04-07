@@ -1,3 +1,3 @@
 <div class="Container">
-	Home
+	Hallo {{ Username }}
 </div>

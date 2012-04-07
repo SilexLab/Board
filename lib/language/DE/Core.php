@@ -48,8 +48,7 @@ self::$Items = array_merge(self::$Items, array(
 'com.sbb.login.username'       => 'Benutzername',
 'com.sbb.login.password'       => 'Passwort',
 'com.sbb.login.stay'           => 'Eingeloggt bleiben',
-'com.sbb.login.wrong_password' => 'Das Passwort ist falsch!',
-'com.sbb.login.no_user'        => 'Dieser Benutzer existiert nicht!',
+'com.sbb.login.failed'         => 'Du konntest dich nicht einloggen.',
 'com.sbb.login.success'        => 'Du hast dich erfolgreich angemeldet!',
 
 'com.sbb.form.submit' => 'Absenden',
