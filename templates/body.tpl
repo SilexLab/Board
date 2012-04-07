@@ -1,8 +1,8 @@
 	<section class="Content">
-		{% for MSGBox in MessageBoxes %}
-			<div class="MessageBox {{ MSGBox.Type }}">
+		{% for Notification in Notifications %}
+			<div class="MessageBox {{ Notification.Type }}">
 				<div class="Size">
-					<div>{{ MSGBox.Message }}</div>
+					<div>{{ Notification.Message }}</div>
 				</div>
 			</div>
 		{% endfor %}
