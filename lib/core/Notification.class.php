@@ -13,7 +13,8 @@ class Notification {
 		INFO    = 0,
 		SUCCESS = 1,
 		WARNING = 2,
-		ERROR   = 3;
+		ERROR   = 3,
+		NEUTRAL = 4;
 
 	/**
 	 * CSS-Classes for notification types
@@ -23,7 +24,8 @@ class Notification {
 			'info',
 			'success',
 			'warning',
-			'error'
+			'error',
+			'neutral'
 		);
 
 	/**
@@ -39,7 +41,7 @@ class Notification {
 	 */
 	public static function Show($Message, $Type = 0) {
 		if(!isset(self::$Classes[$Type]))
-			$Type = self::INFO;
+			$Type = self::NEUTRAL;
 
 		self::$Notifications[] = array(
 			'Message' => $Message,

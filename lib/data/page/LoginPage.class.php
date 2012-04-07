@@ -10,7 +10,7 @@ class LoginPage extends Page implements PageData {
 	protected static $Node = 'page.login';
 	protected $Info = array();
 
-	public function __construct() {
+	public function __construct() {		
 		$this->Info['node'] = self::$Node;
 		$this->Info['title'] = Language::Get('com.sbb.page.login');
 		$this->Info['template'] = 'Login';
