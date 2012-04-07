@@ -20,6 +20,7 @@ class NotificationPage extends Page implements PageData {
 		Notification::Show($Lorem, Notification::SUCCESS);
 		Notification::Show($Lorem, Notification::WARNING);
 		Notification::Show($Lorem, Notification::ERROR);
+		Notification::Show($Lorem, Notification::NEUTRAL);
 	}
 
 	public function GetInfo($Info) {
