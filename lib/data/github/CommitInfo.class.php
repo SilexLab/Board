@@ -8,9 +8,10 @@
 class CommitInfo {
 	/**
 	 * Return the timestamp of the commit
+	 * @param  string $Info
 	 * @return int
 	 */
-	public static function Get() {
+	public static function Get($Info = 'date') {
 		$Dir  = DIR_ROOT.'.git/';
 		$File = $Dir.'ORIG_HEAD';
 		$TMP  = CFG_CACHE_DIR.'commitinfo';
@@ -19,6 +20,8 @@ class CommitInfo {
 			$Board = new Github('SilexBoard', 'Board');
 
 			$SHA = trim(@file_get_contents($File));
+			if($Info == 'SHA')
+				return $SHA;
 
 			if(file_exists($TMP)) {
 				$F = explode(':', trim(file_get_contents($TMP)));

@@ -11,7 +11,8 @@
 		</div>
 		<div class="Legal">
 			<div class="Size">
-				<a href="http://www.silexboard.org/"><span class="Copyright">{{ lang=com.sbb.forumsoftware }}:</span> Silex Bulletin Board {{ Version }} <span class="Copyright">–</span> © 2011 - 2012 SilexBoard.org</a>
+				<a href="http://www.silexboard.org/"><span class="Copyright">{{ lang=com.sbb.forumsoftware }}:</span> Silex Bulletin Board {{ Version.Version }} <span class="Copyright">–</span> © 2011 - 2012 SilexBoard.org</a><br>
+				<a href="https://github.com/SilexBoard/Board/commit/{{ Version.SHA }}"><span class="Copyright">{{ Version.SHA }}</span></a>
 			</div>
 		</div>
 	</footer>

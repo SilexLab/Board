@@ -41,7 +41,10 @@ class SBB {
 			'YPercent' => round(100 * Time::YearProcess(), 0),
 			'DPercent' => round(100 * Time::DayProcess(), 0)
 		)));
-		self::Template()->Set(array('Version' => SBB_VERSION.'-'.date('Ymd', CommitInfo::Get())));
+		self::Template()->Set(array('Version' => array(
+			'Version' => SBB_VERSION.'-'.date('Ymd', CommitInfo::Get()),
+			'SHA' => CommitInfo::Get('SHA')
+		)));
 		self::Template()->Set(Language::Get(), true);
 		Breadcrumb::Assign();
 		Page::Assign();

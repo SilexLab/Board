@@ -17,6 +17,7 @@
 		padding: 13px 38px 13px 10px;
 		font-weight: bold;
 		text-align: justify;
+		line-height: 14px;
 	}
 
 	.notification.info .notification_inner {
