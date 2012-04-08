@@ -5,8 +5,8 @@
 				<div class="DayProgressbar" title="{{ lang=com.sbb.time.dayprogress }}"><div class="DayProgress" style="width: {{ Time.DPercent }}%;"></div></div>
 				<div class="YearProgressbar" title="{{ lang=com.sbb.time.progress }}"><div class="YearProgress" style="width: {{ Time.YPercent }}%;"></div></div>
 			</div>
-			Aktuelle Sprache: {{ lang=com.sbb.language.info }}<br>
-			Aktueller Style: {{ Style.Name }}
+			<strong>{{ lang=com.sbb.footer.current_language }}:</strong> {{ lang=com.sbb.language.info }}<br>
+			<strong>{{ lang=com.sbb.footer.current_style }}:</strong> {{ Style.Name }}
 			<div style="clear: both;"></div>
 		</div>
 		<div class="Legal">

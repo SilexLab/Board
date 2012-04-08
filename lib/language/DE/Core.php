@@ -73,6 +73,9 @@ self::$Items = array_merge(self::$Items, array(
 
 'com.sbb.email.activation.title' => 'Du musst diesen Link klicken um deine Registrierung abzuschließen: ',
 
+'com.sbb.footer.current_language' => 'Aktuelle Sprache',
+'com.sbb.footer.current_style'    => 'Aktueller Stil',
+
 // Databasestrings
 'com.sbb.config.style.default' => 'Standardstil',
 'com.sbb.config.page.title'    => 'Seitentitel'

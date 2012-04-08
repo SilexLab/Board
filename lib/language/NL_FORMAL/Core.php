@@ -16,7 +16,7 @@ self::$Items = array_merge(self::$Items, array(
 'com.sbb.header.welcome'            => 'Welkom',
 'com.sbb.header.logo_title'         => 'Startpagina',
 'com.sbb.header.slogan'             => 'De moderne Bulletin Board software',
-'com.sbb.header.search.title'       => 'Zoektocht',		// ?
+'com.sbb.header.search.title'       => 'Zoektocht', // ?
 'com.sbb.header.search.placeholder' => 'Zoeken...', // ?
 
 'com.sbb.page.error'    => 'Fout',
@@ -73,6 +73,9 @@ self::$Items = array_merge(self::$Items, array(
 'com.sbb.captcha_wrong' => 'Het captcha is niet juist!',
 
 'com.sbb.email.activation.title' => 'Gebruik deze link om uw registrering af te sluiten: ',
+
+'com.sbb.footer.current_language' => 'Current language', // ?
+'com.sbb.footer.current_style'    => 'Current style',    // ?
 
 // Databasestrings
 'com.sbb.config.style.default' => 'Standaardstijl',

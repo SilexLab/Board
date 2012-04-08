@@ -74,6 +74,9 @@ self::$Items = array_merge(self::$Items, array(
 
 'com.sbb.email.activation.title' => 'Your registration will be completed if you follow this link: ',
 
+'com.sbb.footer.current_language' => 'Current language',
+'com.sbb.footer.current_style'    => 'Current style',
+
 // Databasestrings
 'com.sbb.config.style.default' => 'Default style',
 'com.sbb.config.page.title'    => 'Page title'
