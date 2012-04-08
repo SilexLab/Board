@@ -25,10 +25,10 @@ class CommitInfo {
 			if($Info == 'SHA')
 				return $SHA;
 
-			if(file_exists($TMP) && $SHA == $F[0]) {
-				// Nothing changed
+			if(file_exists($TMP)) {
 				$F = explode(':', trim(file_get_contents($TMP)));
-				return (int)$F[1];
+				if($SHA == $F[0]) // Nothing changed
+					return (int)$F[1];
 			}
 
 			// Write to file
