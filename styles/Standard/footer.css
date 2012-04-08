@@ -35,7 +35,7 @@ footer {
 		footer .YearProgressbar, footer .DayProgressbar {
 			box-shadow: 0 0 4px #000000;
 			border-radius: 1px;
-			overflow: hidden;
+			overflow: visible;
 		}
 		footer .YearProgressbar {
 			width: 250px;

@@ -38,8 +38,8 @@ class SBB {
 		self::Template()->Set(array('Time' => array(
 			'Date' => date('d.m.Y'), // TODO: Get date format from user / config
 			'Time' => date('H:i'),
-			'YPercent' => round(100 * Time::YearProcess(), 0),
-			'DPercent' => round(100 * Time::DayProcess(), 0)
+			'YPercent' => round(100 * Time::YearProcess(), 2),
+			'DPercent' => round(100 * Time::DayProcess(), 2)
 		)));
 		self::Template()->Set(array('Version' => array(
 			'Version' => SBB_VERSION.'-'.date('Ymd', CommitInfo::Get()),
