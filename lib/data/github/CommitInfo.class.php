@@ -11,7 +11,7 @@ class CommitInfo {
 	 * @param  string $Info
 	 * @return int
 	 */
-	public static function Get($Info = 'date') {
+	public static function Get($Info = 'date') { // TODO: OPTIMIZE
 		$Dir  = DIR_ROOT.'.git/logs/';
 		$File = $Dir.'HEAD';
 		$TMP  = CFG_CACHE_DIR.'commitinfo';
@@ -32,6 +32,14 @@ class CommitInfo {
 
 				// Commits are different
 				$T = strtotime($Board->GetCommit($SHA)->committer->date);
+				if(!$T) {
+					for($i = 4; $i < sizeof($F); $i++) {
+						if(is_numeric($L[$i]) && strlen($L[$i]) == 10) {
+							$T = $L[$i];
+							break;
+						}
+					}
+				}
 				$FH = fopen($TMP, 'w');
 				fwrite($FH, $SHA.':'.$T);
 				fclose($FH);
