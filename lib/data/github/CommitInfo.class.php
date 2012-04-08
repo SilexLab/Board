@@ -39,8 +39,14 @@ class CommitInfo {
 			}
 			// Create new file
 			$T = strtotime($Board->GetCommit($SHA)->committer->date);
-			if(!$T)
-				$T = $L[4];
+			if(!$T) {
+				for($i = 4; $i < sizeof($F); $i++) {
+					if(is_numeric($L[$i]) && strlen($L[$i]) == 10) {
+						$T = $L[$i];
+						break;
+					}
+				}
+			}
 			$FH = fopen($TMP, 'w');
 			fwrite($FH, $SHA.':'.$T);
 			fclose($FH);
