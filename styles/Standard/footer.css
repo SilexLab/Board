@@ -32,34 +32,40 @@ footer {
 		float: right;
 		padding: 2px 0;
 	}
-		footer .YearProgressbar, footer .DayProgressbar {
+		footer .progressbar_trim {
+			height: 4px;
+			margin: -4px 0;
+			padding: 4px 0;
+			overflow: hidden;
+		}
+			footer .progressbar_trim.year {
+				width: 250px;
+				margin-top: -1px;
+			}
+			footer .progressbar_trim.day {
+				width: 100px;
+				margin-top: 1px;
+				float: right;
+			}
+		footer .progressbar {
 			box-shadow: 0 0 4px #000000;
 			border-radius: 1px;
+			background: #ffffff;
 			overflow: visible;
 		}
-		footer .YearProgressbar {
-			width: 250px;
-			height: 4px;
-			margin-top: 3px;
-			background: #ffffff;
-		}
-		footer .YearProgress {
+		footer .progress {
 			width: 0px;
 			height: 4px;
-			background: #558FA4;
+			background: #558FA4 url('images/progressbar_overlay.png') repeat-y right center;
+			border-radius: 1px;
 		}
-		footer .DayProgressbar {
-			width: 100px;
-			height: 4px;
-			margin-top: 5px;
-			background: #ffffff;
-			float: right;
-		}
-		footer .DayProgress {
-			width: 0px;
-			height: 4px;
-			background: #558FA4;
-		}
+			footer .progress .shine {
+				height: 12px;
+				width: 40px;
+				margin: -4px -2px -4px 0;
+				float: right;
+				background: transparent url('images/progressbar_shine.png') no-repeat right center;
+			}
 
 	footer .Legal {
 		padding: 15px 0;

@@ -2,8 +2,20 @@
 		<div class="Size">
 			<div class="Time">
 				{{ Time.Date }} - {{ Time.Time }} Uhr
-				<div class="DayProgressbar" title="{{ lang=com.sbb.time.dayprogress }}"><div class="DayProgress" style="width: {{ Time.DPercent }}%;"></div></div>
-				<div class="YearProgressbar" title="{{ lang=com.sbb.time.progress }}"><div class="YearProgress" style="width: {{ Time.YPercent }}%;"></div></div>
+				<div class="progressbar_trim day">
+					<div class="progressbar" title="{{ lang=com.sbb.time.dayprogress }}">
+						<div class="progress" style="width: {{ Time.DPercent }}%;">
+							<div class="shine"></div>
+						</div>
+					</div>
+				</div>
+				<div class="progressbar_trim year">
+					<div class="progressbar" title="{{ lang=com.sbb.time.progress }}">
+						<div class="progress" style="width: {{ Time.YPercent }}%;">
+							<div class="shine"></div>
+						</div>
+					</div>
+				</div>
 			</div>
 			<strong>{{ lang=com.sbb.footer.current_language }}:</strong> {{ lang=com.sbb.language.info }}<br>
 			<strong>{{ lang=com.sbb.footer.current_style }}:</strong> {{ Style.Name }}
