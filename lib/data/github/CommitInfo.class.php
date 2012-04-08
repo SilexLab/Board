@@ -9,9 +9,9 @@ class CommitInfo {
 	/**
 	 * Return the timestamp of the commit
 	 * @param  string $Info
-	 * @return int
+	 * @return mixed
 	 */
-	public static function Get($Info = 'date') { // TODO: OPTIMIZE
+	public static function Get($Info = 'date') {
 		$Dir  = DIR_ROOT.'.git/logs/';
 		$File = $Dir.'HEAD';
 		$TMP  = CFG_CACHE_DIR.'commitinfo';
@@ -19,46 +19,32 @@ class CommitInfo {
 		if(is_dir($Dir) && file_exists($File)) {
 			$Board = new Github('SilexBoard', 'Board');
 
-			$F = file($File);
-			$L = explode(' ', $F[sizeof($F)-1]);
-			$SHA = $L[1];
+			$aFile = file($File);
+			$aLine = explode(' ', $aFile[sizeof($aFile)-1]);
+			$SHA = $aLine[1];
 			if($Info == 'SHA')
 				return $SHA;
 
-			if(file_exists($TMP)) {
+			if(file_exists($TMP) && $SHA == $F[0]) {
+				// Nothing changed
 				$F = explode(':', trim(file_get_contents($TMP)));
-				if($SHA == $F[0]) // Nothing changed
-					return (int)$F[1];
-
-				// Commits are different
-				$T = strtotime($Board->GetCommit($SHA)->committer->date);
-				if(!$T) {
-					for($i = 4; $i < sizeof($F); $i++) {
-						if(is_numeric($L[$i]) && strlen($L[$i]) == 10) {
-							$T = $L[$i];
-							break;
-						}
-					}
-				}
-				$FH = fopen($TMP, 'w');
-				fwrite($FH, $SHA.':'.$T);
-				fclose($FH);
-				return (int)$T;
+				return (int)$F[1];
 			}
-			// Create new file
-			$T = strtotime($Board->GetCommit($SHA)->committer->date);
-			if(!$T) {
-				for($i = 4; $i < sizeof($F); $i++) {
-					if(is_numeric($L[$i]) && strlen($L[$i]) == 10) {
-						$T = $L[$i];
+
+			// Write to file
+			$Time = strtotime($Board->GetCommit($SHA)->committer->date);
+			if(!$Time) {
+				for($i = 4; $i < sizeof($aFile); $i++) {
+					if(is_numeric($aLine[$i]) && strlen($aLine[$i]) == 10) {
+						$Time = $aLine[$i];
 						break;
 					}
 				}
 			}
-			$FH = fopen($TMP, 'w');
-			fwrite($FH, $SHA.':'.$T);
-			fclose($FH);
-			return (int)$T;
+			$FileHandle = fopen($TMP, 'w');
+			fwrite($FileHandle, $SHA.':'.$Time);
+			fclose($FileHandle);
+			return (int)$Time;
 		}
 		return 0;
 	}
