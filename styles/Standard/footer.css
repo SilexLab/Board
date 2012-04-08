@@ -50,7 +50,7 @@ footer {
 		footer .progressbar {
 			box-shadow: 0 0 4px #000000;
 			border-radius: 1px;
-			background: #ffffff;
+			background: #666666;
 			overflow: visible;
 		}
 		footer .progress {

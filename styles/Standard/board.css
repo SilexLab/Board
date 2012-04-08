@@ -12,7 +12,7 @@ p {
 }
 
 .BoardHead {
-	background: #558FA4;
+	background: #558FA4 url('images/notification-dot-pattern.png');
 	border-radius: 5px 5px 0px 0px;
 	border: 1px solid rgba(0, 0, 0, .1);
 	text-shadow: none;
