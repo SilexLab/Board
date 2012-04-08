@@ -15,7 +15,7 @@ self::$Items = array_merge(self::$Items, array(
 
 'com.sbb.header.welcome'            => 'Welcome',
 'com.sbb.header.logo_title'         => 'Frontpage',
-'com.sbb.header.slogan'             => 'The modern Bulletin Board Software',
+'com.sbb.header.slogan'             => 'The modern bulletin board software',
 'com.sbb.header.search.title'       => 'Search',
 'com.sbb.header.search.placeholder' => 'Search...',
 
@@ -32,7 +32,7 @@ self::$Items = array_merge(self::$Items, array(
 'com.sbb.register.register'           => 'Sign up',
 'com.sbb.register.username'           => 'Username',
 'com.sbb.register.email'              => 'E-mail address',
-'com.sbb.register.email_repeat'       => 'Repeat E-mail address',
+'com.sbb.register.email_repeat'       => 'Repeat e-mail address',
 'com.sbb.register.password'           => 'Password',
 'com.sbb.register.password_repeat'    => 'Repeat password',
 'com.sbb.register.invalid_username'   => 'Invalid username',
@@ -54,7 +54,7 @@ self::$Items = array_merge(self::$Items, array(
 
 'com.sbb.form.submit' => 'Submit',
 
-'com.sbb.user.guest' => 'Gast',
+'com.sbb.user.guest' => 'Guest',
 
 'com.sbb.logout.logout'          => 'Logout',
 'com.sbb.logout.logged_out'      => 'You are logged out now.',

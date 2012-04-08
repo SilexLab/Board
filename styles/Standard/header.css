@@ -235,7 +235,7 @@ nav.Menu {
 	border-top: 1px solid #558fa4;
 	height: 36px;
 	margin-top: 38px;
-	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+	box-shadow: 0 0 2px #0b334c;
 }
 	nav.Menu a, nav.Menu a:hover, nav.Menu a:active, nav.Menu a:visited, nav.Menu a:link {
 		text-decoration: none;
