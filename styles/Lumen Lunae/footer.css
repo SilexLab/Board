@@ -27,11 +27,40 @@ footer {
 		background: #232b33;
 	}
 
-	footer .Time {
+	footer .time {
 		width: 250px;
 		float: right;
 		padding: 2px 0;
 	}
+		footer .info {}
+			footer .i_language, footer .i_style {
+				background: transparent no-repeat left center;
+				padding-left: 19px;
+				line-height: 20px;
+			}
+			footer .i_language {
+				background-image: url('icons/w_16_flag.png');
+			}
+			footer .i_style {
+				background-image: url('icons/w_16_big_brush.png');
+			}
+
+		footer .date {
+			display: inline-block;
+		}
+			footer .d_date, footer .d_time {
+				display: inline-block;
+				background: transparent no-repeat left center;
+				padding-left: 18px;
+				line-height: 16px;
+			}
+			footer .d_date {
+				background-image: url('icons/w_16_calendar.png');
+			}
+			footer .d_time {
+				background-image: url('icons/w_16_clock.png');
+				margin-left: 8px;
+			}
 		footer .progressbar_trim {
 			height: 4px;
 			margin: -4px 0;

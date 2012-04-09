@@ -26,9 +26,6 @@ self::$Items = array_merge(self::$Items, array(
 'com.sbb.page.login'    => 'Anmeldung',
 'com.sbb.page.register' => 'Registrierung',
 
-'com.sbb.time.progress'    => 'Fortschritt des Jahres ('.round(Time::YearProcess() * 100, 2).'%)',
-'com.sbb.time.dayprogress' => 'Fortschritt des Tages ('.round(Time::DayProcess() * 100, 2).'%)',
-
 'com.sbb.register.register'           => 'Registrieren',
 'com.sbb.register.username'           => 'Benutzername',
 'com.sbb.register.email'              => 'E-mail Adresse',
@@ -75,6 +72,11 @@ self::$Items = array_merge(self::$Items, array(
 
 'com.sbb.footer.current_language' => 'Aktuelle Sprache',
 'com.sbb.footer.current_style'    => 'Aktueller Stil',
+'com.sbb.footer.current_time'     => 'Aktuelle Uhrzeit',
+'com.sbb.footer.current_date'     => 'Aktuelles Datum',
+
+'com.sbb.time.progress'    => 'Fortschritt des Jahres ('.round(Time::YearProcess() * 100, 2).'%)',
+'com.sbb.time.dayprogress' => 'Fortschritt des Tages ('.round(Time::DayProcess() * 100, 2).'%)',
 
 // Databasestrings
 'com.sbb.config.style.default' => 'Standardstil',

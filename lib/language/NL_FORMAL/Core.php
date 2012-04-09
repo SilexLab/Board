@@ -26,9 +26,6 @@ self::$Items = array_merge(self::$Items, array(
 'com.sbb.page.login'    => 'Login',   // ?
 'com.sbb.page.register' => 'Sign up', // ?
 
-'com.sbb.time.progress'    => 'Progress of the year ('.round(Time::YearProcess() * 100, 2).'%)', // ?
-'com.sbb.time.dayprogress' => 'Progress of the day ('.round(Time::DayProcess() * 100, 2).'%)',   // ?
-
 'com.sbb.register.register'           => 'Registreren',
 'com.sbb.register.username'           => 'Gebruikersnaam',
 'com.sbb.register.email'              => 'E-mailadres',
@@ -76,6 +73,11 @@ self::$Items = array_merge(self::$Items, array(
 
 'com.sbb.footer.current_language' => 'Current language', // ?
 'com.sbb.footer.current_style'    => 'Current style',    // ?
+'com.sbb.footer.current_time'     => 'Current time',     // ?
+'com.sbb.footer.current_date'     => 'Current date',     // ?
+
+'com.sbb.time.progress'    => 'Progress of the year ('.round(Time::YearProcess() * 100, 2).'%)', // ?
+'com.sbb.time.dayprogress' => 'Progress of the day ('.round(Time::DayProcess() * 100, 2).'%)',   // ?
 
 // Databasestrings
 'com.sbb.config.style.default' => 'Standaardstijl',

@@ -21,19 +21,43 @@ class Style implements Singleton {
 	private function __clone() {}
 	
 	protected function __construct() {
-		$this->Info['Name'] = SBB::Config('config.style.default'); // TODO: Read Userstyles
+		// Use Userstyle
+		$this->Info['Dir'] = ''; // TODO: Read userstyle
+		if(empty($this->Info['Dir']) || !is_dir(DIR_ROOT.DIR_STYLE.$this->Info['Dir'])) {
+			// Use default
+			$this->Info['Dir'] = SBB::Config('config.style.default');
+			if(empty($this->Info['Dir']) || !is_dir(DIR_ROOT.DIR_STYLE.$this->Info['Dir'])) {
+				// If default can't found, search for styles and use the first found
+				$Dir = scandir(DIR_ROOT.DIR_STYLE);
+				if(!$Dir)
+					throw new SystemException('Failed to read the style directory ('.DIR_STYLE.'). Please check the existence of the directory.');
+				foreach($Dir as $File) {
+					if(in_array($File, array('.', '..')))
+						continue;
+					if(is_dir(DIR_ROOT.DIR_STYLE.$File)) {
+						if(is_file(DIR_ROOT.DIR_STYLE.$File.'/info.xml')) {
+							$this->Info['Dir'] = $File;
+							break;
+						}
+					}
+				}
+				if(empty($this->Info['Dir']) || !is_dir(DIR_ROOT.DIR_STYLE.$this->Info['Dir']))
+					throw new SystemException('No styles are installed, the board can\'t display without styles');
+			}
+		}
 		
 		// Set CSS and JS files
 		$this->Files = array(
 			'CSS' => $this->GetCSS(),
 			'JS' => $this->GetJS()
 		);
-		
+
 		// TODO: Load style info.xml and save in $this->Style
+		$this->Info['Name'] = $this->Info['Dir'];
 		
 		// Set more infos
 		$this->Info['Files'] = $this->Files;
-		$this->Info['TPL'] = DIR_STYLE.$this->Info['Name'].'/'.DIR_TPL;
+		$this->Info['TPL'] = DIR_STYLE.$this->Info['Dir'].'/'.DIR_TPL;
 	}
 	
 	/**
@@ -54,33 +78,31 @@ class Style implements Singleton {
 	
 	// TODO: Merge GetCSS() and GetJS()
 	protected function GetCSS() {
-		$Dir = scandir(DIR_ROOT.DIR_STYLE.$this->Info['Name']);
+		$Dir = scandir(DIR_ROOT.DIR_STYLE.$this->Info['Dir']);
 		if(!$Dir)
-			throw new SystemException('The directory "'.DIR_ROOT.DIR_STYLE.$this->Info['Name'].'" doesn\'t exist');
-		else {
-			$Files = array();
-			foreach($Dir as $File) {
-				// Extension is .css?
-				if(strpos($File, '.css') === (strlen($File) - 4))
-					$Files[] = $File;
-			}
-			return $Files;
+			throw new SystemException('The directory "'.DIR_ROOT.DIR_STYLE.$this->Info['Dir'].'" doesn\'t exist');
+		
+		$Files = array();
+		foreach($Dir as $File) {
+			// Extension is .css?
+			if(strpos($File, '.css') === (strlen($File) - 4))
+				$Files[] = $File;
 		}
+		return $Files;
 	}
 	
 	protected function GetJS() {
-		$Dir = scandir(DIR_ROOT.DIR_STYLE.$this->Info['Name'].'/'.DIR_JS);
+		$Dir = scandir(DIR_ROOT.DIR_STYLE.$this->Info['Dir'].'/'.DIR_JS);
 		if(!$Dir)
-			throw new SystemException('The directory "'.DIR_ROOT.DIR_STYLE.$this->Info['Name'].'/'.DIR_JS.'" doesn\'t exist');
-		else {
-			$Files = array();
-			foreach($Dir as $File) {
-				// Extension is .js?
-				if(strpos($File, '.js') === (strlen($File) - 3))
-					$Files[] = $File;
-			}
-			return $Files;
+			throw new SystemException('The directory "'.DIR_ROOT.DIR_STYLE.$this->Info['Dir'].'/'.DIR_JS.'" doesn\'t exist');
+		
+		$Files = array();
+		foreach($Dir as $File) {
+			// Extension is .js?
+			if(strpos($File, '.js') === (strlen($File) - 3))
+				$Files[] = $File;
 		}
+		return $Files;
 	}
 }
 ?>
