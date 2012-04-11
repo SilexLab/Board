@@ -235,7 +235,7 @@ nav.Menu {
 	border-top: 1px solid #558fa4;
 	height: 36px;
 	margin-top: 38px;
-	box-shadow: 0 0 2px #0b334c;
+	box-shadow: 0 -1px 0 rgba(11, 51, 76, 0.4);
 }
 	nav.Menu a, nav.Menu a:hover, nav.Menu a:active, nav.Menu a:visited, nav.Menu a:link {
 		text-decoration: none;
@@ -298,7 +298,7 @@ nav.Menu {
 			}
 			nav.Menu .MenuList li.active:hover div {
 				background-position: left -40px;
-				border-top-color: #d9ffff;
+				border-top-color: #97d0e5;
 				color: #ffffff;
 			}
 			nav.Menu .MenuList li.active:active div {

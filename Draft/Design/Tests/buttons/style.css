@@ -20,6 +20,7 @@
 	cursor: pointer;
 	overflow: visible;
 	font-family: "Lucida Grande", "Segoe UI", Arial, Verdana, "Lucida Sans Unicode", Tahoma, Sans-Serif;
+	display: inline-block;
 }
 	.button-blue {
 		color: white;

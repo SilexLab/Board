@@ -3,7 +3,7 @@
 		<div class="LogoBlock">
 			<div class="Logo Size">
 				<a href="./" title="{{ lang=com.sbb.header.logo_title }}">
-					<img src="{{ Dir.Style }}{{ Style.Name }}/images/logo.png" alt="Logo">
+					<img src="{{ Dir.Style }}{{ Style.Dir }}/images/logo.png" alt="Logo">
 				</a>
 				<div class="Slogan">
 				{% if Slogan %}
@@ -19,10 +19,10 @@
 				<ul class="MenuList">
 				{% for MenuPoint in Menu %}
 					{% if MenuPoint.Active %}
-                    <li class="active"><a href="{{ MenuPoint.Link }}"><div>{{ MenuPoint.Name }}</div></a></li>
-                    {% else %}
-                    <li><a href="{{ MenuPoint.Link }}"><div>{{ MenuPoint.Name }}</div></a></li>
-                    {% endif %}
+					<li class="active"><a href="{{ MenuPoint.Link }}"><div>{{ MenuPoint.Name }}</div></a></li>
+					{% else %}
+					<li><a href="{{ MenuPoint.Link }}"><div>{{ MenuPoint.Name }}</div></a></li>
+					{% endif %}
 				{% endfor %}
 				</ul>
 				<ul class="SubMenu">

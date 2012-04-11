@@ -32,7 +32,9 @@ footer {
 		float: right;
 		padding: 2px 0;
 	}
-		footer .info {}
+		footer .info {
+			display: inline-block;
+		}
 			footer .i_language, footer .i_style {
 				background: transparent no-repeat left center;
 				padding-left: 19px;
@@ -79,7 +81,7 @@ footer {
 		footer .progressbar {
 			box-shadow: 0 0 4px #000000;
 			border-radius: 1px;
-			background: #666666;
+			background: rgba(255, 255, 255, 0.3);
 			overflow: visible;
 		}
 		footer .progress {

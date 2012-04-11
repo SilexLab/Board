@@ -83,7 +83,12 @@ class Style implements Singleton {
 			throw new SystemException('The directory "'.DIR_ROOT.DIR_STYLE.$this->Info['Dir'].'" doesn\'t exist');
 		
 		$Files = array();
+		if(is_file(DIR_ROOT.DIR_STYLE.$this->Info['Dir'].'/style.css')) // "root" css file
+			$Files[] = 'style.css';
 		foreach($Dir as $File) {
+			if($File == 'style.css')
+				continue;
+			
 			// Extension is .css?
 			if(strpos($File, '.css') === (strlen($File) - 4))
 				$Files[] = $File;
