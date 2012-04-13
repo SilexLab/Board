@@ -32,3 +32,16 @@ table.userlist {
 	table.userlist tr:hover > td {
 		background: #e3f4f4;
 	}
+
+	table.userlist .avatar {
+		max-width: 64px;
+		max-height: 64px;
+	}
+	table.userlist .username {
+		color: #558FA4;
+		font-weight: bold;
+	}
+	table.userlist .usergroup {
+		color: #777777;
+		text-shadow: 0 0 1px rgba(0,0,0,.2);
+	}

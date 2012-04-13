@@ -11,6 +11,7 @@ self::$Items = array_merge(self::$Items, array(
 'com.sbb.language.changed' => 'Your Language was changed to '.'.',
 
 'com.sbb.error'         => 'Error',
+'com.sbb.error.no_page' => 'This page doesn\'t exists',
 'com.sbb.forumsoftware' => 'Forum software',
 
 'com.sbb.header.welcome'            => 'Welcome',
@@ -51,7 +52,14 @@ self::$Items = array_merge(self::$Items, array(
 
 'com.sbb.form.submit' => 'Submit',
 
-'com.sbb.user.guest' => 'Guest',
+'com.sbb.user.guest'    => 'Guest',
+'com.sbb.user.avatar'   => 'Avatar',
+'com.sbb.user.username' => 'Username',
+'com.sbb.user.joined'   => 'Joined',
+'com.sbb.user.posts'    => 'Posts',
+'com.sbb.user.language' => 'Language',
+'com.sbb.user.homepage' => 'Webpage',
+'com.sbb.user.contact'  => 'Contact',
 
 'com.sbb.logout.logout'          => 'Logout',
 'com.sbb.logout.logged_out'      => 'You are logged out now.',
@@ -78,6 +86,25 @@ self::$Items = array_merge(self::$Items, array(
 
 'com.sbb.time.progress'    => 'Progress of the year ('.round(Time::YearProcess() * 100, 2).'%)',
 'com.sbb.time.dayprogress' => 'Progress of the day ('.round(Time::DayProcess() * 100, 2).'%)',
+'com.sbb.time.january'     => 'January',
+'com.sbb.time.february'    => 'February',
+'com.sbb.time.march'       => 'March',
+'com.sbb.time.april'       => 'April',
+'com.sbb.time.may'         => 'May',
+'com.sbb.time.june'        => 'June',
+'com.sbb.time.july'        => 'July',
+'com.sbb.time.august'      => 'August',
+'com.sbb.time.september'   => 'September',
+'com.sbb.time.october'     => 'October',
+'com.sbb.time.november'    => 'November',
+'com.sbb.time.december'    => 'December',
+'com.sbb.time.monday'      => 'Monday',
+'com.sbb.time.tuesday'     => 'Tuesday',
+'com.sbb.time.wednesday'   => 'Wednesday',
+'com.sbb.time.thursday'    => 'Thursday',
+'com.sbb.time.friday'      => 'Friday',
+'com.sbb.time.saturday'    => 'Saturday',
+'com.sbb.time.sunday'      => 'Sunday',
 
 // Databasestrings
 'com.sbb.config.style.default' => 'Default style',

@@ -8,111 +8,64 @@
 		</menu>
 	</div>
 	<div class="optionsbar">
-		&lt;Sortieroptionen&gt;
+		Sortier-/Anzeigeoptionen
 	</div>
 	<div class="content">
 		<table class="userlist">
 			<thead>
 				<tr>
-					<th>Avatar</th>
-					<th>Benutzername</th>
-					<th>Registrierungsdatum</th>
-					<th>Beiträge</th>
-					<th>Sprache</th>
-					<th>Homepage</th>
-					<th>Kontaktieren</th>
+					<th>{{ lang=com.sbb.user.avatar }}</th>
+					<th>{{ lang=com.sbb.user.username }}</th>
+					<th>{{ lang=com.sbb.user.joined }}</th>
+					<th>{{ lang=com.sbb.user.posts }}</th>
+					<th>{{ lang=com.sbb.user.language }}</th>
+					<th>{{ lang=com.sbb.user.homepage }}</th>
+					<th>{{ lang=com.sbb.user.contact }}</th>
 				</tr>
 			</thead>
 			<tbody>
+			{% for TUser in Users %}
 				<tr>
-					<td>1</td>
-					<td>2</td>
-					<td>3</td>
-					<td>4</td>
-					<td>5</td>
-					<td>6</td>
-					<td>7</td>
+					<td>
+						<a href="?page=User&amp;UserID={{ TUser.ID }}">
+							<img src="{{ Dir.Style }}{{ Style.Dir }}/icons/g_64_user.png" class="avatar"> {# Avatar #}
+						</a>
+					</td>
+					<td>
+						<a href="?page=User&amp;UserID={{ TUser.ID }}">
+							<div class="username">{{ TUser.Name }}</div>
+						{# TODO: TUser.Group #}
+						{% if TUser.Name == "admin" %}
+							<div class="usergroup">Administrator</div>
+						{% else %}
+							<div class="usergroup">User</div>
+						{% endif %}
+						</a>
+					</td>
+					<td>
+						<div class="joined_date">{{ TUser.Joined_D|default("-") }}</div>
+						<div class="joined_time">{{ TUser.Joined_T|default("-") }}</div>
+					</td>
+					<td>{{ TUser.Posts }}</td>
+					<td>{{ TUser.Language }}</td>
+					<td>
+					{% if TUser.Homepage %}
+						<a href="{{ TUser.Homepage }}">Link</a>
+					{% else %}
+						-
+					{% endif %}
+					</td>
+					<td>PM</td>
 				</tr>
+			{% else %}
 				<tr>
-					<td>1</td>
-					<td>2</td>
-					<td>3</td>
-					<td>4</td>
-					<td>5</td>
-					<td>6</td>
-					<td>7</td>
+					<td colspan="7">Keine Benutzer gefunden</td>
 				</tr>
-				<tr>
-					<td>1</td>
-					<td>2</td>
-					<td>3</td>
-					<td>4</td>
-					<td>5</td>
-					<td>6</td>
-					<td>7</td>
-				</tr>
-				<tr>
-					<td>1</td>
-					<td>2</td>
-					<td>3</td>
-					<td>4</td>
-					<td>5</td>
-					<td>6</td>
-					<td>7</td>
-				</tr>
-				<tr>
-					<td>1</td>
-					<td>2</td>
-					<td>3</td>
-					<td>4</td>
-					<td>5</td>
-					<td>6</td>
-					<td>7</td>
-				</tr>
-				<tr>
-					<td>1</td>
-					<td>2</td>
-					<td>3</td>
-					<td>4</td>
-					<td>5</td>
-					<td>6</td>
-					<td>7</td>
-				</tr>
-				<tr>
-					<td>1</td>
-					<td>2</td>
-					<td>3</td>
-					<td>4</td>
-					<td>5</td>
-					<td>6</td>
-					<td>7</td>
-				</tr>
-				<tr>
-					<td>1</td>
-					<td>2</td>
-					<td>3</td>
-					<td>4</td>
-					<td>5</td>
-					<td>6</td>
-					<td>7</td>
-				</tr>
+			{% endfor %}
 			</tbody>
 		</table>
 	</div>
 	<div class="container_footer">
-		Seitenauswahl
+		Seitenauswahl/Weitere Optionen
 	</div>
-
-
-
-{#
-{% for User in Users %}
-	<a href="?page=User&amp;userID={{ User.ID }}"><div style="margin: 5px; border: 1px solid; border-radius: 5px; padding: 5px;">
-	<span style="color: #333;">{{ User.Username }}</span><br>
-	Registered since {{ User.RegisterTime|date("d.m.y H:i") }}
-	</div></a>
-{% else %}
-  No user was found.
-{% endfor %}
-#}
 </div>

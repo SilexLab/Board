@@ -13,9 +13,25 @@ class UserListPage extends Page implements PageData {
 	public function __construct() {
 		$this->Info['node'] = self::$Node;
 		$this->Info['title'] = Language::Get('com.sbb.page.userlist');
-		Breadcrumb::Add(Language::Get('com.sbb.page.userlist'), self::$Link);
 		$this->Info['template'] = 'UserList';
-		SBB::Template()->Set(array('Users' => SBB::DB()->Table('users')->Select()->Execute()->FetchObjects()));
+		Breadcrumb::Add(Language::Get('com.sbb.page.userlist'), self::$Link);
+
+		$TempUsers = SBB::DB()->Table('users')->Select()->Execute()->FetchObjects();
+		$Users = array();
+		foreach($TempUsers as $User) {
+			$Users[] = array(
+				'ID'       => $User->ID,
+				'Name'     => $User->Username,
+				'Group'    => '',
+				'Joined_D' => date('d. ', $User->Joined).Language::Get(Time::Month(date('j', $User->Joined))).date(' Y', $User->Joined),
+				'Joined_T' => date('H:i', $User->Joined),
+				'Posts'    => '-',
+				'Language' => $User->Language,
+				'Homepage' => $User->Homepage
+			);
+		}
+
+		SBB::Template()->Set(array('Users' => $Users));
 	}
 
 	public function GetInfo($Info) {

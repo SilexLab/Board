@@ -11,6 +11,7 @@ self::$Items = array_merge(self::$Items, array(
 'com.sbb.language.changed' => 'Deine Sprache wurde nach '.' geändert',
 
 'com.sbb.error'         => 'Fehler',
+'com.sbb.error.no_page' => 'Diese Seite existiert nicht',
 'com.sbb.forumsoftware' => 'Forensoftware',
 
 'com.sbb.header.welcome'            => 'Willkommen',
@@ -50,7 +51,14 @@ self::$Items = array_merge(self::$Items, array(
 
 'com.sbb.form.submit' => 'Absenden',
 
-'com.sbb.user.guest' => 'Gast',
+'com.sbb.user.guest'    => 'Gast',
+'com.sbb.user.avatar'   => 'Profilbild',
+'com.sbb.user.username' => 'Benutzername',
+'com.sbb.user.joined'   => 'Beigetreten',
+'com.sbb.user.posts'    => 'Beiträge',
+'com.sbb.user.language' => 'Sprache',
+'com.sbb.user.homepage' => 'Webseite',
+'com.sbb.user.contact'  => 'Kontaktieren',
 
 'com.sbb.logout.logout'        => 'Ausloggen',
 'com.sbb.logout.logged_out'    => 'Du wurdest erfolgreich ausgeloggt.',
@@ -77,6 +85,25 @@ self::$Items = array_merge(self::$Items, array(
 
 'com.sbb.time.progress'    => 'Fortschritt des Jahres ('.round(Time::YearProcess() * 100, 2).'%)',
 'com.sbb.time.dayprogress' => 'Fortschritt des Tages ('.round(Time::DayProcess() * 100, 2).'%)',
+'com.sbb.time.january'     => 'Januar',
+'com.sbb.time.february'    => 'Februar',
+'com.sbb.time.march'       => 'März',
+'com.sbb.time.april'       => 'April',
+'com.sbb.time.may'         => 'Mai',
+'com.sbb.time.june'        => 'Juni',
+'com.sbb.time.july'        => 'Juli',
+'com.sbb.time.august'      => 'August',
+'com.sbb.time.september'   => 'September',
+'com.sbb.time.october'     => 'Oktober',
+'com.sbb.time.november'    => 'November',
+'com.sbb.time.december'    => 'Dezember',
+'com.sbb.time.monday'      => 'Montag',
+'com.sbb.time.tuesday'     => 'Dienstag',
+'com.sbb.time.wednesday'   => 'Mittwoch',
+'com.sbb.time.thursday'    => 'Donnerstag',
+'com.sbb.time.friday'      => 'Freitag',
+'com.sbb.time.saturday'    => 'Samstag',
+'com.sbb.time.sunday'      => 'Sonntag',
 
 // Databasestrings
 'com.sbb.config.style.default' => 'Standardstil',
