@@ -26,6 +26,7 @@ self::$Items = array_merge(self::$Items, array(
 'com.sbb.page.userlist' => 'Benutzerliste',
 'com.sbb.page.login'    => 'Anmeldung',
 'com.sbb.page.register' => 'Registrierung',
+'com.sbb.page.user'     => 'Benutzer',
 
 'com.sbb.register.register'           => 'Registrieren',
 'com.sbb.register.username'           => 'Benutzername',
