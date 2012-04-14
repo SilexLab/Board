@@ -23,7 +23,7 @@ class UserListPage extends Page implements PageData {
 				'ID'       => $User->ID,
 				'Name'     => $User->Username,
 				'Group'    => '',
-				'Joined_D' => date('d. ', $User->Joined).Language::Get(Time::Month(date('j', $User->Joined))).date(' Y', $User->Joined),
+				'Joined_D' => date('d. ', $User->Joined).Language::Get(Time::Month(date('n', $User->Joined))).date(' Y', $User->Joined),
 				'Joined_T' => date('H:i', $User->Joined),
 				'Posts'    => '-',
 				'Language' => $User->Language,
