@@ -92,7 +92,7 @@ class Time {
 	 * @param  int $Number
 	 * @return mixed
 	 */
-	public static function Days($Number) {
+	public static function Day($Number) {
 		if(empty(self::$Days)) {
 			self::$Days = array(
 				1 => self::MONDAY,

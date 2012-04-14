@@ -52,14 +52,31 @@ self::$Items = array_merge(self::$Items, array(
 
 'com.sbb.form.submit' => 'Afzenden',
 
-'com.sbb.user.guest'    => 'Guest',    // ?
-'com.sbb.user.avatar'   => 'Avatar',   // ?
-'com.sbb.user.username' => 'Username', // ?
-'com.sbb.user.joined'   => 'Joined',   // ?
-'com.sbb.user.posts'    => 'Posts',    // ?
-'com.sbb.user.language' => 'Language', // ?
-'com.sbb.user.homepage' => 'Webpage',  // ?
-'com.sbb.user.contact'  => 'Contact',  // ?
+'com.sbb.user.guest'             => 'Guest',    // ?
+'com.sbb.user.avatar'            => 'Avatar',   // ?
+'com.sbb.user.username'          => 'Username', // ?
+'com.sbb.user.joined'            => 'Joined',   // ?
+'com.sbb.user.posts'             => 'Posts',    // ?
+'com.sbb.user.language'          => 'Language', // ?
+'com.sbb.user.homepage'          => 'Webpage',  // ?
+'com.sbb.user.contact'           => 'Contact',  // ?
+'com.sbb.user.all_members'       => 'All Members',   // ?
+'com.sbb.user.teammembers'       => 'Teammembers',   // ?
+'com.sbb.user.search'            => 'Member search', // ?
+'com.sbb.user.no_user'           => 'This user doesn\'t exist!', // ?
+'com.sbb.user.user'              => 'User', // ?
+'com.sbb.user.profile_of'        => 'Profil of', // ?
+'com.sbb.user.profile.group'     => 'Group', // ?
+'com.sbb.user.profile.gender'    => 'Gender', // ?
+'com.sbb.user.profile.joined'    => 'Joined', // ?
+'com.sbb.user.profile.activity'  => 'Last activity', // ?
+'com.sbb.user.profile.language'  => 'Languages', // ?
+'com.sbb.user.profile.birthday'  => 'Birthday', // ?
+'com.sbb.user.profile.age'       => 'Age', // ?
+'com.sbb.user.profile.signature' => 'Signature', // ?
+'com.sbb.user.gender.male'       => 'Male', // ?
+'com.sbb.user.gender.female'     => 'Female', // ?
+
 
 'com.sbb.logout.logout'        => 'Uitloggen',
 'com.sbb.logout.logged_out'    => 'Jij werd met success uitgeloggt.',

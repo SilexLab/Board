@@ -96,6 +96,11 @@ input:-moz-placeholder {
 		.container_head .title {
 			display: block;
 			font-weight: bold;
+			overflow: hidden;
+		}
+		.container_head .title_menu {
+			display: block;
+			font-weight: bold;
 			max-width: 232px;
 			overflow: hidden;
 			float: left;

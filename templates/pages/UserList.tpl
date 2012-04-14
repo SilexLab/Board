@@ -1,10 +1,10 @@
 <div class="Container">
 	<div class="container_head">
-		<div class="title">{{ lang=com.sbb.page.userlist }}</div>
+		<div class="title_menu">{{ lang=com.sbb.page.userlist }}</div>
 		<menu>
-			<li>Alle Mitglieder</li>
-			<li>Teammitglieder</li>
-			<li>Mitgliedssuche</li>
+			<li>{{ lang=com.sbb.user.all_members }}</li>
+			<li>{{ lang=com.sbb.user.teammembers }}</li>
+			<li>{{ lang=com.sbb.user.search }}</li>
 		</menu>
 	</div>
 	<div class="optionsbar">
