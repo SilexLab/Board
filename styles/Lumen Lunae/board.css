@@ -1,6 +1,73 @@
 @charset "utf-8";
- 
-p {
+
+ul.board, ul.sub_board {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+ul.board li, ul.sub_board li {
+	display: block;
+}
+
+.board .category_content {
+	background: #ededed;
+	text-shadow: 0 1px 0 #ffffff;
+	padding: 5px 10px;
+	border: 1px solid rgba(0,0,0,.1);
+	white-space: nowrap;
+}
+	.board .title, .sub_board .title {
+		color: #343434;
+		font-size: 13px;
+		line-height: 15px;
+	}
+	.board .description, .sub_board .description,
+	.board .stats, .sub_board .stats {
+		color: #777777;
+		font-size: 11px;
+		line-height: 14px;
+	}
+.sub_board .category_content {
+	padding: 5px 10px 5px 40px;
+	border-top: none;
+}
+.board .forum_content {
+	padding: 5px 10px 5px 34px;
+	background: #f5f5f5 url('icons/g_24_speech_bubble.png') no-repeat 5px center;
+	text-shadow: 0 1px 0 #ffffff;
+	border: 1px solid rgba(0,0,0,.1);
+	white-space: nowrap;
+}
+.sub_board .forum_content {
+	padding: 5px 10px 5px 69px;
+	background: #f5f5f5 url('icons/g_24_speech_bubble.png') no-repeat 40px center;
+	border-top: none;
+}
+.forum_content::after {
+	content: "";
+	height: 0;
+	display: block;
+	clear: both;
+}
+.board_info {
+	width: 70%;
+	float: left;
+	overflow: hidden;
+}
+.board_post {
+	width: 30%;
+	float: right;
+	line-height: 14px;
+	font-size: 11px;
+}
+	.board_post p {
+		margin: 0;
+		padding: 3px 0;
+	}
+
+
+/* Bad 'ol stuff */
+/*p {
 	 padding: 1;
 	 margin: 0;
  }
@@ -74,8 +141,6 @@ li.BoardList {
 	float: right;
 	text-align: right;
 }
-
-/* Topic List */
 
 .TopicTable {
 	-moz-border-radius: 5px;
@@ -151,3 +216,4 @@ td.TextTopic {
 	border-spacing:0px;
 	border-color:#000;
 }
+*/

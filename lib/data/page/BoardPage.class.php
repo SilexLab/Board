@@ -13,10 +13,9 @@ class BoardPage extends Page implements PageData {
 	public function __construct() {
 		$this->Info['node'] = self::$Node;
 		$this->Info['title'] = Language::Get('com.sbb.page.forum');
-		Breadcrumb::Add(Language::Get('com.sbb.page.forum'), self::$Link);
-		// TODO: Subboards etc.
 		$this->Info['template'] = 'Board';
-		SBB::Template()->Set(array('Boards' => SBB::DB()->Table('board')->Select()->Execute()->FetchObjects()));
+		Breadcrumb::Add(Language::Get('com.sbb.page.forum'), self::$Link);
+		
 	}
 
 	public function GetInfo($Info) {

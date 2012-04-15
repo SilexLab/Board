@@ -1,3 +1,111 @@
+<ul class="board">
+	<li class="category">
+		<div class="Container">
+			<div class="category_content">
+				<a href="javascript:return;">
+					<div class="title">Kategorietitel</div>
+					<div class="description">Beschreibung der Kategorie, wenn man's unbedingt will</div>
+				</a>
+			</div>
+			<ul class="sub_board">
+				<li class="forum">
+					<div class="forum_content">
+						<a href="javascript:return;">
+							<div class="board_info">
+								<div class="title">Forentitel</div>
+								<div class="description">Beschreibung des Unterforums...</div>
+								<div class="stats">Statistiken (Themen, Beiträge)</div>
+							</div>
+						</a>
+						<div class="board_post">
+							<p>Letzter Post, Titel des Themas</p>
+							<p>Benutzername des Postserstellers</p>
+						</div>
+					</div>
+				</li>
+				<li class="category">
+					<div class="category_content">
+						<a href="javascript:return;">
+							<div class="title">Unterkategorietitel</div>
+							<div class="description">Beschreibung der Unterkategorie...</div>
+						</a>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</li>
+	<li class="forum">
+		<div class="Container">
+			<div class="forum_content">
+				<a href="javascript:return;">
+					<div class="board_info">
+						<div class="title">Forentitel</div>
+						<div class="description">Beschreibung des Forums, hier und da</div>
+						<div class="stats">Statistiken (Themen, Beiträge)</div>
+					</div>
+				</a>
+				<div class="board_post">
+					<p>Letzter Post, Titel des Themas</p>
+					<p>Benutzername des Postserstellers</p>
+				</div>
+			</div>
+			<ul class="sub_board">
+				<li class="forum">
+					<div class="forum_content">
+						<a href="javascript:return;">
+							<div class="board_info">
+								<div class="title">Forentitel</div>
+								<div class="description">Beschreibung des Unterforums...</div>
+								<div class="stats">Statistiken (Themen, Beiträge)</div>
+							</div>
+						</a>
+						<div class="board_post">
+							<p>Letzter Post, Titel des Themas</p>
+							<p>Benutzername des Postserstellers</p>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</li>
+	<li class="forum">
+		<div class="Container">
+			<div class="forum_content">
+				<a href="javascript:return;">
+					<div class="board_info">
+						<div class="title">Forentitel</div>
+						<div class="description">Beschreibung der Forums, hier und da</div>
+						<div class="stats">Statistiken (Themen, Beiträge)</div>
+					</div>
+				</a>
+				<div class="board_post">
+					<p>Letzter Post, Titel des Themas</p>
+					<p>Benutzername des Postserstellers</p>
+				</div>
+			</div>
+		</div>
+	</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{#
 <ul class="Board">
 {% for Board in Boards %}
 	{% if Board.ParentID == 0 %}
@@ -36,3 +144,4 @@
 	No Boards
 {% endfor %}
 </ul>
+#}
