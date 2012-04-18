@@ -317,7 +317,7 @@ nav.Menu {
 
 	#SearchForm {
 		float: right;
-		border: 2px solid rgba(255, 255, 255, 0);
+		border: 2px solid rgba(255, 255, 255, 0.005); /* 0.005 is nearly 0, and fixes the firefox issue */
 		width: 200px;
 		height: 24px;
 		background: rgba(0, 0, 0, 0.1);

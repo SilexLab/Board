@@ -12,9 +12,11 @@
 					<div class="forum_content">
 						<a href="javascript:return;">
 							<div class="board_info">
-								<div class="title">Forentitel</div>
-								<div class="description">Beschreibung des Unterforums...</div>
-								<div class="stats">Statistiken (Themen, Beiträge)</div>
+								<div class="board_inner">
+									<div class="title">Forentitel</div>
+									<div class="description">Beschreibung des Unterforums...</div>
+									<div class="stats">Statistiken (Themen, Beiträge)</div>
+								</div>
 							</div>
 						</a>
 						<div class="board_post">
@@ -39,9 +41,11 @@
 			<div class="forum_content">
 				<a href="javascript:return;">
 					<div class="board_info">
-						<div class="title">Forentitel</div>
-						<div class="description">Beschreibung des Forums, hier und da</div>
-						<div class="stats">Statistiken (Themen, Beiträge)</div>
+						<div class="board_inner">
+							<div class="title">Forentitel</div>
+							<div class="description">Beschreibung des Forums, hier und da</div>
+							<div class="stats">Statistiken (Themen, Beiträge)</div>
+						</div>
 					</div>
 				</a>
 				<div class="board_post">
@@ -54,9 +58,11 @@
 					<div class="forum_content">
 						<a href="javascript:return;">
 							<div class="board_info">
-								<div class="title">Forentitel</div>
-								<div class="description">Beschreibung des Unterforums...</div>
-								<div class="stats">Statistiken (Themen, Beiträge)</div>
+								<div class="board_inner">
+									<div class="title">Forentitel</div>
+									<div class="description">Beschreibung des Unterforums...</div>
+									<div class="stats">Statistiken (Themen, Beiträge)</div>
+								</div>
 							</div>
 						</a>
 						<div class="board_post">
@@ -73,9 +79,11 @@
 			<div class="forum_content">
 				<a href="javascript:return;">
 					<div class="board_info">
-						<div class="title">Forentitel</div>
-						<div class="description">Beschreibung der Forums, hier und da</div>
-						<div class="stats">Statistiken (Themen, Beiträge)</div>
+						<div class="board_inner">
+							<div class="title">Forentitel</div>
+							<div class="description">Beschreibung der Forums, hier und da</div>
+							<div class="stats">Statistiken (Themen, Beiträge)</div>
+						</div>
 					</div>
 				</a>
 				<div class="board_post">
