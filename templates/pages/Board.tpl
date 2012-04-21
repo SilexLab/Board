@@ -2,7 +2,7 @@
 	<li class="category">
 		<div class="Container">
 			<div class="category_content">
-				<a href="javascript:return;">
+				<a href="javascript:void(0);">
 					<div class="title">Kategorietitel</div>
 					<div class="description">Beschreibung der Kategorie, wenn man's unbedingt will</div>
 				</a>
@@ -10,15 +10,15 @@
 			<ul class="sub_board">
 				<li class="forum">
 					<div class="forum_content">
-						<a href="javascript:return;">
-							<div class="board_info">
+						<div class="board_info">
+							<a href="javascript:void(0);">
 								<div class="board_inner">
 									<div class="title">Forentitel</div>
 									<div class="description">Beschreibung des Unterforums...</div>
 									<div class="stats">Statistiken (Themen, Beiträge)</div>
 								</div>
-							</div>
-						</a>
+							</a>
+						</div>
 						<div class="board_post">
 							<p>Letzter Post, Titel des Themas</p>
 							<p>Benutzername des Postserstellers</p>
@@ -39,15 +39,15 @@
 	<li class="forum">
 		<div class="Container">
 			<div class="forum_content">
-				<a href="javascript:return;">
-					<div class="board_info">
+				<div class="board_info">
+					<a href="javascript:void(0);">
 						<div class="board_inner">
 							<div class="title">Forentitel</div>
 							<div class="description">Beschreibung des Forums, hier und da</div>
 							<div class="stats">Statistiken (Themen, Beiträge)</div>
 						</div>
-					</div>
-				</a>
+					</a>
+				</div>
 				<div class="board_post">
 					<p>Letzter Post, Titel des Themas</p>
 					<p>Benutzername des Postserstellers</p>
@@ -56,19 +56,29 @@
 			<ul class="sub_board">
 				<li class="forum">
 					<div class="forum_content">
-						<a href="javascript:return;">
-							<div class="board_info">
+						<div class="board_info">
+							<a href="javascript:void(0);">
 								<div class="board_inner">
 									<div class="title">Forentitel</div>
 									<div class="description">Beschreibung des Unterforums...</div>
 									<div class="stats">Statistiken (Themen, Beiträge)</div>
 								</div>
-							</div>
-						</a>
+							</a>
+						</div>
 						<div class="board_post">
 							<p>Letzter Post, Titel des Themas</p>
 							<p>Benutzername des Postserstellers</p>
 						</div>
+					</div>
+				</li>
+				<li class="link">
+					<div class="link_content">
+						<a href="javascript:void(0);">
+							<div class="link_inner">
+								<div class="title">Linktitel</div>
+								<div class="description">Beschreibung des Links...</div>
+							</div>
+						</a>
 					</div>
 				</li>
 			</ul>
@@ -77,19 +87,31 @@
 	<li class="forum">
 		<div class="Container">
 			<div class="forum_content">
-				<a href="javascript:return;">
-					<div class="board_info">
+				<div class="board_info">
+					<a href="javascript:void(0);">
 						<div class="board_inner">
 							<div class="title">Forentitel</div>
 							<div class="description">Beschreibung der Forums, hier und da</div>
 							<div class="stats">Statistiken (Themen, Beiträge)</div>
 						</div>
-					</div>
-				</a>
+					</a>
+				</div>
 				<div class="board_post">
 					<p>Letzter Post, Titel des Themas</p>
 					<p>Benutzername des Postserstellers</p>
 				</div>
+			</div>
+		</div>
+	</li>
+	<li class="link">
+		<div class="Container">
+			<div class="link_content">
+				<a href="javascript:void(0);">
+					<div class="link_inner">
+						<div class="title">Linktitel</div>
+						<div class="description">Beschreibung des Links...</div>
+					</div>
+				</a>
 			</div>
 		</div>
 	</li>

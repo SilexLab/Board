@@ -27,10 +27,10 @@ ul.board li, ul.sub_board li {
 		font-size: 11px;
 		line-height: 14px;
 	}
-.sub_board .category_content {
-	padding: 5px 10px 5px 40px;
-	border-top: none;
-}
+	.sub_board .category_content {
+		padding: 5px 10px 5px 40px;
+		border-top: none;
+	}
 .board .forum_content {
 	padding: 5px 10px;
 	background: #f5f5f5;
@@ -42,13 +42,28 @@ ul.board li, ul.sub_board li {
 		padding-left: 30px;
 		background: url('icons/g_24_speech_bubble.png') no-repeat left center;
 	}
-.sub_board .forum_content {
+	.sub_board .forum_content {
+		padding: 5px 10px;
+		border-top: none;
+	}
+		.sub_board .board_info > a {
+			display: block;
+			margin-left: 30px;
+		}
+.board .link_content {
+	background: #e4e8ed;
+	text-shadow: 0 1px 0 #ffffff;
 	padding: 5px 10px;
-	border-top: none;
+	border: 1px solid rgba(0,0,0,.1);
+	white-space: nowrap;
 }
-	.sub_board .board_inner {
-		padding-left: 60px;
-		background: url('icons/g_24_speech_bubble.png') no-repeat 30px center;
+	.board .link_inner {
+		padding-left: 30px;
+		background: url('icons/g_24_link.png') no-repeat left center;
+	}
+	.sub_board .link_content {
+		padding: 5px 10px 5px 40px;
+		border-top: none;
 	}
 .forum_content::after {
 	content: "";
