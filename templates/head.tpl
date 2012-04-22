@@ -1,6 +1,6 @@
 <head>
 	<meta charset="utf-8">
-	<title>{{ Page.title }}</title>
+	<title>{{ Page.title }} - {{ PageTitle }}</title>
 	<link rel="shortcut icon" href="favicon.ico">
 {% autoescape true %}
 	{% for File in Style.Files.CSS %}

@@ -29,27 +29,8 @@ class SBB {
 		PostListener::Check();
 		self::$Menu = Menu::GetInstance();
 		
-		// Template assignment
-		self::Template()->Set(array('Style' => self::Style()->Info()));
-		self::Template()->Set(array('Dir' => array( // TODO: Move this to a method somewhere else (maybe)
-			'Style' => DIR_STYLE,
-			'JS' => DIR_JS
-		)));
-		self::Template()->Set(array('Time' => array(
-			'Date' => date('d.m.Y'), // TODO: Get date format from user / config
-			'Time' => date('H:i'),
-			'YPercent' => round(100 * Time::YearProcess(), 2),
-			'DPercent' => round(100 * Time::DayProcess(), 2)
-		)));
-		self::Template()->Set(array('Version' => array(
-			'Version' => SBB_VERSION.'-'.date('Ymd', CommitInfo::Get()),
-			'SHA' => CommitInfo::Get('SHA')
-		)));
-		self::Template()->Set(Language::Get(), true);
-		Breadcrumb::Assign();
-		Page::Assign();
-		Notification::Assign();
-		
+		self::AssignDefault();
+
 		// Display the template
 		self::Template()->Display('case.tpl');
 	}
@@ -121,6 +102,34 @@ class SBB {
 			exit;
 		}
 		echo $e;
+	}
+
+	/**
+	 * Assign default stuff to template
+	 */
+	private static function AssignDefault() {
+		self::Template()->Set(array(
+			'Style' => self::Style()->Info(),
+			'PageTitle' => self::Config('config.page.title'),
+			'Dir' => array(
+				'Style' => DIR_STYLE,
+				'JS' => DIR_JS
+			),
+			'Time' => array(
+				'Date' => date('d.m.Y'), // TODO: Get date format from user / config
+				'Time' => date('H:i'),
+				'YPercent' => round(100 * Time::YearProcess(), 2),
+				'DPercent' => round(100 * Time::DayProcess(), 2)
+			),
+			'Version' => array(
+				'Version' => SBB_VERSION.'-'.date('Ymd', CommitInfo::Get()),
+				'SHA' => CommitInfo::Get('SHA')
+			)
+		));
+		self::Template()->Set(Language::Get(), true);
+		Breadcrumb::Assign();
+		Page::Assign();
+		Notification::Assign();
 	}
 }
 ?>
