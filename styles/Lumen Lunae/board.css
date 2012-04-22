@@ -59,6 +59,7 @@ ul.board li, ul.sub_board li {
 }
 	.board .link_inner {
 		padding-left: 30px;
+		min-height: 24px;
 		background: url('icons/g_24_link.png') no-repeat left center;
 	}
 	.sub_board .link_content {

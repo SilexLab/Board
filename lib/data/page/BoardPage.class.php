@@ -16,6 +16,17 @@ class BoardPage extends Page implements PageData {
 		$this->Info['template'] = 'Board';
 		Breadcrumb::Add(Language::Get('com.sbb.page.forum'), self::$Link);
 		
+		$BoardID = isset($_GET['BoardID']) ? (int)$_GET['BoardID'] : 0;
+
+		// Breadcrumbs
+		if($BoardID > 0) {
+			// Find Breadcrumbs
+			$Crumbs = $this->GetBreadcrumbs($BoardID);
+			foreach($Crumbs as $Crumb) {
+				Breadcrumb::Add($Crumb['Title'], $Crumb['Link']);
+			}
+		}
+		SBB::Template()->Set(array('Board' => $this->GetBoardList($BoardID)));
 	}
 
 	public function GetInfo($Info) {
@@ -32,6 +43,41 @@ class BoardPage extends Page implements PageData {
 
 	public static function Node() {
 		return self::$Node;
+	}
+
+	protected function GetBoardList($BoardID, $Depth = 0) {
+		$Board = SBB::DB()->Table('board')->
+			Select(array('ID', 'ParentID', 'Type', 'Title', 'Description', 'Link', 'Views', 'Threads', 'Posts', 'Invisible'))->
+			Where('`ParentID` = '.$BoardID)->OrderBy('Position')->Execute()->FetchObjects();
+
+		$Depth++;
+		$BoardList = array();
+		foreach($Board as $Entry) {
+			$BoardList[] = array(
+				'Type'         => $Entry->Type,
+				'Title'        => htmlspecialchars($Entry->Title),
+				'Description'  => htmlspecialchars($Entry->Description),
+				'Link'         => $Entry->Type == 2 ? htmlspecialchars($Entry->Link) : '?page=Board&BoardID='.$Entry->ID,
+				'Stats'        => $Entry->Type == 2 ? ('Views: '.$Entry->Views) : ('Threads: '.$Entry->Threads.', Posts: '.$Entry->Posts.', Views: '.$Entry->Views),
+				'LastPost'     => 0,
+				'LastPostUser' => 'None',
+				'SubBoard'     => $Depth < 2 ? $this->GetBoardList($Entry->ID, $Depth) : false
+			);
+		}
+		return $BoardList;
+	}
+
+	protected function GetBreadcrumbs($BoardID) {
+		$Board = SBB::DB()->Table('board')->
+			Select(array('ID', 'ParentID', 'Title', 'Type', 'Link'))->
+			Where('`ID` = '.$BoardID)->Execute()->FetchObject();
+
+		$Crumbs = array();
+		if($Board->ParentID != 0)
+			$Crumbs = $this->GetBreadcrumbs($Board->ParentID);
+		$Crumbs[] = array('Title' => $Board->Title, 'Link' => $Board->Type == 2 ? htmlspecialchars($Board->Link) : '?page=Board&BoardID='.$Board->ID);
+		$this->Info['title'] = $Board->Title;
+		return $Crumbs;
 	}
 }
 ?>

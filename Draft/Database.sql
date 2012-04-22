@@ -23,7 +23,7 @@ DROP TABLE IF EXISTS `board`;
 CREATE TABLE IF NOT EXISTS `board` (
   `ID` mediumint(9) NOT NULL AUTO_INCREMENT,
   `ParentID` mediumint(9) NOT NULL,
-  `Type` tinyint(4) NOT NULL,
+  `Type` tinyint(1) NOT NULL,
   `Title` varchar(64) NOT NULL,
   `Description` text NOT NULL,
   `Link` text NOT NULL,
@@ -40,11 +40,16 @@ CREATE TABLE IF NOT EXISTS `board` (
   `Invisible` tinyint(1) NOT NULL DEFAULT '0',
   `News` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
 
 INSERT INTO `board` (`ID`, `ParentID`, `Type`, `Title`, `Description`, `Link`, `Position`, `Image`, `ImageNew`, `Prefixes`, `PrefixesRequired`, `Views`, `Threads`, `Posts`, `MarkingAsDone`, `Closed`, `Invisible`, `News`) VALUES
-(1, 0, 0, 'Hauptforum', '123', '', 0, '', '', '', 0, 0, 0, 0, 0, 0, 0, 0),
-(2, 1, 1, 'UnterForum', 'aaaa', '', 0, '', '', '', 0, 0, 0, 0, 0, 0, 0, 0);
+(1, 0, 0, 'Kategorie', '', '', 1, '', '', '', 0, 0, 0, 0, 0, 0, 0, 0),
+(2, 1, 1, 'Unterforum', 'Beschreibung', '', 1, '', '', '', 0, 0, 0, 0, 0, 0, 0, 0),
+(3, 0, 1, 'Oberforum', 'Beschreibung des Oberforums', '', 2, '', '', '', 0, 1, 2, 3, 0, 0, 0, 0),
+(4, 3, 2, 'Silex Bulletin Board', 'Beste Forensoftware überhaupt', 'http://www.silexboard.org/', 3, '', '', '', 0, 0, 0, 0, 0, 0, 0, 0),
+(5, 0, 2, 'Demo', 'Silex Bulletin Board Demo', 'http://demo.silexboard.org/', 4, '', '', '', 0, 0, 0, 0, 0, 0, 0, 0),
+(6, 0, 1, '<script type="text/javascript">alert("xss");</script>', '<b>Beschreibung</b>', '', 5, '', '', '', 0, 0, 0, 0, 0, 0, 0, 0),
+(7, 1, 1, 'Noch eins', 'Ein weiteres Unterforum', '', 2, '', '', '', 0, 3, 5, 6, 0, 0, 0, 0);
 
 DROP TABLE IF EXISTS `board_last_post`;
 CREATE TABLE IF NOT EXISTS `board_last_post` (
@@ -325,12 +330,14 @@ CREATE TABLE IF NOT EXISTS `users` (
   `Language` varchar(4) NOT NULL,
   `LastActivity` int(11) NOT NULL,
   `Birthday` int(11) NOT NULL,
+  `Posts` int(8) NOT NULL,
+  `Threads` int(8) NOT NULL,
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
-INSERT INTO `users` (`ID`, `Username`, `Password`, `Salt`, `GroupID`, `Email`, `ActivationKey`, `Joined`, `OnlineTime`, `Banned`, `Homepage`, `Signature`, `Language`, `LastActivity`, `Birthday`) VALUES
-(1, 'admin', 'cf8dbc7a1eaadcf0a63bafbaec4cc2bc0ee1c390', 'aecca3db58bff495a3429d714d766c9d8770754d', 0, 'admin@silexboard.org', 'e1e2f6c8795a79e', 1317503300, 0, 0, '', 'Des Admins Signatur steht hier.', '', 0, 0),
-(2, 'user', '9cdb86abb28e5eebedeb14838dc074418a0d8f14', '630dd14c99e0c6efb1a344c0a73a28b0d99fbb81', 0, 'user@silexboard.org', 'fc973531e7e287b', 1317503334, 0, 0, '', '', '', 0, 0);
+INSERT INTO `users` (`ID`, `Username`, `Password`, `Salt`, `GroupID`, `Email`, `ActivationKey`, `Joined`, `OnlineTime`, `Banned`, `Homepage`, `Signature`, `Language`, `LastActivity`, `Birthday`, `Posts`, `Threads`) VALUES
+(1, 'admin', 'cf8dbc7a1eaadcf0a63bafbaec4cc2bc0ee1c390', 'aecca3db58bff495a3429d714d766c9d8770754d', 0, 'admin@silexboard.org', 'e1e2f6c8795a79e', 1317503300, 0, 0, '', 'Des Admins Signatur steht hier.', '', 0, 0, 0, 0),
+(2, 'user', '9cdb86abb28e5eebedeb14838dc074418a0d8f14', '630dd14c99e0c6efb1a344c0a73a28b0d99fbb81', 0, 'user@silexboard.org', 'fc973531e7e287b', 1317503334, 0, 0, '', '', '', 0, 0, 0, 0);
 
 DROP TABLE IF EXISTS `user_permissions`;
 CREATE TABLE IF NOT EXISTS `user_permissions` (
