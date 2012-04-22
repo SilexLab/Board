@@ -40,7 +40,7 @@ CREATE TABLE IF NOT EXISTS `board` (
   `Invisible` tinyint(1) NOT NULL DEFAULT '0',
   `News` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
 
 INSERT INTO `board` (`ID`, `ParentID`, `Type`, `Title`, `Description`, `Link`, `Position`, `Image`, `ImageNew`, `Prefixes`, `PrefixesRequired`, `Views`, `Threads`, `Posts`, `MarkingAsDone`, `Closed`, `Invisible`, `News`) VALUES
 (1, 0, 0, 'Kategorie', '', '', 1, '', '', '', 0, 0, 0, 0, 0, 0, 0, 0),
@@ -49,7 +49,8 @@ INSERT INTO `board` (`ID`, `ParentID`, `Type`, `Title`, `Description`, `Link`, `
 (4, 3, 2, 'Silex Bulletin Board', 'Beste Forensoftware überhaupt', 'http://www.silexboard.org/', 3, '', '', '', 0, 0, 0, 0, 0, 0, 0, 0),
 (5, 0, 2, 'Demo', 'Silex Bulletin Board Demo', 'http://demo.silexboard.org/', 4, '', '', '', 0, 0, 0, 0, 0, 0, 0, 0),
 (6, 0, 1, '<script type="text/javascript">alert("xss");</script>', '<b>Beschreibung</b>', '', 5, '', '', '', 0, 0, 0, 0, 0, 0, 0, 0),
-(7, 1, 1, 'Noch eins', 'Ein weiteres Unterforum', '', 2, '', '', '', 0, 3, 5, 6, 0, 0, 0, 0);
+(7, 1, 1, 'Noch eins', 'Ein weiteres Unterforum', '', 2, '', '', '', 0, 3, 5, 6, 0, 0, 0, 0),
+(8, 2, 1, 'Unterunterforum', 'Ein Forum in einem Unterforum', '', 1, '', '', '', 0, 5, 4, 3, 0, 0, 0, 0);
 
 DROP TABLE IF EXISTS `board_last_post`;
 CREATE TABLE IF NOT EXISTS `board_last_post` (

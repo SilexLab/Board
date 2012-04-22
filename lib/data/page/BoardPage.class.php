@@ -75,8 +75,8 @@ class BoardPage extends Page implements PageData {
 		$Crumbs = array();
 		if($Board->ParentID != 0)
 			$Crumbs = $this->GetBreadcrumbs($Board->ParentID);
-		$Crumbs[] = array('Title' => $Board->Title, 'Link' => $Board->Type == 2 ? htmlspecialchars($Board->Link) : '?page=Board&BoardID='.$Board->ID);
-		$this->Info['title'] = $Board->Title;
+		$Crumbs[] = array('Title' => htmlspecialchars($Board->Title), 'Link' => $Board->Type == 2 ? htmlspecialchars($Board->Link) : '?page=Board&BoardID='.$Board->ID);
+		$this->Info['title'] = htmlspecialchars($Board->Title);
 		return $Crumbs;
 	}
 }
