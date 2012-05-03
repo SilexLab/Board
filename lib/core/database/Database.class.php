@@ -5,6 +5,7 @@
  * @license    GPL version 3 or higher <http://www.gnu.org/licenses/gpl-3.0.html>
  */
 
+require_once('DatabaseResult.interface.php');
 abstract class Database {
 	/**
 	 * Returns a new wrapped database
@@ -22,6 +23,7 @@ abstract class Database {
 		return false;
 	}
 	
+	
 	// Connection - Disconnection
 	abstract public function __construct($Host, $User, $Password, $Database, $Port = NULL, $Socket = NULL);
 	abstract public function __destruct();
@@ -33,7 +35,7 @@ abstract class Database {
 	abstract public function Update(array $Updates);
 	abstract public function Delete();
 	abstract public function Where($Where);
-	abstract public function OrderBy($Column, $ASC = true);
+	abstract public function Order($Column, $ASC = true);
 	abstract public function Limit($Limit);
 	// Extended Database Commands
 	abstract public function Replace(array $Replaces);
@@ -43,17 +45,10 @@ abstract class Database {
 	abstract public function Query($Query);
 	
 	// Execute the Command-tree
-	abstract public function Execute($GetResult = false);
+	abstract public function Execute();
 	
 	// MySQL functions
 	abstract public function EscapeString($String);
-	
-	// Methods to get the result of a Select-tree
-	abstract public function FetchArray();
-	abstract public function FetchArrays();
-	abstract public function FetchObject();
-	abstract public function FetchObjects();
-	abstract public function NumRows();
 	
 	// Shortcuts (Experimental usage)
 	public function T($Table)         { return $this->Table($Table); }
@@ -62,12 +57,12 @@ abstract class Database {
 	public function U(array $Updates) { return $this->Update($Updates); }
 	public function D()               { return $this->Delete(); }
 	public function W($Where)         { return $this->Where($Where); }
-	public function O($Column, $ASC = true) { return $this->OrderBy($Column, $ASC); }
+	public function O($Column, $ASC = true) { return $this->Order($Column, $ASC); }
 	public function L($Limit)         { return $this->Limit($Limit); }
 	public function R(array $Replaces) { return $this->Replace($Replaces); }
 	public function E()               { return $this->Exists(); }
 	public function Q($Query)         { return $this->Query($Query); }
-	public function Exec($GR = false) { return $this->Execute($GR); }
+	public function Exec()            { return $this->Execute(); }
 	public function EscStr($String)   { return $this->RealEscapeString($String); }
 }
 ?>

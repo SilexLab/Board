@@ -48,7 +48,7 @@ class BoardPage extends Page implements PageData {
 	protected function GetBoardList($BoardID, $Depth = 0) {
 		$Board = SBB::DB()->Table('board')->
 			Select(array('ID', 'ParentID', 'Type', 'Title', 'Description', 'Link', 'Views', 'Threads', 'Posts', 'Invisible'))->
-			Where('`ParentID` = '.$BoardID)->OrderBy('Position')->Execute()->FetchObjects();
+			Where('`ParentID` = '.$BoardID)->Order('Position')->Execute()->FetchObjects();
 
 		$Depth++;
 		$BoardList = array();
