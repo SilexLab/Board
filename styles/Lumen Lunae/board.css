@@ -16,6 +16,9 @@ ul.board li, ul.sub_board li {
 	border: 1px solid rgba(0,0,0,.1);
 	white-space: nowrap;
 }
+	.board .category_content:hover {
+		background: #dfeaf3;
+	}
 	.board .title, .sub_board .title {
 		color: #343434;
 		font-size: 13px;
@@ -38,6 +41,9 @@ ul.board li, ul.sub_board li {
 	border: 1px solid rgba(0,0,0,.1);
 	white-space: nowrap;
 }
+	.board .forum_content:hover {
+		background: #e5f3ff;
+	}
 	.board .board_inner {
 		padding-left: 30px;
 		background: url('icons/g_24_speech_bubble.png') no-repeat left center;
@@ -57,6 +63,9 @@ ul.board li, ul.sub_board li {
 	border: 1px solid rgba(0,0,0,.1);
 	white-space: nowrap;
 }
+	.board .link_content:hover {
+		background: #dee3ea;
+	}
 	.board .link_inner {
 		padding-left: 30px;
 		min-height: 24px;
