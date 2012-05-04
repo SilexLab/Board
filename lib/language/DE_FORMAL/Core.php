@@ -10,17 +10,17 @@ self::Load('DE', 'Core.php');
 
 /* Langfile:	German (Formal) */
 self::$Items = array_merge(self::$Items, array(
-'com.sbb.language.info'    => 'Deutsch (Formell)',
+'sbb.language.info'    => 'Deutsch (Formell)',
 
-'com.sbb.language.changed' => 'Ihre Sprache wurde nach '.' geändert',
+'sbb.language.changed' => 'Ihre Sprache wurde nach '.' geändert',
 
-'com.sbb.register.success'            => 'Sie haben sich erfolgreich registriert!',
+'sbb.register.success'            => 'Sie haben sich erfolgreich registriert!',
 
-'com.sbb.login.success'           => 'Sie haben sich erfolgreich angemeldet!',
+'sbb.login.success'           => 'Sie haben sich erfolgreich angemeldet!',
 
-'com.sbb.logout.logged_out'    => 'Sie wurden erfolgreich ausgeloggt.',
-'com.sbb.logout.not_logged_in' => 'Sie können sich nicht ausloggen.',
+'sbb.logout.logged_out'    => 'Sie wurden erfolgreich ausgeloggt.',
+'sbb.logout.not_logged_in' => 'Sie können sich nicht ausloggen.',
 
-'com.sbb.email.activation.title' => 'Sie müssen diesen Link klicken um Ihre Registrierung abzuschließen: '
+'sbb.email.activation.title' => 'Sie müssen diesen Link klicken um Ihre Registrierung abzuschließen: '
 ));
 ?>

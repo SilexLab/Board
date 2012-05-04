@@ -12,8 +12,8 @@ class RegisterPage extends Page implements PageData {
 
 	public function __construct() {
 		$this->Info['node'] = self::$Node;
-		$this->Info['title'] = Language::Get('com.sbb.page.register');
-		Breadcrumb::Add(Language::Get('com.sbb.page.register'), self::$Link);
+		$this->Info['title'] = Language::Get('sbb.page.register');
+		Breadcrumb::Add(Language::Get('sbb.page.register'), self::$Link);
 		$this->Info['template'] = 'Register';
 	}
 

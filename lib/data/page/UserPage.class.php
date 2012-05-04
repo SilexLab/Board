@@ -15,17 +15,17 @@ class UserPage extends Page implements PageData {
 			header('location: '.UserListPage::Link());
 
 		$this->Info['node'] = UserListPage::Node();
-		$this->Info['title'] = Language::Get('com.sbb.page.user');
+		$this->Info['title'] = Language::Get('sbb.page.user');
 		$UserID = (int)$_GET['UserID'];
 		if($UserID < 1 || !SBB::DB()->Table('users')->Exists()->Where('`ID` = '.$UserID)->Execute()) {
-			Notification::Show(Language::Get('com.sbb.user.no_user'), Notification::ERROR);
+			Notification::Show(Language::Get('sbb.user.no_user'), Notification::ERROR);
 			$this->Info['template'] = 'Error';
 			return;
 		}
 		$User = SBB::DB()->Table('users')->Select()->Where('`ID` = '.$UserID)->Execute()->FetchObject();
 		$this->Info['template'] = 'User';
-		$this->Info['title'] = Language::Get('com.sbb.user.user').': '.$User->Username;
-		Breadcrumb::Add(Language::Get('com.sbb.page.userlist'), UserListPage::Link());
+		$this->Info['title'] = Language::Get('sbb.user.user').': '.$User->Username;
+		Breadcrumb::Add(Language::Get('sbb.page.userlist'), UserListPage::Link());
 		Breadcrumb::Add($User->Username, self::$Link.'&UserID='.$UserID);
 
 		// Template..
@@ -38,7 +38,7 @@ class UserPage extends Page implements PageData {
 				date('d. ', $User->Joined).Language::Get(Time::Month(date('n', $User->Joined))).
 				date(' Y, H:i', $User->Joined),
 			'Activity'  => date('d.m.Y, H:i', $User->LastActivity), // TODO: Alternative formats, like "Today, 11:23" or "Yesterday, 13:37",
-			'Language'  => $User->Language ? $User->Language : Language::Get('com.sbb.language.info'), // TODO: Read the real language
+			'Language'  => $User->Language ? $User->Language : Language::Get('sbb.language.info'), // TODO: Read the real language
 			'Birthday'  => date('d.m.Y', $User->Birthday),
 			'Age'       => date('md', date('U', $User->Birthday)) > date('md') ? // TODO: Find a better age calculation
 				(date('Y') - date('Y', $User->Birthday)-1) :

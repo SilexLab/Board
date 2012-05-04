@@ -171,9 +171,9 @@ CREATE TABLE IF NOT EXISTS `menu` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
 INSERT INTO `menu` (`ID`, `MenuName`, `Target`, `Position`, `Permission`) VALUES
-(1, 'com.sbb.page.home', 'page.home', 1, ''),
-(2, 'com.sbb.page.forum', 'page.forum', 2, ''),
-(3, 'com.sbb.page.userlist', 'page.userlist', 3, '');
+(1, 'sbb.page.home', 'page.home', 1, ''),
+(2, 'sbb.page.forum', 'page.forum', 2, ''),
+(3, 'sbb.page.userlist', 'page.userlist', 3, '');
 
 DROP TABLE IF EXISTS `permissions`;
 CREATE TABLE IF NOT EXISTS `permissions` (

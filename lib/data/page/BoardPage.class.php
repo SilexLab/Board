@@ -12,9 +12,9 @@ class BoardPage extends Page implements PageData {
 
 	public function __construct() {
 		$this->Info['node'] = self::$Node;
-		$this->Info['title'] = Language::Get('com.sbb.page.forum');
+		$this->Info['title'] = Language::Get('sbb.page.forum');
 		$this->Info['template'] = 'Board';
-		Breadcrumb::Add(Language::Get('com.sbb.page.forum'), self::$Link);
+		Breadcrumb::Add(Language::Get('sbb.page.forum'), self::$Link);
 		
 		$BoardID = isset($_GET['BoardID']) ? (int)$_GET['BoardID'] : 0;
 

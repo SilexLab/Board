@@ -6,22 +6,22 @@
 					<div class="Wrap">
 						<div class="LoginUserInfo">
 							<ul>
-								<li><input type="text" name="Username" id="Username" placeholder="{{ lang=com.sbb.login.username }}" required></li>
-								<li><input type="password" name="Password" id="Password" placeholder="{{ lang=com.sbb.login.password }}" required></li>
+								<li><input type="text" name="Username" id="Username" placeholder="{{ lang=sbb.login.username }}" required></li>
+								<li><input type="password" name="Password" id="Password" placeholder="{{ lang=sbb.login.password }}" required></li>
 								<li class="Clear"></li>
 							</ul>
 						</div>
 						<div class="LoginMethod">
 							<ul>
-								<li><input type="radio" value="1" name="Register" id="RegisterMe"><label for="RegisterMe" class="Check"></label><label for="RegisterMe" class="Text">{{ lang=com.sbb.register.register }}</label></li>
-								<li><input type="radio" value="0" name="Register" id="LogMeIn" checked><label for="LogMeIn" class="Check"></label><label for="LogMeIn" class="Text">{{ lang=com.sbb.login.login }}</label></li>
+								<li><input type="radio" value="1" name="Register" id="RegisterMe"><label for="RegisterMe" class="Check"></label><label for="RegisterMe" class="Text">{{ lang=sbb.register.register }}</label></li>
+								<li><input type="radio" value="0" name="Register" id="LogMeIn" checked><label for="LogMeIn" class="Check"></label><label for="LogMeIn" class="Text">{{ lang=sbb.login.login }}</label></li>
 								<li class="Clear"></li>
 							</ul>
 						</div>
 						<div class="LoginSubmit">
 							<ul>
-								<li><input type="submit" name="Login" id="Login" value="{{ lang=com.sbb.form.submit }}"></li>
-								<li><input type="checkbox" name="StayLoggedIn" id="StayLoggedIn"><label for="StayLoggedIn" class="Check"></label><label for="StayLoggedIn" class="Text">{{ lang=com.sbb.login.stay }}</label></li>
+								<li><input type="submit" name="Login" id="Login" value="{{ lang=sbb.form.submit }}"></li>
+								<li><input type="checkbox" name="StayLoggedIn" id="StayLoggedIn"><label for="StayLoggedIn" class="Check"></label><label for="StayLoggedIn" class="Text">{{ lang=sbb.login.stay }}</label></li>
 								<li class="Clear"></li>
 							</ul>
 						</div>
@@ -31,7 +31,7 @@
 			</div>
 			<div id="LoginBarHandle">
 				<div id="LoginBarToogle">
-					<div id="LoginBarInner">{{ lang=com.sbb.login.bar_handle }}</div>
+					<div id="LoginBarInner">{{ lang=sbb.login.bar_handle }}</div>
 				</div>
 			</div>
 		{% else %}
@@ -39,7 +39,7 @@
 				<ul>
 					<li id="Username"><a href="?page=User&amp;userID={{ User.ID }}">{{ User.Username }}</a></li>
 					<li id="Settings"><a href="javascript:false;">Settings</a></li>
-					<li id="Logout"><a href="?page=Logout">{{ lang=com.sbb.logout.logout }}</a></li>
+					<li id="Logout"><a href="?page=Logout">{{ lang=sbb.logout.logout }}</a></li>
 				</ul>
 			</div>
 		{% endif %}

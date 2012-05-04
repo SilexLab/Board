@@ -25,7 +25,7 @@ class User {
 				$this->LoggedIn = true;
 			}
 		} else { // Not logged in
-			$this->Name = Language::Get('com.sbb.user.guest');
+			$this->Name = Language::Get('sbb.user.guest');
 			$this->ID = 0;
 			$this->LoggedIn = false;
 		}
@@ -91,13 +91,13 @@ class User {
 		if(SBB::DB()->Table('users')->Exists()->Where('`Username` = \''.$Username.'\'')->Execute()) {
 			$Row = SBB::DB()->Table('users')->Select('`ID`, `Password`, `Salt`')->Where('`Username` = \''.$Username.'\'')->Limit(1)->Execute()->FetchArray();
 			if(Secure::EncryptPassword($Password, $Row['Salt']) == $Row['Password']) {
-				Notification::Show(Language::Get('com.sbb.login.success'), Notification::SUCCESS);
+				Notification::Show(Language::Get('sbb.login.success'), Notification::SUCCESS);
 				Session::Set('UserID', $Row['ID']);
 			} else {
-				Session::Set('LoginError', Language::Get('com.sbb.login.failed'));
+				Session::Set('LoginError', Language::Get('sbb.login.failed'));
 			}
 		} else {
-			Session::Set('LoginError', Language::Get('com.sbb.login.failed'));
+			Session::Set('LoginError', Language::Get('sbb.login.failed'));
 			#header('location: ?page=Login'); // BUG: Sessionvalue is NULL?
 		}
 	}

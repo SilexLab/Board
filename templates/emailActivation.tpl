@@ -1,8 +1,8 @@
 <html>
 <head>
-	<title>{lang=com.sbb.email.activation.title}</title>
+	<title>{lang=sbb.email.activation.title}</title>
 </head>
 <body>
-	<p>{lang=com.sbb.email.activation.body}{$ActivationURL}</p>
+	<p>{lang=sbb.email.activation.body}{$ActivationURL}</p>
 </body>
 </html>

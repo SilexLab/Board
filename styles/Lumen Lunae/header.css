@@ -59,6 +59,7 @@ section.UserBar {
 		cursor: pointer;
 		border-radius: 0 0 6px 6px;
 		box-shadow: 0 3px 20px #111111;
+		margin: 0 10px;
 	}
 		#LoginBarHandle #LoginBarToogle:active {
 			box-shadow: 0 1px 10px #111111;
@@ -323,7 +324,7 @@ nav.Menu {
 		height: 24px;
 		background: rgba(0, 0, 0, 0.1);
 		overflow: hidden;
-		margin: 4px 0;
+		margin: 4px 10px 4px 0;
 		border-radius: 5px;
 	}
 		#SearchForm input[type=search] {

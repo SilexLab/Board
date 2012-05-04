@@ -2,14 +2,14 @@
 	<header class="MinSize">
 		<div class="LogoBlock">
 			<div class="Logo Size">
-				<a href="./" title="{{ lang=com.sbb.header.logo_title }}">
+				<a href="./" title="{{ lang=sbb.header.logo_title }}">
 					<img src="{{ Dir.Style }}{{ Style.Dir }}/images/logo.png" alt="Logo">
 				</a>
 				<div class="Slogan">
 				{% if Slogan %}
 					{{ Slogan }}
 				{% else %}
-					{{ lang=com.sbb.header.slogan }}
+					{{ lang=sbb.header.slogan }}
 				{% endif %}
 				</div>
 			</div>
@@ -30,7 +30,7 @@
 				</ul>
 				<div id="SearchForm">
 					<form method="get" accept-charset="utf-8">
-						<input title="{{ lang=com.sbb.header.search.title }}" type="search" value="" placeholder="{{ lang=com.sbb.header.search.placeholder }}" name="search" id="Search" pattern=".+" required><input type="submit" id="SearchSubmit" value="">
+						<input title="{{ lang=sbb.header.search.title }}" type="search" value="" placeholder="{{ lang=sbb.header.search.placeholder }}" name="search" id="Search" pattern=".+" required><input type="submit" id="SearchSubmit" value="">
 					</form>
 				</div>
 			</div>

@@ -12,9 +12,9 @@ class ErrorPage extends Page implements PageData {
 
 	public function __construct() {
 		$this->Info['node'] = self::$Node;
-		$this->Info['title'] = Language::Get('com.sbb.page.error');
+		$this->Info['title'] = Language::Get('sbb.page.error');
 		$this->Info['template'] = 'Error';
-		Notification::Show(Language::Get('com.sbb.error.no_page'), Notification::ERROR);
+		Notification::Show(Language::Get('sbb.error.no_page'), Notification::ERROR);
 	}
 
 	public function GetInfo($Info) {

@@ -1,10 +1,10 @@
 <div class="Container">
 	<div class="container_head">
-		<div class="title_menu">{{ lang=com.sbb.page.userlist }}</div>
+		<div class="title_menu">{{ lang=sbb.page.userlist }}</div>
 		<menu>
-			<li>{{ lang=com.sbb.user.all_members }}</li>
-			<li>{{ lang=com.sbb.user.teammembers }}</li>
-			<li>{{ lang=com.sbb.user.search }}</li>
+			<li>{{ lang=sbb.user.all_members }}</li>
+			<li>{{ lang=sbb.user.teammembers }}</li>
+			<li>{{ lang=sbb.user.search }}</li>
 		</menu>
 	</div>
 	<div class="optionsbar">
@@ -14,13 +14,13 @@
 		<table class="userlist">
 			<thead>
 				<tr>
-					<th>{{ lang=com.sbb.user.avatar }}</th>
-					<th>{{ lang=com.sbb.user.username }}</th>
-					<th>{{ lang=com.sbb.user.joined }}</th>
-					<th>{{ lang=com.sbb.user.posts }}</th>
-					<th>{{ lang=com.sbb.user.language }}</th>
-					<th>{{ lang=com.sbb.user.homepage }}</th>
-					<th>{{ lang=com.sbb.user.contact }}</th>
+					<th>{{ lang=sbb.user.avatar }}</th>
+					<th>{{ lang=sbb.user.username }}</th>
+					<th>{{ lang=sbb.user.joined }}</th>
+					<th>{{ lang=sbb.user.posts }}</th>
+					<th>{{ lang=sbb.user.language }}</th>
+					<th>{{ lang=sbb.user.homepage }}</th>
+					<th>{{ lang=sbb.user.contact }}</th>
 				</tr>
 			</thead>
 			<tbody>
