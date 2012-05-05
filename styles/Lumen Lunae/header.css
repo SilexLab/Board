@@ -272,6 +272,7 @@ nav.Menu {
 				height: 36px;
 				line-height: 36px;
 				border-top: 1px solid rgba(85, 143, 164, 0.5);
+				border-bottom: 1px solid #558FA4;
 				box-shadow: 0 0 3px rgba(11, 51, 76, 0.6);
 				border-radius: 5px 5px 0 0;
 				cursor: pointer;

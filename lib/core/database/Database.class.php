@@ -11,7 +11,6 @@ abstract class Database {
 	 * Returns a new wrapped database
 	 */
 	public static final function GetDatabase() {
-		$Database;
 		switch(strtolower(CFG_DB_TYPE)) {
 			case 'mysqli':
 				return new MySQLiWrapper(CFG_DB_HOST, CFG_DB_USER, CFG_DB_PASSWORD, CFG_DB_DATABASE);
