@@ -17,12 +17,16 @@ class UserPage extends Page implements PageData {
 		$this->Info['node'] = UserListPage::Node();
 		$this->Info['title'] = Language::Get('sbb.page.user');
 		$UserID = (int)$_GET['UserID'];
-		if($UserID < 1 || !SBB::DB()->Table('users')->Exists()->Where('`ID` = '.$UserID)->Execute()) {
+		if($UserID < 1 || !Database::Count('FROM `users` WHERE `ID` = :ID', [':ID' => $UserID])) {
 			Notification::Show(Language::Get('sbb.user.no_user'), Notification::ERROR);
 			$this->Info['template'] = 'Error';
 			return;
 		}
-		$User = SBB::DB()->Table('users')->Select()->Where('`ID` = '.$UserID)->Execute()->FetchObject();
+		
+		$User = SBB::DB()->prepare('SELECT * FROM `users` WHERE `ID` = :ID');
+		$User->execute([':ID' => $UserID]);
+		$User = $User->fetch(PDO::FETCH_OBJ);
+
 		$this->Info['template'] = 'User';
 		$this->Info['title'] = Language::Get('sbb.user.user').': '.$User->Username;
 		Breadcrumb::Add(Language::Get('sbb.page.userlist'), UserListPage::Link());

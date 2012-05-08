@@ -27,7 +27,4 @@ function scandirr($directory, $sorting_order = 0) {
 	}
 	return $rfiles;
 }
-
-// Shortcut functions
-function EscapeString($String) { return SBB::DB()->EscapeString($String); }
 ?>

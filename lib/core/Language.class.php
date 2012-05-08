@@ -78,7 +78,9 @@ class Language {
 
 						// save results in db
 						$Encoding = XML::ReadElement(DIR_LANGUAGE.$Lang.'/info.xml', 'encoding');
-						SBB::DB()->Table('language')->Replace(array('Shortcut' => $Lang, 'Encoding' => (string)$Encoding[0]))->Execute();
+
+						$STMT = SBB::DB()->prepare('REPLACE INTO `language` (`Shortcut`, `Encoding`) VALUES (:Shortcut, :Encoding)');
+						$STMT->execute([':Shortcut' => $Lang, ':Encoding' => (string)$Encoding[0]]);
 					}
 				}
 			}

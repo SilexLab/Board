@@ -32,7 +32,7 @@ set_exception_handler(array('SBB', 'ExceptionHandler'));
 date_default_timezone_set('Europe/Berlin');
 
 // Set the custom session save handler
-Session::Start(SessionDatabaseHandler::GetInstance());
+//Session::Start();
 
 // Initial the SBB Core
 SBB::Initial();

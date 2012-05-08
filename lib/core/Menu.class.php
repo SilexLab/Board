@@ -25,7 +25,7 @@ class Menu implements Singleton {
 		$ActivePage = SBB::Page()->GetInfo('node');
 
 		$MenuList = array();
-		$Entries = SBB::DB()->Table('menu')->Select('*')->Order('Position')->Execute()->FetchObjects();
+		$Entries = SBB::DB()->query('SELECT * FROM `menu` ORDER BY `Position`')->fetchAll(PDO::FETCH_OBJ);
 		foreach($Entries as $Entry) {
 			//$Permission = $Entry->Permission;
 

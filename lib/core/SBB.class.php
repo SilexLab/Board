@@ -29,6 +29,7 @@ class SBB {
 		PostListener::Check();
 		self::$Menu = Menu::GetInstance();
 		
+		// Pre-output
 		self::AssignDefault();
 
 		// Display the template
@@ -87,8 +88,6 @@ class SBB {
 	 * @return Style
 	 */
 	public static final function Style() {
-		/*if(!self::$Style)
-			self::$Style = Style::GetInstance();*/
 		return self::$Style;
 	}
 	

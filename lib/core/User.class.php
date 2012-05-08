@@ -12,14 +12,15 @@ class User {
 
 	public function __construct() {
 		if(Session::Get('UserID')) { // User seems to be logged in
-			$Result = SBB::DB()->Table('users')->Select('*')->Where('`ID` = '.Session::Get('UserID'))->Execute();
+			$Result = SBB::DB()->prepare('SELECT * FROM `users` WHERE `ID` = :UserID');
+			$Result->execute([':UserID' => Session::Get('UserID')]);
 			if(!$Result) {
 				// Do Logout
 				Session::Remove('UserID');
 				Session::Destroy();
 				$this->__construct();
 			} else { // User is logged in
-				$UserInfo = SBB::DB()->FetchObjects();
+				$UserInfo = $Result->fetchAll(PDO::FETCH_OBJ);
 				$this->Name = $UserInfo->Username;
 				$this->ID = $UserInfo->ID;
 				$this->LoggedIn = true;
@@ -88,8 +89,11 @@ class User {
 	public function Login($Username, $Password, $Stay) {
 		$Username = EscapeString($Username);
 		$Password = EscapeString($Password);
-		if(SBB::DB()->Table('users')->Exists()->Where('`Username` = \''.$Username.'\'')->Execute()) {
-			$Row = SBB::DB()->Table('users')->Select('`ID`, `Password`, `Salt`')->Where('`Username` = \''.$Username.'\'')->Limit(1)->Execute()->FetchArray();
+
+		if(Database::Count('FROM `users` WHERE `Username` = :User', [':User' => $Username])) {
+			$Row = SBB::DB()->prepare('SELECT `ID`, `Password`, `Salt` FROM `users` WHERE `Username` = :User');
+			$Row->execute([':User' => $Username]);
+			$Row = $Row->fetch(PDO::FETCH_ASSOC);
 			if(Secure::EncryptPassword($Password, $Row['Salt']) == $Row['Password']) {
 				Notification::Show(Language::Get('sbb.login.success'), Notification::SUCCESS);
 				Session::Set('UserID', $Row['ID']);
@@ -118,7 +122,9 @@ class User {
 			else
 				return 'Gast';
 		}
-		return SBB::DB()->Table('users')->Select('`Username`')->Where('`ID` = \''.$ID.'\'')->Limit(1)->Execute()->FetchObject()->Username;
+		$STMT = SBB::DB()->prepare('SELECT `Username` FROM `users` WHERE `ID` = :ID');
+		$STMT->execute([':ID' => $ID]);
+		return $STMT->fetch(PDO::FETCH_OBJ)->Username;
 	}
 
 	public static function GetID($Name) {

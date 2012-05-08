@@ -13,7 +13,8 @@ class Config {
 		if(!empty(self::$Config))
 			return false;
 		
-		$O = SBB::DB()->Table('config')->Select(array('ConfigNode', 'ConfigValue', 'ValueType', 'TemplateVariable'))->Execute()->FetchObjects();
+		$O = SBB::DB()->query('SELECT * FROM `config`')->fetchAll(PDO::FETCH_OBJ);
+
 		if(isset($O)) {
 			foreach($O as $C) {
 				$Value = ''; $Type = array();

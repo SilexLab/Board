@@ -16,7 +16,7 @@ class UserListPage extends Page implements PageData {
 		$this->Info['template'] = 'UserList';
 		Breadcrumb::Add(Language::Get('sbb.page.userlist'), self::$Link);
 
-		$TempUsers = SBB::DB()->Table('users')->Select()->Execute()->FetchObjects();
+		$TempUsers = SBB::DB()->query('SELECT * FROM `users`')->fetchAll(PDO::FETCH_OBJ);
 		$Users = array();
 		foreach($TempUsers as $User) {
 			$Users[] = array(

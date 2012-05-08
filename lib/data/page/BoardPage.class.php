@@ -46,9 +46,9 @@ class BoardPage extends Page implements PageData {
 	}
 
 	protected function GetBoardList($BoardID, $Depth = 0) {
-		$Board = SBB::DB()->Table('board')->
-			Select(array('ID', 'ParentID', 'Type', 'Title', 'Description', 'Link', 'Views', 'Threads', 'Posts', 'Invisible'))->
-			Where('`ParentID` = '.$BoardID)->Order('Position')->Execute()->FetchObjects();
+		$Board = SBB::DB()->prepare('SELECT * FROM `board` WHERE `ParentID` = :BoardID ORDER BY `Position`');
+		$Board->execute([':BoardID' => $BoardID]);
+		$Board = $Board->fetchAll(PDO::FETCH_OBJ);
 
 		$Depth++;
 		$BoardList = array();
@@ -68,9 +68,9 @@ class BoardPage extends Page implements PageData {
 	}
 
 	protected function GetBreadcrumbs($BoardID) {
-		$Board = SBB::DB()->Table('board')->
-			Select(array('ID', 'ParentID', 'Title', 'Type', 'Link'))->
-			Where('`ID` = '.$BoardID)->Execute()->FetchObject();
+		$Board = SBB::DB()->prepare('SELECT * FROM `board` WHERE `ID` = :BoardID');
+		$Board->execute([':BoardID' => $BoardID]);
+		$Board = $Board->fetch(PDO::FETCH_OBJ);		
 
 		$Crumbs = array();
 		if($Board->ParentID != 0)

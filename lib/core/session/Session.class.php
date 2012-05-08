@@ -5,18 +5,29 @@
  * @license    GPL version 3 or higher <http://www.gnu.org/licenses/gpl-3.0.html>
  */
 
-class Session {
-	private static $Handler;
-	
+class Session {	
 	/**
 	 * Starts the session
 	 */
-	public static function Start(SessionHandler $Handler) {
+	public static function Start() {
 		if(defined('CLASS_SESSION'))
 			return false;
 		define('CLASS_SESSION', 1);
 		
-		self::$Handler = $Handler;
+		// Session configuration
+		ini_set('session.gc_maxlifetime', SBB::Config('config.user.autologout'));
+		ini_set('session.gc_probability', SBB::Config('config.user.session.autologout_probability'));
+		ini_set('session.gc_divisor', 100);
+		ini_set('session.hash_function', 1);
+		
+		register_shutdown_function('session_write_close');
+		
+		session_name(SBB::Config('config.user.session.name'));
+		session_set_cookie_params(SBB::Config('config.user.session.cookie_time'), NULL, NULL, NULL, true);
+
+		session_set_save_handler(new DatabaseSessionHandler(SBB::DB(), 'session'), true);
+
+		// Start session
 		session_start();
 	}
 	
@@ -50,10 +61,6 @@ class Session {
 	 */
 	public static function Remove($Key) {
 		return (bool)session_unset($Key);
-	}
-	
-	public static function Status() {
-		//return session_status(); // PHP DEV Version function
 	}
 }
 ?>
