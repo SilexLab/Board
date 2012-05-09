@@ -5,11 +5,11 @@
  * @license    GPL version 3 or higher <http://www.gnu.org/licenses/gpl-3.0.html>
  */
 
-/**
- * Returns a new PDO instance based on the settings of the configuration
- * @return PDO
- */
 class Database {
+	/**
+	 * Returns a new PDO instance based on the settings of the configuration
+	 * @return PDO
+	 */
 	public static function GetDatabase() {
 		$DBType = strtolower(CFG_DB_TYPE);
 		$Port   = (string)CFG_DB_PORT;
@@ -22,15 +22,14 @@ class Database {
 			return new PDO('sqlite:'.CFG_DB_DATABASE.'.db');
 
 		// Generate DSN-String
-		$DSN = $DBType.':';
+		$DSN = $DBType.':dbname='.CFG_DB_DATABASE;
 		if(!empty($Socket))
-			$DSN .= 'unix_socket='.CFG_DB_SOCKET.';';
+			$DSN .= ';unix_socket='.CFG_DB_SOCKET;
 		else {
-			$DSN .= 'host='.CFG_DB_HOST.';';
+			$DSN .= ';host='.CFG_DB_HOST;
 			if(!empty($Port))
-				$DSN .= 'port='.CFG_DB_PORT.';';
+				$DSN .= ';port='.CFG_DB_PORT;
 		}
-		$DSN .= 'dbname='.CFG_DB_DATABASE;
 
 		// Return PDO database with DSN strings
 		if($DBType == 'pgsql')
@@ -58,6 +57,8 @@ class Database {
 	public static function Count($Query, array $Data = array()) {
 		if(strpos($Query, 'SELECT COUNT(*)') === false)
 			$Query = 'SELECT COUNT(*) '.$Query;
+		else if(strpos($Query, 'SELECT') !== false)
+			return false;
 
 		$STMT = null;
 		if(empty($Data))
