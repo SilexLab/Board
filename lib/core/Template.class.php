@@ -54,11 +54,11 @@ class Template {
 	 * Assign an array of Keys and Values to the variable pool of the template
 	 * @param	array	$Variable
 	 */
-	public function Set(array $Variable, $Language = false) {
+	public function Set(array $Variable, $Language = false, $Overwrite = false) {
 		foreach($Variable as $Key => $Value) {
 			if(is_numeric($Key))
 				continue;
-			$this->Assign(($Language ? 'lang='.$Key : $Key), $Value);
+			$this->Assign(($Language ? 'lang='.$Key : $Key), $Value, $Overwrite);
 		}
 	}
 	
@@ -92,8 +92,8 @@ class Template {
 	 * @param	string	$Key
 	 * @param	mixed	$Value
 	 */
-	protected function Assign($Key, $Value) {
-		if(isset($this->Variables[$Key]) && is_array($this->Variables[$Key]) && is_array($Value))
+	public function Assign($Key, $Value, $Overwrite = false) {
+		if(!$Overwrite && isset($this->Variables[$Key]) && is_array($this->Variables[$Key]) && is_array($Value))
 			$this->Variables = array_merge_recursive($this->Variables, array($Key => $Value));
 		else
 			$this->Variables[$Key] = $Value;

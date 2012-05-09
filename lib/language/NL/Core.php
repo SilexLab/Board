@@ -50,6 +50,7 @@ self::$Items = array_merge(self::$Items, array(
 'sbb.login.wrong_password' => 'Het wachtwoord ist niet juist!',
 'sbb.login.no_user'        => 'Deze gebruiker bestaat niet!',
 'sbb.login.success'        => 'Jij hebt jouw met succes aangemeld!',
+'sbb.logout.success'       => 'Jij werd met success uitgeloggt',
 
 'sbb.form.submit' => 'Afzenden',
 

@@ -5,9 +5,14 @@
  * @license    GPL version 3 or higher <http://www.gnu.org/licenses/gpl-3.0.html>
  */
 
-class PostListener {
+class Listener {
 	// Listen to forms and trigger actions
 	public static function Check() {
+		self::CheckPosts();
+		//self::CheckNotifications();
+	}
+
+	public static function CheckPosts() {
 		// Any POSTs are send?
 		if(isset($_POST)) {
 			// Login
@@ -20,7 +25,19 @@ class PostListener {
 				} else {
 					throw new SystemException('The loginform don\'t match');
 				}
+			// Logout
+			} else if (isset($_POST['Logout'])) {
+				SBB::User()->Logout();
 			}
+		}
+	}
+
+	public static function CheckNotifications() { // Experimental!
+		if(Session::Get('Notification') && is_array(Session::Get('Notification'))) {
+			foreach(Session::Get('Notification') as $Notification) {
+				Notification::Show(Language::Get($Notification[0]), $Notification[1]);
+			}
+			Session::Remove('Notification');
 		}
 	}
 }

@@ -15,9 +15,11 @@ class Database {
 		$Port   = (string)CFG_DB_PORT;
 		$Socket = (string)CFG_DB_SOCKET;
 
+		// Check if $DBType is supported
 		if(!in_array($DBType, ['mysql', 'sqlite', 'pgsql', 'firebird', 'informix', 'oci', 'odbc', 'dblib', 'ibm']))
 			throw new DatabaseException('The database type "'.CFG_DB_TYPE.'" is currently not supported');
 
+		// If SQLite
 		if($DBType == 'sqlite')
 			return new PDO('sqlite:'.CFG_DB_DATABASE.'.db');
 

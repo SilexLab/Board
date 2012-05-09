@@ -16,11 +16,10 @@ class User {
 			$Result->execute([':UserID' => Session::Get('UserID')]);
 			if(!$Result) {
 				// Do Logout
-				Session::Remove('UserID');
 				Session::Destroy();
 				$this->__construct();
 			} else { // User is logged in
-				$UserInfo = $Result->fetchAll(PDO::FETCH_OBJ);
+				$UserInfo = $Result->fetch(PDO::FETCH_OBJ);
 				$this->Name = $UserInfo->Username;
 				$this->ID = $UserInfo->ID;
 				$this->LoggedIn = true;
@@ -30,7 +29,7 @@ class User {
 			$this->ID = 0;
 			$this->LoggedIn = false;
 		}
-		SBB::Template()->Set(array('User' => array('ID' => $this->ID, 'Name' => $this->Name)));
+		SBB::Template()->Set(['User' => ['ID' => (int)$this->ID, 'Name' => $this->Name]], false, true);
 	}
 
 	/* User info */
@@ -87,8 +86,8 @@ class User {
 	 * @param bool   $Stay
 	 */
 	public function Login($Username, $Password, $Stay) {
-		$Username = EscapeString($Username);
-		$Password = EscapeString($Password);
+		$Username = $Username;
+		$Password = $Password;
 
 		if(Database::Count('FROM `users` WHERE `Username` = :User', [':User' => $Username])) {
 			$Row = SBB::DB()->prepare('SELECT `ID`, `Password`, `Salt` FROM `users` WHERE `Username` = :User');
@@ -97,17 +96,23 @@ class User {
 			if(Secure::EncryptPassword($Password, $Row['Salt']) == $Row['Password']) {
 				Notification::Show(Language::Get('sbb.login.success'), Notification::SUCCESS);
 				Session::Set('UserID', $Row['ID']);
+				$this->__construct();
 			} else {
-				Session::Set('LoginError', Language::Get('sbb.login.failed'));
+				Session::Set('LoginError', 'sbb.login.failed');
+				header('location: ?page=Login');
 			}
 		} else {
-			Session::Set('LoginError', Language::Get('sbb.login.failed'));
-			#header('location: ?page=Login'); // BUG: Sessionvalue is NULL?
+			Session::Set('LoginError', 'sbb.login.failed');
+			header('location: ?page=Login');
 		}
 	}
 
 	public function Logout() {
-		// Logout the user
+		if($this->LoggedIn()) {
+			Session::Destroy();
+			Notification::Show(Language::Get('sbb.logout.success'), Notification::SUCCESS);
+			$this->__construct();
+		}
 	}
 
 	public function Register() {

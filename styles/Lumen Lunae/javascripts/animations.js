@@ -6,17 +6,16 @@ $(document).ready(function() {
 	$("#LoginForm").slideToggle(0);
 	
 	$("#LoginBarToogle").click(function() {
-		
 		if(Toogle == 0) {
 			$("#LoginForm").slideToggle("slow", function(){
 				$(this).fadeTo(500, 1);
+				$("#Username").focus();
 			});
 		} else {
 			$("#LoginForm").fadeTo(200, 0, null, function(){
 				$(this).slideToggle("slow");
 			});
 		}
-		
 		Toogle ^= 1;
 	});
 	

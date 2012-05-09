@@ -35,6 +35,7 @@ class Session {
 	 * Destroy the session
 	 */
 	public static function Destroy() {
+		unset($_SESSION);
 		session_destroy();
 	}
 	
@@ -54,13 +55,23 @@ class Session {
 	public static function Set($Key, $Value) {
 		return (bool)($_SESSION[$Key] = $Value);
 	}
+
+	public static function Merge($Key, $Value) {
+		if(isset($_SESSION[$Key]) && is_array($_SESSION[$Key]))
+			$_SESSION[$Key] = array_merge_recursive($_SESSION[$Key], [$Value]);
+		else if(!isset($_SESSION[$Key]))
+			$_SESSION[$Key][] = $Value;
+		else
+			$_SESSION[$Key] = $Value;
+	}
 	
 	/**
 	 * Removes content from a session based on the given key
 	 * Returns true if succeeded else false
 	 */
 	public static function Remove($Key) {
-		return (bool)session_unset($Key);
+		$_SESSION[$Key] = null; // Debug because -v
+		unset($_SESSION[$Key]); // Bug: doesn't work?
 	}
 }
 ?>

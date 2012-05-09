@@ -37,9 +37,9 @@
 		{% else %}
 			<div class="UserTabs">
 				<ul>
-					<li id="Username"><a href="?page=User&amp;userID={{ User.ID }}">{{ User.Username }}</a></li>
+					<li id="Username"><a href="?page=User&amp;UserID={{ User.ID }}">{{ User.Name }}</a></li>
 					<li id="Settings"><a href="javascript:false;">Settings</a></li>
-					<li id="Logout"><a href="?page=Logout">{{ lang=sbb.logout.logout }}</a></li>
+					<li id="Logout"><form method="post"><input type="submit" name="Logout" value="{{ lang=sbb.logout.logout }}"></form></li>
 				</ul>
 			</div>
 		{% endif %}

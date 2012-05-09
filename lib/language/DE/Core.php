@@ -42,13 +42,14 @@ self::$Items = array_merge(self::$Items, array(
 'sbb.register.email_exist'        => 'Diese E-Mail Adresse existiert bereits!',
 'sbb.register.success'            => 'Du hast dich erfolgreich registriert!',
 
-'sbb.login.login'          => 'Einloggen',
-'sbb.login.bar_handle'     => 'Einloggen / Registrieren',
-'sbb.login.username'       => 'Benutzername',
-'sbb.login.password'       => 'Passwort',
-'sbb.login.stay'           => 'Eingeloggt bleiben',
-'sbb.login.failed'         => 'Du konntest dich nicht einloggen.',
-'sbb.login.success'        => 'Du hast dich erfolgreich angemeldet!',
+'sbb.login.login'      => 'Einloggen',
+'sbb.login.bar_handle' => 'Einloggen / Registrieren',
+'sbb.login.username'   => 'Benutzername',
+'sbb.login.password'   => 'Passwort',
+'sbb.login.stay'       => 'Eingeloggt bleiben',
+'sbb.login.failed'     => 'Du konntest dich nicht einloggen',
+'sbb.login.success'    => 'Du hast dich erfolgreich angemeldet',
+'sbb.logout.success'   => 'Du wurdest erfolgreich ausgeloggt',
 
 'sbb.form.submit' => 'Absenden',
 
@@ -78,7 +79,7 @@ self::$Items = array_merge(self::$Items, array(
 'sbb.user.gender.female'     => 'Weiblich',
 
 'sbb.logout.logout'        => 'Ausloggen',
-'sbb.logout.logged_out'    => 'Du wurdest erfolgreich ausgeloggt.',
+'sbb.logout.logged_out'    => 'Du wurdest erfolgreich ausgeloggt',
 'sbb.logout.main_menu'     => 'Hauptmenü',
 'sbb.logout.not_logged_in' => 'Du kannst dich nicht ausloggen.',
 

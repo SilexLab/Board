@@ -27,14 +27,16 @@ section.UserBar {
 			.UserTabs ul li:last-child {
 				border: none;
 			}
-			.UserTabs li a, .UserTabs li a:link, .UserTabs li a:visited {
+			.UserTabs li a, .UserTabs li a:link, .UserTabs li a:visited, .UserTabs input[type=submit] {
 				color: inherit;
 				line-height: 18px;
 				padding: 0 10px 1px 24px;
 				background: none 6px center no-repeat;
 				display: block;
+				border: none;
+				cursor: pointer;
 			}
-				.UserTabs li a:hover {
+				.UserTabs li a:hover, .UserTabs input[type=submit]:hover {
 					color: #98ffff
 				}
 			.UserTabs li#Username a {
@@ -43,7 +45,7 @@ section.UserBar {
 			.UserTabs li#Settings a {
 				background-image: url(icons/w_16_settings.png);
 			}
-			.UserTabs li#Logout a {
+			.UserTabs li#Logout input[type=submit] {
 				background-image: url(icons/w_16_off.png);
 			}
 

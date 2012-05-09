@@ -10,15 +10,18 @@ class LoginPage extends Page implements PageData {
 	protected static $Node = 'page.login';
 	protected $Info = array();
 
-	public function __construct() {		
+	public function __construct() {
+		if(SBB::User()->LoggedIn())
+			header('location: ./');
+		
 		$this->Info['node'] = self::$Node;
 		$this->Info['title'] = Language::Get('sbb.page.login');
 		Breadcrumb::Add(Language::Get('sbb.page.login'), self::$Link);
 		$this->Info['template'] = 'Login';
 		
 		if(Session::Get('LoginError')) {
-			Notification::Show(Session::Get('LoginError'), Notification::ERROR);
-			Session::Remove('LoginError');
+			Notification::Show(Language::Get(Session::Get('LoginError')), Notification::ERROR);
+			unset($_SESSION['LoginError']);
 		}
 	}
 
