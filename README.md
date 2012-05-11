@@ -20,12 +20,14 @@ Links
 * [Github repository](https://github.com/SilexBoard/Board)
 * [Issues](https://github.com/SilexBoard/Board/issues)
 * [Contributors](https://github.com/SilexBoard/Board/blob/master/CONTRIBUTORS.md)
-* [Snapshots](https://github.com/SilexBoard/Board/tree/rewrite/Draft/Snapshots)
 * [Silex Flavored Markdown](http://demo.silexboard.org/Draft/Silex_Flavored_Markdown.html)
 * [License](http://www.gnu.org/licenses/gpl-3.0.html)
 
 ### Contact
 * __IRC__ - [Webchat](http://webchat.quakenet.org/?channels=SilexBoard)<br>___irc://irc.quakenet.org/#SilexBoard___<br>#SilexBoard at irc.quakenet.org
+* ![](https://twitter.com/favicon.ico) __[Twitter](https://twitter.com/SilexBoard)__ - ___@SilexBoard___
+* ![](https://www.facebook.com/favicon.ico) __[Facebook](https://www.facebook.com/SilexBoard)__
+* <img src="https://ssl.gstatic.com/s2/oz/images/faviconr2.ico" height="16" width="16"> __[Google+](https://plus.google.com/b/110206747608815084063/)__
 
 Notes
 -----
