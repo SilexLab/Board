@@ -1,0 +1,12 @@
+.register_content {
+	float: left;
+}
+.register_info {
+	float: right;
+}
+.register_info::after {
+	content: "";
+	height: 0;
+	display: block;
+	clear: both;
+}

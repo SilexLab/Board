@@ -81,6 +81,74 @@ input:-moz-placeholder {
 		border-bottom-left-radius: 6px;
 		border-bottom-right-radius: 6px;
 	}
+	.Container h1 {
+		font-size: 24px;
+		padding: 5px 0 10px 0;
+		margin: 0;
+		color: #3C6C8B;
+		text-shadow: 0 1px 1px #ffffff;
+	}
+	.Container input[type=text], .Container input[type=password], .Container input[type=email] {
+		border: none;
+		background: rgba(0,0,0,.5) none no-repeat 4px center;
+		display: block;
+		height: 24px;
+		width: 300px;
+		line-height: 24px;
+		padding: 0 4px 0 22px;
+		font-weight: bold;
+		border: 2px solid #3C6C8B;
+		border-radius: 4px;
+		color: #ffffff;
+		text-shadow: 0 0 4px rgba(0,0,0,.4);
+		box-shadow: inset 0 0 1px white, 0 0 4px white;
+	}
+		.Container input[type=text]::-webkit-input-placeholder,
+		.Container input[type=password]::-webkit-input-placeholder,
+		.Container input[type=email]::-webkit-input-placeholder, {
+			color: #ffffff;
+			text-shadow: 0 0 4px rgba(0,0,0,.4);
+		},
+		.Container input[type=text]:-moz-placeholder,
+		.Container input[type=password]:-moz-placeholder,
+		.Container input[type=email]:-moz-placeholder {
+			color: #ffffff;
+			text-shadow: 0 0 4px rgba(0,0,0,.4);
+		}
+		.Container input[type=text][name=Username] {
+			background-image: url(icons/w_16_user.png);
+		}
+		.Container input[type=password] {
+			background-image: url(icons/w_16_key.png);
+		}
+		.Container input[type=email] {
+			background-image: url(icons/w_16_v_card.png);
+		}
+	.Container .progressbar_trim {
+		height: 4px;
+		margin: -4px 0;
+		padding: 4px 0;
+		overflow: hidden;
+	}
+		.Container .progressbar {
+			box-shadow: 0 0 4px #ffffff;
+			border-radius: 1px;
+			background: rgba(0, 0, 0, 0.3);
+			overflow: visible;
+		}
+		.Container  .progress {
+			width: 0px;
+			height: 4px;
+			background: #558FA4 url('images/progressbar_overlay.png') repeat-y right center;
+			border-radius: 1px;
+		}
+			.Container  .progress .shine {
+				height: 12px;
+				width: 40px;
+				margin: -4px -2px -4px 0;
+				float: right;
+				background: transparent url('images/progressbar_shine.png') no-repeat right center;
+			}
 
 	.container_head {
 		background: #ededed;

@@ -57,10 +57,8 @@ class Session {
 	}
 
 	public static function Merge($Key, $Value) {
-		if(isset($_SESSION[$Key]) && is_array($_SESSION[$Key]))
-			$_SESSION[$Key] = array_merge_recursive($_SESSION[$Key], [$Value]);
-		else if(!isset($_SESSION[$Key]))
-			$_SESSION[$Key][] = $Value;
+		if(isset($_SESSION[$Key]))
+			$_SESSION[$Key] = array_merge_recursive($_SESSION[$Key], $Value);
 		else
 			$_SESSION[$Key] = $Value;
 	}

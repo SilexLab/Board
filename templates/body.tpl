@@ -13,7 +13,9 @@
 				<nav class="BreadCrumbs">
 					{% for Crumb in Crumbs %}
 						<span class="Crust">
-							<a href="{{ Crumb.Link }}" class="Crumb">{{ Crumb.Title }}</a>
+							<a href="{{ Crumb.Link }}" class="Crumb">
+								<div class="CrumbWrap">{{ Crumb.Title }}</div>
+							</a>
 							<span class="Arrow"></span>
 						</span>
 					{% endfor %}
@@ -24,7 +26,9 @@
 				<nav class="BreadCrumbs">
 					{% for Crumb in Crumbs %}
 						<span class="Crust">
-							<a href="{{ Crumb.Link }}" class="Crumb">{{ Crumb.Title }}</a>
+							<a href="{{ Crumb.Link }}" class="Crumb">
+								<div class="CrumbWrap">{{ Crumb.Title }}</div>
+							</a>
 							<span class="Arrow"></span>
 						</span>
 					{% endfor %}

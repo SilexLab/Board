@@ -5,7 +5,7 @@
  * @license    GPL version 3 or higher <http://www.gnu.org/licenses/gpl-3.0.html>
  */
 
-$GeneratingTime = microtime(true);
+$GT = microtime(true);
 
 if(!file_exists('lib/config.inc.php'))
 	die('Your config file is missing!');
@@ -14,6 +14,9 @@ if(!file_exists('lib/config.inc.php'))
 define('DIR_ROOT', dirname(__file__).'/');
 
 require_once ('lib/init.php');
-echo '<span style="color: white;">Real Load: '.round(((microtime(true) -
-	$GeneratingTime) * 1000), 2).'ms</span>';
+
+// Developement performance
+echo '<span style="color: white; margin: -20px 0 0 10px; display: block; text-shadow: 0 0 3px #000; font-size: 10px;">
+	Load: <strong>'.round(((microtime(true) - $GT) * 1000), 2).' ms</strong>
+</span>';
 ?>
