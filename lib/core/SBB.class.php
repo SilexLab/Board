@@ -27,6 +27,7 @@ class SBB {
 		self::$Template = new Template(DIR_ROOT.DIR_TPL, DIR_ROOT.self::Style()->Info('TPL'), CFG_CACHE_DIR); //self::Config('config.system.cache.dir')
 		self::$User = new User();
 		Listener::Check();
+		SessionGarbageCollector::Collect();
 		self::$Menu = Menu::GetInstance();
 		
 		// Pre-output

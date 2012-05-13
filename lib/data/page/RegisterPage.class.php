@@ -9,72 +9,76 @@ class RegisterPage extends Page implements PageData {
 	protected static $Link = '?page=Register';
 	protected static $Node = 'page.register';
 	protected $Info = array();
+	protected $Steps = array();
 
 	public function __construct() {
+		if(SBB::User()->LoggedIn())
+			header('location: ./');
+
 		$this->Info['node'] = self::$Node;
 		$this->Info['title'] = Language::Get('sbb.page.register');
 		Breadcrumb::Add(Language::Get('sbb.page.register'), self::$Link);
 		$this->Info['template'] = 'Register';
 
 		// Register formular
-		if(!Session::Get('register.step'))
+		if(!Session::Get('register.step') || Post::Get('Login'))
 			Session::Set('register.step', 'register.username');
 
-		$Steps = ['register.username', 'register.password', 'register.email', 'register.captcha']; // TODO
-		while(true) {
-			if(isset($_POST['sub_restart'])) {
-				unset($_POST['sub_restart']);
-				Session::Destroy();
-				session_start();
-			}
+		$this->Steps = ['register.username', 'register.password', 'register.email', 'register.captcha'];
 
+		if(Post::Get('sub_restart')) {
+			Post::Del('sub_restart');
+			Session::Restart();
+		}
+		if(Post::Get('sub_back')) {
+			Post::Del('sub_back');
+			$GoTo = clamp(array_get_key($this->Steps, Session::Get('register.step')) - 1, 0, sizeof($this->Steps) - 1);
+			Session::Set('register.step', $this->Steps[$GoTo]);
+		}
+		while(true) {
 			switch(Session::Get('register.step')) {
 				case 'register.username':
-					if(isset($_POST['sub_username'])) {
-						// TODO: Check username blub
-						Session::Set('register.step', 'register.password');
-						Session::Set('register.username', $_POST['Username']);
-						break;
+					if(Post::Get('sub_username') && Post::Get('Username')) {
+						if(Database::Count('FROM `users` WHERE `Username` = :name', [':name' => Post::Get('Username')]))
+							Notification::Show(Language::Get('sbb.register.username_exist'), Notification::ERROR);
+						else {
+							Session::Set('register.step', 'register.password');
+							Session::Set('register.username', $_POST['Username']);
+							break;
+						}
 					}
 					SBB::Template()->Set(['Register' => ['Progress' => 0]]);
 					break 2;
 
 				case 'register.password':
-					if(isset($_POST['sub_back'])) {
-						unset($_POST['sub_back']);
-						Session::Set('register.step', 'register.username');
-						break;
-					}
-					if(isset($_POST['sub_password'])) {
-						// TODO: Check password blub
-						Session::Set('register.step', 'register.email');
-						Session::Set('register.password', $_POST['Password']);
-						break;
+					if(Post::Get('sub_password') && Post::Get('Password')) {
+						if(Post::Get('Password') == Post::Get('Password_Re')) {
+							if(strlen(Post::Get('Password')) < 8) // TODO: read min from config
+								Notification::Show(Language::Get('sbb.register.password_too_short'), Notification::ERROR);
+							else {
+								Session::Set('register.step', 'register.email');
+								Session::Set('register.password', $_POST['Password']);
+								break;
+							}
+						} else
+							Notification::Show(Language::Get('sbb.register.incorrect_password'), Notification::ERROR);
 					}
 					SBB::Template()->Set(['Register' => ['Progress' => 25]]);
 					break 2;
 				
 				case 'register.email':
-					if(isset($_POST['sub_back'])) {
-						unset($_POST['sub_back']);
-						Session::Set('register.step', 'register.password');
-						break;
-					}
-					if(isset($_POST['sub_email'])) {
-						// TODO: Check password blub
-						Session::Set('register.step', 'register.captcha');
-						Session::Set('register.email', $_POST['Email']);
-						break;
+					if(Post::Get('sub_email') && Post::Get('Email')) {
+						if(Post::Get('Email') == Post::Get('Email_Re')) {
+							Session::Set('register.step', 'register.captcha');
+							Session::Set('register.email', $_POST['Email']);
+							break;
+						} else
+							Notification::Show(Language::Get('sbb.register.incorrect_email'), Notification::ERROR);
 					}
 					SBB::Template()->Set(['Register' => ['Progress' => 50]]);
 
 					break 2;
 				case 'register.captcha':
-					if(isset($_POST['sub_back'])) {
-						unset($_POST['sub_back']);
-						Session::Set('register.step', 'register.email');
-						break;
-					}
 					SBB::Template()->Set(['Register' => ['Progress' => 75]]);
 					break 2;
 				default:

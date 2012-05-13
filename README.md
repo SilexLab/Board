@@ -21,6 +21,7 @@ Links
 * [Issues](https://github.com/SilexBoard/Board/issues)
 * [Contributors](https://github.com/SilexBoard/Board/blob/master/CONTRIBUTORS.md)
 * [Silex Flavored Markdown](http://demo.silexboard.org/Draft/Silex_Flavored_Markdown.html)
+* [Coding style](https://github.com/SilexBoard/Board/blob/master/docs/codingstyle.md)
 * [License](http://www.gnu.org/licenses/gpl-3.0.html)
 
 ### Contact

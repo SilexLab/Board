@@ -38,6 +38,14 @@ class Session {
 		unset($_SESSION);
 		session_destroy();
 	}
+
+	/**
+	 * Destroy the session and start a new one
+	 */
+	public static function Restart() {
+		self::Destroy();
+		session_start();
+	}
 	
 	/**
 	 * Reads the content of a session, if the key is empty, false will return
