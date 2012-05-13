@@ -4,8 +4,8 @@ Silex Bulletin Board coding style
 PHP (and Javascript)
 --------------------
 
-Indentation (Brace style)
-*************************
+###Indentation (Brace style)
+
 In SilexBoard source we use a sort of _"the one true brace style"_ (__1TBS__) for everything.
 Example:
 
@@ -35,8 +35,8 @@ class Classname {
 ?>
 ```
 
-Spacing
-*******
+###Spacing
+
 We use tabulators to indent subordinated code.
 Between the function- or statement names and their brackets there are no spaces.
 Operators (except "++", "--", "::", "->" or ".") have spaces before and after.
@@ -61,8 +61,8 @@ function Example($Var) {
 ?>
 ```
 
-Naming
-******
+###Naming
+
 In SilexBoard variables and function-/methodnames are CamelCase.
 The first letter is always capitalised, except in special cases.
 Example:
