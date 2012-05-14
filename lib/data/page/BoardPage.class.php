@@ -26,7 +26,11 @@ class BoardPage extends Page implements PageData {
 				Breadcrumb::Add($Crumb['Title'], $Crumb['Link']);
 			}
 		}
-		SBB::Template()->Set(array('Board' => $this->GetBoardList($BoardID)));
+		$cBoard = SBB::DB()->prepare('SELECT `Type` FROM `board` WHERE `ID` = :ID');
+		$cBoard->execute([':ID' => $BoardID]);
+		SBB::Template()->Set(['Board' => $this->GetBoardList($BoardID),
+			'Threads' => $this->GetThreadList($BoardID),
+			'CurrentBoard' => ['ID' => $BoardID, 'Type' => $cBoard->fetch(PDO::FETCH_OBJ)->Type]]);
 	}
 
 	public function GetInfo($Info) {
@@ -53,18 +57,33 @@ class BoardPage extends Page implements PageData {
 		$Depth++;
 		$BoardList = array();
 		foreach($Board as $Entry) {
-			$BoardList[] = array(
+			$BoardList[] = [
 				'Type'         => $Entry->Type,
 				'Title'        => htmlspecialchars($Entry->Title),
 				'Description'  => htmlspecialchars($Entry->Description),
-				'Link'         => $Entry->Type == 2 ? htmlspecialchars($Entry->Link) : '?page=Board&BoardID='.$Entry->ID,
+				'Link'         => $Entry->Type == 2 ? htmlspecialchars($Entry->Link) : '?page=Board&amp;BoardID='.$Entry->ID,
 				'Stats'        => $Entry->Type == 2 ? ('Views: '.$Entry->Views) : ('Threads: '.$Entry->Threads.', Posts: '.$Entry->Posts.', Views: '.$Entry->Views),
 				'LastPost'     => 0,
 				'LastPostUser' => 'None',
 				'SubBoard'     => $Depth < 2 ? $this->GetBoardList($Entry->ID, $Depth) : false
-			);
+			];
 		}
 		return $BoardList;
+	}
+
+	protected function GetThreadList($BoardID) {
+		$Threads = SBB::DB()->prepare('SELECT * FROM `thread` WHERE `BoardID` = :BoardID ORDER BY `LastPostTime` DESC'); // TODO: Limit it
+		$Threads->execute([':BoardID' => $BoardID]);
+		$Threads = $Threads->fetchAll(PDO::FETCH_OBJ);
+
+		$ThreadList = array();
+		foreach($Threads as $T) {
+			$ThreadList[] = [
+				'Topic' => htmlspecialchars($T->Topic),
+				'Link'  => '?page=Thread&amp;ThreadID='.$T->ID
+			];
+		}
+		return $ThreadList;
 	}
 
 	protected function GetBreadcrumbs($BoardID) {
@@ -75,7 +94,7 @@ class BoardPage extends Page implements PageData {
 		$Crumbs = array();
 		if($Board->ParentID != 0)
 			$Crumbs = $this->GetBreadcrumbs($Board->ParentID);
-		$Crumbs[] = array('Title' => htmlspecialchars($Board->Title), 'Link' => $Board->Type == 2 ? htmlspecialchars($Board->Link) : '?page=Board&BoardID='.$Board->ID);
+		$Crumbs[] = array('Title' => htmlspecialchars($Board->Title), 'Link' => $Board->Type == 2 ? htmlspecialchars($Board->Link) : '?page=Board&amp;BoardID='.$Board->ID);
 		$this->Info['title'] = htmlspecialchars($Board->Title);
 		return $Crumbs;
 	}

@@ -113,3 +113,21 @@
 	{% endif %}
 {% endfor %}
 </ul>
+{% if CurrentBoard.ID > 0 and CurrentBoard.Type != 0 %}
+<div class="Container">
+	<div class="container_head">
+		Themen
+	</div>
+	<ul>
+	{% for Thread in Threads %}
+		<li>
+			<a href="{{ Thread.Link }}">{{ Thread.Topic }}</a>
+		</li>
+	{% else %}
+		<li>
+			{{ lang=sbb.board.no_threads }} [sbb.board.no_threads]
+		</li>
+	{% endfor %}
+	</ul>
+</div>
+{% endif %}
