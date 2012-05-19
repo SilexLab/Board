@@ -6,7 +6,7 @@
  */
 
 class LoginPage extends Page implements PageData {
-	protected static $Link = '?page=Login';
+	protected static $Link = ['page' => 'Login'];
 	protected static $Node = 'page.login';
 	protected $Info = array();
 
@@ -34,7 +34,7 @@ class LoginPage extends Page implements PageData {
 	}
 
 	public static function Link() {
-		return self::$Link;
+		return URI::Make(self::$Link);
 	}
 
 	public static function Node() {

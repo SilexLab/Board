@@ -24,7 +24,7 @@ abstract class Page {
 			define('CLASS_PAGE', 1);
 
 			if($Page == '')
-				$Page = isset($_GET['page']) ? $_GET['page'] : null;
+				$Page = URI::Get('page');
 			Breadcrumb::Add(Language::Get('sbb.page.home'), './');
 			return self::Open(self::Validate($Page));
 		}

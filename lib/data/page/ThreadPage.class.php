@@ -6,7 +6,7 @@
  */
 
 class ThreadPage extends Page implements PageData {
-	protected static $Link = '?page=Thread';
+	protected static $Link = ['page' => 'Thread'];
 	protected static $Node = 'page.thread';
 	protected $Info = array();
 
@@ -15,7 +15,7 @@ class ThreadPage extends Page implements PageData {
 		$this->Info['template'] = 'Thread';
 		Breadcrumb::Add(Language::Get('sbb.page.forum'), self::$Link);
 
-		$ThreadID = isset($_GET['ThreadID']) ? (int)$_GET['ThreadID'] : 0;
+		$ThreadID = (int)URI::Get('ThreadID', 0);
 		if($ThreadID > 0 && Database::Count('FROM `thread` WHERE `ID` = :ID', [':ID' => $ThreadID])) {
 			$Thread = SBB::DB()->prepare('SELECT * FROM `thread` WHERE `ID` = :ID');
 			$Thread->execute([':ID' => $ThreadID]);
@@ -44,7 +44,7 @@ class ThreadPage extends Page implements PageData {
 	}
 
 	public static function Link() {
-		return self::$Link;
+		return URI::Make(self::$Link);
 	}
 
 	public static function Node() {
@@ -68,7 +68,7 @@ class ThreadPage extends Page implements PageData {
 				'Time'    => date('d.m.Y, h:i', $P->Time),
 				'User'    => [
 					'Name' => htmlspecialchars($User->Username),
-					'Link' => '?page=User&amp;UserID='.$User->ID
+					'Link' => URI::Make(['page' => 'User', 'UserID' => $User->ID])
 				]
 			];
 		}
@@ -83,7 +83,7 @@ class ThreadPage extends Page implements PageData {
 		$Crumbs = array();
 		if($Board->ParentID != 0)
 			$Crumbs = $this->GetBreadcrumbs($Board->ParentID);
-		$Crumbs[] = array('Title' => htmlspecialchars($Board->Title), 'Link' => $Board->Type == 2 ? htmlspecialchars($Board->Link) : '?page=Board&amp;BoardID='.$Board->ID);
+		$Crumbs[] = array('Title' => htmlspecialchars($Board->Title), 'Link' => $Board->Type == 2 ? htmlspecialchars($Board->Link) : URI::Make(['page' => 'Board', 'BoardID' => $Board->ID]));
 		return $Crumbs;
 	}
 }

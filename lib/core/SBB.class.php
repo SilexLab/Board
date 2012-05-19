@@ -22,7 +22,7 @@ class SBB {
 	 */
 	public static final function Initial() {
 		// Initialize classes and objects
-		Language::Initialize(isset($_GET['lang']) ? $_GET['lang'] : null);
+		Language::Initialize(URI::Get('lang', 'null'));
 		self::$Style = Style::GetInstance();
 		self::$Template = new Template(DIR_ROOT.DIR_TPL, DIR_ROOT.self::Style()->Info('TPL'), CFG_CACHE_DIR); //self::Config('config.system.cache.dir')
 		self::$User = new User();

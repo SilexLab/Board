@@ -26,7 +26,7 @@ class ErrorPage extends Page implements PageData {
 	}
 
 	public static function Link() {
-		return self::$Link;
+		return URI::Make(self::$Link);
 	}
 
 	public static function Node() {

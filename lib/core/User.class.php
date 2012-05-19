@@ -99,11 +99,11 @@ class User {
 				$this->__construct();
 			} else {
 				Session::Set('LoginError', 'sbb.login.failed');
-				header('location: ?page=Login');
+				header('location: '.URI::Make(['page' => 'Login']));
 			}
 		} else {
 			Session::Set('LoginError', 'sbb.login.failed');
-			header('location: ?page=Login');
+			header('location: '.URI::Make(['page' => 'Login']));
 		}
 	}
 

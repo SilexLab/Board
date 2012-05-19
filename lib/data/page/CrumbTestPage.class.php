@@ -6,7 +6,7 @@
  */
 
 class CrumbTestPage extends Page implements PageData {
-	protected static $Link = '?page=CrumbTest';
+	protected static $Link = ['page' => 'CrumbTest'];
 	protected static $Node = 'page.crumbtest';
 	protected $Info = array();
 
@@ -40,7 +40,7 @@ class CrumbTestPage extends Page implements PageData {
 	}
 
 	public static function Link() {
-		return self::$Link;
+		return URI::Make(self::$Link);
 	}
 
 	public static function Node() {

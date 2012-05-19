@@ -12,7 +12,7 @@ class HomePage extends Page implements PageData {
 
 	public function __construct() {
 		// Redirect on ?page=Home
-		if($_GET['page'] == 'Home')
+		if(URI::Get('page') == 'Home')
 			header('location: ./');
 
 		$this->Info['node'] = self::$Node;
@@ -31,7 +31,7 @@ class HomePage extends Page implements PageData {
 	}
 
 	public static function Link() {
-		return self::$Link;
+		return URI::Make(self::$Link);
 	}
 
 	public static function Node() {

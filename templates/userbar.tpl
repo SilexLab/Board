@@ -7,7 +7,7 @@
 						<div class="LoginUserInfo">
 							<ul>
 								<li><input type="text" name="Username" id="Username" placeholder="{{ lang=sbb.login.username }}" required></li>
-								<li><input type="password" name="Password" id="Password" placeholder="{{ lang=sbb.login.password }}" required></li>
+								<li><input type="password" name="Password" id="Password" placeholder="{{ lang=sbb.login.password }}"></li>
 								<li class="Clear"></li>
 							</ul>
 						</div>

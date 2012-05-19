@@ -6,7 +6,7 @@
  */
 
 class UserListPage extends Page implements PageData {
-	protected static $Link = '?page=UserList';
+	protected static $Link = ['page' => 'UserList'];
 	protected static $Node = 'page.userlist';
 	protected $Info = array();
 
@@ -43,7 +43,7 @@ class UserListPage extends Page implements PageData {
 	}
 
 	public static function Link() {
-		return self::$Link;
+		return URI::Make(self::$Link);
 	}
 
 	public static function Node() {

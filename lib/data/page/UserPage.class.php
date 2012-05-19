@@ -6,17 +6,17 @@
  */
 
 class UserPage extends Page implements PageData {
-	protected static $Link = '?page=User';
+	protected static $Link = ['page' => 'User'];
 	protected static $Node = 'page.user';
 	protected $Info = array();
 
 	public function __construct() {
-		if(!isset($_GET['UserID']))
+		if(!URI::Get('UserID'))
 			header('location: '.UserListPage::Link());
 
 		$this->Info['node'] = UserListPage::Node();
 		$this->Info['title'] = Language::Get('sbb.page.user');
-		$UserID = (int)$_GET['UserID'];
+		$UserID = (int)URI::Get('UserID');
 		if($UserID < 1 || !Database::Count('FROM `users` WHERE `ID` = :ID', [':ID' => $UserID])) {
 			Notification::Show(Language::Get('sbb.user.no_user'), Notification::ERROR);
 			$this->Info['template'] = 'Error';
@@ -59,7 +59,7 @@ class UserPage extends Page implements PageData {
 	}
 
 	public static function Link() {
-		return self::$Link;
+		return URI::Make(self::$Link);
 	}
 
 	public static function Node() {

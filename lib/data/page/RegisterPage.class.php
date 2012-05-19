@@ -6,7 +6,7 @@
  */
 
 class RegisterPage extends Page implements PageData {
-	protected static $Link = '?page=Register';
+	protected static $Link = ['page' => 'Register'];
 	protected static $Node = 'page.register';
 	protected $Info = array();
 	protected $Steps = array();
@@ -115,7 +115,7 @@ class RegisterPage extends Page implements PageData {
 	}
 
 	public static function Link() {
-		return self::$Link;
+		return URI::Make(self::$Link);
 	}
 
 	public static function Node() {

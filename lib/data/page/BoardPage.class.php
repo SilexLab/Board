@@ -6,7 +6,7 @@
  */
 
 class BoardPage extends Page implements PageData {
-	protected static $Link = '?page=Board';
+	protected static $Link = ['page' => 'Board'];
 	protected static $Node = 'page.forum';
 	protected $Info = array();
 
@@ -16,7 +16,7 @@ class BoardPage extends Page implements PageData {
 		$this->Info['template'] = 'Board';
 		Breadcrumb::Add(Language::Get('sbb.page.forum'), self::$Link);
 		
-		$BoardID = isset($_GET['BoardID']) ? (int)$_GET['BoardID'] : 0;
+		$BoardID = (int)URI::Get('BoardID', 0);
 
 		// Breadcrumbs
 		if($BoardID > 0) {
@@ -42,7 +42,7 @@ class BoardPage extends Page implements PageData {
 	}
 
 	public static function Link() {
-		return self::$Link;
+		return URI::Make(self::$Link);
 	}
 
 	public static function Node() {
@@ -61,7 +61,7 @@ class BoardPage extends Page implements PageData {
 				'Type'         => $Entry->Type,
 				'Title'        => htmlspecialchars($Entry->Title),
 				'Description'  => htmlspecialchars($Entry->Description),
-				'Link'         => $Entry->Type == 2 ? htmlspecialchars($Entry->Link) : '?page=Board&amp;BoardID='.$Entry->ID,
+				'Link'         => $Entry->Type == 2 ? htmlspecialchars($Entry->Link) : URI::Make(['page' => 'Board', 'BoardID' => $Entry->ID]),
 				'Stats'        => $Entry->Type == 2 ? ('Views: '.$Entry->Views) : ('Threads: '.$Entry->Threads.', Posts: '.$Entry->Posts.', Views: '.$Entry->Views),
 				'LastPost'     => 0,
 				'LastPostUser' => 'None',
@@ -80,7 +80,7 @@ class BoardPage extends Page implements PageData {
 		foreach($Threads as $T) {
 			$ThreadList[] = [
 				'Topic' => htmlspecialchars($T->Topic),
-				'Link'  => '?page=Thread&amp;ThreadID='.$T->ID
+				'Link'  => URI::Make(['page' => 'Thread', 'ThreadID' => $T->ID])
 			];
 		}
 		return $ThreadList;
@@ -94,7 +94,7 @@ class BoardPage extends Page implements PageData {
 		$Crumbs = array();
 		if($Board->ParentID != 0)
 			$Crumbs = $this->GetBreadcrumbs($Board->ParentID);
-		$Crumbs[] = array('Title' => htmlspecialchars($Board->Title), 'Link' => $Board->Type == 2 ? htmlspecialchars($Board->Link) : '?page=Board&amp;BoardID='.$Board->ID);
+		$Crumbs[] = array('Title' => htmlspecialchars($Board->Title), 'Link' => $Board->Type == 2 ? htmlspecialchars($Board->Link) : URI::Make(['page' => 'Board', 'BoardID' => $Board->ID]));
 		$this->Info['title'] = htmlspecialchars($Board->Title);
 		return $Crumbs;
 	}
