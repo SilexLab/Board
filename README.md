@@ -34,10 +34,10 @@ Links
 
 Notes
 -----
-__<sup>[1]</sup> Silex Board is developed primarily under nginx__
-__<sup>[2]</sup> Later on, we will support Memcache or so__
-__<sup>[3]</sup> Tested currently only with MySQL__
-__<sup>[4]</sup> Yes there is a heart, just for you, here is another one: ♥__
+__<sup>[1]</sup>__ Silex Board is developed primarily under nginx<br>
+__<sup>[2]</sup>__ Later on, we will support Memcache or so<br>
+__<sup>[3]</sup>__ Tested currently only with MySQL<br>
+__<sup>[4]</sup>__ Yes there is a heart, just for you, here is another one: ♥
 
 -----
 
