@@ -1,5 +1,5 @@
 	<section class="UserBar">
-		<div class="Size">
+		<div class="size">
 		{% if User.ID == 0 %}
 			<div id="LoginForm">
 				<form method="post" accept-charset="utf-8">

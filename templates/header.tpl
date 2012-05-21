@@ -1,7 +1,7 @@
 {% include "userbar.tpl" %}
-	<header class="MinSize">
+	<header class="min_size">
 		<div class="LogoBlock">
-			<div class="Logo Size">
+			<div class="Logo size">
 				<a href="./" title="{{ lang=sbb.header.logo_title }}">
 					<img src="{{ Dir.Style }}{{ Style.Dir }}/images/logo.png" alt="Logo">
 				</a>
@@ -15,7 +15,7 @@
 			</div>
 		</div>
 		<nav class="Menu">
-			<div class="Size">
+			<div class="size">
 				<ul class="MenuList">
 				{% for MenuPoint in Menu %}
 					{% if MenuPoint.Active %}

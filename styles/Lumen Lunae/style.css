@@ -1,4 +1,10 @@
 @charset "utf-8";
+/*
+	Initial style for global elements, classes and ids.
+	This style is loaded as all first one.
+*/
+
+/* Element styles */
 
 * {
 	outline: 0 none;
@@ -28,11 +34,6 @@ a, a:hover {
 	text-decoration: none;
 }
 
-section.Content {
-	padding: 35px 0 40px 0;
-	background: url(images/content_background.png) center top repeat-x #ddeaff;
-}
-
 input[type=search] {
 	-webkit-appearance: textfield;
 	appearance: normal;
@@ -47,222 +48,163 @@ input:-moz-placeholder {
 	text-shadow: 0 0 6px rgba(0,0,0,0.5);
 }
 
-.Size {
+/* Classes and IDs */
+
+.size {
 	min-width: 900px;
 	width: 80%;
 	margin-left: auto;
 	margin-right: auto;
 }
 
-.MinSize {
+.min_size {
 	min-width: 900px;
 	margin-left: auto;
 	margin-right: auto;
 }
 
-.SiteContainer {
+section.content {
+	padding: 35px 0 40px 0;
+	background: url(images/content_background.png) center top repeat-x #ddeaff;
+}
+
+.site_container {
 	background: #f0f0f0;
 	color: #000000;
 }
 
-.Container {
+/* container -> */
+.container {
 	background: rgba(255,255,255,0.4);
 	margin: 0 0 10px 0;
 	padding: 10px;
 	border-radius: 10px;
-	text-shadow: 0 1px 0 #ffffff;
 	box-shadow: 0 0 5px rgba(0,0,0,0.075);
 }
-	.Container > div:first-child {
+	.container > div:first-child {
 		border-top-left-radius: 6px;
 		border-top-right-radius: 6px;
 	}
-	.Container > div:last-child {
-		border-bottom-left-radius: 6px;
-		border-bottom-right-radius: 6px;
+	.container > div:last-child {
+		border-bottom-left-radius: 3px;
+		border-bottom-right-radius: 3px;
 	}
-	.Container h1 {
-		font-size: 24px;
-		padding: 5px 0 10px 0;
-		margin: 0;
-		color: #3C6C8B;
-		text-shadow: 0 1px 1px #ffffff;
-	}
-	.Container input[type=text], .Container input[type=password], .Container input[type=email] {
-		border: none;
-		background: rgba(0,0,0,.5) none no-repeat 4px center;
-		display: block;
-		height: 24px;
-		width: 300px;
-		line-height: 24px;
-		padding: 0 4px 0 22px;
-		font-weight: bold;
-		border: 2px solid #3C6C8B;
-		border-radius: 4px;
-		color: #ffffff;
-		text-shadow: 0 0 4px rgba(0,0,0,.4);
-		box-shadow: inset 0 0 1px white, 0 0 4px white;
-	}
-		.Container input[type=text]::-webkit-input-placeholder,
-		.Container input[type=password]::-webkit-input-placeholder,
-		.Container input[type=email]::-webkit-input-placeholder, {
-			color: #ffffff;
-			text-shadow: 0 0 4px rgba(0,0,0,.4);
-		},
-		.Container input[type=text]:-moz-placeholder,
-		.Container input[type=password]:-moz-placeholder,
-		.Container input[type=email]:-moz-placeholder {
-			color: #ffffff;
-			text-shadow: 0 0 4px rgba(0,0,0,.4);
-		}
-		.Container input[type=text][name=Username] {
-			background-image: url(icons/w_16_user.png);
-		}
-		.Container input[type=password] {
-			background-image: url(icons/w_16_key.png);
-		}
-		.Container input[type=email] {
-			background-image: url(icons/w_16_v_card.png);
-		}
-	.Container .progressbar_trim {
-		height: 4px;
-		margin: -4px 0;
-		padding: 4px 0;
-		overflow: hidden;
-	}
-		.Container .progressbar {
-			box-shadow: 0 0 4px #ffffff;
-			border-radius: 1px;
-			background: rgba(0, 0, 0, 0.3);
-			overflow: visible;
-		}
-		.Container  .progress {
-			width: 0px;
-			height: 4px;
-			background: #558FA4 url('images/progressbar_overlay.png') repeat-y right center;
-			border-radius: 1px;
-		}
-			.Container  .progress .shine {
-				height: 12px;
-				width: 40px;
-				margin: -4px -2px -4px 0;
-				float: right;
-				background: transparent url('images/progressbar_shine.png') no-repeat right center;
-			}
-
 	.container_head {
-		background: #ededed;
-		font-size: 14px;
-		color: #777777;
-		text-shadow: 0 1px 0 #ffffff;
-		height: 36px;
-		line-height: 36px;
-		padding: 0 15px;
-		border: 1px solid rgba(0,0,0,.1);
-		/*border-radius: 6px 6px 0 0;*/
+		background: #3f6f8e;
+		background: -moz-linear-gradient(top, #3f6f8e 0%, #3c4a59 100%);    /* Firefox 3.6+ */
+		background: -webkit-linear-gradient(top, #3f6f8e 0%, #3c4a59 100%); /* Chrome 10+ */
+		background: -o-linear-gradient(top, #3f6f8e 0%, #3c4a59 100%);      /* Opera 11.10+ */
+		background: -ms-linear-gradient(top, #3f6f8e 0%, #3c4a59 100%);     /* IE 10+ */
+		background: linear-gradient(top, #3f6f8e 0%, #3c4a59 100%);         /* W3C recommendation */
+
+		color: #efefef;
+		text-shadow: 0 1px 3px rgba(0,0,0,.5);
+		text-align: center;
+		border: 1px solid #0B334C;
 		white-space: nowrap;
+		box-shadow: inset 0 0 1px #ffffff;
 	}
 		.container_head .title {
-			display: block;
 			font-weight: bold;
-			overflow: hidden;
+			font-size: 14px;
+			line-height: 24px;
+			padding: 0 15px;
+			color: #ffffff;
 		}
-		.container_head .title_menu {
-			display: block;
-			font-weight: bold;
-			max-width: 232px;
-			overflow: hidden;
-			float: left;
+		.container_head .description {
+			font-weight: normal;
+			font-size: 12px;
+			line-height: 14px;
+			padding: 0 15px 4px 15px;
+			color: #efefef;
 		}
 		.container_head menu {
 			list-style: none;
 			display: block;
-			margin: 0 0 0 15px;
+			margin: 0;
 			padding: 0;
-			border-left: 1px solid rgba(0,0,0,.1);
-			height: 36px;
 			overflow: hidden;
-			max-width: 600px;
-			float: left;
 		}
 			.container_head menu li {
-				padding: 0 5px;
+				display: inline-block;
+				margin: 0;
+				padding: 5px 5px 8px 5px;
+			}
+			.container_head li .menu_title {
+				font-weight: normal;
+				font-size: 12px;
+			}
+			.container_head li .menu_icon {
+				height: 64px;
+				width: 64px;
+				margin: 0 auto 5px auto;
+				padding: 0;
+				background: url("icons/w_64_circle.png") center center no-repeat;
+			}
+		.container_head .step_bar {
+			height: 33px;
+			padding: 7px 30px;
+			margin: 0 0 -24px 0;
+			/*background: rgba(255,0,0,.5);*/
+			position: relative;
+			z-index: 100;
+		}
+			.step_bar .step_bullet_wrap {
+				height: 33px;
+				width: 0;
+				margin-right: 33.3333333333%;
 				float: left;
 			}
-				.container_head menu li:first-child {
-					padding-left: 10px;
+				.step_bar .step_bullet_wrap:last-child {
+					margin: 0;
 				}
-	.optionsbar {
-		background: #e0e0e0;
-		height: 24px;
-		line-height: 24px;
-		border: 1px solid rgba(0,0,0,.1);
-		border-top: none;
-	}
-	.content {
+				.step_bar .progress {
+					height: 9px;
+					/*background: rgba(255,0,0,.5);*/
+					background: url("images/step_progress.png") center center repeat-x;
+					margin-bottom: -21px;
+					margin-top: 12px;
+				}
+				.step_bar .step_bullet {
+					height: 43px;
+					width: 43px;
+					background: url("images/step_bullet.png") center top no-repeat;
+					margin-left: -22px;
+					margin-top: -5px;
+					line-height: 43px;
+					color: #000000;
+					text-shadow: 0 1px 0 #ffffff;
+					text-align: center;
+					font-weight: bold;
+					font-size: 16px;
+
+					/* CSS-Only test */
+					/*height: 31px;
+					width: 31px;
+					background: #f5f5f5;
+					border: 1px solid #0b334c;
+					border-radius: 17px;*/
+				}
+				.step_bullet_wrap.current .step_bullet {
+					background-position: center -43px;
+				}
+				.step_bullet_wrap.done .step_bullet {
+					background-position: center -86px;
+				}
+	.container_content {
 		background: #f5f5f5;
-		border: 1px solid rgba(0,0,0,.1);
+		border: 1px solid #0B334C;
 		border-top: none;
-		/* Debug */
-		/*min-height: 200px;*/
+		color: #000000;
+		/*min-height: 50px;*/
 	}
 	.container_footer {
-		background: #ededed;
-		height: 24px;
-		line-height: 24px;
-		border: 1px solid rgba(0,0,0,.1);
+		background: #3f6f8e;
+		border: 1px solid #0B334C;
 		border-top: none;
+		color: #ffffff;
+		line-height: 20px;
+		min-height: 20px;
+		box-shadow: inset 0 0 1px white;
 	}
-
-
-/* Bad ol' stuff */
-
-.ParseError {
-	display: inline-block;
-	background: #ffd6d1;
-	padding: 0 20px;
-	color: #FF0000;
-	font-size: 16px;
-	text-shadow: 0 1px 0 #ffffff;
-	box-shadow: 0 0 4px #000;
-	border: 1px solid #ffffff;
-	border-radius: 4px;
-}
-
-.Boardlist {
-	list-style: none;
-	margin: 0;
-	padding: 0;
-}
-
-.Category {
-	border: 1px solid #000000;
-	margin: 10px 0;
-}
-
-.CategoryHead {
-	background: #6F9;
-}
-
-.Forumlist {
-	list-style: none;
-	margin: 0;
-	padding: 0;
-}
-
-/* Posts */
-
-.messageSidebar {
-    float: left;
-    width: 180px;
-	text-align: center;
-	border-right: 1px solid;
-}
-.message {
-	border: 1px solid;
-	border-radius: 7px;
-	margin-bottom: 16px;
-}
-.messageContentInner  {
-	padding: 7px;	
-}
+/* <- container */

@@ -1,5 +1,5 @@
-	<footer class="MinSize">
-		<div class="Size">
+	<footer class="Minsize">
+		<div class="size">
 			<div class="time">
 				<div class="date">
 					<div class="d_date" title="{{ lang=sbb.footer.current_date }}">{{ Time.Date }}</div>
@@ -27,7 +27,7 @@
 			<div style="clear: both;"></div>
 		</div>
 		<div class="Legal">
-			<div class="Size">
+			<div class="size">
 				<a href="http://www.silexboard.org/">
 					<span class="Copyright">{{ lang=sbb.forumsoftware }}:</span> Silex Bulletin Board {{ Version.Version }} <span class="Copyright">–</span> © 2011 - 2012 SilexBoard.org
 				</a><br>

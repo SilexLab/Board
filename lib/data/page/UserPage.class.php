@@ -30,21 +30,21 @@ class UserPage extends Page implements PageData {
 		$this->Info['template'] = 'User';
 		$this->Info['title'] = Language::Get('sbb.user.user').': '.$User->Username;
 		Breadcrumb::Add(Language::Get('sbb.page.userlist'), UserListPage::Link());
-		Breadcrumb::Add($User->Username, self::$Link.'&UserID='.$UserID);
+		Breadcrumb::Add($User->Username, URI::Make(array_merge(self::$Link, ['UserID' => $UserID])));
 
 		// Template..
-		SBB::Template()->Set(array('Profile' => array(
-			'Username'  => $User->Username,
+		SBB::Template()->Set(array('profile' => array(
+			'username'  => $User->Username,
 			'ID'        => $User->ID,
-			'Group'     => $User->GroupID,   // TODO: Read group
-			'Signature' => $User->Signature, // TODO: Parse message
-			'Joined'    => Language::Get(Time::Day(date('N', $User->Joined))).', '.
+			'group'     => $User->GroupID,   // TODO: Read group
+			'signature' => $User->Signature, // TODO: Parse message
+			'joined'    => Language::Get(Time::Day(date('N', $User->Joined))).', '.
 				date('d. ', $User->Joined).Language::Get(Time::Month(date('n', $User->Joined))).
 				date(' Y, H:i', $User->Joined),
-			'Activity'  => date('d.m.Y, H:i', $User->LastActivity), // TODO: Alternative formats, like "Today, 11:23" or "Yesterday, 13:37",
-			'Language'  => $User->Language ? $User->Language : Language::Get('sbb.language.info'), // TODO: Read the real language
-			'Birthday'  => date('d.m.Y', $User->Birthday),
-			'Age'       => date('md', date('U', $User->Birthday)) > date('md') ? // TODO: Find a better age calculation
+			'activity'  => date('d.m.Y, H:i', $User->LastActivity), // TODO: Alternative formats, like "Today, 11:23" or "Yesterday, 13:37",
+			'language'  => $User->Language ? $User->Language : Language::Get('sbb.language.info'), // TODO: Read the real language
+			'birthday'  => date('d.m.Y', $User->Birthday),
+			'age'       => date('md', date('U', $User->Birthday)) > date('md') ? // TODO: Find a better age calculation
 				(date('Y') - date('Y', $User->Birthday)-1) :
 				(date('Y') - date('Y', $User->Birthday))
 		)));

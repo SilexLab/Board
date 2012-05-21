@@ -1,4 +1,4 @@
-					<div class="Container">
+					<div class="container">
 					<form method="post">
 						<table>
 							<tr>

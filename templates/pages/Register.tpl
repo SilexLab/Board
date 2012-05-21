@@ -1,4 +1,4 @@
-<div class="Container">
+<div class="container">
 	<div class="progressbar_trim">
 		<div class="progressbar" title="Fortschritt">
 			<div class="progress" style="width: {{ Register.Progress }}%;">

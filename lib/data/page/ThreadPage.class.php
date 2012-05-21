@@ -13,7 +13,7 @@ class ThreadPage extends Page implements PageData {
 	public function __construct() {
 		$this->Info['node'] = BoardPage::Node();
 		$this->Info['template'] = 'Thread';
-		Breadcrumb::Add(Language::Get('sbb.page.forum'), self::$Link);
+		Breadcrumb::Add(Language::Get('sbb.page.forum'), self::Link());
 
 		$ThreadID = (int)URI::Get('ThreadID', 0);
 		if($ThreadID > 0 && Database::Count('FROM `thread` WHERE `ID` = :ID', [':ID' => $ThreadID])) {
@@ -26,7 +26,7 @@ class ThreadPage extends Page implements PageData {
 			$Crumbs = $this->GetBreadcrumbs($Thread->BoardID);
 			foreach($Crumbs as $Crumb)
 				Breadcrumb::Add($Crumb['Title'], $Crumb['Link']);
-			Breadcrumb::Add($this->Info['title'], self::$Link);
+			Breadcrumb::Add($this->Info['title'], self::Link());
 
 			SBB::Template()->Set(['Posts' => $this->GetPosts($ThreadID)]);
 		} else {

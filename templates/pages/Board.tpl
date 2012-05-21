@@ -1,133 +1,117 @@
 <ul class="board">
-{% for Entry in Board %}
-{# Category #}
-	{% if Entry.Type == 0 %}
-		<li class="category">
-			<div class="Container">
-				<div class="category_content">
-					<a href="{{ Entry.Link }}">
-						<div class="title">{{ Entry.Title }}</div>
-					{% if Entry.Description %}
-						<div class="description">{{ Entry.Description }}</div>
-					{% endif %}
-					</a>
-				</div>
-{# Forum #}
-	{% elseif Entry.Type == 1 %}
-		<li class="forum">
-			<div class="Container">
-				<div class="forum_content">
-					<div class="board_info">
-						<a href="{{ Entry.Link }}">
-							<div class="board_inner">
-								<div class="title">{{ Entry.Title }}</div>
-							{% if Entry.Description %}
-								<div class="description">{{ Entry.Description }}</div>
+{% for entry in board %}
+	{% if entry.type in range(0, 2) %}
+		{% if entry.type == 0 %}
+			<li class="category">
+		{% elseif entry.type == 1 %}
+			<li class="forum">
+		{% elseif entry.type == 2 %}
+			<li class="link">
+		{% endif %}
+			<div class="container">
+				<div class="container_head">
+				{% if entry.type == 1 %}
+					<div class="board_top">
+						<div class="board_info">
+							<a href="{{ entry.link }}">
+								<div class="title">{{ entry.title }}</div>
+							{% if entry.description %}
+								<div class="description">{{ entry.description }}</div>
 							{% endif %}
-								<div class="stats">{{ Entry.Stats }}</div>
-							</div>
-						</a>
-					</div>
-					<div class="board_post">
-						<p>{{ Entry.LastPost }}</p>
-						<p>{{ Entry.LastPostUser }}</p>
-					</div>
-				</div>
-{# Link #}
-	{% elseif Entry.Type == 2 %}
-		<li class="link">
-			<div class="Container">
-				<div class="link_content">
-					<a href="{{ Entry.Link }}">
-						<div class="link_inner">
-							<div class="title">{{ Entry.Title }}</div>
-						{% if Entry.Description %}
-							<div class="description">{{ Entry.Description }}</div>
-						{% endif %}
-							<div class="stats">{{ Entry.Stats }}</div>
+							</a>
 						</div>
-					</a>
-				</div>
-	{% endif %}
-		{# Sub Board #}
-			{% if Entry.SubBoard %}
-				<ul class="sub_board">
-				{% for SubEntry in Entry.SubBoard %}
-				{# Category #}
-					{% if SubEntry.Type == 0 %}
-						<li class="category">
-							<div class="category_content">
-								<a href="{{ SubEntry.Link }}">
-									<div class="title">{{ SubEntry.Title }}</div>
-								{% if SubEntry.Description %}
-									<div class="description">{{ SubEntry.Description }}</div>
-								{% endif %}
-								</a>
-							</div>
-						</li>
-				{# Forum #}
-					{% elseif SubEntry.Type == 1 %}
-						<li class="forum">
-							<div class="forum_content">
-								<div class="board_info">
-									<a href="{{ SubEntry.Link }}">
-										<div class="board_inner">
-											<div class="title">{{ SubEntry.Title }}</div>
-										{% if SubEntry.Description %}
-											<div class="description">{{ SubEntry.Description }}</div>
-										{% endif %}
-											<div class="stats">{{ SubEntry.Stats }}</div>
-										</div>
-									</a>
-								</div>
-								<div class="board_post">
-									<p>{{ SubEntry.LastPost }}</p>
-									<p>{{ SubEntry.LastPostUser }}</p>
-								</div>
-							</div>
-						</li>
-				{# Link #}
-					{% elseif SubEntry.Type == 2 %}
-						<li class="link">
-							<div class="link_content">
-								<a href="{{ SubEntry.Link }}">
-									<div class="link_inner">
-										<div class="title">{{ SubEntry.Title }}</div>
-									{% if SubEntry.Description %}
-										<div class="description">{{ SubEntry.Description }}</div>
-									{% endif %}
-										<div class="stats">{{ SubEntry.Stats }}</div>
-									</div>
-								</a>
-							</div>
-						</li>
+						<div class="board_post">
+							<p>{{ entry.last_post }}</p>
+							<p>{{ entry.last_post_user }}</p>
+						</div>
+					</div>
+					<div class="board_bottom">
+						<div class="stats">{{ entry.stats }}</div>
+					</div>
+				{% else %}
+					<a href="{{ entry.link }}">
+						<div class="title">{{ entry.title }}</div>
+					{% if entry.description %}
+						<div class="description">{{ entry.description }}</div>
 					{% endif %}
-				{% endfor %}
-				</ul>
+					</a>
+				{% endif %}
+				</div>
+			{% if entry.sub_board %}
+				<div class="container_content">
+					<ul class="sub_board">
+					{% for sub_entry in entry.sub_board %}
+						{% if sub_entry.type in range(0, 2) %}
+							{% if sub_entry.type == 0 %}
+								<li class="category">
+							{% elseif sub_entry.type == 1 %}
+								<li class="forum">
+							{% elseif sub_entry.type == 2 %}
+								<li class="link">
+							{% endif %}
+								<div class="container_head">
+								{% if sub_entry.type == 1 %}
+									<div class="board_top">
+										<div class="board_info">
+											<a href="{{ sub_entry.link }}">
+												<div class="title">{{ sub_entry.title }}</div>
+											{% if sub_entry.description %}
+												<div class="description">{{ sub_entry.description }}</div>
+											{% endif %}
+											</a>
+										</div>
+										<div class="board_post">
+											<p>{{ sub_entry.last_post }}</p>
+											<p>{{ sub_entry.last_post_user }}</p>
+										</div>
+									</div>
+									<div class="board_bottom">
+										<div class="stats">{{ sub_entry.stats }}</div>
+									{% if sub_entry.sub_board %}
+										<ul class="sub_sub_board">
+										{% for sub_sub_entry in sub_entry.sub_board %}
+											<li><a href="{{ sub_sub_entry.link }}">{{ sub_sub_entry.title }}</a></li>
+										{% endfor %}
+										</ul>
+									{% endif %}
+									</div>
+								{% else %}
+									<a href="{{ sub_entry.link }}">
+										<div class="title">{{ sub_entry.title }}</div>
+									{% if sub_entry.description %}
+										<div class="description">{{ sub_entry.description }}</div>
+									{% endif %}
+									</a>
+								{% endif %}
+								</div>
+							</li>
+						{% endif %}
+					{% endfor %}
+					</ul>
+				</div>
 			{% endif %}
-		{# End Sub Board #}
-{# End #}
-	{% if Entry.Type in range(0, 2) %}
 			</div>
 		</li>
 	{% endif %}
 {% endfor %}
 </ul>
-{% if CurrentBoard.ID > 0 and CurrentBoard.Type != 0 %}
-<div class="Container">
+{% if current_board.ID > 0 and current_board.type != 0 %}
+<div class="container">
 	<div class="container_head">
-		Themen
+		<div class="title">Themen</div>
 	</div>
-	<ul>
-	{% for Thread in Threads %}
-		<li>
-			<a href="{{ Thread.Link }}">{{ Thread.Topic }}</a>
-		</li>
-	{% else %}
-		<li>
-			{{ lang=sbb.board.no_threads }} [sbb.board.no_threads]
-		</li>
-	{% endfor %}
-	</ul>
+	<div class="container_content">
+		<ul>
+		{% for thread in threads %}
+			<li>
+				<a href="{{ thread.link }}">{{ thread.topic }}</a>
+			</li>
+		{% else %}
+			<li>
+				{{ lang=sbb.board.no_threads }} [sbb.board.no_threads]
+			</li>
+		{% endfor %}
+		</ul>
+	</div>
 </div>
 {% endif %}

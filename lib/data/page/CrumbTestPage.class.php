@@ -13,22 +13,22 @@ class CrumbTestPage extends Page implements PageData {
 	public function __construct() {
 		$this->Info['node'] = self::$Node;
 		$this->Info['title'] = 'Crumb Test';
-		Breadcrumb::Add('ASDF', self::$Link);
-		Breadcrumb::Add('Foo', self::$Link);
-		Breadcrumb::Add('Bar', self::$Link);
-		Breadcrumb::Add('Bum', self::$Link);
-		Breadcrumb::Add('Bam', self::$Link);
-		Breadcrumb::Add('Si 23 f', self::$Link);
-		Breadcrumb::Add('Do rwe3', self::$Link);
-		Breadcrumb::Add('Fu qr ', self::$Link);
-		Breadcrumb::Add('Fa qwr', self::$Link);
-		Breadcrumb::Add('KK asd', self::$Link);
-		Breadcrumb::Add('ASDF JKLÖ', self::$Link);
-		Breadcrumb::Add('Loooooooooooooooooooooooooooooooong', self::$Link);
-		Breadcrumb::Add('Bluuuuub', self::$Link);
-		Breadcrumb::Add('Blabbbbbbb', self::$Link);
-		Breadcrumb::Add('Blööööööööööööööööööbbbbbbb', self::$Link);
-		Breadcrumb::Add('Aledo le blä', self::$Link);
+		Breadcrumb::Add('ASDF', self::Link());
+		Breadcrumb::Add('Foo', self::Link());
+		Breadcrumb::Add('Bar', self::Link());
+		Breadcrumb::Add('Bum', self::Link());
+		Breadcrumb::Add('Bam', self::Link());
+		Breadcrumb::Add('Si 23 f', self::Link());
+		Breadcrumb::Add('Do rwe3', self::Link());
+		Breadcrumb::Add('Fu qr ', self::Link());
+		Breadcrumb::Add('Fa qwr', self::Link());
+		Breadcrumb::Add('KK asd', self::Link());
+		Breadcrumb::Add('ASDF JKLÖ', self::Link());
+		Breadcrumb::Add('Loooooooooooooooooooooooooooooooong', self::Link());
+		Breadcrumb::Add('Bluuuuub', self::Link());
+		Breadcrumb::Add('Blabbbbbbb', self::Link());
+		Breadcrumb::Add('Blööööööööööööööööööbbbbbbb', self::Link());
+		Breadcrumb::Add('Aledo le blä', self::Link());
 	}
 
 	public function GetInfo($Info) {

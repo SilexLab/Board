@@ -7,12 +7,12 @@
 
 $GT = microtime(true);
 
-if(!file_exists('lib/config.inc.php'))
-	die('Your config file is missing!');
-
 // Define the Silex Board root directory
 define('DIR_ROOT', dirname(__file__).'/');
 
+// Check for init file
+if(!file_exists('lib/init.php'))
+	die('Something is wrong with your installation');
 require_once ('lib/init.php');
 
 // Developement performance

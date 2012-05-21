@@ -60,10 +60,16 @@ table.userlist {
 		max-height: 200px;
 		max-width: 200px;
 	}
-.Container.user {
+.container.user {
 	margin-left: 210px;
 }
-.content .signature {
+	.container.user::after {
+		content: "";
+		height: 0;
+		display: block;
+		clear: both;
+	}
+.container_content .signature {
 	padding: 20px 40px;
 	background-image: url('images/quote_start.png'), url('images/quote_end.png');
 	background-position: left bottom, right top;
@@ -71,37 +77,37 @@ table.userlist {
 	max-height: 100px;
 	overflow: auto;
 }
-.content .info {
+.container_content .info {
 	padding: 10px;
 	line-height: 16px;
 }
-	.content .info span {
+	.container_content .info span {
 		padding: 0 10px 0 18px;
 		background: transparent no-repeat left center;
 		display: inline-block;
 		white-space: nowrap;
 	}
-	.content .info .group {
+	.container_content .info .group {
 		background-image: url('icons/g_16_group.png');
 	}
-	.content .info .gender.male {
+	.container_content .info .gender.male {
 		background-image: url('icons/g_16_male.png');
 	}
-	.content .info .gender.female {
+	.container_content .info .gender.female {
 		background-image: url('icons/g_16_female.png');
 	}
-	.content .info .joined {
+	.container_content .info .joined {
 		background-image: url('icons/g_16_calendar.png');
 	}
-	.content .info .activity {
+	.container_content .info .activity {
 		background-image: url('icons/g_16_clock.png');
 	}
-	.content .info .language {
+	.container_content .info .language {
 		background-image: url('icons/g_16_flag.png');
 	}
-	.content .info .birthday {
+	.container_content .info .birthday {
 		background-image: url('icons/g_16_balloons.png');
 	}
-	.content .info .age {
+	.container_content .info .age {
 		padding: 0 10px 0 0;
 	}

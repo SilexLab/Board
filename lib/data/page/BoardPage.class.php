@@ -14,7 +14,7 @@ class BoardPage extends Page implements PageData {
 		$this->Info['node'] = self::$Node;
 		$this->Info['title'] = Language::Get('sbb.page.forum');
 		$this->Info['template'] = 'Board';
-		Breadcrumb::Add(Language::Get('sbb.page.forum'), self::$Link);
+		Breadcrumb::Add(Language::Get('sbb.page.forum'), self::Link());
 		
 		$BoardID = (int)URI::Get('BoardID', 0);
 
@@ -23,14 +23,14 @@ class BoardPage extends Page implements PageData {
 			// Find Breadcrumbs
 			$Crumbs = $this->GetBreadcrumbs($BoardID);
 			foreach($Crumbs as $Crumb) {
-				Breadcrumb::Add($Crumb['Title'], $Crumb['Link']);
+				Breadcrumb::Add($Crumb['title'], $Crumb['link']);
 			}
 		}
 		$cBoard = SBB::DB()->prepare('SELECT `Type` FROM `board` WHERE `ID` = :ID');
 		$cBoard->execute([':ID' => $BoardID]);
-		SBB::Template()->Set(['Board' => $this->GetBoardList($BoardID),
-			'Threads' => $this->GetThreadList($BoardID),
-			'CurrentBoard' => ['ID' => $BoardID, 'Type' => $cBoard->fetch(PDO::FETCH_OBJ)->Type]]);
+		SBB::Template()->Set(['board' => $this->GetBoardList($BoardID),
+			'threads' => $this->GetThreadList($BoardID),
+			'current_board' => ['ID' => $BoardID, 'type' => $cBoard->fetch(PDO::FETCH_OBJ)->Type]]);
 	}
 
 	public function GetInfo($Info) {
@@ -58,14 +58,14 @@ class BoardPage extends Page implements PageData {
 		$BoardList = array();
 		foreach($Board as $Entry) {
 			$BoardList[] = [
-				'Type'         => $Entry->Type,
-				'Title'        => htmlspecialchars($Entry->Title),
-				'Description'  => htmlspecialchars($Entry->Description),
-				'Link'         => $Entry->Type == 2 ? htmlspecialchars($Entry->Link) : URI::Make(['page' => 'Board', 'BoardID' => $Entry->ID]),
-				'Stats'        => $Entry->Type == 2 ? ('Views: '.$Entry->Views) : ('Threads: '.$Entry->Threads.', Posts: '.$Entry->Posts.', Views: '.$Entry->Views),
-				'LastPost'     => 0,
-				'LastPostUser' => 'None',
-				'SubBoard'     => $Depth < 2 ? $this->GetBoardList($Entry->ID, $Depth) : false
+				'type'           => $Entry->Type,
+				'title'          => htmlspecialchars($Entry->Title),
+				'description'    => htmlspecialchars($Entry->Description),
+				'link'           => $Entry->Type == 2 ? htmlspecialchars($Entry->Link) : URI::Make(['page' => 'Board', 'BoardID' => $Entry->ID]),
+				'stats'          => $Entry->Type == 2 ? ('Views: '.$Entry->Views) : ('Threads: '.$Entry->Threads.', Posts: '.$Entry->Posts.', Views: '.$Entry->Views),
+				'last_post'      => 0,
+				'last_post_user' => 'None',
+				'sub_board'      => $Depth < 3 ? $this->GetBoardList($Entry->ID, $Depth) : false
 			];
 		}
 		return $BoardList;
@@ -79,8 +79,8 @@ class BoardPage extends Page implements PageData {
 		$ThreadList = array();
 		foreach($Threads as $T) {
 			$ThreadList[] = [
-				'Topic' => htmlspecialchars($T->Topic),
-				'Link'  => URI::Make(['page' => 'Thread', 'ThreadID' => $T->ID])
+				'topic' => htmlspecialchars($T->Topic),
+				'link'  => URI::Make(['page' => 'Thread', 'ThreadID' => $T->ID])
 			];
 		}
 		return $ThreadList;
@@ -94,7 +94,7 @@ class BoardPage extends Page implements PageData {
 		$Crumbs = array();
 		if($Board->ParentID != 0)
 			$Crumbs = $this->GetBreadcrumbs($Board->ParentID);
-		$Crumbs[] = array('Title' => htmlspecialchars($Board->Title), 'Link' => $Board->Type == 2 ? htmlspecialchars($Board->Link) : URI::Make(['page' => 'Board', 'BoardID' => $Board->ID]));
+		$Crumbs[] = array('title' => htmlspecialchars($Board->Title), 'link' => $Board->Type == 2 ? htmlspecialchars($Board->Link) : URI::Make(['page' => 'Board', 'BoardID' => $Board->ID]));
 		$this->Info['title'] = htmlspecialchars($Board->Title);
 		return $Crumbs;
 	}

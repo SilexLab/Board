@@ -1,16 +1,16 @@
-<div class="Container">
+<div class="container">
 	<div class="container_head">
-		<div class="title_menu">{{ lang=sbb.page.userlist }}</div>
+		<div class="title">{{ lang=sbb.page.userlist }}</div>
 		<menu>
 			<li>{{ lang=sbb.user.all_members }}</li>
 			<li>{{ lang=sbb.user.teammembers }}</li>
 			<li>{{ lang=sbb.user.search }}</li>
 		</menu>
 	</div>
-	<div class="optionsbar">
-		Sortier-/Anzeigeoptionen
-	</div>
-	<div class="content">
+	<div class="container_content">
+		<div class="optionsbar">
+			Sortier-/Anzeigeoptionen
+		</div>
 		<table class="userlist">
 			<thead>
 				<tr>
@@ -24,17 +24,17 @@
 				</tr>
 			</thead>
 			<tbody>
-			{% for TUser in Users %}
+			{% for user in users %}
 				<tr>
 					<td>
-						<a href="?page=User&amp;UserID={{ TUser.ID }}">
+						<a href="{{ user.link }}">
 							<img src="{{ Dir.Style }}{{ Style.Dir }}/icons/g_64_user.png" class="avatar"> {# Avatar #}
 						</a>
 					</td>
 					<td>
-						<a href="?page=User&amp;UserID={{ TUser.ID }}">
-							<div class="username">{{ TUser.Name }}</div>
-						{# TODO: TUser.Group #}
+						<a href="{{ user.link }}">
+							<div class="username">{{ user.name }}</div>
+						{# TODO: user.group #}
 						{% if TUser.Name == "admin" %}
 							<div class="usergroup">Administrator</div>
 						{% else %}
@@ -43,14 +43,14 @@
 						</a>
 					</td>
 					<td>
-						<div class="joined_date">{{ TUser.Joined_D|default("-") }}</div>
-						<div class="joined_time">{{ TUser.Joined_T|default("-") }}</div>
+						<div class="joined_date">{{ user.joined_d|default("-") }}</div>
+						<div class="joined_time">{{ user.joined_t|default("-") }}</div>
 					</td>
-					<td>{{ TUser.Posts }}</td>
-					<td>{{ TUser.Language }}</td>
+					<td>{{ user.posts }}</td>
+					<td>{{ user.language }}</td>
 					<td>
-					{% if TUser.Homepage %}
-						<a href="{{ TUser.Homepage }}">Link</a>
+					{% if user.homepage %}
+						<a href="{{ user.homepage }}">Link</a>
 					{% else %}
 						-
 					{% endif %}

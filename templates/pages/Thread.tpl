@@ -1,4 +1,4 @@
-<div class="Container">
+<div class="container">
 {% if Posts %}
 	<ul>
 	{% for Post in Posts %}

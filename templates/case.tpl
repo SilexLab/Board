@@ -3,10 +3,10 @@
 {% include "head.tpl" %}
 
 <body>
-	<section class="SiteContainer MinSize">
-	{% include "header.tpl" %}
-	{% include "body.tpl" %}
-	{% include "footer.tpl" %}
+	<section class="site_container min_size">
+{% include "header.tpl" %}
+{% include "body.tpl" %}
+{% include "footer.tpl" %}
 	</section>
 </body>
 </html>

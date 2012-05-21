@@ -5,24 +5,16 @@
  * @license    GPL version 3 or higher <http://www.gnu.org/licenses/gpl-3.0.html>
  */
 
-class LoginPage extends Page implements PageData {
-	protected static $Link = ['page' => 'Login'];
-	protected static $Node = 'page.login';
+class DesignPage extends Page implements PageData {
+	protected static $Link = ['page' => 'Design']; // '?page=Design';
+	protected static $Node = 'page.design';
 	protected $Info = array();
 
 	public function __construct() {
-		if(SBB::User()->LoggedIn())
-			header('location: ./');
-		
 		$this->Info['node'] = self::$Node;
-		$this->Info['title'] = Language::Get('sbb.page.login');
-		Breadcrumb::Add(Language::Get('sbb.page.login'), self::Link());
-		$this->Info['template'] = 'Login';
-		
-		if(Session::Get('LoginError')) {
-			Notification::Show(Language::Get(Session::Get('LoginError')), Notification::ERROR);
-			unset($_SESSION['LoginError']);
-		}
+		$this->Info['title'] = 'Designtest';
+		$this->Info['template'] = 'Design';
+		Breadcrumb::Add('Designtest', self::Link());
 	}
 
 	public function GetInfo($Info) {

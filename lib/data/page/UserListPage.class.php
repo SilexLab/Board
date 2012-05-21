@@ -14,24 +14,24 @@ class UserListPage extends Page implements PageData {
 		$this->Info['node'] = self::$Node;
 		$this->Info['title'] = Language::Get('sbb.page.userlist');
 		$this->Info['template'] = 'UserList';
-		Breadcrumb::Add(Language::Get('sbb.page.userlist'), self::$Link);
+		Breadcrumb::Add(Language::Get('sbb.page.userlist'), self::Link());
 
 		$TempUsers = SBB::DB()->query('SELECT * FROM `users`')->fetchAll(PDO::FETCH_OBJ);
 		$Users = array();
 		foreach($TempUsers as $User) {
 			$Users[] = array(
-				'ID'       => $User->ID,
-				'Name'     => $User->Username,
-				'Group'    => '',
-				'Joined_D' => date('d. ', $User->Joined).Language::Get(Time::Month(date('n', $User->Joined))).date(' Y', $User->Joined),
-				'Joined_T' => date('H:i', $User->Joined),
-				'Posts'    => '-',
-				'Language' => $User->Language,
-				'Homepage' => $User->Homepage
+				'name'     => $User->Username,
+				'link'     => URI::Make(['page' => 'User', 'UserID' => $User->ID]),
+				'group'    => '',
+				'joined_d' => date('d. ', $User->Joined).Language::Get(Time::Month(date('n', $User->Joined))).date(' Y', $User->Joined),
+				'joined_t' => date('H:i', $User->Joined),
+				'posts'    => '-',
+				'language' => $User->Language,
+				'homepage' => $User->Homepage
 			);
 		}
 
-		SBB::Template()->Set(array('Users' => $Users));
+		SBB::Template()->Set(array('users' => $Users));
 	}
 
 	public function GetInfo($Info) {
