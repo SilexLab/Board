@@ -1,3 +1,9 @@
+<style type="text/css">
+	.container_content {
+		min-height: 100px;
+	}
+</style>
+
 {# Default #}
 <div class="container">
 	<div class="container_head">
@@ -77,7 +83,6 @@
 				.step_bar .progress { width: 33.3333333333%; } /* Current Progress */
 				.step_bar .step_bullet_wrap { margin-right: 33.3333333333%; } /* 100 / num of steps - 1 (100 / 4-1 = 33.333...)*/
 			</style>
-			<div class="progress"></div>
 			<div class="step_bullet_wrap done">
 				<div class="step_bullet">1</div>
 			</div>
@@ -90,6 +95,11 @@
 			<div class="step_bullet_wrap">
 				<div class="step_bullet">4</div>
 			</div>
+		</div>
+	</div>
+	<div class="container_progress step">
+		<div class="progress_bar">
+			<div class="progress"></div>
 		</div>
 	</div>
 	<div class="container_content">

@@ -1,12 +1,27 @@
-.register_content {
-	float: left;
+.register_container {
+	overflow: hidden;
 }
-.register_info {
-	float: right;
-}
-.register_info::after {
-	content: "";
-	height: 0;
-	display: block;
-	clear: both;
-}
+	.register_container::after {
+		content: "";
+		height: 0;
+		display: block;
+		clear: both;
+	}
+	.register_content {
+		display: block;;
+		padding: 15px 5px 5px 5px;
+	}
+	.register_info {
+		width: 250px;
+		height: 40px;
+		background: #e9f9ff;
+		border-left: 1px solid #aacbeb;
+		box-shadow: inset 0 0 1px #ffffff;
+		float: right;
+		/* Dirty work: (Faux) */
+		margin-bottom: -5000px;
+		padding-bottom: 5000px;
+	}
+		.register_info_content {
+			padding: 15px 5px 5px 5px;
+		}

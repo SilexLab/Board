@@ -144,7 +144,7 @@ section.content {
 		.container_head .step_bar {
 			height: 33px;
 			padding: 7px 30px;
-			margin: 0 0 -24px 0;
+			margin: 0 0 -26px 0;
 			/*background: rgba(255,0,0,.5);*/
 			position: relative;
 			z-index: 100;
@@ -158,13 +158,6 @@ section.content {
 				.step_bar .step_bullet_wrap:last-child {
 					margin: 0;
 				}
-				.step_bar .progress {
-					height: 9px;
-					/*background: rgba(255,0,0,.5);*/
-					background: url("images/step_progress.png") center center repeat-x;
-					margin-bottom: -21px;
-					margin-top: 12px;
-				}
 				.step_bar .step_bullet {
 					height: 43px;
 					width: 43px;
@@ -173,17 +166,10 @@ section.content {
 					margin-top: -5px;
 					line-height: 43px;
 					color: #000000;
-					text-shadow: 0 1px 0 #ffffff;
+					text-shadow: 0 1px 0 rgba(255,255,255,.6);
 					text-align: center;
 					font-weight: bold;
 					font-size: 16px;
-
-					/* CSS-Only test */
-					/*height: 31px;
-					width: 31px;
-					background: #f5f5f5;
-					border: 1px solid #0b334c;
-					border-radius: 17px;*/
 				}
 				.step_bullet_wrap.current .step_bullet {
 					background-position: center -43px;
@@ -191,12 +177,30 @@ section.content {
 				.step_bullet_wrap.done .step_bullet {
 					background-position: center -86px;
 				}
+	.container_progress {
+		background: #0B334C;
+		border: 1px solid #0B334C;
+		border-top: none;
+		height: 4px;
+	}
+		.container_progress.step {
+			padding: 0 30px;
+		}
+		.container_progress .progress_bar {
+			background: #f5f5f5;
+			height: 4px;
+		}
+			.container_progress .progress {
+				background: #8ac466;
+				height: 4px;
+				width: 0px;
+				box-shadow: inset 0 0 1px #ffffff;
+			}
 	.container_content {
 		background: #f5f5f5;
 		border: 1px solid #0B334C;
 		border-top: none;
 		color: #000000;
-		/*min-height: 50px;*/
 	}
 	.container_footer {
 		background: #3f6f8e;

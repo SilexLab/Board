@@ -1,11 +1,29 @@
+{% import "macros.tpl" as macros %}
+
 <div class="container">
-	<div class="progressbar_trim">
-		<div class="progressbar" title="Fortschritt">
-			<div class="progress" style="width: {{ Register.Progress }}%;">
-				<div class="shine"></div>
+	<div class="container_head">
+		<div class="title">{{ lang=sbb.register.register }}</div>
+		{{ macros.step_bar('5', '2', 'register') }}
+	</div>
+	{{ macros.progress_bar('25', 'step', 'register') }}
+	<div class="container_content">
+		<div class="register_container">
+			<div class="register_info">
+				<div class="register_info_content">
+					Infos \o/
+				</div>
+			</div>
+			<div class="register_content">
+				asfssssssssssssssssssssssssssssssssssssssssssssssssssss<br><br>asdasf<br><br>asdf
 			</div>
 		</div>
 	</div>
+	<div class="container_footer">
+	</div>
+</div>
+
+{#
+<div class="container">
 	<div class="register_content">
 		{% if Register.Step == "register.username" or not Register.Step %}
 			<h1>{{ lang=sbb.register.username }}</h1>
@@ -53,3 +71,4 @@
 	</div>
 	<div style="clear:both;"></div>
 </div>
+#}
