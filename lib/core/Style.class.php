@@ -84,14 +84,14 @@ class Style implements Singleton {
 		
 		$Files = array();
 		if(is_file(DIR_ROOT.DIR_STYLE.$this->Info['Dir'].'/style.css')) // "root" css file
-			$Files[] = 'style.css';
+			$Files[] = str_replace(' ', '%20', DIR_STYLE.$this->Info['Dir'].'/style.css');
 		foreach($Dir as $File) {
 			if($File == 'style.css')
 				continue;
 			
 			// Extension is .css?
 			if(strpos($File, '.css') === (strlen($File) - 4))
-				$Files[] = $File;
+				$Files[] = str_replace(' ', '%20', DIR_STYLE.$this->Info['Dir'].'/'.$File);
 		}
 		return $Files;
 	}
@@ -105,7 +105,7 @@ class Style implements Singleton {
 		foreach($Dir as $File) {
 			// Extension is .js?
 			if(strpos($File, '.js') === (strlen($File) - 3))
-				$Files[] = $File;
+				$Files[] = str_replace(' ', '%20', DIR_STYLE.$this->Info['Dir'].'/'.DIR_JS.$File);
 		}
 		return $Files;
 	}
