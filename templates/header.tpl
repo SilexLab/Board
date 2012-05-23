@@ -19,9 +19,9 @@
 				<ul class="MenuList">
 				{% for MenuPoint in Menu %}
 					{% if MenuPoint.Active %}
-					<li class="active"><a href="{{ MenuPoint.Link }}"><div>{{ MenuPoint.Name }}</div></a></li>
+					<li class="active"><a href="{{ MenuPoint.Link }}"><span>{{ MenuPoint.Name }}</span></a></li>
 					{% else %}
-					<li><a href="{{ MenuPoint.Link }}"><div>{{ MenuPoint.Name }}</div></a></li>
+					<li><a href="{{ MenuPoint.Link }}"><span>{{ MenuPoint.Name }}</span></a></li>
 					{% endif %}
 				{% endfor %}
 				</ul>

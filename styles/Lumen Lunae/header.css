@@ -264,7 +264,7 @@ nav.Menu {
 		nav.Menu .Menulist li.active {
 			height: 37px;
 		}
-			nav.Menu .MenuList li div{
+			nav.Menu .MenuList li span {
 				background: rgba(60, 108, 139, 0.5);
 				color: #97c8ff;
 				font-weight: bold;
@@ -279,17 +279,17 @@ nav.Menu {
 				border-radius: 5px 5px 0 0;
 				cursor: pointer;
 			}
-			nav.Menu .MenuList li:hover div {
+			nav.Menu .MenuList li:hover span {
 				background: rgba(85, 133, 164, 0.5);;
 				border-top-color: rgba(112, 159, 191, 0.5);
 				color: #a9daff;
 			}
-			nav.Menu .MenuList li:active div {
+			nav.Menu .MenuList li:active span {
 				background: rgba(31, 83, 112, 0.5);
 				border-top-color: rgba(85, 143, 164, 0.5);
 				color: #a9daff;
 			}
-			nav.Menu .MenuList li.active div {
+			nav.Menu .MenuList li.active span {
 				background: url(images/tab_active.png) repeat-x left top transparent;
 				color: #ffffff;
 				font-weight: bold;
@@ -302,12 +302,12 @@ nav.Menu {
 				border-top: 1px solid #558fa4;
 				box-shadow: 0 0 3px rgba(11, 51, 76, 0.7);
 			}
-			nav.Menu .MenuList li.active:hover div {
+			nav.Menu .MenuList li.active:hover span {
 				background-position: left -40px;
 				border-top-color: #97d0e5;
 				color: #ffffff;
 			}
-			nav.Menu .MenuList li.active:active div {
+			nav.Menu .MenuList li.active:active span {
 				background-position: left -80px;
 				border-top-color: #7eb1e1;
 				color: #ffffff;

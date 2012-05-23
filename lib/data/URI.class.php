@@ -43,10 +43,25 @@ class URI {
 	}
 
 	protected static function MakeDefault(array $Data) { // TODO: '?page=' as first
+		// Keep this vars:
+		foreach(['lang'] as $Var)
+			if(!isset($Data[$Var]) && isset($_GET[$Var]))
+				$Data[$Var] = $_GET[$Var];
+
+		// Make URI
 		$URI = '';
-		foreach($Data as $Key => $Value)
-			$URI .= $Key.'='.$Value.'&';
-		return '?'.trim($URI, '&');
+		$i = 0;
+		foreach($Data as $Key => $Value) {
+			if($Key !== 0) {
+				if($i == 0)
+					$URI = '?';
+				$URI .= $Key.'='.$Value.'&amp;';
+				$i++;
+			} else if($i == 0) {
+				$URI = $Value;
+			}
+		}
+		return $i == 0 ? $URI : substr($URI, 0, -5);
 	}
 
 	protected static function MakeWitRewrite(array $Data) {

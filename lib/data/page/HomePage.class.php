@@ -6,14 +6,14 @@
  */
 
 class HomePage extends Page implements PageData {
-	protected static $Link = './';
+	protected static $Link = [0 => './'];
 	protected static $Node = 'page.home';
 	protected $Info = array();
 
 	public function __construct() {
 		// Redirect on ?page=Home
 		if(URI::Get('page') == 'Home')
-			header('location: ./');
+			header('location: '.self::Link());
 
 		$this->Info['node'] = self::$Node;
 		$this->Info['title'] = Language::Get('sbb.page.home');
