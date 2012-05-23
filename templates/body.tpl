@@ -1,3 +1,4 @@
+{% import "macros.tpl" as macros %}
 	<section class="content">
 		{% for Notification in Notifications %}
 			<div class="notification {{ Notification.Type }}">
@@ -9,30 +10,8 @@
 			</div>
 		{% endfor %}
 		<div class="size">
-			<div class="container">
-				<nav class="bread_crumbs">
-					{% for Crumb in Crumbs %}
-						<span class="crust">
-							<a href="{{ Crumb.Link }}" class="crumb">
-								<div class="crumb_wrap">{{ Crumb.Title }}</div>
-							</a>
-							<span class="arrow"></span>
-						</span>
-					{% endfor %}
-				</nav>
-			</div>
+			{{ macros.breadcrumb(Crumbs) }}
 			{% include "pages/" ~ Page.template|default("Home") ~ ".tpl" %}
-			<div class="container">
-				<nav class="bread_crumbs">
-					{% for Crumb in Crumbs %}
-						<span class="crust">
-							<a href="{{ Crumb.Link }}" class="crumb">
-								<div class="crumb_wrap">{{ Crumb.Title }}</div>
-							</a>
-							<span class="arrow"></span>
-						</span>
-					{% endfor %}
-				</nav>
-			</div>
+			{{ macros.breadcrumb(Crumbs) }}
 		</div>
 	</section>

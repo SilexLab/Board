@@ -3,7 +3,7 @@
 		<div class="LogoBlock">
 			<div class="Logo size">
 				<a href="./" title="{{ lang=sbb.header.logo_title }}">
-					<img src="{{ Dir.Style }}{{ Style.Dir }}/images/logo.png" alt="Logo">
+					<img src="{{ logo }}" alt="Logo">
 				</a>
 				<div class="Slogan">
 				{% if Slogan %}

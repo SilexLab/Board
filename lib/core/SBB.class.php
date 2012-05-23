@@ -108,9 +108,10 @@ class SBB {
 	 * Assign default stuff to template
 	 */
 	private static function AssignDefault() {
-		self::Template()->Set(array(
+		self::Template()->Set([
 			'Style' => self::Style()->Info(),
 			'PageTitle' => self::Config('config.page.title'),
+			'logo' => DIR_STYLE.str_replace(' ', '%20', self::Style()->Info('Dir')).'/images/logo.png',
 			'Dir' => array(
 				'Style' => DIR_STYLE,
 				'JS' => DIR_JS
@@ -125,7 +126,7 @@ class SBB {
 				'Version' => SBB_VERSION.'-'.date('Ymd', CommitInfo::Get()),
 				'SHA' => CommitInfo::Get('SHA')
 			)
-		));
+		]);
 		self::Template()->Set(Language::Get(), true);
 		Breadcrumb::Assign();
 		Page::Assign();

@@ -1,3 +1,21 @@
+{% macro breadcrumb(crumbs) %}
+<div class="container">
+	<nav class="bread_crumbs">
+		{% for crumb in crumbs %}
+			<div class="crust">
+				<a href="{{ crumb.Link }}" class="crumb">
+					<span class="crumb_wrap">{{ crumb.Title }}</span>
+				</a>
+				<span class="arrow"></span>
+			</div>
+		{% endfor %}
+	</nav>
+</div>
+{% endmacro %}
+
+
+{# Progressbars #}
+
 {% macro step_bar(steps, current_step, id) %}
     <div class="step_bar"{{ id ? (' id="' ~ id ~ '"') : '' }}>
 		<style type="text/css">
