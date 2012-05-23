@@ -57,8 +57,8 @@
 				max-width: 150px;
 				display: block;
 				margin: 0 auto;
-			}​
-		.register_info_content div, .register_info .email, .register_info .password, .register_info .username { /* BUG: The first selector will be ignored... */
+			}
+		.register_info .username, .register_info .email, .register_info .password {
 			padding: 0 0 0 20px;
 			margin-bottom: 6px;
 			background: url('icons/g_16_user.png') left center no-repeat;

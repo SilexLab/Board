@@ -13,7 +13,7 @@
 body {
 	margin: 0;
 	padding: 0;
-	font: 75%/1 Arial, Helvetica, sans-serif;
+	font: normal normal normal 75%/1 Arial, Helvetica, sans-serif;
 	background: #1B1B1B url(images/background.png) center top repeat;
 	color: #d0d0d0;
 	-webkit-font-smoothing: antialiased;
@@ -36,16 +36,15 @@ a, a:hover {
 
 input[type=search] {
 	-webkit-appearance: textfield;
-	appearance: normal;
 	box-sizing: content-box;
 }
 ::-webkit-input-placeholder {
 	color: #97d8f0;
-	text-shadow: 0 0 6px rgba(0,0,0,0.5);
+	text-shadow: 0 0 6px rgba(0,0,0,.5);
 }
 input:-moz-placeholder {
 	color: #97d8f0;
-	text-shadow: 0 0 6px rgba(0,0,0,0.5);
+	text-shadow: 0 0 6px rgba(0,0,0,.5);
 }
 
 /* Classes and IDs */
