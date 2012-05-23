@@ -24,7 +24,7 @@ class RegisterPage extends Page implements PageData {
 		if(!Session::Get('register.step') || Post::Get('Login'))
 			Session::Set('register.step', 'register.username');
 
-		$this->Steps = ['register.username', 'register.password', 'register.email', 'register.captcha'];
+		$this->Steps = ['register.username', 'register.email', 'register.password', 'register.captcha', 'register.avatar'];
 
 		if(Post::Get('sub_restart')) {
 			Post::Del('sub_restart');
@@ -35,6 +35,10 @@ class RegisterPage extends Page implements PageData {
 			$GoTo = clamp(array_get_key($this->Steps, Session::Get('register.step')) - 1, 0, sizeof($this->Steps) - 1);
 			Session::Set('register.step', $this->Steps[$GoTo]);
 		}
+
+		SBB::Template()->Set(['register' => ['steps' => sizeof($this->Steps), 'current_step' => 2]]);
+
+		/*
 		while(true) {
 			switch(Session::Get('register.step')) {
 				case 'register.username':
@@ -88,6 +92,7 @@ class RegisterPage extends Page implements PageData {
 					break;
 			}
 		}
+		*/
 
 		$PasswordBullets = '';
 		if(Session::Get('register.password'))

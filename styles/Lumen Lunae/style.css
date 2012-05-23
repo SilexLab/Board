@@ -143,9 +143,8 @@ section.content {
 			}
 		.container_head .step_bar {
 			height: 33px;
-			padding: 7px 30px;
-			margin: 0 0 -26px 0;
-			/*background: rgba(255,0,0,.5);*/
+			padding: 7px 30px 0 30px;
+			margin: 0 0 -19px 0;
 			position: relative;
 			z-index: 100;
 		}
