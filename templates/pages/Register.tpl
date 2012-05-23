@@ -11,7 +11,7 @@
 			<div class="register_info">
 				<div class="register_info_content">
 					<div class="avatar">
-						<div class="avatar_image"><img src="styles/Lumen Lunae/icons/g_64_user.png{{ register.avatar }}"></div>
+						<div class="avatar_image"><img src="styles/Lumen%20Lunae/icons/g_64_user.png" alt="avatar"></div> {# {{ register.avatar }} #}
 					</div>
 					<div class="username">[Username]</div>
 					<div class="email">[E-Mail]</div>

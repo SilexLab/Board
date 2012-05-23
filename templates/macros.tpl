@@ -17,11 +17,11 @@
 {# Progressbars #}
 
 {% macro step_bar(steps, current_step, id) %}
-    <div class="step_bar"{{ id ? (' id="' ~ id ~ '"') : '' }}>
+    <div class="step_bar{{ id ? (' ' ~ id) : '' }}">
 		<style type="text/css">
-			{{ id ? ('#' ~ id) : ''}}.step_bar .step_bullet_wrap { margin-right: {{ 100 / (steps - 1) }}%; } /* 100 / num of steps - 1 */
+			{{ id ? ('.' ~ id) : ''}}.step_bar .step_bullet_wrap { margin-right: {{ 100 / (steps - 1) }}%; } /* 100 / num of steps - 1 */
 			{% if id %}
-				{{ '#' ~ id }}.step_bar .step_bullet_wrap:last-child { margin: 0; }
+				{{ '.' ~ id }}.step_bar .step_bullet_wrap:last-child { margin: 0; }
 			{% endif %}
 		</style>
 		{% for i in 1..steps %}
