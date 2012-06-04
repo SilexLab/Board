@@ -30,15 +30,16 @@ class Template {
 		// Set necessary variables
 		$this->TPLPath = $StylePath != '' ? array($StylePath, $TPLPath) : $TPLPath;
 		$this->CachePath = $CachePath != '' ? $CachePath : (DIR_LIB.'cache/');
-		$this->Debug = $Debug;
+		$this->Debug = (bool)$Debug; // TODO: Config('template.debug') or so
 		
 		// Initial the Twig Environment
 		$this->Environment = new Twig_Environment(new Twig_Loader_Filesystem($this->TPLPath), array(
-			'debug'       => $this->Debug, // Enable or disable debugging
-			'charset'     => $Charset, // Sets the charset to the given value
-			'cache'       => $this->CachePath, // Sets the cache directory
-			'auto_reload' => $AutoReload, // Automaticaly recompile templates (for developing)
-			'autoescape'  => $AutoEscape // Enabe auto-escaping
+			'debug'            => $this->Debug, // Enable or disable debugging
+			'return_variables' => $this->Debug, // Enable returning names of undefined variables
+			'charset'          => $Charset, // Sets the charset to the given value
+			//'cache'            => $this->CachePath, // Sets the cache directory
+			'auto_reload'      => $AutoReload, // Automaticaly recompile templates (for developing)
+			'autoescape'       => $AutoEscape // Enabe auto-escaping
 		));
 	}
 	

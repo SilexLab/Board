@@ -6,11 +6,7 @@
 					<img src="{{ logo }}" alt="Logo">
 				</a>
 				<div class="Slogan">
-				{% if Slogan %}
-					{{ Slogan }}
-				{% else %}
 					{{ lang=sbb.header.slogan }}
-				{% endif %}
 				</div>
 			</div>
 		</div>
@@ -25,9 +21,8 @@
 					{% endif %}
 				{% endfor %}
 				</ul>
-				<ul class="SubMenu">
-					{{ SubMenu }}
-				</ul>
+				{#<ul class="sub_menu">
+				</ul>#}
 				<div id="SearchForm">
 					<form method="get" accept-charset="utf-8">
 						<input title="{{ lang=sbb.header.search.title }}" type="search" value="" placeholder="{{ lang=sbb.header.search.placeholder }}" name="search" id="Search" pattern=".+" required><input type="submit" id="SearchSubmit" value="">

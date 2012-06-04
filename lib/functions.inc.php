@@ -9,6 +9,9 @@
  * global shorthand functions
  */
 
+
+/* FILESYSTEM */
+
 /**
  * recursive scandir
  * @param  string $directory
@@ -34,6 +37,9 @@ function scandirr($directory, $sorting_order = 0) {
 	}
 	return $rfiles;
 }
+
+
+/* ARRAYS */
 
 /**
  * get the first found key of the given value
@@ -63,6 +69,9 @@ function array_get_key_all(array $array, $search_value) {
 	return empty($founds) ? false : $founds;
 }
 
+
+/* MATH */
+
 /**
  * clamp the value
  * @param  numeric $value
@@ -72,5 +81,32 @@ function array_get_key_all(array $array, $search_value) {
  */
 function clamp($value, $min, $max) {
 	return max(min($value, $max), $min);
+}
+
+/* URL ENCODING */
+function urlencode_slashes($url) {
+	$scheme = '';
+	if(preg_match('/^(?<scheme>[a-z][a-z0-9+\-.]*):/ix', $url, $m)) {
+		$scheme = $m[0].'//';
+		$url = substr($url, strlen($scheme));
+	}
+	$new_url = '';
+	$e = explode('/', $url);
+	for($i = 0; $i < sizeof($e); $i++)
+		$new_url .= urlencode($e[$i]).(($i < sizeof($e) - 1) ? '/' : '');
+	return $scheme.$new_url;
+}
+
+function rawurlencode_slashes($url) {
+	$scheme = '';
+	if(preg_match('/^(?<scheme>[a-z][a-z0-9+\-.]*):/ix', $url, $m)) {
+		$scheme = $m[0].'//';
+		$url = substr($url, strlen($scheme));
+	}
+	$new_url = '';
+	$e = explode('/', $url);
+	for($i = 0; $i < sizeof($e); $i++)
+		$new_url .= rawurlencode($e[$i]).(($i < sizeof($e) - 1) ? '/' : '');
+	return $scheme.$new_url;
 }
 ?>
