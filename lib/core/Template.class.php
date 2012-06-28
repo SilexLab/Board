@@ -23,7 +23,11 @@ class Template {
 		// include the Twig Autoloader and register it
 		if(!defined('CLASS_TEMPLATE')) {
 			define('CLASS_TEMPLATE', 1);
-			require_once (DIR_LIB.'Twig/Autoloader.php');
+			if(file_exists(DIR_LIB.'Twig/Autoloader.php'))
+				require_once (DIR_LIB.'Twig/Autoloader.php');
+			else
+				throw new SystemException('Twig Autoloader not found!');
+
 			Twig_Autoloader::register();
 		}
 		
