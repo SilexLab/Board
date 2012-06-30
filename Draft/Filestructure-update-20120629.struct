@@ -1,0 +1,90 @@
+Filestructure-update-20120629
++ draft
++ acp									[admin control panel]
+	- index.php							[root of the acp]
++ docs									[documentation]
+	- *.md
++ javascript							[global javascripts (frameworks, functions, etc.)]
+	- *.js
++ cache									[cache]
++ lib									[PHP source]
+	+ acp								[admin control panel libs]
+	+ ajax								[ajax requests]
+	+ core								[core-classes]
+	+ action							[contains actions]
+	+ data								[data]
+		+ Twig							[the template engine]
+		+ pages							[available pages]
+			- *Page.class.php
+		+ database						[database stuff]
+			+ wrapper					?[database wrapper for querys or so]
+		+ user							[user stuff]
+			- User.class.php
+			- Group.class.php
+		+ mail							[e-mail stuff]
+		- Template.class.php			[the Twig-template wrapper]
+		- Language.class.php
+	+ language							[installed languages]
+		+ de							[a single language in iso-format]
+			- *.php
+		+ de-formal
+			- *.php
+		+ en-us
+			- *.php
+		...
+	+ plugins							[installed plugins/packages]
+		+ owner.package					[a single plugin/package]
+			- listener.php {
+				__construct()
+			}
+			- info.xml {				[information about the plugin]
+				name
+				description|o
+				screenshot|o
+				author
+				website|o
+				version
+				sbb-version
+				packageserver|o
+			}
+		+ sbb.core
+			- ~
+		...
+	- Autoload.class.php				[autoload classes]
+	- config.inc.php					[core board configuration]
+	- config.inc.example.php			[example]
+	- constants.inc.php					[global constants]
+	- functions.inc.php					[global functions]
+	- init.php							[initial the board (a bootstramp)]
++ styles								[styles]
+	+ Lumen Lunae						[a single style]
+		+ javascript					[style specific javascripts, like animations]
+			- *.js
+		+ images						[all images which the style will use]
+		+ icons							[style specific icons]
+		+ templates						[style templates overwrites the default templates]
+			- *.tpl|o
+		- style.css						["root"-stylesheet]
+		- *.css							[all other stylesheets]
+		- info.xml {					[information about the style]
+			name
+			description
+			screenshot|o
+			author
+			website|o
+			version
+			sbb-version
+			packageserver|o
+		}
+	+ Awesome Style Thing
+		- ~
+	...
++ templates								[default templates]
+	+ pages								[page templates]
+		- *.tpl
+	- *.tpl
+- index.php								[the most requested file]
+- favicon.ico							[favicons need the world]
+- README.md								[readme]
+- LICENSE.md							[licence]
+- CONTRIBUTORS.md						[contributors]
