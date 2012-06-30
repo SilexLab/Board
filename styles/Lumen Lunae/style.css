@@ -89,13 +89,7 @@ section.content {
 		border-bottom-right-radius: 3px;
 	}
 	.container_head {
-		background: #3f6f8e;
-		background: -moz-linear-gradient(top, #3f6f8e 0%, #3c4a59 100%);    /* Firefox 3.6+ */
-		background: -webkit-linear-gradient(top, #3f6f8e 0%, #3c4a59 100%); /* Chrome 10+ */
-		background: -o-linear-gradient(top, #3f6f8e 0%, #3c4a59 100%);      /* Opera 11.10+ */
-		background: -ms-linear-gradient(top, #3f6f8e 0%, #3c4a59 100%);     /* IE 10+ */
-		background: linear-gradient(top, #3f6f8e 0%, #3c4a59 100%);         /* W3C recommendation */
-
+		background: #3f6f8e url(images/container_head_gradient.svg);
 		color: #efefef;
 		text-shadow: 0 1px 3px rgba(0,0,0,.5);
 		text-align: center;
