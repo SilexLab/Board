@@ -7,13 +7,13 @@ Filestructure-update-20120629
 + javascript							[global javascripts (frameworks, functions, etc.)]
 	- *.js
 + cache									[cache]
-+ lib									[PHP source]
++ lib									[PHP source / Libaries]
+	+ Twig								[the template engine]
 	+ acp								[admin control panel libs]
 	+ ajax								[ajax requests]
 	+ core								[core-classes]
 	+ action							[contains actions]
 	+ data								[data]
-		+ Twig							[the template engine]
 		+ pages							[available pages]
 			- *Page.class.php
 		+ database						[database stuff]
