@@ -1,33 +1,39 @@
 @charset "utf-8";
 
-section.UserBar {
+section.user_bar {
 	background: #111111 url(images/userbar.png) center bottom repeat;
 	border-bottom: 1px solid #6588ad;
 	/*height: 26px;*/
+	width: 100%;
+	left: 0;
+	right: 0;
 	color: #ffffff;
 	text-align: right;
 	padding-top: 10px;
+	margin-top: -11px;
+	position: absolute;
+	z-index: 100;
 }
 
-.UserTabs {
+.user_tabs {
 	padding-bottom: 10px;
 }
-	.UserTabs ul {
+	.user_tabs ul {
 		list-style: none;
 		padding: 0;
 		margin: 0;
 		white-space: nowrap;
 	}
-		.UserTabs ul li {
+		.user_tabs ul li {
 			display: inline-block;
 			border-right: 1px solid #ffffff;
 			color: #ffffff;
 			text-shadow: 0 0 4px #000000;
 		}
-			.UserTabs ul li:last-child {
+			.user_tabs ul li:last-child {
 				border: none;
 			}
-			.UserTabs li a, .UserTabs li a:link, .UserTabs li a:visited, .UserTabs input[type=submit] {
+			.user_tabs li a, .user_tabs li a:link, .user_tabs li a:visited, .user_tabs input[type=submit] {
 				color: inherit;
 				line-height: 18px;
 				padding: 0 10px 1px 24px;
@@ -36,24 +42,24 @@ section.UserBar {
 				border: none;
 				cursor: pointer;
 			}
-				.UserTabs li a:hover, .UserTabs input[type=submit]:hover {
+				.user_tabs li a:hover, .user_tabs input[type=submit]:hover {
 					color: #98ffff
 				}
-			.UserTabs li#Username a {
+			.user_tabs li#username a {
 				background-image: url(icons/w_16_single_user.png);
 			}
-			.UserTabs li#Settings a {
+			.user_tabs li#settings a {
 				background-image: url(icons/w_16_settings.png);
 			}
-			.UserTabs li#Logout input[type=submit] {
+			.user_tabs li#logout input[type=submit] {
 				background-image: url(icons/w_16_off.png);
 			}
 
-#LoginBarHandle {
+#login_bar_handle {
 	height: 0;
 	display: block;
 }
-	#LoginBarHandle #LoginBarToogle {
+	#login_bar_handle #login_bar_toggle {
 		background: #111111 url(images/userbar.png) center top repeat;
 		color: #ffffff;
 		text-shadow: 0 0 4px #000000;
@@ -63,33 +69,33 @@ section.UserBar {
 		box-shadow: 0 3px 20px #111111;
 		margin: 0 10px;
 	}
-		#LoginBarHandle #LoginBarToogle:active {
+		#login_bar_handle #login_bar_toggle:active {
 			box-shadow: 0 1px 10px #111111;
 		}
-	#LoginBarInner {
+	#login_bar_inner {
 		background: url(icons/w_16_key.png) 8px center no-repeat;
 		padding: 8px 12px 12px 30px;
 	}
 
-#LoginForm {
+#login_form {
 	font-size: 16px;
 	text-align: left;
 	opacity: 0;
 	display: none;
 }
 
-.Wrap {
+.wrap {
 	width: 600px;
 	margin: 0 auto;
 	padding: 0 0 10px 0;
 }
-	.Wrap ul {
+	.wrap ul {
 		list-style: none;
 		padding: 0;
 		margin: 0 0 10px 0;
 		vertical-align: middle;
 	}
-		.Wrap ul li {
+		.wrap ul li {
 			width: 290px;
 			height: 24px;
 			text-align: left;
@@ -98,74 +104,74 @@ section.UserBar {
 			line-height: 24px;
 			text-shadow: 0 0 6px #000000;
 		}
-			.Wrap ul li:first-child {
+			.wrap ul li:first-child {
 				text-align: right;
 				float: left;
 			}
-			.Wrap ul li.Clear {
+			.wrap ul li.Clear {
 				float: none;
 				height: 0;
 				clear: both;
 				margin: 0;
 				padding: 0;
 			}
-		.Wrap .LoginSubmit li + li {
+		.wrap .login_submit li + li {
 			margin-top: 3px;
 		}
-	.Wrap input[type=checkbox] {
+	.wrap input[type=checkbox] {
 		display: none;
 	}
-		.Wrap input[type=checkbox] + label.Check {
+		.wrap input[type=checkbox] + label.Check {
 			display: inline-block;
 			height: 24px;
 			width: 24px;
 			background: url(images/w_checkbox.png) left top no-repeat;
 			margin: -6px -3px -2px 0;
 		}
-			.Wrap input[type=checkbox] + label.Check:hover {
+			.wrap input[type=checkbox] + label.Check:hover {
 				background-position: left -24px;
 			}
-			.Wrap input[type=checkbox] + label.Check:active {
+			.wrap input[type=checkbox] + label.Check:active {
 				background-position: left -48px;
 			}
 		
-		.Wrap input[type=checkbox]:checked + label.Check {
+		.wrap input[type=checkbox]:checked + label.Check {
 			background-position: left -72px;
 		}
-			.Wrap input[type=checkbox]:checked + label.Check:hover {
+			.wrap input[type=checkbox]:checked + label.Check:hover {
 				background-position: left -96px;
 			}
-			.Wrap input[type=checkbox]:checked + label.Check:active {
+			.wrap input[type=checkbox]:checked + label.Check:active {
 				background-position: left -120px;
 			}
 	
-	.Wrap input[type=radio] {
+	.wrap input[type=radio] {
 		display: none;
 	}
-		.Wrap input[type=radio] + label.Check {
+		.wrap input[type=radio] + label.Check {
 			display: inline-block;
 			height: 16px;
 			width: 16px;
 			background: url(images/w_radiobutton.png) left top no-repeat;
 			margin: 4px 5px -2px 0;
 		}
-			.Wrap input[type=radio] + label.Check:hover {
+			.wrap input[type=radio] + label.Check:hover {
 				background-position: left -16px;
 			}
-			.Wrap input[type=radio] + label.Check:active {
+			.wrap input[type=radio] + label.Check:active {
 				background-position: left -32px;
 			}
 		
-		.Wrap input[type=radio]:checked + label.Check {
+		.wrap input[type=radio]:checked + label.Check {
 			background-position: left -48px;
 		}
-			.Wrap input[type=radio]:checked + label.Check:hover {
+			.wrap input[type=radio]:checked + label.Check:hover {
 				background-position: left -64px;
 			}
-			.Wrap input[type=radio]:checked + label.Check:active {
+			.wrap input[type=radio]:checked + label.Check:active {
 				background-position: left -80px;
 			}
-	.Wrap input[type=text], .Wrap input[type=password] {
+	.wrap input[type=text], .wrap input[type=password] {
 		background: transparent none no-repeat 4px center;
 		box-shadow: inset 0 0 4px #000000, 0 0 4px #000000;
 		color: #ffffff;
@@ -178,20 +184,20 @@ section.UserBar {
 		line-height: 24px;
 		padding: 0 4px 0 22px;
 	}
-		.Wrap input[type=text] {
+		.wrap input[type=text] {
 			background-image: url(icons/w_16_user.png);
 		}
-		.Wrap input[type=password] {
+		.wrap input[type=password] {
 			background-image: url(icons/w_16_key.png);
 		}
-	/*.Wrap input[type=text]:hover, .Wrap input[type=password]:hover {
+	/*.wrap input[type=text]:hover, .wrap input[type=password]:hover {
 		border-color: #558fa4;
 	}
-	.Wrap input[type=text]:focus, .Wrap input[type=password]:focus {
+	.wrap input[type=text]:focus, .wrap input[type=password]:focus {
 		border-color: #1d3139;
 	}*/
 
-	.Wrap input[type=submit] {
+	.wrap input[type=submit] {
 		background: transparent url(icons/w_16_off.png) no-repeat 4px center;
 		box-shadow: inset 0 0 4px #000000, 0 0 4px #000000;
 		color: #ffffff;
@@ -201,15 +207,16 @@ section.UserBar {
 		text-shadow: 0 0 4px #000000;
 		border-radius: 4px;
 	}
-	/*.Wrap input[type=submit]:hover {
+	/*.wrap input[type=submit]:hover {
 		border-color: #558fa4;
 	}
-	.Wrap input[type=submit]:active {
+	.wrap input[type=submit]:active {
 		border-color: #1d3139;
 	}*/
 
 header {
 	background: #3c4a58 url(images/header.png) repeat-x center bottom;
+	margin-top: 11px;
 }
 
 .Logo {
@@ -227,6 +234,7 @@ header {
 	color: #ffffff;
 	font-weight: bold;
 	font-size: 20px;
+	line-height: 1;
 	height: 0;
 	width: 40%;
 	text-shadow: 0 0 10px black;

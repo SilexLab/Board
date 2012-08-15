@@ -1,28 +1,28 @@
-$(document).ready(function() {
+/*$(document).ready(function() {
 // Login Form
-	var Toogle = 0;
+	var Toggle = 0;
 	
-	$("#LoginForm").css("display", "block");
-	$("#LoginForm").slideToggle(0);
+	$("#login_form").css("display", "block");
+	$("#login_form").slideToggle(0);
 	
-	$("#LoginBarToogle").click(function() {
-		if(Toogle == 0) {
-			$("#LoginForm").slideToggle("slow", function(){
-				$(this).fadeTo(500, 1);
-				$("#Username").focus();
-			});
+	$("#login_bar_toggle").click(function() {
+		if(Toggle == 0) {
+			$('#login_form').stop().slideToggle({ duration: 400, queue: false});
+				$(".user_bar").css({"box-shadow": "0 0 100px #000000"});
+				$('#login_form').fadeTo(1000, 1);
+				$("#username").focus();
 		} else {
-			$("#LoginForm").fadeTo(200, 0, null, function(){
+			$("#login_form").fadeTo(200, 0, null, function(){
 				$(this).slideToggle("slow");
 			});
 		}
-		Toogle ^= 1;
+		Toggle ^= 1;
 	});
 	
 	// Inputs
 		var LoginFocus1 = false;
 		var LoginFocus2 = false;
-		$(".Wrap input[type=text]").focusin(function() {
+		$(".wrap input[type=text]").focusin(function() {
 			$(this).stop().animate({'border-color': '#1d3139'}, 500);
 			LoginFocus1 = true;
 		}).focusout(function() {
@@ -33,7 +33,7 @@ $(document).ready(function() {
 		}, function() {
 			if(!LoginFocus1) $(this).stop().animate({'border-color': '#ffffff'}, 500);
 		});
-		$(".Wrap input[type=password]").focusin(function() {
+		$(".wrap input[type=password]").focusin(function() {
 			$(this).stop().animate({'border-color': '#1d3139'}, 500);
 			LoginFocus2 = true;
 		}).focusout(function() {
@@ -45,7 +45,7 @@ $(document).ready(function() {
 			if(!LoginFocus2) $(this).stop().animate({'border-color': '#ffffff'}, 500);
 		});
 	// Submit
-		$(".Wrap input[type=submit]").hover(function() {
+		$(".wrap input[type=submit]").hover(function() {
 			$(this).stop().animate({'border-color': '#558fa4'}, 300);
 		}, function() {
 			$(this).stop().animate({'border-color': '#ffffff'}, 300);
@@ -68,4 +68,4 @@ $(document).ready(function() {
 		if(!SearchFocus)
 			$(this).stop().animate({'border-color': 'rgba(255, 255, 255, 0.005)', 'background-color': 'rgba(0, 0, 0, 0.1)'}, 500);
 	});
-});
+});*/

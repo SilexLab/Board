@@ -1,6 +1,6 @@
 @charset "utf-8";
 /*
-	Classes for the board and thread view
+	Definitions for the board and thread view
 */
 
 ul.board, ul.sub_board, ul.sub_sub_board {
