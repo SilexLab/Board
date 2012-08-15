@@ -33,6 +33,8 @@ class Database {
 				$DSN .= ';port='.CFG_DB_PORT;
 		}
 
+		$DSN .= ';charset=utf8';
+
 		// Return PDO database with DSN strings
 		if($DBType == 'pgsql')
 			return new PDO($DSN.';user='.CFG_DB_USER.';password='.CFG_DB_PASSWORD);
