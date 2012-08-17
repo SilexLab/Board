@@ -72,7 +72,7 @@ class SBB {
 		
 		#self::$Template->setCaching(Smarty::CACHING_LIFETIME_CURRENT);
 		self::$Template->setTemplateDir(DIR_ROOT.DIR_TPL);
-		self::$Template->setCompileDir(DIR_TPLC);
+		self::$Template->setCompileDir(DIR_ROOT.DIR_TPLC);
 		self::$Template->setCacheDir(CFG_CACHE_DIR); //self::Config('config.system.cache.dir')
 	}
 	
