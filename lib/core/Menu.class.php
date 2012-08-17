@@ -36,7 +36,7 @@ class Menu implements Singleton {
 			);
 		}
 
-		SBB::Template()->Set(array('Menu' => $MenuList));
+		SBB::Template()->assign(['Menu' => $MenuList]);
 	}
 }
 ?>

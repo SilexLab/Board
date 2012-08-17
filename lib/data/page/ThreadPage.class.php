@@ -28,7 +28,7 @@ class ThreadPage extends Page implements PageData {
 				Breadcrumb::Add($Crumb['Title'], $Crumb['Link']);
 			Breadcrumb::Add($this->Info['title'], self::Link());
 
-			SBB::Template()->Set(['Posts' => $this->GetPosts($ThreadID)]);
+			SBB::Template()->assign(['Posts' => $this->GetPosts($ThreadID)]);
 		} else {
 			$this->Info['title'] = Language::Get('sbb.error');
 			Notification::Show('Thread existiert nicht!', Notification::ERROR);

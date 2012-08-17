@@ -36,7 +36,7 @@ class RegisterPage extends Page implements PageData {
 			Session::Set('register.step', $this->Steps[$GoTo]);
 		}
 
-		SBB::Template()->Set(['register' => ['steps' => sizeof($this->Steps), 'current_step' => 2]]);
+		SBB::Template()->assign(['register' => ['steps' => sizeof($this->Steps), 'current_step' => 2]]);
 
 		/*
 		while(true) {
@@ -103,7 +103,7 @@ class RegisterPage extends Page implements PageData {
 		if(Session::Get('register.email'))
 			$Avatar = 'http://www.gravatar.com/avatar/'.md5(strtolower(trim(Session::Get('register.email')))).'&s=64';
 
-		SBB::Template()->Set(['Register' => ['Step' => Session::Get('register.step'),
+		SBB::Template()->assign(['Register' => ['Step' => Session::Get('register.step'),
 			'Username' => Session::Get('register.username'),
 			'Password' => $PasswordBullets,
 			'RealPw' => Session::Get('register.password'),

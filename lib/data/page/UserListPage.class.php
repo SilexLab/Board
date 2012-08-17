@@ -17,9 +17,9 @@ class UserListPage extends Page implements PageData {
 		Breadcrumb::Add(Language::Get('sbb.page.userlist'), self::Link());
 
 		$TempUsers = SBB::DB()->query('SELECT * FROM `users`')->fetchAll(PDO::FETCH_OBJ);
-		$Users = array();
+		$Users = [];
 		foreach($TempUsers as $User) {
-			$Users[] = array(
+			$Users[] = [
 				'name'     => $User->Username,
 				'link'     => URI::Make(['page' => 'User', 'UserID' => $User->ID]),
 				'group'    => '',
@@ -28,10 +28,10 @@ class UserListPage extends Page implements PageData {
 				'posts'    => '-',
 				'language' => $User->Language,
 				'homepage' => $User->Homepage
-			);
+			];
 		}
 
-		SBB::Template()->Set(array('users' => $Users));
+		SBB::Template()->assign(['users' => $Users]);
 	}
 
 	public function GetInfo($Info) {

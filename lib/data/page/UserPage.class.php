@@ -33,7 +33,7 @@ class UserPage extends Page implements PageData {
 		Breadcrumb::Add($User->Username, URI::Make(array_merge(self::$Link, ['UserID' => $UserID])));
 
 		// Template..
-		SBB::Template()->Set(array('profile' => array(
+		SBB::Template()->assign(['profile' => [
 			'username'  => $User->Username,
 			'ID'        => $User->ID,
 			'group'     => $User->GroupID,   // TODO: Read group
@@ -47,7 +47,7 @@ class UserPage extends Page implements PageData {
 			'age'       => date('md', date('U', $User->Birthday)) > date('md') ? // TODO: Find a better age calculation
 				(date('Y') - date('Y', $User->Birthday)-1) :
 				(date('Y') - date('Y', $User->Birthday))
-		)));
+		]]);
 	}
 
 	public function GetInfo($Info) {

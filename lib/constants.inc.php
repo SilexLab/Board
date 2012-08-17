@@ -14,6 +14,7 @@ define('ROOT_URI', (!empty($_SERVER['HTTPS']) && 'on' == $_SERVER['HTTPS'] ? 'ht
 
 // Directory Constants
 define('DIR_TPL',      'templates/');
+define('DIR_TPLC',     'templates/compiled/');
 define('DIR_SMILEY',   'images/smiley/');
 define('DIR_LANGUAGE', 'lib/language/');
 define('DIR_PAGE',     'lib/data/page/');

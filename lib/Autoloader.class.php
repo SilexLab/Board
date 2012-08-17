@@ -41,11 +41,7 @@ class Autoloader {
 	/**
 	 * Method to load classes
 	 */
-	public static function Autoload($Class) {
-		// Do not search for Twig-Classes
-		if(strpos($class, 'Twig') === 0)
-			return;
-		
+	public static function Autoload($Class) {		
 		if(defined('CLASS_AUTOLOADER')) {
 			foreach(self::$Directories as $Directory) {
 				// if a Wildcard appears, handle it
