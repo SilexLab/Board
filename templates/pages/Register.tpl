@@ -2,21 +2,21 @@
 	<div class="container">
 		<div class="container_head">
 			<div class="title">{lang node="sbb.register.register"}</div>
-            <div class="step_bar register">
+			<div class="step_bar register">
 				<style type="text/css">
-                    .register.step_bar .step_bullet_wrap { margin-right: {100 / ($register.steps - 1)}%; } /* 100 / num of steps - 1 */
-                    .register.step_bar .step_bullet_wrap:last-child { margin: 0; }
-                </style>
-                {for $i=1 to $register.steps}
-                    <div class="step_bullet_wrap {if $i < $register.current_step}done{elseif $i == $register.current_step}current{/if}">
-                        <div class="step_bullet">{$i}</div>
-                    </div>
-                {/for}
-            </div>
+					.register.step_bar .step_bullet_wrap { margin-right: {100 / ($register.steps - 1)}%; } /* 100 / num of steps - 1 */
+					.register.step_bar .step_bullet_wrap:last-child { margin: 0; }
+				</style>
+				{for $i=1 to $register.steps}
+					<div class="step_bullet_wrap {if $i < $register.current_step}done{elseif $i == $register.current_step}current{/if}">
+						<div class="step_bullet">{$i}</div>
+					</div>
+				{/for}
+			</div>
 		</div>
-        <style type="text/css">
+		<style type="text/css">
 		#register.container_progress .progress { width: {(100 / ($register.steps - 1) * ($register.current_step - 1))}%; } /* Current Progress */
-        </style>
+		</style>
 		<div class="container_progress step" id="register">
 			<div class="progress_bar">
 				<div class="progress"></div>

@@ -16,5 +16,5 @@
 						</table>
 						<input type="submit" name="Login" value="{lang node="sbb.form.submit"}" />
 					</form>
-                    <p>{$Message}</p>
-                	</div>
+					<p>{$Message}</p>
+					</div>
