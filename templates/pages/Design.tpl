@@ -222,7 +222,7 @@
 
 <div class="container">Containerdesign</div>
 
-{# Default #}
+{* Default *}
 <div class="container">
 	<div class="container_head">
 		<div class="title">Überschrift der Kopfleiste</div>
@@ -233,7 +233,7 @@
 	</div>
 </div>
 
-{# Default with description #}
+{* Default with description *}
 <div class="container">
 	<div class="container_head">
 		<div class="title">Überschrift der Kopfleiste</div>
@@ -245,7 +245,7 @@
 	</div>
 </div>
 
-{# Menu #}
+{* Menu *}
 <div class="container">
 	<div class="container_head">
 		<div class="title">Überschrift der Kopfleiste mit Menü</div>
@@ -267,7 +267,7 @@
 	</div>
 </div>
 
-{# Iconmenu #}
+{* Iconmenu *}
 <div class="container">
 	<div class="container_head">
 		<div class="title">Überschrift der Kopfleiste mit Symbolmenü</div>
@@ -292,7 +292,7 @@
 	</div>
 </div>
 
-{# Step-Progress-Bar #}
+{* Step-Progress-Bar *}
 <div class="container">
 	<div class="container_head">
 		<div class="title">Überschrift der Kopfleiste mit "Schrittfortschritt"</div>
@@ -330,7 +330,7 @@
 	Forenliste:
 </div>
 
-{# Forum List #}
+{* Forum List *}
 <ul class="board">
 	<li class="category">
 		<div class="container">
@@ -341,7 +341,7 @@
 				</a>
 			</div>
 			<div class="container_content">
-				{# Subforum #}
+				{* Subforum *}
 				<ul class="sub_board">
 					<li class="forum">
 						<div class="container_head">
@@ -362,7 +362,7 @@
 							</div>
 						</div>
 					</li>
-					{# Subforum with subsubforum #}
+					{* Subforum with subsubforum *}
 					<li class="forum">
 						<div class="container_head">
 							<div class="board_top">
@@ -387,7 +387,7 @@
 							</div>
 						</div>
 					</li>
-					{# Link #}
+					{* Link *}
 					<li class="link">
 						<div class="container_head">
 							<div class="board_top">
@@ -398,7 +398,7 @@
 							</div>
 						</div>
 					</li>
-					{# Category #}
+					{* Category *}
 					<li>
 						<div class="container_head">
 							<div class="board_top">

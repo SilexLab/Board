@@ -65,7 +65,7 @@ abstract class Page {
 		$Class = get_class(self::$Instance);
 		$Info['link'] = $Class::$Link;
 		unset($Info['node']);
-		SBB::Template()->Set(array('Page' => $Info));
+		SBB::Template()->assign(['Page' => $Info]);
 	}
 
 	/**

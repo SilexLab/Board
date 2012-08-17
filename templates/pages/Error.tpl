@@ -1,5 +1,5 @@
-{% if ErrorType == 404 %}
+{if $ErrorType == 404}
 	Page Not found 
-{% elseif ErrorType == 403 %}
+{elseif $ErrorType == 403}
 	Access Denied
-{% endif %}
+{/if}

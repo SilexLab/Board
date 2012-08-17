@@ -29,7 +29,7 @@ class User {
 			$this->ID = 0;
 			$this->LoggedIn = false;
 		}
-		SBB::Template()->Set(['User' => ['ID' => (int)$this->ID, 'Name' => $this->Name]], false, true);
+		SBB::Template()->assign(['User' => ['ID' => (int)$this->ID, 'Name' => $this->Name]]);
 	}
 
 	/* User info */

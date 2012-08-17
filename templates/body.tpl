@@ -1,17 +1,39 @@
-{% import "macros.tpl" as macros %}
 	<section class="content">
-		{% for Notification in Notifications %}
-			<div class="notification {{ Notification.Type }}">
+		{foreach $Notifications as $Notification}
+			<div class="notification {$Notification.Type}">
 				<div class="notification_inner">
 					<div class="size">
-						<div class="notification_content">{{ Notification.Message }}</div>
+						<div class="notification_content">{$Notification.Message}</div>
 					</div>
 				</div>
 			</div>
-		{% endfor %}
+		{/foreach}
 		<div class="size">
-			{{ macros.breadcrumb(Crumbs) }}
-			{% include "pages/" ~ Page.template|default("Home") ~ ".tpl" %}
-			{{ macros.breadcrumb(Crumbs) }}
+			<div class="container">
+                <nav class="bread_crumbs">
+                    {foreach $Crumbs as $Crumb}
+                        <div class="crust">
+                            <a href="{$Crumb.Link}" class="crumb">
+                                <span class="crumb_wrap">{$Crumb.Title}</span>
+                            </a>
+                            <span class="arrow"></span>
+                        </div>
+                    {/foreach}
+                </nav>
+            </div>
+            {$IncludePage=$Page.template|default:'Home'}
+			{include file="pages/$IncludePage.tpl"}
+			<div class="container">
+                <nav class="bread_crumbs">
+                    {foreach $Crumbs as $Crumb}
+                        <div class="crust">
+                            <a href="{$Crumb.Link}" class="crumb">
+                                <span class="crumb_wrap">{$Crumb.Title}</span>
+                            </a>
+                            <span class="arrow"></span>
+                        </div>
+                    {/foreach}
+                </nav>
+            </div>
 		</div>
 	</section>

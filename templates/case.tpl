@@ -1,12 +1,12 @@
 <!DOCTYPE HTML>
 <html>
-{% include "head.tpl" %}
+{include file="head.tpl"}
 
 <body>
 	<section class="site_container min_size">
-{% include "header.tpl" %}
-{% include "body.tpl" %}
-{% include "footer.tpl" %}
+{include file="header.tpl"}
+{include file="body.tpl"}
+{include file="footer.tpl"}
 	</section>
 </body>
 </html>

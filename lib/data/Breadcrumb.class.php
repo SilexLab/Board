@@ -21,7 +21,7 @@ class Breadcrumb {
 	 * Send the breadcrumbs to the template
 	 */
 	public static function Assign() {
-		SBB::Template()->Set(array('Crumbs' => self::$Crumbs));
+		SBB::Template()->assign(['Crumbs' => self::$Crumbs]);
 	}
 }
 ?>

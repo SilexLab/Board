@@ -24,7 +24,7 @@ class SBB {
 		// Initialize classes and objects
 		Language::Initialize(URI::Get('lang', 'null'));
 		self::$Style = Style::GetInstance();
-		self::$Template = new Template(DIR_ROOT.DIR_TPL, DIR_ROOT.self::Style()->Info('TPL'), CFG_CACHE_DIR); //self::Config('config.system.cache.dir')
+		self::InitSmarty();
 		self::$User = new User();
 		Listener::Check();
 		SessionGarbageCollector::Collect();
@@ -64,6 +64,16 @@ class SBB {
 		if(!self::$Database)
 			self::$Database = Database::GetDatabase();
 		return self::$Database;
+	}
+	
+	private static final function InitSmarty() {
+		require_once(DIR_LIB.'smarty/Smarty.class.php');
+		self::$Template = new Smarty();
+		
+		#self::$Template->setCaching(Smarty::CACHING_LIFETIME_CURRENT);
+		self::$Template->setTemplateDir(DIR_ROOT.DIR_TPL);
+		self::$Template->setCompileDir(DIR_TPLC);
+		self::$Template->setCacheDir(CFG_CACHE_DIR); //self::Config('config.system.cache.dir')
 	}
 	
 	/**
@@ -108,7 +118,7 @@ class SBB {
 	 * Assign default stuff to template
 	 */
 	private static function AssignDefault() {
-		self::Template()->Set([
+		self::Template()->assign([
 			'Style' => self::Style()->Info(),
 			'PageTitle' => self::Config('config.page.title'),
 			'logo' => DIR_STYLE.str_replace(' ', '%20', self::Style()->Info('Dir')).'/images/logo.png',
@@ -127,7 +137,7 @@ class SBB {
 				'SHA' => CommitInfo::Get('SHA')
 			)
 		]);
-		self::Template()->Set(Language::Get(), true);
+		#self::Template()->Set(Language::Get(), true);
 		Breadcrumb::Assign();
 		Page::Assign();
 		Notification::Assign();

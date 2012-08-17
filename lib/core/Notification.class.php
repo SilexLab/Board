@@ -32,7 +32,7 @@ class Notification {
 	 * Contains the notifications
 	 */
 	protected static
-		$Notifications = array();
+		$Notifications = null;
 
 	/**
 	 * Create a new Notification
@@ -53,7 +53,7 @@ class Notification {
 	 * Assign the notifications to the template
 	 */
 	public static function Assign() {
-		SBB::Template()->Set(array('Notifications' => self::$Notifications));
+		SBB::Template()->assign(['Notifications' => self::$Notifications]);
 	}
 }
 ?>

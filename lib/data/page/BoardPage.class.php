@@ -28,7 +28,7 @@ class BoardPage extends Page implements PageData {
 		}
 		$cBoard = SBB::DB()->prepare('SELECT `Type` FROM `board` WHERE `ID` = :ID');
 		$cBoard->execute([':ID' => $BoardID]);
-		SBB::Template()->Set(['board' => $this->GetBoardList($BoardID),
+		SBB::Template()->assign(['board' => $this->GetBoardList($BoardID),
 			'threads' => $this->GetThreadList($BoardID),
 			'current_board' => ['ID' => $BoardID, 'type' => $cBoard->fetch(PDO::FETCH_OBJ)->Type]]);
 	}

@@ -1,10 +1,10 @@
 <div class="container">
 	<div class="container_head">
-		<div class="title">{{ lang=sbb.page.userlist }}</div>
+		<div class="title">{lang node="sbb.page.userlist"}</div>
 		<menu>
-			<li>{{ lang=sbb.user.all_members }}</li>
-			<li>{{ lang=sbb.user.teammembers }}</li>
-			<li>{{ lang=sbb.user.search }}</li>
+			<li>{lang node="sbb.user.all_members"}</li>
+			<li>{lang node="sbb.user.teammembers"}</li>
+			<li>{lang node="sbb.user.search"}</li>
 		</menu>
 	</div>
 	<div class="container_content">
@@ -14,54 +14,54 @@
 		<table class="userlist">
 			<thead>
 				<tr>
-					<th>{{ lang=sbb.user.avatar }}</th>
-					<th>{{ lang=sbb.user.username }}</th>
-					<th>{{ lang=sbb.user.joined }}</th>
-					<th>{{ lang=sbb.user.posts }}</th>
-					<th>{{ lang=sbb.user.language }}</th>
-					<th>{{ lang=sbb.user.homepage }}</th>
-					<th>{{ lang=sbb.user.contact }}</th>
+					<th>{lang node="sbb.user.avatar"}</th>
+					<th>{lang node="sbb.user.username"}</th>
+					<th>{lang node="sbb.user.joined"}</th>
+					<th>{lang node="sbb.user.posts"}</th>
+					<th>{lang node="sbb.user.language"}</th>
+					<th>{lang node="sbb.user.homepage"}</th>
+					<th>{lang node="sbb.user.contact"}</th>
 				</tr>
 			</thead>
 			<tbody>
-			{% for user in users %}
+			{foreach $users as $user}
 				<tr>
 					<td>
-						<a href="{{ user.link }}">
-							<img src="{{ Dir.Style }}{{ Style.Dir }}/icons/g_64_user.png" class="avatar"> {# Avatar #}
+						<a href="{$user.link}">
+							<img src="{$Dir.Style}{$Style.Dir}/icons/g_64_user.png" class="avatar"> {* Avatar *}
 						</a>
 					</td>
 					<td>
-						<a href="{{ user.link }}">
-							<div class="username">{{ user.name }}</div>
-						{# TODO: user.group #}
-						{% if TUser.Name == "admin" %}
+						<a href="{$user.link}">
+							<div class="username">{$user.name}</div>
+						{* TODO: user.group *}
+						{if $user.Name == "admin"}
 							<div class="usergroup">Administrator</div>
-						{% else %}
+						{else}
 							<div class="usergroup">User</div>
-						{% endif %}
+						{/if}
 						</a>
 					</td>
 					<td>
-						<div class="joined_date">{{ user.joined_d|default("-") }}</div>
-						<div class="joined_time">{{ user.joined_t|default("-") }}</div>
+						<div class="joined_date">{$user.joined_d|default:'-'}</div>
+						<div class="joined_time">{$user.joined_t|default:'-'}</div>
 					</td>
-					<td>{{ user.posts }}</td>
-					<td>{{ user.language }}</td>
+					<td>{$user.posts}</td>
+					<td>{$user.language}</td>
 					<td>
-					{% if user.homepage %}
-						<a href="{{ user.homepage }}">Link</a>
-					{% else %}
+					{if $user.homepage}
+						<a href="{$user.homepage}">Link</a>
+					{else}
 						-
-					{% endif %}
+					{/if}
 					</td>
 					<td>PM</td>
 				</tr>
-			{% else %}
+			{foreachelse}
 				<tr>
 					<td colspan="7">Keine Benutzer gefunden</td>
 				</tr>
-			{% endfor %}
+			{/foreach}
 			</tbody>
 		</table>
 	</div>
