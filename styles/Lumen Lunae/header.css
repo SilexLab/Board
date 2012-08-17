@@ -81,13 +81,13 @@ section.user_bar {
 	font-size: 16px;
 	text-align: left;
 	opacity: 0;
-	display: none;
+	display: none;b334c
 }
 
 .wrap {
 	width: 600px;
 	margin: 0 auto;
-	padding: 0 0 10px 0;
+	padding: 5px 0 10px 0;
 }
 	.wrap ul {
 		list-style: none;
@@ -241,12 +241,12 @@ header {
 }
 
 nav.Menu {
-	background: #3c6c8b url(images/menubar.png) repeat-x center top;
-	border-bottom: 1px solid #0b334c;
-	border-top: 1px solid #558fa4;
+	background: #333333 url(images/menubar_gradient.svg) repeat-x center top;
+	border-bottom: 1px solid #000000;
+	border-top: 1px solid #808080;
 	height: 36px;
 	margin-top: 38px;
-	box-shadow: 0 -1px 0 rgba(11, 51, 76, 0.4);
+	box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
 }
 	nav.Menu a, nav.Menu a:hover, nav.Menu a:active, nav.Menu a:visited, nav.Menu a:link {
 		text-decoration: none;
@@ -273,32 +273,32 @@ nav.Menu {
 			height: 37px;
 		}
 			nav.Menu .MenuList li span {
-				background: rgba(60, 108, 139, 0.5);
-				color: #97c8ff;
+				background: rgba(51, 51, 51, 0.5);
+				color: #c0c0c0;
 				font-weight: bold;
 				text-shadow: 0 1px 1px #000000;
 				display: block;
 				padding: 0 20px;
 				height: 36px;
 				line-height: 36px;
-				border-top: 1px solid rgba(85, 143, 164, 0.5);
-				border-bottom: 1px solid #558FA4;
-				box-shadow: 0 0 3px rgba(11, 51, 76, 0.6);
+				border-top: 1px solid rgba(127, 127, 127, 0.5);
+				border-bottom: 1px solid #808080;
+				box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.2);
 				border-radius: 5px 5px 0 0;
 				cursor: pointer;
 			}
 			nav.Menu .MenuList li:hover span {
-				background: rgba(85, 133, 164, 0.5);;
-				border-top-color: rgba(112, 159, 191, 0.5);
-				color: #a9daff;
+				background: rgba(68, 68, 68, 0.5);;
+				border-top-color: rgba(196, 196, 196, 0.5);
+				color: #e0e0e0;
 			}
 			nav.Menu .MenuList li:active span {
-				background: rgba(31, 83, 112, 0.5);
-				border-top-color: rgba(85, 143, 164, 0.5);
-				color: #a9daff;
+				background: rgba(34, 34, 34, 0.5);
+				border-top-color: rgba(196, 196, 196, 0.5);
+				color: #bbbbbb;
 			}
 			nav.Menu .MenuList li.active span {
-				background: url(images/tab_active.png) repeat-x left top transparent;
+				background: #333333 url(images/gradient_tab.svg);
 				color: #ffffff;
 				font-weight: bold;
 				text-shadow: 0 1px 1px #000000;
@@ -307,17 +307,17 @@ nav.Menu {
 				height: 37px;
 				line-height: 37px;
 				border: none;
-				border-top: 1px solid #558fa4;
-				box-shadow: 0 0 3px rgba(11, 51, 76, 0.7);
+				border-top: 1px solid #808080;
+				box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.4);
 			}
 			nav.Menu .MenuList li.active:hover span {
-				background-position: left -40px;
-				border-top-color: #97d0e5;
+				background: #333333 url(images/gradient_tab_hover.svg);
+				border-top-color: #909090;
 				color: #ffffff;
 			}
 			nav.Menu .MenuList li.active:active span {
-				background-position: left -80px;
-				border-top-color: #7eb1e1;
+				background: #333333 url(images/gradient_tab_active.svg);
+				border-top-color: #606060;
 				color: #ffffff;
 			}
 	.SubMenu {
@@ -334,7 +334,7 @@ nav.Menu {
 		border: 2px solid rgba(255, 255, 255, 0.005); /* 0.005 is nearly 0, and fixes the firefox issue */
 		width: 200px;
 		height: 24px;
-		background: rgba(0, 0, 0, 0.1);
+		background: rgba(0, 0, 0, 0.3);
 		overflow: hidden;
 		margin: 4px 10px 4px 0;
 		border-radius: 5px;

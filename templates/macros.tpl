@@ -6,7 +6,7 @@
 				<a href="{{ crumb.Link }}" class="crumb">
 					<span class="crumb_wrap">{{ crumb.Title }}</span>
 				</a>
-				<span class="arrow"></span>
+				{#<span class="arrow"></span>#}
 			</div>
 		{% endfor %}
 	</nav>

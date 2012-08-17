@@ -10,50 +10,48 @@
 	white-space: nowrap;
 	font-size: 14px;
 	border-radius: 6px;
-	overflow: hidden;
+	/*overflow: hidden;*/
 	box-shadow: inset 0 0 1px #000000;
 }
-	.crust {
-		height: 36px;
-		display: block;
-		float: left;
-	}
-		.crumb {
-			background: #3f6f8e url(images/container_head_gradient.svg);
-			background-origin: padding-box;
-			height: 34px;
-			line-height: 34px;
-			display: block;
-			padding: 0 8px 0 22px;
-			color: #ffffff;
-			text-shadow: 0 1px 3px #000000;
-			float: left;
-			margin-left: -14px;
-			border: none;
-			border-bottom: 1px solid #5c6774;
-			border-top: 1px solid #5e86a0;
-		}
-		.crust:first-child .crumb {
-			border-left: 1px solid #5c7284;
-			border-radius: 5px 0 0 5px;
-			padding-left: 15px;
-			margin: 0;
-		}
-		.crust:hover .crumb {
-			background: #f9f9f9;
-			color: #000000;
-		}
-		a.crumb, a.crumb:hover, a.crumb:active, a.crumb:visited, a.crumb:link {
-			text-decoration: none;
-		}
-	.arrow {
-		height: 36px;
-		width: 14px;
-		background: transparent url(images/crumb_arrow.png) no-repeat left 0px;
-		display: block;
-		position: relative;
-		float: right;
-	}
-		.crust:hover .arrow {
-			background-position: left -36px;
-		}
+.crust {
+	height: 36px;
+	display: block;
+	float: left;
+}
+.crumb {
+	background: #3f6f8e url(images/container_head_gradient.svg);
+	background-origin: border-box;
+	height: 34px;
+	line-height: 34px;
+	display: block;
+	padding: 0 8px 0 22px;
+	color: #ffffff;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+	border-top: 1px solid rgba(255, 255, 255, 0.3);
+}
+.crust:first-child .crumb {
+	border-left: 1px solid rgba(255, 255, 255, 0.3);
+	border-radius: 5px 0 0 5px;
+	padding-left: 15px;
+	margin: 0;
+}
+.crust::before {
+	content: "";
+	height: 36px;
+	width: 14px;
+	background: transparent url(images/crumb_arrow.png) no-repeat left 0px;
+	display: block;
+	float: right;
+	position: relative;
+	left: 14px;
+}
+.crust:hover::before {
+	background-position: left -36px;
+}
+.crust:hover .crumb {
+	background: #f9f9f9;
+	color: #000000;
+}
+a.crumb, a.crumb:hover, a.crumb:active, a.crumb:visited, a.crumb:link {
+	text-decoration: none;
+}
