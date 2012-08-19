@@ -112,7 +112,7 @@ class SBB {
 			'style' => ['dir' => DIR_STYLE.rawurlencode(self::Style()->Info('dir')).'/',
 				'files' => self::Style()->Info('files'),
 				'name' => self::Style()->Info('name')],
-			'page_title' => self::Config('config.page.title'),
+			'page_title' => self::Config('page.title'),
 			'logo' => DIR_STYLE.str_replace(' ', '%20', self::Style()->Info('dir')).'/images/logo.png',
 			'dir' => array(
 				'style' => DIR_STYLE,

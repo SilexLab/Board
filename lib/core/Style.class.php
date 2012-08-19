@@ -25,7 +25,7 @@ class Style implements Singleton {
 		$this->Info['dir'] = ''; // TODO: Read userstyle
 		if(empty($this->Info['dir']) || !is_dir(DIR_ROOT.DIR_STYLE.$this->Info['dir'])) {
 			// Use default
-			$this->Info['dir'] = SBB::Config('config.style.default');
+			$this->Info['dir'] = SBB::Config('style.default');
 			if(empty($this->Info['dir']) || !is_dir(DIR_ROOT.DIR_STYLE.$this->Info['dir'])) {
 				// If default can't found, search for styles and use the first found
 				$Dir = scandir(DIR_ROOT.DIR_STYLE);

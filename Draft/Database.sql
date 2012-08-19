@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Erstellungszeit: 14. Mai 2012 um 22:27
--- Server Version: 5.5.23
--- PHP-Version: 5.4.3
+-- Erstellungszeit: 19. Aug 2012 um 21:24
+-- Server Version: 5.5.24-0ubuntu0.12.04.1
+-- PHP-Version: 5.5.0-dev
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -165,25 +165,23 @@ CREATE TABLE IF NOT EXISTS `config` (
   `CategoryNode` varchar(255) NOT NULL,
   `ConfigValue` varchar(255) NOT NULL,
   `ValueType` varchar(16) NOT NULL,
-  `TemplateVariable` varchar(32) DEFAULT NULL,
-  PRIMARY KEY (`ConfigNode`),
-  UNIQUE KEY `TemplateVariable` (`TemplateVariable`)
+  PRIMARY KEY (`ConfigNode`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Daten für Tabelle `config`
 --
 
-INSERT INTO `config` (`Package`, `ConfigNode`, `CategoryNode`, `ConfigValue`, `ValueType`, `TemplateVariable`) VALUES
-('sbb.core', 'config.page.language.default', 'config.page', 'DE', 'string(11)', NULL),
-('sbb.core', 'config.page.timezone', 'config.page', 'Europe/Berlin', 'string(255)', NULL),
-('sbb.core', 'config.page.title', 'config.page', 'Silex Bulletin Board', 'string(255)', NULL),
-('sbb.core', 'config.style.default', 'config.style', 'Lumen Lunae', 'string(255)', NULL),
-('sbb.core', 'config.system.cache.dir', 'config.system', '', 'string(255)', NULL),
-('sbb.core', 'config.user.autologout', 'config.user', '3600', 'int(8)', NULL),
-('sbb.core', 'config.user.session.autologout_probability', 'config.user.session', '25', 'int(3)', NULL),
-('sbb.core', 'config.user.session.cookie_time', 'config.user.session', '86400', 'int(8)', NULL),
-('sbb.core', 'config.user.session.name', 'config.user.session', 'SBB', 'string(255)', NULL);
+INSERT INTO `config` (`Package`, `ConfigNode`, `CategoryNode`, `ConfigValue`, `ValueType`) VALUES
+('sbb.core', 'page.language.default', 'page', 'DE', 'string(11)'),
+('sbb.core', 'page.timezone', 'page', 'Europe/Berlin', 'string(255)'),
+('sbb.core', 'page.title', 'page', 'Silex Bulletin Board', 'string(255)'),
+('sbb.core', 'style.default', 'style', 'Lumen Lunae', 'string(255)'),
+('sbb.core', 'system.cache.dir', 'system', '', 'string(255)'),
+('sbb.core', 'user.autologout', 'user', '3600', 'int(8)'),
+('sbb.core', 'user.session.autologout_probability', 'user.session', '25', 'int(3)'),
+('sbb.core', 'user.session.cookie_time', 'user.session', '86400', 'int(8)'),
+('sbb.core', 'user.session.name', 'user.session', 'SBB', 'string(255)');
 
 -- --------------------------------------------------------
 

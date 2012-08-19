@@ -64,10 +64,10 @@ function array_search_all($needle, array $haystack, $strict = false) {
 
 /**
  * clamp the value
- * @param  numeric $value
- * @param  numeric $min_value
- * @param  numeric $max_value
- * @return numeric
+ * @param  mixed $value
+ * @param  mixed $min_value
+ * @param  mixed $max_value
+ * @return mixed
  */
 function clamp($value, $min, $max) {
 	return max(min($value, $max), $min);

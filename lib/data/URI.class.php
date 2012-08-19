@@ -16,7 +16,7 @@ class URI {
 	 */
 	public static function Make($Data) {
 		if(is_array($Data)) {
-			switch ((int)SBB::Config('config.page.uri_format')) {
+			switch ((int)SBB::Config('page.uri_format')) {
 				case 1:  // .../value1/value2... - With rewrite
 				case 2:  // .../index.php/value1/value2... - without rewrite
 				default: // .../?key1=value1&key2=value2... - default
@@ -66,11 +66,11 @@ class URI {
 
 	protected static function MakeWitRewrite(array $Data) {
 		//
-		//SBB::Config('config.page.uri_structure');
+		//SBB::Config('page.uri_structure');
 	}
 
 	protected static function MakeWithoutRewrite(array $Data) {
 		//
-		//SBB::Config('config.page.uri_structure');
+		//SBB::Config('page.uri_structure');
 	}
 }

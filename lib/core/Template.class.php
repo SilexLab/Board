@@ -21,7 +21,7 @@ class Template {
 		//$this->Smarty->setCaching(Smarty::CACHING_LIFETIME_CURRENT);
 		$this->Smarty->setTemplateDir($StylePath ? [$StylePath, $TplDir] : $TplDir);
 		$this->Smarty->setCompileDir(DIR_TPLC);
-		$this->Smarty->setCacheDir(CFG_CACHE_DIR); //self::Config('config.system.cache.dir')
+		$this->Smarty->setCacheDir(CFG_CACHE_DIR); //self::Config('system.cache.dir')
 	}
 
 	/**

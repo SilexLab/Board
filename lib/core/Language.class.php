@@ -43,7 +43,7 @@ class Language {
 
 		// Use the default language when no language was set until this point
 		if(empty(self::$Language))
-			self::$Language = SBB::Config('config.page.language.default');
+			self::$Language = SBB::Config('page.language.default');
 		
 		// Include the languagefiles
 		if(!empty(self::$Language)) {
