@@ -4,11 +4,11 @@ Filestructure-update-20120629
 	- index.php							[root of the acp]
 + docs									[documentation]
 	- *.md
-+ javascript							[global javascripts (frameworks, functions, etc.)]
++ js									[global javascripts (frameworks, functions, etc.)]
 	- *.js
 + cache									[cache]
 + lib									[PHP source / Libaries]
-	+ Twig								[the template engine]
+	+ template							[the template engine]
 	+ acp								[admin control panel libs]
 	+ ajax								[ajax requests]
 	+ core								[core-classes]
@@ -22,7 +22,10 @@ Filestructure-update-20120629
 			- User.class.php
 			- Group.class.php
 		+ mail							[e-mail stuff]
-		- Template.class.php			[the Twig-template wrapper]
+		+ message						[Message stuff]
+			+ SMF						[Silex Flavored Markdown]
+			- MessageParser.php
+		- Template.class.php			[the Template wrapper]
 		- Language.class.php
 	+ language							[installed languages]
 		+ de							[a single language in iso-format]
@@ -35,7 +38,7 @@ Filestructure-update-20120629
 	+ plugins							[installed plugins/packages]
 		+ owner.package					[a single plugin/package]
 			- listener.php {
-				__construct()
+				function Listen()
 			}
 			- info.xml {				[information about the plugin]
 				name
@@ -58,13 +61,13 @@ Filestructure-update-20120629
 	- init.php							[initial the board (a bootstramp)]
 + styles								[styles]
 	+ Lumen Lunae						[a single style]
-		+ javascript					[style specific javascripts, like animations]
+		+ js							[style specific javascripts, like animations]
 			- *.js
 		+ images						[all images which the style will use]
 		+ icons							[style specific icons]
 		+ templates						[style templates overwrites the default templates]
 			- *.tpl|o
-		- style.css						["root"-stylesheet]
+		- style.php						[Compiles/Collects the needed styles]
 		- *.css							[all other stylesheets]
 		- info.xml {					[information about the style]
 			name
@@ -76,7 +79,7 @@ Filestructure-update-20120629
 			sbb-version
 			packageserver|o
 		}
-	+ Awesome Style Thing
+	+ Awesome Style
 		- ~
 	...
 + templates								[default templates]

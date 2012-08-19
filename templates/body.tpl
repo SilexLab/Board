@@ -1,9 +1,9 @@
 	<section class="content">
-		{foreach $Notifications as $Notification}
-			<div class="notification {$Notification.Type}">
+		{foreach $notifications as $notification}
+			<div class="notification {$notification.type}">
 				<div class="notification_inner">
 					<div class="size">
-						<div class="notification_content">{$Notification.Message}</div>
+						<div class="notification_content">{$notification.message}</div>
 					</div>
 				</div>
 			</div>
@@ -11,23 +11,23 @@
 		<div class="size">
 			<div class="container">
 				<nav class="bread_crumbs">
-					{foreach $Crumbs as $Crumb}
+					{foreach $crumbs as $crumb}
 						<div class="crust">
-							<a href="{$Crumb.Link}" class="crumb">
-								<span class="crumb_wrap">{$Crumb.Title}</span>
+							<a href="{$crumb.link}" class="crumb">
+								<span class="crumb_wrap">{$crumb.title}</span>
 							</a>
 						</div>
 					{/foreach}
 				</nav>
 			</div>
-			{$IncludePage=$Page.template|default:'Home'}
-			{include file="pages/$IncludePage.tpl"}
+			{$include_page=$page.template|default:'Home'}
+			{include file="pages/$include_page.tpl"}
 			<div class="container">
 				<nav class="bread_crumbs">
-					{foreach $Crumbs as $Crumb}
+					{foreach $crumbs as $crumb}
 						<div class="crust">
-							<a href="{$Crumb.Link}" class="crumb">
-								<span class="crumb_wrap">{$Crumb.Title}</span>
+							<a href="{$crumb.link}" class="crumb">
+								<span class="crumb_wrap">{$crumb.title}</span>
 							</a>
 						</div>
 					{/foreach}

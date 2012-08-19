@@ -2,7 +2,7 @@
 /**
  * @author     SilexBB
  * @copyright  2011 - 2012 Silex Bulletin Board
- * @license    GPL version 3 or higher <http://www.gnu.org/licenses/gpl-3.0.html>
+ * @license    GPL version 3 <http://www.gnu.org/licenses/gpl-3.0.html>
  */
 
 class UserPage extends Page implements PageData {
@@ -33,7 +33,7 @@ class UserPage extends Page implements PageData {
 		Breadcrumb::Add($User->Username, URI::Make(array_merge(self::$Link, ['UserID' => $UserID])));
 
 		// Template..
-		SBB::Template()->assign(['profile' => [
+		SBB::Template()->Assign(['profile' => [
 			'username'  => $User->Username,
 			'ID'        => $User->ID,
 			'group'     => $User->GroupID,   // TODO: Read group

@@ -1,5 +1,5 @@
 <div class="user_avatar">
-	<img src="{$Dir.Style}{$Style.Dir}/icons/g_256_user.png" class="avatar">
+	<img src="{$style.dir}/icons/g_256_user.png" class="avatar">
 </div>
 <div class="container user">
 	<div class="container_head">

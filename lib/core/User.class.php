@@ -2,7 +2,7 @@
 /**
  * @author     SilexBB
  * @copyright  2011 - 2012 Silex Bulletin Board
- * @license    GPL version 3 or higher <http://www.gnu.org/licenses/gpl-3.0.html>
+ * @license    GPL version 3 <http://www.gnu.org/licenses/gpl-3.0.html>
  */
 
 class User {
@@ -29,7 +29,7 @@ class User {
 			$this->ID = 0;
 			$this->LoggedIn = false;
 		}
-		SBB::Template()->assign(['User' => ['ID' => (int)$this->ID, 'Name' => $this->Name]]);
+		SBB::Template()->Assign(['User' => ['ID' => (int)$this->ID, 'Name' => $this->Name]]);
 	}
 
 	/* User info */

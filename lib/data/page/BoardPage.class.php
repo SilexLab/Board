@@ -2,7 +2,7 @@
 /**
  * @author     SilexBB
  * @copyright  2011 - 2012 Silex Bulletin Board
- * @license    GPL version 3 or higher <http://www.gnu.org/licenses/gpl-3.0.html>
+ * @license    GPL version 3 <http://www.gnu.org/licenses/gpl-3.0.html>
  */
 
 class BoardPage extends Page implements PageData {
@@ -28,7 +28,7 @@ class BoardPage extends Page implements PageData {
 		}
 		$cBoard = SBB::DB()->prepare('SELECT `Type` FROM `board` WHERE `ID` = :ID');
 		$cBoard->execute([':ID' => $BoardID]);
-		SBB::Template()->assign(['board' => $this->GetBoardList($BoardID),
+		SBB::Template()->Assign(['board' => $this->GetBoardList($BoardID),
 			'threads' => $this->GetThreadList($BoardID),
 			'current_board' => ['ID' => $BoardID, 'type' => $cBoard->fetch(PDO::FETCH_OBJ)->Type]]);
 	}

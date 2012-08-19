@@ -2,7 +2,7 @@
 /**
  * @author     SilexBB
  * @copyright  2011 - 2012 Silex Bulletin Board
- * @license    GPL version 3 or higher <http://www.gnu.org/licenses/gpl-3.0.html>
+ * @license    GPL version 3 <http://www.gnu.org/licenses/gpl-3.0.html>
  */
 
 class Style implements Singleton {
@@ -22,11 +22,11 @@ class Style implements Singleton {
 	
 	protected function __construct() {
 		// Use Userstyle
-		$this->Info['Dir'] = ''; // TODO: Read userstyle
-		if(empty($this->Info['Dir']) || !is_dir(DIR_ROOT.DIR_STYLE.$this->Info['Dir'])) {
+		$this->Info['dir'] = ''; // TODO: Read userstyle
+		if(empty($this->Info['dir']) || !is_dir(DIR_ROOT.DIR_STYLE.$this->Info['dir'])) {
 			// Use default
-			$this->Info['Dir'] = SBB::Config('config.style.default');
-			if(empty($this->Info['Dir']) || !is_dir(DIR_ROOT.DIR_STYLE.$this->Info['Dir'])) {
+			$this->Info['dir'] = SBB::Config('config.style.default');
+			if(empty($this->Info['dir']) || !is_dir(DIR_ROOT.DIR_STYLE.$this->Info['dir'])) {
 				// If default can't found, search for styles and use the first found
 				$Dir = scandir(DIR_ROOT.DIR_STYLE);
 				if(!$Dir)
@@ -36,28 +36,28 @@ class Style implements Singleton {
 						continue;
 					if(is_dir(DIR_ROOT.DIR_STYLE.$File)) {
 						if(is_file(DIR_ROOT.DIR_STYLE.$File.'/info.xml')) {
-							$this->Info['Dir'] = $File;
+							$this->Info['dir'] = $File;
 							break;
 						}
 					}
 				}
-				if(empty($this->Info['Dir']) || !is_dir(DIR_ROOT.DIR_STYLE.$this->Info['Dir']))
+				if(empty($this->Info['dir']) || !is_dir(DIR_ROOT.DIR_STYLE.$this->Info['dir']))
 					throw new SystemException('No styles are installed, the board can\'t display without styles');
 			}
 		}
 		
 		// Set CSS and JS files
 		$this->Files = array(
-			'CSS' => $this->GetCSS(),
-			'JS' => $this->GetJS()
+			/*'css' => $this->GetCSS(),*/
+			'js' => $this->GetJS()
 		);
 
 		// TODO: Load style info.xml and save in $this->Style
-		$this->Info['Name'] = $this->Info['Dir'];
+		$this->Info['name'] = $this->Info['dir'];
 		
 		// Set more infos
-		$this->Info['Files'] = $this->Files;
-		$this->Info['TPL'] = DIR_STYLE.$this->Info['Dir'].'/'.DIR_TPL;
+		$this->Info['files'] = $this->Files;
+		$this->Info['tpl'] = DIR_STYLE.$this->Info['dir'].'/'.DIR_TPL;
 	}
 	
 	/**
@@ -78,34 +78,34 @@ class Style implements Singleton {
 	
 	// TODO: Merge GetCSS() and GetJS()
 	protected function GetCSS() {
-		$Dir = scandir(DIR_ROOT.DIR_STYLE.$this->Info['Dir']);
+		$Dir = scandir(DIR_ROOT.DIR_STYLE.$this->Info['dir']);
 		if(!$Dir)
-			throw new SystemException('The directory "'.DIR_ROOT.DIR_STYLE.$this->Info['Dir'].'" doesn\'t exist');
+			throw new SystemException('The directory "'.DIR_ROOT.DIR_STYLE.$this->Info['dir'].'" doesn\'t exist');
 		
 		$Files = array();
-		if(is_file(DIR_ROOT.DIR_STYLE.$this->Info['Dir'].'/style.css')) // "root" css file
-			$Files[] = str_replace(' ', '%20', DIR_STYLE.$this->Info['Dir'].'/style.css');
+		if(is_file(DIR_ROOT.DIR_STYLE.$this->Info['dir'].'/style.css')) // "root" css file
+			$Files[] = str_replace(' ', '%20', DIR_STYLE.$this->Info['dir'].'/style.css');
 		foreach($Dir as $File) {
 			if($File == 'style.css')
 				continue;
 			
 			// Extension is .css?
 			if(strpos($File, '.css') === (strlen($File) - 4))
-				$Files[] = str_replace(' ', '%20', DIR_STYLE.$this->Info['Dir'].'/'.$File);
+				$Files[] = str_replace(' ', '%20', DIR_STYLE.$this->Info['dir'].'/'.$File);
 		}
 		return $Files;
 	}
 	
 	protected function GetJS() {
-		$Dir = scandir(DIR_ROOT.DIR_STYLE.$this->Info['Dir'].'/'.DIR_JS);
+		$Dir = scandir(DIR_ROOT.DIR_STYLE.$this->Info['dir'].'/'.DIR_JS);
 		if(!$Dir)
-			throw new SystemException('The directory "'.DIR_ROOT.DIR_STYLE.$this->Info['Dir'].'/'.DIR_JS.'" doesn\'t exist');
+			throw new SystemException('The directory "'.DIR_ROOT.DIR_STYLE.$this->Info['dir'].'/'.DIR_JS.'" doesn\'t exist');
 		
 		$Files = array();
 		foreach($Dir as $File) {
 			// Extension is .js?
 			if(strpos($File, '.js') === (strlen($File) - 3))
-				$Files[] = str_replace(' ', '%20', DIR_STYLE.$this->Info['Dir'].'/'.DIR_JS.$File);
+				$Files[] = str_replace(' ', '%20', DIR_STYLE.$this->Info['dir'].'/'.DIR_JS.$File);
 		}
 		return $Files;
 	}

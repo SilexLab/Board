@@ -2,7 +2,7 @@
 /**
  * @author     SilexBB
  * @copyright  2011 - 2012 Silex Bulletin Board
- * @license    GPL version 3 or higher <http://www.gnu.org/licenses/gpl-3.0.html>
+ * @license    GPL version 3 <http://www.gnu.org/licenses/gpl-3.0.html>
  */
 
 require_once('Page.interface.php');
@@ -64,8 +64,9 @@ abstract class Page {
 		$Info = self::$Instance->GetWholeInfo();
 		$Class = get_class(self::$Instance);
 		$Info['link'] = $Class::$Link;
+		$Info['page'] = URI::Get('page');
 		unset($Info['node']);
-		SBB::Template()->assign(['Page' => $Info]);
+		SBB::Template()->Assign(['page' => $Info]);
 	}
 
 	/**

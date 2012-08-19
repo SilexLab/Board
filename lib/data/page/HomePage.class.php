@@ -2,7 +2,7 @@
 /**
  * @author     SilexBB
  * @copyright  2011 - 2012 Silex Bulletin Board
- * @license    GPL version 3 or higher <http://www.gnu.org/licenses/gpl-3.0.html>
+ * @license    GPL version 3 <http://www.gnu.org/licenses/gpl-3.0.html>
  */
 
 class HomePage extends Page implements PageData {
@@ -19,7 +19,7 @@ class HomePage extends Page implements PageData {
 		$this->Info['title'] = Language::Get('sbb.page.home');
 		$this->Info['template'] = 'Home';
 		
-		SBB::Template()->assign(['Username' => SBB::User()->GetName()]);
+		SBB::Template()->Assign(['Username' => SBB::User()->GetName()]);
 	}
 
 	public function GetInfo($Info) {

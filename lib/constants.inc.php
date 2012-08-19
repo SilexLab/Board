@@ -2,7 +2,7 @@
 /**
  * @author     SilexBB
  * @copyright  2011 - 2012 Silex Bulletin Board
- * @license    GPL version 3 or higher <http://www.gnu.org/licenses/gpl-3.0.html>
+ * @license    GPL version 3 <http://www.gnu.org/licenses/gpl-3.0.html>
  */
 
 // System Constants
@@ -14,7 +14,7 @@ define('ROOT_URI', (!empty($_SERVER['HTTPS']) && 'on' == $_SERVER['HTTPS'] ? 'ht
 
 // Directory Constants
 define('DIR_TPL',      'templates/');
-define('DIR_TPLC',     CFG_CACHE_DIR);
+define('DIR_TPLC',     CFG_CACHE_DIR.'templates/');
 define('DIR_SMILEY',   'images/smiley/');
 define('DIR_LANGUAGE', 'lib/language/');
 define('DIR_PAGE',     'lib/data/page/');

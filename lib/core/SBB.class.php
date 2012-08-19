@@ -2,7 +2,7 @@
 /**
  * @author     SilexBB
  * @copyright  2011 - 2012 Silex Bulletin Board
- * @license    GPL version 3 or higher <http://www.gnu.org/licenses/gpl-3.0.html>
+ * @license    GPL version 3 <http://www.gnu.org/licenses/gpl-3.0.html>
  */
 
 class SBB {
@@ -24,7 +24,7 @@ class SBB {
 		// Initialize classes and objects
 		Language::Initialize(URI::Get('lang', 'null'));
 		self::$Style = Style::GetInstance();
-		self::InitSmarty();
+		self::$Template = new Template(DIR_ROOT.DIR_TPL, self::$Style->Info('tpl'));
 		self::$User = new User();
 		Listener::Check();
 		SessionGarbageCollector::Collect();
@@ -64,16 +64,6 @@ class SBB {
 		if(!self::$Database)
 			self::$Database = Database::GetDatabase();
 		return self::$Database;
-	}
-	
-	private static final function InitSmarty() {
-		require_once(DIR_LIB.'smarty/Smarty.class.php');
-		self::$Template = new Smarty();
-		
-		#self::$Template->setCaching(Smarty::CACHING_LIFETIME_CURRENT);
-		self::$Template->setTemplateDir(DIR_ROOT.DIR_TPL);
-		self::$Template->setCompileDir(DIR_TPLC);
-		self::$Template->setCacheDir(CFG_CACHE_DIR); //self::Config('config.system.cache.dir')
 	}
 	
 	/**
@@ -118,26 +108,27 @@ class SBB {
 	 * Assign default stuff to template
 	 */
 	private static function AssignDefault() {
-		self::Template()->assign([
-			'Style' => self::Style()->Info(),
-			'PageTitle' => self::Config('config.page.title'),
-			'logo' => DIR_STYLE.str_replace(' ', '%20', self::Style()->Info('Dir')).'/images/logo.png',
-			'Dir' => array(
-				'Style' => DIR_STYLE,
-				'JS' => DIR_JS
+		self::Template()->Assign([
+			'style' => ['dir' => DIR_STYLE.rawurlencode(self::Style()->Info('dir')).'/',
+				'files' => self::Style()->Info('files'),
+				'name' => self::Style()->Info('name')],
+			'page_title' => self::Config('config.page.title'),
+			'logo' => DIR_STYLE.str_replace(' ', '%20', self::Style()->Info('dir')).'/images/logo.png',
+			'dir' => array(
+				'style' => DIR_STYLE,
+				'js' => DIR_JS
 			),
-			'Time' => array(
-				'Date' => date('d.m.Y'), // TODO: Get date format from user / config
-				'Time' => date('H:i'),
-				'YPercent' => round(100 * Time::YearProcess(), 2),
-				'DPercent' => round(100 * Time::DayProcess(), 2)
+			'time' => array(
+				'date' => date('d.m.Y'), // TODO: Get date format from user / config
+				'time' => date('H:i'),
+				'y_percent' => round(100 * Time::YearProcess(), 2),
+				'd_percent' => round(100 * Time::DayProcess(), 2)
 			),
-			'Version' => array(
-				'Version' => SBB_VERSION.'-'.date('Ymd', CommitInfo::Get()),
-				'SHA' => CommitInfo::Get('SHA')
+			'version' => array(
+				'full' => SBB_VERSION.'-'.date('Ymd', CommitInfo::Get()),
+				'sha' => CommitInfo::Get('SHA')
 			)
 		]);
-		#self::Template()->Set(Language::Get(), true);
 		Breadcrumb::Assign();
 		Page::Assign();
 		Notification::Assign();

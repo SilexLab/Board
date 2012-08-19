@@ -2,7 +2,7 @@
 /**
  * @author     SilexBB
  * @copyright  2011 - 2012 Silex Bulletin Board
- * @license    GPL version 3 or higher <http://www.gnu.org/licenses/gpl-3.0.html>
+ * @license    GPL version 3 <http://www.gnu.org/licenses/gpl-3.0.html>
  */
 
 class ThreadPage extends Page implements PageData {
@@ -28,7 +28,7 @@ class ThreadPage extends Page implements PageData {
 				Breadcrumb::Add($Crumb['Title'], $Crumb['Link']);
 			Breadcrumb::Add($this->Info['title'], self::Link());
 
-			SBB::Template()->assign(['Posts' => $this->GetPosts($ThreadID)]);
+			SBB::Template()->Assign(['Posts' => $this->GetPosts($ThreadID)]);
 		} else {
 			$this->Info['title'] = Language::Get('sbb.error');
 			Notification::Show('Thread existiert nicht!', Notification::ERROR);
