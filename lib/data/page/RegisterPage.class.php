@@ -32,7 +32,7 @@ class RegisterPage extends Page implements PageData {
 		}
 		if(Post::Get('sub_back')) {
 			Post::Del('sub_back');
-			$GoTo = clamp(array_get_key($this->Steps, Session::Get('register.step')) - 1, 0, sizeof($this->Steps) - 1);
+			$GoTo = clamp(array_search(Session::Get('register.step'), $this->Steps) - 1, 0, sizeof($this->Steps) - 1);
 			Session::Set('register.step', $this->Steps[$GoTo]);
 		}
 
