@@ -15,8 +15,11 @@ if(!file_exists('lib/init.php'))
 	die('Something is wrong with your installation');
 require_once ('lib/init.php');
 
-// Developement performance
+/* Developement */
+// performance (the <html>-tag is already closed :O)
 echo '<span style="color: white; margin: -20px 0 0 10px; display: block; text-shadow: 0 0 3px #000; font-size: 10px;">
 	Load: <strong>'.round(((microtime(true) - $GT) * 1000), 2).' ms</strong>
 </span>';
+// piwik
+if(file_exists('../silexboard.org/piwik_template.php')) include('../silexboard.org/piwik_template.php');
 ?>
