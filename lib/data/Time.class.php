@@ -26,9 +26,28 @@ class Time {
 		OCTOBER   = 'sbb.time.october',
 		NOVEMBER  = 'sbb.time.november',
 		DECEMBER  = 'sbb.time.december';
+	const
+		SECOND = 1,
+		MINUTE = 60,
+		HOUR   = 3600,
+		DAY    = 86400,
+		WEEK   = 604800,
+		MONTH  = 2628000,
+		YEAR   = 31536000;
+
+	private static $Units = [
+			self::SECOND => 'sbb.time.second',
+			self::MINUTE => 'sbb.time.minute',
+			self::HOUR   => 'sbb.time.hour',
+			self::DAY    => 'sbb.time.day',
+			self::WEEK   => 'sbb.time.week',
+			self::MONTH  => 'sbb.time.month',
+			self::YEAR   => 'sbb.time.year'
+		];
+
 	private static
-		$Months = array(),
-		$Days = array();
+		$Months = [],
+		$Days = [];
 
 	private static
 		$YearProcess,
@@ -53,9 +72,8 @@ class Time {
 	 */
 	public static function DayProcess() {
 		if(empty(self::$DayProcess)) {
-			$Day = 86400;
 			$Current = time() - mktime(0, 0, 0, date('n'), date('j'), date('Y'));
-			self::$DayProcess = $Current / $Day;
+			self::$DayProcess = $Current / self::DAY;
 		}
 		return self::$DayProcess;
 	}
@@ -107,6 +125,61 @@ class Time {
 		if(isset(self::$Days[$Number]))
 			return self::$Days[$Number];
 		return $Number;
+	}
+
+	/**
+	 * Return the time difference
+	 * @param  int $Time timestamp
+	 * @return string
+	 */
+	public static function Difference($Time) {
+		if($Time < time()) {
+			$Number = time() - $Time;
+			self::Convert($Number, $Unit);
+			return sprintf(Language::Get('sbb.time.ago'), $Number, $Unit);
+		}
+		if($Time > time()) {
+			$Number = $Time - time();
+			self::Convert($Number, $Unit);
+			return sprintf(Language::Get('sbb.time.ahead'), $Number, $Unit);
+		}
+		return Language::Get('sbb.time.now');
+	}
+
+	/**
+	 * Convert time values into higher units
+	 * @param ref $Time
+	 * @param ref $Unit
+	 * @param int $Base optional
+	 */
+	public static function Convert(&$Time, &$Unit, $Base = 1) {
+		if(!is_numeric($Time) || !isset(self::$Units[$Base]))
+			return;
+
+		$Time = $Time * $Base;
+		if($Time >= self::YEAR) { // year
+			$Time = (int)($Time / self::YEAR);
+			$Unit = self::$Units[self::YEAR];
+		} else if($Time >= self::MONTH) { // month
+			$Time = (int)($Time / self::MONTH);
+			$Unit = self::$Units[self::MONTH];
+		} else if($Time >= self::WEEK) { // week
+			$Time = (int)($Time / self::WEEK);
+			$Unit = self::$Units[self::WEEK];
+		} else if($Time >= self::DAY) { // day
+			$Time = (int)($Time / self::DAY);
+			$Unit = self::$Units[self::DAY];
+		} else if($Time >= self::HOUR) { // hour
+			$Time = (int)($Time / self::HOUR);
+			$Unit = self::$Units[self::HOUR];
+		} else if($Time >= self::MINUTE) { // minute
+			$Time = (int)($Time / self::MINUTE);
+			$Unit = self::$Units[self::MINUTE];
+		} else
+			$Unit = self::$Units[self::SECOND];
+
+		if($Time != 1)
+			$Unit .= 's';
 	}
 }
 ?>
