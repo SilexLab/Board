@@ -21,8 +21,8 @@
 			{$profile.signature}
 		</div>
 	</div>
-	[More informations]
+	[More information]
 </div>
 <div class="container">
-	[Even more informations]
+	[Even more information]
 </div>

@@ -20,13 +20,13 @@ class Notification {
 	 * CSS-Classes for notification types
 	 */
 	protected static
-		$Classes = array(
+		$Classes = [
 			'info',
 			'success',
 			'warning',
 			'error',
 			'neutral'
-		);
+		];
 
 	/**
 	 * Contains the notifications
@@ -43,17 +43,17 @@ class Notification {
 		if(!isset(self::$Classes[$Type]))
 			$Type = self::NEUTRAL;
 
-		self::$Notifications[] = array(
-			'Message' => $Message,
-			'Type'    => self::$Classes[$Type]
-		);
+		self::$Notifications[] = [
+			'message' => $Message,
+			'type'    => self::$Classes[$Type]
+		];
 	}
 
 	/**
 	 * Assign the notifications to the template
 	 */
 	public static function Assign() {
-		SBB::Template()->Assign(['Notifications' => self::$Notifications]);
+		SBB::Template()->Assign(['notifications' => self::$Notifications]);
 	}
 }
 ?>

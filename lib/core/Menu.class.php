@@ -22,17 +22,16 @@ class Menu implements Singleton {
 	
 	// Assign the menu as vars to the template
 	protected function __construct() {
-		$ActivePage = SBB::Page()->GetInfo('node');
+		$ActivePage = SBB::Page()->Name();
 
 		$MenuList = array();
 		$Entries = SBB::DB()->query('SELECT * FROM `menu` ORDER BY `Position`')->fetchAll(PDO::FETCH_OBJ);
 		foreach($Entries as $Entry) {
 			//$Permission = $Entry->Permission;
-
 			$MenuList[] = array(
 				'Name' => Language::Get($Entry->MenuName),
-				'Link' => Page::GetLink($Entry->Target),
-				'Active' => ($Entry->Target == $ActivePage) ? true : false
+				'Link' => SBB::Page()->Link($Entry->Target),
+				'Active' => ($Entry->Target == 'p:'.$ActivePage) ? true : false
 			);
 		}
 

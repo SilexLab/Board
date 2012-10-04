@@ -21,7 +21,7 @@
 				</nav>
 			</div>
 			{$include_page=$page.template|default:'Home'}
-			{include file="pages/$include_page.tpl"}
+			{include file="$include_page"}
 			<div class="container">
 				<nav class="bread_crumbs">
 					{foreach $crumbs as $crumb}

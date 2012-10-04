@@ -5,13 +5,15 @@
  * @license    GPL version 3 <http://www.gnu.org/licenses/gpl-3.0.html>
  */
 
-class RegisterPage extends Page implements PageData {
-	protected static $Link = ['page' => 'Register'];
-	protected static $Node = 'page.register';
-	protected $Info = array();
-	protected $Steps = array();
+class RegisterPage implements PageData {
+	protected $Link;
+	protected $Info = [];
 
 	public function __construct() {
+		$this->Link = URI::Make(['page' => 'Register']);
+	}
+
+	public function Display() {
 		if(SBB::User()->LoggedIn())
 			header('location: ./');
 
@@ -111,20 +113,20 @@ class RegisterPage extends Page implements PageData {
 			'Avatar' => $Avatar]]);
 	}
 
-	public function GetInfo($Info) {
+	public function Link() {
+		return $this->Link;
+	}
+
+	public function Title() {
+		return Language::Get('sbb.page.register');
+	}
+
+	public function Template() {
+		return 'pages/Register.tpl';
+	}
+
+	public function Info($Info) {
 		return isset($this->Info[$Info]) ? $this->Info[$Info] : false;
-	}
-
-	protected function GetWholeInfo() {
-		return $this->Info;
-	}
-
-	public static function Link() {
-		return URI::Make(self::$Link);
-	}
-
-	public static function Node() {
-		return self::$Node;
 	}
 }
 ?>

@@ -13,7 +13,7 @@
 /* FILESYSTEM */
 
 /**
- * recursive scandir
+ * recursively scandir
  * @param  string $directory
  * @param  int    $sorting_order
  * @return array
@@ -36,6 +36,27 @@ function scandirr($directory, $sorting_order = 0) {
 			$rfiles[] = $f;
 	}
 	return $rfiles;
+}
+
+/**
+ * recursively remove a directory
+ * @param string $dir
+ */
+function rrmdir($dir) {
+	foreach(glob($dir.'/*') as $file) {
+		if(is_dir($file))
+			rrmdir($file);
+		else
+			unlink($file);
+	}
+	rmdir($dir);
+}
+
+/**
+ * Get the file extension
+ */
+function file_ext($file) {
+	return pathinfo($file, PATHINFO_EXTENSION);
 }
 
 
@@ -69,12 +90,12 @@ function array_search_all($needle, array $haystack, $strict = false) {
  * @param  mixed $max_value
  * @return mixed
  */
-function clamp($value, $min, $max) {
-	return max(min($value, $max), $min);
-}
+function clamp($value, $min, $max) { return max(min($value, $max), $min); }
 
 
 /* STRINGS */
+
+function strfind($haystack, $needle) { return strpos($haystack, $needle) !== false; }
 
 function urlencode_slashes($url) {
 	$scheme = '';

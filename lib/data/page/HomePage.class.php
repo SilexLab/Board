@@ -5,37 +5,36 @@
  * @license    GPL version 3 <http://www.gnu.org/licenses/gpl-3.0.html>
  */
 
-class HomePage extends Page implements PageData {
-	protected static $Link = [0 => './'];
-	protected static $Node = 'page.home';
-	protected $Info = array();
+class HomePage implements PageData {
+	protected $Link;
+	protected $Info = [];
 
 	public function __construct() {
+		$this->Link = URI::Make([0 => './']);
+	}
+
+	public function Display() {
 		// Redirect on ?page=Home
 		if(URI::Get('page') == 'Home')
 			header('location: '.self::Link());
-
-		$this->Info['node'] = self::$Node;
-		$this->Info['title'] = Language::Get('sbb.page.home');
-		$this->Info['template'] = 'Home';
 		
 		SBB::Template()->Assign(['Username' => SBB::User()->GetName()]);
 	}
 
-	public function GetInfo($Info) {
+	public function Link() {
+		return $this->Link;
+	}
+
+	public function Title() {
+		return Language::Get('sbb.page.home');
+	}
+
+	public function Template() {
+		return 'pages/Home.tpl';
+	}
+
+	public function Info($Info) {
 		return isset($this->Info[$Info]) ? $this->Info[$Info] : false;
-	}
-
-	protected function GetWholeInfo() {
-		return $this->Info;
-	}
-
-	public static function Link() {
-		return URI::Make(self::$Link);
-	}
-
-	public static function Node() {
-		return self::$Node;
 	}
 }
 ?>

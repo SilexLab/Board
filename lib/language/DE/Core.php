@@ -8,7 +8,7 @@
 /* Langfile:	German (Informal) */
 self::$Items = array_merge(self::$Items, array(
 'sbb.language.info'    => 'Deutsch (Informell)',
-'sbb.language.changed' => 'Deine Sprache wurde nach '.' geändert',
+'sbb.language.changed' => 'Deine Sprache wurde nach %s geändert',
 
 'sbb.error'         => 'Fehler',
 'sbb.error.no_page' => 'Diese Seite existiert nicht',
@@ -101,8 +101,8 @@ self::$Items = array_merge(self::$Items, array(
 'sbb.footer.current_time'     => 'Aktuelle Uhrzeit',
 'sbb.footer.current_date'     => 'Aktuelles Datum',
 
-'sbb.time.progress'    => 'Fortschritt des Jahres ('.round(Time::YearProcess() * 100, 2).'%)',
-'sbb.time.dayprogress' => 'Fortschritt des Tages ('.round(Time::DayProcess() * 100, 2).'%)',
+'sbb.time.progress'    => 'Fortschritt des Jahres (%f%)',
+'sbb.time.dayprogress' => 'Fortschritt des Tages (%f%)',
 'sbb.time.january'     => 'Januar',
 'sbb.time.february'    => 'Februar',
 'sbb.time.march'       => 'März',

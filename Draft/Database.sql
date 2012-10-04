@@ -1,30 +1,11 @@
--- phpMyAdmin SQL Dump
--- version 3.5.1
--- http://www.phpmyadmin.net
---
--- Host: localhost
--- Erstellungszeit: 19. Aug 2012 um 21:24
--- Server Version: 5.5.24-0ubuntu0.12.04.1
--- PHP-Version: 5.5.0-dev
-
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
-
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8 */;
 
---
--- Datenbank: `silexboard`
---
-
--- --------------------------------------------------------
-
---
--- Tabellenstruktur für Tabelle `acp_session`
---
 
 DROP TABLE IF EXISTS `acp_session`;
 CREATE TABLE IF NOT EXISTS `acp_session` (
@@ -37,12 +18,6 @@ CREATE TABLE IF NOT EXISTS `acp_session` (
   `Token` tinytext NOT NULL,
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- Tabellenstruktur für Tabelle `board`
---
 
 DROP TABLE IF EXISTS `board`;
 CREATE TABLE IF NOT EXISTS `board` (
@@ -67,10 +42,6 @@ CREATE TABLE IF NOT EXISTS `board` (
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
 
---
--- Daten für Tabelle `board`
---
-
 INSERT INTO `board` (`ID`, `ParentID`, `Type`, `Title`, `Description`, `Link`, `Position`, `Image`, `ImageNew`, `Prefixes`, `PrefixesRequired`, `Views`, `Threads`, `Posts`, `MarkingAsDone`, `Closed`, `Invisible`, `News`) VALUES
 (1, 0, 0, 'Kategorie', '', '', 1, '', '', '', 0, 0, 0, 0, 0, 0, 0, 0),
 (2, 1, 1, 'Unterforum', 'Beschreibung', '', 1, '', '', '', 0, 0, 0, 0, 0, 0, 0, 0),
@@ -81,24 +52,12 @@ INSERT INTO `board` (`ID`, `ParentID`, `Type`, `Title`, `Description`, `Link`, `
 (7, 1, 1, 'Noch eins', 'Ein weiteres Unterforum', '', 2, '', '', '', 0, 3, 5, 6, 0, 0, 0, 0),
 (8, 2, 1, 'Unterunterforum', 'Ein Forum in einem Unterforum', '', 1, '', '', '', 0, 5, 4, 3, 0, 0, 0, 0);
 
--- --------------------------------------------------------
-
---
--- Tabellenstruktur für Tabelle `board_last_post`
---
-
 DROP TABLE IF EXISTS `board_last_post`;
 CREATE TABLE IF NOT EXISTS `board_last_post` (
   `BoardID` mediumint(9) NOT NULL,
   `ThreadID` mediumint(9) NOT NULL,
   PRIMARY KEY (`BoardID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- Tabellenstruktur für Tabelle `board_permissions_group`
---
 
 DROP TABLE IF EXISTS `board_permissions_group`;
 CREATE TABLE IF NOT EXISTS `board_permissions_group` (
@@ -123,12 +82,6 @@ CREATE TABLE IF NOT EXISTS `board_permissions_group` (
   PRIMARY KEY (`BoardID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- --------------------------------------------------------
-
---
--- Tabellenstruktur für Tabelle `board_permissions_user`
---
-
 DROP TABLE IF EXISTS `board_permissions_user`;
 CREATE TABLE IF NOT EXISTS `board_permissions_user` (
   `BoardID` mediumint(9) NOT NULL,
@@ -152,12 +105,6 @@ CREATE TABLE IF NOT EXISTS `board_permissions_user` (
   PRIMARY KEY (`BoardID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- --------------------------------------------------------
-
---
--- Tabellenstruktur für Tabelle `config`
---
-
 DROP TABLE IF EXISTS `config`;
 CREATE TABLE IF NOT EXISTS `config` (
   `Package` varchar(32) NOT NULL DEFAULT 'sbb.core',
@@ -167,10 +114,6 @@ CREATE TABLE IF NOT EXISTS `config` (
   `ValueType` varchar(16) NOT NULL,
   PRIMARY KEY (`ConfigNode`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Daten für Tabelle `config`
---
 
 INSERT INTO `config` (`Package`, `ConfigNode`, `CategoryNode`, `ConfigValue`, `ValueType`) VALUES
 ('sbb.core', 'page.language.default', 'page', 'DE', 'string(11)'),
@@ -183,12 +126,6 @@ INSERT INTO `config` (`Package`, `ConfigNode`, `CategoryNode`, `ConfigValue`, `V
 ('sbb.core', 'user.session.cookie_time', 'user.session', '86400', 'int(8)'),
 ('sbb.core', 'user.session.name', 'user.session', 'SBB', 'string(255)');
 
--- --------------------------------------------------------
-
---
--- Tabellenstruktur für Tabelle `groups`
---
-
 DROP TABLE IF EXISTS `groups`;
 CREATE TABLE IF NOT EXISTS `groups` (
   `ID` mediumint(9) NOT NULL AUTO_INCREMENT,
@@ -200,12 +137,6 @@ CREATE TABLE IF NOT EXISTS `groups` (
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
--- --------------------------------------------------------
-
---
--- Tabellenstruktur für Tabelle `group_permissions`
---
-
 DROP TABLE IF EXISTS `group_permissions`;
 CREATE TABLE IF NOT EXISTS `group_permissions` (
   `GroupID` mediumint(9) NOT NULL,
@@ -213,12 +144,6 @@ CREATE TABLE IF NOT EXISTS `group_permissions` (
   `OptionValue` text NOT NULL,
   PRIMARY KEY (`GroupID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- Tabellenstruktur für Tabelle `language`
---
 
 DROP TABLE IF EXISTS `language`;
 CREATE TABLE IF NOT EXISTS `language` (
@@ -228,19 +153,9 @@ CREATE TABLE IF NOT EXISTS `language` (
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
---
--- Daten für Tabelle `language`
---
-
 INSERT INTO `language` (`ID`, `Shortcut`, `Encoding`) VALUES
 (1, 'DE', 'UTF-8'),
 (2, 'EN', 'UTF-8');
-
--- --------------------------------------------------------
-
---
--- Tabellenstruktur für Tabelle `menu`
---
 
 DROP TABLE IF EXISTS `menu`;
 CREATE TABLE IF NOT EXISTS `menu` (
@@ -253,20 +168,10 @@ CREATE TABLE IF NOT EXISTS `menu` (
   UNIQUE KEY `Target` (`Target`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
---
--- Daten für Tabelle `menu`
---
-
 INSERT INTO `menu` (`ID`, `MenuName`, `Target`, `Position`, `Permission`) VALUES
-(1, 'sbb.page.home', 'page.home', 1, ''),
-(2, 'sbb.page.forum', 'page.forum', 2, ''),
-(3, 'sbb.page.userlist', 'page.userlist', 3, '');
-
--- --------------------------------------------------------
-
---
--- Tabellenstruktur für Tabelle `permissions`
---
+(1, 'sbb.page.home', 'p:Home', 1, ''),
+(2, 'sbb.page.forum', 'p:Board', 2, ''),
+(3, 'sbb.page.userlist', 'p:UserList', 3, '');
 
 DROP TABLE IF EXISTS `permissions`;
 CREATE TABLE IF NOT EXISTS `permissions` (
@@ -279,12 +184,6 @@ CREATE TABLE IF NOT EXISTS `permissions` (
   `Position` tinyint(4) NOT NULL,
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
--- Tabellenstruktur für Tabelle `pm`
---
 
 DROP TABLE IF EXISTS `pm`;
 CREATE TABLE IF NOT EXISTS `pm` (
@@ -303,12 +202,6 @@ CREATE TABLE IF NOT EXISTS `pm` (
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
--- --------------------------------------------------------
-
---
--- Tabellenstruktur für Tabelle `poll`
---
-
 DROP TABLE IF EXISTS `poll`;
 CREATE TABLE IF NOT EXISTS `poll` (
   `ID` mediumint(9) NOT NULL AUTO_INCREMENT,
@@ -323,12 +216,6 @@ CREATE TABLE IF NOT EXISTS `poll` (
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
--- --------------------------------------------------------
-
---
--- Tabellenstruktur für Tabelle `poll_options`
---
-
 DROP TABLE IF EXISTS `poll_options`;
 CREATE TABLE IF NOT EXISTS `poll_options` (
   `ID` mediumint(9) NOT NULL AUTO_INCREMENT,
@@ -337,24 +224,12 @@ CREATE TABLE IF NOT EXISTS `poll_options` (
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
--- --------------------------------------------------------
-
---
--- Tabellenstruktur für Tabelle `poll_votes`
---
-
 DROP TABLE IF EXISTS `poll_votes`;
 CREATE TABLE IF NOT EXISTS `poll_votes` (
   `OptionID` mediumint(9) NOT NULL,
   `UserID` mediumint(9) NOT NULL,
   PRIMARY KEY (`OptionID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- Tabellenstruktur für Tabelle `post`
---
 
 DROP TABLE IF EXISTS `post`;
 CREATE TABLE IF NOT EXISTS `post` (
@@ -380,19 +255,9 @@ CREATE TABLE IF NOT EXISTS `post` (
   UNIQUE KEY `ID` (`ID`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
---
--- Daten für Tabelle `post`
---
-
 INSERT INTO `post` (`ID`, `ThreadID`, `UserID`, `Subject`, `Message`, `Time`, `LastEdit`, `EditorID`, `PollID`, `IPAddress`, `Disabled`, `Closed`, `Deleted`, `DeleteReason`, `DeleteTime`, `Smileys`, `HTML`, `SilexCode`) VALUES
 (1, 1, 1, 'Example Topic', 'Text des posts', 0, 0, 0, 0, '', 0, 0, 0, '', 0, 1, 0, 1),
 (2, 1, 2, '', 'Antwort auf den ersten Post des ersten Threads', 1, 0, 0, 0, '', 0, 0, 0, '', 0, 1, 0, 1);
-
--- --------------------------------------------------------
-
---
--- Tabellenstruktur für Tabelle `session`
---
 
 DROP TABLE IF EXISTS `session`;
 CREATE TABLE IF NOT EXISTS `session` (
@@ -407,12 +272,6 @@ CREATE TABLE IF NOT EXISTS `session` (
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- --------------------------------------------------------
-
---
--- Tabellenstruktur für Tabelle `smiley`
---
-
 DROP TABLE IF EXISTS `smiley`;
 CREATE TABLE IF NOT EXISTS `smiley` (
   `ID` tinyint(4) NOT NULL AUTO_INCREMENT,
@@ -423,12 +282,6 @@ CREATE TABLE IF NOT EXISTS `smiley` (
   `Position` tinyint(4) NOT NULL,
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
--- Tabellenstruktur für Tabelle `thread`
---
 
 DROP TABLE IF EXISTS `thread`;
 CREATE TABLE IF NOT EXISTS `thread` (
@@ -453,18 +306,8 @@ CREATE TABLE IF NOT EXISTS `thread` (
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
---
--- Daten für Tabelle `thread`
---
-
 INSERT INTO `thread` (`ID`, `BoardID`, `PostID`, `UserID`, `Prefix`, `Topic`, `Message`, `Time`, `LastPostID`, `LastPostTime`, `Replies`, `Views`, `Sticky`, `Disabled`, `Closed`, `Deleted`, `DeleteReason`, `DeleteTime`) VALUES
 (1, 2, 1, 1, '', 'Example Topic', 'Das hier ist text. omg!', 0, 0, 0, 0, 0, 0, 0, 0, 0, '', 0);
-
--- --------------------------------------------------------
-
---
--- Tabellenstruktur für Tabelle `thread_visit`
---
 
 DROP TABLE IF EXISTS `thread_visit`;
 CREATE TABLE IF NOT EXISTS `thread_visit` (
@@ -473,12 +316,6 @@ CREATE TABLE IF NOT EXISTS `thread_visit` (
   `Time` int(11) NOT NULL,
   PRIMARY KEY (`ThreadID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- Tabellenstruktur für Tabelle `users`
---
 
 DROP TABLE IF EXISTS `users`;
 CREATE TABLE IF NOT EXISTS `users` (
@@ -502,19 +339,9 @@ CREATE TABLE IF NOT EXISTS `users` (
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
---
--- Daten für Tabelle `users`
---
-
 INSERT INTO `users` (`ID`, `Username`, `Password`, `Salt`, `GroupID`, `Email`, `ActivationKey`, `Joined`, `OnlineTime`, `Banned`, `Homepage`, `Signature`, `Language`, `LastActivity`, `Birthday`, `Posts`, `Threads`) VALUES
 (1, 'admin', 'cf8dbc7a1eaadcf0a63bafbaec4cc2bc0ee1c390', 'aecca3db58bff495a3429d714d766c9d8770754d', 0, 'admin@silexboard.org', 'e1e2f6c8795a79e', 1317503300, 0, 0, '', 'Des Admins Signatur steht hier.', '', 0, 0, 0, 0),
 (2, 'user', '9cdb86abb28e5eebedeb14838dc074418a0d8f14', '630dd14c99e0c6efb1a344c0a73a28b0d99fbb81', 0, 'user@silexboard.org', 'fc973531e7e287b', 1317503334, 0, 0, '', '', '', 0, 0, 0, 0);
-
--- --------------------------------------------------------
-
---
--- Tabellenstruktur für Tabelle `user_permissions`
---
 
 DROP TABLE IF EXISTS `user_permissions`;
 CREATE TABLE IF NOT EXISTS `user_permissions` (

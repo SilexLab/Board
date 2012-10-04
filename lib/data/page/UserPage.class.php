@@ -5,21 +5,23 @@
  * @license    GPL version 3 <http://www.gnu.org/licenses/gpl-3.0.html>
  */
 
-class UserPage extends Page implements PageData {
-	protected static $Link = ['page' => 'User'];
-	protected static $Node = 'page.user';
-	protected $Info = array();
+class UserPage implements PageData {
+	protected $Link;
+	protected $Info = [];
 
 	public function __construct() {
-		if(!URI::Get('UserID'))
-			header('location: '.UserListPage::Link());
+		$this->Link = URI::Make(['page' => 'User']);
+	}
 
-		$this->Info['node'] = UserListPage::Node();
+	public function Display() {
+		if(!URI::Get('UserID'))
+			header('location: '.SBB::Page()->Link('UserList'));
+
 		$this->Info['title'] = Language::Get('sbb.page.user');
 		$UserID = (int)URI::Get('UserID');
 		if($UserID < 1 || !Database::Count('FROM `users` WHERE `ID` = :ID', [':ID' => $UserID])) {
 			Notification::Show(Language::Get('sbb.user.no_user'), Notification::ERROR);
-			$this->Info['template'] = 'Error';
+			$this->Info['template'] = 'pages/Error.tpl';
 			return;
 		}
 		
@@ -27,10 +29,10 @@ class UserPage extends Page implements PageData {
 		$User->execute([':ID' => $UserID]);
 		$User = $User->fetch(PDO::FETCH_OBJ);
 
-		$this->Info['template'] = 'User';
+		$this->Info['template'] = 'pages/User.tpl';
 		$this->Info['title'] = Language::Get('sbb.user.user').': '.$User->Username;
-		Breadcrumb::Add(Language::Get('sbb.page.userlist'), UserListPage::Link());
-		Breadcrumb::Add($User->Username, URI::Make(array_merge(self::$Link, ['UserID' => $UserID])));
+		//Breadcrumb::Add(Language::Get('sbb.page.userlist'), SBB::Page()->Link('UserList')); // Endlessloop: SBB::Page()->Link('UserList')...
+		Breadcrumb::Add($User->Username, URI::Make(['page' => 'User', 'UserID' => $UserID]));
 
 		// Template..
 		SBB::Template()->Assign(['profile' => [
@@ -50,20 +52,20 @@ class UserPage extends Page implements PageData {
 		]]);
 	}
 
-	public function GetInfo($Info) {
+	public function Link() {
+		return $this->Link;
+	}
+
+	public function Title() {
+		return $this->Info['title'];
+	}
+
+	public function Template() {
+		return $this->Info['template'];
+	}
+
+	public function Info($Info) {
 		return isset($this->Info[$Info]) ? $this->Info[$Info] : false;
-	}
-
-	protected function GetWholeInfo() {
-		return $this->Info;
-	}
-
-	public static function Link() {
-		return URI::Make(self::$Link);
-	}
-
-	public static function Node() {
-		return self::$Node;
 	}
 }
 ?>

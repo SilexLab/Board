@@ -80,7 +80,7 @@ class SBB {
 	 */
 	public static final function Page() {
 		if(!self::$Page)
-			self::$Page = Page::GetPage();
+			self::$Page = new Page();
 		return self::$Page;
 	}
 
@@ -114,23 +114,27 @@ class SBB {
 				'name' => self::Style()->Info('name')],
 			'page_title' => self::Config('page.title'),
 			'logo' => DIR_STYLE.str_replace(' ', '%20', self::Style()->Info('dir')).'/images/logo.png',
-			'dir' => array(
+			'dir' => [
 				'style' => DIR_STYLE,
 				'js' => DIR_JS
-			),
-			'time' => array(
+			],
+			'time' => [
 				'date' => date('d.m.Y'), // TODO: Get date format from user / config
 				'time' => date('H:i'),
 				'y_percent' => round(100 * Time::YearProcess(), 2),
 				'd_percent' => round(100 * Time::DayProcess(), 2)
-			),
-			'version' => array(
+			],
+			'version' => [
 				'full' => SBB_VERSION.'-'.date('Ymd', CommitInfo::Get()),
 				'sha' => CommitInfo::Get('SHA')
-			)
+			],
+			'page' => [
+				'link' => self::$Page->Link(),
+				'page' => URI::Get('page'),
+				'template' => self::$Page->Template()
+			]
 		]);
 		Breadcrumb::Assign();
-		Page::Assign();
 		Notification::Assign();
 	}
 }

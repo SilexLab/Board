@@ -5,12 +5,16 @@
  * @license    GPL version 3 <http://www.gnu.org/licenses/gpl-3.0.html>
  */
 
-class ThreadPage extends Page implements PageData {
-	protected static $Link = ['page' => 'Thread'];
-	protected static $Node = 'page.thread';
-	protected $Info = array();
+class ThreadPage implements PageData {
+	protected $Link;
+	protected $Info = [];
+	protected $Title;
 
 	public function __construct() {
+		$this->Link = URI::Make(['page' => 'Thread']);
+	}
+
+	public function Display() {
 		$this->Info['node'] = BoardPage::Node();
 		$this->Info['template'] = 'Thread';
 		Breadcrumb::Add(Language::Get('sbb.page.forum'), self::Link());
@@ -21,7 +25,7 @@ class ThreadPage extends Page implements PageData {
 			$Thread->execute([':ID' => $ThreadID]);
 			$Thread = $Thread->fetch(PDO::FETCH_OBJ);
 
-			$this->Info['title'] = $Thread->Topic;
+			$this->Title = $Thread->Topic;
 
 			$Crumbs = $this->GetBreadcrumbs($Thread->BoardID);
 			foreach($Crumbs as $Crumb)
@@ -35,20 +39,20 @@ class ThreadPage extends Page implements PageData {
 		}
 	}
 
-	public function GetInfo($Info) {
+	public function Link() {
+		return $this->Link;
+	}
+
+	public function Title() {
+		return $this->Title;
+	}
+
+	public function Template() {
+		return 'pages/Thread.tpl';
+	}
+
+	public function Info($Info) {
 		return isset($this->Info[$Info]) ? $this->Info[$Info] : false;
-	}
-
-	protected function GetWholeInfo() {
-		return $this->Info;
-	}
-
-	public static function Link() {
-		return URI::Make(self::$Link);
-	}
-
-	public static function Node() {
-		return self::$Node;
 	}
 
 	protected function GetPosts($ThreadID) {

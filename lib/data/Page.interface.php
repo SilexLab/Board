@@ -7,16 +7,34 @@
 
 interface PageData {
 	/**
+	 * Will called when the page is the current page
+	 */
+	public function Display();
+	
+	/**
 	 * Returns the callable link for this site
 	 * e.g. ?page=Home
 	 * @return string
 	 */
-	public static function Link();
+	public function Link();
 
 	/**
-	 * Returns the identifier node for this site
+	 * Return the title of the current page
 	 * @return string
 	 */
-	public static function Node();
+	public function Title();
+	
+	/**
+	 * Return the template file wich belongs to the page
+	 * @return string
+	 */
+	public function Template();
+
+	/**
+	 * Return additional information if available
+	 * @param  string $Info
+	 * @return mixed
+	 */
+	public function Info($Info);
 }
 ?>

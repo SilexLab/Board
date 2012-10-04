@@ -5,16 +5,16 @@
  * @license    GPL version 3 <http://www.gnu.org/licenses/gpl-3.0.html>
  */
 
-class BoardPage extends Page implements PageData {
-	protected static $Link = ['page' => 'Board'];
-	protected static $Node = 'page.forum';
-	protected $Info = array();
+class BoardPage implements PageData {
+	protected $Link;
+	protected $Info = [];
 
 	public function __construct() {
-		$this->Info['node'] = self::$Node;
-		$this->Info['title'] = Language::Get('sbb.page.forum');
-		$this->Info['template'] = 'Board';
-		Breadcrumb::Add(Language::Get('sbb.page.forum'), self::Link());
+		$this->Link = URI::Make(['page' => 'Board']);
+	}
+
+	public function Display() {
+		Breadcrumb::Add(Language::Get('sbb.page.forum'), $this->Link());
 		
 		$BoardID = (int)URI::Get('BoardID', 0);
 
@@ -33,20 +33,20 @@ class BoardPage extends Page implements PageData {
 			'current_board' => ['ID' => $BoardID, 'type' => $cBoard->fetch(PDO::FETCH_OBJ)->Type]]);
 	}
 
-	public function GetInfo($Info) {
+	public function Link() {
+		return $this->Link;
+	}
+
+	public function Title() {
+		return Language::Get('sbb.page.forum');
+	}
+
+	public function Template() {
+		return 'pages/Board.tpl';
+	}
+
+	public function Info($Info) {
 		return isset($this->Info[$Info]) ? $this->Info[$Info] : false;
-	}
-
-	protected function GetWholeInfo() {
-		return $this->Info;
-	}
-
-	public static function Link() {
-		return URI::Make(self::$Link);
-	}
-
-	public static function Node() {
-		return self::$Node;
 	}
 
 	protected function GetBoardList($BoardID, $Depth = 0) {

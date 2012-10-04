@@ -8,7 +8,7 @@
 /* Langfile:	English */
 self::$Items = array_merge(self::$Items, array(
 'sbb.language.info'    => 'English',
-'sbb.language.changed' => 'Your Language was changed to '.'.',
+'sbb.language.changed' => 'Your language was changed to %s.',
 
 'sbb.error'         => 'Error',
 'sbb.error.no_page' => 'This page doesn\'t exists',
@@ -36,8 +36,8 @@ self::$Items = array_merge(self::$Items, array(
 'sbb.register.password_repeat'    => 'Repeat password',
 'sbb.register.invalid_username'   => 'Invalid username',
 'sbb.register.invalid_email'      => 'Invalid e-mail adress',
-'sbb.register.incorrect_password' => 'The passwords don\'t match',
-'sbb.register.incorrect_email'    => 'The e-mail adresses don\'t match',
+'sbb.register.incorrect_password' => 'The passwords doesn\'t match',
+'sbb.register.incorrect_email'    => 'The e-mail adresses doesn\'t match',
 'sbb.register.username_exist'     => 'This username already exists!',
 'sbb.register.email_exist'        => 'This e-mail adress already exists!',
 'sbb.register.success'            => 'You are successfully registered!',
@@ -62,8 +62,8 @@ self::$Items = array_merge(self::$Items, array(
 'sbb.user.language'          => 'Language',
 'sbb.user.homepage'          => 'Webpage',
 'sbb.user.contact'           => 'Contact',
-'sbb.user.all_members'       => 'All Members',
-'sbb.user.teammembers'       => 'Teammembers',
+'sbb.user.all_members'       => 'All members',
+'sbb.user.teammembers'       => 'Team members',
 'sbb.user.search'            => 'Member search',
 'sbb.user.no_user'           => 'This user doesn\'t exist!',
 'sbb.user.user'              => 'User',
@@ -102,8 +102,8 @@ self::$Items = array_merge(self::$Items, array(
 'sbb.footer.current_time'     => 'Current time',
 'sbb.footer.current_date'     => 'Current date',
 
-'sbb.time.progress'    => 'Progress of the year ('.round(Time::YearProcess() * 100, 2).'%)',
-'sbb.time.dayprogress' => 'Progress of the day ('.round(Time::DayProcess() * 100, 2).'%)',
+'sbb.time.progress'    => 'Progress of the year (%f%)',
+'sbb.time.dayprogress' => 'Progress of the day (%f%)',
 'sbb.time.january'     => 'January',
 'sbb.time.february'    => 'February',
 'sbb.time.march'       => 'March',
