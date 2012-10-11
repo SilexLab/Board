@@ -49,4 +49,3 @@ class CommitInfo {
 		return 0;
 	}
 }
-?>

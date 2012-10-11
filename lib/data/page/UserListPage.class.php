@@ -50,4 +50,3 @@ class UserListPage implements PageData {
 		return isset($this->Info[$Info]) ? $this->Info[$Info] : false;
 	}
 }
-?>

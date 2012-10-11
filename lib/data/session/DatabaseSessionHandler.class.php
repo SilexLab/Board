@@ -59,4 +59,3 @@ class DatabaseSessionHandler implements SessionHandlerInterface {
 		return (bool)$STMT->execute([':Time' => time() - $maxlifetime]);
 	}
 }
-?>

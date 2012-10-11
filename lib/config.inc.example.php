@@ -21,4 +21,3 @@ define('CFG_CACHE_TYPE',  'File');
 
 // URL info
 define('CFG_BASE_URL', 'http://localhost/SilexBoard/');
-?>

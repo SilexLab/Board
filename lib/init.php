@@ -44,4 +44,3 @@ Session::Start();
 
 // Initial and "start" Silex Board
 SBB::Initial();
-?>

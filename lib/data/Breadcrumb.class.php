@@ -24,4 +24,3 @@ class Breadcrumb {
 		SBB::Template()->Assign(['crumbs' => self::$Crumbs]);
 	}
 }
-?>

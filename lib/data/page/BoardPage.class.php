@@ -99,4 +99,3 @@ class BoardPage implements PageData {
 		return $Crumbs;
 	}
 }
-?>

@@ -136,4 +136,3 @@ class User {
 		// Get the user ID
 	}
 }
-?>

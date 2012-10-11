@@ -101,4 +101,3 @@ class Language {
 			require($Path);
 	}
 }
-?>

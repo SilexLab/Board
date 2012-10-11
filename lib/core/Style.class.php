@@ -110,4 +110,3 @@ class Style implements Singleton {
 		return $Files;
 	}
 }
-?>

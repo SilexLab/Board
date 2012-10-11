@@ -144,4 +144,3 @@ self::$Items = array_merge(self::$Items, array(
 'sbb.config.style.default' => 'Standardstil',
 'sbb.config.page.title'    => 'Seitentitel'
 ));
-?>

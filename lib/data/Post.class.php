@@ -22,4 +22,3 @@ class Post {
 		unset($_POST[$Key]);
 	}
 }
-?>

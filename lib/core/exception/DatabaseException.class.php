@@ -18,4 +18,3 @@ class DatabaseException extends Exception implements PrintableException {
 The error says: ['.$this->code.'] '.$this->message; // lol should be a real error message (page)
 	}
 }
-?>

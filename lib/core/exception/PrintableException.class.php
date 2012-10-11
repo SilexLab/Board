@@ -10,4 +10,3 @@
 interface PrintableException {
 	public function Show();
 }
-?>

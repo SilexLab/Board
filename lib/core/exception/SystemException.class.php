@@ -12,4 +12,3 @@ class SystemException extends Exception {
 	
 	// TODO: Extend to a printable exception
 }
-?>

@@ -80,4 +80,3 @@ class Session {
 		unset($_SESSION[$Key]); // Bug: doesn't work?
 	}
 }
-?>

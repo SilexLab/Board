@@ -38,4 +38,3 @@ class Menu implements Singleton {
 		SBB::Template()->Assign(['Menu' => $MenuList]);
 	}
 }
-?>

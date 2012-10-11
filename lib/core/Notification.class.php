@@ -56,4 +56,3 @@ class Notification {
 		SBB::Template()->Assign(['notifications' => self::$Notifications]);
 	}
 }
-?>

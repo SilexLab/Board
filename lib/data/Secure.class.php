@@ -14,4 +14,3 @@ class Secure {
 		return sha1(md5(base64_encode(microtime())));
 	}
 }
-?>

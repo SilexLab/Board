@@ -31,7 +31,7 @@ class UserPage implements PageData {
 
 		$this->Info['template'] = 'pages/User.tpl';
 		$this->Info['title'] = Language::Get('sbb.user.user').': '.$User->Username;
-		Breadcrumb::Add(Language::Get('sbb.page.userlist'), $P->Link('UserList')); // Endlessloop: SBB::Page()->Link('UserList')...
+		Breadcrumb::Add(Language::Get('sbb.page.userlist'), $P->Link('UserList'));
 		Breadcrumb::Add($User->Username, URI::Make(['page' => 'User', 'UserID' => $UserID]));
 
 		// Template..
@@ -68,4 +68,3 @@ class UserPage implements PageData {
 		return isset($this->Info[$Info]) ? $this->Info[$Info] : false;
 	}
 }
-?>

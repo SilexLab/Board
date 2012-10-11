@@ -89,4 +89,3 @@ class ThreadPage implements PageData {
 		return $Crumbs;
 	}
 }
-?>

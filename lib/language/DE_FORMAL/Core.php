@@ -22,4 +22,3 @@ self::$Items = array_merge(self::$Items, array(
 
 'sbb.email.activation.title' => 'Sie müssen diesen Link klicken um Ihre Registrierung abzuschließen: '
 ));
-?>

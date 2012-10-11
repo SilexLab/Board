@@ -74,4 +74,3 @@ class Database {
 		return (int)$STMT->fetch(PDO::FETCH_ASSOC)['COUNT(*)'];
 	}
 }
-?>

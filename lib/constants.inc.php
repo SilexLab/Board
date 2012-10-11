@@ -25,4 +25,3 @@ define('DIR_JS',       'javascripts/');
 // Define "lib" directory constant
 if(!defined('DIR_LIB'))
 	define('DIR_LIB', dirname(__FILE__).'/');
-?>
