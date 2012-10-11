@@ -13,7 +13,7 @@ class UserListPage implements PageData {
 		$this->Link = URI::Make(['page' => 'UserList']);
 	}
 
-	public function Display() {
+	public function Display(Page $P) {
 		Breadcrumb::Add(Language::Get('sbb.page.userlist'), $this->Link());
 
 		$TempUsers = SBB::DB()->query('SELECT * FROM `users`')->fetchAll(PDO::FETCH_OBJ);

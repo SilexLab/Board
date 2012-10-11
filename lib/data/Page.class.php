@@ -7,32 +7,30 @@
 
 require_once('Page.interface.php');
 class Page {
-	/**
-	 * Current page instance
-	 */
-	protected $Instance;
+	const FILENAME  = '/^(\w+)Page\.class\.php$/';
+	const CLASSNAME = '/^(\w+)Page$/';
 
-	/**
-	 * All pages
-	 */
-	protected $Pages = [];
-	protected $Links = [];
+	private $Pages = [];
+
+	private $Instance;
 
 	public function __construct($Page = '') {
 		if(empty($Page))
 			$Page = URI::Get('page');
-
-		// Current Page
+		
 		$Page = $this->Validate($Page);
-		$this->Instance = new $Page;
+		$Class = $Page.'Page';
+		$this->Instance = new $Class();
+		$this->Pages[$Page] = &$this->Instance;
 
 		// Check the "must have" instance of the new instance
 		if(!($this->Instance instanceof PageData))
-			throw new SystemException('"'.$Page.'" is not an instance of "PageData"');
+			throw new SystemException('"'.$Class.'" is not an instance of "PageData"');
 
-		// Display the page
+		// Home Breadcrumb
 		Breadcrumb::Add(Language::Get('sbb.page.home'), $this->Link('Home'));
-		$this->Instance->Display();
+		// "Display" the page
+		$this->Instance->Display($this);
 	}
 
 	/**
@@ -42,18 +40,18 @@ class Page {
 	 * @return string
 	 */
 	public function Link($Page = '') {
-		if(preg_match('/p:(\w+)/', $Page, $m))
-			$Page = $m[1];
 		if(empty($Page))
 			return $this->Instance->Link();
-		if(isset($this->Links[$Page]))
-			return $this->Links[$Page];
-		if(isset($this->Pages[$Page])) {
-			$Class = $this->Pages[$Page];
-			$this->Links[$Page] = (new $Class)->Link();
-			return $this->Links[$Page];
+		// $this->Pages[$Page] has an instance
+		if(isset($this->Pages[$Page]))
+			return $this->Pages[$Page]->Link();
+		// Create a new instance
+		if(array_key_exists($Page, $this->Pages) && is_null($this->Pages[$Page])) {
+			$Class = $Page.'Page';
+			$this->Pages[$Page] = new $Class();
+			return $this->Pages[$Page]->Link();
 		}
-		return $Page;
+		return false;
 	}
 
 	/**
@@ -72,8 +70,12 @@ class Page {
 		return $this->Instance->Title();
 	}
 
+	/**
+	 * Get the name of the current page
+	 * @return string
+	 */
 	public function Name() {
-		return preg_replace('/^(\w+)Page$/', '$1', get_class($this->Instance));
+		return preg_replace(self::CLASSNAME, '$1', get_class($this->Instance));
 	}
 
 	/**
@@ -92,34 +94,21 @@ class Page {
 	 */
 	private function Validate($Page) {
 		$this->GetAvailablePages();
-		if(strfind($Page, '/') || strfind($Page, '\\'))
-			return $this->Pages['Error'];
-
-		if(!$Page)
-			return $this->Pages['Home'];
-		if(isset($this->Pages[$Page]))
-			return $this->Pages[$Page];
-		return $this->Pages['Error'];
+		if(empty($Page))
+			return 'Home';
+		if(array_key_exists($Page, $this->Pages))
+			return $Page;
+		return 'Error';
 	}
 
-	/**
-	 * Put all available pages into $this->Pages
-	 */
 	private function GetAvailablePages() {
-		if(empty($this->Pages)) {
-			foreach(scandir(DIR_PAGE) as $p) {
-				if(preg_match('/^((\w+)Page)\.class\.php$/', $p, $m)) {
-					$this->Pages[$m[2]] = $m[1];
-				}
+		foreach (scandir(DIR_PAGE) as $f) {
+			if(preg_match(self::FILENAME, $f, $m)) {
+				$this->Pages[$m[1]] = null;
 			}
 		}
 	}
 }
-
-
-
-
-
 
 
 // abstract class Page {

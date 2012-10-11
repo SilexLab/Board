@@ -13,7 +13,7 @@ class ErrorPage implements PageData {
 		$this->Link = URI::Make(['page' => 'Design']);
 	}
 
-	public function Display() {
+	public function Display(Page $P) {
 		Breadcrumb::Add(Language::Get('sbb.page.error'), self::Link());
 		Notification::Show(Language::Get('sbb.error.no_page'), Notification::ERROR);
 	}

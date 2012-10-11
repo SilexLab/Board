@@ -13,7 +13,7 @@ class HomePage implements PageData {
 		$this->Link = URI::Make([0 => './']);
 	}
 
-	public function Display() {
+	public function Display(Page $P) {
 		// Redirect on ?page=Home
 		if(URI::Get('page') == 'Home')
 			header('location: '.self::Link());
@@ -37,4 +37,3 @@ class HomePage implements PageData {
 		return isset($this->Info[$Info]) ? $this->Info[$Info] : false;
 	}
 }
-?>

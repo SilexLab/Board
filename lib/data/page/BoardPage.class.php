@@ -13,7 +13,7 @@ class BoardPage implements PageData {
 		$this->Link = URI::Make(['page' => 'Board']);
 	}
 
-	public function Display() {
+	public function Display(Page $P) {
 		Breadcrumb::Add(Language::Get('sbb.page.forum'), $this->Link());
 		
 		$BoardID = (int)URI::Get('BoardID', 0);

@@ -30,7 +30,7 @@ class Menu implements Singleton {
 			//$Permission = $Entry->Permission;
 			$MenuList[] = array(
 				'Name' => Language::Get($Entry->MenuName),
-				'Link' => SBB::Page()->Link($Entry->Target),
+				'Link' => SBB::Page()->Link(preg_replace('/^p:(\w+)$/', '$1', $Entry->Target)),
 				'Active' => ($Entry->Target == 'p:'.$ActivePage) ? true : false
 			);
 		}

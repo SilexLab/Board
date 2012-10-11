@@ -64,7 +64,7 @@ class URI {
 		return $i == 0 ? $URI : substr($URI, 0, -5);
 	}
 
-	protected static function MakeWitRewrite(array $Data) {
+	protected static function MakeWithRewrite(array $Data) {
 		//
 		//SBB::Config('page.uri_structure');
 	}

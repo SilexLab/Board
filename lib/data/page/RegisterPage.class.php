@@ -13,7 +13,7 @@ class RegisterPage implements PageData {
 		$this->Link = URI::Make(['page' => 'Register']);
 	}
 
-	public function Display() {
+	public function Display(Page $P) {
 		if(SBB::User()->LoggedIn())
 			header('location: ./');
 

@@ -13,7 +13,7 @@ class UserPage implements PageData {
 		$this->Link = URI::Make(['page' => 'User']);
 	}
 
-	public function Display() {
+	public function Display(Page $P) {
 		if(!URI::Get('UserID'))
 			header('location: '.SBB::Page()->Link('UserList'));
 
@@ -31,7 +31,7 @@ class UserPage implements PageData {
 
 		$this->Info['template'] = 'pages/User.tpl';
 		$this->Info['title'] = Language::Get('sbb.user.user').': '.$User->Username;
-		//Breadcrumb::Add(Language::Get('sbb.page.userlist'), SBB::Page()->Link('UserList')); // Endlessloop: SBB::Page()->Link('UserList')...
+		Breadcrumb::Add(Language::Get('sbb.page.userlist'), $P->Link('UserList')); // Endlessloop: SBB::Page()->Link('UserList')...
 		Breadcrumb::Add($User->Username, URI::Make(['page' => 'User', 'UserID' => $UserID]));
 
 		// Template..

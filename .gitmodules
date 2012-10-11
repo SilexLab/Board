@@ -1,3 +1,0 @@
-[submodule "lib/Twig"]
-	path = lib/Twig
-	url = git://github.com/SilexBoard/Template.git

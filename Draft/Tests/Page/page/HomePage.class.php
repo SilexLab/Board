@@ -5,24 +5,17 @@
  * @license    GPL version 3 <http://www.gnu.org/licenses/gpl-3.0.html>
  */
 
-class LoginPage implements PageData {
+class HomePage implements PageData {
 	protected $Link;
 	protected $Info = [];
 
 	public function __construct() {
-		$this->Link = URI::Make(['page' => 'Login']);
+		$this->Link = '!-!HOME LINK!-!';
+		echo 'Home augerufen!';
 	}
 
 	public function Display(Page $P) {
-		if(SBB::User()->LoggedIn())
-			header('location: ./');
-		
-		Breadcrumb::Add(Language::Get('sbb.page.login'), self::Link());
-
-		if(Session::Get('LoginError')) {
-			Notification::Show(Language::Get(Session::Get('LoginError')), Notification::ERROR);
-			unset($_SESSION['LoginError']);
-		}
+		echo 'Tu irgend etwas und zeige die Seite an!';
 	}
 
 	public function Link() {
@@ -30,15 +23,14 @@ class LoginPage implements PageData {
 	}
 
 	public function Title() {
-		return Language::Get('sbb.page.login');
+		return '!-!HOME TITLE!-!';
 	}
 
 	public function Template() {
-		return 'pages/Login.tpl';
+		return 'pages/Home.tpl';
 	}
 
 	public function Info($Info) {
 		return isset($this->Info[$Info]) ? $this->Info[$Info] : false;
 	}
 }
-?>
