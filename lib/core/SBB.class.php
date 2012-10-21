@@ -129,6 +129,7 @@ class SBB {
 				'sha' => CommitInfo::Get('SHA')
 			],
 			'page' => [
+				'title' => self::$Page->Title(),
 				'link' => self::$Page->Link(),
 				'page' => URI::Get('page'),
 				'template' => self::$Page->Template()

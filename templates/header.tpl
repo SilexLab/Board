@@ -1,11 +1,11 @@
 {include file="userbar.tpl"}
 	<header class="min_size">
-		<div class="LogoBlock">
-			<div class="Logo size">
+		<div class="logo_block">
+			<div class="logo size">
 				<a href="./" title="{lang node="sbb.header.logo_title"}">
 					<img src="{$logo}" alt="Logo">
 				</a>
-				<div class="Slogan">
+				<div class="slogan">
 					{lang node="sbb.header.slogan"}
 				</div>
 			</div>

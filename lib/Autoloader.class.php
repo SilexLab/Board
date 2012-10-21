@@ -50,7 +50,7 @@ class Autoloader {
 					self::Autoload($Class);
 				}
 				if(file_exists($File = DIR_LIB.$Directory.$Class.'.class.php')) {
-					include_once($File);
+					require_once($File);
 					break;
 				}
 			}

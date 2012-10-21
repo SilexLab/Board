@@ -13,7 +13,7 @@ class DesignPage implements PageData {
 		$this->Link = URI::Make(['page' => 'Design']);
 	}
 
-	public function Display() {
+	public function Display(Page $P) {
 		Breadcrumb::Add('Designtest', self::Link());
 		
 		$Lorem = 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.';

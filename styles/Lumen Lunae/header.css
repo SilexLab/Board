@@ -217,17 +217,17 @@ header {
 	margin-top: 11px;
 }
 
-.Logo {
+.logo {
 	padding: 5px 0;
 	vertical-align: middle;
 }
-	.Logo img {
+	.logo img {
 		height: 160px;
 	}
 
-.Slogan {
+.slogan {
 	position: relative;
-	top: -64px;
+	top: -74px;
 	left: 132px;
 	color: #ffffff;
 	font-weight: bold;
@@ -274,14 +274,13 @@ nav.Menu {
 				background: rgba(51, 51, 51, 0.5);
 				color: #c0c0c0;
 				font-weight: bold;
-				text-shadow: 0 1px 1px #000000;
 				display: block;
 				padding: 0 20px;
 				height: 35px;
 				line-height: 37px;
 				border-top: 1px solid rgba(127, 127, 127, 0.5);
 				box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.2);
-				border-radius: 5px 5px 0 0;
+				border-radius: 4px 4px 0 0;
 				cursor: pointer;
 			}
 			nav.Menu .MenuList li:hover span {
@@ -334,7 +333,7 @@ nav.Menu {
 		background: rgba(0, 0, 0, 0.3);
 		overflow: hidden;
 		margin: 4px 10px 4px 0;
-		border-radius: 5px;
+		border-radius: 4px;
 	}
 		#SearchForm input[type=search] {
 			color: #ffffff;

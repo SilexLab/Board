@@ -138,9 +138,6 @@
 			<div class="post_time">Heute, 10:29</div>
 			<div class="post_num">#16</div>
 		</div>
-		<div class="container_content">
-			<div class="folded_text">Dieser Beitrag wird ausgeblendet, da er zu viele negative Bewertungen erhalten hat.</div>
-		</div>
 		<div class="container_post_flair">
 			<div class="post_flair_background">
 				<div class="post_flair" style="width: 5%;"></div>

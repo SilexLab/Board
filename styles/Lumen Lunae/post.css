@@ -10,12 +10,12 @@ article.post:first-child {
 }
 
 .post .folded_text {
-	background: #c46666 url('images/b_scanlines_background.png') center center repeat;
+	background: #dddddd url('images/b_scanlines_background.png') 0px center repeat;
 	box-shadow: 0 0 1px #ffffff inset;
-	padding: 15px 10px;
-	color: #ffffff;
+	padding: 3px 6px;
+	color: #000000;
 	text-align: center;
-	text-shadow: 0 0 2px rgba(0,0,0,0.75);
+	text-shadow: 0 0 2px #ffffff;
 	font-weight: bold;
 	font-size: 13px;
 }

@@ -12,14 +12,14 @@ Original Authors
 
 ### Collaborators
 
-* Gillo Braun (Angus) \<braun.gillo@hotmail.com\>
+* Daniel Erpelding (Cadillaxx) \<thecadillaxx@gmail.com\>
 * Yannick Stephan (Nut) \<info@yannickweb.de\>
 
 Long-term Contributions
 -----------------------
 These contributors have made many changes, over a fairly long time span, or for many different parts of the code.
 
-* Daniel Erpelding (Cadillaxx) \<thecadillaxx@gmail.com\>
+* Gillo Braun (Angus) \<braun.gillo@hotmail.com\>
 
 Short-term Contributions
 ------------------------

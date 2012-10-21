@@ -15,12 +15,16 @@ class Page {
 	private $Instance;
 
 	public function __construct($Page = '') {
+		if(defined('CLASS_PAGE'))
+			return;
+		define('CLASS_PAGE', true);
+		
 		if(empty($Page))
 			$Page = URI::Get('page');
 		
 		$Page = $this->Validate($Page);
 		$Class = $Page.'Page';
-		$this->Instance = new $Class();
+		$this->Instance = new $Class($this);
 		$this->Pages[$Page] = &$this->Instance;
 
 		// Check the "must have" instance of the new instance

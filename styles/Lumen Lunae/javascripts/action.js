@@ -45,7 +45,7 @@ $(document).ready(function() {
 
 	$('#login_bar_toggle').click(function() {
 		if(State['login_bar']) {
-			hFade('#login_form', null, '20px', 0);
+			hFade('#login_form', null, '12px', 0);
 			$('#login_form').animate({'height': '0px', 'box-shadow': '0 0 0px #000000'},
 				{ duration: 400, complete: function() { $('#login_form').css({'display': 'none'}); },
 				easing: 'easeOutBounce', queue: false });
@@ -54,11 +54,17 @@ $(document).ready(function() {
 			$('#login_form').css({'display': 'block'});
 			$('#login_form').animate({'height': FormHeight},
 				{ duration: 400, complete: function() {
-					hFade('#login_form', null, '20px', 1);
+					hFade('#login_form', null, '12px', 1);
 					$('#login_form').css({'height': '100%'});
 				}, easing: 'easeOutBack', queue: false });
 			$('.user_bar').animate({'box-shadow': '0 0 100px #000000'});
 		}
 		State['login_bar'] ^= 1;
 	});
+
+	// animation (test)
+	setInterval(function() {
+		var pos = ($('.folded_text').css('background-position')).split(' ');
+		$('.folded_text').css('background-position', (parseInt(pos[0]) - 1) + 'px ' + pos[1]);
+	}, 80);
 });

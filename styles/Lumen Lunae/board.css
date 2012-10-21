@@ -30,7 +30,7 @@ ul.board .forum .container_head {
 		color: #000000;
 		text-align: left;
 		white-space: nowrap;
-		box-shadow: inset 0 0 1px #ffffff;
+		box-shadow: inset 0 0 0 1px rgba(165, 240, 244, 0.3);
 }
 	ul.board .forum .title, ul.board .forum .description, ul.board .forum .board_bottom {
 		color: #000000;
@@ -96,10 +96,10 @@ ul.board .link .container_head {
 
 /* Last elements */
 ul.board .container > div.container_head:last-child {
-	border-radius: 6px;
+	border-radius: 4px;
 }
 	ul.board .container > div:first-child:last-child > div:last-child {
-		border-radius: 0 0 5px 5px;
+		border-radius: 0 0 3px 3px;
 	}
 
 ul.board .container_head > div:last-child {
