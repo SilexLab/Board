@@ -1,3 +1,49 @@
+<div id="dialog_mask"></div>
+<div class="dialog_box bottom">
+	<h1>Dialogbox Titel</h1>
+	<div class="dialog_box_content_box">
+		<div class="dialog_box_content">
+			Dialogbox Content
+		</div>
+	</div>
+</div>
+
+<div class="container">Buttondesign</div>
+
+<div class="container">
+	<span style="display: block; margin-bottom: 5px;">Small</span>
+	<div class="container_footer" style="border-top: 1px solid #0B334C; border-radius: 3px;">
+		<div class="button_bar left">
+			<div class="s_button" title="Single"></div>
+			<div class="s_button" title="Single">Single button</div>
+			<div class="button_group">
+				<div class="s_button" title="2 Group">Group button 1</div>
+				<div class="s_button" title="2 Group">Group button 2</div>
+			</div>
+			<div class="button_group">
+				<div class="s_button" title="4 Group">Group button 1</div>
+				<div class="s_button" title="4 Group">Group button 2</div>
+				<div class="s_button" title="4 Group">Group button 3</div>
+				<div class="s_button" title="4 Group">Group button 4</div>
+			</div>
+		</div>
+		<div class="button_bar right">
+			<div class="button_group">
+				<div class="s_button" title="2 Group">Group button 1</div>
+				<div class="s_button" title="2 Group">Group button 2</div>
+			</div>
+			<div class="button_group">
+				<div class="s_button" title="2 Group"></div>
+				<div class="s_button" title="2 Group"></div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="container">
+	<div>Big</div>
+</div>
+
 <div class="container">Beitragsdesign</div>
 
 <div class="container">
@@ -51,18 +97,18 @@
 			</div>
 		</div>
 		<div class="container_footer">
-			<div class="button_bar_left">
-				<div class="post_button" title="Beitrag melden"></div>
+			<div class="button_bar left">
+				<div class="s_button" title="Beitrag melden"></div>
 			</div>
-			<div class="button_bar_right">
+			<div class="button_bar right">
 				<div class="post_votes" title="Insgesammt 28 Bewertungen">28</div>
-				<div class="post_button_group">
-					<div class="post_button" title="Dem Autor antworten">Antworten</div>
-					<div class="post_button" title="Den kompletten Beitrag zitieren">Zitieren</div>
+				<div class="button_group">
+					<div class="s_button" title="Dem Autor antworten">Antworten</div>
+					<div class="s_button" title="Den kompletten Beitrag zitieren">Zitieren</div>
 				</div>
-				<div class="post_button_group">
-					<div class="post_button" title="Beitrag negativ bewerten"><span style="font-size: 16px;">-</span></div>
-					<div class="post_button" title="Beitrag positiv bewerten"><span style="font-size: 16px;">+</span></div>
+				<div class="button_group">
+					<div class="s_button" title="Beitrag negativ bewerten"><span style="font-size: 16px;">-</span></div>
+					<div class="s_button" title="Beitrag positiv bewerten"><span style="font-size: 16px;">+</span></div>
 				</div>
 			</div>
 		</div>
@@ -117,18 +163,18 @@
 			</div>
 		</div>
 		<div class="container_footer">
-			<div class="button_bar_left">
-				<div class="post_button" title="Beitrag melden"></div>
+			<div class="button_bar left">
+				<div class="s_button" title="Beitrag melden"></div>
 			</div>
-			<div class="button_bar_right">
+			<div class="button_bar right">
 				<div class="post_votes" title="Insgesammt 10 Bewertungen">10</div>
-				<div class="post_button_group">
-					<div class="post_button" title="Dem Autor antworten">Antworten</div>
-					<div class="post_button" title="Den kompletten Beitrag zitieren">Zitieren</div>
+				<div class="button_group">
+					<div class="s_button" title="Dem Autor antworten">Antworten</div>
+					<div class="s_button" title="Den kompletten Beitrag zitieren">Zitieren</div>
 				</div>
-				<div class="post_button_group">
-					<div class="post_button" title="Beitrag negativ bewerten"><span style="font-size: 16px;">-</span></div>
-					<div class="post_button" title="Beitrag positiv bewerten"><span style="font-size: 16px;">+</span></div>
+				<div class="button_group">
+					<div class="s_button" title="Beitrag negativ bewerten"><span style="font-size: 16px;">-</span></div>
+					<div class="s_button" title="Beitrag positiv bewerten"><span style="font-size: 16px;">+</span></div>
 				</div>
 			</div>
 		</div>
@@ -144,11 +190,11 @@
 			</div>
 		</div>
 		<div class="container_footer">
-			<div class="button_bar_left">
+			<div class="button_bar left">
 			</div>
-			<div class="button_bar_right">
+			<div class="button_bar right">
 				<div class="post_votes" title="Insgesammt 32 Bewertungen">32</div>
-				<div class="post_button" title="Den Beitrag trotz zu der negativen Bewertungen anzeigen">Beitrag anzeigen</div>
+				<div class="s_button" title="Den Beitrag trotz zu der negativen Bewertungen anzeigen">Beitrag anzeigen</div>
 			</div>
 		</div>
 	</article>
@@ -198,19 +244,19 @@
 			</div>
 		</div>
 		<div class="container_footer">
-			<div class="button_bar_left">
-				<div class="post_button" title="Beitrag melden"></div>
+			<div class="button_bar left">
+				<div class="s_button" title="Beitrag melden"></div>
 			</div>
-			<div class="button_bar_right">
+			<div class="button_bar right">
 				<div class="post_votes" title="Insgesammt 32 Bewertungen">32</div>
-				<div class="post_button" title="Den Beitrag wieder ausblenden">Beitrag ausblenden</div>
-				<div class="post_button_group">
-					<div class="post_button" title="Dem Autor antworten">Antworten</div>
-					<div class="post_button" title="Den kompletten Beitrag zitieren">Zitieren</div>
+				<div class="s_button" title="Den Beitrag wieder ausblenden">Beitrag ausblenden</div>
+				<div class="button_group">
+					<div class="s_button" title="Dem Autor antworten">Antworten</div>
+					<div class="s_button" title="Den kompletten Beitrag zitieren">Zitieren</div>
 				</div>
-				<div class="post_button_group">
-					<div class="post_button" title="Beitrag negativ bewerten"><span style="font-size: 16px;">-</span></div>
-					<div class="post_button" title="Beitrag positiv bewerten"><span style="font-size: 16px;">+</span></div>
+				<div class="button_group">
+					<div class="s_button" title="Beitrag negativ bewerten"><span style="font-size: 16px;">-</span></div>
+					<div class="s_button" title="Beitrag positiv bewerten"><span style="font-size: 16px;">+</span></div>
 				</div>
 			</div>
 		</div>

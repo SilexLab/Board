@@ -39,7 +39,7 @@ class URI {
 			}
 			// TODO: Check path
 		}
-		return isset(self::$URI[$Key]) ? self::$URI[$Key] : (strtolower($Default) == 'null' ? null : $Default);
+		return array_key_exists($Key, self::$URI) ? self::$URI[$Key] : (strtolower($Default) == 'null' ? null : $Default);
 	}
 
 	protected static function MakeDefault(array $Data) { // TODO: '?page=' as first

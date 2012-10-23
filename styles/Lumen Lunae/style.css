@@ -17,7 +17,7 @@ body {
 	line-height: 1.2;
 	background: #1B1B1B url(images/background.png) center top repeat;
 	color: #d0d0d0;
-	-webkit-font-smoothing: antialiased;
+	font-smooth: always;
 }
 
 section, header, footer, nav {
@@ -65,7 +65,7 @@ input:-moz-placeholder {
 
 section.content {
 	padding: 35px 0 40px 0;
-	background: url(images/content_background.png) center top repeat-x #ddeaff;
+	background: #ddeaff url(images/content_background.png) center top repeat-x;
 }
 
 .site_container {
@@ -208,3 +208,49 @@ section.content {
 		box-shadow: inset 0 0 0 1px rgba(165, 240, 244, 0.3);
 	}
 /* <- container */
+
+/* Dialogbox */
+#dialog_mask {
+	position: fixed;
+	z-index: 999;
+	left: 0;
+	top: 0;
+	height: 100%;
+	width: 100%;
+	background: rgba(0,0,0,0.75);
+	display: none; 
+}
+.dialog_box {
+	position: fixed;
+	z-index: 1000;
+	background: rgba(255,255,255,0.5);
+	box-shadow: 0 0 30px rgba(0,0,0,0.75);
+	left: 50%;
+	margin-left: -300px;
+	width: 600px;
+	height: 300px;
+	text-align: center;
+	display: none;
+}
+.dialog_box.bottom {
+	bottom: 0;
+	border-radius: 5px 5px 0 0;
+}
+
+.dialog_box h1 {
+	display: inline-block;
+	padding: 0;
+	margin: 0;
+	font-size: 24px;
+	line-height: 40px;
+	text-shadow: 1px 0 1px #fff, -1px 0 1px #fff, 0 1px 1px #fff, 0 -1px 1px #fff, 1px 1px 1px #fff, -1px 1px 1px #fff, 1px -1px 1px #fff, -1px -1px 1px #fff;
+}
+
+.dialog_box_content_box {
+	background: #ffffff;
+	border-radius: 5px 5px 0 0;
+	width: 584px;
+	height: 260px;
+	margin: 0 auto;
+	box-shadow: 0 0 5px rgba(0,0,0,0.3);
+}

@@ -13,7 +13,7 @@ $p = ''; // current page
 $a = ''; // current actions
 
 // Static style sheets
-$s = ['style.css', 'header.css', 'footer.css', 'crumbs.css', 'notification.css'];
+$s = ['style.css', 'header.css', 'footer.css', 'crumbs.css', 'notification.css', 'button.css'];
 
 // Dynamic style sheets
 $d = [
