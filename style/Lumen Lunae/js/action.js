@@ -43,7 +43,8 @@ $(document).ready(function() {
 	var FormHeight = $('#login_form').css('height');
 	$('#login_form').css({'display': 'none', 'height': '0px'});
 
-	$('#login_bar_toggle').click(function() {
+	$('#login_bar_toggle').click(function(e) {
+		e.preventDefault();
 		if(State['login_bar']) {
 			hFade('#login_form', null, '12px', 0);
 			$('#login_form').animate({'height': '0px', 'box-shadow': '0 0 0px #000000'},
@@ -63,8 +64,10 @@ $(document).ready(function() {
 	});
 
 	// animation (test)
-	setInterval(function() {
-		var pos = ($('.folded_text').css('background-position')).split(' ');
-		$('.folded_text').css('background-position', (parseInt(pos[0]) - 1) + 'px ' + pos[1]);
-	}, 80);
+	if($('.folded_text').length > 0) {
+		setInterval(function() {
+			var pos = ($('.folded_text').css('background-position')).split(' ');
+			$('.folded_text').css('background-position', (parseInt(pos[0]) - 1) + 'px ' + pos[1]);
+		}, 80);
+	}
 });

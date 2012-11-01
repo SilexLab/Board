@@ -5,6 +5,7 @@
  * @license    GPL version 3 <http://www.gnu.org/licenses/gpl-3.0.html>
  */
 
+$time = microtime(true);
 define('endl', "\n");
 
 /* Variables */
@@ -32,7 +33,7 @@ if(isset($_GET['p'])) $p = $_GET['p'];
 if(isset($_GET['a'])) $a = $_GET['a'];
 
 /* Processing output */
-$output = '';
+$output = '@charset "utf-8";'.endl;
 foreach ($s as $style) {
 	$output .= '/* --- '.$style.' --- */'.endl
 	.file_get_contents($style).endl.endl;
@@ -58,4 +59,7 @@ header('Content-Type: text/css; charset=UTF-8');
 
 /* Display the collected stylesheets */
 echo $output;
+
+/* Generated time */
+echo '/* CSS generated in '.((microtime(true) - $time) * 1000).' ms */';
 ?>

@@ -1,0 +1,45 @@
+@charset "utf-8";
+
+.login_box {
+	background: #efefef;
+	padding: 10px;
+	color: #000000;
+}
+
+/* radio button */
+input[type="radio"] {
+	display: none;
+}
+/* styleable replacement */
+input[type="radio"] + label {
+	display: inline-block;
+	background: blue;
+	width: 16px;
+	height: 16px;
+	border-radius: 8px;
+}
+input[type="radio"]:checked + label{
+	background: red;
+}
+/* actual lable */
+input[type="radio"] + label + label {
+}
+
+
+/* checkbox */
+input[type="checkbox"] {
+	display: none;
+}
+/* styleable replacement */
+input[type="checkbox"] + label {
+	display: inline-block;
+	background: blue;
+	width: 16px;
+	height: 16px;
+}
+input[type="checkbox"]:checked + label{
+	background: red;
+}
+/* actual lable */
+input[type="checkbox"] + label + label {
+}

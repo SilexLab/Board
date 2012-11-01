@@ -43,7 +43,7 @@ class UserListPage implements PageData {
 	}
 
 	public function Template() {
-		return 'pages/UserList.tpl';
+		return 'PageUserList.tpl';
 	}
 
 	public function Info($Info) {

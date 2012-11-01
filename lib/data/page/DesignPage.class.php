@@ -36,7 +36,7 @@ class DesignPage implements PageData {
 	}
 
 	public function Template() {
-		return 'pages/Design.tpl';
+		return 'PageDesign.tpl';
 	}
 
 	public function Info($Info) {

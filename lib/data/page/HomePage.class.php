@@ -30,7 +30,7 @@ class HomePage implements PageData {
 	}
 
 	public function Template() {
-		return 'pages/Home.tpl';
+		return 'PageHome.tpl';
 	}
 
 	public function Info($Info) {

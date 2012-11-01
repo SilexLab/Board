@@ -29,7 +29,7 @@ class UserPage implements PageData {
 		$User->execute([':ID' => $UserID]);
 		$User = $User->fetch(PDO::FETCH_OBJ);
 
-		$this->Info['template'] = 'pages/User.tpl';
+		$this->Info['template'] = 'PageUser.tpl';
 		$this->Info['title'] = Language::Get('sbb.user.user').': '.$User->Username;
 		Breadcrumb::Add(Language::Get('sbb.page.userlist'), $P->Link('UserList'));
 		Breadcrumb::Add($User->Username, URI::Make(['page' => 'User', 'UserID' => $UserID]));

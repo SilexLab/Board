@@ -1,4 +1,3 @@
-@charset "utf-8";
 /*
 	Initial style for global elements, classes and ids.
 	This style is loaded as all first one.
@@ -65,7 +64,9 @@ input:-moz-placeholder {
 
 section.content {
 	padding: 35px 0 40px 0;
-	background: #ddeaff url(images/content_background.png) center top repeat-x;
+	/*background: #ddeaff url(images/content_background.png) center top repeat-x;*/
+	background: #ddeaff;
+	box-shadow: 0 30px 30px 30px rgba(0,0,0,0.8);
 }
 
 .site_container {

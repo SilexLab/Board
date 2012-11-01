@@ -1,0 +1,131 @@
+.button_bar.left {
+	float: left;
+	padding-left: 2px;
+}
+.button_bar.right {
+	float: right;
+	padding-right: 2px;
+}
+
+.button_bar::after,
+.container_footer::after {
+	content: "";
+	height: 0;
+	display: block;
+	clear: both;
+}
+
+/* small buttons */
+.s_button {
+	background: #ffffff url('images/button_gradient.svg');
+	box-shadow: 0 0 1px 1px rgba(255, 255, 255, 0.5) inset;
+	height: 12px;
+	min-width: 12px;
+	padding: 5px;
+	margin: 5px 3px;
+	color: #333333;
+	text-shadow: 0 1px 0 #ffffff;
+	font-size: 12px;
+	line-height: 12px;
+	text-align: center;
+	border-radius: 2px;
+	float: left;
+	display: block;
+	cursor: default;
+	-webkit-user-select: none;
+}
+.s_button:hover {
+	background: #e1ffff url('images/button_hover_gradient.svg');
+	box-shadow: 0 0 4px rgba(225, 255, 255, 0.3), 0 0 1px 1px rgba(255, 255, 255, 0.3) inset;
+	color: #003333;
+}
+.s_button:active {
+	background: #D4E4F3 url('images/button_active_gradient.svg');
+	box-shadow: 0 0 1px 1px rgba(200, 255, 255, 0.5) inset;
+}
+
+.button_group {
+	float: left;
+	border-radius: 0;
+}
+.button_group .s_button {
+	margin-left: 0;
+	margin-right: 0;
+	border-right: 1px solid #aaaaaa;
+	border-radius: 0;
+}
+.button_group > .s_button:first-child {
+	margin-left: 3px;
+	border-radius: 2px 0 0 2px;
+}
+.button_group > .s_button:last-child {
+	margin-right: 3px;
+	border-radius: 0 2px 2px 0;
+	border-right: none;
+}
+
+/* normal button */
+.button {
+	background: #ffffff url('images/button_gradient.svg') center center no-repeat;
+	/*border: 1px solid #c4c4c4;*/
+	border: 1px solid rgba(0,0,0,0.2);
+	background-origin: border-box;
+	box-shadow: 0 0 1px 1px rgba(255, 255, 255, 0.5) inset, 0px 1px rgba(255, 255, 255, 0.7);
+	height: 20px;
+	min-width: 10px;
+	padding: 5px 10px;
+	margin: 5px 3px;
+	color: #333333;
+	text-shadow: 0 1px 0 #ffffff;
+	font-size: 13px;
+	font-weight: bold;
+	line-height: 20px;
+	text-align: center;
+	border-radius: 4px;
+	float: left;
+	display: block;
+	cursor: default;
+	-webkit-user-select: none;
+}
+.button:first-child { margin-left: 0; }
+.button:last-child { margin-right: 0; }
+
+.button_group .button {
+	margin-left: 0;
+	margin-right: 0;
+	border-radius: 0;
+}
+.button_group > .button:first-child {
+	margin-left: 3px;
+	border-radius: 4px 0 0 4px;
+}
+.button_group > .button:last-child {
+	margin-right: 3px;
+	border-radius: 0 4px 4px 0;
+}
+.button_group > .button:nth-child(n+2) {
+	border-left: none;
+}
+
+/* colored buttons */
+.button.orange, .button.red, .button.green, .button.blue {
+	box-shadow: 0 1px rgba(255, 255, 255, 0.5) inset, 0px 1px rgba(255, 255, 255, 0.7);
+	color: #ffffff;
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+}
+.button.orange {
+	background-color: #f35c3b;
+	background-image: url('images/button_orange_gradient.svg');
+}
+.button.red {
+	background-color: #dc5f59;
+	background-image: url('images/button_red_gradient.svg');
+}
+.button.green {
+	background-color: #69d344;
+	background-image: url('images/button_green_gradient.svg');
+}
+.button.blue {
+	background-color: #599bdc;
+	background-image: url('images/button_blue_gradient.svg');
+}

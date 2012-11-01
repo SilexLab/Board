@@ -46,7 +46,7 @@ class ThreadPage implements PageData {
 	}
 
 	public function Template() {
-		return 'pages/Thread.tpl';
+		return 'PageThread.tpl';
 	}
 
 	public function Info($Info) {

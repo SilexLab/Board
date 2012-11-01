@@ -122,7 +122,7 @@ class RegisterPage implements PageData {
 	}
 
 	public function Template() {
-		return 'pages/Register.tpl';
+		return 'PageRegister.tpl';
 	}
 
 	public function Info($Info) {

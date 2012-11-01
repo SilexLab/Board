@@ -42,6 +42,19 @@
 
 <div class="container">
 	<div>Big</div>
+	<div class="button_bar">
+		<div class="button">Button</div>
+		<div class="button orange">Button</div>
+		<div class="button red">Button</div>
+		<div class="button green">Button</div>
+		<div class="button blue">Button</div>
+		<div class="button_group">
+			<div class="button">Button</div>
+			<div class="button orange">Button</div>
+			<div class="button green">Button</div>
+		</div>
+		<div class="button"></div>
+	</div>
 </div>
 
 <div class="container">Beitragsdesign</div>
@@ -57,7 +70,7 @@
 				<div class="post_user_info">
 					<div class="post_user_info_content">
 						<div class="avatar_box">
-							<img src="styles/Lumen%20Lunae/icons/g_256_user.png" alt="Avatar">
+							<img src="style/Lumen%20Lunae/icons/g_256_user.png" alt="Avatar">
 						</div>
 						<div class="username">
 							<a href="javascript:void(0);" class="user_admin">Noxi Foxi</a>
@@ -123,7 +136,7 @@
 				<div class="post_user_info">
 					<div class="post_user_info_content">
 						<div class="avatar_box">
-							<img src="styles/Lumen%20Lunae/icons/g_256_user.png" alt="Avatar">
+							<img src="style/Lumen%20Lunae/icons/g_256_user.png" alt="Avatar">
 						</div>
 						<div class="username">
 							<a href="javascript:void(0);" class="user_mod">エリアス</a>
@@ -209,7 +222,7 @@
 				<div class="post_user_info">
 					<div class="post_user_info_content">
 						<div class="avatar_box">
-							<img src="styles/Lumen%20Lunae/icons/g_256_user.png" alt="Avatar">
+							<img src="style/Lumen%20Lunae/icons/g_256_user.png" alt="Avatar">
 						</div>
 						<div class="username">
 							<a href="javascript:void(0);" class="user_mod">Cadillaxx</a>

@@ -34,7 +34,7 @@ class LoginPage implements PageData {
 	}
 
 	public function Template() {
-		return 'pages/Login.tpl';
+		return 'PageLogin.tpl';
 	}
 
 	public function Info($Info) {

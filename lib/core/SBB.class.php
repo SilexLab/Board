@@ -34,7 +34,7 @@ class SBB {
 		self::AssignDefault();
 
 		// Display the template
-		self::Template()->Display('case.tpl');
+		self::Template()->Display('index.tpl');
 	}
 
 	/**

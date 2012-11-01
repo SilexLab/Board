@@ -42,7 +42,7 @@ class BoardPage implements PageData {
 	}
 
 	public function Template() {
-		return 'pages/Board.tpl';
+		return 'PageBoard.tpl';
 	}
 
 	public function Info($Info) {

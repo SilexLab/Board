@@ -27,7 +27,7 @@ class ErrorPage implements PageData {
 	}
 
 	public function Template() {
-		return 'pages/Error.tpl';
+		return 'PageError.tpl';
 	}
 
 	public function Info($Info) {
