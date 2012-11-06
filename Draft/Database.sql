@@ -116,7 +116,7 @@ CREATE TABLE IF NOT EXISTS `config` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 INSERT INTO `config` (`Package`, `ConfigNode`, `CategoryNode`, `ConfigValue`, `ValueType`) VALUES
-('sbb.core', 'page.language.default', 'page', 'DE', 'string(11)'),
+('sbb.core', 'page.language.default', 'page', 'de', 'string(11)'),
 ('sbb.core', 'page.timezone', 'page', 'Europe/Berlin', 'string(255)'),
 ('sbb.core', 'page.title', 'page', 'Silex Bulletin Board', 'string(255)'),
 ('sbb.core', 'style.default', 'style', 'Lumen Lunae', 'string(255)'),
@@ -148,14 +148,14 @@ CREATE TABLE IF NOT EXISTS `group_permissions` (
 DROP TABLE IF EXISTS `language`;
 CREATE TABLE IF NOT EXISTS `language` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
-  `Shortcut` varchar(11) NOT NULL,
+  `Abbreviation` varchar(11) NOT NULL,
   `Encoding` varchar(16) NOT NULL DEFAULT 'UTF-8',
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
-INSERT INTO `language` (`ID`, `Shortcut`, `Encoding`) VALUES
-(1, 'DE', 'UTF-8'),
-(2, 'EN', 'UTF-8');
+INSERT INTO `language` (`ID`, `Abbreviation`, `Encoding`) VALUES
+(1, 'de', 'UTF-8'),
+(2, 'en', 'UTF-8');
 
 DROP TABLE IF EXISTS `menu`;
 CREATE TABLE IF NOT EXISTS `menu` (

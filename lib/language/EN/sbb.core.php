@@ -3,10 +3,11 @@
  * @author     SilexBB
  * @copyright  2011 - 2012 Silex Bulletin Board
  * @license    GPL version 3 <http://www.gnu.org/licenses/gpl-3.0.html>
+ * @version    0.0.1
  */
 
 /* Langfile:	English */
-self::$Items = array_merge(self::$Items, array(
+self::$Items = array_merge(self::$Items, [
 'sbb.language.info'    => 'English',
 'sbb.language.changed' => 'Your language was changed to %s.',
 
@@ -102,8 +103,8 @@ self::$Items = array_merge(self::$Items, array(
 'sbb.footer.current_time'     => 'Current time',
 'sbb.footer.current_date'     => 'Current date',
 
-'sbb.time.progress'    => 'Progress of the year (%f%)',
-'sbb.time.dayprogress' => 'Progress of the day (%f%)',
+'sbb.time.progress'    => 'Progress of the year (%.2f%%)',
+'sbb.time.dayprogress' => 'Progress of the day (%.2f%%)',
 'sbb.time.january'     => 'January',
 'sbb.time.february'    => 'February',
 'sbb.time.march'       => 'March',
@@ -144,4 +145,4 @@ self::$Items = array_merge(self::$Items, array(
 // Databasestrings
 'sbb.config.style.default' => 'Default style',
 'sbb.config.page.title'    => 'Page title'
-));
+]);

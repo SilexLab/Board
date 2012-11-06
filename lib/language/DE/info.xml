@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <language>
-	<name>Deutsch (Informal)</name>
-	<shortcut>DE</shortcut>
-	<encoding>UTF-8</encoding>
-	<version>DEV</version>
-	<author>SilexBB</author>
+	<name>Deutsch (Informell)</name>
+	<en-name>German (Informal)</en-name>
+	<abbreviation>de</abbreviation>
+	<encoding>utf-8</encoding>
 </language>

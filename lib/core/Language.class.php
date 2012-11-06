@@ -51,7 +51,7 @@ class Language {
 			$FilesLoaded = 0;
 			if(is_dir($Dir)) {
 				foreach(scandir($Dir) as $File) {
-					if(is_file($Dir.$File) && (strpos($File, '.php') === strlen($File) - 4)) {
+					if(is_file($Dir.$File) && (preg_match('/^(.+)\.php$/', $File))) {
 						require_once($Dir.$File);
 						$FilesLoaded++;
 					}
@@ -79,8 +79,8 @@ class Language {
 						// save results in db
 						$Encoding = XML::ReadElement(DIR_LANGUAGE.$Lang.'/info.xml', 'encoding');
 
-						$STMT = SBB::DB()->prepare('REPLACE INTO `language` (`Shortcut`, `Encoding`) VALUES (:Shortcut, :Encoding)');
-						$STMT->execute([':Shortcut' => $Lang, ':Encoding' => (string)$Encoding[0]]);
+						$STMT = SBB::DB()->prepare('REPLACE INTO `language` (`Abbreviation`, `Encoding`) VALUES (:Abbreviation, :Encoding)');
+						$STMT->execute([':Abbreviation' => $Lang, ':Encoding' => (string)$Encoding[0]]);
 					}
 				}
 			}

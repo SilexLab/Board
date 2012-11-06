@@ -143,14 +143,14 @@
 						<div class="d_time" title="{lang node="sbb.footer.current_time"}">{$time.time}</div>
 					</div>
 					<div class="progressbar_trim day">
-						<div class="progressbar" title="{lang node="sbb.time.dayprogress"}">
+						<div class="progressbar" title="{$time.day_progress}">
 							<div class="progress" style="width: {$time.d_percent}%;">
 								<div class="shine"></div>
 							</div>
 						</div>
 					</div>
 					<div class="progressbar_trim year">
-						<div class="progressbar" title="{lang node="sbb.time.progress"}">
+						<div class="progressbar" title="{$time.progress}">
 							<div class="progress" style="width: {$time.y_percent}%;">
 								<div class="shine"></div>
 							</div>
