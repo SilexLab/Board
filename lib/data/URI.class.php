@@ -38,7 +38,7 @@ class URI {
 	}
 
 	public static function Get($Key, $Default = false) {
-		if(empty(self::$URI)) {
+		if(!self::$URI) {
 			if(isset($_GET) && !empty($_GET)) { // Get GET parameters
 				foreach($_GET as $k => $v)
 					self::$URI[$k] = $v;
