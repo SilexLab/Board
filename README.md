@@ -11,7 +11,7 @@ Requirements
 	* Matching PDO driver for the database of your choice
 	* Activated cURL, fopen or wget
 	* Activated zlib
-	* Writeable and enabled cache directory (_or the board will be slow as hell_) <sup>[2]</sup>
+	* Writeable and enabled cache directory _(or the board will be slow as hell)_ <sup>[2]</sup>
 * A database such as MySQL 5, PostgreSQL, MSSQL or SQLite 3 <sup>[3]</sup>
 * Some love ♥ <sup>[4]</sup>
 
@@ -28,9 +28,9 @@ Links
 
 ### Contact
 * __IRC__ - [Webchat](http://webchat.quakenet.org/?channels=SilexBoard)<br>___irc://irc.quakenet.org/#SilexBoard___<br>#SilexBoard at irc.quakenet.org
-* ![](https://twitter.com/favicon.ico) __[Twitter](https://twitter.com/SilexBoard)__ - ___@SilexBoard___
-* ![](https://www.facebook.com/favicon.ico) __[Facebook](https://www.facebook.com/SilexBoard)__
-* <img src="https://ssl.gstatic.com/s2/oz/images/faviconr2.ico" height="16" width="16"> __[Google+](https://plus.google.com/b/110206747608815084063/)__
+* <img src="https://twitter.com/favicon.ico" height="16" width="16">  __[Twitter](https://twitter.com/SilexBoard)__  -  ___@SilexBoard___
+* <img src="https://www.facebook.com/favicon.ico" height="16" width="16">  __[Facebook](https://www.facebook.com/SilexBoard)__
+* <img src="https://ssl.gstatic.com/s2/oz/images/faviconr2.ico" height="16" width="16">  __[Google+](https://plus.google.com/b/110206747608815084063/)__
 
 Notes
 -----
