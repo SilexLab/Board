@@ -29,7 +29,12 @@ class ThreadPage implements PageData {
 			$Thread->execute([':ID' => $ThreadID]);
 			$Thread = $Thread->fetch(PDO::FETCH_OBJ);
 
-			$this->Title = $Thread->Topic;
+			$this->Title = htmlspecialchars($Thread->Topic);
+
+			// Redirect if url-title is wrong
+			if(!$P->URI()->Check(1, htmlspecialchars_decode($this->Title))) {
+				header('location: '.URI::Make([['page', 'Thread'], ['ThreadID', $ThreadID, htmlspecialchars_decode($this->Title)]]));
+			}
 
 			$Crumbs = $P->Get('Board')->GetBreadcrumbs($Thread->BoardID);
 			foreach($Crumbs as $Crumb)

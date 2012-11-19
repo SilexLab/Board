@@ -16,6 +16,7 @@ class BoardPage implements PageData {
 
 	public function Display(Page $P) {
 		Breadcrumb::Add(Language::Get('sbb.page.board'), $this->Link());
+		$this->Info['title'] = Language::Get('sbb.page.board');
 		
 		$this->UF = $P->URI()->Format();
 		$BoardID = $P->URI()->GetID(1, 'BoardID');
@@ -24,9 +25,20 @@ class BoardPage implements PageData {
 		if($BoardID > 0) {
 			// Find Breadcrumbs
 			$Crumbs = $this->GetBreadcrumbs($BoardID);
+
+			// Redirect if url-title is wrong
+			if(!$P->URI()->Check(1, htmlspecialchars_decode($this->Info['title']))) {
+				$Board = SBB::DB()->prepare('SELECT `Title` FROM `board` WHERE `ID` = :ID');
+				$Board->execute([':ID' => $BoardID]);
+				$Title = $Board->fetch(PDO::FETCH_OBJ)->Title;
+				header('location: '.URI::Make([['page', 'Board'], ['BoardID', $BoardID, $Title]]));
+			}
+
 			foreach($Crumbs as $Crumb) {
 				Breadcrumb::Add($Crumb['title'], $Crumb['link']);
 			}
+		} else if($P->URI()->GetRoute()[1]) {
+			header('location: '.$this->Link);
 		}
 		$cBoard = SBB::DB()->prepare('SELECT `Type` FROM `board` WHERE `ID` = :ID');
 		$cBoard->execute([':ID' => $BoardID]);
@@ -40,7 +52,7 @@ class BoardPage implements PageData {
 	}
 
 	public function Title() {
-		return Language::Get('sbb.page.board');
+		return $this->Info['title'];
 	}
 
 	public function Template() {

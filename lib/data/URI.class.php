@@ -47,7 +47,7 @@ class URI {
 								$URL .= '/';
 							$URL .= $Data[$i][1];
 							if(isset($Data[$i][2]))
-								$URL .= '-'.preg_replace('/[^a-zA-Z0-9\-]/', '', str_replace(' ', '-', $Data[$i][2]));
+								$URL .= '-'.self::MakeTitle($Data[$i][2]);
 						} else {
 							if($Arguments)
 								$Arguments .= '&amp;';
@@ -83,6 +83,10 @@ class URI {
 
 		// Return finished URL
 		return CFG_BASE_URL.$URL;
+	}
+
+	public static function MakeTitle($Title) {
+		return preg_replace('/[^a-zA-Z0-9\-]/', '', str_replace(' ', '-', $Title));
 	}
 
 	/**
@@ -133,5 +137,20 @@ class URI {
 		if(self::$Format == 1)
 			return (int)explode('-', $this->Get($RoutePos, 0))[0];
 		return (int)$this->Get($Argument, 0);
+	}
+
+	/**
+	 * Compares the expected route id with the current one
+	 * @param  int    $RoutePos
+	 * @param  string $ExpectedTitle
+	 * @param  string $Redirect      optional
+	 * @return bool
+	 */
+	public function Check($RoutePos, $ExpectedTitle, $Redirect = '') {
+		$R = $this->Get($RoutePos);
+		$Match = substr($R, strpos($R, '-') + 1) == self::MakeTitle($ExpectedTitle);
+		if($Redirect && !$Match)
+			header('location: '.$Redirect);
+		return $Match;
 	}
 }

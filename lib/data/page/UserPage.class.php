@@ -32,6 +32,11 @@ class UserPage implements PageData {
 		$User->execute([':ID' => $UserID]);
 		$User = $User->fetch(PDO::FETCH_OBJ);
 
+		// Redirect if url-title is wrong
+		if(!$P->URI()->Check(1, $User->Username)) {
+			header('location: '.URI::Make([['page', 'User'], ['UserID', $UserID, $User->Username]]));
+		}
+
 		$this->Info['template'] = 'PageUser.tpl';
 		$this->Info['title'] = Language::Get('sbb.user.user').': '.$User->Username;
 		Breadcrumb::Add(Language::Get('sbb.page.userlist'), $P->Link('UserList'));
