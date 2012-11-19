@@ -14,10 +14,11 @@ define('CFG_DB_SOCKET',   '');
 
 define('CFG_CACHE_DIR',   DIR_ROOT.'lib/cache/');
 
+// URL info
+//define('CFG_BASE_URL', 'http://board/');
+define('CFG_BASE_URL', '/');
+
 /* --- Currently not needed stuff --- */
 
 // Cache info
 define('CFG_CACHE_TYPE',  'File');
-
-// URL info
-define('CFG_BASE_URL', 'http://localhost/SilexBoard/');
