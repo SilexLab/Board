@@ -25,7 +25,7 @@ class Listener {
 						Session::Set('register.username', $_POST['Username']);
 						Session::Set('register.password', $_POST['Password']);
 					}
-					header('location: '.URI::Make(['page' => 'Register']));
+					header('location: '.URI::Make([['page', 'Register']]));
 				} else if($_POST['Register'] == 0 && isset($_POST['Username']) && isset($_POST['Password'])) {
 					SBB::User()->Login($_POST['Username'], $_POST['Password'], !empty($_POST['StayLoggedIn']) ? true : false);
 				} else {

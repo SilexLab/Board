@@ -14,13 +14,16 @@ class Page {
 
 	private $Instance;
 
+	private $URI;
+
 	public function __construct($Page = '') {
 		if(defined('CLASS_PAGE'))
 			return;
 		define('CLASS_PAGE', true);
 		
+		$this->URI = new URI();
 		if(empty($Page))
-			$Page = URI::Get('page');
+			$Page = $this->URI->Get('page');
 		
 		$Page = $this->Validate($Page);
 		$Class = $Page.'Page';
@@ -35,6 +38,14 @@ class Page {
 		Breadcrumb::Add(Language::Get('sbb.page.home'), $this->Link('Home'));
 		// "Display" the page
 		$this->Instance->Display($this);
+	}
+
+	/**
+	 * Access to the URI instance
+	 * @return URI
+	 */
+	public function URI() {
+		return $this->URI;
 	}
 
 	/**
@@ -89,6 +100,20 @@ class Page {
 	 */
 	public function Info($Info) {
 		return $this->Instance->Info($Info);
+	}
+
+	public function MenuEntry() {
+		$Page = $this->Instance->Info('menu');
+		return $Page ? $Page : $this->Name();
+	}
+
+	/**
+	 * Get the instance of $Page
+	 * @param  string $Page
+	 * @return PageData
+	 */
+	public function Get($Page) {
+		return isset($this->Pages[$Page]) ? $this->Pages[$Page] : false;
 	}
 
 	/**

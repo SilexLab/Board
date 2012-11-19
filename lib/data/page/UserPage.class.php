@@ -10,18 +10,21 @@ class UserPage implements PageData {
 	protected $Info = [];
 
 	public function __construct() {
-		$this->Link = URI::Make(['page' => 'User']);
+		$this->Link = URI::Make([['page', 'User']]);
+
+		// Mark the menuentry for 'Board' as active
+		$this->Info['menu'] = 'UserList';
 	}
 
 	public function Display(Page $P) {
-		if(!URI::Get('UserID'))
+		if(!$P->URI()->Get('UserID'))
 			header('location: '.SBB::Page()->Link('UserList'));
 
 		$this->Info['title'] = Language::Get('sbb.page.user');
-		$UserID = (int)URI::Get('UserID');
+		$UserID = (int)$P->URI()->GetID(1, 'UserID');
 		if($UserID < 1 || !Database::Count('FROM `users` WHERE `ID` = :ID', [':ID' => $UserID])) {
 			Notification::Show(Language::Get('sbb.user.no_user'), Notification::ERROR);
-			$this->Info['template'] = 'pages/Error.tpl';
+			$this->Info['template'] = 'ErrorPage.tpl';
 			return;
 		}
 		
@@ -32,7 +35,7 @@ class UserPage implements PageData {
 		$this->Info['template'] = 'PageUser.tpl';
 		$this->Info['title'] = Language::Get('sbb.user.user').': '.$User->Username;
 		Breadcrumb::Add(Language::Get('sbb.page.userlist'), $P->Link('UserList'));
-		Breadcrumb::Add($User->Username, URI::Make(['page' => 'User', 'UserID' => $UserID]));
+		Breadcrumb::Add($User->Username, URI::Make([['page', 'User'], ['UserID', $UserID, $User->Username]]));
 
 		// Template..
 		SBB::Template()->Assign(['profile' => [

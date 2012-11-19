@@ -10,7 +10,7 @@ class LoginPage implements PageData {
 	protected $Info = [];
 
 	public function __construct() {
-		$this->Link = URI::Make(['page' => 'Login']);
+		$this->Link = URI::Make([['page', 'Login']]);
 	}
 
 	public function Display(Page $P) {

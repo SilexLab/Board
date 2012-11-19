@@ -8,15 +8,17 @@
 class BoardPage implements PageData {
 	protected $Link;
 	protected $Info = [];
+	protected $UF;
 
 	public function __construct() {
-		$this->Link = URI::Make(['page' => 'Board']);
+		$this->Link = URI::Make([['page', 'Board']]);
 	}
 
 	public function Display(Page $P) {
-		Breadcrumb::Add(Language::Get('sbb.page.forum'), $this->Link());
+		Breadcrumb::Add(Language::Get('sbb.page.board'), $this->Link());
 		
-		$BoardID = (int)URI::Get('BoardID', 0);
+		$this->UF = $P->URI()->Format();
+		$BoardID = $P->URI()->GetID(1, 'BoardID');
 
 		// Breadcrumbs
 		if($BoardID > 0) {
@@ -38,7 +40,7 @@ class BoardPage implements PageData {
 	}
 
 	public function Title() {
-		return Language::Get('sbb.page.forum');
+		return Language::Get('sbb.page.board');
 	}
 
 	public function Template() {
@@ -61,7 +63,7 @@ class BoardPage implements PageData {
 				'type'           => $Entry->Type,
 				'title'          => htmlspecialchars($Entry->Title),
 				'description'    => htmlspecialchars($Entry->Description),
-				'link'           => $Entry->Type == 2 ? htmlspecialchars($Entry->Link) : URI::Make(['page' => 'Board', 'BoardID' => $Entry->ID]),
+				'link'           => $Entry->Type == 2 ? htmlspecialchars($Entry->Link) : URI::Make([['page', 'Board'], ['BoardID', $Entry->ID, $Entry->Title]]),
 				'stats'          => $Entry->Type == 2 ? ('Views: '.$Entry->Views) : ('Threads: '.$Entry->Threads.', Posts: '.$Entry->Posts.', Views: '.$Entry->Views),
 				'last_post'      => 0,
 				'last_post_user' => 'None',
@@ -71,7 +73,7 @@ class BoardPage implements PageData {
 		return $BoardList;
 	}
 
-	protected function GetThreadList($BoardID) {
+	public function GetThreadList($BoardID) {
 		$Threads = SBB::DB()->prepare('SELECT * FROM `thread` WHERE `BoardID` = :BoardID ORDER BY `LastPostTime` DESC'); // TODO: Limit it
 		$Threads->execute([':BoardID' => $BoardID]);
 		$Threads = $Threads->fetchAll(PDO::FETCH_OBJ);
@@ -80,13 +82,13 @@ class BoardPage implements PageData {
 		foreach($Threads as $T) {
 			$ThreadList[] = [
 				'topic' => htmlspecialchars($T->Topic),
-				'link'  => URI::Make(['page' => 'Thread', 'ThreadID' => $T->ID])
+				'link'  => URI::Make([['page', 'Thread'], ['ThreadID', $T->ID, $T->Topic]])
 			];
 		}
 		return $ThreadList;
 	}
 
-	protected function GetBreadcrumbs($BoardID) {
+	public function GetBreadcrumbs($BoardID) {
 		$Board = SBB::DB()->prepare('SELECT * FROM `board` WHERE `ID` = :BoardID');
 		$Board->execute([':BoardID' => $BoardID]);
 		$Board = $Board->fetch(PDO::FETCH_OBJ);		
@@ -94,7 +96,7 @@ class BoardPage implements PageData {
 		$Crumbs = array();
 		if($Board->ParentID != 0)
 			$Crumbs = $this->GetBreadcrumbs($Board->ParentID);
-		$Crumbs[] = array('title' => htmlspecialchars($Board->Title), 'link' => $Board->Type == 2 ? htmlspecialchars($Board->Link) : URI::Make(['page' => 'Board', 'BoardID' => $Board->ID]));
+		$Crumbs[] = array('title' => htmlspecialchars($Board->Title), 'link' => $Board->Type == 2 ? htmlspecialchars($Board->Link) : URI::Make([['page', 'Board'], ['BoardID', $Board->ID, $Board->Title]]));
 		$this->Info['title'] = htmlspecialchars($Board->Title);
 		return $Crumbs;
 	}

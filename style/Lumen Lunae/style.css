@@ -78,9 +78,11 @@ section.content {
 .container {
 	background: rgba(255,255,255,0.4);
 	margin: 0 0 10px 0;
-	padding: 8px;
+	padding: 7px;
 	border-radius: 5px;
 	box-shadow: 0 0 5px rgba(0,0,0,0.075);
+	border: 1px solid rgba(255,255,255,0.3);
+	background-origin: border-box;
 }
 	.container > div:first-child,
 	.container > article > div:first-child {

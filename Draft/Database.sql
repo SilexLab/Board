@@ -119,6 +119,7 @@ INSERT INTO `config` (`Package`, `ConfigNode`, `CategoryNode`, `ConfigValue`, `V
 ('sbb.core', 'page.language.default', 'page', 'de', 'string(11)'),
 ('sbb.core', 'page.timezone', 'page', 'Europe/Berlin', 'string(255)'),
 ('sbb.core', 'page.title', 'page', 'Silex Bulletin Board', 'string(255)'),
+('sbb.core', 'page.uri_format', 'page', '1', 'int(1)'),
 ('sbb.core', 'style.default', 'style', 'Lumen Lunae', 'string(255)'),
 ('sbb.core', 'system.cache.dir', 'system', '', 'string(255)'),
 ('sbb.core', 'user.autologout', 'user', '3600', 'int(8)'),
@@ -170,7 +171,7 @@ CREATE TABLE IF NOT EXISTS `menu` (
 
 INSERT INTO `menu` (`ID`, `MenuName`, `Target`, `Position`, `Permission`) VALUES
 (1, 'sbb.page.home', 'p:Home', 1, ''),
-(2, 'sbb.page.forum', 'p:Board', 2, ''),
+(2, 'sbb.page.board', 'p:Board', 2, ''),
 (3, 'sbb.page.userlist', 'p:UserList', 3, '');
 
 DROP TABLE IF EXISTS `permissions`;

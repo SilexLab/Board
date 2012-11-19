@@ -6,118 +6,132 @@
  */
 
 class URI {
-	protected static $Format;
+	const FORMAT_ARGUMENTS = 0;
+	const FORMAT_SHORT = 1;
+	const FORMAT_LONG = 2;
 
-	protected static $ProtectedArgs = ['lang'];
+	private static $Format;
 
-	protected static $URI;
+	private $URI = [];
+	private $Route = [];
 
-	/**
-	 * [['name', 'value', 'title'], ['name', 'value', 'title']]
-	 */
-	public static function Make($Data) {
+	private static $KeepArgs = ['lang'];
+
+	public function __construct() {
 		if(!self::$Format)
 			self::$Format = (int)SBB::Config('page.uri_format');
-
-		if(is_array($Data)) {
-			switch (self::$Format) {
-				case 1:
-					// Short URI Format: /Page/Sub?arg=value
-					if(isset($_GET['q'])) {
-						$Path = $_GET['q'];
-						if(strfind($Path, '/')) {}
-					}
-					break;
-				case 2:
-					// Long URI Format: /ParentPage/Child/Page/Sub?arg=value
-				default:
-					// Default URI Format: /?page=page&arg=value
-			}
-		}
-		return $Data;
 	}
 
-	public static function Get($Key, $Default = false) {
-		if(!self::$URI) {
-			if(isset($_GET) && !empty($_GET)) { // Get GET parameters
-				foreach($_GET as $k => $v)
-					self::$URI[$k] = $v;
+	/**
+	 * Make an URL from $Data and follow the URI-format
+	 * $Data has to be in this format:
+	 * [['page', 'Page'], ['Arg1', 'Value1'], ['Arg2', 'Value2'], [...]]
+	 * Use $args to don't make a path from an $Data entry, $args format:
+	 * ['ID1', 'ID2', [...]]
+	 * @param  mixed $Data
+	 * @param  array $args optional
+	 * @return string
+	 */
+	public static function Make($Data, array $args = []) {
+		if(!self::$Format)
+			self::$Format = (int)SBB::Config('page.uri_format');
+		$URL = '';
+		if(is_array($Data) && $Data[0][0] == 'page') {
+			switch (self::$Format) {
+				// "Page/Sub?arg=value" - Short URLs
+				case 1:
+					$Arguments = '';
+					for($i = 0; $i < sizeof($Data); $i++) {
+						if(!in_array($Data[$i][0], $args)) {
+							if($URL)
+								$URL .= '/';
+							$URL .= $Data[$i][1];
+							if(isset($Data[$i][2]))
+								$URL .= '-'.preg_replace('/[^a-zA-Z0-9\-]/', '', str_replace(' ', '-', $Data[$i][2]));
+						} else {
+							if($Arguments)
+								$Arguments .= '&amp;';
+							$Arguments .= $Data[$i][0].'='.$Data[$i][1];
+						}
+					}
+					if($Arguments)
+						$URL .= '?'.$Arguments;
+					break;
+				// "Page/SubPage/Sub?arg=value" - Breadcrumbstyle URLs (Not yet implemented)
+				case 2:
+				// "?page=value&arg=value" - Default URLs
+				default:
+					for($i = 0; $i < sizeof($Data); $i++) {
+						if($i > 0)
+							$URL .= '&amp;';
+						else
+							$URL = '?';
+						$URL .= $Data[$i][0].'='.$Data[$i][1];
+					}
 			}
-			// TODO: Check path
+		} else if(!is_array($Data))
+			$URL = $Data;
+
+		// Keep args
+		foreach(self::$KeepArgs as $Arg) {
+			if(array_key_exists($Arg, $_GET)) {
+				if(strfind($URL, '?')) $URL .= '&amp;';
+				else $URL .= '?';
+				$URL .= $Arg.'='.$_GET[$Arg];
+			}
 		}
-		return array_key_exists($Key, self::$URI) ? self::$URI[$Key] : (strtolower($Default) == 'null' ? null : $Default);
+
+		// Return finished URL
+		return CFG_BASE_URL.$URL;
+	}
+
+	/**
+	 * Get the whole URI as array
+	 * @param  string $Arg     optional
+	 * @param  mixed  $OnError optional
+	 * @return array
+	 */
+	public function Get($Arg = '', $OnError = false) {
+		if(empty($this->URI)) {
+			if(self::$Format > 0 && isset($_GET['q'])) {
+				$this->Route = explode('/', trim($_GET['q'], '/'));
+				unset($_GET['q']);
+				$this->URI = $this->Route;
+				$this->URI['page'] = $this->Route[0];
+				$this->URI = array_merge($this->URI, $_GET);
+			} else
+				$this->URI = $_GET;
+		}
+		return !$Arg ? $this->URI : (array_key_exists($Arg, $this->URI) ? $this->URI[$Arg] : (strtolower($OnError) == 'null' ? null : $OnError));
+	}
+
+	/**
+	 * Get the route only
+	 * @return array
+	 */
+	public function GetRoute() {
+		if(empty($this->URI))
+			$this->Get();
+		return $this->Route;
+	}
+
+	/**
+	 * Return wich URI format is used
+	 * @return int
+	 */
+	public function Format() {
+		return self::$Format;
+	}
+
+	/**
+	 * Get the ID of the URL
+	 * @param  int    $RoutePos
+	 * @param  string $Argument
+	 * @return int
+	 */
+	public function GetID($RoutePos, $Argument) {
+		if(self::$Format == 1)
+			return (int)explode('-', $this->Get($RoutePos, 0))[0];
+		return (int)$this->Get($Argument, 0);
 	}
 }
-
-
-
-
-
-// 	protected static
-// 		$URI = array();
-
-// 	/**
-// 	 * Make a URI from data
-// 	 * @param  array $Data
-// 	 * @return string
-// 	 */
-// 	public static function Make($Data) {
-// 		if(is_array($Data)) {
-// 			switch ((int)SBB::Config('page.uri_format')) {
-// 				case 1:  // .../value1/value2... - With rewrite
-// 				case 2:  // .../index.php/value1/value2... - without rewrite
-// 				default: // .../?key1=value1&key2=value2... - default
-// 					return self::MakeDefault($Data);
-// 			}
-// 		}
-// 		return $Data;
-// 	}
-
-// 	/**
-// 	 * Read the GET or path params of the URL
-// 	 * @param  string $Key
-// 	 * @return mixed
-// 	 */
-// 	public static function Get($Key, $Default = false) {
-// 		if(empty(self::$URI)) {
-// 			if(isset($_GET) && !empty($_GET)) { // Get GET parameters
-// 				foreach($_GET as $k => $v)
-// 					self::$URI[$k] = $v;
-// 			}
-// 			// TODO: Check path
-// 		}
-// 		return array_key_exists($Key, self::$URI) ? self::$URI[$Key] : (strtolower($Default) == 'null' ? null : $Default);
-// 	}
-
-// 	protected static function MakeDefault(array $Data) { // TODO: '?page=' as first
-// 		// Keep this vars:
-// 		foreach(['lang'] as $Var)
-// 			if(!isset($Data[$Var]) && isset($_GET[$Var]))
-// 				$Data[$Var] = $_GET[$Var];
-
-// 		// Make URI
-// 		$URI = '';
-// 		$i = 0;
-// 		foreach($Data as $Key => $Value) {
-// 			if($Key !== 0) {
-// 				if($i == 0)
-// 					$URI = '?';
-// 				$URI .= $Key.'='.$Value.'&amp;';
-// 				$i++;
-// 			} else if($i == 0) {
-// 				$URI = $Value;
-// 			}
-// 		}
-// 		return $i == 0 ? $URI : substr($URI, 0, -5);
-// 	}
-
-// 	protected static function MakeWithRewrite(array $Data) {
-// 		//
-// 		//SBB::Config('page.uri_structure');
-// 	}
-
-// 	protected static function MakeWithoutRewrite(array $Data) {
-// 		//
-// 		//SBB::Config('page.uri_structure');
-// 	}
-// }

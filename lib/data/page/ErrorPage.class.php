@@ -10,12 +10,13 @@ class ErrorPage implements PageData {
 	protected $Info = [];
 
 	public function __construct() {
-		$this->Link = URI::Make(['page' => 'Design']);
+		$this->Link = '';
 	}
 
 	public function Display(Page $P) {
 		Breadcrumb::Add(Language::Get('sbb.page.error'), self::Link());
 		Notification::Show(Language::Get('sbb.error.no_page'), Notification::ERROR);
+		SBB::Template()->Assign(['route' => print_r($P->URI()->Get(), true)]);
 	}
 
 	public function Link() {

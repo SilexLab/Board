@@ -3,16 +3,16 @@
 <head>
 	<meta charset="utf-8">
 	<title>{$page.title} - {$page_title}</title>
-	<link rel="shortcut icon" href="favicon.ico">
-	<link rel="stylesheet" type="text/css" href="{$style.dir}style.php?p={$page.page}">
+	<link rel="shortcut icon" href="{$base_url}favicon.ico">
+	<link rel="stylesheet" type="text/css" href="{$base_url}{$style.dir}style.php?p={$page.page}">
 
-	<script type="text/javascript" src="js/jquery.min.js"></script>
-	<script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
-	<script type="text/javascript" src="js/jquery.animate-colors-min.js"></script>
-	<script type="text/javascript" src="js/jquery.animate-shadow-min.js"></script>
-	{foreach $style.files.js as $file}
-		<script src="{$file|escape}" type="text/javascript"></script>
-	{/foreach}
+	<script type="text/javascript" src="{$base_url}js/jquery.min.js"></script>
+	<script type="text/javascript" src="{$base_url}js/jquery.easing.1.3.js"></script>
+	<script type="text/javascript" src="{$base_url}js/jquery.animate-colors-min.js"></script>
+	<script type="text/javascript" src="{$base_url}js/jquery.animate-shadow-min.js"></script>
+{foreach $style.files.js as $file}
+	<script type="text/javascript" src="{$base_url}{$file|escape}"></script>
+{/foreach}
 </head>
 <body>
 	<section class="site_container min_size">
@@ -45,14 +45,14 @@
 					</form>
 				</div>
 				<div id="login_bar_handle">
-					<a href="?page=Login" id="login_bar_toggle"> {* TODO: Make Link *}
+					<a href="{link page=Login}" id="login_bar_toggle"> {* TODO: Make Link *}
 						<span id="login_bar_inner">{lang node="sbb.login.bar_handle"}</span>
 					</a>
 				</div>
 			{else}
 				<div class="user_tabs">
 					<ul>
-						<li id="username"><a href="?page=User&amp;UserID={$User.ID}">{$User.Name}</a></li>
+						<li id="username"><a href="{link page=User UserID=$User.ID}">{$User.Name}</a></li>
 						<li id="settings"><a href="javascript:false;">settings</a></li>
 						<li id="logout"><form method="post"><input type="submit" name="Logout" value="{lang node="sbb.logout.logout"}"></form></li>
 					</ul>
@@ -64,8 +64,8 @@
 		<header class="min_size">
 			<div class="logo_block">
 				<div class="logo size">
-					<a href="./" title="{lang node="sbb.header.logo_title"}">
-						<img src="{$logo}" alt="Logo">
+					<a href="{$base_url}./" title="{lang node="sbb.header.logo_title"}">
+						<img src="{$base_url}{$logo}" alt="Logo">
 					</a>
 					<div class="slogan">
 						{lang node="sbb.header.slogan"}

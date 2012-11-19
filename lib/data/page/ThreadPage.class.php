@@ -9,15 +9,21 @@ class ThreadPage implements PageData {
 	protected $Link;
 	protected $Info = [];
 	protected $Title;
+	protected $UF;
 
 	public function __construct() {
-		$this->Link = URI::Make(['page' => 'Thread']);
+		$this->Link = URI::Make([['page', 'Thread']]);
+
+		// Mark the menuentry for 'Board' as active
+		$this->Info['menu'] = 'Board';
 	}
 
 	public function Display(Page $P) {
-		Breadcrumb::Add(Language::Get('sbb.page.forum'), $P->Link('Board'));
+		Breadcrumb::Add(Language::Get('sbb.page.board'), $P->Link('Board'));
 
-		$ThreadID = (int)URI::Get('ThreadID', 0);
+		$this->UF = $P->URI()->Format();
+		$ThreadID = $P->URI()->GetID(1, 'ThreadID');
+
 		if($ThreadID > 0 && Database::Count('FROM `thread` WHERE `ID` = :ID', [':ID' => $ThreadID])) {
 			$Thread = SBB::DB()->prepare('SELECT * FROM `thread` WHERE `ID` = :ID');
 			$Thread->execute([':ID' => $ThreadID]);
@@ -25,10 +31,10 @@ class ThreadPage implements PageData {
 
 			$this->Title = $Thread->Topic;
 
-			$Crumbs = $this->GetBreadcrumbs($Thread->BoardID);
+			$Crumbs = $P->Get('Board')->GetBreadcrumbs($Thread->BoardID);
 			foreach($Crumbs as $Crumb)
-				Breadcrumb::Add($Crumb['Title'], $Crumb['Link']);
-			Breadcrumb::Add($this->Title, URI::Make(['page' => 'Thread', 'ThreadID' => $ThreadID]));
+				Breadcrumb::Add($Crumb['title'], $Crumb['link']);
+			Breadcrumb::Add($this->Title, URI::Make([['page', 'Thread'], ['ThreadID', $ThreadID, $this->Title]]));
 
 			SBB::Template()->Assign(['Posts' => $this->GetPosts($ThreadID)]);
 		} else {
@@ -70,22 +76,10 @@ class ThreadPage implements PageData {
 				'Time'    => date('d.m.Y, h:i', $P->Time),
 				'User'    => [
 					'Name' => htmlspecialchars($User->Username),
-					'Link' => URI::Make(['page' => 'User', 'UserID' => $User->ID])
+					'Link' => URI::Make([['page', 'User'], ['UserID', $User->ID, $User->Username]])
 				]
 			];
 		}
 		return $PostList;
-	}
-
-	protected function GetBreadcrumbs($BoardID) { // Duplicate form BoardPage
-		$Board = SBB::DB()->prepare('SELECT * FROM `board` WHERE `ID` = :BoardID');
-		$Board->execute([':BoardID' => $BoardID]);
-		$Board = $Board->fetch(PDO::FETCH_OBJ);		
-
-		$Crumbs = array();
-		if($Board->ParentID != 0)
-			$Crumbs = $this->GetBreadcrumbs($Board->ParentID);
-		$Crumbs[] = array('Title' => htmlspecialchars($Board->Title), 'Link' => $Board->Type == 2 ? htmlspecialchars($Board->Link) : URI::Make(['page' => 'Board', 'BoardID' => $Board->ID]));
-		return $Crumbs;
 	}
 }

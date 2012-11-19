@@ -10,12 +10,13 @@ class HomePage implements PageData {
 	protected $Info = [];
 
 	public function __construct() {
-		$this->Link = URI::Make([0 => './']);
+		$this->Link = URI::Make([['page', '']]);
+		$this->Info['menu'] = 'Home';
 	}
 
 	public function Display(Page $P) {
 		// Redirect on ?page=Home
-		if(URI::Get('page') == 'Home')
+		if($P->URI()->Get('page') == 'Home')
 			header('location: '.self::Link());
 		
 		SBB::Template()->Assign(['Username' => SBB::User()->GetName()]);

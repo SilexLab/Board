@@ -34,7 +34,7 @@ class Config {
 	 * @return mixed
 	 */
 	public function Get($Node) {
-		return isset(self::$Config[$Node]) ? self::$Config[$Node] : null;
+		return array_key_exists($Node, self::$Config) ? self::$Config[$Node] : null;
 	}
 
 	/* TODO: Beatify and improve the code starting here, it works but it's ugly */

@@ -316,7 +316,7 @@ nav.menu .menu_list li.active a {
 	height: 24px;
 	background: rgba(0, 0, 0, 0.3);
 	overflow: hidden;
-	margin: -29px 10px 4px 0;
+	margin: -28px 10px 4px 0;
 	border-radius: 4px 4px 0 0;
 }
 #search_form input[type=search] {

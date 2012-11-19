@@ -21,10 +21,12 @@ class SBB {
 	 * @return void
 	 */
 	public static final function Initial() {
-		// Initialize classes and objects
-		Language::Initialize(URI::Get('lang', 'null'));
+		/* Initialize classes and objects */
+		Language::Initialize(isset($_GET['lang']) ? $_GET['lang'] : null);
+		// Design
 		self::$Style = Style::GetInstance();
 		self::$Template = new Template(DIR_ROOT.DIR_TPL, self::$Style->Info('tpl'));
+		// Data
 		self::$User = new User();
 		Listener::Check();
 		SessionGarbageCollector::Collect();
@@ -133,9 +135,10 @@ class SBB {
 			'page' => [
 				'title' => self::$Page->Title(),
 				'link' => self::$Page->Link(),
-				'page' => URI::Get('page'),
+				'page' => self::$Page->Name(),
 				'template' => self::$Page->Template()
-			]
+			],
+			'base_url' => CFG_BASE_URL
 		]);
 		Breadcrumb::Assign();
 		Notification::Assign();

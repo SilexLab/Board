@@ -10,7 +10,7 @@ class RegisterPage implements PageData {
 	protected $Info = [];
 
 	public function __construct() {
-		$this->Link = URI::Make(['page' => 'Register']);
+		$this->Link = URI::Make([['page', 'Register']]);
 	}
 
 	public function Display(Page $P) {

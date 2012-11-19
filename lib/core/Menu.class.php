@@ -22,7 +22,7 @@ class Menu implements Singleton {
 	
 	// Assign the menu as vars to the template
 	protected function __construct() {
-		$ActivePage = SBB::Page()->Name();
+		$ActivePage = SBB::Page()->MenuEntry();
 
 		$MenuList = array();
 		$Entries = SBB::DB()->query('SELECT * FROM `menu` ORDER BY `Position`')->fetchAll(PDO::FETCH_OBJ);

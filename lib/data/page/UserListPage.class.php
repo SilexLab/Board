@@ -10,7 +10,7 @@ class UserListPage implements PageData {
 	protected $Info = [];
 
 	public function __construct() {
-		$this->Link = URI::Make(['page' => 'UserList']);
+		$this->Link = URI::Make([['page', 'UserList']]);
 	}
 
 	public function Display(Page $P) {
@@ -20,8 +20,8 @@ class UserListPage implements PageData {
 		$Users = [];
 		foreach($TempUsers as $User) {
 			$Users[] = [
-				'name'     => $User->Username,
-				'link'     => URI::Make(['page' => 'User', 'UserID' => $User->ID]),
+				'name'     => htmlspecialchars($User->Username),
+				'link'     => URI::Make([['page', 'User'], ['UserID', $User->ID, $User->Username]]),
 				'group'    => '',
 				'joined_d' => date('d. ', $User->Joined).Language::Get(Time::Month(date('n', $User->Joined))).date(' Y', $User->Joined),
 				'joined_t' => date('H:i', $User->Joined),

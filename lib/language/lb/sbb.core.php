@@ -23,7 +23,7 @@ self::$Items = array_merge(self::$Items, [
 
 'sbb.page.error'    => 'Fehler',
 'sbb.page.home'     => 'Startsäit',
-'sbb.page.forum'    => 'Forum',
+'sbb.page.board'    => 'Board',
 'sbb.page.userlist' => 'Benotzerlëscht',
 'sbb.page.login'    => 'Umellen',
 'sbb.page.register' => 'Registréieren',
