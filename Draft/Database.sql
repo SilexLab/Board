@@ -107,7 +107,7 @@ CREATE TABLE IF NOT EXISTS `board_permissions_user` (
 
 DROP TABLE IF EXISTS `config`;
 CREATE TABLE IF NOT EXISTS `config` (
-  `Package` varchar(32) NOT NULL DEFAULT 'sbb.core',
+  `Package` smallint(6) NOT NULL,
   `ConfigNode` varchar(255) NOT NULL,
   `CategoryNode` varchar(255) NOT NULL,
   `ConfigValue` varchar(255) NOT NULL,
@@ -116,16 +116,16 @@ CREATE TABLE IF NOT EXISTS `config` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 INSERT INTO `config` (`Package`, `ConfigNode`, `CategoryNode`, `ConfigValue`, `ValueType`) VALUES
-('sbb.core', 'page.language.default', 'page', 'de', 'string(11)'),
-('sbb.core', 'page.timezone', 'page', 'Europe/Berlin', 'string(255)'),
-('sbb.core', 'page.title', 'page', 'Silex Bulletin Board', 'string(255)'),
-('sbb.core', 'page.uri_format', 'page', '1', 'int(1)'),
-('sbb.core', 'style.default', 'style', 'Lumen Lunae', 'string(255)'),
-('sbb.core', 'system.cache.dir', 'system', '', 'string(255)'),
-('sbb.core', 'user.autologout', 'user', '3600', 'int(8)'),
-('sbb.core', 'user.session.autologout_probability', 'user.session', '25', 'int(3)'),
-('sbb.core', 'user.session.cookie_time', 'user.session', '86400', 'int(8)'),
-('sbb.core', 'user.session.name', 'user.session', 'SBB', 'string(255)');
+(1, 'page.language.default', 'page', 'de', 'string(11)'),
+(1, 'page.timezone', 'page', 'Europe/Berlin', 'string(255)'),
+(1, 'page.title', 'page', 'Silex Bulletin Board', 'string(255)'),
+(1, 'page.uri_format', 'page', '1', 'int(1)'),
+(1, 'style.default', 'style', 'Lumen Lunae', 'string(255)'),
+(1, 'system.cache.dir', 'system', '', 'string(255)'),
+(1, 'user.autologout', 'user', '3600', 'int(8)'),
+(1, 'user.session.autologout_probability', 'user.session', '25', 'int(3)'),
+(1, 'user.session.cookie_time', 'user.session', '86400', 'int(8)'),
+(1, 'user.session.name', 'user.session', 'SBB', 'string(255)');
 
 DROP TABLE IF EXISTS `groups`;
 CREATE TABLE IF NOT EXISTS `groups` (
@@ -174,6 +174,20 @@ INSERT INTO `menu` (`ID`, `MenuName`, `Target`, `Position`, `Permission`) VALUES
 (2, 'sbb.page.board', 'p:Board', 2, ''),
 (3, 'sbb.page.userlist', 'p:UserList', 3, '');
 
+DROP TABLE IF EXISTS `package`;
+CREATE TABLE IF NOT EXISTS `package` (
+  `ID` smallint(6) NOT NULL AUTO_INCREMENT,
+  `PackageNode` varchar(255) NOT NULL,
+  `PackageName` varchar(255) NOT NULL,
+  `ParentID` smallint(6) NOT NULL DEFAULT '0',
+  `Author` varchar(255) NOT NULL,
+  `Website` varchar(255) NOT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+INSERT INTO `package` (`ID`, `PackageNode`, `PackageName`, `ParentID`, `Author`, `Website`) VALUES
+(1, 'sbb.core', 'Silex Bulletin Board Core', 0, 'Patrick Kleinschmidt', 'http://www.silexboard.org/');
+
 DROP TABLE IF EXISTS `permissions`;
 CREATE TABLE IF NOT EXISTS `permissions` (
   `ID` mediumint(9) NOT NULL AUTO_INCREMENT,
@@ -181,7 +195,7 @@ CREATE TABLE IF NOT EXISTS `permissions` (
   `CategoryName` text NOT NULL,
   `Type` varchar(8) NOT NULL,
   `DefaultValue` text NOT NULL,
-  `ModulName` text NOT NULL,
+  `Package` smallint(6) NOT NULL,
   `Position` tinyint(4) NOT NULL,
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
