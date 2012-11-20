@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /**
  * @author     SilexBB
  * @copyright  2011 - 2012 Silex Bulletin Board

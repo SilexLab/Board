@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /**
  * @author     Angus
  * @copyright  2011 - 2012 Silex Bulletin Board

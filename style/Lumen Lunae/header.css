@@ -312,8 +312,9 @@ nav.menu .menu_list li.active a {
 	display: block;
 	float: right;
 	border: 2px solid rgba(255, 255, 255, 0.005); /* 0.005 is nearly 0, and fixes the firefox issue */
+	border-bottom: none;
 	width: 200px;
-	height: 24px;
+	height: 25px;
 	background: rgba(0, 0, 0, 0.3);
 	overflow: hidden;
 	margin: -28px 10px 4px 0;
