@@ -5,7 +5,7 @@
  * @license    GPL version 3 <http://www.gnu.org/licenses/gpl-3.0.html>
  */
 
-require_once('Page.interface.php');
+require_once('IPage.interface.php');
 class Page {
 	const FILENAME  = '/^(\w+)Page\.class\.php$/';
 	const CLASSNAME = '/^(\w+)Page$/';
@@ -31,8 +31,8 @@ class Page {
 		$this->Pages[$Page] = &$this->Instance;
 
 		// Check the "must have" instance of the new instance
-		if(!($this->Instance instanceof PageData))
-			throw new SystemException('"'.$Class.'" is not an instance of "PageData"');
+		if(!($this->Instance instanceof IPage))
+			throw new SystemException('"'.$Class.'" is not an instance of "IPage"');
 
 		// Home Breadcrumb
 		Breadcrumb::Add(Language::Get('sbb.page.home'), $this->Link('Home'));

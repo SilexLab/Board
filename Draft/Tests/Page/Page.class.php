@@ -26,8 +26,8 @@ class Page {
 		$this->Pages[$Page] = &$this->Instance;
 
 		// Check the "must have" instance of the new instance
-		if(!($this->Instance instanceof PageData))
-			throw new SystemException('"'.$Class.'" is not an instance of "PageData"');
+		if(!($this->Instance instanceof IPage))
+			throw new SystemException('"'.$Class.'" is not an instance of "IPage"');
 
 		// "Display" the page
 		$this->Instance->Display($this);
