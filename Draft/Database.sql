@@ -125,7 +125,12 @@ INSERT INTO `config` (`Package`, `ConfigNode`, `CategoryNode`, `ConfigValue`, `V
 (1, 'user.autologout', 'user', '3600', 'int(8)'),
 (1, 'user.session.autologout_probability', 'user.session', '25', 'int(3)'),
 (1, 'user.session.cookie_time', 'user.session', '86400', 'int(8)'),
-(1, 'user.session.name', 'user.session', 'SBB', 'string(255)');
+(1, 'user.session.name', 'user.session', 'SBB', 'string(255)'),
+(1, 'mail.method', 'mail', 'PHP', 'string(255)'),
+(1, 'mail.smtp.server', 'mail.smtp', '', 'string(255)'),
+(1, 'mail.smtp.port', 'mail.smtp', '', 'int(8)'),
+(1, 'mail.smtp.user', 'mail.smtp', '', 'string(255)'),
+(1, 'mail.smtp.password', 'mail.smtp', '', 'string(255)');
 
 DROP TABLE IF EXISTS `groups`;
 CREATE TABLE IF NOT EXISTS `groups` (
