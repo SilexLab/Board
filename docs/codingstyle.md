@@ -9,7 +9,7 @@ PHP (and Javascript)
 In SilexBoard source we use a sort of _"the one true brace style"_ (__1TBS__) for everything.
 Example:
 
-```
+```php
 <?php
 class Classname {
 	protected
@@ -42,7 +42,7 @@ Between the function- or statement names and their brackets there are no spaces.
 Operators (except "++", "--", "::", "->" or ".") have spaces before and after.
 Example:
 
-```
+```php
 <?php
 function Example($Var) {
 	// Comment
@@ -67,7 +67,7 @@ In SilexBoard variables and function-/methodnames are CamelCase.
 The first letter is always capitalised, except in special cases.
 Example:
 
-```
+```php
 <?php
 class ExampleClass {
 	public static function DoSomething($Var) {
@@ -86,7 +86,7 @@ HTML / TPL
 ----------
 Example:
 
-```
+```html
 <div class="class_name">
 	<span id="var">{{ var_name }}</span>
 	{% if var_name > 10 %}
@@ -99,7 +99,7 @@ CSS
 ---
 Example:
 
-```
+```css
 .class_name {
 	color: #dedede;
 	background: #333333;
