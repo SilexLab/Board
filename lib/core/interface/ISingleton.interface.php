@@ -21,7 +21,7 @@
 		//...
 	}
 */
-interface Singleton {
+interface ISingleton {
 	public static function GetInstance();
 }
 ?>

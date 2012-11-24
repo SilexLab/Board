@@ -5,7 +5,7 @@
  * @license    GPL version 3 <http://www.gnu.org/licenses/gpl-3.0.html>
  */
 
-interface PageData {
+interface IPage {
 	/**
 	 * Will called when the page is the current page
 	 */
@@ -25,7 +25,7 @@ interface PageData {
 	public function Title();
 	
 	/**
-	 * Return the template file wich belongs to the page
+	 * Return the template file which belongs to the page
 	 * @return string
 	 */
 	public function Template();

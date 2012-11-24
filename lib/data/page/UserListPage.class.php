@@ -5,7 +5,7 @@
  * @license    GPL version 3 <http://www.gnu.org/licenses/gpl-3.0.html>
  */
 
-class UserListPage implements PageData {
+class UserListPage implements IPage {
 	protected $Link;
 	protected $Info = [];
 

@@ -99,7 +99,7 @@ class SBB {
 	 * @param Exception	$e
 	 */
 	public static final function ExceptionHandler(Exception $e) {
-		if($e instanceof PrintableException) {
+		if($e instanceof IPrintableException) {
 			$e->Show();
 			exit;
 		}

@@ -69,7 +69,7 @@ Example:
 
 ```php
 <?php
-class ExampleClass {
+class ExampleClass implements IExampleInterface {
 	public static function DoSomething($Var) {
 		for($i = 0; $i < 1; $i++)
 			echo 'Whoooooooo';
