@@ -6,7 +6,8 @@
  */
 
 class Autoloader {
-	protected static $Directories = array();
+	protected static $Directories = [];
+	protected static $Index = [];
 	
 	/**
 	 * Register the autoloader
@@ -16,58 +17,74 @@ class Autoloader {
 			define('CLASS_AUTOLOADER', '');
 			
 			// Register the "Autoload" function of this "self" class
-			spl_autoload_register(array(new self, 'Autoload'));
+			spl_autoload_register([new self, 'Autoload']);
+
+			// Register directories, for the autoloader search
+			self::$Directories = [
+				'core/*',
+				'data/*'
+			];
+
+			// Indexing files
+			self::IndexFiles();
 		}
-		
-		// Register directories, for the autoloader search
-		self::$Directories = array(
-			'core/*',
-			'data/*'
-		);
 	}
 	
 	/**
 	 * Add a path to search for classes
+	 * @param mixed $Directory
 	 */
 	public static function AddPath($Directory) {
-		if(defined('CLASS_AUTOLOADER'))
-			if(!in_array($Directory, self::$Directories)) {
-				if(strpos($Directory, '/', strlen($Directory) - 1) === false)
-					$Directory .= '/';
-				self::$Directories[] = $Directory;
-			}
-	}
-	
-	/**
-	 * Method to load classes
-	 */
-	public static function Autoload($Class) {		
 		if(defined('CLASS_AUTOLOADER')) {
-			foreach(self::$Directories as $Directory) {
-				// if a Wildcard appears, handle it
-				if(strpos($Directory, '*') !== false) {
-					self::HandleWildcard($Directory);
-					self::Autoload($Class);
-				}
-				if(file_exists($File = DIR_LIB.$Directory.$Class.'.class.php')) {
-					require_once($File);
-					break;
+			$Directory = (array)$Directory;
+			foreach ($Directory as $Dir) {
+				if(!in_array($Dir, self::$Directories)) {
+					self::IndexFiles([$Dir]);
+					self::$Directories[] = $Dir;
 				}
 			}
 		}
 	}
 	
 	/**
-	 * Additional method to handle wildcard directories
+	 * Method to load classes
+	 * @param string $Class
 	 */
-	protected static function HandleWildcard($Dir) {
-		// Wildcard on the last position
-		if(strpos($Dir, '*') === strlen($Dir) - 1) {
-			unset(self::$Directories[array_search($Dir, self::$Directories)]);
-			$Dir = substr($Dir, 0, -1);
-			$Files = scandirr(DIR_LIB.$Dir);
-			foreach($Files as $F) {
-				self::AddPath(dirname($Dir.$F));
+	public static function Autoload($Class) {		
+		if(defined('CLASS_AUTOLOADER')) {
+			if(isset(self::$Index[$Class]))
+				require_once(DIR_LIB.self::$Index[$Class]);
+		}
+	}
+
+	/**
+	 * Indexing a directory
+	 * @param array $Directories optional
+	 */
+	protected static function IndexFiles(array $Directories = []) {
+		if(!$Directories)
+			$Directories = self::$Directories;
+
+		// Indexing files
+		foreach($Directories as $Dir) {
+			// Handle wildcard
+			if(preg_match('/^(.+\/)\*$/', $Dir, $d)) {
+				$Dir = $d[1];
+				foreach(scandirr(DIR_LIB.$Dir) as $File) {
+					if(is_file(DIR_LIB.$Dir.$File) && preg_match('/([a-zA-Z0-9_]+)\.(class|interface)\.php$/', $File, $m)) {
+						if(!isset(self::$Index[$m[1]]))
+							self::$Index[$m[1]] = $Dir.$File;
+					}
+				}
+			} else {
+				foreach (scandir(DIR_LIB.$Dir) as $File) {
+					if(!preg_match('/^(.+)\/$/', $Dir))
+						$Dir .= '/';
+					if(is_file(DIR_LIB.$File) && preg_match('/([a-zA-Z0-9_]+)\.(class|interface)\.php$/', $File, $m)) {
+						if(!isset(self::$Index[$m[1]]))
+							self::$Index[$m[1]] = $Dir.$File;
+					}
+				}
 			}
 		}
 	}

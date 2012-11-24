@@ -5,7 +5,6 @@
  * @license    GPL version 3 <http://www.gnu.org/licenses/gpl-3.0.html>
  */
 
-require_once('IPage.interface.php');
 class Page {
 	const FILENAME  = '/^(\w+)Page\.class\.php$/';
 	const CLASSNAME = '/^(\w+)Page$/';
