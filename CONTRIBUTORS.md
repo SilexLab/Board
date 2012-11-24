@@ -24,4 +24,5 @@ Short-term Contributions
 ------------------------
 These contributors have made specific changes for a particular bug fix or feature.
 
+* Janek Ostendorf (ozzy) \<ozzy2345de@gmail.com\>
 * Yared Hufkens (Malachite) \<yared@malachite.de.vu\>
