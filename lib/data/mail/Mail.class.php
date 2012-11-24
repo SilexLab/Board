@@ -1,8 +1,8 @@
 <?php
 /**
- * @author    Janek Ostendorf (ozzy) <ozzy2345de@gmail.com>
- * @copyright Copyright (c) Janek Ostendorf
- * @license   http://opensource.org/licenses/gpl-3.0.html GNU General Public License, version 3
+ * @author     SilexBB
+ * @copyright  2011 - 2012 Silex Bulletin Board
+ * @license    GPL version 3 <http://www.gnu.org/licenses/gpl-3.0.html>
  */
 class Mail {
 
