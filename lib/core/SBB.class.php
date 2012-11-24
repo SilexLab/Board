@@ -15,7 +15,7 @@ class SBB {
 		$Menu     = null,
 		$Page     = null,
 		$User     = null;
-	
+
 	/**
 	 * Initial
 	 * @return void
@@ -31,7 +31,8 @@ class SBB {
 		Listener::Check();
 		SessionGarbageCollector::Collect();
 		self::$Menu = Menu::GetInstance();
-		
+		Mail::Init();
+
 		// Pre-output
 		self::AssignDefault();
 
@@ -46,7 +47,7 @@ class SBB {
 	public static final function User() {
 		return self::$User;
 	}
-	
+
 	/**
 	 * Returns the config value
 	 * @param  string $Node
@@ -57,7 +58,7 @@ class SBB {
 			self::$Config = new Config();
 		return self::$Config->Get($Node);
 	}
-	
+
 	/**
 	 * Returns the database object
 	 * @return Database
@@ -67,7 +68,7 @@ class SBB {
 			self::$Database = Database::GetDatabase();
 		return self::$Database;
 	}
-	
+
 	/**
 	 * Returns the Template wrapper object
 	 * @return Template
@@ -93,7 +94,7 @@ class SBB {
 	public static final function Style() {
 		return self::$Style;
 	}
-	
+
 	/**
 	 * Handles uncatched exceptions and calls the Show() method in the given cases
 	 * @param Exception	$e
