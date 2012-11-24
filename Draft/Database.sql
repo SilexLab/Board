@@ -183,7 +183,7 @@ CREATE TABLE IF NOT EXISTS `package` (
   `Author` varchar(255) NOT NULL,
   `Website` varchar(255) NOT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
 INSERT INTO `package` (`ID`, `PackageNode`, `PackageName`, `ParentID`, `Author`, `Website`) VALUES
 (1, 'sbb.core', 'Silex Bulletin Board Core', 0, 'Patrick Kleinschmidt', 'http://www.silexboard.org/');

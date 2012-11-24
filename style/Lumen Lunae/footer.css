@@ -1,7 +1,7 @@
 footer {
 	color: #ffffff;
 	text-shadow: 0 0 4px #000000;
-	background: #1B1B1B url(images/footer.png) center top repeat;
+	background: #1B1B1B url('images/bg_footer.png') center top repeat;
 	border-top: 2px solid #ffffff;
 	padding: 30px 0 0 0;
 }
@@ -91,7 +91,7 @@ footer {
 		footer .progress {
 			width: 0px;
 			height: 4px;
-			background: #558FA4 url('images/progressbar_overlay.png') repeat-y right center;
+			background: #558FA4 url('images/progressbar-overlay.png') repeat-y right center;
 			border-radius: 1px;
 		}
 			footer .progress .shine {
@@ -99,7 +99,7 @@ footer {
 				width: 40px;
 				margin: -4px -2px -4px 0;
 				float: right;
-				background: transparent url('images/progressbar_shine.png') no-repeat right center;
+				background: transparent url('images/progressbar-shine.png') no-repeat right center;
 			}
 
 	footer .Legal {

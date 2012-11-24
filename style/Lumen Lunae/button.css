@@ -17,7 +17,7 @@
 
 /* small buttons */
 .s_button {
-	background: #ffffff url('images/button_gradient.svg');
+	background: #ffffff url('images/gradient/button.svg');
 	box-shadow: 0 0 1px 1px rgba(255, 255, 255, 0.5) inset;
 	height: 12px;
 	min-width: 12px;
@@ -35,12 +35,12 @@
 	-webkit-user-select: none;
 }
 .s_button:hover {
-	background: #e1ffff url('images/button_hover_gradient.svg');
+	background: #e1ffff url('images/gradient/button_hover.svg');
 	box-shadow: 0 0 4px rgba(225, 255, 255, 0.3), 0 0 1px 1px rgba(255, 255, 255, 0.3) inset;
 	color: #003333;
 }
 .s_button:active {
-	background: #D4E4F3 url('images/button_active_gradient.svg');
+	background: #D4E4F3 url('images/gradient/button_active.svg');
 	box-shadow: 0 0 1px 1px rgba(200, 255, 255, 0.5) inset;
 }
 
@@ -66,7 +66,7 @@
 
 /* normal button */
 .button {
-	background: #ffffff url('images/button_gradient.svg') center center no-repeat;
+	background: #ffffff url('images/gradient/button.svg') center center no-repeat;
 	/*border: 1px solid #c4c4c4;*/
 	border: 1px solid rgba(0,0,0,0.2);
 	background-origin: border-box;
@@ -115,17 +115,17 @@
 }
 .button.orange {
 	background-color: #f35c3b;
-	background-image: url('images/button_orange_gradient.svg');
+	background-image: url('images/gradient/button_orange.svg');
 }
 .button.red {
 	background-color: #dc5f59;
-	background-image: url('images/button_red_gradient.svg');
+	background-image: url('images/gradient/button_red.svg');
 }
 .button.green {
 	background-color: #69d344;
-	background-image: url('images/button_green_gradient.svg');
+	background-image: url('images/gradient/button_green.svg');
 }
 .button.blue {
 	background-color: #599bdc;
-	background-image: url('images/button_blue_gradient.svg');
+	background-image: url('images/gradient/button_blue.svg');
 }

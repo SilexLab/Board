@@ -3,7 +3,7 @@
 */
 
 .bread_crumbs {
-	background: #818f99;
+	background: #818f99 url('images/pattern_dot.png');
 	height: 36px;
 	border: 1px solid #0B334C;
 	white-space: nowrap;
@@ -18,7 +18,7 @@
 	float: left;
 }
 .crumb {
-	background: #3f6f8e url(images/container_head_gradient.svg);
+	background: #3f6f8e url('images/gradient/container_head.svg');
 	background-origin: border-box;
 	height: 34px;
 	line-height: 34px;
@@ -38,7 +38,7 @@
 	content: "";
 	height: 36px;
 	width: 14px;
-	background: transparent url(images/crumb_arrow.png) no-repeat left 0px;
+	background: transparent url('images/sprite_crumb-arrow.png') no-repeat left 0px;
 	display: block;
 	float: right;
 	position: relative;

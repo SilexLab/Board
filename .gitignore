@@ -5,7 +5,8 @@
 /.htaccess
 /lib/cache/*
 /templates/compiled/*
-
 /lib/config.inc.php
 /desktop.ini
 /test.php
+/style/*/*/draft/*
+/style/*/design pattern.psd

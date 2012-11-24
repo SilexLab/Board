@@ -14,7 +14,7 @@ body {
 	padding: 0;
 	font: normal normal normal 75% Arial, Helvetica, sans-serif;
 	line-height: 1.2;
-	background: #1B1B1B url(images/background.png) center top repeat;
+	background: #1B1B1B url('images/bg_body.png') center top repeat;
 	color: #d0d0d0;
 	font-smooth: always;
 }
@@ -66,7 +66,7 @@ section.content {
 	padding: 35px 0 40px 0;
 	/*background: #ddeaff url(images/content_background.png) center top repeat-x;*/
 	background: #ddeaff;
-	box-shadow: 0 30px 30px 30px rgba(0,0,0,0.8);
+	box-shadow: 0 30px 30px 30px rgba(0,0,0,0.6);
 }
 
 .site_container {
@@ -95,7 +95,7 @@ section.content {
 		border-bottom-right-radius: 3px;
 	}
 	.container_head {
-		background: #3f6f8e url(images/container_head_gradient.svg);
+		background: #3f6f8e url('images/gradient/container_head.svg');
 		color: #efefef;
 		text-shadow: 0 1px 3px rgba(0,0,0,.5);
 		text-align: center;
@@ -139,7 +139,7 @@ section.content {
 				width: 64px;
 				margin: 0 auto 5px auto;
 				padding: 0;
-				background: url("icons/w_64_circle.png") center center no-repeat;
+				background: url('icons/w_64_circle.png') center center no-repeat;
 			}
 		.container_head .step_bar {
 			height: 33px;
@@ -160,7 +160,7 @@ section.content {
 				.step_bar .step_bullet {
 					height: 43px;
 					width: 43px;
-					background: url("images/step_bullet.png") center top no-repeat;
+					background: url('images/sprite_step-bullet.png') center top no-repeat;
 					margin-left: -22px;
 					margin-top: -5px;
 					line-height: 43px;
@@ -202,7 +202,7 @@ section.content {
 		color: #000000;
 	}
 	.container_footer {
-		background: #3f6f8e;
+		background: #3f6f8e url('images/pattern_dot.png');
 		border: 1px solid #0B334C;
 		border-top: none;
 		color: #ffffff;

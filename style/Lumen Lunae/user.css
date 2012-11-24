@@ -69,7 +69,7 @@ table.userlist {
 	}
 .container_content .signature {
 	padding: 20px 40px;
-	background-image: url('images/quote_start.png'), url('images/quote_end.png');
+	background-image: url('images/quote-start.png'), url('images/quote-end.png');
 	background-position: left bottom, right top;
 	background-repeat: no-repeat;
 	max-height: 100px;

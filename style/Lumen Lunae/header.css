@@ -1,5 +1,5 @@
 section.user_bar {
-	background: #111111 url(images/userbar.png) center bottom repeat;
+	background: #111111 url('images/bg_userbar.png') center bottom repeat;
 	border-bottom: 1px solid #6588ad;
 	/*height: 26px;*/
 	width: 100%;
@@ -44,13 +44,13 @@ section.user_bar {
 					color: #98ffff
 				}
 			.user_tabs li#username a {
-				background-image: url(icons/w_16_single_user.png);
+				background-image: url('icons/w_16_single_user.png');
 			}
 			.user_tabs li#settings a {
-				background-image: url(icons/w_16_settings.png);
+				background-image: url('icons/w_16_settings.png');
 			}
 			.user_tabs li#logout input[type=submit] {
-				background-image: url(icons/w_16_off.png);
+				background-image: url('icons/w_16_off.png');
 			}
 
 #login_bar_handle {
@@ -58,7 +58,7 @@ section.user_bar {
 	display: block;
 }
 	#login_bar_handle #login_bar_toggle {
-		background: #111111 url(images/userbar.png) center top repeat;
+		background: #111111 url('images/bg_userbar.png') center top repeat;
 		color: #ffffff;
 		text-shadow: 0 0 4px #000000;
 		display: inline-block;
@@ -72,7 +72,7 @@ section.user_bar {
 		}
 	#login_bar_inner {
 		display: block;
-		background: url(icons/w_16_key.png) 8px center no-repeat;
+		background: url('icons/w_16_key.png') 8px center no-repeat;
 		padding: 8px 12px 12px 30px;
 	}
 
@@ -130,7 +130,7 @@ section.user_bar {
 			display: inline-block;
 			height: 24px;
 			width: 24px;
-			background: url(images/w_checkbox.png) left top no-repeat;
+			background: url('images/w_checkbox.png') left top no-repeat;
 			margin: -6px -3px -2px 0;
 		}
 			.wrap input[type=checkbox] + label:hover {
@@ -157,7 +157,7 @@ section.user_bar {
 			display: inline-block;
 			height: 16px;
 			width: 16px;
-			background: url(images/w_radiobutton.png) left top no-repeat;
+			background: url('images/sprite_radiobutton.png') left top no-repeat;
 			margin: 4px 5px -2px 0;
 		}
 			.wrap input[type=radio] + label:hover {
@@ -191,10 +191,10 @@ section.user_bar {
 		padding: 0 4px 0 22px;
 	}
 		.wrap input[type=text] {
-			background-image: url(icons/w_16_user.png);
+			background-image: url('icons/w_16_user.png');
 		}
 		.wrap input[type=password] {
-			background-image: url(icons/w_16_key.png);
+			background-image: url('icons/w_16_key.png');
 		}
 	.wrap input[type=text]:hover, .wrap input[type=password]:hover {
 		border-color: #558fa4;
@@ -204,7 +204,7 @@ section.user_bar {
 	}
 
 	.wrap input[type=submit] {
-		background: transparent url(icons/w_16_off.png) no-repeat 4px center;
+		background: transparent url('icons/w_16_off.png') no-repeat 4px center;
 		box-shadow: inset 0 0 4px #000000, 0 0 4px #000000;
 		color: #ffffff;
 		padding: 3px 10px 3px 22px;
@@ -221,7 +221,7 @@ section.user_bar {
 	}
 
 header {
-	background: #3c4a58 url(images/header.png) repeat-x center top;
+	background: #3c4a58 url('images/bg_header.png') repeat-x center top;
 	margin-top: 11px;
 	padding-bottom: 40px;
 }
@@ -314,7 +314,7 @@ nav.menu .menu_list li.active a {
 	border: 2px solid rgba(255, 255, 255, 0.005); /* 0.005 is nearly 0, and fixes the firefox issue */
 	border-bottom: none;
 	width: 200px;
-	height: 25px;
+	height: 26px;
 	background: rgba(0, 0, 0, 0.3);
 	overflow: hidden;
 	margin: -28px 10px 4px 0;
@@ -334,7 +334,7 @@ nav.menu .menu_list li.active a {
 	width: 168px;
 }
 #search_form #search_submit {
-	background: transparent url(images/w_18_magnifying_glass.png) no-repeat left 0;
+	background: transparent url('images/sprite_magnifying-glass.png') no-repeat left 0;
 	border: 0px none;
 	display: block;
 	float: right;

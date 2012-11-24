@@ -10,7 +10,7 @@ article.post:first-child {
 }
 
 .post .folded_text {
-	background: #dddddd url('images/b_scanlines_background.png') 0px center repeat;
+	background: #dddddd url('images/pattern_scanlines.png') 0px center repeat;
 	box-shadow: 0 0 1px #ffffff inset;
 	padding: 3px 6px;
 	color: #000000;
@@ -75,7 +75,7 @@ article.post:first-child {
 
 
 .post_container {
-	background: #E9F9FF;
+	background: #E9F9FF url('images/pattern_dot.png');
 	box-shadow: 0 0 1px #ffffff inset;
 }
 .post_container.user_online {
@@ -87,7 +87,7 @@ article.post:first-child {
 	clear: both;
 }
 .folded .post_container {
-	background: #ffe9e9 url('images/b_scanlines_background.png') center center repeat;
+	background: #ffe9e9 url('images/pattern_scanlines.png') center center repeat;
 }
 
 .post_user_info {
