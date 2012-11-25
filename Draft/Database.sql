@@ -142,14 +142,15 @@ CREATE TABLE IF NOT EXISTS `groups` (
   `Color` varchar(8) NOT NULL,
   `Icon` varchar(256) NOT NULL,
   `Rank` tinyint(4) NOT NULL,
+  `Parent` mediumint(8) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
 
-INSERT INTO `groups` (`ID`, `GroupName`, `Image`, `Color`, `Icon`, `Rank`) VALUES
-(1, 'Administrator', '', '#0B334C', '', 1),
-(2, 'Moderator', '', '#d44024', '', 3),
-(3, 'User', '', '', '', 5),
-(4, 'Guest', '', '#808080', '', 10);
+INSERT INTO `groups` (`ID`, `GroupName`, `Image`, `Color`, `Icon`, `Rank`, `Parent`) VALUES
+(1, 'Administrator', '', '#0B334C', '', 1, 0),
+(2, 'Moderator', '', '#d44024', '', 3, 0),
+(3, 'User', '', '', '', 5, 0),
+(4, 'Guest', '', '#808080', '', 10, 0);
 
 DROP TABLE IF EXISTS `group_permissions`;
 CREATE TABLE IF NOT EXISTS `group_permissions` (

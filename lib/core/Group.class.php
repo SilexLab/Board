@@ -25,17 +25,25 @@ class Group {
 			throw new DatabaseException('The group with ID '.$GroupID.' can\'t be fetched.');
 		}
 		$GroupInfo = $Statement->fetch(PDO::FETCH_OBJ);
-		$this->ID = $GroupID;
+		$this->ID = (int)$GroupID;
 		$this->Name = $GroupInfo->GroupName;
 		$this->Image = $GroupInfo->Image;
 		$this->Color = $GroupInfo->Color;
 		$this->Icon = $GroupInfo->Icon;
 	}
 
+	/**
+	 * Get the group id
+	 * @return int
+	 */
 	public function ID() {
 		return $this->ID;
 	}
 
+	/**
+	 * Get the name of the group
+	 * @return string
+	 */
 	public function Name() {
 		return $this->Name;
 	}
