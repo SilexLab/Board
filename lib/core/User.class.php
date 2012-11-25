@@ -6,11 +6,17 @@
  */
 
 class User {
-	protected $Name, $ID, $LoggedIn;
-	protected $Info = array();
-	protected $Permission = array();
+	protected $Name;
+	protected $ID;
+	protected $LoggedIn;
+	protected $Group;
+
+	protected $Permission;
+
+	protected $Info = [];
 
 	public function __construct() {
+		/* Get general information about the user */
 		if(Session::Get('UserID')) { // User seems to be logged in
 			$Result = SBB::DB()->prepare('SELECT * FROM `users` WHERE `ID` = :UserID');
 			$Result->execute([':UserID' => Session::Get('UserID')]);
@@ -18,17 +24,25 @@ class User {
 				// Do Logout
 				Session::Destroy();
 				$this->__construct();
-			} else { // User is logged in
-				$UserInfo = $Result->fetch(PDO::FETCH_OBJ);
-				$this->Name = $UserInfo->Username;
-				$this->ID = $UserInfo->ID;
-				$this->LoggedIn = true;
+				return;
 			}
+			// User is logged in
+			$UserInfo = $Result->fetch(PDO::FETCH_OBJ);
+			$this->Name = $UserInfo->Username;
+			$this->ID = $UserInfo->ID;
+			$this->LoggedIn = true;
+			$this->Group = new Group((int)$UserInfo->GroupID);
 		} else { // Not logged in
 			$this->Name = Language::Get('sbb.user.guest');
 			$this->ID = 0;
 			$this->LoggedIn = false;
+			$this->Group = new Group((int)SBB::Config('user.group.guest'));
 		}
+
+		/* Get permissions */
+		$this->Permission = new Permission($this->ID, $this->Group->ID());
+
+		/* Assign template vars */
 		SBB::Template()->Assign(['User' => ['ID' => (int)$this->ID, 'Name' => $this->Name]]);
 	}
 
@@ -57,7 +71,15 @@ class User {
 	 * @return mixed
 	 */
 	public function Permission($Node) {
-		return isset($this->Permission[$Node]) ? $this->Permission[$Node] : null;
+		return $this->Permission->Get($Node);
+	}
+
+	/**
+	 * Get the group
+	 * @return Group
+	 */
+	public function Group() {
+		return $this->Group;
 	}
 
 	/**

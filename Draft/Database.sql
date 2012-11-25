@@ -107,49 +107,60 @@ CREATE TABLE IF NOT EXISTS `board_permissions_user` (
 
 DROP TABLE IF EXISTS `config`;
 CREATE TABLE IF NOT EXISTS `config` (
-  `Package` smallint(6) NOT NULL,
   `ConfigNode` varchar(255) NOT NULL,
   `CategoryNode` varchar(255) NOT NULL,
   `ConfigValue` varchar(255) NOT NULL,
   `ValueType` varchar(16) NOT NULL,
+  `Package` tinyint(4) NOT NULL,
   PRIMARY KEY (`ConfigNode`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-INSERT INTO `config` (`Package`, `ConfigNode`, `CategoryNode`, `ConfigValue`, `ValueType`) VALUES
-(1, 'page.language.default', 'page', 'de', 'string(11)'),
-(1, 'page.timezone', 'page', 'Europe/Berlin', 'string(255)'),
-(1, 'page.title', 'page', 'Silex Bulletin Board', 'string(255)'),
-(1, 'page.uri_format', 'page', '1', 'int(1)'),
-(1, 'style.default', 'style', 'Lumen Lunae', 'string(255)'),
-(1, 'system.cache.dir', 'system', '', 'string(255)'),
-(1, 'user.autologout', 'user', '3600', 'int(8)'),
-(1, 'user.session.autologout_probability', 'user.session', '25', 'int(3)'),
-(1, 'user.session.cookie_time', 'user.session', '86400', 'int(8)'),
-(1, 'user.session.name', 'user.session', 'SBB', 'string(255)'),
-(1, 'mail.method', 'mail', 'PHP', 'string(255)'),
-(1, 'mail.smtp.server', 'mail.smtp', '', 'string(255)'),
-(1, 'mail.smtp.port', 'mail.smtp', '', 'int(8)'),
-(1, 'mail.smtp.user', 'mail.smtp', '', 'string(255)'),
-(1, 'mail.smtp.password', 'mail.smtp', '', 'string(255)');
+INSERT INTO `config` (`ConfigNode`, `CategoryNode`, `ConfigValue`, `ValueType`, `Package`) VALUES
+('mail.method', 'mail', 'PHP', 'string(255)', 1),
+('mail.smtp.password', 'mail.smtp', '', 'string(255)', 1),
+('mail.smtp.port', 'mail.smtp', '', 'int(8)', 1),
+('mail.smtp.server', 'mail.smtp', '', 'string(255)', 1),
+('mail.smtp.user', 'mail.smtp', '', 'string(255)', 1),
+('page.language.default', 'page', 'de', 'string(11)', 1),
+('page.timezone', 'page', 'Europe/Berlin', 'string(255)', 1),
+('page.title', 'page', 'Silex Bulletin Board', 'string(255)', 1),
+('page.uri_format', 'page', '1', 'int(1)', 1),
+('style.default', 'style', 'Lumen Lunae', 'string(255)', 1),
+('system.cache.dir', 'system', '', 'string(255)', 1),
+('user.autologout', 'user', '3600', 'int(8)', 1),
+('user.group.guest', 'user.group', '4', 'int(4)', 1),
+('user.group.registered', 'user.group', '3', 'int(4)', 1),
+('user.session.autologout_probability', 'user.session', '25', 'int(3)', 1),
+('user.session.cookie_time', 'user.session', '86400', 'int(8)', 1),
+('user.session.name', 'user.session', 'SBB', 'string(255)', 1);
 
 DROP TABLE IF EXISTS `groups`;
 CREATE TABLE IF NOT EXISTS `groups` (
-  `ID` mediumint(9) NOT NULL AUTO_INCREMENT,
-  `GroupName` text NOT NULL,
-  `Image` text NOT NULL,
+  `ID` mediumint(9) unsigned NOT NULL AUTO_INCREMENT,
+  `GroupName` varchar(256) NOT NULL,
+  `Image` varchar(256) NOT NULL,
   `Color` varchar(8) NOT NULL,
-  `Icon` text NOT NULL,
-  `Type` tinyint(4) NOT NULL,
+  `Icon` varchar(256) NOT NULL,
+  `Rank` tinyint(4) NOT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
+
+INSERT INTO `groups` (`ID`, `GroupName`, `Image`, `Color`, `Icon`, `Rank`) VALUES
+(1, 'Administrator', '', '#0B334C', '', 1),
+(2, 'Moderator', '', '#d44024', '', 3),
+(3, 'User', '', '', '', 5),
+(4, 'Guest', '', '#808080', '', 10);
 
 DROP TABLE IF EXISTS `group_permissions`;
 CREATE TABLE IF NOT EXISTS `group_permissions` (
   `GroupID` mediumint(9) NOT NULL,
   `PermissionID` mediumint(9) NOT NULL,
-  `OptionValue` text NOT NULL,
+  `PermissionValue` smallint(6) NOT NULL,
   PRIMARY KEY (`GroupID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+INSERT INTO `group_permissions` (`GroupID`, `PermissionID`, `PermissionValue`) VALUES
+(1, 1, 1);
 
 DROP TABLE IF EXISTS `language`;
 CREATE TABLE IF NOT EXISTS `language` (
@@ -181,10 +192,10 @@ INSERT INTO `menu` (`ID`, `MenuName`, `Target`, `Position`, `Permission`) VALUES
 
 DROP TABLE IF EXISTS `package`;
 CREATE TABLE IF NOT EXISTS `package` (
-  `ID` smallint(6) NOT NULL AUTO_INCREMENT,
+  `ID` tinyint(4) NOT NULL AUTO_INCREMENT,
   `PackageNode` varchar(255) NOT NULL,
   `PackageName` varchar(255) NOT NULL,
-  `ParentID` smallint(6) NOT NULL DEFAULT '0',
+  `ParentID` tinyint(4) NOT NULL DEFAULT '0',
   `Author` varchar(255) NOT NULL,
   `Website` varchar(255) NOT NULL,
   PRIMARY KEY (`ID`)
@@ -196,14 +207,17 @@ INSERT INTO `package` (`ID`, `PackageNode`, `PackageName`, `ParentID`, `Author`,
 DROP TABLE IF EXISTS `permissions`;
 CREATE TABLE IF NOT EXISTS `permissions` (
   `ID` mediumint(9) NOT NULL AUTO_INCREMENT,
-  `PermissionName` text NOT NULL,
-  `CategoryName` text NOT NULL,
-  `Type` varchar(8) NOT NULL,
-  `DefaultValue` text NOT NULL,
-  `Package` smallint(6) NOT NULL,
-  `Position` tinyint(4) NOT NULL,
+  `PermissionNode` varchar(256) NOT NULL,
+  `CategoryName` varchar(256) NOT NULL,
+  `Type` varchar(16) NOT NULL DEFAULT 'bool',
+  `DefaultValue` smallint(6) NOT NULL DEFAULT '0',
+  `Package` tinyint(4) NOT NULL,
+  `Position` tinyint(4) NOT NULL DEFAULT '0',
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+
+INSERT INTO `permissions` (`ID`, `PermissionNode`, `CategoryName`, `Type`, `DefaultValue`, `Package`, `Position`) VALUES
+(1, 'global.allow_all', '', 'bool', 0, 1, 0);
 
 DROP TABLE IF EXISTS `pm`;
 CREATE TABLE IF NOT EXISTS `pm` (
@@ -360,14 +374,14 @@ CREATE TABLE IF NOT EXISTS `users` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 INSERT INTO `users` (`ID`, `Username`, `Password`, `Salt`, `GroupID`, `Email`, `ActivationKey`, `Joined`, `OnlineTime`, `Banned`, `Homepage`, `Signature`, `Language`, `LastActivity`, `Birthday`, `Posts`, `Threads`) VALUES
-(1, 'admin', 'cf8dbc7a1eaadcf0a63bafbaec4cc2bc0ee1c390', 'aecca3db58bff495a3429d714d766c9d8770754d', 0, 'admin@silexboard.org', 'e1e2f6c8795a79e', 1317503300, 0, 0, '', 'Des Admins Signatur steht hier.', '', 0, 0, 0, 0),
-(2, 'user', '9cdb86abb28e5eebedeb14838dc074418a0d8f14', '630dd14c99e0c6efb1a344c0a73a28b0d99fbb81', 0, 'user@silexboard.org', 'fc973531e7e287b', 1317503334, 0, 0, '', '', '', 0, 0, 0, 0);
+(1, 'admin', 'cf8dbc7a1eaadcf0a63bafbaec4cc2bc0ee1c390', 'aecca3db58bff495a3429d714d766c9d8770754d', 1, 'admin@silexboard.org', 'e1e2f6c8795a79e', 1317503300, 0, 0, '', 'Des Admins Signatur steht hier.', '', 0, 0, 0, 0),
+(2, 'user', '9cdb86abb28e5eebedeb14838dc074418a0d8f14', '630dd14c99e0c6efb1a344c0a73a28b0d99fbb81', 3, 'user@silexboard.org', 'fc973531e7e287b', 1317503334, 0, 0, '', '', '', 0, 0, 0, 0);
 
 DROP TABLE IF EXISTS `user_permissions`;
 CREATE TABLE IF NOT EXISTS `user_permissions` (
   `UserID` mediumint(9) unsigned NOT NULL,
   `PermissionID` mediumint(9) unsigned NOT NULL,
-  `OptionValue` text NOT NULL,
+  `PermissionValue` smallint(6) NOT NULL,
   PRIMARY KEY (`UserID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 

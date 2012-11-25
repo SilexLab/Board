@@ -14,9 +14,8 @@ body {
 	padding: 0;
 	font: normal normal normal 75% Arial, Helvetica, sans-serif;
 	line-height: 1.2;
-	background: #1B1B1B url('images/bg_body.png') center top repeat;
+	background: #202020 url('images/bg_body.png') center top repeat;
 	color: #d0d0d0;
-	font-smooth: always;
 }
 
 section, header, footer, nav {
