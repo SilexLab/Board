@@ -13,133 +13,133 @@ class Post {
 	 * ID of this post
 	 * @var int
 	 */
-	private $Id = 0;
+	protected $Id = 0;
 
 	/**
 	 * ID of the thread this post is in
 	 * @var int
 	 */
-	private $ThreadId = 0;
+	protected $ThreadId = 0;
 
 	/**
 	 * Object of the thread this post is in
 	 * @var Thread
 	 */
-	private $Thread = null;
+	protected $Thread = null;
 
 	/**
 	 * ID of the creator
 	 * @var int
 	 */
-	private $UserId = 0;
+	protected $UserId = 0;
 
 	/**
 	 * Object of the creator
 	 * @var User
 	 */
-	private $User = null;
+	protected $User = null;
 
 	/**
 	 * Subject of this post
 	 * @var string
 	 */
-	private $Subject = '';
+	protected $Subject = '';
 
 	/**
 	 * Message of this post
 	 * @var string
 	 */
-	private $Message = '';
+	protected $Message = '';
 
 	/**
 	 * Time of creation
 	 * @var int
 	 */
-	private $Time = 0;
+	protected $Time = 0;
 
 	/**
 	 * Time of last edit
 	 * @var int
 	 */
-	private $LastEdit = 0;
+	protected $LastEdit = 0;
 
 	/**
 	 * ID of the editor
 	 * @var int
 	 */
-	private $EditorId = 0;
+	protected $EditorId = 0;
 
 	/**
 	 * Object of the editor
 	 * @var User
 	 */
-	private $Editor = null;
+	protected $Editor = null;
 
 	/**
 	 * Poll ID
 	 * @var int
 	 */
-	private $PollId = 0;
+	protected $PollId = 0;
 
 	/**
 	 * Object of the poll
 	 * @var Poll
 	 */
-	private $Poll = null; // TODO: Make a poll class
+	protected $Poll = null; // TODO: Make a poll class
 
 	/**
 	 * IP address of the creator
 	 * @var string
 	 */
-	private $IpAddress = '';
+	protected $IpAddress = '';
 
 	/**
 	 * Is this post disabled?
 	 * @var bool
 	 */
-	private $Disabled = false;
+	protected $Disabled = false;
 
 	/**
 	 * Is this post closed?
 	 * @var bool
 	 */
-	private $Closed = false;
+	protected $Closed = false;
 
 	/**
 	 * Is this post deleted?
 	 * @var bool
 	 */
-	private $Deleted = false;
+	protected $Deleted = false;
 
 	/**
 	 * Reason for deletion
 	 * @var string
 	 */
-	private $DeleteReason = '';
+	protected $DeleteReason = '';
 
 	/**
 	 * Time of deletion
 	 * @var int
 	 */
-	private $DeleteTime = 0;
+	protected $DeleteTime = 0;
 
 	/**
 	 * Smileys enabled?
 	 * @var bool
 	 */
-	private $Smileys = false;
+	protected $Smileys = false;
 
 	/**
 	 * HTML enabled?
 	 * @var bool
 	 */
-	private $Html = false;
+	protected $Html = false;
 
 	/**
 	 * SilexCode (Markdown) enabled?
 	 * @var bool
 	 */
-	private $SilexCode = false;
+	protected $SilexCode = false;
 
 
 	/**
@@ -147,7 +147,7 @@ class Post {
 	 * @param int $Type
 	 * @param mixed $Input Row or ID of the post
 	 */
-	public function __construct(int $Type, $Input) {
+	public function __construct($Type, $Input) {
 
 		switch($Type) {
 
@@ -167,12 +167,17 @@ class Post {
 	/**
 	 * Fetch by given ID
 	 */
-	private function Fetch() {
+	protected function Fetch() {
 
-		$Query = SBB::DB()->prepare('SELECT * FROM `thread` WHERE `ID` = :ID');
+		$Query = SBB::DB()->prepare('SELECT * FROM `post` WHERE `ID` = :ID');
 		$Query->execute([':ID' => $this->Id]);
 
-		$this->FetchRow($Query->fetch(PDO::FETCH_OBJ));
+		$Result = $Query->fetch(PDO::FETCH_OBJ);
+
+		if(!$Result)
+			return false;
+
+		$this->FetchRow($Result);
 
 	}
 
@@ -180,9 +185,9 @@ class Post {
 	 * Fetch by given row from DB
 	 * @param stdClass $Row
 	 */
-	private function FetchRow(stdClass $Row) {
+	protected function FetchRow(stdClass $Row) {
 
-		if($this->Id != 0)
+		if($this->Id == 0)
 			$this->Id = $Row->ID;
 
 		// Split it up and save
@@ -255,9 +260,7 @@ class Post {
 
 	}
 	
-	/*
-	 * ###### GETTERS ######
-	 */
+	/* Getters */
 
 	/**
 	 * @return boolean
@@ -371,7 +374,7 @@ class Post {
 	 */
 	public function GetThread() {
 		if($this->Thread == null)
-			$this->Thread = new Thread($this->ThreadId);
+			$this->Thread = new Thread(Thread::GIVEN_ID, $this->ThreadId);
 		return $this->Thread;
 	}
 
@@ -391,9 +394,7 @@ class Post {
 		return $this->User;
 	}
 	
-	/*
-	 * ##### SETTERS ######
-	 */
+	/* Setters */
 
 	/**
 	 * @param boolean $Closed

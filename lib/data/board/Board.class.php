@@ -23,135 +23,141 @@ class Board {
 	 * ID of this Board
 	 * @var int
 	 */
-	private $Id = 0;
+	protected $Id = 0;
 
 	/**
 	 * ID of the parent board. 0 for none
 	 * @var int
 	 */
-	private $ParentId = 0;
+	protected $ParentId = 0;
 
 	/**
 	 * Is this a category, board or link? See Board::TYPE_* constants
 	 * @var int
 	 */
-	private $Type = 0;
+	protected $Type = 0;
 
 	/**
 	 * Object of the parent board. null for none
 	 * @var Board
 	 */
-	private $ParentBoard = null;
+	protected $ParentBoard = null;
 
 	/**
 	 * Title of this board
 	 * @var string
 	 */
-	private $Title = '';
+	protected $Title = '';
 
 	/**
 	 * Description of this board
 	 * @var string
 	 */
-	private $Desc = '';
+	protected $Desc = '';
 
 	/**
 	 * If this is of TYPE_LINK, the link
 	 * @var string
 	 */
-	private $Link = '';
+	protected $Link = '';
 
 	/**
 	 * Positioning order
 	 * @var int
 	 */
-	private $Position = 0;
+	protected $Position = 0;
 
 	/**
 	 * Image of this board
 	 * @var string
 	 */
-	private $Image = '';
+	protected $Image = '';
 
 	/**
 	 * @var string
 	 */
-	private $ImageNew = '';
+	protected $ImageNew = '';
 
 	/**
 	 * Prefixes of this board
 	 * @var array
 	 */
-	private $Prefixes = [];
+	protected $Prefixes = [];
 
 	/**
 	 * Are prefixes required for threads in this board?
 	 * @var bool
 	 */
-	private $PrefixesRequired = false;
+	protected $PrefixesRequired = false;
 
 	/**
 	 * Number of views in this board
 	 * @var int
 	 */
-	private $Views = 0;
+	protected $Views = 0;
 
 	/**
 	 * Number of threads in this board
 	 * @var int
 	 */
-	private $NumThreads = 0;
+	protected $NumThreads = 0;
 
 	/**
 	 * Number of posts in this board
 	 * @var int
 	 */
-	private $NumPosts = 0;
+	protected $NumPosts = 0;
 
 	/**
 	 * @var bool
 	 */
-	private $MarkingAsDone = false;
+	protected $MarkingAsDone = false;
 
 	/**
 	 * Is it closed and locked?
 	 * @var bool
 	 */
-	private $Closed = false;
+	protected $Closed = false;
 
 	/**
 	 * Is this board visible at all?
 	 * @var bool
 	 */
-	private $Visible = true;
+	protected $Visible = true;
 
 	/**
 	 * Is this a news board?
 	 * @var bool
 	 */
-	private $News = false;
+	protected $News = false;
 
 	/**
 	 * ID of the last post in this board
 	 * @var int
 	 */
-	private $LastPostId = 0;
+	protected $LastPostId = 0;
 
 	/**
 	 * Object of the last post
 	 * @var Post
 	 */
-	private $LastPost = null;
+	protected $LastPost = null;
 
 	/**
-	 * Children of this board
+	 * Children of this board. Buffer for GetChildren()
 	 * @var array
 	 */
-	private $Children = [];
+	protected $Children = [];
+
+	/**
+	 * Buffer for GetThreads()
+	 * @var array
+	 */
+	protected $Threaeds = [];
 	
 	
 	
-	public function __construct(int $Type, $Input) {
+	public function __construct($Type, $Input) {
 		
 		switch($Type) {
 			
@@ -171,12 +177,17 @@ class Board {
 	/**
 	 * Fetch by given ID
 	 */
-	private function Fetch() {
+	protected function Fetch() {
 
 		$Query = SBB::DB()->prepare('SELECT * FROM `board` WHERE `ID` = :ID');
 		$Query->execute([':ID' => $this->Id]);
 
-		$this->FetchRow($Query->fetch(PDO::FETCH_OBJ));
+		$Result = $Query->fetch(PDO::FETCH_OBJ);
+
+		if(!$Result)
+			return false;
+
+		$this->FetchRow($Result);
 
 	}
 
@@ -184,9 +195,9 @@ class Board {
 	 * Fetch by given row from DB
 	 * @param stdClass $Row
 	 */
-	private function FetchRow(stdClass $Row) {
+	protected function FetchRow(stdClass $Row) {
 		
-		if($this->Id != 0)
+		if($this->Id == 0)
 			$this->Id = $Row->ID;
 
 		// Split it up and save
@@ -194,7 +205,7 @@ class Board {
 		$this->Type = $Row->Type;
 		$this->Title = htmlspecialchars($Row->Title);
 		$this->Desc = htmlspecialchars($Row->Description);
-		$this->Link = $this->Type == (self::TYPE_LINK ? htmlspecialchars($Row->Link) : URI::Make([['page', 'Board'], ['BoardID', $this->Id, $this->Title]]));
+		$this->Link = ($this->Type == self::TYPE_LINK ? htmlspecialchars($Row->Link) : URI::Make([['page', 'Board'], ['BoardID', $this->Id, $this->Title]]));
 		$this->Views = $Row->Views;
 		$this->NumThreads = $Row->Threads;
 		$this->NumPosts = $Row->Posts;
@@ -261,9 +272,7 @@ class Board {
 	}
 
 	
-	/*
-	 * ###### GETTERS ######
-	 */
+	/* Getters */
 
 
 	/**
@@ -271,6 +280,10 @@ class Board {
 	 * @return array
 	 */
 	public function GetChildren() {
+
+		// Is this buffered already?
+		if(!empty($this->Children))
+			return $this->Children;
 
 		$Query = SBB::DB()->prepare('SELECT * FROM `board` WHERE `ParentID` = :BoardID ORDER BY `Position`');
 		$Query->execute([':BoardID' => $this->Id]);
@@ -284,7 +297,54 @@ class Board {
 
 		}
 
+		// Save into buffer
+		$this->Children = $Children;
+
 		return $Children;
+
+	}
+
+	public function GetThreads($Start = null, $End = null) {
+
+		// Is this buffered already?
+		if(!empty($this->Threads))
+			return $this->Threads;
+
+		/* Query */
+
+		$Query = 'SELECT * FROM `thread` WHERE `BoardID` = :ID ORDER BY `Sticky` = 1 DESC, `LastPostTime` DESC';
+		$Vars = [':ID' => $this->Id];
+		if($Start != null) {
+
+			$Query .= ' LIMIT :Start';
+			$Vars[':Start'] = $Start;
+
+			if($End != null) {
+				$Query .= ',:End';
+				$Vars[':End'] = $End;
+			}
+
+		}
+
+		$Stmt = SBB::DB()->prepare($Query);
+		$Stmt->execute($Vars);
+
+		$Data = $Stmt->fetchAll(PDO::FETCH_OBJ);
+
+		// Our array of posts
+		$Threads = [];
+
+		/* Fetch them! */
+		foreach($Data as $Row) {
+
+			$Threads[] = new Thread(Thread::GIVEN_ROW, $Row);
+
+		}
+
+		// Save into buffer
+		$this->Threads = $Threads;
+
+		return $Threads;
 
 	}
 
@@ -430,9 +490,7 @@ class Board {
 	}
 	
 	
-	/*
-	 * ###### SETTERS ######
-	 */
+	/* Setters */
 
 	/**
 	 * @param boolean $Closed
