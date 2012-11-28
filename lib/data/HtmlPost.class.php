@@ -8,7 +8,7 @@
 /**
  * Handle $_POST stuff
  */
-class Post {
+class HtmlPost {
 	public static function Get($Key) {
 		return isset($_POST[$Key]) ? $_POST[$Key] : false;
 	}
