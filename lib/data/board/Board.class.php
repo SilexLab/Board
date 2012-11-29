@@ -206,7 +206,7 @@ class Board {
 		$this->Type = $Row->Type;
 		$this->Title = htmlspecialchars($Row->Title);
 		$this->Desc = htmlspecialchars($Row->Description);
-		$this->Link = ($this->Type == self::TYPE_LINK ? htmlspecialchars($Row->Link) : URI::Make([['page', 'Board'], ['BoardID', $this->Id, $this->Title]]));
+		$this->Link = ($this->Type == self::TYPE_LINK ? htmlspecialchars($Row->Link) : URI::Make([['page', 'Board'], ['BoardID', $this->Id, htmlspecialchars_decode($this->Title)]]));
 		$this->Views = $Row->Views;
 		$this->NumThreads = $Row->Threads;
 		$this->NumPosts = $Row->Posts;
