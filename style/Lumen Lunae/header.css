@@ -130,7 +130,7 @@ section.user_bar {
 			display: inline-block;
 			height: 24px;
 			width: 24px;
-			background: url('images/w_checkbox.png') left top no-repeat;
+			background: url('images/sprite_checkbox.png') left top no-repeat;
 			margin: -6px -3px -2px 0;
 		}
 			.wrap input[type=checkbox] + label:hover {
@@ -235,16 +235,12 @@ header {
 	}
 
 .slogan {
-	position: relative;
-	top: -74px;
-	left: 132px;
+	position: absolute;
+	margin: -75px 0 0 128px;
 	color: #ffffff;
 	font-weight: bold;
-	font-size: 20px;
-	line-height: 1;
-	height: 0;
-	width: 40%;
-	text-shadow: 0 0 10px black;
+	font-size: 18px;
+	text-shadow: 0 0 8px #000000;
 }
 
 /* Menu */

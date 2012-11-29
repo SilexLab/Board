@@ -64,7 +64,7 @@
 		<header class="min_size">
 			<div class="logo_block">
 				<div class="logo size">
-					<a href="{$base_url}./" title="{lang node="sbb.header.logo_title"}">
+					<a href="{$base_url}" title="{lang node="sbb.header.logo_title"}">
 						<img src="{$base_url}{$logo}" alt="Logo">
 					</a>
 					<div class="slogan">

@@ -26,7 +26,7 @@
 						</div>
 					</div>
 					<div class="board_bottom">
-						<div class="stats">{if $entry.board->GetType() == 2} (Views: {$entry.board->GetViews()}) {else} (Threads: {$entry.board->GetNumThreads()}, Posts: {$entry.board->GetNumPosts()}, Views: {$entry.board->GetViews()}){/if}</div>
+						<div class="stats">{if $entry.board->GetType() == 2} Views: {$entry.board->GetViews()} {else} Threads: {$entry.board->GetNumThreads()}, Posts: {$entry.board->GetNumPosts()}, Views: {$entry.board->GetViews()}{/if}</div>
 					</div>
 				{else}
 					<a href="{$entry.board->GetLink()}">
@@ -66,7 +66,7 @@
 										</div>
 									</div>
 									<div class="board_bottom">
-										<div class="stats">{if $sub_entry.board->GetType() == 2} (Views: {$sub_entry.board->GetViews()}) {else} (Threads: {$sub_entry.board->GetNumThreads()}, Posts: {$sub_entry.board->GetNumPosts()}, Views: {$sub_entry.board->GetViews()}){/if}</div>
+										<div class="stats">{if $sub_entry.board->GetType() == 2} Views: {$sub_entry.board->GetViews()} {else} Threads: {$sub_entry.board->GetNumThreads()}, Posts: {$sub_entry.board->GetNumPosts()}, Views: {$sub_entry.board->GetViews()}{/if}</div>
 									{if $sub_entry.sub_board}
 										<ul class="sub_sub_board">
 										{foreach $sub_entry.sub_board as $sub_sub_entry}

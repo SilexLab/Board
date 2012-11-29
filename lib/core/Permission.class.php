@@ -56,7 +56,7 @@ class Permission {
 		/* Get parent group permissions if any */
 		$Statement = SBB::DB()->prepare('SELECT `Parent` FROM `groups` WHERE `ID` = :GroupID');
 		$Statement->execute([':GroupID' => $GroupID]);
-		$GroupParent = $Statement->fetch(PDO::FETCH_OBJ)->Parent;
+		$GroupParent = (int)$Statement->fetch(PDO::FETCH_OBJ)->Parent;
 		if($GroupParent)
 			$this->GetGroupPermission($GroupParent);
 

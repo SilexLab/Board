@@ -32,7 +32,7 @@ class BoardPage implements IPage {
 			// Redirect if url-title is wrong
 			if(!$P->URI()->Check(1, htmlspecialchars_decode($Board->GetTitle()))) {
 
-				header('location: '.URI::Make([['page', 'Board'], ['BoardID', $BoardID, $Board->GetTitle()]]));
+				header('location: '.URI::Make([['page', 'Board'], ['BoardID', $BoardID, htmlspecialchars_decode($Board->GetTitle())]]));
 
 			}
 
