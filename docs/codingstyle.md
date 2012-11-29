@@ -84,19 +84,24 @@ echo $VarOutput;
 
 HTML / TPL
 ----------
+Just keep everything lower case!
+
 Example:
 
 ```html
 <div class="class_name">
-	<span id="var">{{ var_name }}</span>
-	{% if var_name > 10 %}
-		<div class="another_class_name">{{ var.arraykey }}</div>
-	{% endif %}
+	<span id="var">{$var_name}</span>
+	{if $var_name > 10}
+		<div class="another_class_name">{$var.arraykey}</div>
+	{/if}
 </div>
 ```
 
 CSS
 ---
+IDs, classes, elements, options and values are lowercase, so almost everything.
+Descendants can be indented.
+
 Example:
 
 ```css
