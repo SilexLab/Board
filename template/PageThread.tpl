@@ -1,14 +1,14 @@
 <div class="container">
-{if $Posts}
+{if $posts}
 	<ul>
-	{foreach $Posts as $Post}
+	{foreach $posts as $post}
 		<li>
-			Time: <strong>{$Post.Time}</strong><br>
+			Time: <strong>{$post->GetTime()|date_format:"%d.%m.%Y, %R"}</strong><br>
 			<br>
-			Subject: <strong>{$Post.Subject}</strong><br>
-			Message: <strong>{$Post.Message}</strong><br>
+			Subject: <strong>{$post->GetSubject()}</strong><br>
+			Message: <strong>{$post->GetMessage()}</strong><br>
 			<br>
-			User: <strong><a href="{$Post.User.Link}">{$Post.User.Name}</a></strong><br><br>
+			User: <strong><a href="{$post->GetUser()->GetLink()}">{$post->GetUser()->Name()}</a></strong><br><br>
 		</li>
 	{/foreach}
 	</ul>

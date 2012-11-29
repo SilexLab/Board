@@ -1,3 +1,3 @@
 <div class="container">
-	Hallo {$Username}
+	Hallo {$User.Name}
 </div>

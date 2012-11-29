@@ -18,8 +18,6 @@ class HomePage implements IPage {
 		// Redirect on ?page=Home
 		if($P->URI()->Get('page') == 'Home')
 			header('location: '.self::Link());
-		
-		SBB::Template()->Assign(['Username' => SBB::User()->GetName()]);
 	}
 
 	public function Link() {

@@ -24,24 +24,26 @@ class ThreadPage implements IPage {
 		$this->UF = $P->URI()->Format();
 		$ThreadID = $P->URI()->GetID(1, 'ThreadID');
 
-		if($ThreadID > 0 && Database::Count('FROM `thread` WHERE `ID` = :ID', [':ID' => $ThreadID])) {
-			$Thread = SBB::DB()->prepare('SELECT * FROM `thread` WHERE `ID` = :ID');
-			$Thread->execute([':ID' => $ThreadID]);
-			$Thread = $Thread->fetch(PDO::FETCH_OBJ);
+		$Thread = new Thread(Thread::GIVEN_ID, $ThreadID);
 
-			$this->Title = htmlspecialchars($Thread->Topic);
+		if($ThreadID > 0 && $Thread !== false) {
+
+			$this->Title = htmlspecialchars($Thread->GetTopic());
 
 			// Redirect if url-title is wrong
 			if(!$P->URI()->Check(1, htmlspecialchars_decode($this->Title))) {
 				header('location: '.URI::Make([['page', 'Thread'], ['ThreadID', $ThreadID, htmlspecialchars_decode($this->Title)]]));
 			}
 
-			$Crumbs = $P->Get('Board')->GetBreadcrumbs($Thread->BoardID);
+			/* Crumby-Crumbs */
+			$Crumbs = $P->Get('Board')->GetBreadcrumbs($Thread->GetId());
 			foreach($Crumbs as $Crumb)
 				Breadcrumb::Add($Crumb['title'], $Crumb['link']);
 			Breadcrumb::Add($this->Title, URI::Make([['page', 'Thread'], ['ThreadID', $ThreadID, $this->Title]]));
 
-			SBB::Template()->Assign(['Posts' => $this->GetPosts($ThreadID)]);
+			// Get them posts!
+			SBB::Template()->Assign(['posts' => $Thread->GetPosts()]);
+
 		} else {
 			$this->Info['title'] = Language::Get('sbb.error');
 			Notification::Show('Thread existiert nicht!', Notification::ERROR);
@@ -64,7 +66,7 @@ class ThreadPage implements IPage {
 		return isset($this->Info[$Info]) ? $this->Info[$Info] : false;
 	}
 
-	protected function GetPosts($ThreadID) {
+	/*protected function GetPosts($ThreadID) {
 		$Posts = SBB::DB()->prepare('SELECT * FROM `post` WHERE `ThreadID` = :ThreadID ORDER BY `ID`');
 		$Posts->execute([':ThreadID' => $ThreadID]);
 		$Posts = $Posts->fetchAll(PDO::FETCH_OBJ);
@@ -86,5 +88,5 @@ class ThreadPage implements IPage {
 			];
 		}
 		return $PostList;
-	}
+	}*/
 }

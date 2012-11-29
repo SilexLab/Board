@@ -23,17 +23,17 @@ class RegisterPage implements IPage {
 		$this->Info['template'] = 'Register';
 
 		// Register formular
-		if(!Session::Get('register.step') || Post::Get('Login'))
+		if(!Session::Get('register.step') || HtmlPost::Get('Login'))
 			Session::Set('register.step', 'register.username');
 
 		$this->Steps = ['register.username', 'register.email', 'register.password', 'register.captcha', 'register.avatar'];
 
-		if(Post::Get('sub_restart')) {
-			Post::Del('sub_restart');
+		if(HtmlPost::Get('sub_restart')) {
+			HtmlPost::Del('sub_restart');
 			Session::Restart();
 		}
-		if(Post::Get('sub_back')) {
-			Post::Del('sub_back');
+		if(HtmlPost::Get('sub_back')) {
+			HtmlPost::Del('sub_back');
 			$GoTo = clamp(array_search(Session::Get('register.step'), $this->Steps) - 1, 0, sizeof($this->Steps) - 1);
 			Session::Set('register.step', $this->Steps[$GoTo]);
 		}
@@ -44,8 +44,8 @@ class RegisterPage implements IPage {
 		while(true) {
 			switch(Session::Get('register.step')) {
 				case 'register.username':
-					if(Post::Get('sub_username') && Post::Get('Username')) {
-						if(Database::Count('FROM `users` WHERE `Username` = :name', [':name' => Post::Get('Username')]))
+					if(HtmlPost::Get('sub_username') && HtmlPost::Get('Username')) {
+						if(Database::Count('FROM `users` WHERE `Username` = :name', [':name' => HtmlPost::Get('Username')]))
 							Notification::Show(Language::Get('sbb.register.username_exist'), Notification::ERROR);
 						else {
 							Session::Set('register.step', 'register.password');
@@ -57,9 +57,9 @@ class RegisterPage implements IPage {
 					break 2;
 
 				case 'register.password':
-					if(Post::Get('sub_password') && Post::Get('Password')) {
-						if(Post::Get('Password') == Post::Get('Password_Re')) {
-							if(strlen(Post::Get('Password')) < 8) // TODO: read min from config
+					if(HtmlPost::Get('sub_password') && HtmlPost::Get('Password')) {
+						if(HtmlPost::Get('Password') == HtmlPost::Get('Password_Re')) {
+							if(strlen(HtmlPost::Get('Password')) < 8) // TODO: read min from config
 								Notification::Show(Language::Get('sbb.register.password_too_short'), Notification::ERROR);
 							else {
 								Session::Set('register.step', 'register.email');
@@ -73,8 +73,8 @@ class RegisterPage implements IPage {
 					break 2;
 				
 				case 'register.email':
-					if(Post::Get('sub_email') && Post::Get('Email')) {
-						if(Post::Get('Email') == Post::Get('Email_Re')) {
+					if(HtmlPost::Get('sub_email') && HtmlPost::Get('Email')) {
+						if(HtmlPost::Get('Email') == HtmlPost::Get('Email_Re')) {
 							Session::Set('register.step', 'register.captcha');
 							Session::Set('register.email', $_POST['Email']);
 							break;

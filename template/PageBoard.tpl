@@ -1,38 +1,38 @@
 <ul class="board">
-{foreach $board as $entry}
-	{if $entry.type >= 0 or $entry.type <= 2}
-		{if $entry.type == 0}
+{foreach $boards as $entry}
+	{if $entry.board->GetType() >= 0 or $entry.board->GetType() <= 2}
+		{if $entry.board->GetType() == 0}
 			<li class="category">
-		{elseif $entry.type == 1}
+		{elseif $entry.board->GetType() == 1}
 			<li class="forum">
-		{elseif $entry.type == 2}
+		{elseif $entry.board->GetType() == 2}
 			<li class="link">
 		{/if}
 			<div class="container">
 				<div class="container_head">
-				{if $entry.type == 1}
+				{if $entry.board->GetType() == 1}
 					<div class="board_top">
 						<div class="board_info">
-							<a href="{$entry.link}">
-								<div class="title">{$entry.title}</div>
-							{if $entry.description}
-								<div class="description">{$entry.description}</div>
+							<a href="{$entry.board->GetLink()}">
+								<div class="title">{$entry.board->GetTitle()}</div>
+							{if $entry.board->GetDesc()}
+								<div class="description">{$entry.board->GetDesc()}</div>
 							{/if}
 							</a>
 						</div>
 						<div class="board_post">
-							<p>{$entry.last_post}</p>
-							<p>{$entry.last_post_user}</p>
+							<p>{*{$entry.board->GetLastPost()->GetTitle()|default:'None'}*}None</p>
+							<p>{*{$entry.board->GetLastPost()->GetUser()->GetName()|default:'None'}*}None</p>
 						</div>
 					</div>
 					<div class="board_bottom">
-						<div class="stats">{$entry.stats}</div>
+						<div class="stats">{if $entry.board->GetType() == 2} (Views: {$entry.board->GetViews()}) {else} (Threads: {$entry.board->GetNumThreads()}, Posts: {$entry.board->GetNumPosts()}, Views: {$entry.board->GetViews()}){/if}</div>
 					</div>
 				{else}
-					<a href="{$entry.link}">
-						<div class="title">{$entry.title}</div>
-					{if $entry.description}
-						<div class="description">{$entry.description}</div>
+					<a href="{$entry.board->GetLink()}">
+						<div class="title">{$entry.board->GetTitle()}</div>
+					{if $entry.board->GetDesc()}
+						<div class="description">{$entry.board->GetDesc()}</div>
 					{/if}
 					</a>
 				{/if}
@@ -41,45 +41,45 @@
 				<div class="container_content">
 					<ul class="sub_board">
 					{foreach $entry.sub_board as $sub_entry}
-						{if $sub_entry.type >= 0 or $sub_entry.type <= 2}
-							{if $sub_entry.type == 0}
+						{if $sub_entry.board->GetType() >= 0 or $sub_entry.board->GetType() <= 2}
+							{if $sub_entry.board->GetType() == 0}
 								<li class="category">
-							{elseif $sub_entry.type == 1}
+							{elseif $sub_entry.board->GetType() == 1}
 								<li class="forum">
-							{elseif $sub_entry.type == 2}
+							{elseif $sub_entry.board->GetType() == 2}
 								<li class="link">
 							{/if}
 								<div class="container_head">
-								{if $sub_entry.type == 1}
+								{if $sub_entry.board->GetType() == 1}
 									<div class="board_top">
 										<div class="board_info">
-											<a href="{$sub_entry.link}">
-												<div class="title">{$sub_entry.title}</div>
-											{if $sub_entry.description}
-												<div class="description">{$sub_entry.description}</div>
+											<a href="{$sub_entry.board->GetLink()}">
+												<div class="title">{$sub_entry.board->GetTitle()}</div>
+											{if $sub_entry.board->GetDesc()}
+												<div class="description">{$sub_entry.board->GetDesc()}</div>
 											{/if}
 											</a>
 										</div>
 										<div class="board_post">
-											<p>{$sub_entry.last_post}</p>
-											<p>{$sub_entry.last_post_user}</p>
+                                            <p>{*{$sub_entry.board->GetLastPost()->GetTitle()|default:'None'}*}None</p>
+                                            <p>{*{$sub_entry.board->GetLastPost()->GetUser()->GetName()|default:'None'}*}None</p>
 										</div>
 									</div>
 									<div class="board_bottom">
-										<div class="stats">{$sub_entry.stats}</div>
+										<div class="stats">{if $sub_entry.board->GetType() == 2} (Views: {$sub_entry.board->GetViews()}) {else} (Threads: {$sub_entry.board->GetNumThreads()}, Posts: {$sub_entry.board->GetNumPosts()}, Views: {$sub_entry.board->GetViews()}){/if}</div>
 									{if $sub_entry.sub_board}
 										<ul class="sub_sub_board">
 										{foreach $sub_entry.sub_board as $sub_sub_entry}
-											<li><a href="{$sub_sub_entry.link}">{$sub_sub_entry.title}</a></li>
+											<li><a href="{$sub_sub_entry.board->GetLink()}">{$sub_sub_entry.board->GetTitle()}</a></li>
 										{/foreach}
 										</ul>
 									{/if}
 									</div>
 								{else}
-									<a href="{$sub_entry.link}">
-										<div class="title">{$sub_entry.title}</div>
-									{if $sub_entry.description}
-										<div class="description">{$sub_entry.description}</div>
+									<a href="{$sub_entry.board->GetLink()}">
+										<div class="title">{$sub_entry.board->GetTitle()}</div>
+									{if $sub_entry.board->GetDesc()}
+										<div class="description">{$sub_entry.board->GetDesc()}</div>
 									{/if}
 									</a>
 								{/if}
@@ -95,7 +95,7 @@
 	{/if}
 {/foreach}
 </ul>
-{if $current_board.ID > 0 and $current_board.type != 0}
+{if $current_board and $current_board->GetId() > 0 and $current_board->GetType() != 0}
 <div class="container">
 	<div class="container_head">
 		<div class="title">Themen</div>
@@ -104,7 +104,7 @@
 		<ul>
 		{foreach $threads as $thread}
 			<li>
-				<a href="{$thread.link}">{$thread.topic}</a>
+				<a href="{$thread->GetLink()}">{$thread->GetTopic()}</a>
 			</li>
 		{foreachelse}
 			<li>

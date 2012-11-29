@@ -27,7 +27,7 @@ class SBB {
 		self::$Style = Style::GetInstance();
 		self::$Template = new Template(DIR_ROOT.DIR_TPL, self::$Style->Info('tpl'));
 		// Data
-		self::$User = new User();
+		self::$User = Session::GetUser();
 		Listener::Check();
 		SessionGarbageCollector::Collect();
 		self::$Menu = Menu::GetInstance();
@@ -61,7 +61,7 @@ class SBB {
 
 	/**
 	 * Returns the database object
-	 * @return Database
+	 * @return PDO
 	 */
 	public static final function DB() {
 		if(!self::$Database)

@@ -6,33 +6,38 @@
  */
 
 class User {
-	protected $Name;
-	protected $ID;
-	protected $LoggedIn;
-	protected $Group;
 
-	protected $Permission;
+	/*
+	 * What is given to fetch stuff?
+	 */
+	const GIVEN_ID = 1;
+	const GIVEN_ROW = 2;
+	const GIVEN_GUEST = 3;
+
+	protected $Name = '';
+	protected $ID = 0;
+	protected $LoggedIn = false;
+	protected $Group = null;
+
+	protected $Permission = null;
 
 	protected $Info = [];
 
-	public function __construct() {
+	public function __construct($Type, $Input = null) {
+
 		/* Get general information about the user */
-		if(Session::Get('UserID')) { // User seems to be logged in
-			$Result = SBB::DB()->prepare('SELECT * FROM `users` WHERE `ID` = :UserID');
-			$Result->execute([':UserID' => Session::Get('UserID')]);
-			if(!$Result) {
-				// Do Logout
-				Session::Destroy();
-				$this->__construct();
-				return;
+		if($Type != self::GIVEN_GUEST) { // This is not our guest
+
+			if($Type == self::GIVEN_ID) {
+				$this->ID = $Input;
+				if(!$this->Fetch())
+					return false;
 			}
-			// User is logged in
-			$UserInfo = $Result->fetch(PDO::FETCH_OBJ);
-			$this->Name = $UserInfo->Username;
-			$this->ID = $UserInfo->ID;
-			$this->LoggedIn = true;
-			$this->Group = new Group((int)$UserInfo->GroupID);
-		} else { // Not logged in
+			else
+				$this->FetchRow($Input);
+
+		}
+		else { // Not logged in
 			$this->Name = Language::Get('sbb.user.guest');
 			$this->ID = 0;
 			$this->LoggedIn = false;
@@ -41,9 +46,34 @@ class User {
 
 		/* Get permissions */
 		$this->Permission = new Permission($this->ID, $this->Group->ID());
+	}
 
-		/* Assign template vars */
-		SBB::Template()->Assign(['User' => ['ID' => (int)$this->ID, 'Name' => $this->Name]]);
+	protected function Fetch() {
+
+		$Result = SBB::DB()->prepare('SELECT * FROM `users` WHERE `ID` = :UserID');
+		$Result->execute([':UserID' => $this->ID]);
+
+		$Row = $Result->fetch(PDO::FETCH_OBJ);
+
+		if(!$Row) {
+			// User does not exist
+			return false;
+		}
+
+		$this->FetchRow($Row);
+
+	}
+
+	protected function FetchRow($Row) {
+
+		if($this->ID == 0)
+			$this->ID = $Row->ID;
+
+		$this->Info = $Row;
+		$this->Name = $Row->Username;
+		$this->LoggedIn = true;
+		$this->Group = new Group((int)$Row->GroupID);
+
 	}
 
 	/* User info */
@@ -99,62 +129,8 @@ class User {
 		return isset($this->Info[$Info]) ? $this->Info[$Info] : null;
 	}
 
-	/* User actions */
-
-	/**
-	 * Login the current user
-	 * @param string $Username
-	 * @param string $Password
-	 * @param bool   $Stay
-	 */
-	public function Login($Username, $Password, $Stay) {
-		$Username = $Username;
-		$Password = $Password;
-
-		if(Database::Count('FROM `users` WHERE `Username` = :User', [':User' => $Username])) {
-			$Row = SBB::DB()->prepare('SELECT `ID`, `Password`, `Salt` FROM `users` WHERE `Username` = :User');
-			$Row->execute([':User' => $Username]);
-			$Row = $Row->fetch(PDO::FETCH_ASSOC);
-			if(Secure::EncryptPassword($Password, $Row['Salt']) == $Row['Password']) {
-				Notification::Show(Language::Get('sbb.login.success'), Notification::SUCCESS);
-				Session::Set('UserID', $Row['ID']);
-				$this->__construct();
-			} else {
-				Session::Set('LoginError', 'sbb.login.failed');
-				header('location: '.URI::Make([['page', 'Login']]));
-			}
-		} else {
-			Session::Set('LoginError', 'sbb.login.failed');
-			header('location: '.URI::Make([['page', 'Login']]));
-		}
+	public function GetLink() {
+		return URI::Make([['page', 'User'], ['UserID', $this->ID, $this->Name]]);
 	}
 
-	public function Logout() {
-		if($this->LoggedIn()) {
-			Session::Destroy();
-			Notification::Show(Language::Get('sbb.logout.success'), Notification::SUCCESS);
-			$this->__construct();
-		}
-	}
-
-	public function Register() {
-		// Register a new user
-	}
-
-	/* All user info */
-	public static function GetName($ID = null) {
-		if(is_null($ID)) {
-			if(SBB::User()->LoggedIn())
-				$ID = Session::Get('UserID');
-			else
-				return 'Gast';
-		}
-		$STMT = SBB::DB()->prepare('SELECT `Username` FROM `users` WHERE `ID` = :ID');
-		$STMT->execute([':ID' => $ID]);
-		return $STMT->fetch(PDO::FETCH_OBJ)->Username;
-	}
-
-	public static function GetID($Name) {
-		// Get the user ID
-	}
 }
