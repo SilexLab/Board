@@ -53,10 +53,14 @@ class User {
 		$Result = SBB::DB()->prepare('SELECT * FROM `users` WHERE `ID` = :UserID');
 		$Result->execute([':UserID' => $this->ID]);
 
-		if(!$Result) {
+		$Row = $Result->fetch(PDO::FETCH_OBJ);
+
+		if(!$Row) {
 			// User does not exist
 			return false;
 		}
+
+		$this->FetchRow($Row);
 
 	}
 
@@ -123,6 +127,10 @@ class User {
 	 */
 	public function Info($Info) {
 		return isset($this->Info[$Info]) ? $this->Info[$Info] : null;
+	}
+
+	public function GetLink() {
+		return URI::Make([['page', 'User'], ['UserID', $this->ID, $this->Name]]);
 	}
 
 }

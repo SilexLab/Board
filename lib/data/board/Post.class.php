@@ -153,7 +153,8 @@ class Post {
 
 			case self::GIVEN_ID:
 				$this->Id = (int) $Input;
-				$this->Fetch();
+				if(!$this->Fetch())
+					return false;
 				break;
 
 			case self::GIVEN_ROW:
@@ -389,8 +390,8 @@ class Post {
 	 * @return \User
 	 */
 	public function GetUser() {
-		//if($this->User == null)
-		//	$this->User = new User($this->UserId); TODO: Make an user class in this style
+		if($this->User == null)
+			$this->User = new User(User::GIVEN_ID, $this->UserId);
 		return $this->User;
 	}
 	

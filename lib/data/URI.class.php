@@ -147,6 +147,9 @@ class URI {
 	 * @return bool
 	 */
 	public function Check($RoutePos, $ExpectedTitle, $Redirect = '') {
+		// We don't have titles in the arguments format
+		if($this->Format() == self::FORMAT_ARGUMENTS)
+			return true;
 		$R = $this->Get($RoutePos);
 		$Match = substr($R, strpos($R, '-') + 1) == self::MakeTitle($ExpectedTitle);
 		if($Redirect && !$Match)

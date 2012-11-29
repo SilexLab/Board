@@ -163,7 +163,8 @@ class Board {
 			
 			case self::GIVEN_ID:
 				$this->Id = $Input;
-				$this->Fetch();
+				if(!$this->Fetch())
+					return false;
 				break;
 			
 			case self::GIVEN_ROW:

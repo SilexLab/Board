@@ -164,7 +164,8 @@ class Thread {
 
 			case self::GIVEN_ID:
 				$this->Id = (int) $Input;
-				$this->Fetch();
+				if(!$this->Fetch())
+					return false;
 				break;
 
 			case self::GIVEN_ROW:
@@ -298,7 +299,7 @@ class Thread {
 		}
 
 		$Stmt = SBB::DB()->prepare($Query);
-		$Stmt->execute();
+		$Stmt->execute($Vars);
 
 		$Data = $Stmt->fetchAll(PDO::FETCH_OBJ);
 

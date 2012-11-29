@@ -21,30 +21,32 @@ class BoardPage implements IPage {
 		$this->UF = $P->URI()->Format();
 		$BoardID = $P->URI()->GetID(1, 'BoardID');
 
-		// Breadcrumbs
+		// Breadcrumbs, single board view
 		if($BoardID > 0) {
-			// Find Breadcrumbs
+
+			/* Breadcrumbs */
 			$Crumbs = $this->GetBreadcrumbs($BoardID);
 
+			$Board = new Board(Board::GIVEN_ID, $BoardID);
+
 			// Redirect if url-title is wrong
-			if(!$P->URI()->Check(1, htmlspecialchars_decode($this->Info['title']))) {
-				$Board = SBB::DB()->prepare('SELECT `Title` FROM `board` WHERE `ID` = :ID');
-				$Board->execute([':ID' => $BoardID]);
-				$Title = $Board->fetch(PDO::FETCH_OBJ)->Title;
-				header('location: '.URI::Make([['page', 'Board'], ['BoardID', $BoardID, $Title]]));
+			if(!$P->URI()->Check(1, htmlspecialchars_decode($Board->GetTitle()))) {
+
+				header('location: '.URI::Make([['page', 'Board'], ['BoardID', $BoardID, $Board->GetTitle()]]));
+
 			}
 
 			foreach($Crumbs as $Crumb) {
 				Breadcrumb::Add($Crumb['title'], $Crumb['link']);
 			}
+
+			SBB::Template()->Assign(['current_board' => $Board, 'threads' => $Board->GetThreads()]);
+
 		} else if($P->URI()->GetRoute()[1]) {
 			header('location: '.$this->Link);
 		}
-		$cBoard = SBB::DB()->prepare('SELECT `Type` FROM `board` WHERE `ID` = :ID');
-		$cBoard->execute([':ID' => $BoardID]);
-		SBB::Template()->Assign(['board' => $this->GetBoardList($BoardID),
-			'threads' => $this->GetThreadList($BoardID),
-			'current_board' => ['ID' => $BoardID, 'type' => $cBoard->fetch(PDO::FETCH_OBJ)->Type]]);
+		SBB::Template()->Assign(['boards' => $this->GetBoardList($BoardID)]);
+
 	}
 
 	public function Link() {
@@ -63,6 +65,7 @@ class BoardPage implements IPage {
 		return isset($this->Info[$Info]) ? $this->Info[$Info] : false;
 	}
 
+	// TODO: Move to board class, too? maybe? or rather not? see next week ..
 	protected function GetBoardList($BoardID, $Depth = 0) {
 		$Board = SBB::DB()->prepare('SELECT * FROM `board` WHERE `ParentID` = :BoardID ORDER BY `Position`');
 		$Board->execute([':BoardID' => $BoardID]);
@@ -71,35 +74,18 @@ class BoardPage implements IPage {
 		$Depth++;
 		$BoardList = array();
 		foreach($Board as $Entry) {
+
+			$CurBoard = new Board(Board::GIVEN_ROW, $Entry);
+
 			$BoardList[] = [
-				'type'           => $Entry->Type,
-				'title'          => htmlspecialchars($Entry->Title),
-				'description'    => htmlspecialchars($Entry->Description),
-				'link'           => $Entry->Type == 2 ? htmlspecialchars($Entry->Link) : URI::Make([['page', 'Board'], ['BoardID', $Entry->ID, $Entry->Title]]),
-				'stats'          => $Entry->Type == 2 ? ('Views: '.$Entry->Views) : ('Threads: '.$Entry->Threads.', Posts: '.$Entry->Posts.', Views: '.$Entry->Views),
-				'last_post'      => 0,
-				'last_post_user' => 'None',
+				'board'          => $CurBoard,
 				'sub_board'      => $Depth < 3 ? $this->GetBoardList($Entry->ID, $Depth) : false
 			];
 		}
 		return $BoardList;
 	}
 
-	public function GetThreadList($BoardID) {
-		$Threads = SBB::DB()->prepare('SELECT * FROM `thread` WHERE `BoardID` = :BoardID ORDER BY `LastPostTime` DESC'); // TODO: Limit it
-		$Threads->execute([':BoardID' => $BoardID]);
-		$Threads = $Threads->fetchAll(PDO::FETCH_OBJ);
-
-		$ThreadList = array();
-		foreach($Threads as $T) {
-			$ThreadList[] = [
-				'topic' => htmlspecialchars($T->Topic),
-				'link'  => URI::Make([['page', 'Thread'], ['ThreadID', $T->ID, $T->Topic]])
-			];
-		}
-		return $ThreadList;
-	}
-
+	// TODO: move to Board class
 	public function GetBreadcrumbs($BoardID) {
 		$Board = SBB::DB()->prepare('SELECT * FROM `board` WHERE `ID` = :BoardID');
 		$Board->execute([':BoardID' => $BoardID]);
