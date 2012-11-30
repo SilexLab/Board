@@ -36,10 +36,7 @@ class ThreadPage implements IPage {
 			}
 
 			/* Crumby-Crumbs */
-			$Crumbs = $P->Get('Board')->GetBreadcrumbs($Thread->GetId());
-			foreach($Crumbs as $Crumb)
-				Breadcrumb::Add($Crumb['title'], $Crumb['link']);
-			Breadcrumb::Add($this->Title, URI::Make([['page', 'Thread'], ['ThreadID', $ThreadID, $this->Title]]));
+			Breadcrumb::AddMany($Thread->GetBreadcrumbs());
 
 			// Get them posts!
 			SBB::Template()->Assign(['posts' => $Thread->GetPosts()]);

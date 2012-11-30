@@ -24,9 +24,6 @@ class BoardPage implements IPage {
 		// Breadcrumbs, single board view
 		if($BoardID > 0) {
 
-			/* Breadcrumbs */
-			$Crumbs = $this->GetBreadcrumbs($BoardID);
-
 			$Board = new Board(Board::GIVEN_ID, $BoardID);
 
 			// Redirect if url-title is wrong
@@ -36,9 +33,7 @@ class BoardPage implements IPage {
 
 			}
 
-			foreach($Crumbs as $Crumb) {
-				Breadcrumb::Add($Crumb['title'], $Crumb['link']);
-			}
+			Breadcrumb::AddMany($Board->GetBreadcrumbs());
 
 			SBB::Template()->Assign(['current_board' => $Board, 'threads' => $Board->GetThreads()]);
 
@@ -85,17 +80,4 @@ class BoardPage implements IPage {
 		return $BoardList;
 	}
 
-	// TODO: move to Board class
-	public function GetBreadcrumbs($BoardID) {
-		$Board = SBB::DB()->prepare('SELECT * FROM `board` WHERE `ID` = :BoardID');
-		$Board->execute([':BoardID' => $BoardID]);
-		$Board = $Board->fetch(PDO::FETCH_OBJ);		
-
-		$Crumbs = array();
-		if($Board->ParentID != 0)
-			$Crumbs = $this->GetBreadcrumbs($Board->ParentID);
-		$Crumbs[] = array('title' => htmlspecialchars($Board->Title), 'link' => $Board->Type == 2 ? htmlspecialchars($Board->Link) : URI::Make([['page', 'Board'], ['BoardID', $Board->ID, $Board->Title]]));
-		$this->Info['title'] = htmlspecialchars($Board->Title);
-		return $Crumbs;
-	}
 }

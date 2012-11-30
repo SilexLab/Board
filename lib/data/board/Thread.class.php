@@ -320,6 +320,12 @@ class Thread {
 
 	}
 
+	public function GetBreadcrumbs() {
+
+		return ThreadUtil::GetBreadcrumbs($this);
+
+	}
+
 	
 	/* Getters */
 
@@ -327,6 +333,9 @@ class Thread {
 	 * @return \Board
 	 */
 	public function GetBoard() {
+		if(is_null($this->Board))
+			$this->Board = new Board(Board::GIVEN_ID, $this->BoardId);
+
 		return $this->Board;
 	}
 
