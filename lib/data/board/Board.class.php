@@ -153,7 +153,7 @@ class Board {
 	 * Buffer for GetThreads()
 	 * @var array
 	 */
-	protected $Threaeds = [];
+	protected $Threads = [];
 	
 	
 	
@@ -350,6 +350,16 @@ class Board {
 	}
 
 	/**
+	 * Get breadcrumbs for this board
+	 * @return array
+	 */
+	public function GetBreadcrumbs() {
+
+		return BoardUtil::GetBreadcrumbs($this);
+
+	}
+
+	/**
 	 * @return boolean
 	 */
 	public function GetClosed() {
@@ -435,8 +445,11 @@ class Board {
 	 */
 	public function GetParentBoard() {
 
-		if(is_null($this->ParentBoard))
+		if(is_null($this->ParentBoard) && $this->ParentId != 0)
 			$this->ParentBoard = new Board(self::GIVEN_ID, $this->ParentId);
+
+		if(is_null($this->ParentBoard) || $this->ParentBoard === false)
+			return false;
 
 		return $this->ParentBoard;
 	}

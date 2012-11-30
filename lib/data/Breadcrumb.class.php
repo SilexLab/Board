@@ -17,6 +17,14 @@ class Breadcrumb {
 		self::$Crumbs[] = array('title' => Language::Get($Title), 'link' => $Target);
 	}
 
+	public static function AddMany($Array) {
+
+		foreach($Array as $Crumb) {
+			self::Add($Crumb['title'], $Crumb['link']);
+		}
+
+	}
+
 	/**
 	 * Send the breadcrumbs to the template
 	 */

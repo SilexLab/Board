@@ -24,9 +24,6 @@ class BoardPage implements IPage {
 		// Breadcrumbs, single board view
 		if($BoardID > 0) {
 
-			/* Breadcrumbs */
-			$Crumbs = $this->GetBreadcrumbs($BoardID);
-
 			$Board = new Board(Board::GIVEN_ID, $BoardID);
 
 			// Redirect if url-title is wrong
@@ -36,9 +33,7 @@ class BoardPage implements IPage {
 
 			}
 
-			foreach($Crumbs as $Crumb) {
-				Breadcrumb::Add($Crumb['title'], $Crumb['link']);
-			}
+			Breadcrumb::AddMany($Board->GetBreadcrumbs());
 
 			SBB::Template()->Assign(['current_board' => $Board, 'threads' => $Board->GetThreads()]);
 
@@ -98,4 +93,5 @@ class BoardPage implements IPage {
 		$this->Info['title'] = htmlspecialchars($Board->Title);
 		return $Crumbs;
 	}
+
 }
