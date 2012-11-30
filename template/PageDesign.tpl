@@ -276,6 +276,85 @@
 	</article>
 </div>
 
+{* Beitrag / Thread erstellen *}
+<div class="container">
+
+    <div class="container_head">
+        <div class="title">Neues Thema</div>
+        <div class="description">Neues Thema in Unterforum</div>
+    </div>
+
+    <div class="container_content">
+
+
+        <fieldset class="compose_info">
+            <legend>Beitragsinformationen</legend>
+            <label for="subject">Titel des Themas</label><br>
+            <input type="text" name="subject" id="subject">
+        </fieldset>
+
+        <fieldset class="compose_message">
+            <legend>Nachricht</legend>
+            <div class="compose_message_text">
+                <textarea name="message" id="message"></textarea>
+            </div>
+        </fieldset>
+
+        <fieldset class="compose_settings">
+            <legend>Einstellungen</legend>
+
+            <table>
+                <tr>
+                    <td>SilexCode</td>
+                    <td>
+                        <select name="einstellung">
+                            <option selected="selected">Ja</option>
+                            <option>Nein</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>HTML</td>
+                    <td>
+                        <select name="einstellung">
+                            <option>Ja</option>
+                            <option selected="selected">Nein</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Smileys</td>
+                    <td>
+                        <select name="einstellung">
+                            <option selected="selected">Ja</option>
+                            <option>Nein</option>
+                        </select>
+                    </td>
+                </tr>
+            </table>
+
+        </fieldset>
+
+    </div>
+
+    <div class="container_footer">
+        <div class="compose_number_characters left">
+            Zeichenanzahl: ###
+        </div>
+
+        <div class="button_bar right">
+            <div class="button_group">
+                <input type="submit" name="save" id="save" class="s_button" value="Speichern">
+
+                <div class="s_button">Vorschau</div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+
 <div class="container">Containerdesign</div>
 
 {* Default *}
