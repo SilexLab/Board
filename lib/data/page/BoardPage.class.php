@@ -80,18 +80,4 @@ class BoardPage implements IPage {
 		return $BoardList;
 	}
 
-	// TODO: move to Board class
-	public function GetBreadcrumbs($BoardID) {
-		$Board = SBB::DB()->prepare('SELECT * FROM `board` WHERE `ID` = :BoardID');
-		$Board->execute([':BoardID' => $BoardID]);
-		$Board = $Board->fetch(PDO::FETCH_OBJ);		
-
-		$Crumbs = array();
-		if($Board->ParentID != 0)
-			$Crumbs = $this->GetBreadcrumbs($Board->ParentID);
-		$Crumbs[] = array('title' => htmlspecialchars($Board->Title), 'link' => $Board->Type == 2 ? htmlspecialchars($Board->Link) : URI::Make([['page', 'Board'], ['BoardID', $Board->ID, $Board->Title]]));
-		$this->Info['title'] = htmlspecialchars($Board->Title);
-		return $Crumbs;
-	}
-
 }
