@@ -13,6 +13,8 @@ self::$Items = array_merge(self::$Items, [
 
 'sbb.error'         => 'Error',
 'sbb.error.no_page' => 'This page doesn\'t exists',
+'sbb.error.no_board' => 'This board doesn\'t exists',
+'sbb.error.no_thread' => 'This thread doesn\'t exists',
 'sbb.forumsoftware' => 'Forum software',
 
 'sbb.header.welcome'            => 'Welcome',
@@ -147,18 +149,22 @@ self::$Items = array_merge(self::$Items, [
 'sbb.config.page.title'    => 'Page title',
 
 // Compose page
-'sbb.compose.compose_thread'     => 'New thread in',
-'sbb.compose.compose_answer'     => 'New answer to',
-'sbb.compose.info'               => 'Post information',
-'sbb.compose.subject'            => 'Topic of the thread',
-'sbb.compose.message'            => 'Message',
-'sbb.compose.settings'           => 'Settings',
-'sbb.compose.settings.silexcode' => 'SilexCode',
-'sbb.compose.settings.html'      => 'HTML',
-'sbb.compose.settings.smileys'   => 'Smileys',
-'sbb.compose.settings.yes'       => 'Yes',
-'sbb.compose.settings.no'        => 'No',
-'sbb.compose.number_characters'  => 'Number of characters',
-'sbb.compose.save'               => 'Save',
-'sbb.compose.preview'            => 'preview'
+'sbb.compose.compose_thread'         => 'New thread in',
+'sbb.compose.compose_answer'         => 'New answer to',
+'sbb.compose.info'                   => 'Post information',
+'sbb.compose.subject'                => 'Topic of the thread',
+'sbb.compose.message'                => 'Message',
+'sbb.compose.settings'               => 'Settings',
+'sbb.compose.settings.silexcode'     => 'SilexCode',
+'sbb.compose.settings.html'          => 'HTML',
+'sbb.compose.settings.smileys'       => 'Smileys',
+'sbb.compose.settings.yes'           => 'Yes',
+'sbb.compose.settings.no'            => 'No',
+'sbb.compose.number_characters'      => 'Number of characters',
+'sbb.compose.save'                   => 'Save',
+'sbb.compose.preview'                => 'preview',
+'sbb.compose.error.no_subject'       => 'You need to give a subject!',
+'sbb.compose.error.no_message'       => 'You need to give a message!',
+'sbb.compose.error.no_settings'      => 'You need to give every settings!',
+'sbb.compose.error.pattern_settings' => 'There\'s something wrong with your settings.'
 ]);

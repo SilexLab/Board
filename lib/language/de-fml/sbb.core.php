@@ -21,5 +21,10 @@ self::$Items = array_merge(self::$Items, [
 'sbb.login.success'  => 'Sie haben sich erfolgreich angemeldet',
 'sbb.logout.success' => 'Sie wurden erfolgreich ausgeloggt',
 
-'sbb.email.activation.title' => 'Sie müssen diesen Link klicken um Ihre Registrierung abzuschließen: '
+'sbb.email.activation.title' => 'Sie müssen diesen Link klicken um Ihre Registrierung abzuschließen: ',
+
+'sbb.compose.error.no_subject'       => 'Sie müssen ein Thema angeben!',
+'sbb.compose.error.no_message'       => 'Sie müssen eine Nachricht angeben!',
+'sbb.compose.error.no_settings'      => 'Sie müssen jede Einstellung angeben!',
+'sbb.compose.error.pattern_settings' => 'Irgendetwas stimmt nicht mit Ihren Einstellungen.'
 ]);

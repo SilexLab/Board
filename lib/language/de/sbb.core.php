@@ -13,6 +13,8 @@ self::$Items = array_merge(self::$Items, [
 
 'sbb.error'         => 'Fehler',
 'sbb.error.no_page' => 'Diese Seite existiert nicht',
+'sbb.error.no_board' => 'Dieses Board existiert nicht',
+'sbb.error.no_thread' => 'Dieser Thread existiert nicht',
 'sbb.forumsoftware' => 'Forensoftware',
 
 'sbb.header.welcome'            => 'Willkommen',
@@ -146,15 +148,24 @@ self::$Items = array_merge(self::$Items, [
 'sbb.config.page.title'    => 'Seitentitel',
 
 // Compose page
-'sbb.compose.compose_thread'     => 'Neues Thema in',
-'sbb.compose.compose_answer'     => 'Neue Antwort auf',
-'sbb.compose.info'               => 'Beitragsinformationen',
-'sbb.compose.subject'            => 'Thema des Threads',
-'sbb.compose.message'            => 'Nachricht',
-'sbb.compose.settings'           => 'Einstellungen',
-'sbb.compose.settings.yes'       => 'Ja',
-'sbb.compose.settings.no'        => 'Nein',
-'sbb.compose.number_characters'  => 'Zeichenanzahl',
-'sbb.compose.save'               => 'Speichern',
-'sbb.compose.preview'            => 'Vorschau'
+'sbb.compose.compose_thread'         => 'Neues Thema',
+'sbb.compose.compose_answer'         => 'Neue Antwort',
+'sbb.compose.thread_in'              => 'Neues Thema in',
+'sbb.compose.answer_to'              => 'Neue Antwort auf',
+'sbb.compose.info'                   => 'Beitragsinformationen',
+'sbb.compose.subject'                => 'Thema des Threads',
+'sbb.compose.message'                => 'Nachricht',
+'sbb.compose.settings'               => 'Einstellungen',
+'sbb.compose.settings.silexcode'     => 'SilexCode',
+'sbb.compose.settings.html'          => 'HTML',
+'sbb.compose.settings.smileys'       => 'Smileys',
+'sbb.compose.settings.yes'           => 'Ja',
+'sbb.compose.settings.no'            => 'Nein',
+'sbb.compose.number_characters'      => 'Zeichenanzahl',
+'sbb.compose.save'                   => 'Speichern',
+'sbb.compose.preview'                => 'Vorschau',
+'sbb.compose.error.no_subject'       => 'Du musst ein Thema angeben!',
+'sbb.compose.error.no_message'       => 'Du musst eine Nachricht angeben!',
+'sbb.compose.error.no_settings'      => 'Du musst jede Einstellung angeben!',
+'sbb.compose.error.pattern_settings' => 'Irgendetwas stimmt nicht mit deinen Einstellungen.'
 ]);

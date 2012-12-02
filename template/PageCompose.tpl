@@ -4,9 +4,9 @@
 <div class="container">
 
 	{if $compose.type == 1}
-    {lang node="sbb.error.board_not_exists"}
+    {lang node="sbb.error.no_board"}
 	{elseif $compose.type == 2}
-	{lang node="sbb.error.thread_not_exists"}
+	{lang node="sbb.error.no_thread"}
 	{/if}
 
 </div>
@@ -14,6 +14,9 @@
 {else}
 
 <form method="post">
+
+	<input type="hidden" name="type" value="{$compose.type}">
+	<input type="hidden" name="target" value="{$compose.target}">
 
 	<div class="container">
 
@@ -33,7 +36,7 @@
 			<fieldset class="compose_info">
                 <legend>{lang node="sbb.compose.info"}</legend>
 				<label for="subject">{lang node="sbb.compose.subject"}</label><br>
-                <input type="text" name="subject" id="subject">
+                <input type="text" name="subject" id="subject" required="required">
 				{* Prefixes - someday *}
 			</fieldset>
 			{/if}
@@ -41,7 +44,7 @@
 			<fieldset class="compose_message">
                 <legend>{lang node="sbb.compose.message"}</legend>
 				<div class="compose_message_text">
-					<textarea name="message" id="message"></textarea>
+					<textarea name="message" id="message" required="required"></textarea>
 				</div>
 			</fieldset>
 
@@ -53,8 +56,8 @@
 						<td>{lang node="sbb.compose.settings.silexcode"}</td>
 						<td>
 							<select name="setting_silexcode">
-								<option selected="selected">{lang node="sbb.compose.settings.yes"}</option>
-								<option>{lang node="sbb.compose.settings.no"}</option>
+								<option value="1" selected="selected">{lang node="sbb.compose.settings.yes"}</option>
+								<option value="0">{lang node="sbb.compose.settings.no"}</option>
 							</select>
 						</td>
 					</tr>
@@ -62,8 +65,8 @@
                         <td>{lang node="sbb.compose.settings.html"}</td>
                         <td>
                             <select name="setting_html">
-                                <option>{lang node="sbb.compose.settings.yes"}</option>
-                                <option selected="selected">{lang node="sbb.compose.settings.no"}</option>
+                                <option value="1">{lang node="sbb.compose.settings.yes"}</option>
+                                <option value="0" selected="selected">{lang node="sbb.compose.settings.no"}</option>
                             </select>
                         </td>
                     </tr>
@@ -71,8 +74,8 @@
                         <td>{lang node="sbb.compose.settings.smileys"}</td>
                         <td>
                             <select name="setting_smileys">
-                                <option selected="selected">{lang node="sbb.compose.settings.yes"}</option>
-                                <option>{lang node="sbb.compose.settings.no"}</option>
+                                <option value="1" selected="selected">{lang node="sbb.compose.settings.yes"}</option>
+                                <option value="0">{lang node="sbb.compose.settings.no"}</option>
                             </select>
                         </td>
                     </tr>
