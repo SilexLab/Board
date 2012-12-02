@@ -157,6 +157,7 @@ class Thread {
 	 * Create a new thread object
 	 * @param int $Type
 	 * @param mixed $Input Row or ID of the post
+	 * @throws NotFoundException
 	 */
 	public function __construct($Type, $Input) {
 
@@ -165,7 +166,7 @@ class Thread {
 			case self::GIVEN_ID:
 				$this->Id = (int) $Input;
 				if(!$this->Fetch())
-					return false;
+					throw new NotFoundException();
 				break;
 
 			case self::GIVEN_ROW:
@@ -190,6 +191,8 @@ class Thread {
 			return false;
 
 		$this->FetchRow($Result);
+
+		return true;
 
 	}
 

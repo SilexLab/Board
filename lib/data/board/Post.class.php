@@ -146,6 +146,7 @@ class Post {
 	 * Create a new post object
 	 * @param int $Type
 	 * @param mixed $Input Row or ID of the post
+	 * @throws NotFoundException
 	 */
 	public function __construct($Type, $Input) {
 
@@ -154,7 +155,7 @@ class Post {
 			case self::GIVEN_ID:
 				$this->Id = (int) $Input;
 				if(!$this->Fetch())
-					return false;
+					throw new NotFoundException();
 				break;
 
 			case self::GIVEN_ROW:
@@ -179,6 +180,8 @@ class Post {
 			return false;
 
 		$this->FetchRow($Result);
+
+		return true;
 
 	}
 
