@@ -5,28 +5,33 @@
  * @license    GPL version 3 <http://www.gnu.org/licenses/gpl-3.0.html>
  */
 
+/* Any errors? */
+
 // Check if the request came from index.php
 if(!defined('DIR_ROOT'))
 	header('location: ../');
 
 // Check for config file
 if(!file_exists('lib/config.inc.php'))
-	die('Your config file is missing!');
+	die(html_die('<img src="images/yuno.jpg" alt="Y U NO"><br><b>Y U NO HAVE A CONFIG FILE?!</b>'));
 
 // Include config file
 require_once('config.inc.php');
 if(!defined('CFG'))
-	die('Something is wrong with your config file!');
+	die(html_die('<img src="images/OhCrap.jpg" alt "OMG"><br><b>WHAT KIND OF CONFIG FILE IS THIS?</b>', '#000', '#fff'));
 
-// Include common constants and functions
-require_once('constants.inc.php');
-require_once('functions.inc.php');
+
+/* Bootstramp Silex Board \o/ */
 
 // Display Errors
 if(defined('CFG_DEBUG') && CFG_DEBUG) {
 	ini_set('display_errors', 1);
 	error_reporting(E_ALL ^ E_NOTICE | E_STRICT);
 }
+
+// Include common constants and functions
+require_once('constants.inc.php');
+require_once('functions.inc.php');
 
 // TODO: Read from database config / user preferences
 date_default_timezone_set('Europe/Berlin');

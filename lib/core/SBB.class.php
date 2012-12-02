@@ -112,8 +112,8 @@ class SBB {
 	 */
 	private static function AssignDefault() {
 		self::Template()->Assign([
-			'style' => ['dir' => DIR_STYLE.rawurlencode(self::Style()->Info('dir')).'/',
-				'files' => self::Style()->Info('files'),
+			'style' => ['dir' => CFG_BASE_URL.DIR_STYLE.rawurlencode(self::Style()->Info('dir')).'/',
+				'css' => self::Style()->Info('files'),
 				'name' => self::Style()->Info('name')],
 			'page_title' => self::Config('page.title'),
 			'logo' => DIR_STYLE.str_replace(' ', '%20', self::Style()->Info('dir')).'/images/logo.png',
@@ -133,13 +133,14 @@ class SBB {
 				'full' => SBB_VERSION.'-'.date('Ymd', CommitInfo::Get()),
 				'sha' => CommitInfo::Get('SHA')
 			],
-			'page' => [
+			'current_page' => [
 				'title' => self::$Page->Title(),
 				'link' => self::$Page->Link(),
-				'page' => self::$Page->Name(),
+				'name' => self::$Page->Name(),
 				'template' => self::$Page->Template()
 			],
-			'base_url' => CFG_BASE_URL
+			'base_url' => CFG_BASE_URL,
+			'debug' => (bool)CFG_DEBUG
 		]);
 		Breadcrumb::Assign();
 		Notification::Assign();
