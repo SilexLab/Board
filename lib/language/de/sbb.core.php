@@ -143,5 +143,18 @@ self::$Items = array_merge(self::$Items, [
 
 // Databasestrings
 'sbb.config.style.default' => 'Standardstil',
-'sbb.config.page.title'    => 'Seitentitel'
+'sbb.config.page.title'    => 'Seitentitel',
+
+// Compose page
+'sbb.compose.compose_thread'     => 'Neues Thema in',
+'sbb.compose.compose_answer'     => 'Neue Antwort auf',
+'sbb.compose.info'               => 'Beitragsinformationen',
+'sbb.compose.subject'            => 'Thema des Threads',
+'sbb.compose.message'            => 'Nachricht',
+'sbb.compose.settings'           => 'Einstellungen',
+'sbb.compose.settings.yes'       => 'Ja',
+'sbb.compose.settings.no'        => 'Nein',
+'sbb.compose.number_characters'  => 'Zeichenanzahl',
+'sbb.compose.save'               => 'Speichern',
+'sbb.compose.preview'            => 'Vorschau'
 ]);
