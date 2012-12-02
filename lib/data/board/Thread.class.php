@@ -320,6 +320,10 @@ class Thread {
 
 	}
 
+	/**
+	 * Fetch breadcrumbs for this Thread
+	 * @return array
+	 */
 	public function GetBreadcrumbs() {
 
 		return ThreadUtil::GetBreadcrumbs($this);

@@ -63,27 +63,4 @@ class ThreadPage implements IPage {
 		return isset($this->Info[$Info]) ? $this->Info[$Info] : false;
 	}
 
-	/*protected function GetPosts($ThreadID) {
-		$Posts = SBB::DB()->prepare('SELECT * FROM `post` WHERE `ThreadID` = :ThreadID ORDER BY `ID`');
-		$Posts->execute([':ThreadID' => $ThreadID]);
-		$Posts = $Posts->fetchAll(PDO::FETCH_OBJ);
-
-		$PostList = [];
-		foreach($Posts as $P) {
-			$User = SBB::DB()->prepare('SELECT * FROM `users` WHERE `ID` = :UserID');
-			$User->execute([':UserID' => $P->UserID]);
-			$User = $User->fetch(PDO::FETCH_OBJ);
-
-			$PostList[] = [
-				'Subject' => $P->Subject,
-				'Message' => $P->Message,
-				'Time'    => date('d.m.Y, h:i', $P->Time),
-				'User'    => [
-					'Name' => htmlspecialchars($User->Username),
-					'Link' => URI::Make([['page', 'User'], ['UserID', $User->ID, $User->Username]])
-				]
-			];
-		}
-		return $PostList;
-	}*/
 }

@@ -302,8 +302,8 @@ class Post {
 	 * @return \User
 	 */
 	public function GetEditor() {
-		//if($this->Editor == null)
-		//	$this->Editor = new User($this->EditorId); TODO: Make an user class in this style
+		if($this->Editor == null)
+			$this->Editor = new User($this->EditorId);
 		return $this->Editor;
 	}
 

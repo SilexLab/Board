@@ -305,6 +305,12 @@ class Board {
 
 	}
 
+	/**
+	 * Get the threads of this board
+	 * @param int|null $Start Number to start with
+	 * @param int|null $End   Number to end with
+	 * @return array
+	 */
 	public function GetThreads($Start = null, $End = null) {
 
 		// Is this buffered already?
