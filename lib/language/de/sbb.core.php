@@ -167,5 +167,6 @@ self::$Items = array_merge(self::$Items, [
 'sbb.compose.error.no_subject'       => 'Du musst ein Thema angeben!',
 'sbb.compose.error.no_message'       => 'Du musst eine Nachricht angeben!',
 'sbb.compose.error.no_settings'      => 'Du musst jede Einstellung angeben!',
-'sbb.compose.error.pattern_settings' => 'Irgendetwas stimmt nicht mit deinen Einstellungen.'
+'sbb.compose.error.pattern_settings' => 'Irgendetwas stimmt nicht mit deinen Einstellungen.',
+'sbb.compose.error.no_type_target'   => 'Typ und/oder Ziel der Erstellung fehlen!'
 ]);

@@ -166,5 +166,6 @@ self::$Items = array_merge(self::$Items, [
 'sbb.compose.error.no_subject'       => 'You need to give a subject!',
 'sbb.compose.error.no_message'       => 'You need to give a message!',
 'sbb.compose.error.no_settings'      => 'You need to give every settings!',
-'sbb.compose.error.pattern_settings' => 'There\'s something wrong with your settings.'
+'sbb.compose.error.pattern_settings' => 'There\'s something wrong with your settings.',
+'sbb.compose.error.no_type_target'   => 'Type and/or Target of composing are missing!'
 ]);

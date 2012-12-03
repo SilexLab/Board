@@ -34,6 +34,8 @@ class ComposePage implements IPage {
 	 */
 	protected $TargetTitle = '';
 
+	protected $Error = false;
+
     /**
      * Will called when the page is the current page
      */
@@ -42,9 +44,14 @@ class ComposePage implements IPage {
 		$this->Target = $P->URI()->GetID(2, 'Target');
 		$this->Type = $P->URI()->GetID(1, 'Type');
 
-		$this->Evaluate();
+		if(!$this->Type || !$this->Target) {
 
-		$Error = false;
+			Notification::Show(Language::Get('sbb.compose.error.no_type_target'), Notification::ERROR);
+			return false;
+
+		}
+
+		$this->Evaluate();
 
 		// Declare for assignment
 		$Thread = $Board = false;
@@ -59,7 +66,7 @@ class ComposePage implements IPage {
 				}
 				catch(NotFoundException $e) {
 
-					$Error = true;
+					$this->Error = true;
 					Notification::Show(Language::Get('sbb.error.thread_not_exists'), Notification::ERROR);
 					break;
 
@@ -86,7 +93,7 @@ class ComposePage implements IPage {
 				}
 				catch(NotFoundException $e) {
 
-					$Error = true;
+					$this->Error = true;
 					Notification::Show(Language::Get('sbb.error.board_not_exists'), Notification::ERROR);
 					break;
 
@@ -109,7 +116,7 @@ class ComposePage implements IPage {
 
         }
 
-		SBB::Template()->Assign(['compose' => ['error' => $Error, 'target' => $this->Target, 'type' => $this->Type, 'board' => $Board, 'thread' => $Thread]]);
+		SBB::Template()->Assign(['compose' => ['error' => $this->Error, 'target' => $this->Target, 'type' => $this->Type, 'board' => $Board, 'thread' => $Thread]]);
 
     }
 
@@ -141,7 +148,10 @@ class ComposePage implements IPage {
      * @return string
      */
     public function Template() {
-        return 'PageCompose.tpl';
+		if(!$this->Type || !$this->Target)
+        	return 'PageError.tpl';
+		else
+			return 'PageCompose.tpl';
     }
 
     /**

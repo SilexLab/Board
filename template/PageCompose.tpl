@@ -87,7 +87,7 @@
 
 		<div class="container_footer">
 			<div class="compose_number_characters left">
-				{lang node="sbb.compose.number_characters"}: ###
+				{lang node="sbb.compose.number_characters"}: <span id="number_characters">0</span>
 			</div>
 
 			<div class="button_bar right">
