@@ -26,7 +26,7 @@ class User {
 	public function __construct($Type, $Input = null) {
 
 		/* Get general information about the user */
-		if($Type != self::GIVEN_GUEST) { // This is not our guest
+		if($Type != self::GIVEN_GUEST && $Input != 0) { // This is not our guest
 
 			if($Type == self::GIVEN_ID) {
 				$this->ID = $Input;

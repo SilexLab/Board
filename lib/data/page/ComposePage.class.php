@@ -67,7 +67,7 @@ class ComposePage implements IPage {
 				catch(NotFoundException $e) {
 
 					$this->Error = true;
-					Notification::Show(Language::Get('sbb.error.thread_not_exists'), Notification::ERROR);
+					Notification::Show(Language::Get('sbb.error.no_thread'), Notification::ERROR);
 					break;
 
 				}
@@ -94,7 +94,7 @@ class ComposePage implements IPage {
 				catch(NotFoundException $e) {
 
 					$this->Error = true;
-					Notification::Show(Language::Get('sbb.error.board_not_exists'), Notification::ERROR);
+					Notification::Show(Language::Get('sbb.error.no_board'), Notification::ERROR);
 					break;
 
 				}
@@ -168,12 +168,46 @@ class ComposePage implements IPage {
 	 */
 	protected function Evaluate() {
 
+		$Input = [
+			'topic'   => HtmlPost::Get('topic'),
+			'message' => HtmlPost::Get('message'),
+			'smileys' => HtmlPost::Get('setting_smileys') == 1,
+			'html'    => HtmlPost::Get('setting_html') == 1,
+			'silexcode' => HtmlPost::Get('setting_silexcode') == 1
+		];
+
 		// Preview comes later
 		if(HtmlPost::Get('save')) {
 
 			if($this->CheckInput()) {
 
-				Notification::Show('Yaaay!', Notification::SUCCESS); // This will be the creation
+				switch($this->Type) {
+
+					case self::TYPE_ANSWER:
+
+						// TODO: Is the user allowed to do so? (Permissions)
+						$NewPost = PostUtil::Create($this->Target, 0, $Input['message'], '', $Input['smileys'], $Input['html'], $Input['silexcode']);
+
+						if($NewPost === false) {
+							Notification::Show('sbb.compose.error.generic_answer', Notification::ERROR);
+							SBB::Template()->Assign(['input' => $Input]);
+							break;
+						}
+
+						// Hey ThreadPage, I got something for you!
+						Session::Set('ComposePostSuccess', 1); // TODO: Does not work.
+
+						header('Location: '.$NewPost->GetThread()->GetLink());
+
+						break;
+
+					case self::TYPE_THREAD:
+
+
+
+						break;
+
+				}
 
 			}
 
@@ -190,8 +224,8 @@ class ComposePage implements IPage {
 		$Return = true;
 
 		if($this->Type == self::TYPE_THREAD) {
-			if(HtmlPost::Get('subject') === false) {
-				Notification::Show(Language::Get('sbb.compose.error.no_subject'), Notification::ERROR);
+			if(HtmlPost::Get('topic') === false) {
+				Notification::Show(Language::Get('sbb.compose.error.no_topic'), Notification::ERROR);
 				$Return = false;
 			}
 		}

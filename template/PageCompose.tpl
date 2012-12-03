@@ -35,8 +35,8 @@
 			{if $compose.type == 1} {* New threads only *}
 			<fieldset class="compose_info">
                 <legend>{lang node="sbb.compose.info"}</legend>
-				<label for="subject">{lang node="sbb.compose.subject"}</label><br>
-                <input type="text" name="subject" id="subject" required="required">
+				<label for="Topic">{lang node="sbb.compose.topic"}</label><br>
+                <input type="text" name="topic" id="topic" required="required">
 				{* Prefixes - someday *}
 			</fieldset>
 			{/if}

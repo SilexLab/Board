@@ -75,7 +75,13 @@ class PostUtil {
 		// Get ID
 		$Row['ID'] = SBB::DB()->lastInsertId();
 
-		return new Post(Post::GIVEN_ROW, (object) $Row);
+		$Post = new Post(Post::GIVEN_ROW, (object) $Row);
+
+		// Set last post
+		$Post->GetThread()->SetLastPostId($Post->GetId());
+		$Post->Save();
+
+		return $Post;
 
 	}
 

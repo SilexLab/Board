@@ -149,10 +149,12 @@ self::$Items = array_merge(self::$Items, [
 'sbb.config.page.title'    => 'Page title',
 
 // Compose page
-'sbb.compose.compose_thread'         => 'New thread in',
-'sbb.compose.compose_answer'         => 'New answer to',
+'sbb.compose.compose_thread'         => 'New thread',
+'sbb.compose.compose_answer'         => 'New answer',
+'sbb.compose.thread_in'              => 'New thread in',
+'sbb.compose.answer_to'              => 'New answer to',
 'sbb.compose.info'                   => 'Post information',
-'sbb.compose.subject'                => 'Topic of the thread',
+'sbb.compose.topic'                  => 'Topic of the thread',
 'sbb.compose.message'                => 'Message',
 'sbb.compose.settings'               => 'Settings',
 'sbb.compose.settings.silexcode'     => 'SilexCode',
@@ -162,10 +164,14 @@ self::$Items = array_merge(self::$Items, [
 'sbb.compose.settings.no'            => 'No',
 'sbb.compose.number_characters'      => 'Number of characters',
 'sbb.compose.save'                   => 'Save',
-'sbb.compose.preview'                => 'preview',
-'sbb.compose.error.no_subject'       => 'You need to give a subject!',
+'sbb.compose.preview'                => 'Preview',
+'sbb.compose.error.no_Topic'         => 'You need to give a Topic!',
 'sbb.compose.error.no_message'       => 'You need to give a message!',
 'sbb.compose.error.no_settings'      => 'You need to give every settings!',
 'sbb.compose.error.pattern_settings' => 'There\'s something wrong with your settings.',
-'sbb.compose.error.no_type_target'   => 'Type and/or Target of composing are missing!'
+'sbb.compose.error.no_type_target'   => 'Type and/or Target of composing are missing!',
+'sbb.compose.error.generic_answer'   => 'Failed to create your answer!',
+'sbb.compose.error.generic_thread'   => 'Failed to create your thread!',
+'sbb.compose.success.answer'         => 'Your answer has been posted successfully.',
+'sbb.compose.success.thread'         => 'Your thread has been created successfully.'
 ]);
