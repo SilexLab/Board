@@ -23,7 +23,7 @@ class Session {
 		register_shutdown_function('session_write_close');
 		
 		session_name(SBB::Config('user.session.name'));
-		session_set_cookie_params(SBB::Config('user.session.cookie_time'), NULL, NULL, NULL, true);
+		session_set_cookie_params(SBB::Config('user.session.cookie_time'), '/', NULL, false, true);
 
 		session_set_save_handler(new DatabaseSessionHandler(SBB::DB(), 'session'), true);
 
