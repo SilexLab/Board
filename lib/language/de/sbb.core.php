@@ -13,6 +13,8 @@ self::$Items = array_merge(self::$Items, [
 
 'sbb.error'         => 'Fehler',
 'sbb.error.no_page' => 'Diese Seite existiert nicht',
+'sbb.error.no_board' => 'Dieses Board existiert nicht',
+'sbb.error.no_thread' => 'Dieser Thread existiert nicht',
 'sbb.forumsoftware' => 'Forensoftware',
 
 'sbb.header.welcome'            => 'Willkommen',
@@ -143,5 +145,32 @@ self::$Items = array_merge(self::$Items, [
 
 // Databasestrings
 'sbb.config.style.default' => 'Standardstil',
-'sbb.config.page.title'    => 'Seitentitel'
+'sbb.config.page.title'    => 'Seitentitel',
+
+// Compose page
+'sbb.compose.compose_thread'         => 'Neues Thema',
+'sbb.compose.compose_reply '         => 'Neue Antwort',
+'sbb.compose.thread_in'              => 'Neues Thema in',
+'sbb.compose.reply_to'               => 'Neue Antwort auf',
+'sbb.compose.info'                   => 'Beitragsinformationen',
+'sbb.compose.topic'                  => 'Thema des Threads',
+'sbb.compose.message'                => 'Nachricht',
+'sbb.compose.settings'               => 'Einstellungen',
+'sbb.compose.settings.silexcode'     => 'SilexCode',
+'sbb.compose.settings.html'          => 'HTML',
+'sbb.compose.settings.smileys'       => 'Smileys',
+'sbb.compose.settings.yes'           => 'Ja',
+'sbb.compose.settings.no'            => 'Nein',
+'sbb.compose.number_characters'      => 'Zeichenanzahl',
+'sbb.compose.save'                   => 'Speichern',
+'sbb.compose.preview'                => 'Vorschau',
+'sbb.compose.error.no_topic'         => 'Du musst ein Thema angeben!',
+'sbb.compose.error.no_message'       => 'Du musst eine Nachricht angeben!',
+'sbb.compose.error.no_settings'      => 'Du musst jede Einstellung angeben!',
+'sbb.compose.error.pattern_settings' => 'Irgendetwas stimmt nicht mit deinen Einstellungen.',
+'sbb.compose.error.no_type_target'   => 'Typ und/oder Ziel der Erstellung fehlen!',
+'sbb.compose.error.generic_reply'    => 'Fehler beim Erstellen der Antwort!',
+'sbb.compose.error.generic_thread'   => 'Fehler beim Erstellen des Threads!',
+'sbb.compose.success.reply'          => 'Deine Antwort wurde erfolgreich erstellt.',
+'sbb.compose.success.thread'         => 'Dein Thread wurde erfolgreich erstellt.'
 ]);

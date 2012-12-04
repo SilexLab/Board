@@ -226,7 +226,7 @@ class Board {
 		$this->Visible = ($Row->Invisible == 0);
 		$this->News = ($Row->News == 1);
 		$this->Prefixes = explode(';', $Row->Prefixes);
-		$this->LastPostId = $Row->LastPostId;
+		$this->LastPostId = $Row->LastPostId; // TODO: Does this even exist?
 
 	}
 
@@ -239,13 +239,13 @@ class Board {
 		$Query = SBB::DB()->prepare('UPDATE `board`
 			SET `ParentID` = :ParentID,
 				`Type` = :Type,
-				`Title` = \':Title\',
-				`Description` = \':Description\',
-				`Link` = \':Link\',
+				`Title` = :Title,
+				`Description` = :Description,
+				`Link` = :Link,
 				`Position` = :Position,
-				`Image` = \':Image\',
-				`ImageNew` = \':ImageNew\',
-				`Prefixes` = \':Prefixes\',
+				`Image` = :Image,
+				`ImageNew` = :ImageNew,
+				`Prefixes` = :Prefixes,
 				`PrefixesRequired` = :PrefixesRequired,
 				`Views` = :Views,
 				`Threads` = :Threads,
@@ -371,6 +371,16 @@ class Board {
 		return BoardUtil::GetBreadcrumbs($this);
 
 	}
+
+    /**
+     * Grab the link for creating a new thread
+     * @return string
+     */
+    public function GetNewThreadLink() {
+
+        return URI::Make([['page', 'Compose'], ['Type', ComposePage::TYPE_THREAD, Language::Get('sbb.compose.compose_thread')], ['Target', $this->Id, $this->Topic]]);
+
+    }
 
 	/**
 	 * @return boolean
