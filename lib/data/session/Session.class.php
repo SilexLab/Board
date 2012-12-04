@@ -76,8 +76,11 @@ class Session {
 	 * Returns true if succeeded else false
 	 */
 	public static function Remove($Key) {
-		$_SESSION[$Key] = null; // Debug because -v
-		unset($_SESSION[$Key]); // Bug: doesn't work?
+		// Session system is a dick, wants both to be deleted
+		$_SESSION[$Key] = null;
+		$GLOBALS['_SESSION'][$Key] = null;
+		unset($_SESSION[$Key]);
+		unset($GLOBALS['_SESSION'][$Key]);
 	}
 
 	/* Currently logged in user */
