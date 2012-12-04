@@ -150,9 +150,9 @@ self::$Items = array_merge(self::$Items, [
 
 // Compose page
 'sbb.compose.compose_thread'         => 'New thread',
-'sbb.compose.compose_answer'         => 'New answer',
+'sbb.compose.compose_reply'          => 'New reply',
 'sbb.compose.thread_in'              => 'New thread in',
-'sbb.compose.answer_to'              => 'New answer to',
+'sbb.compose.reply_to'               => 'New reply to',
 'sbb.compose.info'                   => 'Post information',
 'sbb.compose.topic'                  => 'Topic of the thread',
 'sbb.compose.message'                => 'Message',
@@ -170,8 +170,8 @@ self::$Items = array_merge(self::$Items, [
 'sbb.compose.error.no_settings'      => 'You need to give every settings!',
 'sbb.compose.error.pattern_settings' => 'There\'s something wrong with your settings.',
 'sbb.compose.error.no_type_target'   => 'Type and/or Target of composing are missing!',
-'sbb.compose.error.generic_answer'   => 'Failed to create your answer!',
+'sbb.compose.error.generic_reply'    => 'Failed to create your reply!',
 'sbb.compose.error.generic_thread'   => 'Failed to create your thread!',
-'sbb.compose.success.answer'         => 'Your answer has been posted successfully.',
+'sbb.compose.success.reply'          => 'Your reply has been posted successfully.',
 'sbb.compose.success.thread'         => 'Your thread has been created successfully.'
 ]);

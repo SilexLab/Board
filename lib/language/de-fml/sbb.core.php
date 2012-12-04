@@ -27,6 +27,6 @@ self::$Items = array_merge(self::$Items, [
 'sbb.compose.error.no_message'       => 'Sie müssen eine Nachricht angeben!',
 'sbb.compose.error.no_settings'      => 'Sie müssen jede Einstellung angeben!',
 'sbb.compose.error.pattern_settings' => 'Irgendetwas stimmt nicht mit Ihren Einstellungen.',
-'sbb.compose.success.answer'         => 'Ihre Antwort wurde erfolgreich erstellt.',
+'sbb.compose.success.reply'          => 'Ihre Antwort wurde erfolgreich erstellt.',
 'sbb.compose.success.thread'         => 'Ihr Thread wurde erfolgreich erstellt.'
 ]);

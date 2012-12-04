@@ -8,7 +8,7 @@ class PostUtil {
 
 	/**
 	 * Creates a new post and returns the post object of the new post.
-	 * @param int $ThreadId
+	 * @param int $ThreadId Set 0 for no thread
 	 * @param int $UserId
 	 * @param string $Message
 	 * @param string $IpAddress
@@ -78,8 +78,16 @@ class PostUtil {
 		$Post = new Post(Post::GIVEN_ROW, (object) $Row);
 
 		// Set last post
-		$Post->GetThread()->SetLastPostId($Post->GetId());
-		$Post->Save();
+        if($ThreadId != 0) {
+		    $Post->GetThread()->SetLastPostId($Post->GetId());
+			$Post->GetThread()->SetReplies($Post->GetThread()->GetReplies() + 1);
+		    $Post->GetThread()->Save();
+
+			// Yea, yea. A bit long
+			$Post->GetThread()->GetBoard()->SetNumPosts($Post->GetThread()->GetBoard()->GetNumPosts() + 1);
+			$Post->GetThread()->GetBoard()->SetNumThreads($Post->GetThread()->GetBoard()->GetNumThreads() + 1);
+			$Post->GetThread()->GetBoard()->Save();
+        }
 
 		return $Post;
 

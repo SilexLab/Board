@@ -333,6 +333,16 @@ class Thread {
 
 	}
 
+    /**
+     * Grab the link for creating a new reply
+     * @return string
+     */
+    public function GetNewReplyLink() {
+
+        return URI::Make([['page', 'Compose'], ['Type', ComposePage::TYPE_REPLY, Language::Get('sbb.compose.compose_reply')], ['Target', $this->Id, $this->Topic]]);
+
+    }
+
 	
 	/* Getters */
 

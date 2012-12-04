@@ -6,6 +6,11 @@
  */
 class ThreadUtil {
 
+    /**
+     * Length of the preview text saved in the thread
+     */
+    const PREVIEW_LENGTH = 50;
+
 	/**
 	 * Grab breadcrumbs for this thread
 	 * @param Thread $Thread
@@ -20,34 +25,52 @@ class ThreadUtil {
 
 	}
 
-	public static function Create($Topic, $BoardId, $ThreadId, $UserId, $Message, $IpAddress, $Smileys, $Html, $SilexCode) {
+    /**
+     * Create a thread AND the first post
+     *
+     * @param string $Topic
+     * @param int    $BoardId
+     * @param string $Prefix
+     * @param bool   $Sticky
+     * @param int    $UserId
+     * @param string $Message
+     * @param string $IpAddress
+     * @param bool   $Smileys
+     * @param bool   $Html
+     * @param bool   $SilexCode
+     *
+     * @return bool|Thread Newly created thread.
+     */
+    public static function Create($BoardId, $Topic, $Prefix, $Sticky, $UserId, $Message, $IpAddress, $Smileys, $Html, $SilexCode) {
 
 		// Create first post first
-		$FirstPost = PostUtil::Create($ThreadId, $UserId, $Message, $IpAddress, $Smileys, $Html, $SilexCode);
+		$FirstPost = PostUtil::Create(0, $UserId, $Message, $IpAddress, $Smileys, $Html, $SilexCode);
 
 		if(!$FirstPost)
 			return false;
 
 		$Row = [
-			'ThreadID'     => $ThreadId,
+			'BoardID'      => $BoardId,
+			'PostID'       => $FirstPost->GetId(),
 			'UserID'       => $UserId,
-			'Message'      => $Message,
+			'Prefix'       => $Prefix,
+			'Topic'        => $Topic,
+			'Message'      => (strlen($Message) > self::PREVIEW_LENGTH ? substr($Message, 0, self::PREVIEW_LENGTH - 3) . ' ...' : $Message),
 			'Time'         => time(),
-			'LastEdit'     => '0',
-			'EditorID'     => '0',
-			'PollID'       => '0',
-			'IPAddress'    => $IpAddress,
-			'Disabled'     => '0',
-			'Deleted'      => '0',
+			'LastPostID'   => $FirstPost->GetId(),
+			'LastPostTime' => $FirstPost->GetTime(),
+			'Replies'      => 0,
+			'Views'        => 0,
+			'Sticky'       => ($Sticky ? 1 : 0),
+			'Disabled'     => 0,
+			'Closed'       => 0,
+			'Deleted'      => 0,
 			'DeleteReason' => '',
-			'DeleteTime'   => '0',
-			'Smileys'      => ($Smileys ? '1' : '0'),
-			'HTML'         => ($Html ? '1' : '0'),
-			'SilexCode'    => ($SilexCode ? '1' : '0'),
+			'DeleteTime'   => 0
 		];
 
 		// Write the row in the DB
-		$Query = 'INSERT INTO `post` ';
+		$Query = 'INSERT INTO `thread` ';
 
 		$Columns = '(';
 		$Values = 'VALUES(';
@@ -84,13 +107,22 @@ class ThreadUtil {
 		// Get ID
 		$Row['ID'] = SBB::DB()->lastInsertId();
 
-		$Post = new Post(Post::GIVEN_ROW, (object) $Row);
+		$Thread = new Thread(Thread::GIVEN_ROW, (object) $Row);
+
+        // Set thread of the first post
+        $FirstPost->SetThreadId($Thread->GetId());
+        $FirstPost->Save();
 
 		// Set last post
-		$Post->GetThread()->SetLastPostId($Post->GetId());
-		$Post->Save();
+        $Thread->GetBoard()->SetLastPostId($Thread->GetId());
+        $Thread->Save();
 
-		return $Post;
+		// Yea, yea. A bit long
+		$Thread->GetBoard()->SetNumPosts($Thread->GetBoard()->GetNumPosts() + 1);
+		$Thread->GetBoard()->SetNumThreads($Thread->GetBoard()->GetNumThreads() + 1);
+		$Thread->GetBoard()->Save();
+
+		return $Thread;
 
 	}
 

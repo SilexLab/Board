@@ -50,7 +50,7 @@ class ThreadPage implements IPage {
 		// Has the ComposePage something for us?
 		// TODO: Does not work.
 		if(Session::Get('ComposePostSuccess')) {
-			Notification::Show(Language::Get('sbb.compose.success.answer'), Notification::SUCCESS);
+			Notification::Show(Language::Get('sbb.compose.success.reply'), Notification::SUCCESS);
 			Session::Remove('ComposePostSuccess');
 		}
 
