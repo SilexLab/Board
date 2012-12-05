@@ -59,6 +59,11 @@ class ThreadPage implements IPage {
 			Session::Remove('ComposeThreadSuccess');
 		}
 
+        if(Session::Get('EditPostSuccess')) {
+            Notification::Show(Language::Get('sbb.compose.success.edit'), Notification::SUCCESS);
+            Session::Remove('EditPostSuccess');
+        }
+
 	}
 
 	public function Link() {

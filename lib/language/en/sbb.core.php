@@ -15,6 +15,7 @@ self::$Items = array_merge(self::$Items, [
 'sbb.error.no_page' => 'This page doesn\'t exists',
 'sbb.error.no_board' => 'This board doesn\'t exists',
 'sbb.error.no_thread' => 'This thread doesn\'t exists',
+'sbb.error.no_post' => 'This post doesn\'t exists',
 'sbb.forumsoftware' => 'Forum software',
 
 'sbb.header.welcome'            => 'Welcome',
@@ -151,8 +152,10 @@ self::$Items = array_merge(self::$Items, [
 // Compose page
 'sbb.compose.compose_thread'         => 'New thread',
 'sbb.compose.compose_reply'          => 'New reply',
+'sbb.compose.compose_edit'           => 'Edit post',
 'sbb.compose.thread_in'              => 'New thread in',
 'sbb.compose.reply_to'               => 'New reply to',
+'sbb.compose.edit_in'                => 'Edit post in',
 'sbb.compose.info'                   => 'Post information',
 'sbb.compose.topic'                  => 'Topic of the thread',
 'sbb.compose.message'                => 'Message',
@@ -173,5 +176,6 @@ self::$Items = array_merge(self::$Items, [
 'sbb.compose.error.generic_reply'    => 'Failed to create your reply!',
 'sbb.compose.error.generic_thread'   => 'Failed to create your thread!',
 'sbb.compose.success.reply'          => 'Your reply has been posted successfully.',
-'sbb.compose.success.thread'         => 'Your thread has been created successfully.'
+'sbb.compose.success.thread'         => 'Your thread has been created successfully.',
+'sbb.compose.success.edit'           => 'Your post has beed edited successfully.'
 ]);

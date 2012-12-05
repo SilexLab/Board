@@ -27,6 +27,9 @@
 			{elseif $compose.type == 2}
 			<div class="title">{lang node="sbb.compose.compose_reply"}</div>
 			<div class="description">{lang node="sbb.compose.reply_to"} {$compose.thread->GetTopic()}</div>
+            {elseif $compose.type == 3}
+            <div class="title">{lang node="sbb.compose.compose_edit"}</div>
+            <div class="description">{lang node="sbb.compose.edit_in"} {$compose.post->GetThread()->GetTopic()}</div>
 			{/if}
 		</div>
 

@@ -15,6 +15,7 @@ self::$Items = array_merge(self::$Items, [
 'sbb.error.no_page' => 'Diese Seite existiert nicht',
 'sbb.error.no_board' => 'Dieses Board existiert nicht',
 'sbb.error.no_thread' => 'Dieser Thread existiert nicht',
+'sbb.error.no_post' => 'Dieser Beitrag existiert nicht',
 'sbb.forumsoftware' => 'Forensoftware',
 
 'sbb.header.welcome'            => 'Willkommen',
@@ -149,9 +150,11 @@ self::$Items = array_merge(self::$Items, [
 
 // Compose page
 'sbb.compose.compose_thread'         => 'Neues Thema',
-'sbb.compose.compose_reply '         => 'Neue Antwort',
+'sbb.compose.compose_reply'          => 'Neue Antwort',
+'sbb.compose.compose_edit'           => 'Beitrag bearbeiten',
 'sbb.compose.thread_in'              => 'Neues Thema in',
 'sbb.compose.reply_to'               => 'Neue Antwort auf',
+'sbb.compose.edit_in'                => 'Beitrag bearbeiten in',
 'sbb.compose.info'                   => 'Beitragsinformationen',
 'sbb.compose.topic'                  => 'Thema des Threads',
 'sbb.compose.message'                => 'Nachricht',
@@ -171,6 +174,8 @@ self::$Items = array_merge(self::$Items, [
 'sbb.compose.error.no_type_target'   => 'Typ und/oder Ziel der Erstellung fehlen!',
 'sbb.compose.error.generic_reply'    => 'Fehler beim Erstellen der Antwort!',
 'sbb.compose.error.generic_thread'   => 'Fehler beim Erstellen des Threads!',
+'sbb.compose.error.generic_edit'     => 'Fehler beim Bearbeiten des Beitrags!',
 'sbb.compose.success.reply'          => 'Deine Antwort wurde erfolgreich erstellt.',
-'sbb.compose.success.thread'         => 'Dein Thread wurde erfolgreich erstellt.'
+'sbb.compose.success.thread'         => 'Dein Thread wurde erfolgreich erstellt.',
+'sbb.compose.success.edit'           => 'Dein Beitrag wurde erfolgreich bearbeitet.'
 ]);

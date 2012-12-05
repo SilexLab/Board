@@ -17,6 +17,11 @@ class ComposePage implements IPage {
 	const TYPE_REPLY = 2;
 
 	/**
+	 * Edit a post
+	 */
+	const TYPE_EDIT = 3;
+
+	/**
 	 * Which type of post are we creating?
 	 * @var int
 	 */
@@ -54,7 +59,7 @@ class ComposePage implements IPage {
 		$this->Evaluate();
 
 		// Declare for assignment
-		$Thread = $Board = false;
+		$Thread = $Board = $Post = false;
 
 
 		switch($this->Type) {
@@ -114,9 +119,50 @@ class ComposePage implements IPage {
 
 				break;
 
+			case self::TYPE_EDIT:
+
+				try {
+					$Post = new Post(Post::GIVEN_ID, $this->Target);
+				}
+				catch(NotFoundException $e) {
+
+					$this->Error = true;
+					Notification::Show(Language::Get('sbb.error.no_post'), Notification::ERROR);
+					break;
+
+				}
+
+				$this->TargetTitle = $Post->GetThread()->GetTopic();
+
+				// Redirect if url-title is wrong
+				if(!$P->URI()->Check(2, htmlspecialchars_decode($Post->GetThread()->GetTopic())) || !$P->URI()->Check(1, htmlspecialchars_decode($this->Title()))) {
+
+					header('location: '.$this->Link());
+
+				}
+
+				// Give them the current things
+				$Current = [
+					'message' => $Post->GetMessage(),
+					'smileys' => $Post->GetSmileys(),
+					'html'    => $Post->GetHtml(),
+					'silexcode' => $Post->GetSilexCode(),
+					'numchars'  => strlen($Post->GetMessage())
+				];
+
+                // Do we have the edited values in there?
+                if(!HtmlPost::Get('save'))
+				    SBB::Template()->Assign(['input' => $Current]);
+
+				// Crumb the crumbies
+				Breadcrumb::AddMany($Post->GetThread()->GetBreadcrumbs());
+				Breadcrumb::Add($this->Title(), $this->Link());
+
+				break;
+
 		}
 
-		SBB::Template()->Assign(['compose' => ['error' => $this->Error, 'target' => $this->Target, 'type' => $this->Type, 'board' => $Board, 'thread' => $Thread]]);
+		SBB::Template()->Assign(['compose' => ['error' => $this->Error, 'target' => $this->Target, 'type' => $this->Type, 'board' => $Board, 'thread' => $Thread, 'post' => $Post]]);
 
 	}
 
@@ -137,10 +183,12 @@ class ComposePage implements IPage {
 	 * @return string
 	 */
 	public function Title() {
-		if($this->Type == 1)
+		if($this->Type == self::TYPE_THREAD)
 			return Language::Get('sbb.compose.compose_thread');
-		elseif($this->Type == 2)
+		elseif($this->Type == self::TYPE_REPLY)
 			return Language::Get('sbb.compose.compose_reply');
+		elseif($this->Type == self::TYPE_EDIT)
+			return Language::Get('sbb.compose.compose_edit');
 	}
 
 	/**
@@ -204,21 +252,55 @@ class ComposePage implements IPage {
 
 					case self::TYPE_THREAD:
 
-                        $NewThread = ThreadUtil::Create($this->Target, $Input['topic'], '', false, SBB::User()->ID(), $Input['message'], '', $Input['smileys'], $Input['html'], $Input['silexcode']);
+						$NewThread = ThreadUtil::Create($this->Target, $Input['topic'], '', false, SBB::User()->ID(), $Input['message'], '', $Input['smileys'], $Input['html'], $Input['silexcode']);
 
-                        if($NewThread === false) {
-                            Notification::Show('sbb.compose.error.generic_thread', Notification::ERROR);
-                            SBB::Template()->Assign(['input' => $Input]);
-                            break;
-                        }
+						if($NewThread === false) {
+							Notification::Show('sbb.compose.error.generic_thread', Notification::ERROR);
+							SBB::Template()->Assign(['input' => $Input]);
+							break;
+						}
 
-                        // Hey ThreadPage, I got something for you!
-                        Session::Set('ComposeThreadSuccess', 1);
+						// Hey ThreadPage, I got something for you!
+						Session::Set('ComposeThreadSuccess', 1);
 
-                        header('Location: '.$NewThread->GetLink());
+						header('Location: '.$NewThread->GetLink());
 
 
 						break;
+
+                    case self::TYPE_EDIT:
+
+                        // Get post
+                        try {
+                            $Post = new Post(Post::GIVEN_ID, $this->Target);
+                        }
+                        catch(NotFoundException $e) {
+
+                            $this->Error = true;
+                            Notification::Show(Language::Get('sbb.error.no_post'), Notification::ERROR);
+                            break;
+
+                        }
+
+                        /* Set them data! */
+                        $Post->SetMessage($Input['message']);
+                        $Post->SetSilexCode($Input['silexcode']);
+                        $Post->SetHtml($Input['html']);
+                        $Post->SetSmileys($Input['smileys']);
+
+                        $Post->SetEditorId(SBB::User()->ID());
+                        $Post->SetLastEdit(time());
+
+                        $Post->Save();
+
+                        // Hey ThreadPage, I got something for you!
+                        Session::Set('EditPostSuccess', 1);
+
+                        header('Location: '.$Post->GetThread()->GetLink());
+
+                        break;
+
+
 
 				}
 
