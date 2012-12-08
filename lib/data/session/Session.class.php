@@ -23,7 +23,7 @@ class Session {
 		register_shutdown_function('session_write_close');
 		
 		session_name(SBB::Config('user.session.name'));
-		session_set_cookie_params(SBB::Config('user.session.cookie_time'), NULL, NULL, NULL, true);
+		session_set_cookie_params(SBB::Config('user.session.cookie_time'), '/', NULL, false, true);
 
 		session_set_save_handler(new DatabaseSessionHandler(SBB::DB(), 'session'), true);
 
@@ -76,8 +76,11 @@ class Session {
 	 * Returns true if succeeded else false
 	 */
 	public static function Remove($Key) {
-		$_SESSION[$Key] = null; // Debug because -v
-		unset($_SESSION[$Key]); // Bug: doesn't work?
+		// Session system is a dick, wants both to be deleted
+		$_SESSION[$Key] = null;
+		$GLOBALS['_SESSION'][$Key] = null;
+		unset($_SESSION[$Key]);
+		unset($GLOBALS['_SESSION'][$Key]);
 	}
 
 	/* Currently logged in user */

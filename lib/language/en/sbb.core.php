@@ -13,6 +13,9 @@ self::$Items = array_merge(self::$Items, [
 
 'sbb.error'         => 'Error',
 'sbb.error.no_page' => 'This page doesn\'t exists',
+'sbb.error.no_board' => 'This board doesn\'t exists',
+'sbb.error.no_thread' => 'This thread doesn\'t exists',
+'sbb.error.no_post' => 'This post doesn\'t exists',
 'sbb.forumsoftware' => 'Forum software',
 
 'sbb.header.welcome'            => 'Welcome',
@@ -144,5 +147,35 @@ self::$Items = array_merge(self::$Items, [
 
 // Databasestrings
 'sbb.config.style.default' => 'Default style',
-'sbb.config.page.title'    => 'Page title'
+'sbb.config.page.title'    => 'Page title',
+
+// Compose page
+'sbb.compose.compose_thread'         => 'New thread',
+'sbb.compose.compose_reply'          => 'New reply',
+'sbb.compose.compose_edit'           => 'Edit post',
+'sbb.compose.thread_in'              => 'New thread in',
+'sbb.compose.reply_to'               => 'New reply to',
+'sbb.compose.edit_in'                => 'Edit post in',
+'sbb.compose.info'                   => 'Post information',
+'sbb.compose.topic'                  => 'Topic of the thread',
+'sbb.compose.message'                => 'Message',
+'sbb.compose.settings'               => 'Settings',
+'sbb.compose.settings.silexcode'     => 'SilexCode',
+'sbb.compose.settings.html'          => 'HTML',
+'sbb.compose.settings.smileys'       => 'Smileys',
+'sbb.compose.settings.yes'           => 'Yes',
+'sbb.compose.settings.no'            => 'No',
+'sbb.compose.number_characters'      => 'Number of characters',
+'sbb.compose.save'                   => 'Save',
+'sbb.compose.preview'                => 'Preview',
+'sbb.compose.error.no_Topic'         => 'You need to give a Topic!',
+'sbb.compose.error.no_message'       => 'You need to give a message!',
+'sbb.compose.error.no_settings'      => 'You need to give every settings!',
+'sbb.compose.error.pattern_settings' => 'There\'s something wrong with your settings.',
+'sbb.compose.error.no_type_target'   => 'Type and/or Target of composing are missing!',
+'sbb.compose.error.generic_reply'    => 'Failed to create your reply!',
+'sbb.compose.error.generic_thread'   => 'Failed to create your thread!',
+'sbb.compose.success.reply'          => 'Your reply has been posted successfully.',
+'sbb.compose.success.thread'         => 'Your thread has been created successfully.',
+'sbb.compose.success.edit'           => 'Your post has beed edited successfully.'
 ]);

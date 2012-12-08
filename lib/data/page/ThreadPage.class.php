@@ -19,6 +19,7 @@ class ThreadPage implements IPage {
 	}
 
 	public function Display(Page $P) {
+
 		Breadcrumb::Add(Language::Get('sbb.page.board'), $P->Link('Board'));
 
 		$this->UF = $P->URI()->Format();
@@ -45,6 +46,24 @@ class ThreadPage implements IPage {
 			$this->Info['title'] = Language::Get('sbb.error');
 			Notification::Show('Thread existiert nicht!', Notification::ERROR);
 		}
+
+		// Has the ComposePage something for us?
+		// TODO: Does not work.
+		if(Session::Get('ComposePostSuccess')) {
+			Notification::Show(Language::Get('sbb.compose.success.reply'), Notification::SUCCESS);
+			Session::Remove('ComposePostSuccess');
+		}
+
+		if(Session::Get('ComposeThreadSuccess')) {
+			Notification::Show(Language::Get('sbb.compose.success.thread'), Notification::SUCCESS);
+			Session::Remove('ComposeThreadSuccess');
+		}
+
+        if(Session::Get('EditPostSuccess')) {
+            Notification::Show(Language::Get('sbb.compose.success.edit'), Notification::SUCCESS);
+            Session::Remove('EditPostSuccess');
+        }
+
 	}
 
 	public function Link() {
