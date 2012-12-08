@@ -86,32 +86,23 @@ class Session {
 	 * @return User
 	 */
 	public static function GetUser() {
-
 		// This is our current user. Say hi.
 		$User = null;
-
 		if(self::Get('UserID')) { // User seems to be logged in
-
 			$User = new User(User::GIVEN_ID, self::Get('UserID'));
-
 			if(!$User) {
 				// Do Logout
 				Session::Destroy();
 				return self::GetUser(); // TODO: Possible endless loop?
 			}
-
 		}
 		else { // Not logged in
-
 			$User = new User(User::GIVEN_GUEST);
-
 		}
 
 		/* Assign template vars */
 		SBB::Template()->Assign(['User' => ['ID' => (int)$User->ID(), 'Name' => $User->Name()]]);
 
 		return $User;
-
 	}
-
 }

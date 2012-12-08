@@ -24,10 +24,8 @@ class User {
 	protected $Info = [];
 
 	public function __construct($Type, $Input = null) {
-
 		/* Get general information about the user */
 		if($Type != self::GIVEN_GUEST) { // This is not our guest
-
 			if($Type == self::GIVEN_ID) {
 				$this->ID = $Input;
 				if(!$this->Fetch())
@@ -35,7 +33,6 @@ class User {
 			}
 			else
 				$this->FetchRow($Input);
-
 		}
 		else { // Not logged in
 			$this->Name = Language::Get('sbb.user.guest');
@@ -49,23 +46,19 @@ class User {
 	}
 
 	protected function Fetch() {
-
 		$Result = SBB::DB()->prepare('SELECT * FROM `users` WHERE `ID` = :UserID');
 		$Result->execute([':UserID' => $this->ID]);
 
 		$Row = $Result->fetch(PDO::FETCH_OBJ);
-
 		if(!$Row) {
 			// User does not exist
 			return false;
 		}
 
 		$this->FetchRow($Row);
-
 	}
 
 	protected function FetchRow($Row) {
-
 		if($this->ID == 0)
 			$this->ID = $Row->ID;
 
@@ -73,7 +66,6 @@ class User {
 		$this->Name = $Row->Username;
 		$this->LoggedIn = true;
 		$this->Group = new Group((int)$Row->GroupID);
-
 	}
 
 	/* User info */

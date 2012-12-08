@@ -22,14 +22,15 @@ class SBB {
 	 */
 	public static final function Initial() {
 		/* Initialize classes and objects */
-		Language::Initialize(isset($_GET['lang']) ? $_GET['lang'] : null);
-		// Design
-		self::$Style = Style::GetInstance();
-		self::$Template = new Template(DIR_ROOT.DIR_TPL, self::$Style->Info('tpl'));
 		// Data
+		Language::Initialize(isset($_GET['lang']) ? $_GET['lang'] : null);
+		self::$Template = new Template(DIR_ROOT.DIR_TPL);
 		self::$User = Session::GetUser();
 		Listener::Check();
+		self::$Style = Style::GetInstance();
 		SessionGarbageCollector::Collect();
+		
+		// Frontend
 		self::$Menu = Menu::GetInstance();
 		Mail::Init();
 
