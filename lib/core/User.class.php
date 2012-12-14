@@ -6,7 +6,6 @@
  */
 
 class User {
-
 	/*
 	 * What is given to fetch stuff?
 	 */
@@ -66,6 +65,7 @@ class User {
 		$this->Name = $Row->Username;
 		$this->LoggedIn = true;
 		$this->Group = new Group((int)$Row->GroupID);
+		$this->Info['style'] = (string)$Row->Style;
 	}
 
 	/* User info */

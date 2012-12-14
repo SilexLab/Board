@@ -10,7 +10,6 @@ class Style implements ISingleton {
 
 	// Styleinfo
 	private $Info = [];
-	private $Files = [];
 	
 	public static function GetInstance() {
 		if(!self::$Instance)
@@ -21,54 +20,54 @@ class Style implements ISingleton {
 	private function __clone() {}
 	
 	protected function __construct() {
+		/* Get the style */
+
 		// Use user style
+		$this->Info['style'] = SBB::User()->Info('style');
+		$this->Info['dir'] = DIR_STYLE.$this->Info['style'];
 
+		// If no user style, use default
+		if(empty($this->Info['style']) || !is_dir($this->Info['dir'])) {
+			$this->Info['style'] = SBB::Config('style.default');
+			$this->Info['dir'] = DIR_STYLE.$this->Info['style'];
 
-
-
-
-
-
-
-
-		/* OLD */
-		// Use Userstyle
-		$this->Info['dir'] = ''; // TODO: Read userstyle
-		if(empty($this->Info['dir']) || !is_dir(DIR_ROOT.DIR_STYLE.$this->Info['dir'])) {
-			// Use default
-			$this->Info['dir'] = SBB::Config('style.default');
-			if(empty($this->Info['dir']) || !is_dir(DIR_ROOT.DIR_STYLE.$this->Info['dir'])) {
-				// If default can't found, search for styles and use the first found
-				$Dir = scandir(DIR_ROOT.DIR_STYLE);
-				if(!$Dir)
-					throw new SystemException('Failed to read the style directory ('.DIR_STYLE.'). Please check the existence of the directory.');
-				foreach($Dir as $File) {
-					if(in_array($File, ['.', '..']))
+			// If default doesn't exists, search for random styles
+			if(empty($this->Info['style']) || !is_dir($this->Info['dir'])) {
+				$Styles = scandir(DIR_STYLE);
+				if(!$Styles)
+					throw new SystemException('Probably your style directory ('.DIR_STYLE.') is missing. Please create it and install a style.');
+				foreach($Styles as $Style) {
+					if(in_array($Style, ['.', '..']))
 						continue;
-					if(is_dir(DIR_ROOT.DIR_STYLE.$File)) {
-						if(is_file(DIR_ROOT.DIR_STYLE.$File.'/info.xml')) {
-							$this->Info['dir'] = $File;
+					if(is_dir(DIR_STYLE.$Style)) {
+						if(is_file(DIR_STYLE.$Style.'/info.xml')) {
+							$this->Info['style'] = $Style;
+							$this->Info['dir'] = DIR_STYLE.$Style;
 							break;
 						}
 					}
 				}
-				if(empty($this->Info['dir']) || !is_dir(DIR_ROOT.DIR_STYLE.$this->Info['dir']))
-					throw new SystemException('No styles are installed, the board can\'t display without styles');
+
+				// Nothing to do here
+				if(empty($this->Info['style']) || !is_dir($this->Info['dir']))
+					throw new SystemException('No styles are found in '.DIR_STYLE.'. Please install a style.');
 			}
 		}
-		
-		// Set CSS and JS files
-		$this->Files = [
-			/*'css' => $this->GetCSS(),*/
-			'js' => $this->GetJS()
-		];
+		$this->Info['dir'] .= '/';
 
-		// TODO: Load style info.xml and save in $this->Style
-		$this->Info['name'] = $this->Info['dir'];
-		
-		// Set more infos
-		$this->Info['files'] = $this->Files;
-		SBB::Template()->AddDir(DIR_STYLE.$this->Info['dir'].'/'.DIR_TPL);
+		/* Get the style files */
+
+		// TODO: Read info.xml and fill variables
+		$this->Info['name'] = $this->Info['style'];
+		$CssProcessor = 'style.php';
+		$CssRootFile = 'style.css';
+		$JsProcessor = 'js.php';
+
+		$this->Info['files'] = $this->GetFiles($CssProcessor, $JsProcessor, $CssRootFile);
+
+		// Add template directory of the style
+		if(is_dir($this->Info['dir'].DIR_TPL))
+			SBB::Template()->AddDir($this->Info['dir'].DIR_TPL);
 	}
 	
 	/**
@@ -87,6 +86,40 @@ class Style implements ISingleton {
 		return !$Type ? $this->Files : (isset($this->Files[$Type]) ? $this->Files[$Type] : false);
 	}
 	
+	protected function GetFiles($CssProcessor = '', $JsProcessor = '', $CssRootFile = 'style.css') {
+		// Gimme your files, naw!
+		$Files = [];
+
+		/* Get CSS */
+		$Dir = $this->Info['dir'];
+		$UrlPath = BASE_URL.DIR_STYLE.rawurlencode($this->Info['style']).'/';
+
+		// Is there a CSS preprocessor?
+		if(is_file($Dir.$CssProcessor))
+			$Files = ['css' => [$CssProcessor]];
+		// Nope? Well, search for css files
+		else {
+			if(is_file($Dir.$CssRootFile))
+				$Files['css'][] = $UrlPath.$CssRootFile;
+			foreach (scandir($Dir) as $File) {
+				// We no need no root file
+				if($File == $CssRootFile)
+					continue;
+
+				// Can I has css file?
+				if(preg_match('/\.css$/', $File))
+					$Files['css'][] = $UrlPath.$File;
+			}
+		}
+
+		/* Get JS */
+		$Dir .= DIR_JS.'/';
+		$UrlPath .= DIR_JS.'/';
+
+		if(is_dir($Dir)) {}
+	}
+
+
 	// TODO: Merge GetCSS() and GetJS()
 	protected function GetCSS() {
 		$Dir = scandir(DIR_ROOT.DIR_STYLE.$this->Info['dir']);
