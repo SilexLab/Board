@@ -12,6 +12,9 @@ preg_match('/[a-zA-Z0-9]+\.php/', $_SERVER['PHP_SELF'], $match);
 define('ROOT_URI', (!empty($_SERVER['HTTPS']) && 'on' == $_SERVER['HTTPS'] ? 'https://' : 'http://').
 	$_SERVER['HTTP_HOST'].strstr($_SERVER['PHP_SELF'], $match[0], true)); unset($match);
 
+// Security
+define('SALT', 'Mm2zTloKiuGqYIw/DgVtB');
+
 // Directory Constants
 define('DIR_TPL',      'template/');
 define('DIR_TPLC',     CFG_CACHE_DIR.'template/');

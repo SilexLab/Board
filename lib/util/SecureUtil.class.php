@@ -6,11 +6,22 @@
  */
 
 class SecureUtil {
-	public static function EncryptPassword($Password, $Salt) {
-		return sha1($Salt.md5($Salt.sha1($Password.md5($Salt))));
+
+	public static function EncryptPassword($Password, $Email, $Rounds = '08') {
+
+		$string = hash_hmac("whirlpool", str_pad($Password, strlen($Password) * 4, sha1($Email), STR_PAD_BOTH), SALT, true);
+		$salt   = substr(str_shuffle('./0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'), 0, 22);
+		return crypt($string, '$2a$'.$Rounds.'$'.$salt);
+
 	}
-	
-	public static function EncryptSalt() {
-		return sha1(md5(base64_encode(microtime())));
+
+	public static function CheckPassword($Password, $Email, $Stored) {
+
+		$string = hash_hmac("whirlpool", str_pad($Password, strlen($Password) * 4, sha1($Email), STR_PAD_BOTH), SALT, true);
+		return crypt($string, substr($Stored, 0, 30)) == $Stored;
+
 	}
+
 }
+
+//var_dump(SecureUtil::EncryptPassword('abc123abc7', 'ozzy2345de@gmail.com', '12'));
