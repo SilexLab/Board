@@ -125,10 +125,10 @@ class SBB {
 			'time' => [
 				'date' => date('d.m.Y'),
 				'time' => date('H:i'),
-				'y_percent' => round(100 * Time::YearProcess(), 2),
-				'd_percent' => round(100 * Time::DayProcess(), 2),
-				'progress' => sprintf(Language::Get('sbb.time.progress'), 100 * Time::YearProcess()),
-				'day_progress' => sprintf(Language::Get('sbb.time.dayprogress'), 100 * Time::DayProcess())
+				'y_percent' => round(100 * TimeUtil::YearProcess(), 2),
+				'd_percent' => round(100 * TimeUtil::DayProcess(), 2),
+				'progress' => sprintf(Language::Get('sbb.time.progress'), 100 * TimeUtil::YearProcess()),
+				'day_progress' => sprintf(Language::Get('sbb.time.dayprogress'), 100 * TimeUtil::DayProcess())
 			],
 			'version' => [
 				'full' => SBB_VERSION.'-'.date('Ymd', CommitInfo::Get()),
