@@ -23,7 +23,7 @@ class UserListPage implements IPage {
 				'name'     => htmlspecialchars($User->Username),
 				'link'     => URI::Make([['page', 'User'], ['UserID', $User->ID, $User->Username]]),
 				'group'    => '',
-				'joined_d' => date('d. ', $User->Joined).Language::Get(Time::Month(date('n', $User->Joined))).date(' Y', $User->Joined),
+				'joined_d' => date('d. ', $User->Joined).Language::Get(TimeUtil::Month(date('n', $User->Joined))).date(' Y', $User->Joined),
 				'joined_t' => date('H:i', $User->Joined),
 				'posts'    => '-',
 				'language' => $User->Language,

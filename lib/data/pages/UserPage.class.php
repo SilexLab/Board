@@ -48,8 +48,8 @@ class UserPage implements IPage {
 			'ID'        => $User->ID,
 			'group'     => $User->GroupID,   // TODO: Read group
 			'signature' => $User->Signature, // TODO: Parse message
-			'joined'    => Language::Get(Time::Day(date('N', $User->Joined))).', '.
-				date('d. ', $User->Joined).Language::Get(Time::Month(date('n', $User->Joined))).
+			'joined'    => Language::Get(TimeUtil::Day(date('N', $User->Joined))).', '.
+				date('d. ', $User->Joined).Language::Get(TimeUtil::Month(date('n', $User->Joined))).
 				date(' Y, H:i', $User->Joined),
 			'activity'  => date('d.m.Y, H:i', $User->LastActivity), // TODO: Alternative formats, like "Today, 11:23" or "Yesterday, 13:37",
 			'language'  => $User->Language ? $User->Language : Language::Get('sbb.language.info'), // TODO: Read the real language
