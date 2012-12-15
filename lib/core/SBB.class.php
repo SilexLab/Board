@@ -1,6 +1,6 @@
 <?php
 /**
- * @author     SilexBB
+ * @author     Patrick Kleinschmidt (NoxNebula) <noxifoxi@gmail.com>
  * @copyright  2011 - 2012 Silex Bulletin Board
  * @license    GPL version 3 <http://www.gnu.org/licenses/gpl-3.0.html>
  */
@@ -21,6 +21,7 @@ class SBB {
 	 * @return void
 	 */
 	public static final function Initial() {
+		print_r(hash_algos());
 		/* Initialize classes and objects */
 		// Data
 		Language::Initialize(isset($_GET['lang']) ? $_GET['lang'] : null);
@@ -117,7 +118,7 @@ class SBB {
 				'css' => self::Style()->Info('files'),
 				'name' => self::Style()->Info('name')],
 			'page_title' => self::Config('page.title'),
-			'logo' => DIR_STYLE.str_replace(' ', '%20', self::Style()->Info('dir')).'/images/logo.png',
+			'logo' => self::Style()->Info('url').'/images/logo.png',
 			'dir' => [
 				'style' => DIR_STYLE,
 				'js' => DIR_JS

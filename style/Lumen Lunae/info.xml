@@ -4,9 +4,16 @@
 	<info>
 		<name>Lumen Lunae</name>
 		<description>Silex Bulletin Board default style</description>
-		<author>Silex Board</author>
-		<website>http://silexboard.org</website>
+		<author>Patrick Kleinschmidt (NoxNebula)</author>
+		<website>http://silexboard.org/</website>
 		<license>GNU GENERAL PUBLIC LICENSE - Version 3</license>
 		<version>DEV</version>
 	</info>
+	<properties>
+		<css>
+			<order>
+				<file>style.css</file>
+			</order>
+		</css>
+	</properties>
 </style>

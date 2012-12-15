@@ -1,6 +1,6 @@
 <?php
 /**
- * @author     SilexBB
+ * @author     Patrick Kleinschmidt (NoxNebula) <noxifoxi@gmail.com>
  * @copyright  2011 - 2012 Silex Bulletin Board
  * @license    GPL version 3 <http://www.gnu.org/licenses/gpl-3.0.html>
  */
@@ -92,15 +92,18 @@ class Style implements ISingleton {
 
 		/* Get CSS */
 		$Dir = $this->Info['dir'];
-		$UrlPath = BASE_URL.DIR_STYLE.rawurlencode($this->Info['style']).'/';
+		$UrlPath = CFG_BASE_URL.DIR_STYLE.rawurlencode($this->Info['style']).'/';
+
+		// May be useful
+		$this->Info['url'] = $UrlPath;
 
 		// Is there a CSS preprocessor?
 		if(is_file($Dir.$CssProcessor))
-			$Files = ['css' => [$CssProcessor]];
+			$Files['css'][] = $UrlPath.$CssProcessor;
 		// Nope? Well, search for css files
 		else {
 			if(is_file($Dir.$CssRootFile))
-				$Files['css'][] = $UrlPath.$CssRootFile;
+				$Files['css'][] = ['file' => $UrlPath.$CssRootFile];
 			foreach (scandir($Dir) as $File) {
 				// We no need no root file
 				if($File == $CssRootFile)
@@ -108,15 +111,32 @@ class Style implements ISingleton {
 
 				// Can I has css file?
 				if(preg_match('/\.css$/', $File))
-					$Files['css'][] = $UrlPath.$File;
+					$Files['css'][] = ['file' => $UrlPath.$File]; // TODO: add media from info.xml
 			}
 		}
 
 		/* Get JS */
-		$Dir .= DIR_JS.'/';
-		$UrlPath .= DIR_JS.'/';
+		$Dir .= DIR_JS;
+		$UrlPath .= DIR_JS;
 
-		if(is_dir($Dir)) {}
+		// Is there even a javascript directory?
+		if(is_dir($Dir)) {
+			// Is there a JS preprocessor?
+			if(is_file($Dir.$JsProcessor))
+				$Files['js'][] = $UrlPath.$JsProcessor;
+			// Ok, search for js files
+			else {
+				foreach (scandir($Dir) as $File) {
+					// Can I has js file?
+					if(preg_match('/\.js$/', $File))
+						$Files['js'][] = $UrlPath.$File;
+				}
+			}
+		}
+
+		var_dump($Files);
+
+		return $Files;
 	}
 
 
