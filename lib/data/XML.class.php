@@ -1,115 +1,51 @@
 <?php
 /**
- * @author     SilexBB
- * @copyright  2011 - 2012 Silex Bulletin Board
- * @license    GPL version 3 <http://www.gnu.org/licenses/gpl-3.0.html>
+ * @author      Patrick Kleinschmidt (NoxNebula) <noxifoxi@gmail.com>
+ * @copyright   2011 - 2013 Silex Bulletin Board
+ * @license     GPL version 3 <http://www.gnu.org/licenses/gpl-3.0.html>
  */
 
+/**
+ * A simple wrapper for SimpleXML
+ */
 class XML {
-	protected $XMLObj = NULL;
-	
+	protected $XMLObj;
+
 	/**
-	 * Creates a new SimpleXML object
-	 * If the given $File is a XML String, set the optional parameter to true
-	 * @param	string  $File
-	 * @param	bool    $String = false
+	 * Create a new SimpleXML object
+	 * @param   string  $XML
+	 * @param   bool    $IsString   optional
 	 */
-	public function __construct($File, $String = false) {
-		if($String)
-			$this->LoadString($File);
+	public function __construct($XML, $IsString = false) {
+		if($IsString)
+			$this->XMLObj = simplexml_load_string($XML);
 		else
-			$this->LoadFile($File);
-	}
-	
-	/**
-	 * Parses a string of XML data
-	 * @param	string	$String
-	 */
-	public function LoadString($String) {
-		$this->XMLObj = simplexml_load_string($String);
+			$this->XMLObj = simplexml_load_file($XML);
+
 		if(!$this->XMLObj)
-			throw new SystemException('the given string isn\'t a valid XML source');
+			throw new SystemException('Failed to load XML');
 	}
-	
+
 	/**
-	 * Loads and parses a XML file
-	 * @param	string	$FileName
+	 * Return the SimpleXML object
+	 * @return  SimpleXMLElement
 	 */
-	public function LoadFile($FileName) {
-		$this->XMLObj = simplexml_load_file($FileName);
-		if(!$this->XMLObj)
-			throw new SystemException('the file \''.$FileName.'\' isn\'t a valid XML file');
+	public function __get($Name) {
+		return $this->XMLObj->{$Name};
 	}
-	
-	/**
-	 * Sends a xpath query
-	 * Wrapper for SimpleXMLElement::xpath();
-	 */
-	public function XPath($Path) {
-		return $this->XMLObj->xpath($Path);
+	public function __call($Name, $Arguments) {
+		//return $this->XMLObj->{$Name}($Arguments[0]);
+		return call_user_func_array([$this, $Name], $Arguments); // quite slower than above but has all arguments
 	}
-	
+
 	/**
-	 * Returns an array of all elements of a SimpleXML object
-	 * @param	string              $Name
-	 * @param	SimpleXMLElement    $XMLObj = NULL
+	 * Converts the XML object structure into an array
+	 * @param   SimpleXMLElement    $XML    optional
+	 * @return  array
 	 */
-	public function GetTree($Name, SimpleXMLElement $XMLObj = NULL) {
-		if(!$XMLObj)
-			$XMLObj = $this->XMLObj;
-		
-		$Tree = array(
-			'name' => $Name,
-			'attributes' => $this->GetAttributes($XMLObj),
-			'cdata' => $this->GetCDATA($XMLObj),
-			'children' => $this->GetChildren($XMLObj, true)
-		);
-		
-		return $Tree;
-	}
-	
-	/**
-	 * Returns an associative array with all attributes of an SimpleXML element
-	 * @param	SimpleXMLElement	$XMLObj = NULL
-	 */
-	public function GetAttributes(SimpleXMLElement $XMLObj = NULL) {
-		if(!$XMLObj)
-			$XMLObj = $this->XMLObj;
-		
-		$Attributes = array();
-		foreach($XMLObj->attributes() as $Key => $Value) {
-			$Attributes[$Key] = (string)$Value;
-		}
-		return $Attributes;
-	}
-	
-	/**
-	 * Returns the CDATA of a SimpleXML element
-	 * @param	SimpleXMLElement	$XMLObj = NULL
-	 */
-	public function GetCDATA(SimpleXMLElement $XMLObj = NULL) {
-		if(!$XMLObj)
-			$XMLObj = $this->XMLObj;
-		
-		return (string)trim($XMLObj);
-	}
-	
-	/**
-	 * Returns the children of a SimpleXML element
-	 * @param	SimpleXMLElement    $XMLObj = NULL
-	 * @param	bool                $Recursive = false
-	 */
-	public function GetChildren(SimpleXMLElement $XMLObj = NULL, $Recursive = false) {
-		if(!$XMLObj)
-			$XMLObj = $this->XMLObj;
-		
-		$Children = array();
-		foreach($XMLObj->children() as $Key => $ChildObj) {
-			if($Recursive)
-				$Children[] = $this->GetTree($Key, $ChildObj);
-			else
-				$Children[] = $ChildObj; 
-		}
-		return $Children;
+	public function ToArray(SimpleXMLElement $XML = null) {
+		if(!$XML)
+			$XML = $this->XMLObj;
+		return json_decode(json_encode($XML), true);
 	}
 }

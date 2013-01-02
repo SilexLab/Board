@@ -1,15 +1,19 @@
 <?php
 /**
- * @author     Patrick Kleinschmidt (NoxNebula) <noxifoxi@gmail.com>
- * @copyright  2011 - 2012 Silex Bulletin Board
- * @license    GPL version 3 <http://www.gnu.org/licenses/gpl-3.0.html>
+ * @author      Patrick Kleinschmidt (NoxNebula) <noxifoxi@gmail.com>
+ * @copyright   2011 - 2013 Silex Bulletin Board
+ * @license     GPL version 3 <http://www.gnu.org/licenses/gpl-3.0.html>
  */
 
 class Style implements ISingleton {
-	private static $Instance = NULL;
+	const INFO_FILE = 'info.xml';
 
-	// Styleinfo
+	private static $Instance = NULL;
+	private $Script;
+
 	private $Info = [];
+	private $Properties = [];
+	private $Files = [];
 	
 	public static function GetInstance() {
 		if(!self::$Instance)
@@ -22,48 +26,41 @@ class Style implements ISingleton {
 	protected function __construct() {
 		/* Get the style */
 
-		// Use user style
-		$this->Info['style'] = SBB::User()->Info('style');
-		$this->Info['dir'] = DIR_STYLE.$this->Info['style'];
-
-		// If no user style, use default
-		if(empty($this->Info['style']) || !is_dir($this->Info['dir'])) {
-			$this->Info['style'] = SBB::Config('style.default');
-			$this->Info['dir'] = DIR_STYLE.$this->Info['style'];
-
-			// If default doesn't exists, search for random styles
-			if(empty($this->Info['style']) || !is_dir($this->Info['dir'])) {
-				$Styles = scandir(DIR_STYLE);
-				if(!$Styles)
+		// Try the user style
+		if(!$this->Validate(SBB::User()->Info('style'))) {
+			// Try the default style
+			if(!$this->Validate(SBB::Config('style.default'))) {
+				// No default style? well... then search for a random style
+				$StyleDir = scandir(DIR_STYLE);
+				if(!$StyleDir)
 					throw new SystemException('Probably your style directory ('.DIR_STYLE.') is missing. Please create it and install a style.');
-				foreach($Styles as $Style) {
+				foreach($StyleDir as $Style) {
 					if(in_array($Style, ['.', '..']))
 						continue;
-					if(is_dir(DIR_STYLE.$Style)) {
-						if(is_file(DIR_STYLE.$Style.'/info.xml')) {
-							$this->Info['style'] = $Style;
-							$this->Info['dir'] = DIR_STYLE.$Style;
-							break;
-						}
-					}
+					// Finaly found a style?
+					if($this->Validate($Style))
+						break;
 				}
-
-				// Nothing to do here
-				if(empty($this->Info['style']) || !is_dir($this->Info['dir']))
-					throw new SystemException('No styles are found in '.DIR_STYLE.'. Please install a style.');
 			}
 		}
-		$this->Info['dir'] .= '/';
+		// Nothing to do here
+		if(empty($this->Info['dir']))
+			throw new SystemException('No styles are found in '.DIR_STYLE.'. Please install a style.');
 
-		/* Get the style files */
+		// Is there a script?
+		if(!empty($this->Properties['script'])) {
+			require_once($this->Info['dir'].$this->Properties['script']);
+			$this->Script = new StyleScript($this->Info, $this->Properties);
+			if(!($this->Script instanceof IStyleScript))
+				throw new SystemException('The script ('.$this->Properties['script'].') for the "'.$this->Info['name'].'" isn\' a valid style script');
+			$this->Files = (array)$this->Script->GetFiles();
+		}
+		// No script or empty result?
+		if(empty($this->Files))
+			$this->Files = $this->GetFiles();
 
-		// TODO: Read info.xml and fill variables
-		$this->Info['name'] = $this->Info['style'];
-		$CssProcessor = 'style.php';
-		$CssRootFile = 'style.css';
-		$JsProcessor = 'js.php';
-
-		$this->Info['files'] = $this->GetFiles($CssProcessor, $JsProcessor, $CssRootFile);
+		// For everyone
+		$this->Info['files'] =& $this->Files;
 
 		// Add template directory of the style
 		if(is_dir($this->Info['dir'].DIR_TPL))
@@ -86,91 +83,73 @@ class Style implements ISingleton {
 		return !$Type ? $this->Files : (isset($this->Files[$Type]) ? $this->Files[$Type] : false);
 	}
 	
-	protected function GetFiles($CssProcessor = '', $JsProcessor = '', $CssRootFile = 'style.css') {
+	/**
+	 * Check if there is a Style
+	 * @param   string  $Dir
+	 * @return  bool
+	 */
+	protected function Validate($Style) {
+		if(!empty($Style)) {
+			$Dir = DIR_STYLE.$Style.'/';
+			if(is_file($Dir.self::INFO_FILE)) {
+				/* Fetching the style info */
+				$XML = new XML($Dir.self::INFO_FILE);
+				$this->Info['name'] = (string)$XML->info->name;
+				if(empty($this->Info['name']))
+					$this->Info['name'] = $Style;
+				$this->Info['description'] = (string)$XML->info->description;
+				$this->Info['website'] = (string)$XML->info->website;
+				$this->Info['version'] = (string)$XML->info->version;
+
+				// Additional info
+				$this->Info['dir'] = $Dir;
+				$this->Info['url'] = CFG_BASE_URL.DIR_STYLE.rawurlencode($Style).'/';
+
+				// Style properties
+				// Is there a script file?
+				if(SBB::Config('style.allow_scripts'))
+					$this->Properties['script'] = (string)$XML->properties->script;
+				if(empty($this->Properties['script'])) {
+					// Should I order the files?
+					foreach($XML->properties->order->css->children() as $c)
+						$this->Properties['order']['css'][] = (string)$c;
+					foreach($XML->properties->order->js->children() as $c)
+						$this->Properties['order']['js'][] = (string)$c;
+				}
+				return true;
+			}
+		}
+		return false;
+	}
+
+	protected function GetFiles() {
 		// Gimme your files, naw!
 		$Files = [];
 
-		/* Get CSS */
-		$Dir = $this->Info['dir'];
-		$UrlPath = CFG_BASE_URL.DIR_STYLE.rawurlencode($this->Info['style']).'/';
+		/* Get the files */
+		foreach(['css', 'js'] as $i) {
+			$UrlPath = $this->Info['url'].($i == 'js' ? DIR_JS : '');
+			$Path = $this->Info['dir'].($i == 'js' ? DIR_JS : '');
 
-		// May be useful
-		$this->Info['url'] = $UrlPath;
-
-		// Is there a CSS preprocessor?
-		if(is_file($Dir.$CssProcessor))
-			$Files['css'][] = $UrlPath.$CssProcessor;
-		// Nope? Well, search for css files
-		else {
-			if(is_file($Dir.$CssRootFile))
-				$Files['css'][] = ['file' => $UrlPath.$CssRootFile];
-			foreach (scandir($Dir) as $File) {
-				// We no need no root file
-				if($File == $CssRootFile)
-					continue;
-
-				// Can I has css file?
-				if(preg_match('/\.css$/', $File))
-					$Files['css'][] = ['file' => $UrlPath.$File]; // TODO: add media from info.xml
-			}
-		}
-
-		/* Get JS */
-		$Dir .= DIR_JS;
-		$UrlPath .= DIR_JS;
-
-		// Is there even a javascript directory?
-		if(is_dir($Dir)) {
-			// Is there a JS preprocessor?
-			if(is_file($Dir.$JsProcessor))
-				$Files['js'][] = $UrlPath.$JsProcessor;
-			// Ok, search for js files
-			else {
-				foreach (scandir($Dir) as $File) {
-					// Can I has js file?
-					if(preg_match('/\.js$/', $File))
-						$Files['js'][] = $UrlPath.$File;
+			// Get ordered files
+			if(!empty($this->Properties['order'][$i])) {
+				foreach($this->Properties['order'][$i] as $f) {
+					if(is_file($Path.$f))
+						$Files[$i][] = ['file' => $UrlPath.$f]; // TODO: add media for css from info.xml
 				}
 			}
+
+			// Get the rest
+			foreach(scandir($Path) as $f) {
+				if(in_array($f, (array)$this->Properties['order'][$i]))
+					continue;
+
+				// Can I has files?
+				if(preg_match('/\.'.$i.'$/', $f))
+					$Files[$i][] = ['file' => $UrlPath.$f]; // TODO: add media for css from info.xml
+			}
 		}
 
-		var_dump($Files);
-
-		return $Files;
-	}
-
-
-	// TODO: Merge GetCSS() and GetJS()
-	protected function GetCSS() {
-		$Dir = scandir(DIR_ROOT.DIR_STYLE.$this->Info['dir']);
-		if(!$Dir)
-			throw new SystemException('The directory "'.DIR_ROOT.DIR_STYLE.$this->Info['dir'].'" doesn\'t exist');
-		
-		$Files = [];
-		if(is_file(DIR_ROOT.DIR_STYLE.$this->Info['dir'].'/style.css')) // "root" css file
-			$Files[] = str_replace(' ', '%20', DIR_STYLE.$this->Info['dir'].'/style.css');
-		foreach($Dir as $File) {
-			if($File == 'style.css')
-				continue;
-			
-			// Extension is .css?
-			if(strpos($File, '.css') === (strlen($File) - 4))
-				$Files[] = str_replace(' ', '%20', DIR_STYLE.$this->Info['dir'].'/'.$File);
-		}
-		return $Files;
-	}
-	
-	protected function GetJS() {
-		$Dir = scandir(DIR_ROOT.DIR_STYLE.$this->Info['dir'].'/'.DIR_JS);
-		if(!$Dir)
-			throw new SystemException('The directory "'.DIR_ROOT.DIR_STYLE.$this->Info['dir'].'/'.DIR_JS.'" doesn\'t exist');
-		
-		$Files = [];
-		foreach($Dir as $File) {
-			// Extension is .js?
-			if(strpos($File, '.js') === (strlen($File) - 3))
-				$Files[] = str_replace(' ', '%20', DIR_STYLE.$this->Info['dir'].'/'.DIR_JS.$File);
-		}
 		return $Files;
 	}
 }

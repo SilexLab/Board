@@ -5,8 +5,12 @@
  * @license     GPL version 3 <http://www.gnu.org/licenses/gpl-3.0.html>
  */
 
-// Classes wich contain data
-interface IData {
-	 
+class StyleScript implements IStyleScript {
+	public function __construct(array &$Info, array &$Properties) {
+		// Do something
+	}
+
+	public function GetFiles() {
+		return [];
+	}
 }
-?>

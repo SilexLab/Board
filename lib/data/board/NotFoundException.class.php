@@ -1,8 +1,8 @@
 <?php
 /**
- * @author     Janek Ostendorf (ozzy) <ozzy2345de@gmail.com>
- * @copyright  2011 - 2012 Silex Bulletin Board
- * @license    GPL version 3 <http://www.gnu.org/licenses/gpl-3.0.html>
+ * @author      Janek Ostendorf (ozzy) <ozzy2345de@gmail.com>
+ * @copyright   2011 - 2013 Silex Bulletin Board
+ * @license     GPL version 3 <http://www.gnu.org/licenses/gpl-3.0.html>
  */
 
 /**

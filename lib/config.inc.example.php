@@ -18,6 +18,10 @@ define('CFG_CACHE_DIR',   DIR_ROOT.'lib/cache/');
 //define('CFG_BASE_URL', 'http://board/');
 define('CFG_BASE_URL', '/');
 
+// Security
+define('CFG_SALT', 'Mm2zTloKiuGqYIw/DgVtB');
+
+
 /* --- Currently not needed stuff --- */
 
 // Cache info

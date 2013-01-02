@@ -1,19 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <style>
 	<info>
 		<name>Lumen Lunae</name>
 		<description>Silex Bulletin Board default style</description>
-		<author>Patrick Kleinschmidt (NoxNebula)</author>
+		<thumbnail></thumbnail>
+		<author>Patrick Kleinschmidt (Nox Nebula)</author>
 		<website>http://silexboard.org/</website>
 		<license>GNU GENERAL PUBLIC LICENSE - Version 3</license>
 		<version>DEV</version>
 	</info>
+	<!-- instructions for Style.class -->
 	<properties>
-		<css>
-			<order>
+		<script>script.php</script>
+		<order>
+			<css>
+				<file>style.php</file>
 				<file>style.css</file>
-			</order>
-		</css>
+			</css>
+			<js>
+				<!-- same stuff as css -->
+			</js>
+		</order>
 	</properties>
 </style>

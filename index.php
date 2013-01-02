@@ -25,7 +25,7 @@ require_once ('lib/init.php');
 if(CFG_DEBUG) {
 	echo '<!-- Freakin\' debugging stuff -->'."\n";
 	// performance
-	echo '<span style="color: white; margin: -20px 0 0 10px; display: block; text-shadow: 0 0 3px #000; font-size: 10px;">Load: <strong>'.round(((microtime(true) - $WhatTimeIsIt) * 1000), 2).' ms</strong></span>';
+	echo 'Generated in <strong>'.round(((microtime(true) - $WhatTimeIsIt) * 1000), 2).' ms</strong>.';
 
 	// piwik template for statistics
 	if(file_exists('../silexboard.org/piwik_template.php')) {

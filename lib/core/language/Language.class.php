@@ -1,16 +1,16 @@
 <?php
 /**
- * @author     Patrick Kleinschmidt (NoxNebula) <noxifoxi@gmail.com>
- * @copyright  2011 - 2012 Silex Bulletin Board
- * @license    GPL version 3 <http://www.gnu.org/licenses/gpl-3.0.html>
+ * @author      Patrick Kleinschmidt (NoxNebula) <noxifoxi@gmail.com>
+ * @copyright   2011 - 2013 Silex Bulletin Board
+ * @license     GPL version 3 <http://www.gnu.org/licenses/gpl-3.0.html>
  */
 
 class Language {
 	private static $Language;
 
-	private static $Items = array();
+	private static $Items = [];
 
-	private static $AvailableLanguages = array();
+	private static $AvailableLanguages = [];
 
 	/**
 	 * Returns the value of a given language node
@@ -71,7 +71,7 @@ class Language {
 		// TODO: First read from db
 		if(empty(self::$AvailableLanguages)) {
 			foreach(scandir(DIR_LANGUAGE) as $Language) {
-				if(is_dir(DIR_LANGUAGE.$Language) && !in_array($Language, array('.', '..'))) {
+				if(is_dir(DIR_LANGUAGE.$Language) && !in_array($Language, ['.', '..'])) {
 					if(file_exists(DIR_LANGUAGE.$Language.'/info.xml')) {
 						$Name = XML::ReadElement(DIR_LANGUAGE.$Lang.'/info.xml', 'name');
 						self::$AvailableLanguages[$Language] = (string)$Name[0];
