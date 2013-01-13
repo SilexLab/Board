@@ -109,9 +109,38 @@ class SBB {
 	}
 
 	/**
-	 * Assign default stuff to template
+	 * Assign default template stuff
 	 */
 	private static function AssignDefault() {
+		self::$Template->Assign([
+			'style' => [
+				'files' => [
+					'css' => self::$Style->Files()['css'],
+					'js' => array_merge(self::GetGlobalJsFiles(), self::$Style->Files()['js'])
+				]
+			],
+			'current_page' => [
+				'title' => self::$Page->Title(),
+				'link' => self::$Page->Link(),
+				'name' => self::$Page->Name(),
+				'template' => self::$Page->Template()
+			],
+			'sbb' => [
+				'version' => SBB_VERSION.'-'.date('Ymd', CommitInfo::Get()),
+				'sha' => CommitInfo::Get('SHA')
+			],
+			'title' => self::Config('page.title'),
+			'base_url' => CFG_BASE_URL,
+			'debug' => (bool)CFG_DEBUG
+		]);
+
+		/* Put the stored stuff into the template */
+		Breadcrumb::Assign();
+		Notification::Assign();
+
+
+		return;
+		// OLD:
 		self::Template()->Assign([
 			'style' => ['dir' => CFG_BASE_URL.DIR_STYLE.rawurlencode(self::Style()->Info('dir')).'/',
 				'css' => self::Style()->Info('files'),
@@ -129,21 +158,25 @@ class SBB {
 				'd_percent' => round(100 * TimeUtil::DayProcess(), 2),
 				'progress' => sprintf(Language::Get('sbb.time.progress'), 100 * TimeUtil::YearProcess()),
 				'day_progress' => sprintf(Language::Get('sbb.time.dayprogress'), 100 * TimeUtil::DayProcess())
-			],
-			'version' => [
-				'full' => SBB_VERSION.'-'.date('Ymd', CommitInfo::Get()),
-				'sha' => CommitInfo::Get('SHA')
-			],
-			'current_page' => [
-				'title' => self::$Page->Title(),
-				'link' => self::$Page->Link(),
-				'name' => self::$Page->Name(),
-				'template' => self::$Page->Template()
-			],
-			'base_url' => CFG_BASE_URL,
-			'debug' => (bool)CFG_DEBUG
+			]
 		]);
-		Breadcrumb::Assign();
-		Notification::Assign();
+	}
+
+	// TODO: Move me
+	private static function GetGlobalJsFiles() {
+		$Order = ['jquery.js', 'jquery.min.js'];
+		$Files = [];
+		foreach ($Order as $f) {
+			if(is_file(DIR_JS.$f))
+				$Files[] = CFG_BASE_URL.DIR_JS.$f;
+		}
+		foreach(scandir(DIR_JS) as $f) {
+			if(in_array($f, $Order))
+				continue;
+			if(preg_match('/\.js$/', $f)) {
+				$Files[] = CFG_BASE_URL.DIR_JS.$f;
+			}
+		}
+		return $Files;
 	}
 }

@@ -17,7 +17,7 @@ define('DIR_TPL',      'template/');
 define('DIR_TPLC',     CFG_CACHE_DIR.'template/');
 define('DIR_SMILEY',   'images/smiley/');
 define('DIR_LANGUAGE', 'lib/language/');
-define('DIR_PAGE',     'lib/data/page/');
+define('DIR_PAGE',     'lib/data/pages/');
 define('DIR_STYLE',    'style/');
 define('DIR_JS',       'js/');
 

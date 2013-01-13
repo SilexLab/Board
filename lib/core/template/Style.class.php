@@ -62,6 +62,8 @@ class Style implements ISingleton {
 		// For everyone
 		$this->Info['files'] =& $this->Files;
 
+		$this->Info['logo'] = $this->Info['dir'].'/images/logo.png'; // TODO: get from DB
+
 		// Add template directory of the style
 		if(is_dir($this->Info['dir'].DIR_TPL))
 			SBB::Template()->AddDir($this->Info['dir'].DIR_TPL);
@@ -122,6 +124,10 @@ class Style implements ISingleton {
 		return false;
 	}
 
+	/**
+	 * Get css and js files
+	 * @return  array
+	 */
 	protected function GetFiles() {
 		// Gimme your files, naw!
 		$Files = [];
@@ -134,8 +140,9 @@ class Style implements ISingleton {
 			// Get ordered files
 			if(!empty($this->Properties['order'][$i])) {
 				foreach($this->Properties['order'][$i] as $f) {
+					// TODO: add media for css from info.xml
 					if(is_file($Path.$f))
-						$Files[$i][] = ['file' => $UrlPath.$f]; // TODO: add media for css from info.xml
+						$Files[$i][] = $i == 'css' ? ['file' => $UrlPath.$f] : $UrlPath.$f;
 				}
 			}
 
@@ -145,8 +152,8 @@ class Style implements ISingleton {
 					continue;
 
 				// Can I has files?
-				if(preg_match('/\.'.$i.'$/', $f))
-					$Files[$i][] = ['file' => $UrlPath.$f]; // TODO: add media for css from info.xml
+				if(preg_match('/\.'.$i.'$/', $f)) // TODO: add media for css from info.xml
+					$Files[$i][] = $i == 'css' ? ['file' => $UrlPath.$f] : $UrlPath.$f;
 			}
 		}
 

@@ -1,0 +1,149 @@
+html, body {
+	margin: 0;
+	padding: 0;
+}
+body {
+	color: #2e2e2e;
+	font: normal normal normal 12px "Segoe UI", Helvetica, "Droid Sans", Arial, Verdana, sans-serif;
+}
+
+h1 {
+	margin: 0 0 10px 0;
+	padding: 0;
+	font-size: 24px;
+}
+
+/* Wrapper */
+.size_wrapper {
+	margin: auto;
+	min-width: 900px;
+	max-width: 90%;
+}
+
+.size_wrapper_min {
+	min-width: 900px;
+}
+
+/* User Panel */
+.user_panel {
+	position: absolute;
+	top: 0;
+	right: 0;
+	left: 0;
+	border-top: 3px solid #47ade8;
+	background: rgba(10, 10, 10, 0.8);
+	color: #ffffff;
+	line-height: 30px;
+}
+.user_panel::after {
+	display: block;
+	clear: both;
+	height: 0;
+	content: "";
+}
+
+.search_bar {
+	float: left;
+}
+
+.user_actions {
+	float: right;
+}
+.user_actions > div {
+	float: left;
+}
+.user_info {
+	padding-right: 25px;
+}
+
+/* Header */
+header.main {
+	display: block;
+	padding: 33px 0 5px 0;
+	height: 40px;
+	background: url(images/header.png) #141414 center center repeat-x;
+}
+
+/* Main Navigation */
+nav.main {
+	height: 0;
+}
+nav.main ul {
+	display: block;
+	float: right;
+	margin: -35px 0 0 0;
+	padding: 0;
+	height: 35px;
+	list-style: none;
+	font-weight: bold;
+	font-size: 15px;
+}
+nav.main li {
+	float: left;
+	margin-left: 8px;
+	height: 35px;
+}
+nav.main a {
+	color: #2e2e2e;
+	text-decoration: none;
+}
+
+nav.main li > a {
+	display: block;
+	padding: 0 20px;
+	height: 35px;
+	color: #ffffff;
+	line-height: 35px;
+}
+
+nav.main li.active > a {
+	border-radius: 4px 4px 0 0;
+	background: rgba(255, 255, 255, 1);
+	box-shadow: none;
+	color: inherit;
+}
+
+/* Sub Navigation */
+nav.sub {
+	float: left;
+	padding-bottom: 10px;
+	width: 180px;
+	color: #ffffff;
+	font-size: 18px;
+}
+
+nav.sub ul {
+	display: block;
+	margin: 0;
+	padding: 15px 10px 10px 20px;
+	list-style: none;
+}
+
+nav.sub li {
+	display: block;
+	padding: 15px 0;
+}
+
+nav.sub li.active {
+	color: #65c7ff;
+}
+
+/* Content */
+.main_content {
+	background: #1C1D22;
+}
+.main_content::after {
+	display: block;
+	clear: both;
+	height: 0;
+	content: "";
+}
+
+.content_wrapper {
+	display: block;
+	margin-left: 180px;
+	padding: 20px 25px;
+	min-height: 300px;
+	background: #ffffff;
+	text-align: left;
+}

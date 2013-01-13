@@ -42,6 +42,16 @@ class User {
 
 		/* Get permissions */
 		$this->Permission = new Permission($this->ID, $this->Group->ID());
+		
+		/* Global user templat var */
+		SBB::Template()->Assign(['user' => [
+			'name' => $this->Name,
+			'id' => $this->ID,
+			'group' => ['name' => $this->Group->Name(), 'id' => $this->Group->ID(), 'icon' => ''],
+			'color' => '',
+			'lang_code' => '',
+			'logged_in' => $this->LoggedIn
+		]]);
 	}
 
 	protected function Fetch() {

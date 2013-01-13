@@ -4,9 +4,7 @@ List of global template variables
 ```
 debug               bool    is the board in debugging mode?
 
-page_title          string  title of the page
-
-js                  array   list of core js files
+title               string  title of the page
 
 base_url            string  the base url of the board
 
@@ -19,10 +17,14 @@ current_page        array   current page
 style               array   current style
     name            string  the name of the style
     dir             string  url ready style directory (<- remove this)
-    css             array   list of css files or a style preprocessor (e.g. style.php)
-        [#]         array   index
+    files           array
+        css         array   list of css files or a style preprocessor (e.g. style.php)
+          [#]       array   index
             file    string  css file or style preprocessor
             media   string  media attribute of the file (optional)
+        js          array   all js files
+            [#]     string  js file path
+    logo            string  url path to the logo
 
 menu                array   contains all menu entries
     [#]             array   index
@@ -39,6 +41,7 @@ user                array   current user
         icon        string  group icon (may be empty)
     color           string  fancy user rank color stuff (may be empty)
     lang_code       string  language code of the current language
+    logged_in       bool    if the user is logged in true else false
 
 notification        array   contains possible notifications
     [#]             array   index
@@ -49,6 +52,10 @@ crumbs              array   contains the current breadcrumbs
     [#]             array   index
         title       string  title of the crumb
         link        string  link of the crumb
+
+sbb                 array   information about silex bulletin board
+    version         string  the current version
+    sha             string  the github commit sha
 ```
 
 Silex Board own functions
