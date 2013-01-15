@@ -3,6 +3,7 @@ html, body {
 	padding: 0;
 }
 body {
+	min-width: 900px;
 	color: #2e2e2e;
 	font: normal normal normal 12px "Segoe UI", Helvetica, "Droid Sans", Arial, Verdana, sans-serif;
 }
@@ -44,10 +45,12 @@ h1 {
 
 .search_bar {
 	float: left;
+	padding-left: 20px;
 }
 
 .user_actions {
 	float: right;
+	padding-right: 20px;
 }
 .user_actions > div {
 	float: left;
@@ -141,9 +144,17 @@ nav.sub li.active {
 
 .content_wrapper {
 	display: block;
-	margin-left: 180px;
 	padding: 20px 25px;
 	min-height: 300px;
 	background: #ffffff;
-	text-align: left;
+}
+
+.content_wrapper.sub {
+	margin-left: 180px;
+}
+
+/* Footer */
+footer {
+	padding: 10px;
+	border-top: 3px solid #47ade8;
 }

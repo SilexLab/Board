@@ -22,12 +22,12 @@
 					{literal}{Avatar}{/literal} {$user.name}
 				</div>
 				<div class="user_menu">
-					Login du Sack
+					<span id="login_bar_toggle">Login du Sack</span>
 				</div>
 			</div>
 		</div>
 	</section>
-	<header class="main size_wrapper_min">
+	<header class="main">
 	</header>
 	<nav class="main size_wrapper">
 		<ul>
@@ -37,21 +37,7 @@
 		</ul>
 	</nav>
 	<section class="main_content">
-		<nav class="sub">
-			<ul>
-				<li class="active">All</li>
-				<li>Team</li>
-				<li>Search</li>
-				<li>Banned</li>
-			</ul>
-		</nav>
-		<div class="content_wrapper">
-			<h1>Content headline</h1>
-			Content<br>
-			Content<br>
-			asdisdfjlksdjfklsajdf kljsadklfjsdklfsd afsdafsdContent<br>
-			asfnjaklsdfj89weur 0rew789as zudf89azu uids
-		</div>
+		{include $current_page.template}
 	</section>
 	<footer class="main">
 		footer

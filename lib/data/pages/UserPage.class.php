@@ -24,7 +24,7 @@ class UserPage implements IPage {
 		$UserID = (int)$P->URI()->GetID(1, 'UserID');
 		if($UserID < 1 || !Database::Count('FROM `users` WHERE `ID` = :ID', [':ID' => $UserID])) {
 			Notification::Show(Language::Get('sbb.user.no_user'), Notification::ERROR);
-			$this->Info['template'] = 'ErrorPage.tpl';
+			$this->Info['template'] = 'PageError.tpl';
 			return;
 		}
 		
