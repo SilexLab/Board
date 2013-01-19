@@ -6,6 +6,7 @@ body {
 	min-width: 900px;
 	color: #2e2e2e;
 	font: normal normal normal 12px "Segoe UI", Helvetica, "Droid Sans", Arial, Verdana, sans-serif;
+	background: #f6f6f6;
 }
 
 h1 {
@@ -101,7 +102,7 @@ nav.main li > a {
 
 nav.main li.active > a {
 	border-radius: 4px 4px 0 0;
-	background: rgba(255, 255, 255, 1);
+	background: #f6f6f6;
 	box-shadow: none;
 	color: inherit;
 }
@@ -146,7 +147,7 @@ nav.sub li.active {
 	display: block;
 	padding: 20px 25px;
 	min-height: 300px;
-	background: #ffffff;
+	background: #f6f6f6;
 }
 
 .content_wrapper.sub {
