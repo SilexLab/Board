@@ -1,8 +1,8 @@
-Silex Bulletin Board - Readme
-=============================
+Silex Bulletin Board
+====================
 Silex Board or SilexBB (Silex Bulletin Board) is an open source forum software released under the [GNU General Public Licence](http://www.gnu.org/licenses/gpl-3.0.html). It is free to download and use.
-The software uses a modified version of a template language/engine called [Twig](https://github.com/SilexBoard/Template) to manage layouts, safe code and display the content.
-The project was found by Patrick Kleinschmidt (Nox Nebula) to improve his PHP skills. He convinced Daniel (Cadillaxx), Gillo (Angus) and Yannick (Nut) to join the project as main developers.
+The software uses the template engine [Smarty](https://code.google.com/p/smarty-php/source/browse/trunk/distribution/libs) to manage layouts, safe code and display the content.
+Originally the project was found by Patrick Kleinschmidt (Nox Nebula) to improve his PHP, CSS and JS skills.
 
 Requirements
 ------------
@@ -26,11 +26,13 @@ Links
 * __[Coding style](https://github.com/SilexBoard/Board/blob/master/docs/codingstyle.md)__
 * __[License](http://www.gnu.org/licenses/gpl-3.0.html)__
 
+Help
+----
 ### Contact
 * __IRC__ - [Webchat](http://webchat.quakenet.org/?channels=SilexBoard)<br>___irc://irc.quakenet.org/#SilexBoard___<br>#SilexBoard at irc.quakenet.org
-* <img src="https://twitter.com/favicon.ico" height="16" width="16">  __[Twitter](https://twitter.com/SilexBoard)__  -  ___@SilexBoard___
-* <img src="https://www.facebook.com/favicon.ico" height="16" width="16">  __[Facebook](https://www.facebook.com/SilexBoard)__
-* <img src="https://ssl.gstatic.com/s2/oz/images/faviconr2.ico" height="16" width="16">  __[Google+](https://plus.google.com/b/110206747608815084063/)__
+* __[Twitter](https://twitter.com/SilexBoard)__  -  ___@SilexBoard___
+* __[Facebook](https://www.facebook.com/SilexBoard)__
+* __[Google+](https://plus.google.com/b/110206747608815084063/)__
 
 Notes
 -----
@@ -41,4 +43,4 @@ __<sup>[4]</sup>__ ♥
 
 -----
 
-Silex Bulletin Board – © 2011 - 2012 [SilexBoard.org](http://www.silexboard.org/)
+Silex Bulletin Board – © 2011 - 2013 [SilexBoard.org](http://www.silexboard.org/)
