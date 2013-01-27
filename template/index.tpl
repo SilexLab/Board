@@ -12,12 +12,12 @@
 {/foreach}
 </head>
 <body>
-	<section class="user_panel size_wrapper_min">
-		<div class="size_wrapper">
-			<div class="search_bar">
+	<section class="user_panel w_size_min">
+		<div class="w_size">
+			<div class="search_bar w_content_l">
 				{literal}{Searchbar}{/literal}
 			</div>
-			<div class="user_actions">
+			<div class="user_actions w_content_r">
 				<div class="user_info">
 					{literal}{Avatar}{/literal} {$user.name}
 				</div>
@@ -29,20 +29,22 @@
 	</section>
 	<header class="main">
 	</header>
-	<nav class="main size_wrapper">
-		<ul>
+	<nav class="main w_size">
+		<ul class="w_content_r">
 			<li class="active"><a href="#">Home</a></li>
 			<li><a href="#">Board</a></li>
 			<li><a href="#">User</a></li>
 		</ul>
 	</nav>
-	<section class="main_content">
+	<section class="main_content w_size">
 		{include $current_page.template}
 	</section>
-	<footer class="main">
-		footer
-{if !$debug}
+	<footer class="main w_size">
+		<div class="w_content_h">
+			footer
+		</div>
 	</footer>
+{if !$debug}
 </body>
 </html>
 {/if}

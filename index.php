@@ -11,21 +11,20 @@ $WhatTimeIsIt = microtime(true);
 // Define the Silex Board root directory
 define('DIR_ROOT', dirname(__file__).'/');
 
-// Die in html
-function html_die($msg, $bg = '#fff', $c = '#000') {
-	return '<!DOCTYPE HTML><html><head><meta charset=utf-8><title>HE IS DEAD!</title><style type="text/css">body{font-family:sans-serif;font-size:18px;background:'.$bg.';color:'.$c.';text-align:center;padding:50px;}</style></head><body>'.$msg;
-}
+// Fancy die
+function die_html($msg, $bg = '#fff', $c = '#000') { die('<!DOCTYPE HTML><html><head><meta charset=utf-8><title>HE IS DEAD!</title><style type="text/css">body{font-family:sans-serif;font-size:18px;background:'.$bg.';color:'.$c.';text-align:center;padding:50px;}</style></head><body>'.$msg); }
+function die_img($msg, $img, $bg = '#fff', $c = '#000') { die('<!DOCTYPE HTML><html><head><meta charset=utf-8><title>HE IS DEAD!</title><style type="text/css">body{font-family:sans-serif;font-size:18px;background:'.$bg.';color:'.$c.';text-align:center;padding:50px;}</style></head><body><img src="'.$img.'" alt="ERROR"><br><b>'.$msg.'</b>'); }
 
 // Check for init file
 if(!file_exists('lib/init.php'))
-	die(html_die('<img src="images/yuno.jpg" alt="Y U NO"><br><b>Y U NO JUST INSTALL SILEX BOARD RIGHT?!</b>'));
+	die_img('Y U NO JUST INSTALL SILEX BOARD RIGHT?!', 'images/yuno.jpg');
 require_once ('lib/init.php');
 
 /* Development */
 if(CFG_DEBUG) {
 	echo '<!-- Freakin\' debugging stuff -->'."\n";
 	// performance
-	echo 'Generated in <strong>'.round(((microtime(true) - $WhatTimeIsIt) * 1000), 2).' ms</strong>.';
+	echo '<div class="w_size"><div class="w_content_h">Generated in <strong>'.round(((microtime(true) - $WhatTimeIsIt) * 1000), 2).' ms</strong>.</div></div>';
 
 	// piwik template for statistics
 	if(file_exists('../silexboard.org/piwik_template.php')) {

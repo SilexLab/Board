@@ -1,12 +1,11 @@
-html, body {
-	margin: 0;
-	padding: 0;
-}
+/* Reset all the things */
+* { margin: 0; padding: 0; outline: none; }
+
 body {
 	min-width: 900px;
+	background: #f6f6f6;
 	color: #2e2e2e;
 	font: normal normal normal 12px "Segoe UI", Helvetica, "Droid Sans", Arial, Verdana, sans-serif;
-	background: #f6f6f6;
 }
 
 h1 {
@@ -16,15 +15,20 @@ h1 {
 }
 
 /* Wrapper */
-.size_wrapper {
+.w_size {
 	margin: auto;
 	min-width: 900px;
 	max-width: 90%;
 }
+.w_size_min { min-width: 900px; }
 
-.size_wrapper_min {
-	min-width: 900px;
-}
+.w_content { padding: 20px; }
+.w_content_h { padding-right: 20px; padding-left: 20px; }
+.w_content_v { padding-top: 20px; padding-bottom: 20px; }
+.w_content_t { padding-top: 20px; }
+.w_content_r { padding-right: 20px; }
+.w_content_b { padding-bottom: 20px; }
+.w_content_l { padding-left: 20px; }
 
 /* User Panel */
 .user_panel {
@@ -32,7 +36,7 @@ h1 {
 	top: 0;
 	right: 0;
 	left: 0;
-	border-top: 3px solid #47ade8;
+	/* border-top: 3px solid #47ade8; */
 	background: rgba(10, 10, 10, 0.8);
 	color: #ffffff;
 	line-height: 30px;
@@ -46,12 +50,10 @@ h1 {
 
 .search_bar {
 	float: left;
-	padding-left: 20px;
 }
 
 .user_actions {
 	float: right;
-	padding-right: 20px;
 }
 .user_actions > div {
 	float: left;
@@ -75,8 +77,7 @@ nav.main {
 nav.main ul {
 	display: block;
 	float: right;
-	margin: -35px 0 0 0;
-	padding: 0;
+	margin-top: -35px;
 	height: 35px;
 	list-style: none;
 	font-weight: bold;
@@ -99,6 +100,9 @@ nav.main li > a {
 	color: #ffffff;
 	line-height: 35px;
 }
+nav.main li:hover > a {
+	color: #47ade8;
+}
 
 nav.main li.active > a {
 	border-radius: 4px 4px 0 0;
@@ -106,35 +110,17 @@ nav.main li.active > a {
 	box-shadow: none;
 	color: inherit;
 }
+nav.main li.active:hover > a {
+	color: #000000;
+}
 
 /* Sub Navigation */
-nav.sub {
-	float: left;
-	padding-bottom: 10px;
-	width: 180px;
-	color: #ffffff;
-	font-size: 18px;
-}
-
-nav.sub ul {
-	display: block;
-	margin: 0;
-	padding: 15px 10px 10px 20px;
-	list-style: none;
-}
-
-nav.sub li {
-	display: block;
-	padding: 15px 0;
-}
-
-nav.sub li.active {
-	color: #65c7ff;
-}
+nav.sub { }
 
 /* Content */
 .main_content {
-	background: #1C1D22;
+	min-height: 300px;
+	background: #f6f6f6;
 }
 .main_content::after {
 	display: block;
@@ -143,19 +129,9 @@ nav.sub li.active {
 	content: "";
 }
 
-.content_wrapper {
-	display: block;
-	padding: 20px 25px;
-	min-height: 300px;
-	background: #f6f6f6;
-}
-
-.content_wrapper.sub {
-	margin-left: 180px;
-}
-
 /* Footer */
 footer {
-	padding: 10px;
+	padding-top: 10px;
+	padding-bottom: 20px;
 	border-top: 3px solid #47ade8;
 }

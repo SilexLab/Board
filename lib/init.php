@@ -13,12 +13,12 @@ if(!defined('DIR_ROOT'))
 
 // Check for config file
 if(!file_exists('lib/config.inc.php'))
-	die(html_die('<img src="images/yuno.jpg" alt="Y U NO"><br><b>Y U NO HAVE A CONFIG FILE?!</b>'));
+	die_img('Y U NO HAVE A CONFIG FILE?!', 'images/yuno.jpg');
 
 // Include config file
 require_once('config.inc.php');
 if(!defined('CFG'))
-	die(html_die('<img src="images/OhCrap.jpg" alt "OMG"><br><b>WHAT KIND OF CONFIG FILE IS THIS?</b>', '#000', '#fff'));
+	die_img('WHAT KIND OF CONFIG FILE IS THIS?', 'images/OhCrap.jpg', '#000', '#fff');
 
 
 /* Bootstramp Silex Board \o/ */
