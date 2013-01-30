@@ -11,9 +11,9 @@ class UserPage implements IPage {
 
 	public function __construct() {
 		$this->Link = URI::Make([['page', 'User']]);
-
-		// Mark the menuentry for 'Board' as active
-		$this->Info['menu'] = 'UserList';
+		
+		// Mark the navigation entry for 'UserList' as active
+		$this->Info['nav'] = 'UserList';
 	}
 
 	public function Display(Page $P) {

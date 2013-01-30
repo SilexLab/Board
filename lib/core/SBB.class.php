@@ -12,7 +12,7 @@ class SBB {
 		$Config   = null,
 		$Template = null,
 		$Style    = null,
-		$Menu     = null,
+		$Nav      = null,
 		$Page     = null,
 		$User     = null;
 
@@ -31,7 +31,7 @@ class SBB {
 		new SessionGarbageCollector();
 		
 		// Frontend
-		self::$Menu = Menu::GetInstance();
+		self::$Nav = Nav::GetInstance();
 		Mail::Init();
 
 		// Pre-output

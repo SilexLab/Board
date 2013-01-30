@@ -37,7 +37,8 @@ h1 {
 	right: 0;
 	left: 0;
 	/* border-top: 3px solid #47ade8; */
-	background: rgba(10, 10, 10, 0.8);
+	/* background: rgba(10, 10, 10, 0.8); */
+	background: #47ade8;
 	color: #ffffff;
 	line-height: 30px;
 }
@@ -46,6 +47,12 @@ h1 {
 	clear: both;
 	height: 0;
 	content: "";
+}
+
+.user_panel_content {
+	overflow: hidden;
+	height: 0;
+	background: #141414;
 }
 
 .search_bar {
@@ -71,10 +78,10 @@ header.main {
 }
 
 /* Main Navigation */
-nav.main {
+nav.site {
 	height: 0;
 }
-nav.main ul {
+nav.site ul {
 	display: block;
 	float: right;
 	margin-top: -35px;
@@ -83,34 +90,34 @@ nav.main ul {
 	font-weight: bold;
 	font-size: 15px;
 }
-nav.main li {
+nav.site li {
 	float: left;
 	margin-left: 8px;
 	height: 35px;
 }
-nav.main a {
+nav.site a {
 	color: #2e2e2e;
 	text-decoration: none;
 }
 
-nav.main li > a {
+nav.site li > a {
 	display: block;
 	padding: 0 20px;
 	height: 35px;
 	color: #ffffff;
 	line-height: 35px;
 }
-nav.main li:hover > a {
+nav.site li:hover > a {
 	color: #47ade8;
 }
 
-nav.main li.active > a {
+nav.site li.active > a {
 	border-radius: 4px 4px 0 0;
 	background: #f6f6f6;
 	box-shadow: none;
 	color: inherit;
 }
-nav.main li.active:hover > a {
+nav.site li.active:hover > a {
 	color: #000000;
 }
 

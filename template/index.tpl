@@ -13,6 +13,13 @@
 </head>
 <body>
 	<section class="user_panel w_size_min">
+		<div class="user_panel_content">
+			<div class="w_size">
+				<div class="w_content_h">
+					test
+				</div>
+			</div>
+		</div>
 		<div class="w_size">
 			<div class="search_bar w_content_l">
 				{literal}{Searchbar}{/literal}
@@ -29,11 +36,11 @@
 	</section>
 	<header class="main">
 	</header>
-	<nav class="main w_size">
+	<nav class="site w_size">
 		<ul class="w_content_r">
-			<li class="active"><a href="#">Home</a></li>
-			<li><a href="#">Board</a></li>
-			<li><a href="#">User</a></li>
+			{foreach $nav as $item}
+				<li{($item.active) ? ' class="active"' : ''}><a href="{$item.link}">{$item.name}</a></li>
+			{/foreach}
 		</ul>
 	</nav>
 	<section class="main_content w_size">

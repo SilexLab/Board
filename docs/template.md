@@ -26,10 +26,10 @@ style               array   current style
             [#]     string  js file path
     logo            string  url path to the logo
 
-menu                array   contains all menu entries
+nav                 array   contains all nav entries
     [#]             array   index
-        name        string  name of the menu entry
-        link        string  link of the menu entry
+        name        string  name of the nav entry
+        link        string  link of the nav entry
         active      bool    is this the current page?
 
 user                array   current user

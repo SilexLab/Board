@@ -11,7 +11,7 @@ class HomePage implements IPage {
 
 	public function __construct() {
 		$this->Link = URI::Make([['page', '']]);
-		$this->Info['menu'] = 'Home';
+		$this->Info['nav'] = 'Home';
 	}
 
 	public function Display(Page $P) {

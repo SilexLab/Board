@@ -6,8 +6,6 @@
  */
 
 require_once('Page.interface.php');
-require_once('page/HomePage.class.php'); // <- REMOVE
-require_once('page/BlubPage.class.php'); // <- REMOVE
 class Page {
 	const FILENAME  = '/^(\w+)Page\.class\.php$/';
 	const CLASSNAME = '/^(\w+)Page$/';

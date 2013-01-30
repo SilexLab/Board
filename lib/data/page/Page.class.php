@@ -101,8 +101,8 @@ class Page {
 		return $this->Instance->Info($Info);
 	}
 
-	public function MenuEntry() {
-		$Page = $this->Instance->Info('menu');
+	public function NavEntry() {
+		$Page = $this->Instance->Info('nav');
 		return $Page ? $Page : $this->Name();
 	}
 

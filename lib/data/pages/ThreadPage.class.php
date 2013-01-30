@@ -14,8 +14,8 @@ class ThreadPage implements IPage {
 	public function __construct() {
 		$this->Link = URI::Make([['page', 'Thread']]);
 
-		// Mark the menuentry for 'Board' as active
-		$this->Info['menu'] = 'Board';
+		// Mark the navigation entry for 'Board' as active
+		$this->Info['nav'] = 'Board';
 	}
 
 	public function Display(Page $P) {
