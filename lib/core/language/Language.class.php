@@ -8,64 +8,48 @@
 class Language {
 	private static $Language;
 
+	private static $DefaultLanguage;
+
 	private static $Items = [];
 
 	private static $AvailableLanguages = [];
-
-	/**
-	 * Returns the value of a given language node
-	 * if none node is given it returns all items
-	 * @param	string	$Node
-	 * @return	string
-	 */
-	public static function Get($Node = '') {
-		if(!$Node)
-			return self::$Items;
-		return isset(self::$Items[$Node]) ? self::$Items[$Node] : $Node;
-	}
 
 	/**
 	 * Get the current language
 	 * @return	void
 	 */
 	public static function Initialize($L = '') {
+		// Do not initialize if already
 		if(!empty(self::$Language))
 			return;
-		
-		// TODO: Read the User Language
-		/*
-			USER LANGUAGE
-			-> User::Language()?
-		*/
-		
-		if(is_dir(DIR_LANGUAGE.$L.'/'))
-			self::$Language = $L;
 
-		// Use the default language when no language was set until this point
+		// Get the default language
+		self::$DefaultLanguage = SBB::Config('page.language.default');
+
+		/* Find a language to use */
+		// Use $L if exists
+		if($L && is_dir(DIR_LANGUAGE.$L))
+			self::$Language = $L;
+		// TODO: Get the user language
+		// Use the default language if it's still unset
 		if(empty(self::$Language))
-			self::$Language = SBB::Config('page.language.default');
-		
-		// Include the languagefiles
-		if(!empty(self::$Language)) {
-			$Dir = DIR_LANGUAGE.self::$Language.'/';
-			$FilesLoaded = 0;
-			if(is_dir($Dir)) {
-				foreach(scandir($Dir) as $File) {
-					if(is_file($Dir.$File) && (preg_match('/^(.+)\.php$/', $File))) {
-						require_once($Dir.$File);
-						$FilesLoaded++;
-					}
-				}
-				if($FilesLoaded == 0)
-					throw new SystemException('No language files are loaded from "'.$Dir.'"');
-			} else
-				throw new SystemException('"'.$Dir.'" is not a directory');
-		} else
+			self::$Language = self::$DefaultLanguage;
+
+		/* Validate the language */
+		// If it's still empty, fuck you, ok?
+		if(empty(self::$Language))
 			throw new DatabaseException('Failed to load the default language');
+		if(!is_file(DIR_LANGUAGE.self::$Language.'/info.xml'))
+			throw new SystemException('"'.self::$Language.'" ("'.$Dir.'") is not a language');
+
+		/* Load the language */
+		if(self::LoadFiles() === 0)
+			throw new SystemException('No language files could be loaded from "'.$Dir.'"');
 	}
 
 	/**
 	 * Returns the available languages
+	 * @return  array
 	 */
 	public static function Available() {
 		// TODO: First read from db
@@ -89,6 +73,34 @@ class Language {
 	}
 
 	/**
+	 * Returns the value of a given language node
+	 * if none node is given it returns all items
+	 * @param	string	$Node
+	 * @return	string
+	 */
+	public static function Get($Node = '') {
+		if(!$Node)
+			return self::$Items;
+		return isset(self::$Items[$Node]) ? self::$Items[$Node] : $Node;
+	}
+
+	/**
+	 * Load all language files
+	 * @return  int
+	 */
+	private static function LoadFiles() {
+		$Dir = DIR_LANGUAGE.self::$Language.'/';
+		$FilesLoaded = 0;
+		foreach(scandir($Dir) as $File) {
+			if(is_file($Dir.$File) && (preg_match('/^(.+)\.php$/', $File))) {
+				self::$Items = array_merge(self::$Items, include($Dir.$File));
+				$FilesLoaded++;
+			}
+		}
+		return $FilesLoaded;
+	}
+
+	/**
 	 * With this, loaded files can load other files (from other languages)
 	 * @param string $Language
 	 * @param string $File
@@ -98,6 +110,6 @@ class Language {
 			return;
 		$Path = DIR_LANGUAGE.$Language.'/'.$File;
 		if(file_exists($Path))
-			require($Path);
+			return include($Path);
 	}
 }

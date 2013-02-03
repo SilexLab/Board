@@ -17,7 +17,7 @@ class LoginPage implements IPage {
 		if(SBB::User()->LoggedIn())
 			header('location: ./');
 		
-		Breadcrumb::Add(Language::Get('sbb.page.login'), self::Link());
+		Breadcrumb::Add(Language::Get('page.login'), self::Link());
 
 		if(Session::Get('LoginError')) {
 			Notification::Show(Language::Get(Session::Get('LoginError')), Notification::ERROR);
@@ -30,7 +30,7 @@ class LoginPage implements IPage {
 	}
 
 	public function Title() {
-		return Language::Get('sbb.page.login');
+		return Language::Get('page.login');
 	}
 
 	public function Template() {

@@ -25,7 +25,7 @@ class HomePage implements IPage {
 	}
 
 	public function Title() {
-		return Language::Get('sbb.page.home');
+		return Language::Get('page.home');
 	}
 
 	public function Template() {

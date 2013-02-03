@@ -18,8 +18,8 @@ class RegisterPage implements IPage {
 			header('location: ./');
 
 		$this->Info['node'] = self::$Node;
-		$this->Info['title'] = Language::Get('sbb.page.register');
-		Breadcrumb::Add(Language::Get('sbb.page.register'), self::Link());
+		$this->Info['title'] = Language::Get('page.register');
+		Breadcrumb::Add(Language::Get('page.register'), self::Link());
 		$this->Info['template'] = 'Register';
 
 		// Register formular
@@ -46,7 +46,7 @@ class RegisterPage implements IPage {
 				case 'register.username':
 					if(HtmlPost::Get('sub_username') && HtmlPost::Get('Username')) {
 						if(Database::Count('FROM `users` WHERE `Username` = :name', [':name' => HtmlPost::Get('Username')]))
-							Notification::Show(Language::Get('sbb.register.username_exist'), Notification::ERROR);
+							Notification::Show(Language::Get('register.username_exist'), Notification::ERROR);
 						else {
 							Session::Set('register.step', 'register.password');
 							Session::Set('register.username', $_POST['Username']);
@@ -60,14 +60,14 @@ class RegisterPage implements IPage {
 					if(HtmlPost::Get('sub_password') && HtmlPost::Get('Password')) {
 						if(HtmlPost::Get('Password') == HtmlPost::Get('Password_Re')) {
 							if(strlen(HtmlPost::Get('Password')) < 8) // TODO: read min from config
-								Notification::Show(Language::Get('sbb.register.password_too_short'), Notification::ERROR);
+								Notification::Show(Language::Get('register.password_too_short'), Notification::ERROR);
 							else {
 								Session::Set('register.step', 'register.email');
 								Session::Set('register.password', $_POST['Password']);
 								break;
 							}
 						} else
-							Notification::Show(Language::Get('sbb.register.incorrect_password'), Notification::ERROR);
+							Notification::Show(Language::Get('register.incorrect_password'), Notification::ERROR);
 					}
 					SBB::Template()->Set(['Register' => ['Progress' => 25]]);
 					break 2;
@@ -79,7 +79,7 @@ class RegisterPage implements IPage {
 							Session::Set('register.email', $_POST['Email']);
 							break;
 						} else
-							Notification::Show(Language::Get('sbb.register.incorrect_email'), Notification::ERROR);
+							Notification::Show(Language::Get('register.incorrect_email'), Notification::ERROR);
 					}
 					SBB::Template()->Set(['Register' => ['Progress' => 50]]);
 
@@ -118,7 +118,7 @@ class RegisterPage implements IPage {
 	}
 
 	public function Title() {
-		return Language::Get('sbb.page.register');
+		return Language::Get('page.register');
 	}
 
 	public function Template() {

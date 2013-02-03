@@ -20,7 +20,7 @@ class ThreadPage implements IPage {
 
 	public function Display(Page $P) {
 
-		Breadcrumb::Add(Language::Get('sbb.page.board'), $P->Link('Board'));
+		Breadcrumb::Add(Language::Get('page.board'), $P->Link('Board'));
 
 		$this->UF = $P->URI()->Format();
 		$ThreadID = $P->URI()->GetID(1, 'ThreadID');
@@ -43,24 +43,24 @@ class ThreadPage implements IPage {
 			SBB::Template()->Assign(['posts' => $Thread->GetPosts()]);
 
 		} else {
-			$this->Info['title'] = Language::Get('sbb.error');
+			$this->Info['title'] = Language::Get('error');
 			Notification::Show('Thread existiert nicht!', Notification::ERROR);
 		}
 
 		// Has the ComposePage something for us?
 		// TODO: Does not work.
 		if(Session::Get('ComposePostSuccess')) {
-			Notification::Show(Language::Get('sbb.compose.success.reply'), Notification::SUCCESS);
+			Notification::Show(Language::Get('compose.success.reply'), Notification::SUCCESS);
 			Session::Remove('ComposePostSuccess');
 		}
 
 		if(Session::Get('ComposeThreadSuccess')) {
-			Notification::Show(Language::Get('sbb.compose.success.thread'), Notification::SUCCESS);
+			Notification::Show(Language::Get('compose.success.thread'), Notification::SUCCESS);
 			Session::Remove('ComposeThreadSuccess');
 		}
 
         if(Session::Get('EditPostSuccess')) {
-            Notification::Show(Language::Get('sbb.compose.success.edit'), Notification::SUCCESS);
+            Notification::Show(Language::Get('compose.success.edit'), Notification::SUCCESS);
             Session::Remove('EditPostSuccess');
         }
 

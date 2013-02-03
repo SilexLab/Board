@@ -14,8 +14,8 @@ class ErrorPage implements IPage {
 	}
 
 	public function Display(Page $P) {
-		Breadcrumb::Add(Language::Get('sbb.page.error'), self::Link());
-		Notification::Show(Language::Get('sbb.error.no_page'), Notification::ERROR);
+		Breadcrumb::Add(Language::Get('page.error'), self::Link());
+		Notification::Show(Language::Get('error.no_page'), Notification::ERROR);
 		SBB::Template()->Assign(['route' => print_r($P->URI()->Get(), true)]);
 	}
 
@@ -24,7 +24,7 @@ class ErrorPage implements IPage {
 	}
 
 	public function Title() {
-		return Language::Get('sbb.page.error');
+		return Language::Get('page.error');
 	}
 
 	public function Template() {

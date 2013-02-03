@@ -34,7 +34,7 @@ class User {
 				$this->FetchRow($Input);
 		}
 		else { // Not logged in
-			$this->Name = Language::Get('sbb.user.guest');
+			$this->Name = Language::Get('user.guest');
 			$this->ID = 0;
 			$this->LoggedIn = false;
 			$this->Group = new Group((int)SBB::Config('user.group.guest'));

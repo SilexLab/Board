@@ -7,25 +7,25 @@
 
 class TimeUtil {
 	const
-		MONDAY    = 'sbb.time.monday',
-		TUESDAY   = 'sbb.time.tuesday',
-		WEDNESDAY = 'sbb.time.wednesday',
-		THURSDAY  = 'sbb.time.thursday',
-		FRIDAY    = 'sbb.time.friday',
-		SATURDAY  = 'sbb.time.saturday',
-		SUNDAY    = 'sbb.time.sunday',
-		JANUARY   = 'sbb.time.january',
-		FEBRUARY  = 'sbb.time.february',
-		MARCH     = 'sbb.time.march',
-		APRIL     = 'sbb.time.april',
-		MAY       = 'sbb.time.may',
-		JUNE      = 'sbb.time.june',
-		JULY      = 'sbb.time.july',
-		AUGUST    = 'sbb.time.august',
-		SEPTEMBER = 'sbb.time.september',
-		OCTOBER   = 'sbb.time.october',
-		NOVEMBER  = 'sbb.time.november',
-		DECEMBER  = 'sbb.time.december';
+		MONDAY    = 'time.monday',
+		TUESDAY   = 'time.tuesday',
+		WEDNESDAY = 'time.wednesday',
+		THURSDAY  = 'time.thursday',
+		FRIDAY    = 'time.friday',
+		SATURDAY  = 'time.saturday',
+		SUNDAY    = 'time.sunday',
+		JANUARY   = 'time.january',
+		FEBRUARY  = 'time.february',
+		MARCH     = 'time.march',
+		APRIL     = 'time.april',
+		MAY       = 'time.may',
+		JUNE      = 'time.june',
+		JULY      = 'time.july',
+		AUGUST    = 'time.august',
+		SEPTEMBER = 'time.september',
+		OCTOBER   = 'time.october',
+		NOVEMBER  = 'time.november',
+		DECEMBER  = 'time.december';
 	const
 		SECOND = 1,
 		MINUTE = 60,
@@ -36,13 +36,13 @@ class TimeUtil {
 		YEAR   = 31536000;
 
 	private static $Units = [
-			self::SECOND => 'sbb.time.second',
-			self::MINUTE => 'sbb.time.minute',
-			self::HOUR   => 'sbb.time.hour',
-			self::DAY    => 'sbb.time.day',
-			self::WEEK   => 'sbb.time.week',
-			self::MONTH  => 'sbb.time.month',
-			self::YEAR   => 'sbb.time.year'
+			self::SECOND => 'time.second',
+			self::MINUTE => 'time.minute',
+			self::HOUR   => 'time.hour',
+			self::DAY    => 'time.day',
+			self::WEEK   => 'time.week',
+			self::MONTH  => 'time.month',
+			self::YEAR   => 'time.year'
 		];
 
 	private static
@@ -136,14 +136,14 @@ class TimeUtil {
 		if($Time < time()) {
 			$Number = time() - $Time;
 			self::Convert($Number, $Unit);
-			return sprintf(Language::Get('sbb.time.ago'), $Number, $Unit);
+			return sprintf(Language::Get('time.ago'), $Number, $Unit);
 		}
 		if($Time > time()) {
 			$Number = $Time - time();
 			self::Convert($Number, $Unit);
-			return sprintf(Language::Get('sbb.time.ahead'), $Number, $Unit);
+			return sprintf(Language::Get('time.ahead'), $Number, $Unit);
 		}
-		return Language::Get('sbb.time.now');
+		return Language::Get('time.now');
 	}
 
 	/**

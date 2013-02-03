@@ -23,7 +23,7 @@ class SBB {
 	public static final function Initial() {
 		/* Initialize classes and objects */
 		// Data
-		Language::Initialize(isset($_GET['lang']) ? $_GET['lang'] : null);
+		Language::Initialize(isset($_GET['l']) ? $_GET['l'] : null);
 		self::$Template = new Template(DIR_ROOT.DIR_TPL);
 		self::$User = Session::GetUser();
 		Listener::Check();
@@ -158,8 +158,8 @@ class SBB {
 				'time' => date('H:i'),
 				'y_percent' => round(100 * TimeUtil::YearProcess(), 2),
 				'd_percent' => round(100 * TimeUtil::DayProcess(), 2),
-				'progress' => sprintf(Language::Get('sbb.time.progress'), 100 * TimeUtil::YearProcess()),
-				'day_progress' => sprintf(Language::Get('sbb.time.dayprogress'), 100 * TimeUtil::DayProcess())
+				'progress' => sprintf(Language::Get('time.progress'), 100 * TimeUtil::YearProcess()),
+				'day_progress' => sprintf(Language::Get('time.dayprogress'), 100 * TimeUtil::DayProcess())
 			]
 		]);
 	}

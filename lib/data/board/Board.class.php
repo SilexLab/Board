@@ -378,7 +378,7 @@ class Board {
      */
     public function GetNewThreadLink() {
 
-        return URI::Make([['page', 'Compose'], ['Type', ComposePage::TYPE_THREAD, Language::Get('sbb.compose.compose_thread')], ['Target', $this->Id, $this->Topic]]);
+        return URI::Make([['page', 'Compose'], ['Type', ComposePage::TYPE_THREAD, Language::Get('compose.compose_thread')], ['Target', $this->Id, $this->Topic]]);
 
     }
 

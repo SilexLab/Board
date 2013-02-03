@@ -14,7 +14,7 @@ class UserListPage implements IPage {
 	}
 
 	public function Display(Page $P) {
-		Breadcrumb::Add(Language::Get('sbb.page.userlist'), $this->Link());
+		Breadcrumb::Add(Language::Get('page.userlist'), $this->Link());
 
 		$TempUsers = SBB::DB()->query('SELECT * FROM `users`')->fetchAll(PDO::FETCH_OBJ);
 		$Users = [];
@@ -39,7 +39,7 @@ class UserListPage implements IPage {
 	}
 
 	public function Title() {
-		return Language::Get('sbb.page.userlist');
+		return Language::Get('page.userlist');
 	}
 
 	public function Template() {

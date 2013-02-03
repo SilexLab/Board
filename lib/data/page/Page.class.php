@@ -34,7 +34,7 @@ class Page {
 			throw new SystemException('"'.$Class.'" is not an instance of "IPage"');
 
 		// Home Breadcrumb
-		Breadcrumb::Add(Language::Get('sbb.page.home'), $this->Link('Home'));
+		Breadcrumb::Add(Language::Get('page.home'), $this->Link('Home'));
 		// "Display" the page
 		$this->Instance->Display($this);
 	}

@@ -15,8 +15,8 @@ class BoardPage implements IPage {
 	}
 
 	public function Display(Page $P) {
-		Breadcrumb::Add(Language::Get('sbb.page.board'), $this->Link());
-		$this->Info['title'] = Language::Get('sbb.page.board');
+		Breadcrumb::Add(Language::Get('page.board'), $this->Link());
+		$this->Info['title'] = Language::Get('page.board');
 		
 		$this->UF = $P->URI()->Format();
 		$BoardID = $P->URI()->GetID(1, 'BoardID');

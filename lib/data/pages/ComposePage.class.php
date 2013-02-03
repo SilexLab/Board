@@ -51,7 +51,7 @@ class ComposePage implements IPage {
 
 		if(!$this->Type || !$this->Target) {
 
-			Notification::Show(Language::Get('sbb.compose.error.no_type_target'), Notification::ERROR);
+			Notification::Show(Language::Get('compose.error.no_type_target'), Notification::ERROR);
 			return false;
 
 		}
@@ -72,7 +72,7 @@ class ComposePage implements IPage {
 				catch(NotFoundException $e) {
 
 					$this->Error = true;
-					Notification::Show(Language::Get('sbb.error.no_thread'), Notification::ERROR);
+					Notification::Show(Language::Get('error.no_thread'), Notification::ERROR);
 					break;
 
 				}
@@ -99,7 +99,7 @@ class ComposePage implements IPage {
 				catch(NotFoundException $e) {
 
 					$this->Error = true;
-					Notification::Show(Language::Get('sbb.error.no_board'), Notification::ERROR);
+					Notification::Show(Language::Get('error.no_board'), Notification::ERROR);
 					break;
 
 				}
@@ -127,7 +127,7 @@ class ComposePage implements IPage {
 				catch(NotFoundException $e) {
 
 					$this->Error = true;
-					Notification::Show(Language::Get('sbb.error.no_post'), Notification::ERROR);
+					Notification::Show(Language::Get('error.no_post'), Notification::ERROR);
 					break;
 
 				}
@@ -184,11 +184,11 @@ class ComposePage implements IPage {
 	 */
 	public function Title() {
 		if($this->Type == self::TYPE_THREAD)
-			return Language::Get('sbb.compose.compose_thread');
+			return Language::Get('compose.compose_thread');
 		elseif($this->Type == self::TYPE_REPLY)
-			return Language::Get('sbb.compose.compose_reply');
+			return Language::Get('compose.compose_reply');
 		elseif($this->Type == self::TYPE_EDIT)
-			return Language::Get('sbb.compose.compose_edit');
+			return Language::Get('compose.compose_edit');
 	}
 
 	/**
@@ -238,7 +238,7 @@ class ComposePage implements IPage {
 						$NewPost = PostUtil::Create($this->Target, SBB::User()->ID(), $Input['message'], '', $Input['smileys'], $Input['html'], $Input['silexcode']);
 
 						if($NewPost === false) {
-							Notification::Show('sbb.compose.error.generic_reply', Notification::ERROR);
+							Notification::Show('compose.error.generic_reply', Notification::ERROR);
 							SBB::Template()->Assign(['input' => $Input]);
 							break;
 						}
@@ -255,7 +255,7 @@ class ComposePage implements IPage {
 						$NewThread = ThreadUtil::Create($this->Target, $Input['topic'], '', false, SBB::User()->ID(), $Input['message'], '', $Input['smileys'], $Input['html'], $Input['silexcode']);
 
 						if($NewThread === false) {
-							Notification::Show('sbb.compose.error.generic_thread', Notification::ERROR);
+							Notification::Show('compose.error.generic_thread', Notification::ERROR);
 							SBB::Template()->Assign(['input' => $Input]);
 							break;
 						}
@@ -277,7 +277,7 @@ class ComposePage implements IPage {
                         catch(NotFoundException $e) {
 
                             $this->Error = true;
-                            Notification::Show(Language::Get('sbb.error.no_post'), Notification::ERROR);
+                            Notification::Show(Language::Get('error.no_post'), Notification::ERROR);
                             break;
 
                         }
@@ -320,18 +320,18 @@ class ComposePage implements IPage {
 
 		if($this->Type == self::TYPE_THREAD) {
 			if(HtmlPost::Get('topic') === false) {
-				Notification::Show(Language::Get('sbb.compose.error.no_topic'), Notification::ERROR);
+				Notification::Show(Language::Get('compose.error.no_topic'), Notification::ERROR);
 				$Return = false;
 			}
 		}
 
 		if(HtmlPost::Get('message') === false) {
-			Notification::Show(Language::Get('sbb.compose.error.no_message'), Notification::ERROR);
+			Notification::Show(Language::Get('compose.error.no_message'), Notification::ERROR);
 			$Return = false;
 		}
 
 		if(HtmlPost::Get('setting_silexcode') === false || HtmlPost::Get('setting_html') === false || HtmlPost::Get('setting_smileys') === false) {
-			Notification::Show(Language::Get('sbb.compose.error.no_settings'), Notification::ERROR);
+			Notification::Show(Language::Get('compose.error.no_settings'), Notification::ERROR);
 			$Return = false;
 		}
 
@@ -339,7 +339,7 @@ class ComposePage implements IPage {
 				!in_array(HtmlPost::Get('setting_html'), ['1', '0']) ||
 				!in_array(HtmlPost::Get('setting_smileys'), ['1', '0'])) {
 
-			Notification::Show(Language::Get('sbb.compose.error.pattern_settings'), Notification::ERROR);
+			Notification::Show(Language::Get('compose.error.pattern_settings'), Notification::ERROR);
 			$Return = false;
 
 		}

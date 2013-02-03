@@ -6,30 +6,28 @@
  * @version    0.0.1
  */
 
-// Load the core of "de" and overwrite different nodes
-self::Load('de', 'sbb.core.php');
-
 /* Langfile:	German (Formal) */
-self::$Items = array_merge(self::$Items, [
-'sbb.language.info' => 'Deutsch (Formell)',
+return array_merge([
+'language.info' => 'Deutsch (Formell)',
 
-'sbb.language.changed' => 'Ihre Sprache wurde nach %s geändert',
+'language.changed' => 'Ihre Sprache wurde nach %s geändert',
 
-'sbb.register.success' => 'Sie haben sich erfolgreich registriert!',
+'register.success' => 'Sie haben sich erfolgreich registriert!',
 
-'sbb.login.failed'   => 'Sie konnten sich nicht einloggen',
-'sbb.login.success'  => 'Sie haben sich erfolgreich angemeldet',
-'sbb.logout.success' => 'Sie wurden erfolgreich ausgeloggt',
+'login.failed'   => 'Sie konnten sich nicht einloggen',
+'login.success'  => 'Sie haben sich erfolgreich angemeldet',
+'logout.success' => 'Sie wurden erfolgreich ausgeloggt',
 
-'sbb.info.javascript' => 'Bitte aktivieren Sie JavaScript um den vollen Funktionsumfang dieser Seite nutzen zu können.',
+'info.javascript' => 'Bitte aktivieren Sie JavaScript um den vollen Funktionsumfang dieser Seite nutzen zu können.',
 
-'sbb.email.activation.title' => 'Sie müssen diesen Link klicken um Ihre Registrierung abzuschließen: ',
+'email.activation.title' => 'Sie müssen diesen Link klicken um Ihre Registrierung abzuschließen: ',
 
-'sbb.compose.error.no_topic'         => 'Sie müssen ein Thema angeben!',
-'sbb.compose.error.no_message'       => 'Sie müssen eine Nachricht angeben!',
-'sbb.compose.error.no_settings'      => 'Sie müssen jede Einstellung angeben!',
-'sbb.compose.error.pattern_settings' => 'Irgendetwas stimmt nicht mit Ihren Einstellungen.',
-'sbb.compose.success.reply'          => 'Ihre Antwort wurde erfolgreich erstellt.',
-'sbb.compose.success.thread'         => 'Ihr Thread wurde erfolgreich erstellt.',
-'sbb.compose.success.edit'           => 'Ihr Beitrag wurde erfolgreich bearbeitet.'
-]);
+'compose.error.no_topic'         => 'Sie müssen ein Thema angeben!',
+'compose.error.no_message'       => 'Sie müssen eine Nachricht angeben!',
+'compose.error.no_settings'      => 'Sie müssen jede Einstellung angeben!',
+'compose.error.pattern_settings' => 'Irgendetwas stimmt nicht mit Ihren Einstellungen.',
+'compose.success.reply'          => 'Ihre Antwort wurde erfolgreich erstellt.',
+'compose.success.thread'         => 'Ihr Thread wurde erfolgreich erstellt.',
+'compose.success.edit'           => 'Ihr Beitrag wurde erfolgreich bearbeitet.'
+// Load the core of "de" and overwrite different nodes
+], self::Load('de', 'sbb.core.php'));

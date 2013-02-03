@@ -39,7 +39,7 @@
 			<a href="{$base_url}">
 				<img class="w_content_m_l" src="{$style.dir}images/logo.png" alt="Logo">
 			</a>
-			<div class="slogan">{lang node="sbb.header.slogan"}</div>
+			<div class="slogan">{lang node="header.slogan"}</div>
 		</div>
 	</header>
 	<nav class="site w_size">
@@ -51,7 +51,7 @@
 	</nav>
 	<noscript>
 		<div class="info">
-			{lang node="sbb.info.javascript"}
+			{lang node="info.javascript"}
 		</div>
 	</noscript>
 	<section class="main_content">

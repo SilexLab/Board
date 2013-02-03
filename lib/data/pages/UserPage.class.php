@@ -20,10 +20,10 @@ class UserPage implements IPage {
 		if(!$P->URI()->Get('UserID'))
 			header('location: '.SBB::Page()->Link('UserList'));
 
-		$this->Info['title'] = Language::Get('sbb.page.user');
+		$this->Info['title'] = Language::Get('page.user');
 		$UserID = (int)$P->URI()->GetID(1, 'UserID');
 		if($UserID < 1 || !Database::Count('FROM `users` WHERE `ID` = :ID', [':ID' => $UserID])) {
-			Notification::Show(Language::Get('sbb.user.no_user'), Notification::ERROR);
+			Notification::Show(Language::Get('user.no_user'), Notification::ERROR);
 			$this->Info['template'] = 'PageError.tpl';
 			return;
 		}
@@ -38,8 +38,8 @@ class UserPage implements IPage {
 		}
 
 		$this->Info['template'] = 'PageUser.tpl';
-		$this->Info['title'] = Language::Get('sbb.user.user').': '.$User->Username;
-		Breadcrumb::Add(Language::Get('sbb.page.userlist'), $P->Link('UserList'));
+		$this->Info['title'] = Language::Get('user.user').': '.$User->Username;
+		Breadcrumb::Add(Language::Get('page.userlist'), $P->Link('UserList'));
 		Breadcrumb::Add($User->Username, URI::Make([['page', 'User'], ['UserID', $UserID, $User->Username]]));
 
 		// Template..
@@ -52,7 +52,7 @@ class UserPage implements IPage {
 				date('d. ', $User->Joined).Language::Get(TimeUtil::Month(date('n', $User->Joined))).
 				date(' Y, H:i', $User->Joined),
 			'activity'  => date('d.m.Y, H:i', $User->LastActivity), // TODO: Alternative formats, like "Today, 11:23" or "Yesterday, 13:37",
-			'language'  => $User->Language ? $User->Language : Language::Get('sbb.language.info'), // TODO: Read the real language
+			'language'  => $User->Language ? $User->Language : Language::Get('language.info'), // TODO: Read the real language
 			'birthday'  => date('d.m.Y', $User->Birthday),
 			'age'       => date('md', date('U', $User->Birthday)) > date('md') ? // TODO: Find a better age calculation
 				(date('Y') - date('Y', $User->Birthday)-1) :
