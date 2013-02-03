@@ -2,7 +2,7 @@
 <html{if $user.lang_code} lang="{$user.lang_code}"{/if}>
 <head>
 	<meta charset="utf-8">
-	<title>{$current_page.title} · {$title}</title>
+	<title>{$page.title} · {$title}</title>
 	<link rel="shortcut icon" href="{$base_url}favicon.ico">
 {foreach $style.files.css as $f}
 	<link rel="stylesheet" type="text/css" href="{$f.file}"{if $f.media} media="{$f.media}"{/if}>
@@ -35,6 +35,12 @@
 		</div>
 	</section>
 	<header class="main">
+		<div class="logo w_size">
+			<a href="{$base_url}">
+				<img class="w_content_m_l" src="{$style.dir}images/logo.png" alt="Logo">
+			</a>
+			<div class="slogan">{lang node="sbb.header.slogan"}</div>
+		</div>
 	</header>
 	<nav class="site w_size">
 		<ul class="w_content_r">
@@ -43,12 +49,21 @@
 			{/foreach}
 		</ul>
 	</nav>
-	<section class="main_content w_size">
-		{include $current_page.template}
+	<noscript>
+		<div class="info">
+			{lang node="sbb.info.javascript"}
+		</div>
+	</noscript>
+	<section class="main_content">
+		<div class="w_size">
+			{include $page.template}
+		</div>
 	</section>
-	<footer class="main w_size">
-		<div class="w_content_h">
-			footer
+	<footer class="main">
+		<div class="w_size">
+			<div class="w_content_h">
+				footer
+			</div>
 		</div>
 	</footer>
 {if !$debug}

@@ -8,7 +8,7 @@ title               string  title of the page
 
 base_url            string  the base url of the board
 
-current_page        array   current page
+page                array   current page
     title           string  title of the current page
     template        string  template for the current page
     name            string  intern page name
@@ -16,7 +16,7 @@ current_page        array   current page
 
 style               array   current style
     name            string  the name of the style
-    dir             string  url ready style directory (<- remove this)
+    dir             string  url ready style directory
     files           array
         css         array   list of css files or a style preprocessor (e.g. style.php)
           [#]       array   index

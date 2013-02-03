@@ -11,11 +11,11 @@
 	</info>
 	<!-- instructions for Style.class -->
 	<properties>
-		<script>script.php</script>
+		<!--<script>script.php</script>-->
 		<order>
 			<css>
-				<file>style.php</file>
-				<file>style.css</file>
+				<!--<file>style.php</file>-->
+				<file>main.css</file>
 			</css>
 			<js>
 				<!-- same stuff as css -->

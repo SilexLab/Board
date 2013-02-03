@@ -113,13 +113,15 @@ class SBB {
 	 */
 	private static function AssignDefault() {
 		self::$Template->Assign([
-			'style' => [
+			'style' => [ // TODO: Move to Style
 				'files' => [
 					'css' => self::$Style->Files()['css'],
 					'js' => array_merge(self::GetGlobalJsFiles(), self::$Style->Files()['js'])
-				]
+				],
+				'dir' => self::$Style->Info('url')
 			],
-			'current_page' => [
+			// Current page
+			'page' => [ // TODO: Move to Page
 				'title' => self::$Page->Title(),
 				'link' => self::$Page->Link(),
 				'name' => self::$Page->Name(),

@@ -58,6 +58,8 @@ self::$Items = array_merge(self::$Items, [
 
 'sbb.form.submit' => 'Submit',
 
+'sbb.info.javascript' => 'In order to use the entire page, you have to activate JavaScript.',
+
 'sbb.user.guest'             => 'Guest',
 'sbb.user.avatar'            => 'Avatar',
 'sbb.user.username'          => 'Username',

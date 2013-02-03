@@ -21,6 +21,8 @@ self::$Items = array_merge(self::$Items, [
 'sbb.login.success'  => 'Sie haben sich erfolgreich angemeldet',
 'sbb.logout.success' => 'Sie wurden erfolgreich ausgeloggt',
 
+'sbb.info.javascript' => 'Bitte aktivieren Sie JavaScript um den vollen Funktionsumfang dieser Seite nutzen zu können.',
+
 'sbb.email.activation.title' => 'Sie müssen diesen Link klicken um Ihre Registrierung abzuschließen: ',
 
 'sbb.compose.error.no_topic'         => 'Sie müssen ein Thema angeben!',

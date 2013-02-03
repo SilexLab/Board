@@ -57,6 +57,8 @@ self::$Items = array_merge(self::$Items, [
 
 'sbb.form.submit' => 'Absenden',
 
+'sbb.info.javascript' => 'Bitte aktiviere JavaScript um den vollen Funktionsumfang dieser Seite nutzen zu können.',
+
 'sbb.user.guest'             => 'Gast',
 'sbb.user.avatar'            => 'Profilbild',
 'sbb.user.username'          => 'Benutzername',
