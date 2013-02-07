@@ -65,10 +65,12 @@ h1 {
 	content: "";
 }
 
-.user_panel_content {
+#user_panel_content {
 	overflow: hidden;
 	height: 0;
 	background: #141414;
+	line-height: 1;
+	/*background: rgba(20, 20, 20, 0.8);*/
 }
 
 .search_bar {
@@ -145,7 +147,7 @@ nav.site li > a {
 	line-height: 35px;
 }
 nav.site li:hover > a {
-	color: #d5f0ff;
+	color: #65c7ff;
 	border-bottom: 2px solid #47ade8;
 }
 nav.site li.active > a {
@@ -159,7 +161,10 @@ nav.site li.active:hover > a {
 	border-bottom: none;
 }
 
-/* Sub Navigation */
+/* User navigation */
+nav.user { }
+
+/* Sub navigation */
 nav.sub { }
 
 /* Content */

@@ -177,7 +177,6 @@ INSERT INTO `language` (`ID`, `Abbreviation`, `Encoding`) VALUES
 (2, 'en', 'UTF-8');
 
 DROP TABLE IF EXISTS `menu`;
-
 DROP TABLE IF EXISTS `nav`;
 CREATE TABLE IF NOT EXISTS `nav` (
   `ID` tinyint(4) NOT NULL AUTO_INCREMENT,
@@ -190,9 +189,9 @@ CREATE TABLE IF NOT EXISTS `nav` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
 INSERT INTO `nav` (`ID`, `NavName`, `Target`, `Position`, `Permission`) VALUES
-(1, 'sbb.page.home', 'p:Home', 1, ''),
-(2, 'sbb.page.board', 'p:Board', 2, ''),
-(3, 'sbb.page.userlist', 'p:UserList', 3, '');
+(1, 'page.home', 'p:Home', 1, ''),
+(2, 'page.board', 'p:Board', 2, ''),
+(3, 'page.userlist', 'p:UserList', 3, '');
 
 DROP TABLE IF EXISTS `package`;
 CREATE TABLE IF NOT EXISTS `package` (
