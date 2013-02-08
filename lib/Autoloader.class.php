@@ -8,6 +8,7 @@
 class Autoloader {
 	protected static $Directories = [];
 	protected static $Index = [];
+	protected static $IgnoreList = [];
 	
 	/**
 	 * Register the autoloader
@@ -21,9 +22,14 @@ class Autoloader {
 
 			// Register directories, for the autoloader search
 			self::$Directories = [
-				'core/*',
-				'data/*',
-				'util/*'
+				'*'
+			];
+
+			// Do not include these directories
+			self::$IgnoreList = [
+				'ajax',
+				'cache',
+				'smarty'
 			];
 
 			// Indexing files
@@ -32,10 +38,10 @@ class Autoloader {
 	}
 	
 	/**
-	 * Add a path to search for classes
+	 * Add a directory to search for classes
 	 * @param mixed $Directory
 	 */
-	public static function AddPath($Directory) {
+	public static function AddDir($Directory) {
 		if(defined('CLASS_AUTOLOADER')) {
 			$Directory = (array)$Directory;
 			foreach ($Directory as $Dir) {
@@ -69,16 +75,24 @@ class Autoloader {
 		// Indexing files
 		foreach($Directories as $Dir) {
 			// Handle wildcard
-			if(preg_match('/^(.+\/)\*$/', $Dir, $d)) {
+			if(preg_match('/^(.*)\*$/', $Dir, $d)) {
 				$Dir = $d[1];
+				if(!empty($Dir) && !preg_match('/^(.*)\/$/', $Dir))
+					$Dir .= '/';
 				foreach(scandirr(DIR_LIB.$Dir) as $File) {
 					if(is_file(DIR_LIB.$Dir.$File) && preg_match('/([a-zA-Z0-9_]+)\.(class|interface)\.php$/', $File, $m)) {
+						// Do not do ignored dirs
+						foreach (self::$IgnoreList as $i) { // TODO: Do this better
+							if(preg_match('/^'.$i.'\//', $Dir.$File))
+								continue 2;
+						}
+						// Add file
 						if(!isset(self::$Index[$m[1]]))
 							self::$Index[$m[1]] = $Dir.$File;
 					}
 				}
 			} else {
-				foreach (scandir(DIR_LIB.$Dir) as $File) {
+				foreach(scandir(DIR_LIB.$Dir) as $File) {
 					if(!preg_match('/^(.+)\/$/', $Dir))
 						$Dir .= '/';
 					if(is_file(DIR_LIB.$File) && preg_match('/([a-zA-Z0-9_]+)\.(class|interface)\.php$/', $File, $m)) {

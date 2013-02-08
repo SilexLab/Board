@@ -48,7 +48,8 @@ h1 {
 
 /* User Panel */
 .user_panel {
-	position: absolute;
+	/* position: absolute; */
+	position: fixed;
 	top: 0;
 	right: 0;
 	left: 0;
@@ -169,7 +170,7 @@ nav.sub { }
 
 /* Content */
 .main_content {
-	min-height: 600px;
+	min-height: 1000px;
 	background: #f6f6f6;
 }
 .main_content::after {
