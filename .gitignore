@@ -1,14 +1,9 @@
-/lib/includes/config.inc.php
-/lastupdate.php
-/Draft/Design.psd
-/Draft/Design/border-radius_elements.html
-/.htaccess
-/lib/cache/*
-/templates/compiled/*
-/lib/config.inc.php
 /desktop.ini
-/test.php
+/lib/includes/config.inc.php
+/lib/cache/*
+/lib/config.inc.php
 /style/*/*/draft/*
 /style/*/design pattern.psd
+/.htaccess
 /.idea/
 .svn
