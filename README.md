@@ -17,7 +17,7 @@ Requirements
 
 Links
 -----
-* __[Homepage](http://www.silexboard.org/)__
+* __[Homepage](https://www.silexboard.org/)__
 * __[Demo](http://demo.silexboard.org/)__
 * __[Github repository](https://github.com/SilexBoard/Board)__
 * __[Issues](https://github.com/SilexBoard/Board/issues)__
@@ -29,8 +29,8 @@ Links
 Help
 ----
 ### Contact
-* __IRC__ - [Webchat](http://webchat.quakenet.org/?channels=SilexBoard)<br>___irc://irc.quakenet.org/#SilexBoard___<br>#SilexBoard at irc.quakenet.org
-* __[Twitter](https://twitter.com/SilexBoard)__  -  ___@SilexBoard___
+* __IRC__ - [Webchat](http://webchat.quakenet.org/?channels=SilexBoard)<br>___irc://irc.quakenet.org/#SilexBoard___<br>#SilexBoard at irc.quakenet.org<br><br>[Webchat](http://chat.skyirc.net/?channels=SilexBoard)<br>___irc://irc.skyirc.net/#SilexBoard___<br>#SilexBoard at irc.skyirc.net
+* __[@SilexBoard - Twitter](https://twitter.com/SilexBoard)__
 * __[Facebook](https://www.facebook.com/SilexBoard)__
 * __[Google+](https://plus.google.com/b/110206747608815084063/)__
 

@@ -28,8 +28,10 @@ class Autoloader {
 			// Do not include these directories
 			self::$IgnoreList = [
 				'ajax',
-				'cache',
-				'smarty'
+				'smarty',
+				'functions',
+				'language',
+				'views'
 			];
 
 			// Indexing files
