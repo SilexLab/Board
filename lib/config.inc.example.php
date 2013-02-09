@@ -12,7 +12,7 @@ define('CFG_DB_HOST',     'localhost');
 define('CFG_DB_PORT',     '');
 define('CFG_DB_SOCKET',   '');
 
-define('CFG_CACHE_DIR',   DIR_ROOT.'lib/cache/');
+define('CFG_CACHE_DIR',   DIR_ROOT.'cache/');
 
 // URL info
 //define('CFG_BASE_URL', 'http://board/');

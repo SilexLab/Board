@@ -31,7 +31,7 @@ if(defined('CFG_DEBUG') && CFG_DEBUG) {
 
 // Include common constants and functions
 require_once('constants.inc.php');
-require_once('functions.inc.php');
+require_once('functions/functions.inc.php');
 
 // TODO: Read from database config / user preferences
 date_default_timezone_set('Europe/Berlin');

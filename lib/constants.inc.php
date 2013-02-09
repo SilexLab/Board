@@ -13,12 +13,12 @@ define('ROOT_URI', (!empty($_SERVER['HTTPS']) && 'on' == $_SERVER['HTTPS'] ? 'ht
 	$_SERVER['HTTP_HOST'].strstr($_SERVER['PHP_SELF'], $match[0], true)); unset($match);
 
 // Directory Constants
-define('DIR_TPL',      'template/');
+define('DIR_TPL',      'lib/views/');
 define('DIR_TPLC',     CFG_CACHE_DIR.'template/');
 define('DIR_SMILEY',   'images/smiley/');
 define('DIR_LANGUAGE', 'lib/language/');
-define('DIR_PAGE',     'lib/data/pages/');
-define('DIR_STYLE',    'style/');
+define('DIR_PAGE',     'lib/model/pages/');
+define('DIR_STYLE',    'themes/');
 define('DIR_JS',       'js/');
 
 // Define "lib" directory constant

@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="14"
+   height="108"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.48.3.1 r9886"
+   sodipodi:docname="crumb_arrow.svg"
+   inkscape:export-filename="D:\NMP\html\SilexBoard\Board\styles\Lumen Lunae\images\crumb_arrow.png"
+   inkscape:export-xdpi="90"
+   inkscape:export-ydpi="90">
+  <defs
+     id="defs4">
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient3755">
+      <stop
+         style="stop-color:#3f6f8e;stop-opacity:1;"
+         offset="0"
+         id="stop3757" />
+      <stop
+         style="stop-color:#3c4a59;stop-opacity:1"
+         offset="1"
+         id="stop3759" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3755"
+       id="linearGradient3779"
+       gradientUnits="userSpaceOnUse"
+       x1="13"
+       y1="944.36218"
+       x2="13"
+       y2="980.36218" />
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="11.313708"
+     inkscape:cx="6.3152555"
+     inkscape:cy="82.027424"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="true"
+     objecttolerance="3"
+     gridtolerance="3"
+     guidetolerance="3"
+     inkscape:window-width="1440"
+     inkscape:window-height="838"
+     inkscape:window-x="-6"
+     inkscape:window-y="-6"
+     inkscape:window-maximized="1"
+     inkscape:showpageshadow="false">
+    <inkscape:grid
+       type="xygrid"
+       id="grid2985"
+       empspacing="1"
+       visible="true"
+       enabled="true"
+       snapvisiblegridlinesonly="true"
+       spacingx="14px"
+       spacingy="36px" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Ebene 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-944.3622)">
+    <path
+       sodipodi:nodetypes="cccccc"
+       inkscape:connector-curvature="0"
+       id="path3757"
+       d="m 1,944.3622 12,18 -12,18 -1,0 0,-36 z"
+       style="fill:#0b334c;fill-opacity:1;stroke:none" />
+    <path
+       style="fill:url(#linearGradient3779);fill-opacity:1;stroke:none"
+       d="m -1,944.3622 0,36 1,0 12,-18 -12,-18 -1,0 z"
+       id="path2987"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:#0b334c;fill-opacity:1;stroke:none"
+       d="m 1,980.3622 12,18 -12,18 -1,0 0,-36 z"
+       id="path3759"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cccccc" />
+    <path
+       style="fill:#f9f9f9;fill-opacity:1;stroke:none"
+       d="m -1,980.3622 0,36 1,0 12,-18 -12,-18 -1,0 z"
+       id="path3761"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:#ffffff;fill-opacity:0.25098039;stroke:none"
+       d="m -1,944.3622 12,18 -12,18 1,0 12,-18 -12,-18 -1,0 z"
+       id="path3770"
+       inkscape:connector-curvature="0" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path3799"
+       d="m 1,944.3622 12,18 -12,18 1,0 12,-18 -12,-18 -1,0 z"
+       style="fill:#000000;fill-opacity:0.1254902;stroke:none" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path3801"
+       d="m -1,980.3622 12,18 -12,18 1,0 12,-18 -12,-18 -1,0 z"
+       style="fill:#ffffff;fill-opacity:0.25098039;stroke:none" />
+    <path
+       style="fill:#000000;fill-opacity:0.1254902;stroke:none"
+       d="m 1,980.3622 12,18 -12,18 1,0 12,-18 -12,-18 -1,0 z"
+       id="path3803"
+       inkscape:connector-curvature="0" />
+  </g>
+</svg>
