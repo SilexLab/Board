@@ -147,7 +147,7 @@ return [
 'time.now'         => 'jetzt',
 
 // Databasestrings
-'config.style.default' => 'Standardstil',
+'config.theme.default' => 'Standardstil',
 'config.page.title'    => 'Seitentitel',
 
 // Compose page

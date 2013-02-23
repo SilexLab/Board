@@ -5,23 +5,25 @@
  * @license     GPL version 3 <http://www.gnu.org/licenses/gpl-3.0.html>
  */
 
-class Nav implements ISingleton {
-	private static $Instance = NULL;
-	
-	/**
-	 * Return the Instance of the Nav class
-	 * @return	Nav
-	 */
-	public static function GetInstance() {
-		if(!self::$Instance)
-			self::$Instance = new self;
-		return self::$Instance;
-	}
-	
-	private function __clone() {}
+class Nav extends Singleton {
+	protected static $Instance;
+
+	// Navigations
+	protected $Site;
+	protected $Sub;
+	protected $User;
 	
 	// Assign the nav as vars to the template
 	protected function __construct() {
+		$this->Site = new SiteNav();
+		$this->Sub = new SubNav();
+		$this->User = new UserNav();
+
+
+
+
+		// -- Old -- //
+		// TODO: Move to SiteNav
 		$ActivePage = SBB::Page()->NavEntry();
 
 		$NavList = array();
@@ -36,5 +38,48 @@ class Nav implements ISingleton {
 		}
 
 		SBB::Template()->Assign(['nav' => $NavList]);
+	}
+
+	/**
+	 * Get the template assignment
+	 * @return  array
+	 */
+	protected function GetAssignment() {
+		return [];
+	}
+
+	/**
+	 * This should be called if the navigation processing is finished
+	 */
+	public function Finish() {
+		SBB::Template()->Assign(['nav' => [
+			'site' => $this->Site->GetAssignment(),
+			'sub' => $this->Sub->GetAssignment(),
+			'user' => $this->User->GetAssignment()
+		]]);
+	}
+
+	/**
+	 * Return the main (site) navigation object
+	 * @return  SiteNav
+	 */
+	public function Site() {
+		return $this->Site;
+	}
+
+	/**
+	 * Return the sub page navigation object
+	 * @return  SubNav
+	 */
+	public function Sub() {
+		return $this->Sub;
+	}
+
+	/**
+	 * Return the user navigation object
+	 * @return  UserNav
+	 */
+	public function User() {
+		return $this->User;
 	}
 }

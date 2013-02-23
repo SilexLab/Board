@@ -28,7 +28,7 @@
 				<tr>
 					<td>
 						<a href="{$user.link}">
-							<img src="{$style.dir}/icons/g_64_user.png" class="avatar"> {* Avatar *}
+							<img src="{$theme.dir}/icons/g_64_user.png" class="avatar"> {* Avatar *}
 						</a>
 					</td>
 					<td>

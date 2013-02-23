@@ -5,7 +5,8 @@
  * @license     GPL version 3 <http://www.gnu.org/licenses/gpl-3.0.html>
  */
 
-class Style implements ISingleton {
+// extends Singleton
+class Theme {
 	const INFO_FILE = 'info.xml';
 
 	private static $Instance = NULL;
@@ -29,11 +30,11 @@ class Style implements ISingleton {
 		// Try the user style
 		if(!$this->Validate(SBB::User()->Info('style'))) {
 			// Try the default style
-			if(!$this->Validate(SBB::Config('style.default'))) {
+			if(!$this->Validate(SBB::Config('theme.default'))) {
 				// No default style? well... then search for a random style
-				$StyleDir = scandir(DIR_STYLE);
+				$StyleDir = scandir(DIR_THEME);
 				if(!$StyleDir)
-					throw new SystemException('Probably your style directory ('.DIR_STYLE.') is missing. Please create it and install a style.');
+					throw new SystemException('Probably your style directory ('.DIR_THEME.') is missing. Please create it and install a theme.');
 				foreach($StyleDir as $Style) {
 					if(in_array($Style, ['.', '..']))
 						continue;
@@ -45,7 +46,7 @@ class Style implements ISingleton {
 		}
 		// Nothing to do here
 		if(empty($this->Info['dir']))
-			throw new SystemException('No styles are found in '.DIR_STYLE.'. Please install a style.');
+			throw new SystemException('No styles are found in '.DIR_THEME.'. Please install a theme.');
 
 		// Is there a script?
 		if(!empty($this->Properties['script'])) {
@@ -92,7 +93,7 @@ class Style implements ISingleton {
 	 */
 	protected function Validate($Style) {
 		if(!empty($Style)) {
-			$Dir = DIR_STYLE.$Style.'/';
+			$Dir = DIR_THEME.$Style.'/';
 			if(is_file($Dir.self::INFO_FILE)) {
 				/* Fetching the style info */
 				$XML = new XML($Dir.self::INFO_FILE);
@@ -105,11 +106,11 @@ class Style implements ISingleton {
 
 				// Additional info
 				$this->Info['dir'] = $Dir;
-				$this->Info['url'] = CFG_BASE_URL.DIR_STYLE.rawurlencode($Style).'/';
+				$this->Info['url'] = CFG_BASE_URL.DIR_THEME.rawurlencode($Style).'/';
 
 				// Style properties
 				// Is there a script file?
-				if(SBB::Config('style.allow_scripts'))
+				if(SBB::Config('theme.allow_scripts'))
 					$this->Properties['script'] = (string)$XML->properties->script;
 				if(empty($this->Properties['script'])) {
 					// Should I order the files?

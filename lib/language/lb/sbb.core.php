@@ -142,6 +142,6 @@ return [
 'time.now'         => 'elo',
 
 // Databasestrings
-'config.style.default' => 'Standardstil',
+'config.theme.default' => 'Standardstil',
 'config.page.title'    => 'Säitentitel'
 ];

@@ -4,10 +4,10 @@
 	<meta charset="utf-8">
 	<title>{$page.title} · {$title}</title>
 	<link rel="shortcut icon" href="{$base_url}favicon.ico">
-{foreach $style.files.css as $f}
+{foreach $theme.files.css as $f}
 	<link rel="stylesheet" type="text/css" href="{$f.file}"{if $f.media} media="{$f.media}"{/if}>
 {/foreach}
-{foreach $style.files.js as $f}
+{foreach $theme.files.js as $f}
 	<script type="text/javascript" src="{$f}"></script>
 {/foreach}
 </head>
@@ -40,7 +40,7 @@
 	<header class="main">
 		<div class="logo w_size">
 			<a href="{$base_url}">
-				<img class="w_content_m_l" src="{$style.dir}images/logo.png" alt="Logo">
+				<img class="w_content_m_l" src="{$theme.dir}images/logo.png" alt="Logo">
 			</a>
 			<div class="slogan">{lang node="header.slogan"}</div>
 		</div>

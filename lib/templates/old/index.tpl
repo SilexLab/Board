@@ -4,13 +4,13 @@
 	<meta charset="utf-8">
 	<title>{$page.title} - {$page_title}</title>
 	<link rel="shortcut icon" href="{$base_url}favicon.ico">
-	<link rel="stylesheet" type="text/css" href="{$base_url}{$style.dir}style.php?p={$page.page}">
+	<link rel="stylesheet" type="text/css" href="{$base_url}{$theme.dir}theme.php?p={$page.page}">
 
 	<script type="text/javascript" src="{$base_url}js/jquery.min.js"></script>
 	<script type="text/javascript" src="{$base_url}js/jquery.easing.1.3.js"></script>
 	<script type="text/javascript" src="{$base_url}js/jquery.animate-colors-min.js"></script>
 	<script type="text/javascript" src="{$base_url}js/jquery.animate-shadow-min.js"></script>
-{foreach $style.files.js as $file}
+{foreach $theme.files.js as $file}
 	<script type="text/javascript" src="{$base_url}{$file|escape}"></script>
 {/foreach}
 </head>
@@ -159,7 +159,7 @@
 				</div>
 				<div class="info">
 					<div class="i_language" title="{lang node="sbb.footer.current_language"}">{lang node="sbb.language.info"}</div>
-					<div class="i_style" title="{lang node="sbb.footer.current_style"}">{$style.name}</div>
+					<div class="i_style" title="{lang node="sbb.footer.current_style"}">{$theme.name}</div>
 				</div>
 				{*<div style="clear: both;"></div>*}
 			</div>

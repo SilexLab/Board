@@ -55,7 +55,7 @@ h1 {
 	left: 0;
 	/* border-top: 3px solid #47ade8; */
 	/* background: rgba(10, 10, 10, 0.8); */
-	background: #095d8d;
+	background: #3c4a58;
 	color: #ffffff;
 	line-height: 30px;
 }
@@ -84,8 +84,12 @@ h1 {
 .user_actions > div {
 	float: left;
 }
+.user_actions > div:hover {
+	box-shadow: 0 -2px 0 #e9f9ff inset;
+	color: #e9f9ff;
+}
 .user_info {
-	padding-right: 25px;
+	margin-right: 25px;
 }
 
 /* Header */
@@ -152,7 +156,7 @@ nav.site li:hover > a {
 	border-bottom: 2px solid #47ade8;
 }
 nav.site li.active > a {
-	border-radius: 4px 4px 0 0;
+	border-radius: 3px 3px 0 0;
 	background: #f6f6f6;
 	box-shadow: none;
 	color: inherit;

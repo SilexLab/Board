@@ -11,7 +11,7 @@ class SBB {
 		$Database = null,
 		$Config   = null,
 		$Template = null,
-		$Style    = null,
+		$Theme    = null,
 		$Nav      = null,
 		$Page     = null,
 		$User     = null;
@@ -24,10 +24,10 @@ class SBB {
 		/* Initialize classes and objects */
 		// Data
 		Language::Initialize(isset($_GET['l']) ? $_GET['l'] : null);
-		self::$Template = new Template(DIR_ROOT.DIR_TPL);
+		self::$Template = new Template(DIR_LIB.DIR_TPL);
 		self::$User = Session::GetUser();
 		Listener::Check();
-		self::$Style = Style::GetInstance();
+		self::$Theme = Theme::GetInstance();
 		new SessionGarbageCollector();
 		
 		// Frontend
@@ -90,10 +90,10 @@ class SBB {
 
 	/**
 	 * Returns the style object
-	 * @return Style
+	 * @return Theme
 	 */
-	public static final function Style() {
-		return self::$Style;
+	public static final function Theme() {
+		return self::$Theme;
 	}
 
 	/**
@@ -113,12 +113,12 @@ class SBB {
 	 */
 	private static function AssignDefault() {
 		self::$Template->Assign([
-			'style' => [ // TODO: Move to Style
+			'theme' => [ // TODO: Move to Theme
 				'files' => [
-					'css' => self::$Style->Files()['css'],
-					'js' => array_merge(self::GetGlobalJsFiles(), self::$Style->Files()['js'])
+					'css' => self::$Theme->Files()['css'],
+					'js' => array_merge(self::GetGlobalJsFiles(), self::$Theme->Files()['js'])
 				],
-				'dir' => self::$Style->Info('url')
+				'dir' => self::$Theme->Info('url')
 			],
 			// Current page
 			'page' => [ // TODO: Move to Page
@@ -144,13 +144,13 @@ class SBB {
 		return;
 		// OLD:
 		self::Template()->Assign([
-			'style' => ['dir' => CFG_BASE_URL.DIR_STYLE.rawurlencode(self::Style()->Info('dir')).'/',
-				'css' => self::Style()->Info('files'),
-				'name' => self::Style()->Info('name')],
+			'style' => ['dir' => CFG_BASE_URL.DIR_THEME.rawurlencode(self::Theme()->Info('dir')).'/',
+				'css' => self::Theme()->Info('files'),
+				'name' => self::Theme()->Info('name')],
 			'page_title' => self::Config('page.title'),
-			'logo' => self::Style()->Info('url').'/images/logo.png',
+			'logo' => self::Theme()->Info('url').'/images/logo.png',
 			'dir' => [
-				'style' => DIR_STYLE,
+				'style' => DIR_THEME,
 				'js' => DIR_JS
 			],
 			'time' => [

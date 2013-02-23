@@ -14,9 +14,9 @@ page                array   current page
     name            string  intern page name
     link            string  link to the current page (not sure why)
 
-style               array   current style
-    name            string  the name of the style
-    dir             string  url ready style directory
+theme               array   current theme
+    name            string  the name of the theme
+    dir             string  url ready theme directory
     files           array
         css         array   list of css files or a style preprocessor (e.g. style.php)
           [#]       array   index

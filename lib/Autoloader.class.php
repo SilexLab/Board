@@ -31,7 +31,7 @@ class Autoloader {
 				'smarty',
 				'functions',
 				'language',
-				'views'
+				'templates'
 			];
 
 			// Indexing files
