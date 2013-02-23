@@ -5,7 +5,7 @@
  * @license     GPL version 3 <http://www.gnu.org/licenses/gpl-3.0.html>
  */
 
-abstract class Singleton {
+class Singleton {
 	public static function GetInstance() {
 		if(!static::$Instance)
 			static::$Instance = new static;

@@ -6,7 +6,25 @@
  */
 
 class SiteNav extends Nav {
+	$Entries = [];
+	
 	public function __construct() {
-		//
+	}
+
+	protected function GetList() {
+		$ActivePage = SBB::Page()->NavEntry();
+
+		$NavList = array();
+		$Entries = SBB::DB()->query('SELECT * FROM `nav` ORDER BY `Position`')->fetchAll(PDO::FETCH_OBJ);
+		foreach($Entries as $Entry) {
+			//$Permission = $Entry->Permission;
+			$NavList[] = array(
+				'name' => Language::Get($Entry->NavName),
+				'link' => SBB::Page()->Link(preg_replace('/^p:(\w+)$/', '$1', $Entry->Target)),
+				'active' => ($Entry->Target == 'p:'.$ActivePage) ? true : false
+			);
+		}
+
+		SBB::Template()->Assign(['nav' => $NavList]);
 	}
 }

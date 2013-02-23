@@ -5,7 +5,7 @@
  * @license     GPL version 3 <http://www.gnu.org/licenses/gpl-3.0.html>
  */
 
-class Nav extends Singleton {
+abstract class Nav extends Singleton {
 	protected static $Instance;
 
 	// Navigations
@@ -13,49 +13,27 @@ class Nav extends Singleton {
 	protected $Sub;
 	protected $User;
 	
-	// Assign the nav as vars to the template
 	protected function __construct() {
 		$this->Site = new SiteNav();
 		$this->Sub = new SubNav();
 		$this->User = new UserNav();
-
-
-
-
-		// -- Old -- //
-		// TODO: Move to SiteNav
-		$ActivePage = SBB::Page()->NavEntry();
-
-		$NavList = array();
-		$Entries = SBB::DB()->query('SELECT * FROM `nav` ORDER BY `Position`')->fetchAll(PDO::FETCH_OBJ);
-		foreach($Entries as $Entry) {
-			//$Permission = $Entry->Permission;
-			$NavList[] = array(
-				'name' => Language::Get($Entry->NavName),
-				'link' => SBB::Page()->Link(preg_replace('/^p:(\w+)$/', '$1', $Entry->Target)),
-				'active' => ($Entry->Target == 'p:'.$ActivePage) ? true : false
-			);
-		}
-
-		SBB::Template()->Assign(['nav' => $NavList]);
 	}
 
 	/**
-	 * Get the template assignment
+	 * Get the template list
 	 * @return  array
 	 */
-	protected function GetAssignment() {
-		return [];
-	}
+	abstract protected function GetList();
 
 	/**
 	 * This should be called if the navigation processing is finished
+	 * and before the templates compile
 	 */
 	public function Finish() {
 		SBB::Template()->Assign(['nav' => [
-			'site' => $this->Site->GetAssignment(),
-			'sub' => $this->Sub->GetAssignment(),
-			'user' => $this->User->GetAssignment()
+			'site' => $this->Site->GetList(),
+			'sub' => $this->Sub->GetList(),
+			'user' => $this->User->GetList()
 		]]);
 	}
 
