@@ -32,4 +32,12 @@ class SecureUtil {
 		$string = hash_hmac('whirlpool', str_pad($Password, strlen($Password) * 4, sha1($Email), STR_PAD_BOTH), CFG_SALT, true);
 		return crypt($string, substr($Stored, 0, 30)) == $Stored;
 	}
+	
+	public static function MakeSafeString($string) {
+        $string = htmlspecialchars($string);
+	    $bad = array("=","<", ">", "/","\"","`","~","'","$","%","#");
+	    $string = str_replace($bad, "", $string);
+        $string = mysql_real_escape_string(trim($string));
+        return $string;
+    }
 }
