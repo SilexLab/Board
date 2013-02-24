@@ -6,7 +6,7 @@
  */
 
 class SiteNav extends Nav {
-	$Entries = [];
+	protected $Entries = [];
 	
 	public function __construct() {
 	}

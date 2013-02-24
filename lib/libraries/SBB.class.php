@@ -122,10 +122,10 @@ class SBB {
 			],
 			// Current page
 			'page' => [ // TODO: Move to Page
-				'title' => self::$Page->Title(),
-				'link' => self::$Page->Link(),
-				'name' => self::$Page->Name(),
-				'template' => self::$Page->Template()
+				'title' => self::Page()->Title(),
+				'link' => self::Page()->Link(),
+				'name' => self::Page()->Name(),
+				'template' => self::Page()->Template()
 			],
 			'sbb' => [
 				'version' => SBB_VERSION.'-'.date('Ymd', CommitInfo::Get()),
