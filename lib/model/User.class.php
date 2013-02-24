@@ -144,7 +144,7 @@ class User {
 	*/
 	public function Login($Username, $Password, $StayLoggedIn = FALSE) {
 	    $Username = SecureUtil::MakeSafeString($Username);
-		$Password = SecureUtil::EncryptPassword($Password, $this->Info->Email);
+		$Password = SecureUtil::EncryptPassword($Password, $this->Info->Email);// I have email?? I think not because there isn't a user
 		$users = SBB::DB()->prepare('SELECT * FROM `users` WHERE `Username` = :Username AND `Password` = :Password LIMIT 1');
 		$users->execute([':Username' => $Username, ':Password' => $Password]);
 		$user = $users->fetch(PDO::FETCH_OBJ);
