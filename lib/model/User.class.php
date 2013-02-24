@@ -135,33 +135,32 @@ class User {
 		return URI::Make([['page', 'User'], ['UserID', $this->ID, $this->Name]]);
 	}
 
-	/**
-	* Login function by XxidroxX
-	* @param string $username
-	* @param string $password
-	* @param boolean 
-	* TODO: create the function for the "StayLoggedIn"
-	*/
-	public function Login($Username, $Password, $StayLoggedIn = FALSE) {
-	    $Username = SecureUtil::MakeSafeString($Username);
-		$Password = SecureUtil::EncryptPassword($Password, $this->Info->Email);// I have email?? I think not because there isn't a user
-		$users = SBB::DB()->prepare('SELECT * FROM `users` WHERE `Username` = :Username AND `Password` = :Password LIMIT 1');
-		$users->execute([':Username' => $Username, ':Password' => $Password]);
-		$user = $users->fetch(PDO::FETCH_OBJ);
-		if($user){    
-			Session::Set('Username', $Username);
-			Session::Set('Email'   , $user->Email);
-			Session::Set('UserID'  , $user->ID);
-			//Redirect to home
-			header('Location: index.php');
-		}
-    }
+	// This won't work
+	// /**
+	// * Login function by XxidroxX
+	// * @param string $username
+	// * @param string $password
+	// * @param boolean 
+	// * TODO: create the function for the "StayLoggedIn"
+	// */
+	// public function Login($Username, $Password, $StayLoggedIn = FALSE) {
+	// 	$Username = SecureUtil::MakeSafeString($Username);
+	// 	$Password = SecureUtil::EncryptPassword($Password, $this->Info->Email);// I have email?? I think not because there isn't a user
+	// 	$users = SBB::DB()->prepare('SELECT * FROM `users` WHERE `Username` = :Username AND `Password` = :Password LIMIT 1');
+	// 	$users->execute([':Username' => $Username, ':Password' => $Password]);
+	// 	$user = $users->fetch(PDO::FETCH_OBJ);
+	// 	if($user){    
+	// 		Session::Set('Username', $Username);
+	// 		Session::Set('Email'   , $user->Email);
+	// 		Session::Set('UserID'  , $user->ID);
+	// 	}
+	// }
 	
 	/**
-	* Logout function by XxidroxX
-	*/
+	 * User Logout
+	 */
 	public function Logout(){
-        Session::destroy();
-		header('Location: index.php');
+		Session::destroy();
+		header('Location: '.CFG_BASE_URI);
 	}
 }

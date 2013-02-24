@@ -34,10 +34,10 @@ class SecureUtil {
 	}
 	
 	public static function MakeSafeString($string) {
-        $string = htmlspecialchars($string);
-	    $bad = array("=","<", ">", "/","\"","`","~","'","$","%","#");
-	    $string = str_replace($bad, "", $string);
-        $string = mysql_real_escape_string(trim($string));
-        return $string;
-    }
+		$string = htmlspecialchars($string);
+		$bad = ["=","<", ">", "/","\"","`","~","'","$","%","#"];
+		$string = str_replace($bad, "", $string);
+		$string = mysql_real_escape_string(trim($string));
+		return $string;
+	}
 }
