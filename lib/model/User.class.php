@@ -140,6 +140,7 @@ class User {
 	* @param string $username
 	* @param string $password
 	* @param boolean 
+	* TODO: create the function for the "StayLoggedIn"
 	*/
 	public function Login($Username, $Password, $StayLoggedIn = FALSE) {
 	    $Username = SecureUtil::MakeSafeString($Username);
@@ -149,7 +150,7 @@ class User {
 		$user = $users->fetch(PDO::FETCH_OBJ);
 		if($user){    
 			Session::Set('Username', $Username);
-			Session::Set('Password', $Password);
+			Session::Set('Email'   , $user->Email);
 			Session::Set('UserID'  , $user->ID);
 			//Redirect to home
 			header('Location: index.php');
