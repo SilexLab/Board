@@ -27,3 +27,4 @@ Short-term Contributions
 These contributors have made specific changes for a particular bug fix or feature.
 
 * Yared Hufkens (Malachite) \<yared@malachite.de.vu\>
+* XxidroxX
