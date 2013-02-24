@@ -359,7 +359,6 @@ CREATE TABLE IF NOT EXISTS `users` (
   `ID` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `Username` varchar(255) NOT NULL,
   `Password` varchar(64) NOT NULL,
-  `Salt` varchar(64) NOT NULL,
   `GroupID` mediumint(9) unsigned NOT NULL,
   `Email` text NOT NULL,
   `ActivationKey` varchar(16) NOT NULL,
