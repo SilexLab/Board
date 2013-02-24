@@ -143,7 +143,7 @@ class SBB {
 
 		return;
 		// OLD:
-		self::Template()->Assign([
+		/*self::Template()->Assign([
 			'style' => ['dir' => CFG_BASE_URL.DIR_THEME.rawurlencode(self::Theme()->Info('dir')).'/',
 				'css' => self::Theme()->Info('files'),
 				'name' => self::Theme()->Info('name')],
@@ -161,7 +161,7 @@ class SBB {
 				'progress' => sprintf(Language::Get('time.progress'), 100 * TimeUtil::YearProcess()),
 				'day_progress' => sprintf(Language::Get('time.dayprogress'), 100 * TimeUtil::DayProcess())
 			]
-		]);
+		]);*/
 	}
 
 	// TODO: Move me

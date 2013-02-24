@@ -135,7 +135,33 @@ class User {
 		return URI::Make([['page', 'User'], ['UserID', $this->ID, $this->Name]]);
 	}
 
-	public function Login() {}
+	/**
+	 * Check if the password is correct
+	 * @param string $password Password to be checked
+	 * @return bool Is the password correct?
+	 */
+	public function CheckPassword($password) {
 
-	public function Logout() {}
+		return SecureUtil::CheckPassword($password, $this->Info('Email'), $this->Info('Password'));
+
+	}
+
+	/**
+	 * Sets the session user to this one
+	 */
+	public function Login() {
+
+		Session::SetUser($this->ID);
+
+	}
+
+	/**
+	 * Log the user out
+	 * @deprecated It's easier to do this by Session::Restart()
+	 */
+	public function Logout() {
+
+		Session::Restart();
+
+	}
 }

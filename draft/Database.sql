@@ -376,9 +376,9 @@ CREATE TABLE IF NOT EXISTS `users` (
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
-INSERT INTO `users` (`ID`, `Username`, `Password`, `Salt`, `GroupID`, `Email`, `ActivationKey`, `Joined`, `OnlineTime`, `Banned`, `Homepage`, `Signature`, `Language`, `LastActivity`, `Birthday`, `Posts`, `Threads`) VALUES
-(1, 'admin', 'cf8dbc7a1eaadcf0a63bafbaec4cc2bc0ee1c390', 'aecca3db58bff495a3429d714d766c9d8770754d', 1, 'admin@silexboard.org', 'e1e2f6c8795a79e', 1317503300, 0, 0, '', 'Des Admins Signatur steht hier.', '', 0, 0, 0, 0),
-(2, 'user', '9cdb86abb28e5eebedeb14838dc074418a0d8f14', '630dd14c99e0c6efb1a344c0a73a28b0d99fbb81', 3, 'user@silexboard.org', 'fc973531e7e287b', 1317503334, 0, 0, '', '', '', 0, 0, 0, 0);
+INSERT INTO `users` (`ID`, `Username`, `Password`, `GroupID`, `Email`, `ActivationKey`, `Joined`, `OnlineTime`, `Banned`, `Homepage`, `Signature`, `Language`, `LastActivity`, `Birthday`, `Posts`, `Threads`) VALUES
+(1, 'admin', 'cf8dbc7a1eaadcf0a63bafbaec4cc2bc0ee1c390', 1, 'admin@silexboard.org', 'e1e2f6c8795a79e', 1317503300, 0, 0, '', 'Des Admins Signatur steht hier.', '', 0, 0, 0, 0),
+(2, 'user', '9cdb86abb28e5eebedeb14838dc074418a0d8f14', 3, 'user@silexboard.org', 'fc973531e7e287b', 1317503334, 0, 0, '', '', '', 0, 0, 0, 0);
 
 DROP TABLE IF EXISTS `user_permissions`;
 CREATE TABLE IF NOT EXISTS `user_permissions` (

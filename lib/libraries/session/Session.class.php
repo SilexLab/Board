@@ -23,7 +23,7 @@ class Session {
 		register_shutdown_function('session_write_close');
 		
 		session_name(SBB::Config('user.session.name'));
-		session_set_cookie_params(SBB::Config('user.session.cookie_time'), '/', NULL, false, true);
+		session_set_cookie_params(SBB::Config('user.session.cookie_time'), '/', null, false, true);
 
 		session_set_save_handler(new DatabaseSessionHandler(SBB::DB(), 'session'), true);
 
@@ -108,4 +108,24 @@ class Session {
 
 		return $User;
 	}
+
+	/**
+	 * Assign a user to this session, e.g. on login
+	 * @param int $UserId User's ID
+	 * @return bool Success?
+	 */
+	public static function SetUser($UserId) {
+
+		// TODO: Find a way to make the page reload/redirect redundant. Currently the global user object is not updated
+
+		// Check the user
+		if(new User(User::GIVEN_ID, $UserId) instanceof User)
+			self::Set('UserID', $UserId);
+		else
+			return false;
+
+		return true;
+
+	}
+
 }
