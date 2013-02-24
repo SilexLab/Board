@@ -84,9 +84,9 @@ return [
 'user.gender.female'          => 'Femmina',
 
 'logout.logout'               => 'Esci',
-'logout.logged_out'           => 'You are logged out now.', # <
+'logout.logged_out'           => 'Ora sei uscito.', 
 'logout.main_menu'            => 'Menu principale',
-'logout.never_logged_in'      => 'You are never logged in.', # <
+'logout.never_logged_in'      => 'Non sei mai entrato.',
 
 'profile.homepage'            => 'Homepage',
 'profile.signature'           => 'Firma',
@@ -106,8 +106,8 @@ return [
 'footer.current_time'         => 'Ora corrente',
 'footer.current_date'         => 'Data corrente',
 
-'time.progress'               => 'Progress of the year (%.2f%%)', # <
-'time.dayprogress'            => 'Progress of the day (%.2f%%)',  # <
+'time.progress'               => 'Progresso dell\'anno (%.2f%%)', # <
+'time.dayprogress'            => 'Progresso del giorno (%.2f%%)',  # <
 'time.january'                => 'Gennaio',
 'time.february'               => 'Febbraio',
 'time.march'                  => 'Marzo',
@@ -170,10 +170,10 @@ return [
 'compose.preview'                => 'Anteprima',
 'compose.error.no_Topic'         => 'Devi inserire un Topic!',
 'compose.error.no_message'       => 'Devi inserire un messaggio!',
-'compose.error.no_settings'      => 'You need to give every settings!',
-'compose.error.pattern_settings' => 'There\'s something wrong with your settings.',
-'compose.error.no_type_target'   => 'Type and/or Target of composing are missing!',
-'compose.error.generic_reply'    => 'Failed to create your reply!',
+'compose.error.no_settings'      => 'You need to give every settings!',#<
+'compose.error.pattern_settings' => 'C\'&egrave; qualcosa che non va nelle tue impostazioni.',
+'compose.error.no_type_target'   => 'Manca no il Type e/o Target del tuo composer!',
+'compose.error.generic_reply'    => 'Impossibile caricare la tua risposta!',
 'compose.error.generic_thread'   => 'Impossibile creare la tua discussione!',
 'compose.success.reply'          => 'La tua risposta è stata postata con successo.',
 'compose.success.thread'         => 'La tua discussione è stata create con successo.',
