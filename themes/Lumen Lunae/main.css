@@ -175,8 +175,7 @@ nav.sub { }
 /* Content */
 .main_content {
 	min-height: 1000px;
-	/*background: #f6f6f6;*/
-	background: #ddeaff;
+	background: #f6f6f6;
 }
 .main_content::after {
 	display: block;
