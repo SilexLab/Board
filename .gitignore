@@ -1,2 +1,9 @@
+/desktop.ini
+/lib/includes/config.inc.php
 /cache/*
+/lib/config.inc.php
+/themes/*/*/draft/*
+/themes/*/design pattern.psd
 /.htaccess
+/.idea/
+.svn
