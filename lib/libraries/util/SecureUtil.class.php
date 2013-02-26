@@ -14,8 +14,6 @@ class SecureUtil {
 	 * @return  string
 	 */
 	public static function EncryptPassword($Password, $Email, $Rounds = '08') {
-		if($Rounds >= 4 && $Rounds <= 31)
-			echo 'blub';
 		$string = hash_hmac('whirlpool', str_pad($Password, strlen($Password) * 4, sha1($Email), STR_PAD_BOTH), CFG_SALT, true);
 		$salt   = substr(str_shuffle('./0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'), 0, 22);
 		return crypt($string, '$2a$'.$Rounds.'$'.$salt);
