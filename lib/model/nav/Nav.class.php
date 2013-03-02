@@ -29,9 +29,9 @@ class Nav {
 	 */
 	public function Finish() {
 		SBB::Template()->Assign(['nav' => [
-			'site' => $this->Site->GetList(),
-			'sub' => $this->Sub->GetList(),
-			'user' => $this->User->GetList()
+			'site' => $this->Site->GetList()
+			//'sub' => $this->Sub->GetList(),
+			//'user' => $this->User->GetList()
 		]]);
 	}
 

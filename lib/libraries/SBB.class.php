@@ -36,6 +36,7 @@ class SBB {
 
 		// Pre-output
 		self::AssignDefault();
+		self::$Nav->Finish();
 
 		// Display the template
 		self::Template()->Display('index.tpl');

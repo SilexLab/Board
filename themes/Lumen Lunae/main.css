@@ -83,6 +83,7 @@ h1 {
 }
 .user_actions > div {
 	float: left;
+	transition: all 0.25s;
 }
 .user_actions > div:hover {
 	box-shadow: 0 -2px 0 #e9f9ff inset;
@@ -150,6 +151,7 @@ nav.site li > a {
 	height: 35px;
 	color: #ffffff;
 	line-height: 35px;
+	transition: all 0.25s;
 }
 nav.site li:hover > a {
 	color: #65c7ff;

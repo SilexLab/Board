@@ -47,7 +47,7 @@
 	</header>
 	<nav class="site w_size">
 		<ul class="w_content_r">
-			{foreach $nav as $item}
+			{foreach $nav.site as $item}
 				<li{($item.active) ? ' class="active"' : ''}><a href="{$item.link}">{$item.name}</a></li>
 			{/foreach}
 		</ul>

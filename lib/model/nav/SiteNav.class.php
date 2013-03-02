@@ -25,6 +25,6 @@ class SiteNav extends Nav {
 			);
 		}
 
-		SBB::Template()->Assign(['nav' => $NavList]);
+		return $NavList;
 	}
 }
