@@ -21,7 +21,7 @@ if(!defined('CFG'))
 	die_img('WHAT KIND OF CONFIG FILE IS THIS?', 'images/OhCrap.jpg', '#000', '#fff');
 
 
-/* Bootstramp Silex Board \o/ */
+/* Bootstrap Silex Board \o/ */
 
 // Display Errors
 if(defined('CFG_DEBUG') && CFG_DEBUG) {
@@ -42,7 +42,8 @@ require_once('Autoloader.class.php');
 Autoloader::Register();
 
 // Define custom handler
-set_exception_handler(array('SBB', 'ExceptionHandler'));
+set_exception_handler(['SBB', 'ExceptionHandler']);
+//set_error_handler(['SBB', 'ErrorHandler']);
 
 // Set the custom session save handler and start sessions
 Session::Start();

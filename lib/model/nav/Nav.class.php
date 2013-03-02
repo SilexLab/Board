@@ -5,15 +5,13 @@
  * @license     GPL version 3 <http://www.gnu.org/licenses/gpl-3.0.html>
  */
 
-abstract class Nav extends Singleton {
-	protected static $Instance;
-
+class Nav {
 	// Navigations
 	protected $Site;
 	protected $Sub;
 	protected $User;
 	
-	protected function __construct() {
+	public function __construct() {
 		$this->Site = new SiteNav();
 		$this->Sub = new SubNav();
 		$this->User = new UserNav();
@@ -23,7 +21,7 @@ abstract class Nav extends Singleton {
 	 * Get the template list
 	 * @return  array
 	 */
-	abstract protected function GetList();
+	//abstract protected function GetList();
 
 	/**
 	 * This should be called if the navigation processing is finished

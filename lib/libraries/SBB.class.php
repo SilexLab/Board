@@ -27,11 +27,11 @@ class SBB {
 		self::$Template = new Template(DIR_LIB.DIR_TPL);
 		self::$User = Session::GetUser();
 		Listener::Check();
-		self::$Theme = Theme::GetInstance();
+		self::$Theme = new Theme();
 		new SessionGarbageCollector();
 		
 		// Frontend
-		self::$Nav = Nav::GetInstance();
+		self::$Nav = new Nav();
 		Mail::Init();
 
 		// Pre-output
@@ -106,6 +106,25 @@ class SBB {
 			exit;
 		}
 		echo $e;
+	}
+
+	/**
+	 * I can handle errors
+	 * @param  int    $errno
+	 * @param  string $errstr
+	 * @param  string $errfile    optional
+	 * @param  int    $errline    optional
+	 * @param  array  $errcontext optional
+	 * @return bool
+	 */
+	public static final function ErrorHandler($errno, $errstr, $errfile = '', $errline = 0, array $errcontext = []) {
+		// scalar typehint solution
+		// some awesome code here, soon
+
+		// errorhandler
+
+		// I can't handle this shit
+		return false;
 	}
 
 	/**

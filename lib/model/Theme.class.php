@@ -5,26 +5,18 @@
  * @license     GPL version 3 <http://www.gnu.org/licenses/gpl-3.0.html>
  */
 
-// extends Singleton
 class Theme {
 	const INFO_FILE = 'info.xml';
-
-	private static $Instance = NULL;
+	
 	private $Script;
 
 	private $Info = [];
 	private $Properties = [];
 	private $Files = [];
 	
-	public static function GetInstance() {
-		if(!self::$Instance)
-			self::$Instance = new self;
-		return self::$Instance;
-	}
-	
 	private function __clone() {}
 	
-	protected function __construct() {
+	public function __construct() {
 		/* Get the style */
 
 		// Try the user style
