@@ -12,31 +12,6 @@
 {/foreach}
 </head>
 <body>
-	<section class="user_panel w_size_min">
-		<div id="user_panel_content">
-			<div class="w_size">
-				<div class="w_content_h">
-					Userpanel test thing<br>
-					With many lines<br>
-					and<br>
-					Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
-				</div>
-			</div>
-		</div>
-		<div class="w_size">
-			<div class="search_bar w_content_l">
-				{literal}{Searchbar}{/literal}
-			</div>
-			<div class="user_actions w_content_r">
-				<div class="user_info">
-					{literal}{Avatar}{/literal} {$user.name}
-				</div>
-				<div class="user_menu">
-					<span id="user_panel_toggle">Login du Sack</span>
-				</div>
-			</div>
-		</div>
-	</section>
 	<header class="main">
 		<div class="logo w_size">
 			<a href="{$base_url}">
@@ -52,6 +27,28 @@
 			{/foreach}
 		</ul>
 	</nav>
+	<section class="user_panel w_min_size">
+		<div id="user_panel_content">
+			<div class="w_size">
+				<div class="w_content" id="user_panel_content_inner">
+					Userpanel test thing<br>
+					With many lines<br>
+					and<br>
+					Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+				</div>
+			</div>
+		</div>
+		<nav class="user w_size">
+			<div class="search_bar w_content_l">
+				{literal}{Searchbar}{/literal}
+			</div>
+			<div class="user_actions w_content_r">
+				<div class="user_menu">
+					<span id="user_panel_toggle">{literal}{Avatar}{/literal} {$user.name}</span>
+				</div>
+			</div>
+		</nav>
+	</section>
 	<noscript>
 		<div class="info">
 			{lang node="info.javascript"}
@@ -66,6 +63,9 @@
 		<div class="w_size">
 			<div class="w_content_h">
 				footer
+				<div class="os">
+					<img src="images/linux.png" alt="Linux"> <img src="images/windows.png" alt="Windows"> Made on Linux and Windows.
+				</div>
 			</div>
 		</div>
 	</footer>

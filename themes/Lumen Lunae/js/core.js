@@ -1,10 +1,12 @@
 $(document).ready(function() {
-	// Prepare user panel
-	$('#user_panel_content').slideUp(0);
-	$('#user_panel_content').css('height', '100%');
-
-	// Click action
 	$('#user_panel_toggle').click(function(e) {
-		$('#user_panel_content').slideToggle(200);
+		/* because css3 can't handle height auto / 100% with transition */
+		var panel = $('#user_panel_content');
+		if(panel.height())
+			panel.css('height', 0);
+		else
+			panel.css('height', $('#user_panel_content_inner').outerHeight());
+		/* end damn css3 workaround */
+		$('#user_panel_content').toggleClass('opened');
 	});
 });
