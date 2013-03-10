@@ -1,6 +1,10 @@
 /* Reset all the things */
 * { margin: 0; padding: 0; outline: none; }
 
+html, body {
+	height: 100%;
+}
+
 body {
 	min-width: 900px;
 	background: #dddddd;
@@ -100,7 +104,7 @@ nav.site a {
 
 nav.site li > a {
 	display: block;
-	padding: 0 15px;
+	padding: 0 10px;
 	height: 35px;
 	color: #ffffff;
 	line-height: 35px;
@@ -158,23 +162,34 @@ nav.site li.active:hover > a {
 .user_actions {
 	float: right;
 }
-.user_actions > div {
-	float: left;
-	transition: all 0.25s;
-}
-.user_actions > div:hover {
-	box-shadow: 0 -2px 0 #333333 inset;
-	color: #333333;
-}
-.user_info {
-	margin-right: 25px;
-}
 
 /* User navigation */
 nav.user {
 	margin-bottom: -1px;
 	height: 30px;
 	line-height: 29px;
+}
+
+nav.user ul {
+	list-style: none;
+}
+nav.user li {
+	display: block;
+	float: left;
+	margin-bottom: -1px;
+	height: 31px;
+	line-height: 31px;
+}
+nav.user li a {
+	display: block;
+	text-decoration: none;
+	color: #2e2e2e;
+	transition: all 0.25s;
+	padding: 0 5px;
+}
+nav.user li a:hover, nav.user li a.active {
+	box-shadow: 0 -2px 0 #333333 inset;
+	color: #333333;
 }
 
 /* Sub navigation */
@@ -205,7 +220,8 @@ footer {
 footer .os {
 	padding: 5px 0;
 	text-align: right;
+	line-height: 24px;
 }
 footer .os img {
-	margin-bottom: -8px;
+	vertical-align: middle;
 }

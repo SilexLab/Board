@@ -42,11 +42,9 @@
 			<div class="search_bar w_content_l">
 				{literal}{Searchbar}{/literal}
 			</div>
-			<div class="user_actions w_content_r">
-				<div class="user_menu">
-					<span id="user_panel_toggle">{literal}{Avatar}{/literal} {$user.name}</span>
-				</div>
-			</div>
+			<ul class="user_actions w_content_r">
+				<li><a id="user_panel_toggle" href="{$base_uri}Login">{literal}{Avatar}{/literal} {$user.name}</a></li>
+			</ul>
 		</nav>
 	</section>
 	<noscript>
