@@ -8,7 +8,7 @@ $(document).ready(function() {
 		else
 			panel.css('height', $('#user_panel_content_inner').outerHeight());
 		/* end damn css3 workaround */
-		$('#user_panel_content').toggleClass('opened');
+		$('#user_panel_content').closest('.user_panel').toggleClass('opened');
 		$('#user_panel_toggle').toggleClass('active');
 	});
 });

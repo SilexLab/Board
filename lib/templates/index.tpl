@@ -47,12 +47,13 @@
 			</ul>
 		</nav>
 	</section>
-	<noscript>
-		<div class="info">
-			{lang node="info.javascript"}
-		</div>
-	</noscript>
 	<section class="main_content">
+		<noscript>
+			<div class="info">
+				{lang node="info.javascript"}
+			</div>
+		</noscript>
+		{* Notifications here *}
 		<div class="w_size">
 			{include $page.template}
 		</div>

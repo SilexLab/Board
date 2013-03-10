@@ -1,6 +1,11 @@
 /* Reset all the things */
 * { margin: 0; padding: 0; outline: none; }
 
+::selection {
+	background-color: #47ade8;
+	color: #fff;
+}
+
 html, body {
 	height: 100%;
 }
@@ -114,16 +119,6 @@ nav.site li:hover > a, nav.site li.active > a {
 	border-bottom: 2px solid #47ade8;
 	color: #65c7ff;
 }
-/* NO! */
-/* nav.site li.active > a {
-	border-radius: 3px 3px 0 0; */
-/* background: #dddddd; */
-/* box-shadow: none; */
-/* color: inherit; */
-/* }
-nav.site li.active:hover > a {
-	border-bottom: none; */
-/* color: #000000; */
 
 /* User Panel */
 .user_panel {
@@ -134,6 +129,15 @@ nav.site li.active:hover > a {
 	/* background: rgba(10, 10, 10, 0.8); */
 	background: #f6f6f6;
 	color: #2e2e2e;
+}
+.user_panel.opened::after {
+	display: block;
+	margin-top: 2px;
+	margin-bottom: -151px;
+	height: 150px;
+	background-image: linear-gradient(top, blue, red);
+	content: "";
+	transition: all 0.25s;
 }
 .user_panel::after {
 	display: block;
@@ -150,7 +154,7 @@ nav.site li.active:hover > a {
 	line-height: 1;
 	transition: all 0.25s;
 }
-#user_panel_content.opened {
+.user_panel.opened #user_panel_content {
 	/* this shit doesn't work with transition: */
 	/* height: auto; */
 }
@@ -182,10 +186,10 @@ nav.user li {
 }
 nav.user li a {
 	display: block;
-	text-decoration: none;
-	color: #2e2e2e;
-	transition: all 0.25s;
 	padding: 0 5px;
+	color: #2e2e2e;
+	text-decoration: none;
+	transition: all 0.25s;
 }
 nav.user li a:hover, nav.user li a.active {
 	box-shadow: 0 -2px 0 #333333 inset;
