@@ -17,11 +17,17 @@ class Nav {
 		$this->User = new UserNav();
 	}
 
+	/* Abstract stuff */
+
 	/**
 	 * Get the template list
 	 * @return  array
 	 */
 	//abstract protected function GetList();
+	//abstract public function Add($Name, $Link, $Target = false);
+	//abstract public function Remove($Name);
+
+	/* --- */
 
 	/**
 	 * This should be called if the navigation processing is finished

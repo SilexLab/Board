@@ -5,6 +5,6 @@ $(document).ready(function() {
 
 	// Click action
 	$('#user_panel_toggle').click(function(e) {
-		$('#user_panel_content').slideToggle(500);
+		$('#user_panel_content').slideToggle(200);
 	});
 });

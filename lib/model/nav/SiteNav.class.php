@@ -7,24 +7,49 @@
 
 class SiteNav extends Nav {
 	protected $Entries = [];
+	protected $Active;
 	
 	public function __construct() {
-	}
+		$this->Active = SBB::Page()->NavEntry();
 
-	protected function GetList() {
-		$ActivePage = SBB::Page()->NavEntry();
-
-		$NavList = array();
 		$Entries = SBB::DB()->query('SELECT * FROM `nav` ORDER BY `Position`')->fetchAll(PDO::FETCH_OBJ);
 		foreach($Entries as $Entry) {
 			//$Permission = $Entry->Permission;
-			$NavList[] = array(
+			$this->Entries[] = [
 				'name' => Language::Get($Entry->NavName),
 				'link' => SBB::Page()->Link(preg_replace('/^p:(\w+)$/', '$1', $Entry->Target)),
-				'active' => ($Entry->Target == 'p:'.$ActivePage) ? true : false
-			);
+				'active' => $Entry->Target == 'p:'.$this->Active
+			];
 		}
+	}
 
-		return $NavList;
+	public function Add($Name, $Link, $Target = false) {
+		$this->Entries[] = [
+			'name' => $Name,
+			'link' => $Link,
+			'active' => $Target ? $Target == $this->Active : false
+		];
+	}
+
+	public function Remove($Name) {
+		// TODO: do this better
+		for($i = 0; $i < sizeof($this->Entries); $i++) {
+			if($this->Entries[$i]['name'] == $Name) {
+				unset($this->Entries[$i]);
+			}
+		}
+		$this->Repack();
+	}
+
+	protected function GetList() {
+		return $this->Entries;
+	}
+
+	private function Repack() {
+		$Repack = [];
+		foreach($this->Entries as $Entry) {
+			$Repack[] = $Entry;
+		}
+		$this->Entries = $Repack;
 	}
 }

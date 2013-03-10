@@ -40,10 +40,10 @@ h1 {
 
 /* Info */
 .info {
-	background: #d5f0ff;
 	padding: 20px;
-	font-size: 14px;
+	background: #d5f0ff;
 	font-weight: bold;
+	font-size: 14px;
 }
 
 /* User Panel */
@@ -70,8 +70,8 @@ h1 {
 	overflow: hidden;
 	height: 0;
 	background: #141414;
+	/* background: rgba(20, 20, 20, 0.8); */
 	line-height: 1;
-	/*background: rgba(20, 20, 20, 0.8);*/
 }
 
 .search_bar {
@@ -113,13 +113,13 @@ header.main .logo img {
 header.main .slogan {
 	display: block;
 	float: left;
-	margin: 12px 0 0 6px;
-	color: #ffffff;
-	font-size: 16px;
-	font-style: italic;
 	overflow: hidden;
-	white-space: nowrap;
+	margin: 12px 0 0 6px;
 	max-width: 60%;
+	color: #ffffff;
+	white-space: nowrap;
+	font-style: italic;
+	font-size: 16px;
 }
 
 /* Main Navigation */
@@ -154,8 +154,8 @@ nav.site li > a {
 	transition: all 0.25s;
 }
 nav.site li:hover > a {
-	color: #65c7ff;
 	border-bottom: 2px solid #47ade8;
+	color: #65c7ff;
 }
 nav.site li.active > a {
 	border-radius: 3px 3px 0 0;
@@ -164,8 +164,8 @@ nav.site li.active > a {
 	color: inherit;
 }
 nav.site li.active:hover > a {
-	color: #000000;
 	border-bottom: none;
+	color: #000000;
 }
 
 /* User navigation */
