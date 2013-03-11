@@ -135,11 +135,12 @@ class SBB {
 		self::$Template->Assign([
 			'theme' => [ // TODO: Move to Theme
 				'files' => [
-					'css' => self::$Theme->Files()['css'],
-					'js' => array_merge(self::GetGlobalJsFiles(), self::$Theme->Files()['js'])
+					'css' => self::Theme()->Files()['css'],
+					'js' => array_merge(self::GetGlobalJsFiles(), self::Theme()->Files()['js'])
 				],
-				'dir' => self::$Theme->Info('url'),
-				'name' => self::Theme()->Info('name')
+				'dir' => self::Theme()->Info('url'),
+				'name' => self::Theme()->Info('name'),
+				'logo' => self::Theme()->Info('logo')
 			],
 			// Current page
 			'page' => [ // TODO: Move to Page

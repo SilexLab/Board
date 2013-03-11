@@ -15,7 +15,7 @@
 	<header class="main">
 		<div class="logo w_size">
 			<a href="{$base_url}">
-				<img class="w_content_m_l" src="{$theme.dir}images/logo.png" alt="Logo">
+				<img class="w_content_m_l" src="{$theme.logo}" alt="Logo">
 			</a>
 			<div class="slogan">{lang node="header.slogan"}</div>
 		</div>
@@ -61,10 +61,14 @@
 	<footer class="main">
 		<div class="w_size">
 			<div class="w_content_h">
-				<img src="themes/Lumen%20Lunae/icons/g_16_globe.png" alt="{lang node='footer.current_language'}"> {lang node="language.info"}<br>
-				<img src="themes/Lumen%20Lunae/icons/g_16_brush.png" alt="{lang node='footer.current_style'}"> {$theme.name}
+				<img src="{$theme.dir}icons/g_16_globe.png" alt="{lang node='footer.current_language'}"> {lang node="language.info"}<br>
+				<img src="{$theme.dir}icons/g_16_brush.png" alt="{lang node='footer.current_style'}"> {$theme.name}
 				<div class="os">
 					<img src="images/linux.png" alt="Linux"> <img src="images/windows.png" alt="Windows"> Made on Linux and Windows.
+				</div>
+				<div class="about">
+					Silex Bulletin Board {$sbb.version} – © 2011 - 2013 <a href="https://silexboard.org/" title="{lang node='forumsoftware'}">silexboard.org</a><br>
+					<a href="https://github.com/SilexBoard/Board/commit/{$sbb.sha}" title="GitHub">{$sbb.sha}</a>
 				</div>
 			</div>
 		</div>
