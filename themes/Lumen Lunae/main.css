@@ -150,7 +150,6 @@ nav.site li:hover > a, nav.site li.active > a {
 	overflow: hidden;
 	height: 0;
 	background: #f6f6f6;
-	/* background: rgba(20, 20, 20, 0.8); */
 	line-height: 1;
 	transition: all 0.25s;
 }
@@ -211,6 +210,9 @@ nav.sub { }
 	clear: both;
 	height: 0;
 	content: "";
+}
+.main_content p {
+	margin: 15px 0;
 }
 
 /* Footer */
