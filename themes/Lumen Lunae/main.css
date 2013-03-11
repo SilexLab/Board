@@ -135,7 +135,7 @@ nav.site li:hover > a, nav.site li.active > a {
 	margin-top: 2px;
 	margin-bottom: -151px;
 	height: 150px;
-	background-image: linear-gradient(top, blue, red);
+	background: transparent url('images/gradient/overlay_f6f6f6_transparent.svg');
 	content: "";
 	transition: all 0.25s;
 }
