@@ -223,6 +223,10 @@ footer {
 	background: #dddddd;
 }
 
+footer img {
+	vertical-align: middle;
+}
+
 footer .os {
 	padding: 5px 0;
 	text-align: right;

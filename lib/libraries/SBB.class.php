@@ -138,7 +138,8 @@ class SBB {
 					'css' => self::$Theme->Files()['css'],
 					'js' => array_merge(self::GetGlobalJsFiles(), self::$Theme->Files()['js'])
 				],
-				'dir' => self::$Theme->Info('url')
+				'dir' => self::$Theme->Info('url'),
+				'name' => self::Theme()->Info('name')
 			],
 			// Current page
 			'page' => [ // TODO: Move to Page

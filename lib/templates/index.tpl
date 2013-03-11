@@ -61,7 +61,8 @@
 	<footer class="main">
 		<div class="w_size">
 			<div class="w_content_h">
-				footer
+				<img src="themes/Lumen%20Lunae/icons/g_16_globe.png" alt="{lang node='footer.current_language'}"> {lang node="language.info"}<br>
+				<img src="themes/Lumen%20Lunae/icons/g_16_brush.png" alt="{lang node='footer.current_style'}"> {$theme.name}
 				<div class="os">
 					<img src="images/linux.png" alt="Linux"> <img src="images/windows.png" alt="Windows"> Made on Linux and Windows.
 				</div>
