@@ -8,7 +8,7 @@ define('CFG_DB_USER',     'root');
 define('CFG_DB_PASSWORD', '');
 define('CFG_DB_DATABASE', 'silexboard');
 define('CFG_DB_PREFIX',   '');
-define('CFG_DB_HOST',     'localhost');
+define('CFG_DB_HOST',     '127.0.0.1');
 define('CFG_DB_PORT',     '');
 define('CFG_DB_SOCKET',   '');
 
