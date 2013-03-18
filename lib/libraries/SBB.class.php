@@ -106,7 +106,10 @@ class SBB {
 			$e->Show();
 			exit;
 		}
-		echo $e;
+		if($e instanceof PDOException) {
+			exit('Your database configuration sux.');
+		}
+		exit($e);
 	}
 
 	/**

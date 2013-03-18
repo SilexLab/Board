@@ -32,7 +32,8 @@ return [
 'page.register' => 'Registrierung',
 'page.user'     => 'Benutzer',
 
-'register.register'           => 'Registrieren',
+// Obsolent, replace with form.*
+/*'register.register'           => 'Registrieren',
 'register.username'           => 'Benutzername',
 'register.email'              => 'E-mail Adresse',
 'register.email_repeat'       => 'E-mail Adresse wiederholen',
@@ -53,9 +54,15 @@ return [
 'login.stay'       => 'Eingeloggt bleiben',
 'login.failed'     => 'Du konntest dich nicht einloggen',
 'login.success'    => 'Du hast dich erfolgreich angemeldet',
-'logout.success'   => 'Du wurdest erfolgreich ausgeloggt',
+'logout.success'   => 'Du wurdest erfolgreich ausgeloggt',*/
 
-'form.submit' => 'Absenden',
+'form.submit'          => 'Absenden',
+'form.show_password'   => 'Passwort anzeigen',
+'form.password'        => 'Passwort',
+'form.email'           => 'E-Mail',
+'form.user'            => 'Benutzername',
+'form.password_repeat' => 'Passwort wiederholen',
+'form.input_not_found' => 'Das Feld %s existiert nicht.',
 
 'info.javascript' => 'Bitte aktiviere JavaScript um den vollen Funktionsumfang dieser Seite nutzen zu können.',
 

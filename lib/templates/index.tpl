@@ -1,7 +1,6 @@
 <!DOCTYPE HTML>
 <html{if $user.lang_code} lang="{$user.lang_code}"{/if}>
-<head>
-	<meta charset="utf-8">
+<head>{include "functions.tpl"}	<meta charset="utf-8">
 	<title>{$page.title} · {$title}</title>
 	<link rel="shortcut icon" href="{$base_url}favicon.ico">
 {foreach $theme.files.css as $f}

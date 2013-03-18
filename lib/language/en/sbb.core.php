@@ -32,7 +32,8 @@ return [
 'page.register' => 'Sign up',
 'page.user'     => 'User',
 
-'register.register'           => 'Sign up',
+// Obsolent, replace with form.*
+/*'register.register'           => 'Sign up',
 'register.username'           => 'Username',
 'register.email'              => 'E-mail address',
 'register.email_repeat'       => 'Repeat e-mail address',
@@ -54,9 +55,15 @@ return [
 'login.wrong_password' => 'The password is wrong!',
 'login.no_user'        => 'This user doesn\'t exist!',
 'login.success'        => 'You are successfully logged in!',
-'logout.success'       => 'You are logged out now',
+'logout.success'       => 'You are logged out now',*/
 
-'form.submit' => 'Submit',
+'form.submit'          => 'Submit',
+'form.show_password'   => 'Show password',
+'form.password'        => 'Password',
+'form.email'           => 'E-Mail',
+'form.user'            => 'Username',
+'form.password_repeat' => 'Repeat password',
+'form.input_not_found' => 'The input %s doesn\'t exists.',
 
 'info.javascript' => 'In order to use the entire page, you have to activate JavaScript.',
 

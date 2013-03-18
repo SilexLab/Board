@@ -1,0 +1,48 @@
+form {
+	font-size: 13px;
+}
+
+.input {
+	display: inline-block;
+	margin: 2px;
+	padding: 2px;
+	border: 1px solid #ddd;
+	border-radius: 2px;
+	background: #fff;
+	box-shadow: 0 0 0 1px rgba(255, 255, 255, .5);
+	font-size: 13px;
+	transition: all .25s;
+}
+.input::after {
+	display: block;
+	clear: both;
+	height: 0;
+	content: "";
+}
+.input:hover {
+	border-color: #ccc;
+}
+.input.focus {
+	border-color: #aaa;
+}
+.input input {
+	margin: 0;
+	padding: 0 22px 0 5px;
+	width: 200px;
+	height: 20px;
+	border: none;
+	background: transparent calc(100% - 2px) 50% no-repeat;
+}
+/* Input types */
+.input.password input {
+	padding-right: 2px;
+}
+.input.password .switch {
+	display: block;
+	float: right;
+	width: 20px;
+	height: 20px;
+	background: url('icons/g_16_preview.png') 50% 50% no-repeat;
+}
+.input.user input { background-image: url('icons/g_16_user.png'); }
+.input.email input { background-image: url('icons/g_16_mail.png'); }

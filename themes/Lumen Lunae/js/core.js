@@ -1,4 +1,5 @@
 $(document).ready(function() {
+	/* Style */
 	$('#user_panel_toggle').on('click', function(e) {
 		e.preventDefault();
 		/* because css3 can't handle height auto / 100% with transition */
@@ -10,5 +11,20 @@ $(document).ready(function() {
 		/* end damn css3 workaround */
 		$('#user_panel_content').closest('.user_panel').toggleClass('opened');
 		$('#user_panel_toggle').toggleClass('active');
+	});
+
+	$('.input input').on('focus', function(e) {
+		$(this).closest('.input').addClass('focus');
+	}).on('blur', function(e) {
+		$(this).closest('.input').removeClass('focus');
+	});
+
+
+	/* Functions */
+	// Passwordswitch
+	$('.switch').on('mousedown', function(e) {
+		$(this).prev('[type="password"]').attr('type', 'text');
+	}).on('mouseup mouseleave', function(e) {
+		$(this).prev('[type="text"]').attr('type', 'password').focus();
 	});
 });
