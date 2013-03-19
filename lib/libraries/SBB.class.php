@@ -143,7 +143,7 @@ class SBB {
 				],
 				'dir' => self::Theme()->Info('url'),
 				'name' => self::Theme()->Info('name'),
-				'logo' => self::Theme()->Info('logo')
+				'logo' => CFG_BASE_URL.self::Theme()->Info('logo')
 			],
 			// Current page
 			'page' => [ // TODO: Move to Page
