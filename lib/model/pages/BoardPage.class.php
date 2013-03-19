@@ -73,8 +73,8 @@ class BoardPage implements IPage {
 			$CurBoard = new Board(Board::GIVEN_ROW, $Entry);
 
 			$BoardList[] = [
-				'board'          => $CurBoard,
-				'sub_board'      => $Depth < 3 ? $this->GetBoardList($Entry->ID, $Depth) : false
+				'board'          => $CurBoard->GetTemplateArray(),
+				'subBoards'      => $Depth < 3 ? $this->GetBoardList($Entry->ID, $Depth) : false
 			];
 		}
 		return $BoardList;
