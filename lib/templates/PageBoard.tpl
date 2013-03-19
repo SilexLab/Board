@@ -1,4 +1,5 @@
 {* Board list *}
+{function boardlist level=0}
 <ul class="boardlist">
 	{foreach $boards as $curBoard}
 
@@ -10,7 +11,7 @@
 				<div class="description">
 					{$curBoard.board.desc}
 				</div>
-		{elseif $curBoard.board.type == 1} {* Forum *}
+				{elseif $curBoard.board.type == 1} {* Forum *}
 			<li class="forum">
 				<div class="title">
 					<a href="{$curBoard.board.link}">{$curBoard.board.title}</a>
@@ -34,23 +35,22 @@
 					{/if}
 
 				</div>
-		{elseif $curBoard.board.type == 2} {* Link *}
+				{elseif $curBoard.board.type == 2} {* Link *}
 			<li class="link">
-				<div class="title">
-					<a href="{$curBoard.board.link}">{$curBoard.board.title}</a>
-				</div>
-				<div class="description">
-					{$curBoard.board.desc}
-				</div>
+			<div class="title">
+				<a href="{$curBoard.board.link}">{$curBoard.board.title}</a>
+			</div>
+			<div class="description">
+				{$curBoard.board.desc}
+			</div>
 		{/if}
 
 		{if $curBoard.subBoards}
-
-			{$boards = $curBoard.subBoards}
-			{include file="PageBoard.tpl"}
-
+			{boardlist boards=$curBoard.subBoards level=$level+1}
 		{/if}
-
 		</li>
 	{/foreach}
 </ul>
+{/function}
+
+{boardlist boards=$boards}
