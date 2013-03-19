@@ -119,8 +119,8 @@ class ThreadUtil {
         $Thread->Save();
 
 		// Yea, yea. A bit long
-		$Thread->GetBoard()->SetNumPosts($Thread->GetBoard()->GetNumPosts() + 1);
-		$Thread->GetBoard()->SetNumThreads($Thread->GetBoard()->GetNumThreads() + 1);
+		$Thread->GetBoard()->SetPostCount($Thread->GetBoard()->GetPostCount() + 1);
+		$Thread->GetBoard()->SetThreadCount($Thread->GetBoard()->GetThreadCount() + 1);
 		$Thread->GetBoard()->Save();
 
 		return $Thread;

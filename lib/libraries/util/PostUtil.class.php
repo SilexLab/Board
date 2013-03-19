@@ -80,12 +80,12 @@ class PostUtil {
 		// Set last post
         if($ThreadId != 0) {
 		    $Post->GetThread()->SetLastPostId($Post->GetId());
-			$Post->GetThread()->SetReplies($Post->GetThread()->GetReplies() + 1);
+			$Post->GetThread()->SetReplyCount($Post->GetThread()->GetReplyCount() + 1);
 		    $Post->GetThread()->Save();
 
 			// Yea, yea. A bit long
-			$Post->GetThread()->GetBoard()->SetNumPosts($Post->GetThread()->GetBoard()->GetNumPosts() + 1);
-			$Post->GetThread()->GetBoard()->SetNumThreads($Post->GetThread()->GetBoard()->GetNumThreads() + 1);
+			$Post->GetThread()->GetBoard()->SetPostCount($Post->GetThread()->GetBoard()->GetPostCount() + 1);
+			$Post->GetThread()->GetBoard()->SetThreadCount($Post->GetThread()->GetBoard()->GetThreadCount() + 1);
 			$Post->GetThread()->GetBoard()->Save();
         }
 

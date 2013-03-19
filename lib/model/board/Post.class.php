@@ -397,6 +397,34 @@ class Post {
 			$this->User = new User(User::GIVEN_ID, $this->UserId);
 		return $this->User;
 	}
+
+	/**
+	 * Get an array suitable for assigning for the template engine of this post
+	 * @return array
+	 */
+	public function GetTemplateArray() {
+
+		$array = [
+			'id' => $this->Id,
+			'subject' => $this->Subject,
+			'message' => $this->Message,
+			'time' => $this->Time,
+			'lastEdit' => $this->LastEdit,
+			'ipAddress' => $this->IpAddress,
+			'disabled' => $this->Disabled,
+			'closed' => $this->Closed,
+			'deleted' => $this->Deleted,
+			'deleteReason' => $this->DeleteReason,
+			'deleteTime' => $this->DeleteTime,
+			'smileys' => $this->Smileys,
+			'html' => $this->Html,
+			'silexCode' => $this->SilexCode,
+			'object' => $this
+		];
+
+		return $array;
+
+	}
 	
 	/* Setters */
 

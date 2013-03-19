@@ -97,13 +97,13 @@ class Thread {
 	 * Number of replies
 	 * @var int
 	 */
-	protected $Replies = 0;
+	protected $ReplyCount = 0;
 
 	/**
 	 * Number of views
 	 * @var int
 	 */
-	protected $Views = 0;
+	protected $ViewCount = 0;
 
 	/**
 	 * Is this thread sticky?
@@ -214,8 +214,8 @@ class Thread {
 		$this->Time = $Row->Time;
 		$this->LastPostId = $Row->LastPostID;
 		$this->LastPostTime = $Row->LastPostTime;
-		$this->Replies = $Row->Replies;
-		$this->Views = $Row->Views;
+		$this->ReplyCount = $Row->Replies;
+		$this->ViewCount = $Row->Views;
 		$this->Sticky = ($Row->Sticky == 1);
 		$this->Disabled = ($Row->Disabled == 1);
 		$this->Closed = ($Row->Closed == 1);
@@ -261,8 +261,8 @@ class Thread {
 			':Time' => $this->Time,
 			':LastPostID' => $this->LastPostId,
 			':LastPostTime' => $this->LastPostTime,
-			':Replies' => $this->Replies,
-			':Views' => $this->Views,
+			':Replies' => $this->ReplyCount,
+			':Views' => $this->ViewCount,
 			':Sticky' => ($this->Sticky ? '1' : '0'),
 			':Disabled' => ($this->Disabled ? '1' : '0'),
 			':Closed' => ($this->Closed ? '1' : '0'),
@@ -429,8 +429,8 @@ class Thread {
 	/**
 	 * @return int
 	 */
-	public function GetReplies() {
-		return $this->Replies;
+	public function GetReplyCount() {
+		return $this->ReplyCount;
 	}
 
 	/**
@@ -464,8 +464,8 @@ class Thread {
 	/**
 	 * @return int
 	 */
-	public function GetViews() {
-		return $this->Views;
+	public function GetViewCount() {
+		return $this->ViewCount;
 	}
 
 	/**
@@ -480,6 +480,31 @@ class Thread {
 		if($this->Link == '')
 			$this->Link = URI::Make([['page', 'Thread'], ['ThreadID', $this->Id, $this->Topic]]);
 		return $this->Link;
+
+	}
+
+	public function GetTemplateArray() {
+
+		$array = [
+			'id' => $this->Id,
+			'board' => $this->GetBoard()->GetTemplateArray(),
+			'lastPost' => $this->GetLastPost()->GetTemplateArray(),
+			'user' => $this->GetUser()->GetTemplateArray(),
+			'prefix' => $this->Prefix,
+			'topic' => $this->Topic,
+			'message' => $this->Message,
+			'time' => $this->Time,
+			'replyCount' => $this->ReplyCount,
+			'viewCount' => $this->ViewCount,
+			'sticky' => $this->Sticky,
+			'disabled' => $this->Disabled,
+			'closed' => $this->Closed,
+			'deleted' => $this->Deleted,
+			'deleteReason' => $this->DeleteReason,
+			'deleteTime' => $this->DeleteTime,
+			'link' => $this->GetLink(),
+			'object' => $this
+		];
 
 	}
 	
@@ -561,8 +586,8 @@ class Thread {
 	/**
 	 * @param int $Replies
 	 */
-	public function SetReplies($Replies) {
-		$this->Replies = $Replies;
+	public function SetReplyCount($Replies) {
+		$this->ReplyCount = $Replies;
 	}
 
 	/**
@@ -597,8 +622,8 @@ class Thread {
 	/**
 	 * @param int $Views
 	 */
-	public function SetViews($Views) {
-		$this->Views = $Views;
+	public function SetViewCount($Views) {
+		$this->ViewCount = $Views;
 	}
 
 }

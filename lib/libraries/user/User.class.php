@@ -136,6 +136,26 @@ class User {
 	}
 
 	/**
+	 * Return a suitable array for the template engine for assignment
+	 *
+	 * @return array
+	 */
+	public function GetTemplateArray() {
+
+		$array = [
+			'name' => $this->Name,
+			'id' => $this->ID,
+			'group' => ['name' => $this->Group->Name(), 'id' => $this->Group->ID(), 'icon' => ''],
+			'color' => '',
+			'lang_code' => '',
+			'logged_in' => $this->LoggedIn
+		];
+
+		return $array;
+
+	}
+
+	/**
 	 * Check if the password is correct
 	 * @param string $password Password to be checked
 	 * @return bool Is the password correct?

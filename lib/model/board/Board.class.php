@@ -94,19 +94,19 @@ class Board {
 	 * Number of views in this board
 	 * @var int
 	 */
-	protected $Views = 0;
+	protected $ViewCount = 0;
 
 	/**
 	 * Number of threads in this board
 	 * @var int
 	 */
-	protected $NumThreads = 0;
+	protected $ThreadCount = 0;
 
 	/**
 	 * Number of posts in this board
 	 * @var int
 	 */
-	protected $NumPosts = 0;
+	protected $PostCount = 0;
 
 	/**
 	 * @var bool
@@ -214,9 +214,9 @@ class Board {
 		$this->Title = htmlspecialchars($Row->Title);
 		$this->Desc = htmlspecialchars($Row->Description);
 		$this->Link = ($this->Type == self::TYPE_LINK ? htmlspecialchars($Row->Link) : URI::Make([['page', 'Board'], ['BoardID', $this->Id, htmlspecialchars_decode($this->Title)]]));
-		$this->Views = $Row->Views;
-		$this->NumThreads = $Row->Threads;
-		$this->NumPosts = $Row->Posts;
+		$this->ViewCount = $Row->Views;
+		$this->ThreadCount = $Row->Threads;
+		$this->PostCount = $Row->Posts;
 		$this->Position = $Row->Position;
 		$this->Image = $Row->Image;
 		$this->ImageNew = $Row->ImageNew;
@@ -267,9 +267,9 @@ class Board {
 			':ImageNew' => $this->ImageNew,
 			':Prefixes' => implode(';', $this->Prefixes),
 			':PrefixesRequired' => ($this->PrefixesRequired ? '1' : '0'),
-			':Views' => $this->Views,
-			':Threads' => $this->NumThreads,
-			':Posts' => $this->NumPosts,
+			':Views' => $this->ViewCount,
+			':Threads' => $this->ThreadCount,
+			':Posts' => $this->PostCount,
 			':MarkingAsDone' => ($this->MarkingAsDone ? '1' : '0'),
 			':Closed' => ($this->Closed ? '1' : '0'),
 			':Invisible' => (!$this->Visible ? '1' : '0'),
@@ -422,8 +422,19 @@ class Board {
 	 */
 	public function GetLastPost() {
 
-		if(is_null($this->LastPost))
-			$this->LastPost = new Post(Post::GIVEN_ID, $this->LastPostId);
+		if(is_null($this->LastPost)) {
+
+			try {
+				$this->LastPost = new Post(Post::GIVEN_ID, $this->LastPostId);
+			}
+			catch(NotFoundException $e) {
+
+				$this->LastPost = false;
+				return false;
+
+			}
+
+		}
 
 		return $this->LastPost;
 	}
@@ -452,15 +463,15 @@ class Board {
 	/**
 	 * @return int
 	 */
-	public function GetNumPosts() {
-		return $this->NumPosts;
+	public function GetPostCount() {
+		return $this->PostCount;
 	}
 
 	/**
 	 * @return int
 	 */
-	public function GetNumThreads() {
-		return $this->NumThreads;
+	public function GetThreadCount() {
+		return $this->ThreadCount;
 	}
 
 	/**
@@ -515,8 +526,8 @@ class Board {
 	/**
 	 * @return int
 	 */
-	public function GetViews() {
-		return $this->Views;
+	public function GetViewCount() {
+		return $this->ViewCount;
 	}
 
 	/**
@@ -525,7 +536,34 @@ class Board {
 	public function GetVisible() {
 		return $this->Visible;
 	}
-	
+
+	/**
+	 * Get an array suitable for assigning for the template engine of this board
+	 * @return array
+	 */
+	public function GetTemplateArray() {
+
+		$array = [
+			'id' => $this->Id,
+			'type' => $this->Type,
+			'title' => $this->Title,
+			'desc' => $this->Desc,
+			'link' => $this->Link,
+			'image' => $this->Image,
+			'viewCount' => $this->ViewCount,
+			'threadCount' => $this->ThreadCount,
+			'postCount' => $this->PostCount,
+			'closed' => $this->Closed,
+			'visible' => $this->Visible,
+			'news' => $this->News,
+			'parentBoard' => ($this->GetParentBoard() !== false ? $this->GetParentBoard()->GetTemplateArray() : null),
+			'lastPost' => ($this->GetLastPost() !== false ? $this->GetLastPost()->GetTemplateArray() : null),
+			'object' => $this
+		];
+
+		return $array;
+
+	}
 	
 	/* Setters */
 
@@ -590,15 +628,15 @@ class Board {
 	/**
 	 * @param int $NumPosts
 	 */
-	public function SetNumPosts($NumPosts) {
-		$this->NumPosts = $NumPosts;
+	public function SetPostCount($NumPosts) {
+		$this->PostCount = $NumPosts;
 	}
 
 	/**
 	 * @param int $NumThreads
 	 */
-	public function SetNumThreads($NumThreads) {
-		$this->NumThreads = $NumThreads;
+	public function SetThreadCount($NumThreads) {
+		$this->ThreadCount = $NumThreads;
 	}
 
 	/**
@@ -647,8 +685,8 @@ class Board {
 	/**
 	 * @param int $Views
 	 */
-	public function SetViews($Views) {
-		$this->Views = $Views;
+	public function SetViewCount($Views) {
+		$this->ViewCount = $Views;
 	}
 
 	/**
