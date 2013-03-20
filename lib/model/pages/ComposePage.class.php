@@ -5,7 +5,6 @@
  * @license     GPL version 3 <http://www.gnu.org/licenses/gpl-3.0.html>
  */
 class ComposePage implements IPage {
-
 	/**
 	 * Create a new thread
 	 */
@@ -45,15 +44,12 @@ class ComposePage implements IPage {
 	 * Will called when the page is the current page
 	 */
 	public function Display(Page $P) {
-
 		$this->Target = $P->URI()->GetID(2, 'Target');
 		$this->Type = $P->URI()->GetID(1, 'Type');
 
 		if(!$this->Type || !$this->Target) {
-
 			Notification::Show(Language::Get('compose.error.no_type_target'), Notification::ERROR);
 			return false;
-
 		}
 
 		$this->Evaluate();
@@ -61,84 +57,61 @@ class ComposePage implements IPage {
 		// Declare for assignment
 		$Thread = $Board = $Post = false;
 
-
 		switch($this->Type) {
-
 			case self::TYPE_REPLY:
-
 				try {
 					$Thread = new Thread(Thread::GIVEN_ID, $this->Target);
-				}
-				catch(NotFoundException $e) {
-
+				} catch(NotFoundException $e) {
 					$this->Error = true;
 					Notification::Show(Language::Get('error.no_thread'), Notification::ERROR);
 					break;
-
 				}
 
 				$this->TargetTitle = $Thread->GetTopic();
 
 				// Redirect if url-title is wrong
 				if(!$P->URI()->Check(2, htmlspecialchars_decode($Thread->GetTopic())) || !$P->URI()->Check(1, htmlspecialchars_decode($this->Title()))) {
-
 					header('location: '.$this->Link());
-
 				}
 
 				// Crumb the crumbies
 				Breadcrumb::AddMany($Thread->GetBreadcrumbs());
 				Breadcrumb::Add($this->Title(), $this->Link());
-
 				break;
-
 			case self::TYPE_THREAD:
 				try {
 					$Board = new Board(Board::GIVEN_ID, $this->Target);
-				}
-				catch(NotFoundException $e) {
-
+				} catch(NotFoundException $e) {
 					$this->Error = true;
 					Notification::Show(Language::Get('error.no_board'), Notification::ERROR);
 					break;
-
 				}
 
 				$this->TargetTitle = $Board->GetTitle();
 
 				// Redirect if url-title is wrong
 				if(!$P->URI()->Check(2, htmlspecialchars_decode($Board->GetTitle())) || !$P->URI()->Check(1, htmlspecialchars_decode($this->Title()))) {
-
 					header('location: '.$this->Link());
-
 				}
 
 				// Crumb the crumbies
 				Breadcrumb::AddMany($Board->GetBreadcrumbs());
 				Breadcrumb::Add($this->Title(), $this->Link());
-
 				break;
-
 			case self::TYPE_EDIT:
-
 				try {
 					$Post = new Post(Post::GIVEN_ID, $this->Target);
-				}
-				catch(NotFoundException $e) {
-
+				} catch(NotFoundException $e) {
 					$this->Error = true;
 					Notification::Show(Language::Get('error.no_post'), Notification::ERROR);
 					break;
-
 				}
 
 				$this->TargetTitle = $Post->GetThread()->GetTopic();
 
 				// Redirect if url-title is wrong
 				if(!$P->URI()->Check(2, htmlspecialchars_decode($Post->GetThread()->GetTopic())) || !$P->URI()->Check(1, htmlspecialchars_decode($this->Title()))) {
-
 					header('location: '.$this->Link());
-
 				}
 
 				// Give them the current things
@@ -157,13 +130,9 @@ class ComposePage implements IPage {
 				// Crumb the crumbies
 				Breadcrumb::AddMany($Post->GetThread()->GetBreadcrumbs());
 				Breadcrumb::Add($this->Title(), $this->Link());
-
 				break;
-
 		}
-
 		SBB::Template()->Assign(['compose' => ['error' => $this->Error, 'target' => $this->Target, 'type' => $this->Type, 'board' => $Board, 'thread' => $Thread, 'post' => $Post]]);
-
 	}
 
 	/**
@@ -173,9 +142,7 @@ class ComposePage implements IPage {
 	 * @return string
 	 */
 	public function Link() {
-
 		return URI::Make([['page', 'Compose'], ['Type', $this->Type, $this->Title()], ['Target', $this->Target, $this->TargetTitle]]);
-
 	}
 
 	/**
@@ -215,7 +182,6 @@ class ComposePage implements IPage {
 	 * Evaluate the input and create the post/thread
 	 */
 	protected function Evaluate() {
-
 		$Input = [
 			'topic'   => HtmlPost::Get('topic'),
 			'message' => HtmlPost::Get('message'),
@@ -227,59 +193,41 @@ class ComposePage implements IPage {
 
 		// Preview comes later
 		if(HtmlPost::Get('save')) {
-
 			if($this->CheckInput()) {
-
 				switch($this->Type) {
-
 					case self::TYPE_REPLY:
-
 						// TODO: Is the user allowed to do so? (Permissions)
 						$NewPost = PostUtil::Create($this->Target, SBB::User()->ID(), $Input['message'], '', $Input['smileys'], $Input['html'], $Input['silexcode']);
-
 						if($NewPost === false) {
 							Notification::Show('compose.error.generic_reply', Notification::ERROR);
 							SBB::Template()->Assign(['input' => $Input]);
 							break;
 						}
-
 						// Hey ThreadPage, I got something for you!
 						Session::Set('ComposePostSuccess', 1);
 
 						header('Location: '.$NewPost->GetThread()->GetLink());
-
 						break;
-
 					case self::TYPE_THREAD:
-
 						$NewThread = ThreadUtil::Create($this->Target, $Input['topic'], '', false, SBB::User()->ID(), $Input['message'], '', $Input['smileys'], $Input['html'], $Input['silexcode']);
-
 						if($NewThread === false) {
 							Notification::Show('compose.error.generic_thread', Notification::ERROR);
 							SBB::Template()->Assign(['input' => $Input]);
 							break;
 						}
-
 						// Hey ThreadPage, I got something for you!
 						Session::Set('ComposeThreadSuccess', 1);
 
 						header('Location: '.$NewThread->GetLink());
-
-
 						break;
-
                     case self::TYPE_EDIT:
-
                         // Get post
                         try {
                             $Post = new Post(Post::GIVEN_ID, $this->Target);
-                        }
-                        catch(NotFoundException $e) {
-
+                        } catch(NotFoundException $e) {
                             $this->Error = true;
                             Notification::Show(Language::Get('error.no_post'), Notification::ERROR);
                             break;
-
                         }
 
                         /* Set them data! */
@@ -297,17 +245,10 @@ class ComposePage implements IPage {
                         Session::Set('EditPostSuccess', 1);
 
                         header('Location: '.$Post->GetThread()->GetLink());
-
                         break;
-
-
-
 				}
-
 			}
-
 		}
-
 	}
 
 	/**
@@ -315,7 +256,6 @@ class ComposePage implements IPage {
 	 * @return bool
 	 */
 	protected function CheckInput() {
-
 		$Return = true;
 
 		if($this->Type == self::TYPE_THREAD) {
@@ -341,11 +281,7 @@ class ComposePage implements IPage {
 
 			Notification::Show(Language::Get('compose.error.pattern_settings'), Notification::ERROR);
 			$Return = false;
-
 		}
-
 		return $Return;
-
 	}
-
 }

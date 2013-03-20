@@ -5,7 +5,6 @@
  * @license     GPL version 3 <http://www.gnu.org/licenses/gpl-3.0.html>
  */
 class Thread {
-
 	const GIVEN_ID = 1;
 	const GIVEN_ROW = 2;
 
@@ -160,40 +159,31 @@ class Thread {
 	 * @throws NotFoundException
 	 */
 	public function __construct($Type, $Input) {
-
 		switch($Type) {
-
 			case self::GIVEN_ID:
 				$this->Id = (int) $Input;
 				if(!$this->Fetch())
 					throw new NotFoundException();
 				break;
-
 			case self::GIVEN_ROW:
 				$this->FetchRow($Input);
 				break;
-
 		}
-
 	}
 
 	/**
 	 * Fetch by given ID
 	 */
 	protected function Fetch() {
-
 		$Query = SBB::DB()->prepare('SELECT * FROM `thread` WHERE `ID` = :ID');
 		$Query->execute([':ID' => $this->Id]);
 
 		$Result = $Query->fetch(PDO::FETCH_OBJ);
-
 		if(!$Result)
 			return false;
 
 		$this->FetchRow($Result);
-
 		return true;
-
 	}
 
 	/**
@@ -201,7 +191,6 @@ class Thread {
 	 * @param stdClass $Row
 	 */
 	protected function FetchRow(stdClass $Row) {
-
 		if($this->Id == 0)
 			$this->Id = $Row->ID;
 
@@ -222,14 +211,12 @@ class Thread {
 		$this->Deleted = ($Row->Deleted == 1);
 		$this->DeleteReason = $Row->DeleteReason;
 		$this->DeleteTime = $Row->DeleteTime;
-
 	}
 
 	/**
 	 * Save everything to the DB
 	 */
 	public function Save() {
-
 		$Query = SBB::DB()->prepare('UPDATE `thread`
 			SET
 				`BoardID` = :BoardID,
@@ -270,7 +257,6 @@ class Thread {
 			':DeleteReason' => $this->DeleteReason,
 			':DeleteTime' => $this->DeleteTime
 		]);
-
 	}
 
 	/**
@@ -280,17 +266,14 @@ class Thread {
 	 * @return array
 	 */
 	public function GetPosts($Start = null, $End = null) {
-
 		// Is this buffered already?
 		if(!empty($this->Posts))
 			return $this->Posts;
 
 		/* Query */
-
 		$Query = 'SELECT * FROM `post` WHERE `ThreadID` = :ID ORDER BY `ID`';
 		$Vars = [':ID' => $this->Id];
 		if($Start != null) {
-
 			$Query .= ' LIMIT :Start';
 			$Vars[':Start'] = $Start;
 
@@ -298,7 +281,6 @@ class Thread {
 				$Query .= ',:End';
 				$Vars[':End'] = $End;
 			}
-
 		}
 
 		$Stmt = SBB::DB()->prepare($Query);
@@ -311,16 +293,12 @@ class Thread {
 
 		/* Fetch them! */
 		foreach($Data as $Row) {
-
 			$Posts[] = new Post(Post::GIVEN_ROW, $Row);
-
 		}
 
 		// Save into buffer
 		$this->Posts = $Posts;
-
 		return $Posts;
-
 	}
 
 	/**
@@ -328,9 +306,7 @@ class Thread {
 	 * @return array
 	 */
 	public function GetBreadcrumbs() {
-
 		return ThreadUtil::GetBreadcrumbs($this);
-
 	}
 
     /**
@@ -338,9 +314,7 @@ class Thread {
      * @return string
      */
     public function GetNewReplyLink() {
-
         return URI::Make([['page', 'Compose'], ['Type', ComposePage::TYPE_REPLY, Language::Get('compose.compose_reply')], ['Target', $this->Id, $this->Topic]]);
-
     }
 
 	
@@ -352,7 +326,6 @@ class Thread {
 	public function GetBoard() {
 		if(is_null($this->Board))
 			$this->Board = new Board(Board::GIVEN_ID, $this->BoardId);
-
 		return $this->Board;
 	}
 
@@ -476,15 +449,12 @@ class Thread {
 	}
 
 	public function GetLink() {
-
 		if($this->Link == '')
 			$this->Link = URI::Make([['page', 'Thread'], ['ThreadID', $this->Id, $this->Topic]]);
 		return $this->Link;
-
 	}
 
 	public function GetTemplateArray() {
-
 		$array = [
 			'id' => $this->Id,
 			'board' => $this->GetBoard()->GetTemplateArray(),
@@ -505,7 +475,6 @@ class Thread {
 			'link' => $this->GetLink(),
 			'object' => $this
 		];
-
 	}
 	
 	/* Setters */
@@ -625,5 +594,4 @@ class Thread {
 	public function SetViewCount($Views) {
 		$this->ViewCount = $Views;
 	}
-
 }

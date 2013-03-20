@@ -25,7 +25,6 @@ class DesignPage implements IPage {
 			Notification::Show($Lorem, Notification::ERROR);
 			Notification::Show($LoremLong, Notification::NEUTRAL);
 		}
-
 	}
 
 	public function Link() {

@@ -5,7 +5,6 @@
  * @license     GPL version 3 <http://www.gnu.org/licenses/gpl-3.0.html>
  */
 class Post {
-
 	const GIVEN_ID = 1;
 	const GIVEN_ROW = 2;
 
@@ -149,40 +148,31 @@ class Post {
 	 * @throws NotFoundException
 	 */
 	public function __construct($Type, $Input) {
-
 		switch($Type) {
-
 			case self::GIVEN_ID:
 				$this->Id = (int) $Input;
 				if(!$this->Fetch())
 					throw new NotFoundException();
 				break;
-
 			case self::GIVEN_ROW:
 				$this->FetchRow($Input);
 				break;
-
 		}
-
 	}
 
 	/**
 	 * Fetch by given ID
 	 */
 	protected function Fetch() {
-
 		$Query = SBB::DB()->prepare('SELECT * FROM `post` WHERE `ID` = :ID');
 		$Query->execute([':ID' => $this->Id]);
 
 		$Result = $Query->fetch(PDO::FETCH_OBJ);
-
 		if(!$Result)
 			return false;
 
 		$this->FetchRow($Result);
-
 		return true;
-
 	}
 
 	/**
@@ -190,7 +180,6 @@ class Post {
 	 * @param stdClass $Row
 	 */
 	protected function FetchRow(stdClass $Row) {
-
 		if($this->Id == 0)
 			$this->Id = $Row->ID;
 
@@ -212,14 +201,12 @@ class Post {
 		$this->Smileys = ($Row->Smileys == 1);
 		$this->Html = ($Row->HTML == 1);
 		$this->SilexCode = ($Row->SilexCode == 1);
-
 	}
 
 	/**
 	 * Save everything to the DB
 	 */
 	public function Save() {
-
 		$Query = SBB::DB()->prepare('UPDATE `post`
 			SET
 				`ThreadID` = :ThreadID,
@@ -261,7 +248,6 @@ class Post {
 			':SilexCode' => ($this->SilexCode ? '1' : '0'),
 			':ID' => $this->Id
 		]);
-
 	}
 	
 	/* Getters */
@@ -403,7 +389,6 @@ class Post {
 	 * @return array
 	 */
 	public function GetTemplateArray() {
-
 		$array = [
 			'id' => $this->Id,
 			'subject' => $this->Subject,
@@ -423,7 +408,6 @@ class Post {
 		];
 
 		return $array;
-
 	}
 	
 	/* Setters */
@@ -550,5 +534,4 @@ class Post {
 		$this->UserId = $UserId;
 		$this->User = null;
 	}
-
 }

@@ -23,25 +23,19 @@ class BoardPage implements IPage {
 
 		// Breadcrumbs, single board view
 		if($BoardID > 0) {
-
 			$Board = new Board(Board::GIVEN_ID, $BoardID);
 
 			// Redirect if url-title is wrong
 			if(!$P->URI()->Check(1, htmlspecialchars_decode($Board->GetTitle()))) {
-
 				header('location: '.URI::Make([['page', 'Board'], ['BoardID', $BoardID, htmlspecialchars_decode($Board->GetTitle())]]));
-
 			}
 
 			Breadcrumb::AddMany($Board->GetBreadcrumbs());
-
 			SBB::Template()->Assign(['current_board' => $Board, 'threads' => $Board->GetThreads()]);
-
 		} else if($P->URI()->GetRoute()[1]) {
 			header('location: '.$this->Link);
 		}
 		SBB::Template()->Assign(['boards' => $this->GetBoardList($BoardID)]);
-
 	}
 
 	public function Link() {
@@ -67,17 +61,15 @@ class BoardPage implements IPage {
 		$Board = $Board->fetchAll(PDO::FETCH_OBJ);
 
 		$Depth++;
-		$BoardList = array();
+		$BoardList = [];
 		foreach($Board as $Entry) {
-
 			$CurBoard = new Board(Board::GIVEN_ROW, $Entry);
 
 			$BoardList[] = [
 				'board'          => $CurBoard->GetTemplateArray(),
-				'subBoards'      => $Depth < 3 ? $this->GetBoardList($Entry->ID, $Depth) : false
+				'sub_boards'     => $Depth < 3 ? $this->GetBoardList($Entry->ID, $Depth) : false
 			];
 		}
 		return $BoardList;
 	}
-
 }

@@ -5,7 +5,6 @@
  * @license     GPL version 3 <http://www.gnu.org/licenses/gpl-3.0.html>
  */
 class Board {
-
 	/*
 	 * Type constants
 	 */
@@ -163,28 +162,22 @@ class Board {
 	 * @throws NotFoundException
 	 */
 	public function __construct($Type, $Input) {
-		
 		switch($Type) {
-			
 			case self::GIVEN_ID:
 				$this->Id = $Input;
 				if(!$this->Fetch())
 					throw new NotFoundException();
 				break;
-			
 			case self::GIVEN_ROW:
 				$this->FetchRow($Input);
 				break;
-			
 		}
-		
 	}
 
 	/**
 	 * Fetch by given ID
 	 */
 	protected function Fetch() {
-
 		$Query = SBB::DB()->prepare('SELECT * FROM `board` WHERE `ID` = :ID');
 		$Query->execute([':ID' => $this->Id]);
 
@@ -194,9 +187,7 @@ class Board {
 			return false;
 
 		$this->FetchRow($Result);
-
 		return true;
-
 	}
 
 	/**
@@ -204,7 +195,6 @@ class Board {
 	 * @param stdClass $Row
 	 */
 	protected function FetchRow(stdClass $Row) {
-		
 		if($this->Id == 0)
 			$this->Id = $Row->ID;
 
@@ -227,14 +217,12 @@ class Board {
 		$this->News = ($Row->News == 1);
 		$this->Prefixes = explode(';', $Row->Prefixes);
 		$this->LastPostId = $Row->LastPostId; // TODO: Does this even exist?
-
 	}
 
 	/**
 	 * Save all variables to the DB
 	 */
 	public function Save() {
-
 		// Just saving everything, don't panic
 		$Query = SBB::DB()->prepare('UPDATE `board`
 			SET `ParentID` = :ParentID,
@@ -276,19 +264,15 @@ class Board {
 			':News' => ($this->News ? '1' : '0'),
 			':ID' => $this->Id
 		]);
-
 	}
 
-	
 	/* Getters */
-
 
 	/**
 	 * Get its children!
 	 * @return array
 	 */
 	public function GetChildren() {
-
 		// Is this buffered already?
 		if(!empty($this->Children))
 			return $this->Children;
@@ -298,18 +282,12 @@ class Board {
 		$Data = $Query->fetchAll(PDO::FETCH_OBJ);
 
 		$Children = [];
-
 		foreach($Data as $Entry) {
-
 			$Children[] = new Board(self::GIVEN_ROW, $Entry);
-
 		}
-
 		// Save into buffer
 		$this->Children = $Children;
-
 		return $Children;
-
 	}
 
 	/**
@@ -319,17 +297,14 @@ class Board {
 	 * @return array
 	 */
 	public function GetThreads($Start = null, $End = null) {
-
 		// Is this buffered already?
 		if(!empty($this->Threads))
 			return $this->Threads;
 
 		/* Query */
-
 		$Query = 'SELECT * FROM `thread` WHERE `BoardID` = :ID ORDER BY `Sticky` = 1 DESC, `LastPostTime` DESC';
 		$Vars = [':ID' => $this->Id];
 		if($Start != null) {
-
 			$Query .= ' LIMIT :Start';
 			$Vars[':Start'] = $Start;
 
@@ -337,9 +312,7 @@ class Board {
 				$Query .= ',:End';
 				$Vars[':End'] = $End;
 			}
-
 		}
-
 		$Stmt = SBB::DB()->prepare($Query);
 		$Stmt->execute($Vars);
 
@@ -350,16 +323,12 @@ class Board {
 
 		/* Fetch them! */
 		foreach($Data as $Row) {
-
 			$Threads[] = new Thread(Thread::GIVEN_ROW, $Row);
-
 		}
 
 		// Save into buffer
 		$this->Threads = $Threads;
-
 		return $Threads;
-
 	}
 
 	/**
@@ -367,9 +336,7 @@ class Board {
 	 * @return array
 	 */
 	public function GetBreadcrumbs() {
-
 		return BoardUtil::GetBreadcrumbs($this);
-
 	}
 
     /**
@@ -377,9 +344,7 @@ class Board {
      * @return string
      */
     public function GetNewThreadLink() {
-
         return URI::Make([['page', 'Compose'], ['Type', ComposePage::TYPE_THREAD, Language::Get('compose.compose_thread')], ['Target', $this->Id, $this->Topic]]);
-
     }
 
 	/**
@@ -421,21 +386,14 @@ class Board {
 	 * @return \Post
 	 */
 	public function GetLastPost() {
-
 		if(is_null($this->LastPost)) {
-
 			try {
 				$this->LastPost = new Post(Post::GIVEN_ID, $this->LastPostId);
-			}
-			catch(NotFoundException $e) {
-
+			} catch(NotFoundException $e) {
 				$this->LastPost = false;
 				return false;
-
 			}
-
 		}
-
 		return $this->LastPost;
 	}
 
@@ -478,7 +436,6 @@ class Board {
 	 * @return \Board
 	 */
 	public function GetParentBoard() {
-
 		if(is_null($this->ParentBoard) && $this->ParentId != 0)
 			$this->ParentBoard = new Board(self::GIVEN_ID, $this->ParentId);
 
@@ -542,7 +499,6 @@ class Board {
 	 * @return array
 	 */
 	public function GetTemplateArray() {
-
 		$array = [
 			'id' => $this->Id,
 			'type' => $this->Type,
@@ -562,7 +518,6 @@ class Board {
 		];
 
 		return $array;
-
 	}
 	
 	/* Setters */
@@ -695,5 +650,4 @@ class Board {
 	public function SetVisible($Visible) {
 		$this->Visible = $Visible;
 	}
-
 }
