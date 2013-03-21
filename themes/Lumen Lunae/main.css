@@ -114,16 +114,17 @@ nav.site li > a {
 	color: #ffffff;
 	line-height: 50px;
 	transition: all 0.25s;
+	border-bottom: 3px solid transparent;
 }
 nav.site li:hover > a, nav.site li.active > a {
-	border-bottom: 2px solid #47ade8;
+	border-bottom-color: #47ade8;
 	color: #65c7ff;
 }
 
 /* User Panel */
 .user_panel {
 	position: absolute;
-	margin-top: 2px;
+	margin-top: 3px;
 	/* border-top: 3px solid #47ade8; */
 	border-bottom: 1px solid #dddddd;
 	/* background: rgba(10, 10, 10, 0.8); */
@@ -202,7 +203,7 @@ nav.sub { }
 .main_content {
 	padding-top: 30px;
 	min-height: 400px;
-	border-top: 2px solid #dddddd;
+	border-top: 3px solid #dddddd;
 	background: #f6f6f6;
 }
 .main_content::after {
