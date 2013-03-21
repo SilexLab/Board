@@ -60,8 +60,14 @@
 	<footer class="main">
 		<div class="w_size">
 			<div class="w_content_h">
+				<div class="time_graph">
+					<div class="date">
+						#
+					</div>
+				</div>
 				<img src="{$theme.dir}icons/g_16_globe.png" alt="{lang node='footer.current_language'}"> {lang node="language.info"}<br>
-				<img src="{$theme.dir}icons/g_16_brush.png" alt="{lang node='footer.current_style'}"> {$theme.name}
+				<img src="{$theme.dir}icons/g_16_brush.png" alt="{lang node='footer.current_style'}"> {$theme.name}<br>
+				<br><br>
 				<div class="os">
 					<img src="images/linux.png" alt="Linux"> <img src="images/windows.png" alt="Windows"> Made on Linux and Windows.
 				</div>

@@ -60,7 +60,6 @@ header.main {
 	display: block;
 	padding: 5px 0 5px 0;
 	height: 45px;
-	/* background: url(images/header.png) #141414 center center repeat-x; */
 	background: #252525;
 }
 
@@ -76,12 +75,13 @@ header.main .slogan {
 	display: block;
 	float: left;
 	overflow: hidden;
-	margin: 12px 0 0 6px;
+	margin-left: 6px;
 	max-width: 60%;
 	color: #ffffff;
 	white-space: nowrap;
 	font-style: italic;
 	font-size: 16px;
+	line-height: 40px;
 }
 
 /* Main Navigation */
@@ -91,8 +91,8 @@ nav.site {
 nav.site ul {
 	display: block;
 	float: right;
-	margin-top: -35px;
-	height: 35px;
+	margin-top: -55px;
+	height: 55px;
 	list-style: none;
 	font-weight: bold;
 	font-size: 15px;
@@ -100,7 +100,7 @@ nav.site ul {
 nav.site li {
 	float: left;
 	margin-left: 6px;
-	height: 35px;
+	height: 55px;
 }
 nav.site a {
 	color: #2e2e2e;
@@ -109,10 +109,10 @@ nav.site a {
 
 nav.site li > a {
 	display: block;
-	padding: 0 10px;
-	height: 35px;
+	padding: 5px 10px 0 10px;
+	height: 50px;
 	color: #ffffff;
-	line-height: 35px;
+	line-height: 50px;
 	transition: all 0.25s;
 }
 nav.site li:hover > a, nav.site li.active > a {
@@ -246,4 +246,9 @@ footer .os img {
 footer .about {
 	text-align: center;
 	font-size: 13px;
+	color: #666;
+}
+
+footer .time_graph {
+	float: right;
 }

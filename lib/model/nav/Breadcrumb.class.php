@@ -18,11 +18,9 @@ class Breadcrumb {
 	}
 
 	public static function AddMany($Array) {
-
 		foreach($Array as $Crumb) {
 			self::Add($Crumb['title'], $Crumb['link']);
 		}
-
 	}
 
 	/**
