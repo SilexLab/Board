@@ -1,6 +1,9 @@
 <?php
+// Do we have a config?
 define('CFG', 1);
-define('CFG_DEBUG', 1);
+
+// If in development set this to true
+define('CFG_DEBUG', true);
 
 // Database Config
 define('CFG_DB_TYPE',     'MySQL');
@@ -15,7 +18,6 @@ define('CFG_DB_SOCKET',   '');
 define('CFG_CACHE_DIR',   DIR_ROOT.'cache/');
 
 // URL info
-//define('CFG_BASE_URL', 'http://board/');
 define('CFG_BASE_URL', '/');
 
 // Security

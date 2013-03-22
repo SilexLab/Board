@@ -24,7 +24,7 @@ class SBB {
 		/* Initialize classes and objects */
 		// Data
 		Language::Initialize(isset($_GET['l']) ? $_GET['l'] : null);
-		self::$Template = new Template(DIR_LIB.DIR_TPL);
+		self::$Template = new Template(DIR_LIB.DIR_TPL, !CFG_DEBUG);
 		self::$User = Session::GetUser();
 		Listener::Check();
 		self::$Theme = new Theme();
@@ -33,6 +33,9 @@ class SBB {
 		// Frontend
 		self::$Nav = new Nav();
 		Mail::Init();
+
+		TimeUtil::DateProgress();
+
 
 		// Pre-output
 		self::AssignDefault();
@@ -164,29 +167,6 @@ class SBB {
 		/* Put the stored stuff into the template */
 		Breadcrumb::Assign();
 		Notification::Assign();
-
-
-		return;
-		// OLD:
-		/*self::Template()->Assign([
-			'style' => ['dir' => CFG_BASE_URL.DIR_THEME.rawurlencode(self::Theme()->Info('dir')).'/',
-				'css' => self::Theme()->Info('files'),
-				'name' => self::Theme()->Info('name')],
-			'page_title' => self::Config('page.title'),
-			'logo' => self::Theme()->Info('url').'/images/logo.png',
-			'dir' => [
-				'style' => DIR_THEME,
-				'js' => DIR_JS
-			],
-			'time' => [
-				'date' => date('d.m.Y'),
-				'time' => date('H:i'),
-				'y_percent' => round(100 * TimeUtil::YearProcess(), 2),
-				'd_percent' => round(100 * TimeUtil::DayProcess(), 2),
-				'progress' => sprintf(Language::Get('time.progress'), 100 * TimeUtil::YearProcess()),
-				'day_progress' => sprintf(Language::Get('time.dayprogress'), 100 * TimeUtil::DayProcess())
-			]
-		]);*/
 	}
 
 	// TODO: Move me

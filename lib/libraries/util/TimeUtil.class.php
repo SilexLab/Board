@@ -6,179 +6,87 @@
  */
 
 class TimeUtil {
+	public static $Day = [
+		1 => 'time.monday',
+		2 => 'time.tuesday',
+		3 => 'time.wednesday',
+		4 => 'time.thursday',
+		5 => 'time.friday',
+		6 => 'time.saturday',
+		7 => 'time.sunday'
+	];
+	public static $Month = [
+		1  => 'time.january',
+		2  => 'time.february',
+		3  => 'time.march',
+		4  => 'time.april',
+		5  => 'time.may',
+		6  => 'time.june',
+		7  => 'time.july',
+		8  => 'time.august',
+		9  => 'time.september',
+		10 => 'time.october',
+		11 => 'time.november',
+		12 => 'time.december'
+	];
+
 	const
-		MONDAY    = 'time.monday',
-		TUESDAY   = 'time.tuesday',
-		WEDNESDAY = 'time.wednesday',
-		THURSDAY  = 'time.thursday',
-		FRIDAY    = 'time.friday',
-		SATURDAY  = 'time.saturday',
-		SUNDAY    = 'time.sunday',
-		JANUARY   = 'time.january',
-		FEBRUARY  = 'time.february',
-		MARCH     = 'time.march',
-		APRIL     = 'time.april',
-		MAY       = 'time.may',
-		JUNE      = 'time.june',
-		JULY      = 'time.july',
-		AUGUST    = 'time.august',
-		SEPTEMBER = 'time.september',
-		OCTOBER   = 'time.october',
-		NOVEMBER  = 'time.november',
-		DECEMBER  = 'time.december';
-	const
-		SECOND = 1,
-		MINUTE = 60,
-		HOUR   = 3600,
-		DAY    = 86400,
-		WEEK   = 604800,
-		MONTH  = 2628000,
-		YEAR   = 31536000;
-
-	private static $Units = [
-			self::SECOND => 'time.second',
-			self::MINUTE => 'time.minute',
-			self::HOUR   => 'time.hour',
-			self::DAY    => 'time.day',
-			self::WEEK   => 'time.week',
-			self::MONTH  => 'time.month',
-			self::YEAR   => 'time.year'
-		];
-
-	private static
-		$Months = [],
-		$Days = [];
-
-	private static
-		$YearProcess,
-		$DayProcess;
+		SECOND = 'time.second',
+		MINUTE = 'time.minute',
+		HOUR   = 'time.hour',
+		DAY    = 'time.day',
+		WEEK   = 'time.week',
+		MONTH  = 'time.month',
+		YEAR   = 'time.year';
 
 	/**
-	 * Returns the year process in percent
-	 * @return float
-	 */
-	public static function YearProcess() {
-		if(empty(self::$YearProcess)) {
-			$Year = mktime(0, 0, 0, 1, 1, date('Y') + 1) - mktime(0, 0, 0, 1, 1, date('Y'));
-			$Current = time() - mktime(0, 0, 0, 1, 1, date('Y'));
-			self::$YearProcess = $Current / $Year;
-		}
-		return self::$YearProcess;
-	}
-
-	/**
-	 * Returns the day process in percent
-	 * @return float
-	 */
-	public static function DayProcess() {
-		if(empty(self::$DayProcess)) {
-			$Current = time() - mktime(0, 0, 0, date('n'), date('j'), date('Y'));
-			self::$DayProcess = $Current / self::DAY;
-		}
-		return self::$DayProcess;
-	}
-
-	/**
-	 * Returns the language node of the given month
-	 * @param  int $Number
+	 * Wrapper for DateTime diff
+	 * @param  string $Date1
+	 * @param  string $Date2
+	 * @param  string $Format optional
 	 * @return mixed
 	 */
-	public static function Month($Number) {
-		if(empty(self::$Months)) {
-			self::$Months = array(
-				1  => self::JANUARY,
-				2  => self::FEBRUARY,
-				3  => self::MARCH,
-				4  => self::APRIL,
-				5  => self::MAY,
-				6  => self::JUNE,
-				7  => self::JULY,
-				8  => self::AUGUST,
-				9  => self::SEPTEMBER,
-				10 => self::OCTOBER,
-				11 => self::NOVEMBER,
-				12 => self::DECEMBER
-			);
-		}
-		if(isset(self::$Months[$Number]))
-			return self::$Months[$Number];
-		return $Number;
+	public static function Diff($Date1, $Date2, $Format = '') {
+		$Diff = date_diff(date_create($Date1), date_create($Date2));
+		if($Format)
+			return $Diff->format($Format);
+		return $Diff;
 	}
 
-	/**
-	 * Returns the language node of the given day of the week
-	 * @param  int $Number
-	 * @return mixed
-	 */
-	public static function Day($Number) {
-		if(empty(self::$Days)) {
-			self::$Days = array(
-				1 => self::MONDAY,
-				2 => self::TUESDAY,
-				3 => self::WEDNESDAY,
-				4 => self::THURSDAY,
-				5 => self::FRIDAY,
-				6 => self::SATURDAY,
-				7 => self::SUNDAY
-			);
-		}
-		if(isset(self::$Days[$Number]))
-			return self::$Days[$Number];
-		return $Number;
-	}
+	/* Special */
+	public static function DateProgress() {
+		$Now = new DateTime('now');
 
-	/**
-	 * Return the time difference
-	 * @param  int $Time timestamp
-	 * @return string
-	 */
-	public static function Difference($Time) {
-		if($Time < time()) {
-			$Number = time() - $Time;
-			self::Convert($Number, $Unit);
-			return sprintf(Language::Get('time.ago'), $Number, $Unit);
-		}
-		if($Time > time()) {
-			$Number = $Time - time();
-			self::Convert($Number, $Unit);
-			return sprintf(Language::Get('time.ahead'), $Number, $Unit);
-		}
-		return Language::Get('time.now');
-	}
+		$YearBegin = new DateTime(date('Y-01-01 00:00:00'));
+		$YearEnd = new DateTime(date('Y-12-31 23:59:59'));
+		$DayBegin = new DateTime(date('Y-m-d 00:00:00'));
+		$DayEnd = new DateTime(date('Y-m-d 23:59:59'));
 
-	/**
-	 * Convert time values into higher units
-	 * @param ref $Time
-	 * @param ref $Unit
-	 * @param int $Base optional
-	 */
-	public static function Convert(&$Time, &$Unit, $Base = 1) {
-		if(!is_numeric($Time) || !isset(self::$Units[$Base]))
-			return;
+		// Get in seconds
+		$YearNowSeconds = $Now->getTimestamp() - $YearBegin->getTimestamp();
+		$YearTotalSeconds = $YearEnd->getTimestamp() - $YearBegin->getTimestamp();
 
-		$Time = $Time * $Base;
-		if($Time >= self::YEAR) { // year
-			$Time = (int)($Time / self::YEAR);
-			$Unit = self::$Units[self::YEAR];
-		} else if($Time >= self::MONTH) { // month
-			$Time = (int)($Time / self::MONTH);
-			$Unit = self::$Units[self::MONTH];
-		} else if($Time >= self::WEEK) { // week
-			$Time = (int)($Time / self::WEEK);
-			$Unit = self::$Units[self::WEEK];
-		} else if($Time >= self::DAY) { // day
-			$Time = (int)($Time / self::DAY);
-			$Unit = self::$Units[self::DAY];
-		} else if($Time >= self::HOUR) { // hour
-			$Time = (int)($Time / self::HOUR);
-			$Unit = self::$Units[self::HOUR];
-		} else if($Time >= self::MINUTE) { // minute
-			$Time = (int)($Time / self::MINUTE);
-			$Unit = self::$Units[self::MINUTE];
-		} else
-			$Unit = self::$Units[self::SECOND];
+		$DayNowSeconds = $Now->getTimestamp() - $DayBegin->getTimestamp();
+		$DayTotalSeconds = $DayEnd->getTimestamp() - $DayBegin->getTimestamp();
 
-		if($Time != 1)
-			$Unit .= 's';
+		// Progresses
+		$YearProgress = $YearNowSeconds / $YearTotalSeconds * 100;
+		$DayProgress = $DayNowSeconds / $DayTotalSeconds * 100;
+
+		$DateTitle = Language::Get(self::$Day[$Now->format('N')]).', '.
+			$Now->format('d. ').Language::Get(self::$Month[$Now->format('n')]).$Now->format(' Y');
+
+		SBB::Template()->Assign([
+			'time' => [
+				'date'          => $Now->format('d.m.Y'),
+				'time'          => $Now->format('H:i'),
+				'week'          => $Now->format('W'),
+				'year_progress' => round($YearProgress, 2),
+				'day_progress'  => round($DayProgress, 2),
+				'title_year'    => sprintf(Language::Get('time.year_progress'), $YearProgress),
+				'title_day'     => sprintf(Language::Get('time.day_progress'), $DayProgress),
+				'title_date'    => Language::Get('time.current.date').' - '.$DateTitle
+			]
+		]);
 	}
 }

@@ -111,10 +111,10 @@ nav.site li > a {
 	display: block;
 	padding: 5px 10px 0 10px;
 	height: 50px;
+	border-bottom: 3px solid transparent;
 	color: #ffffff;
 	line-height: 50px;
 	transition: all 0.25s;
-	border-bottom: 3px solid transparent;
 }
 nav.site li:hover > a, nav.site li.active > a {
 	border-bottom-color: #47ade8;
@@ -235,21 +235,47 @@ footer a {
 }
 
 footer .os {
+	margin-bottom: -30px; /* ugly */
 	padding: 5px 0;
 	text-align: right;
 	line-height: 24px;
-	margin-bottom: -30px; /* ugly */
 }
 footer .os img {
 	vertical-align: middle;
 }
 
 footer .about {
+	color: #666;
 	text-align: center;
 	font-size: 13px;
-	color: #666;
 }
 
 footer .time_graph {
 	float: right;
+}
+.time_graph .progressbar {
+	height: 4px;
+	background: #606060;
+}
+.time_graph .progress {
+	height: 4px;
+	background: #558FA4;
+}
+.time_graph span {
+	display: inline-block;
+	padding: 0 10px 0 18px;
+	height: 16px;
+	font-size: 13px;
+	background-position: 0 50%;
+	background-repeat: no-repeat;
+	line-height: 16px;
+}
+.time_graph span.date {
+	background-image: url('icons/g_16_calendar.png');
+}
+.time_graph span.time {
+	background-image: url('icons/g_16_clock.png');
+}
+.time_graph span.week {
+	background-image: url('icons/g_16_calendar_month.png');
 }

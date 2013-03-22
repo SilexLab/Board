@@ -12,9 +12,11 @@ require_once(DIR_LIB.'smarty/Smarty.class.php');
 class Template {
 	private $Smarty;
 	private $TemplateDirectories;
+	private $Cache;
 
-	public function __construct($Directory = []) {
+	public function __construct($Directory = [], $Cache = true) {
 		$this->TemplateDirectories = (array)$Directory;
+		$this->Cache = $Cache;
 		$this->Smarty = new Smarty();
 	}
 
@@ -56,10 +58,12 @@ class Template {
 		/* Set settings */
 		//$this->Smarty->setCaching(Smarty::CACHING_LIFETIME_CURRENT);
 		$this->Smarty->setTemplateDir($this->TemplateDirectories);
-		$this->Smarty->setCompileDir(DIR_TPLC);
-		$this->Smarty->setCacheDir(CFG_CACHE_DIR); //self::Config('system.cache.dir')
+		if($this->Cache) {
+			$this->Smarty->setCompileDir(DIR_TPLC);
+			$this->Smarty->setCacheDir(CFG_CACHE_DIR); //self::Config('system.cache.dir')
+		}
 
-		/* Display the shit */
+		/* Display the compiled template */
 		$this->Smarty->display($Template);
 	}
 }
