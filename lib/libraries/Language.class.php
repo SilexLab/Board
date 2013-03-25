@@ -18,7 +18,7 @@ class Language {
 	 * Get the current language
 	 * @return	void
 	 */
-	public static function Initialize($L = '') {
+	public static function Initialize() {
 		// Do not initialize if already
 		if(!empty(self::$Language))
 			return;
@@ -52,6 +52,9 @@ class Language {
 	 * @return  array
 	 */
 	public static function Available() {
+		if(empty(self::$Language))
+			self::Initialize();
+
 		// TODO: First read from db
 		if(empty(self::$AvailableLanguages)) {
 			foreach(scandir(DIR_LANGUAGE) as $Language) {
@@ -79,6 +82,9 @@ class Language {
 	 * @return	string
 	 */
 	public static function Get($Node = '') {
+		if(empty(self::$Language))
+			self::Initialize();
+
 		if(!$Node)
 			return self::$Items;
 		return isset(self::$Items[$Node]) ? self::$Items[$Node] : $Node;

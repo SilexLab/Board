@@ -61,26 +61,26 @@
 		<div class="w_size">
 			<div class="w_content_h">
 				<div class="time_graph">
-					<div class="date">
-						<div class="day">
-							<span title="{$time.title_date}" class="date">{$time.date}</span><span title="{lang node='time.current.time'}" class="time">{$time.time}</span>
-							<div class="progressbar" title="{$time.title_day}">
-								<div class="progress" style="width: {$time.day_progress}%"></div>
-							</div>
+					<div class="day">
+						<span title="{$time.title_date}" class="date">{$time.date}</span><span title="{lang node='time.current.time'}" class="time">{$time.time}</span>
+						<div class="progressbar" title="{$time.title_day}">
+							<div class="progress" style="width: {$time.day_progress}%"></div>
 						</div>
-						<div class="year">
-							<span title="{lang node='time.current.week'}" class="week">{$time.week}</span>
-							<div class="progressbar" title="{$time.title_year}">
-								<div class="progress" style="width: {$time.year_progress}%"></div>
-							</div>
+					</div>
+					<div class="year">
+						<span title="{lang node='time.current.week'}" class="week">{$time.week}</span>
+						<div class="progressbar" title="{$time.title_year}">
+							<div class="progress" style="width: {$time.year_progress}%"></div>
 						</div>
 					</div>
 				</div>
 				<img src="{$theme.dir}icons/g_16_globe.png" alt="{lang node='footer.current_language'}"> {lang node="language.info"}<br>
 				<img src="{$theme.dir}icons/g_16_brush.png" alt="{lang node='footer.current_style'}"> {$theme.name}<br>
 				<br><br>
-				<div class="os">
-					<img src="images/linux.png" alt="Linux"> <img src="images/windows.png" alt="Windows"> Made on Linux and Windows.
+				<div class="os_wrapper">
+					<div class="os">
+						<img src="images/linux.png" alt="Linux"> <img src="images/windows.png" alt="Windows"> Made on Linux and Windows.
+					</div>
 				</div>
 				<div class="about">
 					Silex Bulletin Board {$sbb.version} – © 2011 - 2013 <a href="https://silexboard.org/" title="{lang node='forumsoftware'}">silexboard.org</a><br>

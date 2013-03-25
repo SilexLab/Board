@@ -5,39 +5,31 @@
  * @license     GPL version 3 <http://www.gnu.org/licenses/gpl-3.0.html>
  */
 
-class Nav {
-	// Navigations
-	protected $Site;
-	protected $Sub;
-	protected $User;
-	
-	public function __construct() {
-		$this->Site = new SiteNav();
-		$this->Sub = new SubNav();
-		$this->User = new UserNav();
+abstract class Nav {
+	protected static $Site;
+	protected static $Sub;
+	protected static $User;
+
+	public static function Initial() {
+		if(!self::$Site)
+			self::$Site = new SiteNav();
+		if(!self::$Sub)
+			self::$Sub  = new SubNav();
+		if(!self::$User)
+			self::$User = new UserNav();
 	}
-
-	/* Abstract stuff */
-
-	/**
-	 * Get the template list
-	 * @return  array
-	 */
-	//abstract protected function GetList();
-	//abstract public function Add($Name, $Link, $Target = false);
-	//abstract public function Remove($Name);
-
-	/* --- */
 
 	/**
 	 * This should be called if the navigation processing is finished
 	 * and before the templates compile
 	 */
-	public function Finish() {
+	public static function Assign() {
+		self::Initial();
+
 		SBB::Template()->Assign(['nav' => [
-			'site' => $this->Site->GetList()
-			//'sub' => $this->Sub->GetList(),
-			//'user' => $this->User->GetList()
+			'site' => self::$Site->GetList()
+			//'sub' => self::$Sub->GetList(),
+			//'user' => self::$User->GetList()
 		]]);
 	}
 
@@ -45,23 +37,33 @@ class Nav {
 	 * Return the main (site) navigation object
 	 * @return  SiteNav
 	 */
-	public function Site() {
-		return $this->Site;
+	public static function Site() {
+		self::Initial();
+
+		return self::$Site;
 	}
 
 	/**
 	 * Return the sub page navigation object
 	 * @return  SubNav
 	 */
-	public function Sub() {
-		return $this->Sub;
+	public static function Sub() {
+		self::Initial();
+
+		return self::$Sub;
 	}
 
 	/**
 	 * Return the user navigation object
 	 * @return  UserNav
 	 */
-	public function User() {
-		return $this->User;
+	public static function User() {
+		self::Initial();
+
+		return self::$User;
 	}
+
+	abstract protected function GetList();
+	abstract public function Add($Name, $Link, $Target = false);
+	abstract public function Remove($Name);
 }

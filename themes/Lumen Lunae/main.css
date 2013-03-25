@@ -234,8 +234,14 @@ footer a {
 	text-decoration: none;
 }
 
+footer .os_wrapper {
+	width: 0;
+	float: right;
+	text-align: right;
+	white-space: nowrap;
+}
 footer .os {
-	margin-bottom: -30px; /* ugly */
+	float: right;
 	padding: 5px 0;
 	text-align: right;
 	line-height: 24px;
@@ -252,22 +258,40 @@ footer .about {
 
 footer .time_graph {
 	float: right;
+	width: 250px;
+}
+footer .time_graph::after,
+.time_graph .day::after,
+.time_graph .year::after {
+	display: block;
+	clear: both;
+	height: 0;
+	content: "";
 }
 .time_graph .progressbar {
+	display: block;
+	float: right;
 	height: 4px;
-	background: #606060;
+	width: 210px;
+	background: #aaaaaa;
+	margin: 6px 0;
+}
+.time_graph .day .progressbar {
+	width: 100px;
 }
 .time_graph .progress {
 	height: 4px;
-	background: #558FA4;
+	width: 0;
+	background: #095d8d;
 }
 .time_graph span {
-	display: inline-block;
+	display: block;
+	float: left;
 	padding: 0 10px 0 18px;
 	height: 16px;
-	font-size: 13px;
 	background-position: 0 50%;
 	background-repeat: no-repeat;
+	font-size: 13px;
 	line-height: 16px;
 }
 .time_graph span.date {
@@ -275,7 +299,9 @@ footer .time_graph {
 }
 .time_graph span.time {
 	background-image: url('icons/g_16_clock.png');
+	padding-right: 0;
 }
 .time_graph span.week {
 	background-image: url('icons/g_16_calendar_month.png');
+	padding-right: 0;
 }

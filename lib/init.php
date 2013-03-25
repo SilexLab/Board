@@ -45,8 +45,5 @@ Autoloader::Register();
 set_exception_handler(['SBB', 'ExceptionHandler']);
 //set_error_handler(['SBB', 'ErrorHandler']);
 
-// Set the custom session save handler and start sessions
-Session::Start();
-
 // Initial and "start" Silex Board
 SBB::Initial();

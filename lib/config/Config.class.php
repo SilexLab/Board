@@ -6,8 +6,8 @@
  */
 
 class Config {
-	protected static $Config = array(),
-		$tplVariables = array();
+	protected static $Config = [],
+		$tplVariables = [];
 	
 	public function __construct() {
 		if(!empty(self::$Config))
@@ -17,7 +17,7 @@ class Config {
 
 		if(isset($O)) {
 			foreach($O as $C) {
-				$Value = ''; $Type = array();
+				$Value = ''; $Type = [];
 				$this->FormatValue($C->ConfigValue, $C->ValueType, $C->ConfigNode, $Value, $Type);
 				// TODO: for ACP include type
 				self::$Config[$C->ConfigNode] = $Value;
@@ -65,9 +65,9 @@ class Config {
 					$Type = $this->ParseType($Type, $rType);
 				break;
 			case 'bool':
-				if(in_array($rValue, array('true', '1')))
+				if(in_array($rValue, ['true', '1']))
 					$Value = true;
-				else if(in_array($rValue, array('false', '0')))
+				else if(in_array($rValue, ['false', '0']))
 					$Value = false;
 				else
 					throw new SystemException('The config node "'.$Node.'" is in the wrong format. Bool expected, the value is: "'.$Value.'"');
@@ -90,16 +90,16 @@ class Config {
 			if(isset($aR[0]) && !empty($aR[0]) && isset($aR[1]) && !empty($aR[1])) {
 				// Range
 				if($aR[0] < $aR[1]) {
-					$Type = array('Range' => array('Min' => (int)$aR[0], 'Max' => (int)$aR[1]));
+					$Type = ['Range' => ['Min' => (int)$aR[0], 'Max' => (int)$aR[1]]];
 				}
 			} else if(isset($aR[0]) && !empty($aR[0])){ // Min
-				$Type = array('Range' => array('Min' => (int)$aR[0]));
+				$Type = ['Range' => ['Min' => (int)$aR[0]]];
 			} else { // Max
-				$Type = array('Range' => array('Max' => (int)$aR[1]));
+				$Type = ['Range' => ['Max' => (int)$aR[1]]];
 			}
 		} else if(preg_match('/[0-9]+/', $rType, $Length)) {
 			// Length
-			$Type = array('Length' => $Length);
+			$Type = ['Length' => $Length];
 		}
 	}
 }

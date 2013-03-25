@@ -32,11 +32,6 @@ class Page {
 		// Check the "must have" instance of the new instance
 		if(!($this->Instance instanceof IPage))
 			throw new SystemException('"'.$Class.'" is not an instance of "IPage"');
-
-		// Home Breadcrumb
-		Breadcrumb::Add(Language::Get('page.home'), $this->Link('Home'));
-		// "Display" the page
-		$this->Instance->Display($this);
 	}
 
 	/**
@@ -113,6 +108,13 @@ class Page {
 	 */
 	public function Get($Page) {
 		return isset($this->Pages[$Page]) ? $this->Pages[$Page] : false;
+	}
+
+	public function Display() {
+		// Home Breadcrumb
+		Breadcrumb::Add(Language::Get('page.home'), $this->Link('Home'));
+		// "Display" the page
+		$this->Instance->Display($this);
 	}
 
 	/**

@@ -21,27 +21,32 @@ class SBB {
 	 * @return void
 	 */
 	public static final function Initial() {
-		/* Initialize classes and objects */
-		// Data
-		Language::Initialize(isset($_GET['l']) ? $_GET['l'] : null);
+		/* Initialize */
+		self::$Database = Database::GetDatabase();
+		self::$Config   = new Config();
+
+		// Set the custom session save handler and start sessions
+		Session::Start();
+
 		self::$Template = new Template(DIR_LIB.DIR_TPL, !CFG_DEBUG);
-		self::$User = Session::GetUser();
+		self::$User     = Session::GetUser();
+		self::$Theme    = new Theme();
+		self::$Page     = new Page();
+
+		Nav::Initial();
+
+		/* Functions */
 		Listener::Check();
-		self::$Theme = new Theme();
 		new SessionGarbageCollector();
-		
-		// Frontend
-		self::$Nav = new Nav();
 		Mail::Init();
 
+		/* Pre-output */
 		TimeUtil::DateProgress();
-
-
-		// Pre-output
 		self::AssignDefault();
-		self::$Nav->Finish();
+		self::$Page->Display();
+		Nav::Assign();
 
-		// Display the template
+		/* Output */
 		self::Template()->Display('index.tpl');
 	}
 
@@ -59,8 +64,6 @@ class SBB {
 	 * @return string
 	 */
 	public static final function Config($Node) {
-		if(!self::$Config)
-			self::$Config = new Config();
 		return self::$Config->Get($Node);
 	}
 
@@ -69,8 +72,6 @@ class SBB {
 	 * @return PDO
 	 */
 	public static final function DB() {
-		if(!self::$Database)
-			self::$Database = Database::GetDatabase();
 		return self::$Database;
 	}
 
@@ -87,17 +88,23 @@ class SBB {
 	 * @return Page
 	 */
 	public static final function Page() {
-		if(!self::$Page)
-			self::$Page = new Page();
 		return self::$Page;
 	}
 
 	/**
-	 * Returns the style object
+	 * Returns the theme object
 	 * @return Theme
 	 */
 	public static final function Theme() {
 		return self::$Theme;
+	}
+
+	/**
+	 * Returns the nav object
+	 * @return Nav
+	 */
+	public static final function Nav() {
+		return self::$Nav;
 	}
 
 	/**

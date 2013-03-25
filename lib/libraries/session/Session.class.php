@@ -98,8 +98,7 @@ class Session {
 				Session::Destroy();
 				return self::GetUser(); // TODO: Possible endless loop?
 			}
-		}
-		else { // Not logged in
+		} else { // Not logged in
 			$User = new User(User::GIVEN_GUEST);
 		}
 
@@ -115,7 +114,6 @@ class Session {
 	 * @return bool Success?
 	 */
 	public static function SetUser($UserId) {
-
 		// TODO: Find a way to make the page reload/redirect redundant. Currently the global user object is not updated
 
 		// Check the user
@@ -125,7 +123,5 @@ class Session {
 			return false;
 
 		return true;
-
 	}
-
 }
