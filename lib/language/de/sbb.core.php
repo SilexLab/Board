@@ -21,8 +21,6 @@ return [
 'header.welcome'            => 'Willkommen',
 'header.logo_title'         => 'Startseite',
 'header.slogan'             => 'Die moderne Bulletin-Board-Software',
-'header.search.title'       => 'Suche',
-'header.search.placeholder' => 'Suchen...',
 
 'page.error'    => 'Fehler',
 'page.home'     => 'Startseite',
@@ -63,6 +61,7 @@ return [
 'form.user'            => 'Benutzername',
 'form.password_repeat' => 'Passwort wiederholen',
 'form.input_not_found' => 'Das Feld %s existiert nicht.',
+'form.search'          => 'Suchen',
 
 'info.javascript' => 'Bitte aktiviere JavaScript um den vollen Funktionsumfang dieser Seite nutzen zu können.',
 

@@ -6,8 +6,13 @@
  */
 
 interface IPage {
+	// /**
+	//  * Will be called when it's the actual page
+	//  */
+	// public function Prepare()
+
 	/**
-	 * Will called when the page is the current page
+	 * Will be called when the page is the current page
 	 */
 	public function Display(Page $P);
 	

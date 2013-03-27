@@ -31,7 +31,7 @@ h1 {
 }
 .w_size_min { min-width: 900px; }
 
-.w_content { padding: 20px 15px; }
+.w_content { padding: 15px 20px; }
 .w_content_h { padding-right: 20px; padding-left: 20px; }
 .w_content_v { padding-top: 15px; padding-bottom: 15px; }
 .w_content_t { padding-top: 15px; }
@@ -128,7 +128,7 @@ nav.site li:hover > a, nav.site li.active > a {
 	/* border-top: 3px solid #47ade8; */
 	border-bottom: 1px solid #dddddd;
 	/* background: rgba(10, 10, 10, 0.8); */
-	background: #f6f6f6;
+	background: #fff;
 	color: #2e2e2e;
 }
 .user_panel.opened::after {
@@ -161,6 +161,41 @@ nav.site li:hover > a, nav.site li.active > a {
 
 .search_bar {
 	float: left;
+}
+#main_search input[type=search] {
+	display: block;
+	float: left;
+	box-sizing: content-box;
+	margin-bottom: -1px;
+	padding: 0 10px;
+	width: 150px;
+	height: 30px;
+	border: none;
+	border-bottom: 1px solid #ddd;
+	background: #fff;
+	font-size: 13px;
+	transition: all 0.25s;
+	-webkit-appearance: textfield;
+}
+#main_search input[type=search]:hover {
+	border-bottom-color: #17a7df;
+}
+#main_search input[type=search]:focus,
+#main_search:active input[type=search] {
+	width: 300px;
+	border-bottom-color: #17a7df;
+}
+#main_search input[type=submit] {
+	display: block;
+	float: left;
+	width: 30px;
+	height: 30px;
+	border: none;
+	background: #fff url('icons/g_16_magnifying_glass.png') 50% 50% no-repeat;
+	transition: all 0.25s;
+}
+#main_search input[type=submit]:hover {
+	background-color: #ddd;
 }
 
 .user_actions {
@@ -235,8 +270,8 @@ footer a {
 }
 
 footer .os_wrapper {
-	width: 0;
 	float: right;
+	width: 0;
 	text-align: right;
 	white-space: nowrap;
 }
@@ -271,17 +306,17 @@ footer .time_graph::after,
 .time_graph .progressbar {
 	display: block;
 	float: right;
-	height: 4px;
-	width: 210px;
-	background: #aaaaaa;
 	margin: 6px 0;
+	width: 210px;
+	height: 4px;
+	background: #aaaaaa;
 }
 .time_graph .day .progressbar {
 	width: 100px;
 }
 .time_graph .progress {
-	height: 4px;
 	width: 0;
+	height: 4px;
 	background: #095d8d;
 }
 .time_graph span {
@@ -298,10 +333,10 @@ footer .time_graph::after,
 	background-image: url('icons/g_16_calendar.png');
 }
 .time_graph span.time {
-	background-image: url('icons/g_16_clock.png');
 	padding-right: 0;
+	background-image: url('icons/g_16_clock.png');
 }
 .time_graph span.week {
-	background-image: url('icons/g_16_calendar_month.png');
 	padding-right: 0;
+	background-image: url('icons/g_16_calendar_month.png');
 }

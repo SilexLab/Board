@@ -27,4 +27,10 @@ $(document).ready(function() {
 	}).on('mouseup mouseleave', function(e) {
 		$(this).prev('[type="text"]').attr('type', 'password').focus();
 	});
+	// Search
+	// $('#main_search').children('input[type="submit"]').on('mousedown', function(e) {
+	// 	$(this).on('mouseup mouseleave', function(e) {
+	// 		$(this).prev('[type="search"]').focus();
+	// 	});
+	// });
 });

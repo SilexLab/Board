@@ -39,7 +39,11 @@
 		</div>
 		<nav class="user w_size">
 			<div class="search_bar w_content_l">
-				{literal}{Searchbar}{/literal}
+				<form method="post">
+					<div id="main_search">
+						<input type="search" name="search" placeholder="{lang node='form.search'}..."><input type="submit" value="" title="{lang node='form.search'}">
+					</div>
+				</form>
 			</div>
 			<ul class="user_actions w_content_r">
 				<li><a id="user_panel_toggle" href="{$base_uri}Login">{literal}{Avatar}{/literal} {$user.name}</a></li>
