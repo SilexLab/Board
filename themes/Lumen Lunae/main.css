@@ -155,6 +155,7 @@ nav.site li:hover > a, nav.site li.active > a {
 	transition: all 0.25s;
 }
 .user_panel.opened #user_panel_content {
+	border-bottom: 1px solid #ddd;
 	/* this shit doesn't work with transition: */
 	/* height: auto; */
 }
