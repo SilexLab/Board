@@ -6,7 +6,7 @@ Originally the project was found by Patrick Kleinschmidt (Nox Nebula) to improve
 
 Requirements
 ------------
-* A webserver like apache, nginx or lighttpd <sup>[1]</sup>
+* A webserver like nginx, lighttpd or apache <sup>[1]</sup>
 * PHP __5.4__ or later
 	* Matching PDO driver for the database of your choice
 	* Activated cURL, fopen or wget
@@ -22,7 +22,7 @@ Links
 * __[Github repository](https://github.com/SilexBoard/Board)__
 * __[Issues](https://github.com/SilexBoard/Board/issues)__
 * __[Contributors](https://github.com/SilexBoard/Board/blob/master/CONTRIBUTORS.md)__
-* __[Silex Flavored Markdown draft](http://demo.silexboard.org/Draft/Silex_Flavored_Markdown.html)__
+* __[Silex Flavored Markdown draft](http://demo.silexboard.org/draft/Silex_Flavored_Markdown.html)__
 * __[Coding style](https://github.com/SilexBoard/Board/blob/master/docs/codingstyle.md)__
 * __[License](http://www.gnu.org/licenses/gpl-3.0.html)__
 
@@ -38,9 +38,9 @@ Notes
 -----
 __<sup>[1]</sup>__ Silex Board is developed primarily under nginx<br>
 __<sup>[2]</sup>__ Later on, we will support Memcache or so<br>
-__<sup>[3]</sup>__ Tested currently only with MySQL<br>
+__<sup>[3]</sup>__ Currently only tested with MySQL<br>
 __<sup>[4]</sup>__ ♥
 
 -----
 
-Silex Bulletin Board – © 2011 - 2013 [SilexBoard.org](http://www.silexboard.org/)
+Silex Bulletin Board – © 2011 - 2013 [silexboard.org](https://www.silexboard.org/)
