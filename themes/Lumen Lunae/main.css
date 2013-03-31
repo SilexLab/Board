@@ -14,13 +14,22 @@ body {
 	min-width: 900px;
 	background: #dddddd;
 	color: #2e2e2e;
-	font: normal normal normal 12px "Segoe UI", Helvetica, "Droid Sans", Arial, Verdana, sans-serif;
+	font: normal normal normal 13px "Segoe UI", Helvetica, "Droid Sans", Arial, Verdana, sans-serif;
 }
 
 h1 {
 	margin: 0 0 10px 0;
 	padding: 0;
-	font-size: 24px;
+	font-size: 30px;
+	color: #2e2e2e;
+}
+h2 {
+	font-size: 22px;
+	color: #4d4d4d;
+}
+h3 {
+	font-size: 22px;
+	color: #999999;
 }
 
 /* Wrapper */
@@ -241,6 +250,7 @@ nav.sub { }
 	min-height: 400px;
 	border-top: 3px solid #dddddd;
 	background: #f6f6f6;
+	color: #555555;
 }
 .main_content::after {
 	display: block;
