@@ -163,8 +163,10 @@ class SBB {
 				'template' => self::Page()->Template()
 			],
 			'sbb' => [
-				'version' => SBB_VERSION.'-'.date('Ymd', CommitInfo::Get()),
-				'sha' => CommitInfo::Get('SHA')
+				//'version' => SBB_VERSION.'-'.date('Ymd', CommitInfo::Get()),
+				//'sha' => CommitInfo::Get('SHA')
+				'version' => SBB_VERSION,
+				'sha' => '-'
 			],
 			'title' => self::Config('page.title'),
 			'base_url' => CFG_BASE_URL,
