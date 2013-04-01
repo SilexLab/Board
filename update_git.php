@@ -53,7 +53,7 @@ class Subnet {
 		$Match = [$aS[0], $aS[1], $aS[2], $aS[3]];
 
 		for ($i = 3; $i >= 3 - ((int)($Subnet['bits'] / 8)); $i--) {
-			for ($j = $aS[$i], $jj = 0; $jj < $Subnet['ips'] && $j < 255; $j++, $jj++) {
+			for ($j = $aS[$i], $jj = 0; $jj < $Subnet['ips'] && $j < 256; $j++, $jj++) {
 				$Match[$i] = $j;
 				if ($IP == $Match[0].'.'.$Match[1].'.'.$Match[2].'.'.$Match[3]) {
 					//echo 'found: '.$IP.' = '.$Match[0].'.'.$Match[1].'.'.$Match[2].'.'.$Match[3];
