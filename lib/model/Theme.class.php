@@ -55,7 +55,7 @@ class Theme {
 		// For everyone
 		$this->Info['files'] =& $this->Files;
 
-		$this->Info['logo'] = $this->Info['dir'].'/images/logo.png'; // TODO: get from DB
+		$this->Info['logo'] = $this->Info['url'].'images/logo.png'; // TODO: get from DB
 
 		// Add template directory of the style
 		if(is_dir($this->Info['dir'].DIR_TPL))
