@@ -15,23 +15,21 @@ body {
 	background: #dddddd;
 	color: #2e2e2e;
 	font: normal normal normal 13px "Segoe UI", Helvetica, "Droid Sans", Arial, Verdana, sans-serif;
-	/* We now use a better font */
-	font-family: "Comic Sans MS";
 }
 
 h1 {
 	margin: 0 0 10px 0;
 	padding: 0;
-	font-size: 30px;
 	color: #2e2e2e;
+	font-size: 30px;
 }
 h2 {
-	font-size: 22px;
 	color: #4d4d4d;
+	font-size: 22px;
 }
 h3 {
-	font-size: 22px;
 	color: #999999;
+	font-size: 22px;
 }
 
 /* Wrapper */
@@ -142,20 +140,21 @@ nav.site li:hover > a, nav.site li.active > a {
 	background: #fff;
 	color: #2e2e2e;
 }
+.user_panel::after {
+	display: block;
+	clear: both;
+	height: 0;
+	content: "";
+}
 .user_panel.opened::after {
 	display: block;
+	clear: both;
 	margin-top: 2px;
 	margin-bottom: -151px;
 	height: 150px;
 	background: transparent url('images/gradient/overlay_f6f6f6_transparent.svg');
 	content: "";
 	transition: all 0.25s;
-}
-.user_panel::after {
-	display: block;
-	clear: both;
-	height: 0;
-	content: "";
 }
 
 #user_panel_content {
@@ -166,9 +165,8 @@ nav.site li:hover > a, nav.site li.active > a {
 	transition: all 0.25s;
 }
 .user_panel.opened #user_panel_content {
+	/* height: auto; */ /* this shit doesn't work with transition: */
 	border-bottom: 1px solid #ddd;
-	/* this shit doesn't work with transition: */
-	/* height: auto; */
 }
 
 .search_bar {
@@ -193,7 +191,8 @@ nav.site li:hover > a, nav.site li.active > a {
 	border-bottom-color: #17a7df;
 }
 #main_search input[type=search]:focus,
-#main_search:active input[type=search] {
+#main_search input[type=search]:active,
+#main_search input[type=search].focus {
 	width: 300px;
 	border-bottom-color: #17a7df;
 }
@@ -215,6 +214,14 @@ nav.site li:hover > a, nav.site li.active > a {
 }
 
 /* User navigation */
+#user_avatar {
+	display: block;
+	float: left;
+	max-height: 16px;
+	max-width: 16px;
+	margin: 8px 5px 0 0;
+}
+
 nav.user {
 	margin-bottom: -1px;
 	height: 30px;
@@ -233,7 +240,7 @@ nav.user li {
 }
 nav.user li a {
 	display: block;
-	padding: 0 5px;
+	padding: 0 10px;
 	color: #2e2e2e;
 	text-decoration: none;
 	transition: all 0.25s;
@@ -280,6 +287,10 @@ footer img {
 footer a {
 	color: inherit;
 	text-decoration: none;
+	transition: all 0.25s;
+}
+footer a:hover {
+	color: #333;
 }
 
 footer .os_wrapper {

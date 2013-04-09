@@ -1,0 +1,64 @@
+.button_bar::after {
+	display: block;
+	clear: both;
+	height: 0;
+	content: "";
+}
+
+.button {
+	display: block;
+	float: left;
+	box-sizing: border-box;
+	margin: 5px;
+	padding: 0 10px;
+	min-width: 80px;
+	height: 26px;
+	border: 1px solid #9b9b9b;
+	border-radius: 3px;
+	background: #fff -webkit-linear-gradient(top, #fff 40%, #e8e8e8 100%);
+	box-shadow: 0 0 0 1px rgba(255, 255, 255, 1) inset, 0 1px 2px rgba(0, 0, 0, .15);
+	color: #505050;
+	text-align: center;
+	font-size: 13px;
+	line-height: 24px;
+	cursor: default;
+}
+
+.button.highlight {
+	border-color: #47698c;
+	background: -webkit-linear-gradient(top, #97c4f3, #69a4e1);
+	box-shadow: 0 0 0 1px rgba(255, 255, 255, .1) inset, 0 1px 2px rgba(0, 0, 0, .15);
+	color: #4e5052;
+}
+
+.button:active {
+	border-color: #888;
+	background: #c0c0c0 -webkit-linear-gradient(top, #c0c0c0, #d0d0d0);
+	box-shadow: 0 0 0 1px rgba(0, 0, 0, .1) inset, 0 1px 2px rgba(255, 255, 255, .5);
+}
+
+.button.highlight:active {
+	border-color: #3e6084;
+	background: -webkit-linear-gradient(top, #7aace1, #5e95d0);
+}
+
+/* Group */
+.button_group > .button {
+	margin-right: 0;
+	margin-left: 0;
+	border-radius: 0;
+}
+
+.button_group > .button:nth-child(n+2) {
+	border-left: none;
+}
+
+.button_group > .button:first-child {
+	margin-left: 5px;
+	border-radius: 3px 0 0 3px;
+}
+
+.button_group > .button:last-child {
+	margin-right: 5px;
+	border-radius: 0 3px 3px 0;
+}

@@ -7,14 +7,34 @@
 	<h6>Headline 6</h6>
 
 	<form method="POST">
-		<p>Inputs:</p>
-		{input f="password" type="password" placeholder={lang node='form.password'}}
-		{input f="password_repeat" type="password" placeholder={lang node='form.password_repeat'}}<br>
-		{input f="user" type="user" placeholder={lang node='form.user'}}
-		{input f="email" type="email" placeholder={lang node='form.email'}}<br>
-		<label>Test</label>
+		<p>Inputs</p>
+		{input n="password" type="password" placeholder={lang n='form.password'}}
+		{input n="password_repeat" type="password" placeholder={lang n='form.password_repeat'}}<br>
+		{input n="user" type="user" placeholder={lang n='form.user'}}
+		{input n="email" type="email" placeholder={lang n='form.email'}}<br>
+		{input n="text" type="text" placeholder="Text"}
+		<p>Big</p>
+		{input n="text" type="text" placeholder="Text" big=true}<br>
+		{input n="email" type="email" placeholder="{lang n='form.email'}" big=true}<br>
+		{input n="password" type="password" placeholder="{lang n='form.password'}" big=true}
 	</form>
-	<br>
+	<p>Buttons</p>
+	<div class="button_bar">
+		<div class="button">Text</div>
+		<div class="button highlight">Text</div>
+		<input type="button" class="button" value="Text">
+		<input type="button" class="button" value="Text">
+	</div>
+	<p>Buttongroup</p>
+	<div class="button_bar">
+		<div class="button_group">
+			<div class="button">Text</div>
+			<div class="button">Text</div>
+			<input type="button" class="button" value="Text">
+			<input type="button" class="button highlight" value="Text">
+			<button class="button highlight">Text</button>
+		</div>
+	</div>
 	<br>
 
 </div>

@@ -2,9 +2,9 @@
 /*
  * Smarty plugin
  * -------------------------------------------------------------
- * File:     function.lang.php
+ * File:     function.link.php
  * Type:     function
- * Name:     lang
+ * Name:     link
  * Purpose:  make link
  * -------------------------------------------------------------
  */

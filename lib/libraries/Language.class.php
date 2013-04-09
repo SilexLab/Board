@@ -28,8 +28,8 @@ class Language {
 
 		/* Find a language to use */
 		// Use $L if exists
-		if($L && is_dir(DIR_LANGUAGE.$L))
-			self::$Language = $L;
+		if(isset($_GET['l']) && is_dir(DIR_LANGUAGE.$_GET['l']))
+			self::$Language = $_GET['l'];
 		// TODO: Get the user language
 		// Use the default language if it's still unset
 		if(empty(self::$Language))

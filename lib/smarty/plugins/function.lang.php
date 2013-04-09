@@ -10,6 +10,6 @@
  */
 function smarty_function_lang($params, Smarty_Internal_Template $template)
 {
-	return Language::Get($params['node']);
+	return Language::Get($params['n']);
 }
 ?>

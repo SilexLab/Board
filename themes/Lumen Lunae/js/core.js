@@ -21,16 +21,18 @@ $(document).ready(function() {
 
 
 	/* Functions */
-	// Passwordswitch
+	// Passwordswitch behavior
 	$('.switch').on('mousedown', function(e) {
 		$(this).prev('[type="password"]').attr('type', 'text');
 	}).on('mouseup mouseleave', function(e) {
 		$(this).prev('[type="text"]').attr('type', 'password').focus();
 	});
-	// Search
-	// $('#main_search').children('input[type="submit"]').on('mousedown', function(e) {
-	// 	$(this).on('mouseup mouseleave', function(e) {
-	// 		$(this).prev('[type="search"]').focus();
-	// 	});
-	// });
+	// Searchbar behavior
+	$('#main_search').children('input[type="submit"]').on('mousedown', function(e) {
+		var search = $(this).prev('input[type="search"]');
+	 	if(search.val().length > 0 && parseInt(search.css('width')) > 200)
+	 		search.addClass('focus');
+	}).on('mouseup mouseleave', function(e) {
+		$(this).prev('input[type="search"]').removeClass('focus');
+	});
 });

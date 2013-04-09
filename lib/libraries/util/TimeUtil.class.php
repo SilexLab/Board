@@ -85,7 +85,8 @@ class TimeUtil {
 				'day_progress'  => round($DayProgress, 2),
 				'title_year'    => sprintf(Language::Get('time.year_progress'), $YearProgress),
 				'title_day'     => sprintf(Language::Get('time.day_progress'), $DayProgress),
-				'title_date'    => Language::Get('time.current.date').' - '.$DateTitle
+				'title_date'    => Language::Get('time.current.date').' - '.$DateTitle,
+				'title_time'    => sprintf(Language::Get('time.current.time'), $Now->format('H:i'), date_default_timezone_get())
 			]
 		]);
 	}

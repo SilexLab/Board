@@ -19,11 +19,22 @@ form {
 	height: 0;
 	content: "";
 }
+
+.input.big {
+	border: none;
+	border-bottom: 1px solid #ddd;
+	background: transparent;
+	font-size: 18px;
+	font-weight: bold;
+	box-shadow: 0 1px 0 rgba(255, 255, 255, .5);
+	border-radius: 0;
+}
+
 .input:hover {
 	border-color: #ccc;
 }
 .input.focus {
-	border-color: #aaa;
+	border-color: #17a7df;
 }
 .input input {
 	margin: 0;
@@ -32,8 +43,24 @@ form {
 	height: 20px;
 	border: none;
 	background: transparent calc(100% - 2px) 50% no-repeat;
+	color: #2e2e2e;
+}
+.input.big input {
+	font-size: 18px;
+	font-weight: bold;
+	width: 400px;
+	height: 30px;
+	text-align: center;
 }
 /* Input types */
+.input.text input {
+	padding: 0 5px;
+	background-image: none;
+	width: 217px;
+}
+.input.text.big input {
+	width: 417px;
+}
 .input.password input {
 	padding-right: 2px;
 }
@@ -43,6 +70,9 @@ form {
 	width: 20px;
 	height: 20px;
 	background: url('icons/g_16_preview.png') 50% 50% no-repeat;
+}
+.input.password.big .switch {
+	height: 30px;
 }
 .input.user input { background-image: url('icons/g_16_user.png'); }
 .input.email input { background-image: url('icons/g_16_mail.png'); }

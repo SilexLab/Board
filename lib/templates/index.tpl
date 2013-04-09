@@ -6,6 +6,7 @@
 {foreach $theme.files.css as $f}
 	<link rel="stylesheet" type="text/css" href="{$f.file}"{if $f.media} media="{$f.media}"{/if}>
 {/foreach}
+{if false}{literal}<style type="text/css">body{font-family:"Comic Sans MS";}</style>{/literal}{/if}
 {foreach $theme.files.js as $f}
 	<script type="text/javascript" src="{$f}"></script>
 {/foreach}
@@ -16,7 +17,7 @@
 			<a href="{$base_url}">
 				<img class="w_content_m_l" src="{$theme.logo}" alt="Logo">
 			</a>
-			<div class="slogan">{lang node="header.slogan"}</div>
+			<div class="slogan">{lang n='header.slogan'}</div>
 		</div>
 	</header>
 	<nav class="site w_size">
@@ -41,19 +42,23 @@
 			<div class="search_bar w_content_l">
 				<form method="post">
 					<div id="main_search">
-						<input type="search" name="search" placeholder="{lang node='form.search'}..."><input type="submit" value="" title="{lang node='form.search'}">
+						<input type="search" name="search" placeholder="{lang n='form.search'}..." value=""><input type="submit" value="" title="{lang n='form.search'}">
 					</div>
 				</form>
 			</div>
 			<ul class="user_actions w_content_r">
-				<li><a id="user_panel_toggle" href="{$base_uri}Login">{literal}{Avatar}{/literal} {$user.name}</a></li>
+				<li>
+					<a id="user_panel_toggle" href="{$base_uri}Login">
+						<img src="{$user.avatar}" alt="Avatar" id="user_avatar">{$user.name}
+					</a>
+				</li>
 			</ul>
 		</nav>
 	</section>
 	<section class="main_content">
 		<noscript>
 			<div class="info">
-				{lang node="info.javascript"}
+				{lang n="info.javascript"}
 			</div>
 		</noscript>
 		{* Notifications here *}
@@ -66,20 +71,20 @@
 			<div class="w_content_h">
 				<div class="time_graph">
 					<div class="day">
-						<span title="{$time.title_date}" class="date">{$time.date}</span><span title="{lang node='time.current.time'}" class="time">{$time.time}</span>
+						<span title="{$time.title_date}" class="date">{$time.date}</span><span title="{$time.title_time}" class="time">{$time.time}</span>
 						<div class="progressbar" title="{$time.title_day}">
 							<div class="progress" style="width: {$time.day_progress}%"></div>
 						</div>
 					</div>
 					<div class="year">
-						<span title="{lang node='time.current.week'}" class="week">{$time.week}</span>
+						<span title="{lang n='time.current.week'}" class="week">{$time.week}</span>
 						<div class="progressbar" title="{$time.title_year}">
 							<div class="progress" style="width: {$time.year_progress}%"></div>
 						</div>
 					</div>
 				</div>
-				<img src="{$theme.dir}icons/g_16_globe.png" alt="{lang node='footer.current_language'}"> {lang node="language.info"}<br>
-				<img src="{$theme.dir}icons/g_16_brush.png" alt="{lang node='footer.current_style'}"> {$theme.name}<br>
+				<img src="{$theme.dir}icons/g_16_globe.png" alt="{lang n='footer.current_language'}"> {lang n="language.info"}<br>
+				<img src="{$theme.dir}icons/g_16_brush.png" alt="{lang n='footer.current_style'}"> {$theme.name}<br>
 				<br><br>
 				<div class="os_wrapper">
 					<div class="os">
@@ -87,7 +92,7 @@
 					</div>
 				</div>
 				<div class="about">
-					Silex Bulletin Board {$sbb.version} – © 2011 - 2013 <a href="https://silexboard.org/" title="{lang node='forumsoftware'}">silexboard.org</a><br>
+					Silex Bulletin Board {$sbb.version} – © 2011 - 2013 <a href="https://silexboard.org/" title="{lang n='forumsoftware'}">silexboard.org</a><br>
 					<a href="https://github.com/SilexBoard/Board/commit/{$sbb.sha}" title="GitHub">{$sbb.sha}</a>
 				</div>
 			</div>

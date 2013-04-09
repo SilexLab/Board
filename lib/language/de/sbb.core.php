@@ -111,7 +111,7 @@ return [
 'footer.current_language' => 'Aktuelle Sprache',
 'footer.current_style'    => 'Aktueller Stil',
 
-'time.current.time'  => 'Aktuelle Uhrzeit',
+'time.current.time'  => 'Aktuelle Uhrzeit - %s Uhr - %s',
 'time.current.date'  => 'Aktuelles Datum',
 'time.current.week'  => 'Kalenderwoche',
 'time.year_progress' => '%.2f%% Jahresfortschritt',
