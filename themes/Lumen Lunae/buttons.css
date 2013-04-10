@@ -1,3 +1,32 @@
+/* Alternative button design */
+/* Maybe using this kind of style in future */
+
+button {
+	margin: 0 5px;
+	padding: 8px 13px;
+	border: 1px solid #d1d1d3;
+	border-bottom: 1px solid #c1c1c3;
+	border-radius: 2px;
+	background-image: linear-gradient(#f6f6f6 5%, #efefef 50%, #ddd);
+	box-shadow: inset 0 1px 0 #fff;
+	color: #666;
+	text-shadow: 0 1px 0 rgba(255,255,255,0.8);
+	font-weight: bold;
+	-webkit-user-select: none;
+}
+
+button.highlight {
+	border: 1px solid #5187df;
+	border-bottom: 1px solid #3870cf;
+	background-image: linear-gradient(#5499f4 5%, #5294f2 50%, #4b85f1);
+	box-shadow: inset 0 1px 0 #5fa8f7;
+	color: #fff;
+	text-shadow: 0 1px 0 rgba(0,0,0,0.2);
+}
+
+
+/* First button design test */
+
 .button_bar::after {
 	display: block;
 	clear: both;
@@ -15,31 +44,33 @@
 	height: 26px;
 	border: 1px solid #9b9b9b;
 	border-radius: 3px;
-	background: #fff -webkit-linear-gradient(top, #fff 40%, #e8e8e8 100%);
+	background: #fff linear-gradient(#fff 40%, #e8e8e8 100%);
 	box-shadow: 0 0 0 1px rgba(255, 255, 255, 1) inset, 0 1px 2px rgba(0, 0, 0, .15);
 	color: #505050;
 	text-align: center;
+	font-weight: normal;
 	font-size: 13px;
 	line-height: 24px;
 	cursor: default;
+	-webkit-user-select: none;
 }
 
 .button.highlight {
 	border-color: #47698c;
-	background: -webkit-linear-gradient(top, #97c4f3, #69a4e1);
+	background: linear-gradient(#97c4f3, #69a4e1);
 	box-shadow: 0 0 0 1px rgba(255, 255, 255, .1) inset, 0 1px 2px rgba(0, 0, 0, .15);
 	color: #4e5052;
 }
 
 .button:active {
 	border-color: #888;
-	background: #c0c0c0 -webkit-linear-gradient(top, #c0c0c0, #d0d0d0);
+	background: #c0c0c0 linear-gradient(#c0c0c0, #d0d0d0);
 	box-shadow: 0 0 0 1px rgba(0, 0, 0, .1) inset, 0 1px 2px rgba(255, 255, 255, .5);
 }
 
 .button.highlight:active {
 	border-color: #3e6084;
-	background: -webkit-linear-gradient(top, #7aace1, #5e95d0);
+	background: linear-gradient(#7aace1, #5e95d0);
 }
 
 /* Group */

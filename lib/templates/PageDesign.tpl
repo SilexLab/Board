@@ -35,6 +35,12 @@
 			<button class="button highlight">Text</button>
 		</div>
 	</div>
+	<p>Alternative buttons</p>
+	<div class="button_group">
+		<button>Test</button>
+		<button>Test 2</button>
+		<button class="highlight">Highlight</button>
+	</div>
 	<br>
 
 </div>
