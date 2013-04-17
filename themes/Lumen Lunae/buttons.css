@@ -1,9 +1,18 @@
-/* Alternative button design */
-/* Maybe using this kind of style in future */
+/* Button design */
+.button_bar::after {
+	display: block;
+	clear: both;
+	height: 0;
+	content: "";
+}
 
-button {
+button, input[type=button], input[type=submit], input[type=file] {
+	display: block;
+	float: left;
+	box-sizing: border-box;
 	margin: 0 5px;
-	padding: 8px 13px;
+	padding: 0 13px;
+	height: 30px;
 	border: 1px solid #d1d1d3;
 	border-bottom: 1px solid #c1c1c3;
 	border-radius: 2px;
@@ -15,7 +24,10 @@ button {
 	-webkit-user-select: none;
 }
 
-button.highlight {
+button.highlight,
+input[type=button].highlight,
+input[type=submit].highlight,
+input[type=file].highlight {
 	border: 1px solid #5187df;
 	border-bottom: 1px solid #3870cf;
 	background-image: linear-gradient(#5499f4 5%, #5294f2 50%, #4b85f1);
@@ -25,71 +37,27 @@ button.highlight {
 }
 
 
-/* First button design test */
-
-.button_bar::after {
-	display: block;
-	clear: both;
-	height: 0;
-	content: "";
-}
-
-.button {
-	display: block;
-	float: left;
-	box-sizing: border-box;
-	margin: 5px;
-	padding: 0 10px;
-	min-width: 80px;
-	height: 26px;
-	border: 1px solid #9b9b9b;
-	border-radius: 3px;
-	background: #fff linear-gradient(#fff 40%, #e8e8e8 100%);
-	box-shadow: 0 0 0 1px rgba(255, 255, 255, 1) inset, 0 1px 2px rgba(0, 0, 0, .15);
-	color: #505050;
-	text-align: center;
-	font-weight: normal;
-	font-size: 13px;
-	line-height: 24px;
-	cursor: default;
-	-webkit-user-select: none;
-}
-
-.button.highlight {
-	border-color: #47698c;
-	background: linear-gradient(#97c4f3, #69a4e1);
-	box-shadow: 0 0 0 1px rgba(255, 255, 255, .1) inset, 0 1px 2px rgba(0, 0, 0, .15);
-	color: #4e5052;
-}
-
-.button:active {
-	border-color: #888;
-	background: #c0c0c0 linear-gradient(#c0c0c0, #d0d0d0);
-	box-shadow: 0 0 0 1px rgba(0, 0, 0, .1) inset, 0 1px 2px rgba(255, 255, 255, .5);
-}
-
-.button.highlight:active {
-	border-color: #3e6084;
-	background: linear-gradient(#7aace1, #5e95d0);
-}
-
 /* Group */
-.button_group > .button {
+.button_group > button,
+.button_group > input[type=button],
+.button_group > input[type=submit],
+.button_group > input[type=file] {
 	margin-right: 0;
 	margin-left: 0;
 	border-radius: 0;
 }
 
-.button_group > .button:nth-child(n+2) {
+.button_group > :nth-child(n+2) {
 	border-left: none;
 }
 
-.button_group > .button:first-child {
+.button_group > :first-child {
 	margin-left: 5px;
-	border-radius: 3px 0 0 3px;
+	border-radius: 2px 0 0 2px;
 }
 
-.button_group > .button:last-child {
+/* BUG: DIS DUSNT WURK! */
+.button_group > :last-child {
 	margin-right: 5px;
-	border-radius: 0 3px 3px 0;
+	border-radius: 0 2px 2px 0;
 }

@@ -20,27 +20,21 @@
 	</form>
 	<p>Buttons</p>
 	<div class="button_bar">
-		<div class="button">Text</div>
-		<div class="button highlight">Text</div>
-		<input type="button" class="button" value="Text">
-		<input type="button" class="button" value="Text">
+		<button>Button</button>
+		<button class="highlight">Highlight</button>
+		<input type="button" value="Input Button">
+		<input class="highlight" type="submit" value="Input Submit">
 	</div>
 	<p>Buttongroup</p>
 	<div class="button_bar">
 		<div class="button_group">
-			<div class="button">Text</div>
-			<div class="button">Text</div>
-			<input type="button" class="button" value="Text">
-			<input type="button" class="button highlight" value="Text">
-			<button class="button highlight">Text</button>
+			<button>Button</button>
+			<button class="highlight">Highlight</button>
+			<input type="button" value="Input Button">
+			<input class="highlight" type="submit" value="Input Submit">
 		</div>
 	</div>
 	<p>Alternative buttons</p>
-	<div class="button_group">
-		<button>Test</button>
-		<button>Test 2</button>
-		<button class="highlight">Highlight</button>
-	</div>
 	<br>
 
 </div>

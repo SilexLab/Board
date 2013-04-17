@@ -14,9 +14,9 @@ class SecureUtil {
 	 * @return  string
 	 */
 	public static function EncryptPassword($Password, $Email, $Rounds = '08') {
-		$string = hash_hmac('whirlpool', str_pad($Password, strlen($Password) * 4, sha1($Email), STR_PAD_BOTH), CFG_SALT, true);
-		$salt   = substr(str_shuffle('./0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'), 0, 22);
-		return crypt($string, '$2a$'.$Rounds.'$'.$salt);
+		$Hash = hash_hmac('whirlpool', str_pad($Password, strlen($Password) * 4, sha1($Email), STR_PAD_BOTH), CFG_SALT, true);
+		$Salt = substr(str_shuffle('./0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'), 0, 22);
+		return crypt($Hash, '$2a$'.$Rounds.'$'.$Salt);
 	}
 
 	/**
@@ -27,7 +27,7 @@ class SecureUtil {
 	 * @return  bool
 	 */
 	public static function CheckPassword($Password, $Email, $Stored) {
-		$string = hash_hmac('whirlpool', str_pad($Password, strlen($Password) * 4, sha1($Email), STR_PAD_BOTH), CFG_SALT, true);
-		return crypt($string, substr($Stored, 0, 30)) == $Stored;
+		$Hash = hash_hmac('whirlpool', str_pad($Password, strlen($Password) * 4, sha1($Email), STR_PAD_BOTH), CFG_SALT, true);
+		return crypt($Hash, substr($Stored, 0, 30)) == $Stored;
 	}
 }
