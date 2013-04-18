@@ -34,7 +34,4 @@
 			<input class="highlight" type="submit" value="Input Submit">
 		</div>
 	</div>
-	<p>Alternative buttons</p>
-	<br>
-
 </div>

@@ -44,11 +44,11 @@ input[type=file].highlight {
 .button_group > input[type=file] {
 	margin-right: 0;
 	margin-left: 0;
-	border-radius: 0;
 }
 
 .button_group > :nth-child(n+2) {
 	border-left: none;
+	border-radius: 0;
 }
 
 .button_group > :first-child {
@@ -56,7 +56,6 @@ input[type=file].highlight {
 	border-radius: 2px 0 0 2px;
 }
 
-/* BUG: DIS DUSNT WURK! */
 .button_group > :last-child {
 	margin-right: 5px;
 	border-radius: 0 2px 2px 0;
