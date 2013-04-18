@@ -6,7 +6,11 @@
 	content: "";
 }
 
-button, input[type=button], input[type=submit], input[type=file] {
+/* Default button */
+button,
+input[type=button],
+input[type=submit],
+input[type=file] {
 	display: block;
 	float: left;
 	box-sizing: border-box;
@@ -22,8 +26,27 @@ button, input[type=button], input[type=submit], input[type=file] {
 	text-shadow: 0 1px 0 rgba(255,255,255,0.8);
 	font-weight: bold;
 	-webkit-user-select: none;
+	transition: all .25s;
 }
 
+button:hover,
+input[type=button]:hover,
+input[type=submit]:hover,
+input[type=file]:hover {
+	border-color: #c0c0c0;
+	background-image: linear-gradient(#f9f9f9 5%, #f0f0f0 50%, #e6e6e6);
+}
+
+button:active,
+input[type=button]:active,
+input[type=submit]:active,
+input[type=file]:active {
+	border-color: #ccc;
+	background-image: linear-gradient(#eee, #e0e0e0);
+	box-shadow: 0 1px 2px rgba(0,0,0,.1) inset;
+}
+
+/* Highlighted button */
 button.highlight,
 input[type=button].highlight,
 input[type=submit].highlight,
@@ -34,6 +57,23 @@ input[type=file].highlight {
 	box-shadow: inset 0 1px 0 #5fa8f7;
 	color: #fff;
 	text-shadow: 0 1px 0 rgba(0,0,0,0.2);
+}
+
+button.highlight:hover,
+input[type=button].highlight:hover,
+input[type=submit].highlight:hover,
+input[type=file].highlight:hover {
+	background-image: linear-gradient(#4d90fe, #357ae8);
+	border-color: #2f5bb7;
+}
+
+button.highlight:active,
+input[type=button].highlight:active,
+input[type=submit].highlight:active,
+input[type=file].highlight:active {
+	background-image: linear-gradient(#4d90fe, #4787ed);
+	border-color: #2f5bb7;
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3) inset;
 }
 
 
