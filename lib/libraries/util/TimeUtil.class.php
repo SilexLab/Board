@@ -70,8 +70,8 @@ class TimeUtil {
 		$DayTotalSeconds = $DayEnd->getTimestamp() - $DayBegin->getTimestamp();
 
 		// Progresses
-		$YearProgress = $YearNowSeconds / $YearTotalSeconds * 100;
-		$DayProgress = $DayNowSeconds / $DayTotalSeconds * 100;
+		$YearProgress = clamp($YearNowSeconds / $YearTotalSeconds * 100, 0, 100);
+		$DayProgress = clamp($DayNowSeconds / $DayTotalSeconds * 100, 0, 100);
 
 		$DateTitle = Language::Get(self::$Day[$Now->format('N')]).', '.
 			$Now->format('d. ').Language::Get(self::$Month[$Now->format('n')]).$Now->format(' Y');

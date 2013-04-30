@@ -63,8 +63,8 @@ function Example($Var) {
 
 ###Naming
 
-In SilexBoard variables and function-/methodnames are CamelCase.
-The first letter is always capitalised, except in special cases.
+In SilexBoard variables and function-/methodnames are upper CamelCase.
+The first letter is always capitalised, except in special cases (like single chars as var name).
 Example:
 
 ```php

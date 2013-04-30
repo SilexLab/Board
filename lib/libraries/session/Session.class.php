@@ -48,11 +48,12 @@ class Session {
 	}
 	
 	/**
-	 * Reads the content of a session, if the key is empty, false will return
+	 * Get the value of a session stored key
+	 * it will return null if the key is invalid
 	 * Alias for $_SESSION[$Key];
 	 */
 	public static function Get($Key) {
-		return (isset($_SESSION[$Key]) ? $_SESSION[$Key] : false);
+		return (isset($_SESSION[$Key]) ? $_SESSION[$Key] : null);
 	}
 	
 	/**

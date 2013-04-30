@@ -180,15 +180,15 @@ class SBB {
 
 	// TODO: Move me
 	private static function GetGlobalJsFiles() {
-		$Order = ['jquery.js', 'jquery.min.js'];
+		$Order = (new XML(DIR_JS.'info.xml'))->file;
 		$Files = [];
-		foreach ($Order as $f) {
+		foreach($Order as $f) {
 			if(is_file(DIR_JS.$f))
 				$Files[] = CFG_BASE_URL.DIR_JS.$f;
 		}
 		foreach(scandir(DIR_JS) as $f) {
-			if(in_array($f, $Order))
-				continue;
+			if(in_array($f, (array)$Order))
+			 	continue;
 			if(preg_match('/\.js$/', $f)) {
 				$Files[] = CFG_BASE_URL.DIR_JS.$f;
 			}

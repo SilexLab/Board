@@ -370,6 +370,7 @@ footer .time_graph::after,
 	width: 100px;
 }
 .time_graph .progress {
+	max-width: 100%;
 	width: 0;
 	height: 4px;
 	background: #095d8d;
