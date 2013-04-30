@@ -9,16 +9,12 @@
 		<license>GNU GENERAL PUBLIC LICENSE - Version 3</license>
 		<version>DEV</version>
 	</info>
-	<!-- instructions for Style.class -->
 	<properties>
-		<!--<script>script.php</script>-->
 		<order>
 			<css>
-				<!--<file>style.php</file>-->
 				<file>main.css</file>
 			</css>
 			<js>
-				<!-- same stuff as css -->
 			</js>
 		</order>
 	</properties>

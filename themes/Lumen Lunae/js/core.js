@@ -28,11 +28,10 @@ $(document).ready(function() {
 		$(this).prev('[type="text"]').attr('type', 'password').focus();
 	});
 	// Searchbar behavior
-	$('#main_search').children('input[type="submit"]').on('mousedown', function(e) {
-		var search = $(this).prev('input[type="search"]');
-	 	if(search.val().length > 0 && parseInt(search.css('width')) > 200)
-	 		search.addClass('focus');
-	}).on('mouseup mouseleave', function(e) {
-		$(this).prev('input[type="search"]').removeClass('focus');
+	$('#main_search').children('input[type="search"]').on('blur', function(e) {
+		if($(this).val().length > 0)
+			$(this).addClass('focus');
+		else
+			$(this).removeClass('focus');
 	});
 });

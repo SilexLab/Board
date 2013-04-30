@@ -152,7 +152,7 @@ nav.site li:hover > a, nav.site li.active > a {
 	margin-top: 2px;
 	margin-bottom: -151px;
 	height: 150px;
-	background: transparent url('images/gradient/overlay_f6f6f6_transparent.svg');
+	background: transparent linear-gradient(rgba(246, 246, 246, 1), rgba(246, 246, 246, 0));
 	content: "";
 	transition: all 0.25s;
 }
@@ -199,14 +199,23 @@ nav.site li:hover > a, nav.site li.active > a {
 #main_search input[type=submit] {
 	display: block;
 	float: left;
-	width: 30px;
-	height: 30px;
+	margin: 0;
+	margin-bottom: -1px;
+	width: 32px;
+	height: 31px;
 	border: none;
+	border-bottom: 1px solid #ddd;
+	border-radius: 0;
 	background: #fff url('icons/g_16_magnifying_glass.png') 50% 50% no-repeat;
+	box-shadow: none;
 	transition: all 0.25s;
 }
 #main_search input[type=submit]:hover {
 	background-color: #ddd;
+}
+#main_search input[type=submit]:active {
+	border-bottom: 1px solid #17a7df;
+	background-color: #17a7df;
 }
 
 .user_actions {
@@ -217,9 +226,9 @@ nav.site li:hover > a, nav.site li.active > a {
 #user_avatar {
 	display: block;
 	float: left;
-	max-height: 16px;
-	max-width: 16px;
 	margin: 8px 5px 0 0;
+	max-width: 16px;
+	max-height: 16px;
 }
 
 nav.user {
@@ -293,16 +302,38 @@ footer a:hover {
 	color: #333;
 }
 
-footer .os_wrapper {
+/* Columns */
+footer .column {
+	display: block;
+}
+footer .column.center {
+	min-width: 360px;
+	text-align: center;
+}
+
+footer .column.left {
+	float: left;
+	width: 250px;
+	height: 100%;
+	text-align: left;
+}
+
+footer .column.right {
 	float: right;
-	width: 0;
+	width: 250px;
+	height: 100%;
 	text-align: right;
+}
+
+
+footer .os_wrapper {
+	margin-top: 20px;
+	text-align: center;
 	white-space: nowrap;
 }
 footer .os {
-	float: right;
 	padding: 5px 0;
-	text-align: right;
+	text-align: center;
 	line-height: 24px;
 }
 footer .os img {

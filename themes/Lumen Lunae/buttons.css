@@ -16,6 +16,7 @@ input[type=file] {
 	box-sizing: border-box;
 	margin: 0 5px;
 	padding: 0 13px;
+	min-width: 30px;
 	height: 30px;
 	border: 1px solid #d1d1d3;
 	border-bottom: 1px solid #c1c1c3;
@@ -25,8 +26,8 @@ input[type=file] {
 	color: #666;
 	text-shadow: 0 1px 0 rgba(255,255,255,0.8);
 	font-weight: bold;
-	-webkit-user-select: none;
 	transition: all .25s;
+	-webkit-user-select: none;
 }
 
 button:hover,
@@ -63,16 +64,16 @@ button.highlight:hover,
 input[type=button].highlight:hover,
 input[type=submit].highlight:hover,
 input[type=file].highlight:hover {
-	background-image: linear-gradient(#4d90fe, #357ae8);
 	border-color: #2f5bb7;
+	background-image: linear-gradient(#4d90fe, #357ae8);
 }
 
 button.highlight:active,
 input[type=button].highlight:active,
 input[type=submit].highlight:active,
 input[type=file].highlight:active {
-	background-image: linear-gradient(#4d90fe, #4787ed);
 	border-color: #2f5bb7;
+	background-image: linear-gradient(#4d90fe, #4787ed);
 	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3) inset;
 }
 
