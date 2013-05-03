@@ -147,6 +147,7 @@ class SBB {
 	 * Assign default template stuff
 	 */
 	private static function AssignDefault() {
+		$GP = new GitPayload();
 		self::$Template->Assign([
 			'theme' => [ // TODO: Move to Theme
 				'files' => [
@@ -168,7 +169,7 @@ class SBB {
 				//'version' => SBB_VERSION.'-'.date('Ymd', CommitInfo::Get()),
 				//'sha' => CommitInfo::Get('SHA')
 				'version' => SBB_VERSION,
-				'sha' => '-'
+				'sha' => $GP->after
 			],
 			'title' => self::Config('page.title'),
 			'base_url' => CFG_BASE_URL,
