@@ -173,7 +173,6 @@ class SBB {
 		]);
 
 		/* Put the stored stuff into the template */
-		Breadcrumb::Assign();
 		Notification::Assign();
 	}
 

@@ -14,7 +14,7 @@ class ErrorPage implements IPage {
 	}
 
 	public function Display(Page $P) {
-		Breadcrumb::Add(Language::Get('page.error'), self::Link());
+		SBB::Nav()->Crumb()->Add(Language::Get('page.error'), self::Link());
 		Notification::Show(Language::Get('error.no_page'), Notification::ERROR);
 		SBB::Template()->Assign(['route' => print_r($P->URI()->Get(), true)]);
 	}

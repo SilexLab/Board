@@ -112,7 +112,7 @@ class Page {
 
 	public function Display() {
 		// Home Breadcrumb
-		Breadcrumb::Add(Language::Get('page.home'), $this->Link('Home'));
+		SBB::Nav()->Crumb()->Add(Language::Get('page.home'), $this->Link('Home'));
 		// "Display" the page
 		$this->Instance->Display($this);
 	}

@@ -75,8 +75,8 @@ class ComposePage implements IPage {
 				}
 
 				// Crumb the crumbies
-				Breadcrumb::AddMany($Thread->GetBreadcrumbs());
-				Breadcrumb::Add($this->Title(), $this->Link());
+				SBB::Nav()->Crumb()->AddMany($Thread->GetBreadcrumbs());
+				SBB::Nav()->Crumb()->Add($this->Title(), $this->Link());
 				break;
 			case self::TYPE_THREAD:
 				try {
@@ -95,8 +95,8 @@ class ComposePage implements IPage {
 				}
 
 				// Crumb the crumbies
-				Breadcrumb::AddMany($Board->GetBreadcrumbs());
-				Breadcrumb::Add($this->Title(), $this->Link());
+				SBB::Nav()->Crumb()->AddMany($Board->GetBreadcrumbs());
+				SBB::Nav()->Crumb()->Add($this->Title(), $this->Link());
 				break;
 			case self::TYPE_EDIT:
 				try {
@@ -128,8 +128,8 @@ class ComposePage implements IPage {
 				    SBB::Template()->Assign(['input' => $Current]);
 
 				// Crumb the crumbies
-				Breadcrumb::AddMany($Post->GetThread()->GetBreadcrumbs());
-				Breadcrumb::Add($this->Title(), $this->Link());
+				SBB::Nav()->Crumb()->AddMany($Post->GetThread()->GetBreadcrumbs());
+				SBB::Nav()->Crumb()->Add($this->Title(), $this->Link());
 				break;
 		}
 		SBB::Template()->Assign(['compose' => ['error' => $this->Error, 'target' => $this->Target, 'type' => $this->Type, 'board' => $Board, 'thread' => $Thread, 'post' => $Post]]);

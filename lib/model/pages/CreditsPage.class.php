@@ -14,7 +14,7 @@ class CreditsPage implements IPage {
 	}
 
 	public function Display(Page $P) {
-		Breadcrumb::Add('Credits', self::Link());
+		SBB::Nav()->Crumb()->Add('Credits', self::Link());
 	}
 
 	public function Link() {

@@ -19,7 +19,7 @@ class RegisterPage implements IPage {
 
 		$this->Info['node'] = self::$Node;
 		$this->Info['title'] = Language::Get('page.register');
-		Breadcrumb::Add(Language::Get('page.register'), self::Link());
+		SBB::Nav()->Crumb()->Add(Language::Get('page.register'), self::Link());
 		$this->Info['template'] = 'Register';
 
 		// Register formular

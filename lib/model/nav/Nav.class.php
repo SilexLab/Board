@@ -9,6 +9,7 @@ class Nav {
 	protected $Site;
 	protected $Sub;
 	protected $User;
+	protected $Crumbs;
 
 	public function __construct() {
 		if(!$this->Site)
@@ -17,6 +18,8 @@ class Nav {
 			$this->Sub  = new SubNav();
 		if(!$this->User)
 			$this->User = new UserNav();
+		if(!$this->Crumbs)
+			$this->Crumbs = new Breadcrumb();
 
 		// Check
 		if(!($this->Site instanceof AbstractNav))
@@ -25,6 +28,8 @@ class Nav {
 			throw new SystemException('Invalid sub navigation');
 		if(!($this->User instanceof AbstractNav))
 			throw new SystemException('Invalid user navigation');
+		if(!($this->Crumbs instanceof AbstractNav))
+			throw new SystemException('Invalid breadcrumbs');
 	}
 
 	/**
@@ -33,9 +38,10 @@ class Nav {
 	 */
 	public function Assign() {
 		SBB::Template()->Assign(['nav' => [
-			'site' => $this->Site->GetList()
+			'site' => $this->Site->GetList(),
 			//'sub' => $this->Sub->GetList(),
-			//'user' => $this->User->GetList()
+			//'user' => $this->User->GetList(),
+			'crumbs' => $this->Crumbs->GetList()
 		]]);
 	}
 
@@ -61,5 +67,13 @@ class Nav {
 	 */
 	public function User() {
 		return $this->User;
+	}
+
+	/**
+	 * Return the user navigation object
+	 * @return  Breadcrumb
+	 */
+	public function Crumb() {
+		return $this->Crumbs;
 	}
 }

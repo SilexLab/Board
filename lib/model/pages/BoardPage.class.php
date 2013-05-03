@@ -15,7 +15,7 @@ class BoardPage implements IPage {
 	}
 
 	public function Display(Page $P) {
-		Breadcrumb::Add(Language::Get('page.board'), $this->Link());
+		SBB::Nav()->Crumb()->Add(Language::Get('page.board'), $this->Link());
 		$this->Info['title'] = Language::Get('page.board');
 		
 		$this->UF = $P->URI()->Format();
@@ -30,7 +30,7 @@ class BoardPage implements IPage {
 				header('location: '.URI::Make([['page', 'Board'], ['BoardID', $BoardID, htmlspecialchars_decode($Board->GetTitle())]]));
 			}
 
-			Breadcrumb::AddMany($Board->GetBreadcrumbs());
+			SBB::Nav()->Crumb()->AddMany($Board->GetBreadcrumbs());
 			SBB::Template()->Assign(['current_board' => $Board, 'threads' => $Board->GetThreads()]);
 		} else if($P->URI()->GetRoute()[1]) {
 			header('location: '.$this->Link);

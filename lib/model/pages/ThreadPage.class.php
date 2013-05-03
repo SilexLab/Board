@@ -20,7 +20,7 @@ class ThreadPage implements IPage {
 
 	public function Display(Page $P) {
 
-		Breadcrumb::Add(Language::Get('page.board'), $P->Link('Board'));
+		SBB::Nav()->Crumb()->Add(Language::Get('page.board'), $P->Link('Board'));
 
 		$this->UF = $P->URI()->Format();
 		$ThreadID = $P->URI()->GetID(1, 'ThreadID');
@@ -37,7 +37,7 @@ class ThreadPage implements IPage {
 			}
 
 			/* Crumby-Crumbs */
-			Breadcrumb::AddMany($Thread->GetBreadcrumbs());
+			SBB::Nav()->Crumb()->AddMany($Thread->GetBreadcrumbs());
 
 			// Get them posts!
 			SBB::Template()->Assign(['posts' => $Thread->GetPosts()]);

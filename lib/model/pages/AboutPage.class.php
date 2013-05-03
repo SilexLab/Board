@@ -14,7 +14,7 @@ class AboutPage implements IPage {
 	}
 
 	public function Display(Page $P) {
-		Breadcrumb::Add('About', self::Link());
+		SBB::Nav()->Crumb()->Add('About', self::Link());
 	}
 
 	public function Link() {

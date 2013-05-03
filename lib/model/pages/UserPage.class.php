@@ -39,8 +39,8 @@ class UserPage implements IPage {
 
 		$this->Info['template'] = 'PageUser.tpl';
 		$this->Info['title'] = Language::Get('user.user').': '.$User->Username;
-		Breadcrumb::Add(Language::Get('page.userlist'), $P->Link('UserList'));
-		Breadcrumb::Add($User->Username, URI::Make([['page', 'User'], ['UserID', $UserID, $User->Username]]));
+		SBB::Nav()->Crumb()->Add(Language::Get('page.userlist'), $P->Link('UserList'));
+		SBB::Nav()->Crumb()->Add($User->Username, URI::Make([['page', 'User'], ['UserID', $UserID, $User->Username]]));
 
 		// Template..
 		SBB::Template()->Assign(['profile' => [

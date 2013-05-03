@@ -17,7 +17,7 @@ class LoginPage implements IPage {
 		if(SBB::User()->LoggedIn())
 			header('location: ./');
 		
-		Breadcrumb::Add(Language::Get('page.login'), self::Link());
+		SBB::Nav()->Crumb()->Add(Language::Get('page.login'), self::Link());
 
 		if(Session::Get('LoginError')) {
 			Notification::Show(Language::Get(Session::Get('LoginError')), Notification::ERROR);

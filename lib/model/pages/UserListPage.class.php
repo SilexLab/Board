@@ -14,7 +14,7 @@ class UserListPage implements IPage {
 	}
 
 	public function Display(Page $P) {
-		Breadcrumb::Add(Language::Get('page.userlist'), $this->Link());
+		SBB::Nav()->Crumb()->Add(Language::Get('page.userlist'), $this->Link());
 
 		$TempUsers = SBB::DB()->query('SELECT * FROM `users`')->fetchAll(PDO::FETCH_OBJ);
 		$Users = [];
