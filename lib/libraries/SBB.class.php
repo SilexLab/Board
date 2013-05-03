@@ -34,6 +34,9 @@ class SBB {
 		self::$Page     = new Page();
 		self::$Nav      = new Nav();
 
+		// Post construct
+		//
+
 		/* Functions */
 		Listener::Check();
 		new SessionGarbageCollector();
@@ -178,14 +181,14 @@ class SBB {
 
 	// TODO: Move me
 	private static function GetGlobalJsFiles() {
-		$Order = (new XML(DIR_JS.'info.xml'))->file;
+		$Order = (array)(new XML(DIR_JS.'info.xml'))->file;
 		$Files = [];
 		foreach($Order as $f) {
 			if(is_file(DIR_JS.$f))
 				$Files[] = CFG_BASE_URL.DIR_JS.$f;
 		}
 		foreach(scandir(DIR_JS) as $f) {
-			if(in_array($f, (array)$Order))
+			if(in_array($f, $Order))
 			 	continue;
 			if(preg_match('/\.js$/', $f)) {
 				$Files[] = CFG_BASE_URL.DIR_JS.$f;
