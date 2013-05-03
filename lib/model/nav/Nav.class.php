@@ -5,31 +5,37 @@
  * @license     GPL version 3 <http://www.gnu.org/licenses/gpl-3.0.html>
  */
 
-abstract class Nav {
-	protected static $Site;
-	protected static $Sub;
-	protected static $User;
+class Nav {
+	protected $Site;
+	protected $Sub;
+	protected $User;
 
-	public static function Initial() {
-		if(!self::$Site)
-			self::$Site = new SiteNav();
-		if(!self::$Sub)
-			self::$Sub  = new SubNav();
-		if(!self::$User)
-			self::$User = new UserNav();
+	public function __construct() {
+		if(!$this->Site)
+			$this->Site = new SiteNav();
+		if(!$this->Sub)
+			$this->Sub  = new SubNav();
+		if(!$this->User)
+			$this->User = new UserNav();
+
+		// Check
+		if(!($this->Site instanceof AbstractNav))
+			throw new SystemException('Invalid site navigation');
+		if(!($this->Sub instanceof AbstractNav))
+			throw new SystemException('Invalid sub navigation');
+		if(!($this->User instanceof AbstractNav))
+			throw new SystemException('Invalid user navigation');
 	}
 
 	/**
 	 * This should be called if the navigation processing is finished
 	 * and before the templates compile
 	 */
-	public static function Assign() {
-		self::Initial();
-
+	public function Assign() {
 		SBB::Template()->Assign(['nav' => [
-			'site' => self::$Site->GetList()
-			//'sub' => self::$Sub->GetList(),
-			//'user' => self::$User->GetList()
+			'site' => $this->Site->GetList()
+			//'sub' => $this->Sub->GetList(),
+			//'user' => $this->User->GetList()
 		]]);
 	}
 
@@ -37,33 +43,23 @@ abstract class Nav {
 	 * Return the main (site) navigation object
 	 * @return  SiteNav
 	 */
-	public static function Site() {
-		self::Initial();
-
-		return self::$Site;
+	public function Site() {
+		return $this->Site;
 	}
 
 	/**
 	 * Return the sub page navigation object
 	 * @return  SubNav
 	 */
-	public static function Sub() {
-		self::Initial();
-
-		return self::$Sub;
+	public function Sub() {
+		return $this->Sub;
 	}
 
 	/**
 	 * Return the user navigation object
 	 * @return  UserNav
 	 */
-	public static function User() {
-		self::Initial();
-
-		return self::$User;
+	public function User() {
+		return $this->User;
 	}
-
-	abstract protected function GetList();
-	abstract public function Add($Name, $Link, $Target = false);
-	abstract public function Remove($Name);
 }

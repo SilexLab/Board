@@ -5,7 +5,7 @@
  * @license     GPL version 3 <http://www.gnu.org/licenses/gpl-3.0.html>
  */
 
-class UserNav extends Nav {
+class UserNav extends AbstractNav {
 	protected $Entries = [];
 	protected $Active;
 
@@ -32,7 +32,7 @@ class UserNav extends Nav {
 		$this->Repack();
 	}
 
-	protected function GetList() {
+	public function GetList() {
 		return $this->Entries;
 	}
 

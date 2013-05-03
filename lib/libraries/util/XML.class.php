@@ -43,6 +43,7 @@ class XML {
 	 * @param   SimpleXMLElement    $XML    optional
 	 * @return  array
 	 */
+	// Obsolent?
 	public function ToArray(SimpleXMLElement $XML = null) {
 		if(!$XML)
 			$XML = $this->XMLObj;

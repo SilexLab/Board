@@ -15,7 +15,7 @@ class DesignPage implements IPage {
 
 	public function Display(Page $P) {
 		Breadcrumb::Add('Designtest', self::Link());
-		Nav::Site()->Add('Design', $this->Link, 'Design');
+		SBB::Nav()->Site()->Add('Design', $this->Link, 'Design');
 		
 		if($P->URI()->Get('notification') !== false) {
 			$Lorem = 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.';

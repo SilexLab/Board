@@ -32,8 +32,7 @@ class SBB {
 		self::$User     = Session::GetUser();
 		self::$Theme    = new Theme();
 		self::$Page     = new Page();
-
-		Nav::Initial();
+		self::$Nav      = new Nav();
 
 		/* Functions */
 		Listener::Check();
@@ -44,7 +43,7 @@ class SBB {
 		TimeUtil::DateProgress();
 		self::AssignDefault();
 		self::$Page->Display();
-		Nav::Assign();
+		self::$Nav->Assign();
 
 		/* Output */
 		self::Template()->Display('index.tpl');
