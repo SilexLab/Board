@@ -9,7 +9,7 @@ info.xml
 Contains information about your style
 
 ```xml
-<style>
+<theme>
 	<!-- information about your style -->
 	<info>
 		<name><!-- Give it a name --></name>
@@ -22,8 +22,11 @@ Contains information about your style
 	</info>
 	<!-- fancy stuff (everything is optional) -->
 	<properties>
+		<search>
+			<css><!-- automaticaly search for css files (1 or 0) --></css>
+			<js><!-- automaticaly search for js files (1 or 0) --></js>
+		</search>
 		<script><!-- a php file called by Style.class (optional) --></script>
-		<!-- Below will be ignored if a script is set -->
 		<order>
 			<css>
 				<!-- an ordered list of css and/or css-compiler <file>s -->
@@ -34,5 +37,5 @@ Contains information about your style
 			</js>
 		</order>
 	</properties>
-</style>
+</theme>
 ```

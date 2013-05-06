@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<style>
+<theme>
 	<info>
 		<name>Lumen Lunae</name>
 		<description>Silex Bulletin Board default style</description>
@@ -10,6 +10,10 @@
 		<version>DEV</version>
 	</info>
 	<properties>
+		<search>
+			<css>1</css>
+			<js>1</js>
+		</search>
 		<order>
 			<css>
 				<file>main.css</file>
@@ -18,4 +22,4 @@
 			</js>
 		</order>
 	</properties>
-</style>
+</theme>
