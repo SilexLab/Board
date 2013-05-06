@@ -122,3 +122,18 @@ function rawurlencode_slashes($url) {
 		$new_url .= rawurlencode($e[$i]).(($i < sizeof($e) - 1) ? '/' : '');
 	return $scheme.$new_url;
 }
+
+/* Debug */
+if(CFG_DEBUG) {
+	$dlog = '';
+
+	function dlog($string) {
+		global $dlog;
+		$dlog .= '<pre>'.print_r($string, true).'</pre>';
+	}
+
+	function get_dlog() {
+		global $dlog;
+		return $dlog;
+	}
+}

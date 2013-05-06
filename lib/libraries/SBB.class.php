@@ -168,7 +168,7 @@ class SBB {
 			'sbb' => [
 				//'version' => SBB_VERSION.'-'.date('Ymd', CommitInfo::Get()),
 				//'sha' => CommitInfo::Get('SHA')
-				'version' => SBB_VERSION,
+				'version' => SBB_VERSION.'-'.date('Ymd', strtotime($GP->head_commit->timestamp)),
 				'sha' => $GP->after
 			],
 			'title' => self::Config('page.title'),
