@@ -87,8 +87,7 @@ include('lib/config.inc.php');
 file_put_contents(CFG_CACHE_DIR.'git_access.txt', $_SERVER['REMOTE_ADDR']."\n", FILE_APPEND);
 if($IPs->Compare($_SERVER['REMOTE_ADDR']) && isset($_POST['payload'])) {
 	// Commitinfo
-	$Payload = json_decode($_POST['payload']);
-	file_put_contents(CFG_CACHE_DIR.'git_payload.json', serialize($Payload)."\n");
+	file_put_contents(CFG_CACHE_DIR.'git_payload.json', $_POST['payload']."\n");
 
 	// Output log
 	file_put_contents(CFG_CACHE_DIR.'git_output.log', shell_exec('git pull'));
