@@ -308,11 +308,13 @@ footer .column {
 }
 footer .column.center {
 	min-width: 360px;
+	min-height: 60px;
 	text-align: center;
 }
 
 footer .column.left {
 	float: left;
+	min-height: 60px;
 	width: 250px;
 	height: 100%;
 	text-align: left;
@@ -320,6 +322,7 @@ footer .column.left {
 
 footer .column.right {
 	float: right;
+	min-height: 60px;
 	width: 250px;
 	height: 100%;
 	text-align: right;

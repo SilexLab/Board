@@ -86,11 +86,11 @@ include('lib/config.inc.php');
 // Storing all the IPs
 file_put_contents(CFG_CACHE_DIR.'git_access.txt', $_SERVER['REMOTE_ADDR']."\n", FILE_APPEND);
 if($IPs->Compare($_SERVER['REMOTE_ADDR']) && isset($_POST['payload'])) {
-	// Commitinfo
-	file_put_contents(CFG_CACHE_DIR.'git_payload.json', $_POST['payload']."\n");
-
 	// Output log
 	file_put_contents(CFG_CACHE_DIR.'git_output.log', shell_exec('git pull'));
+
+	// Commitinfo
+	file_put_contents(CFG_CACHE_DIR.'git_payload.json', $_POST['payload']."\n");
 
 	// Update the database
 	ob_start();

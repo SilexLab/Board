@@ -27,4 +27,4 @@ define('CFG_SALT', 'Mm2zTloKiuGqYIw/DgVtB');
 /* --- Currently not needed stuff --- */
 
 // Cache info
-define('CFG_CACHE_TYPE',  'File');
+define('CFG_CACHE_TYPE',  'file');

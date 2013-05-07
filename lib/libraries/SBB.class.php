@@ -167,11 +167,13 @@ class SBB {
 			],
 			'sbb' => [
 				'version' => SBB_VERSION.'-'.date('Ymd', strtotime($GP->head_commit->timestamp)),
-				'sha' => $GP->after
+				'id' => $GP->head_commit->id,
+				'url' => $GP->head_commit->url
 			],
 			'title' => self::Config('page.title'),
 			'base_url' => CFG_BASE_URL,
-			'debug' => (bool)CFG_DEBUG
+			'debug' => (bool)CFG_DEBUG,
+			'dlog' => function_exists('get_dlog') ? get_dlog() : false
 		]);
 
 		/* Put the stored stuff into the template */

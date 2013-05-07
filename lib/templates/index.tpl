@@ -56,6 +56,12 @@
 		</nav>
 	</section>
 	<section class="main_content">
+		{if $dlog}
+		<div class="debug w_size">
+			<h3>Debug</h3><br>
+			{$dlog}
+		</div>
+		{/if}
 		<noscript>
 			<div class="info">
 				{lang n="info.javascript"}
@@ -93,7 +99,7 @@
 				<div class="column center">
 					<div class="about">
 						Silex Bulletin Board {$sbb.version} – © 2011 - 2013 <a href="https://silexboard.org/" title="{lang n='forumsoftware'}">silexboard.org</a><br>
-						<a href="https://github.com/SilexBoard/Board/commit/{$sbb.sha}" title="GitHub">{$sbb.sha}</a>
+						<a href="{$sbb.url}" title="GitHub">{$sbb.id}</a>
 					</div>
 				</div>
 			</div>
