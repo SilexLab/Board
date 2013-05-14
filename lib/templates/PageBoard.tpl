@@ -1,55 +1,67 @@
 {* Board list *}
 {function boardlist level=0}
-<ul class="boardlist">
-	{foreach $boards as $cur_board}
-		{if $cur_board.board.type == 0} {* Category *}
+{$list_class = ['boardlist', 'sub_board', 'sub_sub_board']}
+<ul class="{$list_class[$level]}">
+	{foreach $boards as $cur}
+		{* Category *}
+		{if $cur.board.type == 0}
 			<li class="category">
 				<div class="title">
-					<a href="{$cur_board.board.link}">{$cur_board.board.title}</a>
+					<a href="{$cur.board.link}">{$cur.board.title}</a>
 				</div>
-				<div class="description">
-					{$cur_board.board.desc}
-				</div>
-				{elseif $cur_board.board.type == 1} {* Forum *}
+				{if $cur.board.desc && $level < 2}
+					<div class="description">
+						{$cur.board.desc}
+					</div>
+				{/if}
+		{* Forum *}
+		{elseif $cur.board.type == 1}
 			<li class="forum">
 				<div class="title">
-					<a href="{$cur_board.board.link}">{$cur_board.board.title}</a>
+					<a href="{$cur.board.link}">{$cur.board.title}</a>
 				</div>
-				<div class="description">
-					{$cur_board.board.desc}
-				</div>
-				<div class="lastpost">
-					{if $cur_board.board.lastPost}
-						<div class="title">
-							{$cur_board.board.lastPost.title}
-						</div>
-						<div class="user">
-							{$cur_board.board.lastPost.user.name}
-						</div>
-						<div class="time">
-							{$cur_board.board.lastPost.time} {* TODO: Format the date *}
-						</div>
-					{else}
-						<em>None</em> {* TODO: language var *}
-					{/if}
-				</div>
-				{elseif $cur_board.board.type == 2} {* Link *}
+				{if $cur.board.desc && $level < 2}
+					<div class="description">
+						{$cur.board.desc}
+					</div>
+				{/if}
+				{if $level < 2}
+					<div class="lastpost">
+						{if $cur.board.lastPost}
+							<div class="title">
+								{$cur.board.lastPost.title}
+							</div>
+							<div class="user">
+								{$cur.board.lastPost.user.name}
+							</div>
+							<div class="time">
+								{$cur.board.lastPost.time} {* TODO: Format the date *}
+							</div>
+						{else}
+							<em>None</em> {* TODO: language var *}
+						{/if}
+					</div>
+				{/if}
+		{* Link *}
+		{elseif $cur.board.type == 2}
 			<li class="link">
-			<div class="title">
-				<a href="{$cur_board.board.link}">{$cur_board.board.title}</a>
-			</div>
-			<div class="description">
-				{$cur_board.board.desc}
-			</div>
+				<div class="title">
+					<a href="{$cur.board.link}">{$cur.board.title}</a>
+				</div>
+			{if $cur.board.desc && $level < 2}
+				<div class="description">
+					{$cur.board.desc}
+				</div>
+			{/if}
 		{/if}
-		{if $cur_board.sub_boards}
-			{boardlist boards=$cur_board.sub_boards level=$level+1}
+		{if $cur.sub_boards}
+			{boardlist boards=$cur.sub_boards level=$level+1}
 		{/if}
-		</li>
+			</li>
 	{/foreach}
 </ul>
 {/function}
 
-<div class="w_content_l board_list">
+<div class="w_content board_list">
 {boardlist boards=$boards}
 </div>

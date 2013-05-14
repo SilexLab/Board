@@ -1,0 +1,39 @@
+.boardlist, .boardlist ul {
+	list-style: none;
+	text-shadow: 0 1px 0 #fff;
+}
+
+.boardlist a {
+	text-decoration: none;
+	color: #095d8d;
+}
+
+.boardlist > li {
+	padding: 20px;
+	border-bottom: 1px solid #ddd;
+}
+.boardlist > li:last-child {
+	border-bottom: none;
+}
+.boardlist > .category > .title,
+.boardlist > .forum > .title,
+.boardlist > .link > .title {
+	font-size: 18px;
+	font-weight: bold;
+	color: #095d8d;
+}
+
+.boardlist .description {
+	color: #999;
+}
+
+.sub_board > li {
+	padding: 10px;
+}
+.sub_board > .category > .title,
+.sub_board > .forum > .title,
+.sub_board > .link > .title {
+	font-size: 14px;
+	font-weight: bold;
+	color: #095d8d;
+}

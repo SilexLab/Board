@@ -1,4 +1,4 @@
-SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -25,22 +25,22 @@ CREATE TABLE IF NOT EXISTS `board` (
   `ParentID` mediumint(9) NOT NULL,
   `Type` tinyint(1) NOT NULL,
   `Title` varchar(64) NOT NULL,
-  `Description` text NOT NULL,
-  `Link` text NOT NULL,
+  `Description` varchar(256) NOT NULL,
+  `Link` varchar(256) NOT NULL,
   `Position` tinyint(4) NOT NULL,
   `Image` text NOT NULL,
   `ImageNew` text NOT NULL,
   `Prefixes` text NOT NULL,
   `PrefixesRequired` tinyint(1) NOT NULL DEFAULT '0',
-  `Views` int(11) NOT NULL,
-  `Threads` int(11) NOT NULL,
-  `Posts` int(11) NOT NULL,
+  `Views` int(11) NOT NULL DEFAULT '0',
+  `Threads` int(11) NOT NULL DEFAULT '0',
+  `Posts` int(11) NOT NULL DEFAULT '0',
   `MarkingAsDone` tinyint(1) NOT NULL DEFAULT '0',
   `Closed` tinyint(1) NOT NULL DEFAULT '0',
   `Invisible` tinyint(1) NOT NULL DEFAULT '0',
   `News` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=12 ;
 
 INSERT INTO `board` (`ID`, `ParentID`, `Type`, `Title`, `Description`, `Link`, `Position`, `Image`, `ImageNew`, `Prefixes`, `PrefixesRequired`, `Views`, `Threads`, `Posts`, `MarkingAsDone`, `Closed`, `Invisible`, `News`) VALUES
 (1, 0, 0, 'Kategorie', '', '', 1, '', '', '', 0, 0, 0, 0, 0, 0, 0, 0),
@@ -50,7 +50,10 @@ INSERT INTO `board` (`ID`, `ParentID`, `Type`, `Title`, `Description`, `Link`, `
 (5, 0, 2, 'Demo', 'Silex Bulletin Board Demo', 'http://demo.silexboard.org/', 4, '', '', '', 0, 0, 0, 0, 0, 0, 0, 0),
 (6, 0, 1, '<script type="text/javascript">alert("xss");</script>', '<b>Beschreibung</b>', '', 5, '', '', '', 0, 0, 0, 0, 0, 0, 0, 0),
 (7, 1, 1, 'Noch eins', 'Ein weiteres Unterforum', '', 2, '', '', '', 0, 3, 5, 6, 0, 0, 0, 0),
-(8, 2, 1, 'Unterunterforum', 'Ein Forum in einem Unterforum', '', 1, '', '', '', 0, 5, 4, 3, 0, 0, 0, 0);
+(8, 2, 1, 'Unterunterforum', 'Ein Forum in einem Unterforum', '', 1, '', '', '', 0, 5, 4, 3, 0, 0, 0, 0),
+(9, 0, 0, 'Noch ''ne Kategorie', 'Eine andere Kategorie als wie je zuvor', '', 3, '', '', '', 0, 0, 0, 0, 0, 0, 0, 0),
+(10, 9, 1, 'Derpette', 'Hurr Durr, Herp Derp', '', 1, '', '', '', 0, 0, 0, 0, 0, 0, 0, 0),
+(11, 1, 1, 'Anderes Unterforum', 'ist anders', '', 3, '', '', '', 0, 0, 0, 0, 0, 0, 0, 0);
 
 DROP TABLE IF EXISTS `board_last_post`;
 CREATE TABLE IF NOT EXISTS `board_last_post` (
@@ -176,7 +179,6 @@ INSERT INTO `language` (`ID`, `Abbreviation`, `Encoding`) VALUES
 (1, 'de', 'UTF-8'),
 (2, 'en', 'UTF-8');
 
-DROP TABLE IF EXISTS `menu`;
 DROP TABLE IF EXISTS `nav`;
 CREATE TABLE IF NOT EXISTS `nav` (
   `ID` tinyint(4) NOT NULL AUTO_INCREMENT,

@@ -105,7 +105,7 @@
 			</div>
 			<div class="os_wrapper">
 				<div class="os">
-					<img src="images/linux.png" alt="Linux"> <img src="images/windows.png" alt="Windows"><br>
+					<img src="{$base_url}images/linux.png" alt="Linux"> <img src="{$base_url}images/windows.png" alt="Windows"><br>
 					Made on Linux and Windows.
 				</div>
 			</div>
