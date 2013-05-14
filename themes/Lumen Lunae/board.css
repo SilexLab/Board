@@ -14,9 +14,13 @@
 }
 .boardlist > li:last-child {
 	border-bottom: none;
+	padding-bottom: 0;
+}
+.boardlist > li:first-child {
+	padding-top: 0;
 }
 .boardlist > .category > .title,
-.boardlist > .forum > .title,
+.boardlist > .forum > div > .title,
 .boardlist > .link > .title {
 	font-size: 18px;
 	font-weight: bold;
@@ -27,11 +31,30 @@
 	color: #999;
 }
 
+.boardlist .left_cell {
+	float: left;
+	width: 50%;
+}
+.boardlist .right_cell {
+	float: right;
+	width: 50%;
+}
+.boardlist .forum::after {
+	content: "";
+	clear: both;
+	height: 0;
+	display: block;
+}
+
 .sub_board > li {
-	padding: 10px;
+	padding: 10px 20px;
+	border-top: 1px dotted #ddd;
+}
+.sub_board > li:last-child {
+	padding-bottom: 0;
 }
 .sub_board > .category > .title,
-.sub_board > .forum > .title,
+.sub_board > .forum > div > .title,
 .sub_board > .link > .title {
 	font-size: 14px;
 	font-weight: bold;
