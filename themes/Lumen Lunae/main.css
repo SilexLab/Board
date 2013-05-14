@@ -64,6 +64,12 @@ h3 {
 	font-size: 14px;
 }
 
+.clear {
+	clear: both;
+	display: block;
+	height: 0;
+}
+
 /* Header */
 header.main {
 	display: block;

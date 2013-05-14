@@ -40,6 +40,7 @@
 							{/if}
 						</div>
 					</div>
+					<div class="clear"></div>
 				{/if}
 				{if $cur.sub_boards}
 					{boardlist boards=$cur.sub_boards level=$level+1}
@@ -49,8 +50,6 @@
 	{/foreach}
 </ul>
 {/function}
-
-
 
 <div class="w_content board_list">
 <h1>{lang n='page.board'}</h1>

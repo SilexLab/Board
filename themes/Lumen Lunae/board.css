@@ -37,9 +37,10 @@
 }
 .boardlist .right_cell {
 	float: right;
-	width: 50%;
+	width: 49%;
 }
-.boardlist .forum::after {
+.boardlist .forum::after,
+.boardlist .sub_board::before {
 	content: "";
 	clear: both;
 	height: 0;
