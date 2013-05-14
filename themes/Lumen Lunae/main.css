@@ -14,7 +14,7 @@ body {
 	min-width: 900px;
 	background: #dddddd;
 	color: #2e2e2e;
-	font: normal normal normal 13px "Segoe UI", Helvetica, "Droid Sans", Arial, Verdana, sans-serif;
+	font: normal normal normal 13px Helvetica, "Droid Sans", "Segoe UI", Arial, Verdana, sans-serif;
 }
 
 h1 {

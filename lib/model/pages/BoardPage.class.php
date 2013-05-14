@@ -12,11 +12,11 @@ class BoardPage implements IPage {
 
 	public function __construct() {
 		$this->Link = URI::Make([['page', 'Board']]);
+		$this->Info['title'] = Language::Get('page.board');
 	}
 
 	public function Display(Page $P) {
 		SBB::Nav()->Crumb()->Add(Language::Get('page.board'), $this->Link());
-		$this->Info['title'] = Language::Get('page.board');
 		
 		$this->UF = $P->URI()->Format();
 		$BoardID = $P->URI()->GetID(1, 'BoardID');
