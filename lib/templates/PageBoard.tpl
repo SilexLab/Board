@@ -14,7 +14,7 @@
 			<li class="{$type[$cur.board.type]}">
 				{if $cur.board.type == 1}<div class="left_cell">{/if}
 				<div class="title">
-					<a href="{$cur.board.link}">{$cur.board.title}</a>
+					<a href="{$cur.board.link}"{if $cur.board.type == 2} target="_blank"{/if}>{$cur.board.title}</a>
 				</div>
 				{if $cur.board.desc}
 					<div class="description">

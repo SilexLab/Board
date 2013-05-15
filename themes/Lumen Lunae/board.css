@@ -37,7 +37,7 @@
 }
 .boardlist .right_cell {
 	float: right;
-	width: 49%;
+	width: 49.9%;
 }
 .boardlist .forum::after,
 .boardlist .sub_board::before {
