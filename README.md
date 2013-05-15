@@ -22,7 +22,7 @@ Links
 * __[Github repository](https://github.com/SilexBoard/Board)__
 * __[Issues](https://github.com/SilexBoard/Board/issues)__
 * __[Contributors](https://github.com/SilexBoard/Board/blob/master/CONTRIBUTORS.md)__
-* __[Silex Flavored Markdown draft](http://demo.silexboard.org/draft/Silex_Flavored_Markdown.html)__
+* __[Silex Flavored Markdown](http://demo.silexboard.org/docs/Silex_Flavored_Markdown.html)__
 * __[Coding style](https://github.com/SilexBoard/Board/blob/master/docs/codingstyle.md)__
 * __[License](http://www.gnu.org/licenses/gpl-3.0.html)__
 
