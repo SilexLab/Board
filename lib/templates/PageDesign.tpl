@@ -34,4 +34,15 @@
 			<input class="highlight" type="submit" value="Input Submit">
 		</div>
 	</div>
+	<p>Select</p>
+	<select>
+		<option value="test1">Test 1</option>
+		<option value="test2">Test 2</option>
+		<option value="test3">Test 3</option>
+		<optgroup label="Töst">
+			<option value="test4">Test 4</option>
+			<option value="test5">Test 5</option>
+		</optgroup>
+		<option value="test6">Test 6</option>
+	</select>
 </div>

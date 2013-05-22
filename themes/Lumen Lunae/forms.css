@@ -23,11 +23,11 @@ form {
 .input.big {
 	border: none;
 	border-bottom: 1px solid #ddd;
-	background: transparent;
-	font-size: 18px;
-	font-weight: bold;
-	box-shadow: 0 1px 0 rgba(255, 255, 255, .5);
 	border-radius: 0;
+	background: transparent;
+	box-shadow: 0 1px 0 rgba(255, 255, 255, .5);
+	font-weight: bold;
+	font-size: 18px;
 }
 
 .input:hover {
@@ -46,17 +46,17 @@ form {
 	color: #2e2e2e;
 }
 .input.big input {
-	font-size: 18px;
-	font-weight: bold;
 	width: 400px;
 	height: 30px;
 	text-align: center;
+	font-weight: bold;
+	font-size: 18px;
 }
 /* Input types */
 .input.text input {
 	padding: 0 5px;
-	background-image: none;
 	width: 217px;
+	background-image: none;
 }
 .input.text.big input {
 	width: 417px;
@@ -76,3 +76,43 @@ form {
 }
 .input.user input { background-image: url('icons/g_16_user.png'); }
 .input.email input { background-image: url('icons/g_16_mail.png'); }
+.input.big::after {
+	position: absolute;
+	display: block;
+	margin-top: -4px;
+	margin-left: -2px;
+	width: 429px;
+	height: 6px;
+	border-right: 1px solid #ddd;
+	border-left: 1px solid #ddd;
+	transition: all .25s;
+}
+.input.big:hover::after {
+	border-color: #ccc;
+}
+.input.big.focus::after {
+	border-color: #17a7df;
+}
+
+select {
+	margin: 0px 0;
+	padding: 5px;
+	width: 230px;
+	height: 30px;
+	border: solid 1px #ebebeb;
+	border-radius: 2px;
+	background: white url('icons/g_16_arrows_up_down.png') right center no-repeat;
+	color: #333;
+	line-height: normal;
+	-webkit-appearance: none;
+}
+optgroup {
+	color: #4d4d4d;
+	font-weight: normal;
+}
+option {
+	color: #333;
+}
+optgroup > option {
+	padding-left: 15px;
+}
