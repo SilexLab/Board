@@ -1,11 +1,10 @@
 .boardlist, .boardlist ul {
 	list-style: none;
-	text-shadow: 0 1px 0 #fff;
 }
 
 .boardlist a {
-	text-decoration: none;
 	color: #095d8d;
+	text-decoration: none;
 }
 
 .boardlist > li {
@@ -13,8 +12,8 @@
 	border-bottom: 1px solid #ddd;
 }
 .boardlist > li:last-child {
-	border-bottom: none;
 	padding-bottom: 0;
+	border-bottom: none;
 }
 .boardlist > li:first-child {
 	padding-top: 0;
@@ -22,9 +21,9 @@
 .boardlist > .category > .title,
 .boardlist > .forum > div > .title,
 .boardlist > .link > .title {
-	font-size: 18px;
-	font-weight: bold;
 	color: #095d8d;
+	font-weight: bold;
+	font-size: 18px;
 }
 
 .boardlist .description {
@@ -41,23 +40,41 @@
 }
 .boardlist .forum::after,
 .boardlist .sub_board::before {
-	content: "";
+	display: block;
 	clear: both;
 	height: 0;
-	display: block;
+	content: "";
 }
 
 .sub_board > li {
-	padding: 10px 20px;
+	padding: 10px 36px;
+	min-height: 32px;
 	border-top: 1px dotted #ddd;
+	background-position: 0 50%;
+	background-repeat: no-repeat;
 }
 .sub_board > li:last-child {
 	padding-bottom: 0;
+	background-position: 0 calc(50% + 5px);
 }
 .sub_board > .category > .title,
 .sub_board > .forum > div > .title,
 .sub_board > .link > .title {
-	font-size: 14px;
-	font-weight: bold;
 	color: #095d8d;
+	font-weight: bold;
+	font-size: 14px;
+}
+
+.sub_board > .forum {
+	background-image: url('icons/g_32_archive.png');
+}
+.sub_board > .link {
+	background-image: url('icons/g_32_link.png');
+}
+
+.sub_sub_board {
+	text-align: right;
+}
+.sub_sub_board > li {
+	display: inline-block;
 }
