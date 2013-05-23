@@ -18,6 +18,7 @@ class HomePage implements IPage {
 		// Redirect on ?page=Home
 		if($P->URI()->Get('page') == 'Home')
 			header('location: '.self::Link());
+		SBB::Nav()->Crumb()->Add(Language::Get('page.home'), $this->Link('Home'));
 	}
 
 	public function Link() {
