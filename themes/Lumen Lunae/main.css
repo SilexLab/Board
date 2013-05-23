@@ -195,6 +195,7 @@ nav.site li:hover > a, nav.site li.active > a {
 	background: #fff;
 	font-size: 13px;
 	transition: all 0.25s;
+	-webkit-appearance: textfield; /* fixes webkitsearchboxstylebugthingy (chrome < 28) */
 }
 #main_search input[type=search]:hover {
 	border-bottom-color: #17a7df;
