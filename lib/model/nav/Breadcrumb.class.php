@@ -16,7 +16,7 @@ class Breadcrumb extends AbstractNav {
 	 * @param string $Target
 	 */
 	public function Add($Name, $Link, $Target = false) {
-		$this->Crumbs[] = ['name' => Language::Get($Name), 'link' => $Target];
+		$this->Crumbs[] = ['name' => Language::Get($Name), 'link' => $Link];
 	}
 
 	public function Remove($Name) {

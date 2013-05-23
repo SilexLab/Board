@@ -35,7 +35,7 @@ class SBB {
 		self::$Nav      = new Nav();
 
 		// Post construct
-		//
+		self::$Page->__postconstruct();
 
 		/* Functions */
 		Listener::Check();

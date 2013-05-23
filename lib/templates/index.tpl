@@ -62,14 +62,27 @@
 			{$dlog}
 		</div>
 		{/if}
+		{* TODO: Notifications here *}
 		<noscript>
 			<div class="info">
 				{lang n="info.javascript"}
 			</div>
 		</noscript>
-		{* Notifications here *}
 		<div class="w_size">
+			{function breadcrumbs}
+				<div class="w_content">
+					<div class="breadcrumbs">
+					{foreach $nav.crumbs as $crumb}
+						<a href="{$crumb.link}" class="crust">
+							<span class="crumb">{$crumb.name}</span>
+						</a>
+					{/foreach}
+					</div>
+				</div>
+			{/function}
+			{breadcrumbs}
 			{include $page.template}
+			{breadcrumbs}
 		</div>
 	</section>
 	<footer class="main">

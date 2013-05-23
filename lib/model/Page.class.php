@@ -34,6 +34,10 @@ class Page {
 			throw new SystemException('"'.$Class.'" is not an instance of "IPage"');
 	}
 
+	public function __postconstruct() {
+		//SBB::Nav()->Crumb()->Add(Language::Get('page.home'), CFG_BASE_URL);
+	}
+
 	/**
 	 * Access to the URI instance
 	 * @return URI

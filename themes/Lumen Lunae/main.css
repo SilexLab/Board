@@ -6,6 +6,10 @@
 	color: #fff;
 }
 
+/*:focus {
+	outline: orange solid 2px;
+}*/
+
 html, body {
 	height: 100%;
 }
@@ -160,7 +164,7 @@ nav.site li:hover > a, nav.site li.active > a {
 	height: 150px;
 	background: transparent linear-gradient(rgba(246, 246, 246, 1), rgba(246, 246, 246, 0));
 	content: "";
-	transition: all 0.25s;
+	transition: all 0.20s;
 }
 
 #user_panel_content {
@@ -168,7 +172,7 @@ nav.site li:hover > a, nav.site li.active > a {
 	height: 0;
 	background: #f6f6f6;
 	line-height: 1;
-	transition: all 0.25s;
+	transition: all 0.20s;
 }
 .user_panel.opened #user_panel_content {
 	/* height: auto; */ /* this shit doesn't work with transition: */
@@ -191,7 +195,6 @@ nav.site li:hover > a, nav.site li.active > a {
 	background: #fff;
 	font-size: 13px;
 	transition: all 0.25s;
-	-webkit-appearance: textfield;
 }
 #main_search input[type=search]:hover {
 	border-bottom-color: #17a7df;

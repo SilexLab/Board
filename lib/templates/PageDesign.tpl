@@ -38,7 +38,7 @@
 	<select>
 		<option value="test1">Test 1</option>
 		<option value="test2">Test 2</option>
-		<option value="test3">Test 3</option>
+		<option value="test3" selected>Test 3</option>
 		<optgroup label="Töst">
 			<option value="test4">Test 4</option>
 			<option value="test5">Test 5</option>
