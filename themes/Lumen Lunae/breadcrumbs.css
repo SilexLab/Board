@@ -1,3 +1,58 @@
 .breadcrumbs {
+	border-radius: 4px;
 	background: #eee;
+	font-size: 15px;
+	line-height: 20px;
+}
+.breadcrumbs::after {
+	display: block;
+	clear: both;
+	height: 0;
+	content: "";
+}
+.breadcrumbs a {
+	color: inherit;
+	text-decoration: none;
+}
+.breadcrumbs a:hover {
+	color: #095D8D;
+}
+.breadcrumbs .crust {
+	display: block;
+	float: left;
+	padding: 10px 0;
+	font-weight: bold;
+}
+.breadcrumbs .crust:first-child {
+	padding-left: 10px;
+}
+.breadcrumbs .crust::before {
+	display: block;
+	float: right;
+	margin-right: 5px;
+	border: 10px solid transparent;
+	border-right-width: 0;
+	border-left-width: 7px;
+	border-left-color: #555;
+	content: "";
+}
+.breadcrumbs .crust:hover::before {
+	border-left-color: #095D8D;
+}
+.breadcrumbs .crust:last-child::before {
+	border: none;
+}
+.breadcrumbs .crumb::after {
+	display: block;
+	float: right;
+	margin-right: -6px;
+	margin-left: 5px;
+	border: 10px solid transparent;
+	border-right-width: 0;
+	border-left-width: 7px;
+	border-left-color: #eee;
+	content: "";
+}
+.breadcrumbs .crumb:last-child::before {
+	border: none;
 }
