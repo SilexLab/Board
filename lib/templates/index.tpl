@@ -23,9 +23,9 @@
 	</header>
 	<nav class="site w_size">
 		<ul class="w_content_r">
-			{foreach $nav.site as $item}
-				<li{($item.active) ? ' class="active"' : ''}><a href="{$item.link}">{$item.name}</a></li>
-			{/foreach}
+		{foreach $nav.site as $item}
+			<li{($item.active) ? ' class="active"' : ''}><a href="{$item.link}">{$item.name}</a></li>
+		{/foreach}
 		</ul>
 	</nav>
 	<section class="user_panel w_min_size">
@@ -60,18 +60,33 @@
 		</nav>
 	</section>
 	<section class="main_content">
-		{if $dlog}
+	{if $dlog}
 		<div class="debug w_size">
 			<h3>Debug</h3><br>
 			{$dlog}
 		</div>
-		{/if}
-		{* TODO: Notifications here *}
-		<noscript>
+	{/if}
+		<div class="notification">
+			<noscript>
+				<div class="info">
+					{lang n="info.javascript"}
+				</div>
+			</noscript>
+			{*Tösts:
 			<div class="info">
 				{lang n="info.javascript"}
 			</div>
-		</noscript>
+			<div class="error">
+				{lang n="info.javascript"}
+			</div>
+			<div class="warning">
+				{lang n="info.javascript"}
+			</div>
+			<div class="success">
+				{lang n="info.javascript"}
+			</div>*}
+			{* TODO: Notifications here *}
+		</div>
 		<div class="w_size">
 			{breadcrumbs}
 			{include $page.template}
@@ -80,11 +95,10 @@
 	</section>
 	<footer class="main">
 		<div class="w_size">
-			{* Column design *}
 			<div class="w_content_h">
 				<div class="column left">
-					<img src="{$theme.dir}icons/g_16_globe.png" alt="{lang n='footer.current_language'}"> {lang n="language.info"}<br>
-					<img src="{$theme.dir}icons/g_16_brush.png" alt="{lang n='footer.current_style'}"> {$theme.name}
+					<div title="{lang n='footer.current_language'}" class="current_language">{lang n="language.info"}</div>
+					<div title="{lang n='footer.current_style'}" class="current_theme">{$theme.name}</div>
 				</div>
 				<div class="column right">
 					<div class="time_graph">

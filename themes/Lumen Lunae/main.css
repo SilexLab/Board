@@ -60,14 +60,6 @@ h3 {
 .w_content_m_b { margin-bottom: 15px; }
 .w_content_m_l { margin-left: 20px; }
 
-/* Info */
-.info {
-	padding: 20px;
-	background: #d5f0ff;
-	font-weight: bold;
-	font-size: 14px;
-}
-
 .clear {
 	display: block;
 	clear: both;
@@ -80,6 +72,26 @@ h3 {
 	max-width: 32px;
 	max-height: 32px;
 	vertical-align: middle;
+}
+
+/* Info */
+.notification .info,
+.notification .error,
+.notification .warning,
+.notification .success {
+	padding: 20px;
+	background: #d5f0ff;
+	font-weight: bold;
+	font-size: 14px;
+}
+.notification .error {
+	background: #ffd5d5;
+}
+.notification .warning {
+	background: #fbffd5;
+}
+.notification .success {
+	background: #d5ffdd;
 }
 
 /* Header */
@@ -347,6 +359,16 @@ footer .column.right {
 	text-align: right;
 }
 
+
+footer .current_language,
+footer .current_theme {
+	padding-left: 18px;
+	background: url('icons/g_16_globe.png') 0 50% no-repeat;
+	margin-bottom: 4px;
+}
+footer .current_theme {
+	background-image: url('icons/g_16_brush.png');
+}
 
 footer .os_wrapper {
 	margin-top: 20px;
