@@ -62,6 +62,9 @@ return [
 'form.password_repeat' => 'Passwort wiederholen',
 'form.input_not_found' => 'Das Feld %s existiert nicht.',
 'form.search'          => 'Suchen',
+'form.login'           => 'Einloggen',
+'form.logout'          => 'Ausloggen',
+'form.register'        => 'Registrieren',
 
 'info.javascript' => 'Bitte aktiviere JavaScript um den vollen Funktionsumfang dieser Seite nutzen zu können.',
 

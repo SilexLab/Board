@@ -54,6 +54,6 @@
 {/function}
 
 <div class="w_content board_list">
-	<h1>{if $current_board}{if $current_board->GetType() == 1}<img src="{$theme.dir}icons/g_32_archive.png" alt="icon" class="page_icon">{/if}{/if}{$page.title}</h1>
+	<h1>{if $current_board && $current_board->GetType() == 1}<img src="{$theme.dir}icons/g_32_archive.png" alt="icon" class="page_icon">{/if}{$page.title}</h1>
 	{boardlist boards=$boards}
 </div>

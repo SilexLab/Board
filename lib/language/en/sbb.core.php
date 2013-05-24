@@ -65,6 +65,9 @@ return [
 'form.password_repeat' => 'Repeat password',
 'form.input_not_found' => 'The input %s doesn\'t exists.',
 'form.search'          => 'Search',
+'form.login'           => 'Login',
+'form.logout'          => 'Logout',
+'form.register'        => 'Sign Up',
 
 'info.javascript' => 'In order to use the entire page, you have to activate JavaScript.',
 
