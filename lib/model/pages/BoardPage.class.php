@@ -20,7 +20,6 @@ class BoardPage implements IPage {
 		
 		$this->UF = $P->URI()->Format();
 		$BoardID = $P->URI()->GetID(1, 'BoardID');
-
 		// Breadcrumbs, single board view
 		if($BoardID > 0) {
 			$Board = new Board(Board::GIVEN_ID, $BoardID);
