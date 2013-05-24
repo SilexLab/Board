@@ -57,7 +57,9 @@ class Template {
 	 */
 	public function Display($Template) {
 		$this->Settings();
-		/* Display the compiled template */
+		// Include global template functions without displaying the output
+		$this->Smarty->fetch('functions.tpl');
+		// Display the compiled template
 		$this->Smarty->display($Template);
 	}
 

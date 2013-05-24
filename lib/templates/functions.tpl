@@ -1,4 +1,3 @@
-{strip}
 {* Global functions *}
 {function input n="" type="" placeholder="" big=false repeat=false}
 	{$type = strtolower($type)}
@@ -13,6 +12,7 @@
 		{sprintf({lang n="form.input_not_found"}, $type)}
 	{/if}
 {/function}
+
 {function breadcrumbs}
 	<div class="w_content">
 		<div class="breadcrumbs">
@@ -24,4 +24,3 @@
 		</div>
 	</div>
 {/function}
-{/strip}
