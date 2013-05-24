@@ -5,8 +5,31 @@ To get the full potential and beauty of SilexBoard we recommend to use URL rewri
 The codes for nginx and Apache's mod_rewrite are below.
 
 ### nginx
+
+#### Try files method
+You should prefer to use this method to rewrite URLs.
+```sh
+location / {
+        try_files $uri $uri/ /index.php?q=$uri&$args;
+}
 ```
-# Rewrite #
+
+#### Rewrite module method
+This method isn't very recommend.
+```sh
+if (!-e $request_filename)
+{
+        rewrite ^(.+)$ /index.php?q=$1 last;
+}
+
+if (-f $request_filename) {
+        break;
+}
+```
+
+#### Both
+If you want to be on the safe side, you can use both, like:
+```sh
 if (!-e $request_filename)
 {
         rewrite ^(.+)$ /index.php?q=$1 last;
@@ -19,7 +42,6 @@ if (-f $request_filename) {
 location / {
         try_files $uri $uri/ /index.php?q=$uri&$args;
 }
-# Rewrite end #
 ```
 
 ### Apache (mod_rewrite, .htaccess)
