@@ -28,6 +28,7 @@ class BoardPage implements IPage {
 			if(!$P->URI()->Check(1, htmlspecialchars_decode($Board->GetTitle()))) {
 				header('location: '.URI::Make([['page', 'Board'], ['BoardID', $BoardID, htmlspecialchars_decode($Board->GetTitle())]]));
 			}
+			$this->Info['title'] = $Board->GetTitle();
 
 			SBB::Nav()->Crumb()->AddMany($Board->GetBreadcrumbs());
 			SBB::Template()->Assign(['current_board' => $Board, 'threads' => $Board->GetThreads()]);

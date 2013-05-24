@@ -44,9 +44,9 @@ class SBB {
 
 		/* Pre-output */
 		TimeUtil::DateProgress();
-		self::AssignDefault();
 		self::$Page->Display();
 		self::$Nav->Assign();
+		self::AssignDefault();
 
 		/* Output */
 		self::Template()->Display('index.tpl');

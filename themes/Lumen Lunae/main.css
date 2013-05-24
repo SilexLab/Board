@@ -78,6 +78,8 @@ h3 {
 	vertical-align: middle;
 	margin-top: -5px;
 	margin-right: 6px;
+	max-width: 32px;
+	max-height: 32px;
 }
 
 /* Header */
