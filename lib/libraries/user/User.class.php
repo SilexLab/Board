@@ -42,17 +42,7 @@ class User {
 
 		/* Get permissions */
 		$this->Permission = new Permission($this->ID, $this->Group->ID());
-		
-		/* Global user templat var */
-		SBB::Template()->Assign(['user' => [
-			'name' => $this->Name,
-			'avatar' => CFG_BASE_URL.'themes/Lumen%20Lunae/icons/g_16_user.png',
-			'id' => $this->ID,
-			'group' => ['name' => $this->Group->Name(), 'id' => $this->Group->ID(), 'icon' => ''],
-			'color' => '',
-			'lang' => '',
-			'logged_in' => $this->LoggedIn
-		]]);
+
 	}
 
 	protected function Fetch() {
@@ -144,10 +134,11 @@ class User {
 
 		$array = [
 			'name' => $this->Name,
+			'avatar' => CFG_BASE_URL.'themes/Lumen%20Lunae/icons/g_16_user.png',
 			'id' => $this->ID,
 			'group' => ['name' => $this->Group->Name(), 'id' => $this->Group->ID(), 'icon' => ''],
 			'color' => '',
-			'lang_code' => '',
+			'lang' => '',
 			'logged_in' => $this->LoggedIn
 		];
 
