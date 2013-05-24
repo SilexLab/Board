@@ -104,24 +104,20 @@ class Session {
 		}
 
 		/* Assign template vars */
-		SBB::Template()->Assign(['User' => ['ID' => (int)$User->ID(), 'Name' => $User->Name()]]);
+		SBB::Template()->Assign(['user' => $User->GetTemplateArray()]);
 
 		return $User;
 	}
 
 	/**
 	 * Assign a user to this session, e.g. on login
-	 * @param int $UserId User's ID
+	 * @param User $User User object
 	 * @return bool Success?
 	 */
-	public static function SetUser($UserId) {
+	public static function SetUser($User) {
 		// TODO: Find a way to make the page reload/redirect redundant. Currently the global user object is not updated
 
-		// Check the user
-		if(new User(User::GIVEN_ID, $UserId) instanceof User)
-			self::Set('UserID', $UserId);
-		else
-			return false;
+		self::Set('UserID', $User->ID());
 
 		return true;
 	}

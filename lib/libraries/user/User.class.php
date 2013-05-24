@@ -72,11 +72,10 @@ class User {
 		if($this->ID == 0)
 			$this->ID = $Row->ID;
 
-		$this->Info = $Row;
+		$this->Info = (array)$Row;
 		$this->Name = $Row->Username;
 		$this->LoggedIn = true;
 		$this->Group = new Group((int)$Row->GroupID);
-		$this->Info['style'] = (string)$Row->Style;
 	}
 
 	/* User info */
@@ -172,7 +171,7 @@ class User {
 	 */
 	public function Login() {
 
-		Session::SetUser($this->ID);
+		Session::SetUser($this);
 
 	}
 

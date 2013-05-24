@@ -16,24 +16,18 @@ class Listener {
 	}
 
 	public static function CheckPosts() {
-		// Any POSTs are send?
-		if(isset($_POST)) {
-			// Login
-			if(isset($_POST['Login']) || isset($_POST['Register'])) {
-				if($_POST['Register'] == 1) {
-					if(isset($_POST['Username']) && isset($_POST['Password'])) {
-						Session::Set('register.username', $_POST['Username']);
-						Session::Set('register.password', $_POST['Password']);
-					}
-					header('location: '.URI::Make([['page', 'Register']]));
-				} else if($_POST['Register'] == 0 && isset($_POST['Username']) && isset($_POST['Password'])) {
-					SBB::User()->Login($_POST['Username'], $_POST['Password'], !empty($_POST['StayLoggedIn']) ? true : false);
-				} else {
-					throw new SystemException('The loginform don\'t match');
+
+		// Login
+		if(HtmlPost::Get('login') !== false) {
+			// Check for correct submission, else ignore
+			if(HtmlPost::Get('user') !== false && HtmlPost::Get('password') !== false) {
+				$User = UserUtil::GetUserByName(HtmlPost::Get('user'));
+
+				// Check password
+				if($User !== null && $User->CheckPassword(HtmlPost::Get('password'))) {
+					$User->Login();
 				}
-			// Logout
-			} else if (isset($_POST['Logout'])) {
-				SBB::User()->Logout();
+				// TODO: Error handling with notifications
 			}
 		}
 	}
