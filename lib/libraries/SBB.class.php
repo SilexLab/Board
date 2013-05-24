@@ -49,7 +49,9 @@ class SBB {
 		self::AssignDefault();
 
 		/* Output */
-		self::Template()->Display('index.tpl');
+		// Include global template functions without displaying the output
+		self::$Template->Render('functions.tpl');
+		self::$Template->Display('index.tpl');
 	}
 
 	/**
