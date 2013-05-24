@@ -10,6 +10,8 @@
 .boardlist > li {
 	padding: 20px;
 	border-bottom: 1px solid #ddd;
+	background-position: 100% 20px;
+	background-repeat: no-repeat;
 }
 .boardlist > li:last-child {
 	padding-bottom: 0;
@@ -17,6 +19,7 @@
 }
 .boardlist > li:first-child {
 	padding-top: 0;
+	background-position: 100% 0;
 }
 .boardlist > .category > .title,
 .boardlist > .forum > div > .title,
@@ -24,6 +27,12 @@
 	color: #095d8d;
 	font-weight: bold;
 	font-size: 18px;
+}
+.boardlist > .forum {
+	background-image: url('icons/g_32_archive.png');
+}
+.boardlist > .link {
+	background-image: url('icons/g_32_link.png');
 }
 
 .boardlist .description {
@@ -50,12 +59,11 @@
 	padding: 10px 36px;
 	min-height: 32px;
 	border-top: 1px dotted #ddd;
-	background-position: 0 50%;
+	background-position: 0 10px;
 	background-repeat: no-repeat;
 }
 .sub_board > li:last-child {
 	padding-bottom: 0;
-	background-position: 0 calc(50% + 5px);
 }
 .sub_board > .category > .title,
 .sub_board > .forum > div > .title,
@@ -77,4 +85,12 @@
 }
 .sub_sub_board > li {
 	display: inline-block;
+}
+
+.board_stats {
+	clear: both;
+	padding: 4px 0;
+	color: #999;
+	/*font-style: italic;*/
+	font-size: 11px;
 }

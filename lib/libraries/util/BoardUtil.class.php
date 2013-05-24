@@ -5,20 +5,16 @@
  * @license     GPL version 3 <http://www.gnu.org/licenses/gpl-3.0.html>
  */
 class BoardUtil {
-
 	/**
 	 * Grab breadcrumbs for this board
 	 * @param Board $Board
 	 * @return array
 	 */
 	public static function GetBreadcrumbs(Board $Board) {
-
-		$Crumbs = array();
+		$Crumbs = [];
 		if($Board->GetParentBoard() !== false)
 			$Crumbs = self::GetBreadcrumbs($Board->GetParentBoard());
-		$Crumbs[] = array('title' => $Board->GetTitle(), 'link' => $Board->GetLink());
+		$Crumbs[] = ['title' => $Board->GetTitle(), 'link' => $Board->GetLink()];
 		return $Crumbs;
-
 	}
-
 }

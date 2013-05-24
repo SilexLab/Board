@@ -339,13 +339,13 @@ class Board {
 		return BoardUtil::GetBreadcrumbs($this);
 	}
 
-    /**
-     * Grab the link for creating a new thread
-     * @return string
-     */
-    public function GetNewThreadLink() {
-        return URI::Make([['page', 'Compose'], ['Type', ComposePage::TYPE_THREAD, Language::Get('compose.compose_thread')], ['Target', $this->Id, $this->Topic]]);
-    }
+	/**
+	 * Grab the link for creating a new thread
+	 * @return string
+	 */
+	public function GetNewThreadLink() {
+		return URI::Make([['page', 'Compose'], ['Type', ComposePage::TYPE_THREAD, Language::Get('compose.compose_thread')], ['Target', $this->Id, $this->Topic]]);
+	}
 
 	/**
 	 * @return boolean
@@ -506,14 +506,14 @@ class Board {
 			'desc' => $this->Desc,
 			'link' => $this->Link,
 			'image' => $this->Image,
-			'viewCount' => $this->ViewCount,
-			'threadCount' => $this->ThreadCount,
-			'postCount' => $this->PostCount,
+			'view_count' => $this->ViewCount,
+			'thread_count' => $this->ThreadCount,
+			'post_count' => $this->PostCount,
 			'closed' => $this->Closed,
 			'visible' => $this->Visible,
 			'news' => $this->News,
-			'parentBoard' => ($this->GetParentBoard() !== false ? $this->GetParentBoard()->GetTemplateArray() : null),
-			'lastPost' => ($this->GetLastPost() !== false ? $this->GetLastPost()->GetTemplateArray() : null),
+			'parent_board' => ($this->GetParentBoard() !== false ? $this->GetParentBoard()->GetTemplateArray() : null),
+			'last_post' => ($this->GetLastPost() !== false ? $this->GetLastPost()->GetTemplateArray() : null),
 			'object' => $this
 		];
 

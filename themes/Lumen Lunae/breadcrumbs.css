@@ -11,8 +11,9 @@
 	content: "";
 }
 .breadcrumbs a {
-	color: inherit;
+	color: #555;
 	text-decoration: none;
+	transition: all .25s;
 }
 .breadcrumbs a:hover {
 	color: #095D8D;
@@ -35,6 +36,7 @@
 	border-left-width: 7px;
 	border-left-color: #555;
 	content: "";
+	transition: all .25s;
 }
 .breadcrumbs .crust:hover::before {
 	border-left-color: #095D8D;

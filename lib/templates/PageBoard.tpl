@@ -40,7 +40,9 @@
 							{/if}
 						</div>
 					</div>
-					<div class="clear"></div>
+					<div class="board_stats">
+						Threads: {$cur.board.thread_count}, Posts: {$cur.board.post_count}, Views: {$cur.board.view_count}
+					</div>
 				{/if}
 				{if $cur.sub_boards}
 					{boardlist boards=$cur.sub_boards level=$level+1}
